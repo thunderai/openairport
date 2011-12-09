@@ -15,3 +15,5 @@ The source code for the current development version 3 is here at the Google Code
 If you are an interested party in airport operations and source code, you too can help develop OpenAirport into a better system for all airports to use.  Please review the code, and suggest features you would like, options to add or subtract and consider the depth of an airport operation in your code.  Don't presume modulate. 
 
 == [Install] ==
+
+Describes in general how to go about installing OpenAirport.  The section is currently very basic and not very detailed.  More to be expanded upon as development continues with version 3.0
