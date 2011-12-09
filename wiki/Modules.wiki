@@ -8,11 +8,11 @@ Here is a list of modules for the OpenAirport version 3 system.
 = Details =
 
 || *Regulation* || *Name* || *Depth* || *completed* ||
-|| 303 || Training Requirements || no || not started ||
-|| 327 || Airfield Safety Self Inspections || 1 || yes ||
-|| 333 || Protection of NavAids || 2 || started ||
-|| 337 || Wildlife Hazards || 1 || yes ||
-|| 339 || Field Condition Reporting || no || not started ||
+|| [303] || Training Requirements || no || not started ||
+|| [327] || Airfield Safety Self Inspections || 1 || yes ||
+|| [333] || Protection of NavAids || 2 || started ||
+|| [337] || Wildlife Hazards || 1 || yes ||
+|| [339] || Field Condition Reporting || no || not started ||
 
 
 ===Depth===
