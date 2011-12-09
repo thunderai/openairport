@@ -1,0 +1,18 @@
+Highs
+T: 91.4F
+Heat Index: 100.4F
+DP: 75.2F
+V: 10SM
+B: 30.3 Hg
+W: 27KT
+C: 12000
+H: 100%
+
+Lows
+T: 50F
+DP: 41F
+V: 0.25SM
+B: 29.59 Hg
+W: 0KT
+C: 100
+H: 30%

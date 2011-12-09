@@ -1,0 +1,1440 @@
+7/28/2010 2:06 PM	Clear
+7/28/2010 2:36 PM	Clear
+7/28/2010 3:06 PM	Clear
+7/28/2010 3:36 PM	Clear
+7/28/2010 4:06 PM	Clear
+7/28/2010 4:36 PM	Clear
+7/28/2010 5:06 PM	Clear
+7/28/2010 5:36 PM	Clear
+7/28/2010 6:06 PM	Clear
+7/28/2010 6:36 PM	Clear
+7/28/2010 7:06 PM	Clear
+7/28/2010 7:36 PM	Clear
+7/28/2010 8:06 PM	Clear
+7/28/2010 8:36 PM	Clear
+7/28/2010 9:06 PM	Clear
+7/28/2010 9:36 PM	Clear
+7/28/2010 10:06 PM	Clear
+7/28/2010 10:36 PM	Clear
+7/28/2010 11:06 PM	Clear
+7/28/2010 11:36 PM	Clear
+7/29/2010 12:06 AM	Clear
+7/29/2010 12:36 AM	Clear
+7/29/2010 1:06 AM	Clear
+7/29/2010 1:36 AM	Clear
+7/29/2010 2:06 AM	Clear
+7/29/2010 2:36 AM	Clear
+7/29/2010 3:06 AM	Clear
+7/29/2010 3:36 AM	Clear
+7/29/2010 4:06 AM	Clear
+7/29/2010 4:36 AM	Clear
+7/29/2010 5:06 AM	Clear
+7/29/2010 5:36 AM	Clear
+7/29/2010 6:06 AM	Clear
+7/29/2010 6:36 AM	Clear
+7/29/2010 7:06 AM	Partly Cloudy
+7/29/2010 7:36 AM	Partly Cloudy
+7/29/2010 8:06 AM	Clear
+7/29/2010 8:36 AM	Clear
+7/29/2010 9:06 AM	Clear
+7/29/2010 9:36 AM	Clear
+7/29/2010 10:06 AM	Clear
+7/29/2010 10:36 AM	Clear
+7/29/2010 11:06 AM	Clear
+7/29/2010 11:36 AM	Clear
+7/29/2010 12:06 PM	Clear
+7/29/2010 12:36 PM	Clear
+7/29/2010 1:06 PM	Mostly Clear
+7/29/2010 1:36 PM	Mostly Clear
+7/29/2010 2:06 PM	Clear
+7/29/2010 2:36 PM	Clear
+7/29/2010 3:06 PM	Mostly Clear
+7/29/2010 3:36 PM	Mostly Clear
+7/29/2010 4:06 PM	Clear
+7/29/2010 4:36 PM	Clear
+7/29/2010 5:06 PM	Clear
+7/29/2010 5:36 PM	Clear
+7/29/2010 6:06 PM	Mostly Cloudy
+7/29/2010 6:36 PM	Mostly Cloudy
+7/29/2010 7:06 PM	Clear
+7/29/2010 7:36 PM	Clear
+7/29/2010 8:06 PM	Overcast
+7/29/2010 8:36 PM	Overcast
+7/29/2010 9:06 PM	Overcast
+7/29/2010 9:36 PM	Overcast
+7/29/2010 10:06 PM	Mostly Cloudy
+7/29/2010 10:36 PM	Mostly Cloudy
+7/29/2010 11:06 PM	Overcast
+7/29/2010 11:36 PM	Mostly Cloudy
+7/30/2010 12:06 AM	Mostly Cloudy
+7/30/2010 12:36 AM	Overcast
+7/30/2010 1:06 AM	Overcast
+7/30/2010 1:36 AM	Overcast
+7/30/2010 2:06 AM	Overcast
+7/30/2010 2:36 AM	Overcast
+7/30/2010 3:06 AM	Mostly Cloudy
+7/30/2010 3:36 AM	Mostly Cloudy
+7/30/2010 4:06 AM	Overcast
+7/30/2010 4:36 AM	Overcast
+7/30/2010 5:06 AM	Overcast
+7/30/2010 5:36 AM	Overcast
+7/30/2010 6:06 AM	Overcast
+7/30/2010 6:36 AM	Overcast
+7/30/2010 7:06 AM	Overcast
+7/30/2010 7:36 AM	Overcast
+7/30/2010 8:06 AM	Overcast
+7/30/2010 8:36 AM	Overcast
+7/30/2010 9:06 AM	Overcast
+7/30/2010 9:36 AM	Overcast
+7/30/2010 10:06 AM	Overcast
+7/30/2010 10:36 AM	Overcast
+7/30/2010 11:06 AM	Mostly Cloudy
+7/30/2010 11:36 AM	Mostly Cloudy
+7/30/2010 12:06 PM	Overcast
+7/30/2010 12:36 PM	Overcast
+7/30/2010 1:06 PM	Overcast
+7/30/2010 1:36 PM	Overcast
+7/30/2010 2:06 PM	Overcast
+7/30/2010 2:36 PM	Overcast
+7/30/2010 3:06 PM	Overcast
+7/30/2010 3:36 PM	Overcast
+7/30/2010 4:06 PM	Overcast
+7/30/2010 4:36 PM	Overcast
+7/30/2010 5:06 PM	Overcast
+7/30/2010 5:36 PM	Overcast
+7/30/2010 6:06 PM	Overcast
+7/30/2010 6:36 PM	Overcast
+7/30/2010 7:06 PM	Mostly Cloudy
+7/30/2010 7:36 PM	Mostly Cloudy
+7/30/2010 8:06 PM	Clear
+7/30/2010 8:36 PM	Clear
+7/30/2010 9:06 PM	Clear
+7/30/2010 9:36 PM	Clear
+7/30/2010 10:06 PM	Clear
+7/30/2010 10:36 PM	Clear
+7/30/2010 11:06 PM	Clear
+7/30/2010 11:36 PM	Clear
+7/31/2010 12:06 AM	Partly Cloudy
+7/31/2010 12:36 AM	Partly Cloudy
+7/31/2010 1:06 AM	Clear
+7/31/2010 1:36 AM	Clear
+7/31/2010 2:06 AM	Clear
+7/31/2010 2:36 AM	Fog/Haze
+7/31/2010 3:06 AM	Fog/Haze
+7/31/2010 3:36 AM	Fog/Haze
+7/31/2010 4:06 AM	Mostly Cloudy
+7/31/2010 4:36 AM	Mostly Cloudy
+7/31/2010 5:06 AM	Fog/Haze
+7/31/2010 5:36 AM	Fog/Haze
+7/31/2010 6:06 AM	Mostly Cloudy
+7/31/2010 6:36 AM	Mostly Cloudy
+7/31/2010 7:06 AM	Mostly Cloudy
+7/31/2010 7:36 AM	Mostly Cloudy
+7/31/2010 8:06 AM	Fog/Haze
+7/31/2010 8:36 AM	Partly Cloudy
+7/31/2010 9:06 AM	Clear
+7/31/2010 9:36 AM	Clear
+7/31/2010 10:06 AM	Clear
+7/31/2010 10:36 AM	Clear
+7/31/2010 11:06 AM	Clear
+7/31/2010 11:36 AM	Clear
+7/31/2010 12:06 PM	Clear
+7/31/2010 12:36 PM	Clear
+7/31/2010 1:06 PM	Clear
+7/31/2010 1:36 PM	Clear
+7/31/2010 2:06 PM	Clear
+7/31/2010 2:36 PM	Clear
+7/31/2010 3:06 PM	Clear
+7/31/2010 3:36 PM	Clear
+7/31/2010 4:06 PM	Clear
+7/31/2010 4:36 PM	Clear
+7/31/2010 5:06 PM	Clear
+7/31/2010 5:36 PM	Clear
+7/31/2010 6:06 PM	Clear
+7/31/2010 6:36 PM	Clear
+7/31/2010 7:06 PM	Clear
+7/31/2010 7:36 PM	Clear
+7/31/2010 8:06 PM	Clear
+7/31/2010 8:36 PM	Clear
+7/31/2010 9:06 PM	Clear
+7/31/2010 9:36 PM	Clear
+7/31/2010 10:06 PM	Clear
+7/31/2010 10:36 PM	Clear
+7/31/2010 11:06 PM	Clear
+7/31/2010 11:36 PM	Clear
+8/1/2010 12:06 AM	Clear
+8/1/2010 12:36 AM	Clear
+8/1/2010 1:06 AM	Clear
+8/1/2010 1:36 AM	Clear
+8/1/2010 2:06 AM	Clear
+8/1/2010 2:36 AM	Clear
+8/1/2010 3:06 AM	Clear
+8/1/2010 3:36 AM	Clear
+8/1/2010 4:06 AM	Clear
+8/1/2010 4:36 AM	Clear
+8/1/2010 5:06 AM	Clear
+8/1/2010 5:36 AM	Clear
+8/1/2010 6:06 AM	Overcast
+8/1/2010 6:36 AM	Overcast
+8/1/2010 7:06 AM	Partly Cloudy
+8/1/2010 7:36 AM	Partly Cloudy
+8/1/2010 8:06 AM	Overcast
+8/1/2010 8:36 AM	Overcast
+8/1/2010 9:06 AM	Partly Cloudy
+8/1/2010 9:36 AM	Partly Cloudy
+8/1/2010 10:06 AM	Clear
+8/1/2010 10:36 AM	Clear
+8/1/2010 11:06 AM	Clear
+8/1/2010 11:36 AM	Clear
+8/1/2010 12:06 PM	Clear
+8/1/2010 12:36 PM	Clear
+8/1/2010 1:06 PM	Clear
+8/1/2010 1:36 PM	Clear
+8/1/2010 2:06 PM	Clear
+8/1/2010 2:36 PM	Clear
+8/1/2010 3:06 PM	Mostly Clear
+8/1/2010 3:36 PM	Mostly Clear
+8/1/2010 4:06 PM	Clear
+8/1/2010 4:36 PM	Clear
+8/1/2010 5:06 PM	Clear
+8/1/2010 5:36 PM	Clear
+8/1/2010 6:06 PM	Mostly Clear
+8/1/2010 6:36 PM	Mostly Clear
+8/1/2010 7:06 PM	Mostly Cloudy
+8/1/2010 7:36 PM	Mostly Cloudy
+8/1/2010 8:06 PM	Mostly Cloudy
+8/1/2010 8:36 PM	Mostly Cloudy
+8/1/2010 9:06 PM	Clear
+8/1/2010 9:36 PM	Clear
+8/1/2010 10:06 PM	Clear
+8/1/2010 10:36 PM	Clear
+8/1/2010 11:06 PM	Clear
+8/1/2010 11:36 PM	Clear
+8/2/2010 12:06 AM	Clear
+8/2/2010 12:36 AM	Clear
+8/2/2010 1:06 AM	Clear
+8/2/2010 1:36 AM	Clear
+8/2/2010 2:06 AM	Clear
+8/2/2010 2:36 AM	Clear
+8/2/2010 3:06 AM	Clear
+8/2/2010 3:36 AM	Clear
+8/2/2010 4:06 AM	Clear
+8/2/2010 4:36 AM	Clear
+8/2/2010 5:06 AM	Clear
+8/2/2010 5:36 AM	Clear
+8/2/2010 6:06 AM	Mostly Clear
+8/2/2010 6:36 AM	Mostly Clear
+8/2/2010 7:06 AM	Clear
+8/2/2010 7:36 AM	Clear
+8/2/2010 8:06 AM	Clear
+8/2/2010 8:36 AM	Clear
+8/2/2010 9:06 AM	Clear
+8/2/2010 9:36 AM	Clear
+8/2/2010 10:06 AM	Clear
+8/2/2010 10:36 AM	Mostly Cloudy
+8/2/2010 11:06 AM	Mostly Cloudy
+8/2/2010 11:36 AM	Mostly Clear
+8/2/2010 12:06 PM	Mostly Clear
+8/2/2010 12:36 PM	Mostly Clear
+8/2/2010 1:06 PM	Clear
+8/2/2010 1:36 PM	Clear
+8/2/2010 2:06 PM	Clear
+8/2/2010 2:36 PM	Clear
+8/2/2010 3:06 PM	Clear
+8/2/2010 3:36 PM	Clear
+8/2/2010 4:06 PM	Clear
+8/2/2010 4:36 PM	Clear
+8/2/2010 5:06 PM	Clear
+8/2/2010 5:36 PM	Clear
+8/2/2010 6:06 PM	Clear
+8/2/2010 6:36 PM	Clear
+8/2/2010 7:06 PM	Clear
+8/2/2010 7:36 PM	Clear
+8/2/2010 8:06 PM	Clear
+8/2/2010 8:36 PM	Clear
+8/2/2010 9:06 PM	Clear
+8/2/2010 9:36 PM	Clear
+8/2/2010 10:06 PM	Clear
+8/2/2010 10:36 PM	Clear
+8/2/2010 11:06 PM	Clear
+8/2/2010 11:36 PM	Clear
+8/3/2010 12:06 AM	Clear
+8/3/2010 12:36 AM	Clear
+8/3/2010 1:06 AM	Clear
+8/3/2010 1:36 AM	Clear
+8/3/2010 2:06 AM	Clear
+8/3/2010 2:36 AM	Mostly Clear
+8/3/2010 3:06 AM	Fog/Haze
+8/3/2010 3:36 AM	Overcast
+8/3/2010 4:06 AM	Fog/Haze
+8/3/2010 4:36 AM	Fog/Haze
+8/3/2010 5:06 AM	Fog/Haze
+8/3/2010 5:36 AM	Overcast
+8/3/2010 6:06 AM	Fog/Haze
+8/3/2010 6:36 AM	Fog/Haze
+8/3/2010 7:06 AM	Fog/Haze
+8/3/2010 7:36 AM	Fog/Haze
+8/3/2010 8:06 AM	Fog/Haze
+8/3/2010 8:36 AM	Fog/Haze
+8/3/2010 9:06 AM	Mostly Cloudy
+8/3/2010 9:36 AM	Mostly Cloudy
+8/3/2010 10:06 AM	Mostly Clear
+8/3/2010 10:36 AM	Mostly Clear
+8/3/2010 11:06 AM	Clear
+8/3/2010 11:36 AM	Clear
+8/3/2010 12:06 PM	Clear
+8/3/2010 12:36 PM	Clear
+8/3/2010 1:06 PM	Clear
+8/3/2010 1:36 PM	Clear
+8/3/2010 2:06 PM	Clear
+8/3/2010 2:36 PM	Clear
+8/3/2010 3:06 PM	Clear
+8/3/2010 3:36 PM	Clear
+8/3/2010 4:06 PM	Clear
+8/3/2010 4:36 PM	Clear
+8/3/2010 5:06 PM	Clear
+8/3/2010 5:36 PM	Clear
+8/3/2010 6:06 PM	Clear
+8/3/2010 6:36 PM	Clear
+8/3/2010 7:06 PM	Clear
+8/3/2010 7:36 PM	Clear
+8/3/2010 8:06 PM	Clear
+8/3/2010 8:36 PM	Clear
+8/3/2010 9:06 PM	Clear
+8/3/2010 9:36 PM	Clear
+8/3/2010 10:06 PM	Clear
+8/3/2010 10:36 PM	Clear
+8/3/2010 11:06 PM	Clear
+8/3/2010 11:36 PM	Clear
+8/4/2010 12:06 AM	Mostly Cloudy
+8/4/2010 12:36 AM	Mostly Cloudy
+8/4/2010 1:06 AM	Mostly Cloudy
+8/4/2010 1:36 AM	Mostly Cloudy
+8/4/2010 2:06 AM	Overcast
+8/4/2010 2:36 AM	Overcast
+8/4/2010 3:06 AM	Overcast
+8/4/2010 3:36 AM	Overcast
+8/4/2010 4:06 AM	Mostly Cloudy
+8/4/2010 4:36 AM	Mostly Cloudy
+8/4/2010 5:06 AM	Overcast
+8/4/2010 5:36 AM	Overcast
+8/4/2010 6:06 AM	Overcast
+8/4/2010 6:36 AM	Overcast
+8/4/2010 7:06 AM	Overcast
+8/4/2010 7:36 AM	Overcast
+8/4/2010 8:06 AM	Clear
+8/4/2010 8:36 AM	Clear
+8/4/2010 9:06 AM	Clear
+8/4/2010 9:36 AM	Clear
+8/4/2010 10:06 AM	Mostly Clear
+8/4/2010 10:36 AM	Mostly Clear
+8/4/2010 11:06 AM	Mostly Cloudy
+8/4/2010 11:36 AM	Mostly Cloudy
+8/4/2010 12:06 PM	Mostly Clear
+8/4/2010 12:36 PM	Mostly Clear
+8/4/2010 1:06 PM	Clear
+8/4/2010 1:36 PM	Clear
+8/4/2010 2:06 PM	Clear
+8/4/2010 2:36 PM	Clear
+8/4/2010 3:06 PM	Partly Cloudy
+8/4/2010 3:36 PM	Partly Cloudy
+8/4/2010 4:06 PM	Partly Cloudy
+8/4/2010 4:36 PM	Partly Cloudy
+8/4/2010 5:06 PM	Partly Cloudy
+8/4/2010 5:36 PM	Partly Cloudy
+8/4/2010 6:06 PM	Mostly Cloudy
+8/4/2010 6:36 PM	Mostly Cloudy
+8/4/2010 7:06 PM	Mostly Clear
+8/4/2010 7:36 PM	Mostly Clear
+8/4/2010 8:06 PM	Clear
+8/4/2010 8:36 PM	Clear
+8/4/2010 9:06 PM	Clear
+8/4/2010 9:36 PM	Clear
+8/4/2010 10:06 PM	Clear
+8/4/2010 10:36 PM	Clear
+8/4/2010 11:06 PM	Clear
+8/4/2010 11:36 PM	Clear
+8/5/2010 12:06 AM	Clear
+8/5/2010 12:36 AM	Clear
+8/5/2010 1:06 AM	Clear
+8/5/2010 1:36 AM	Clear
+8/5/2010 2:06 AM	Clear
+8/5/2010 2:36 AM	Clear
+8/5/2010 3:06 AM	Clear
+8/5/2010 3:36 AM	Clear
+8/5/2010 4:06 AM	Clear
+8/5/2010 4:36 AM	Clear
+8/5/2010 5:06 AM	Clear
+8/5/2010 5:36 AM	Clear
+8/5/2010 6:06 AM	Clear
+8/5/2010 6:36 AM	Clear
+8/5/2010 7:06 AM	Clear
+8/5/2010 7:36 AM	Clear
+8/5/2010 8:06 AM	Clear
+8/5/2010 8:36 AM	Clear
+8/5/2010 9:06 AM	Clear
+8/5/2010 9:36 AM	Clear
+8/5/2010 10:06 AM	Clear
+8/5/2010 10:36 AM	Clear
+8/5/2010 11:06 AM	Clear
+8/5/2010 11:36 AM	Clear
+8/5/2010 12:06 PM	Clear
+8/5/2010 12:36 PM	Clear
+8/5/2010 1:06 PM	Clear
+8/5/2010 1:36 PM	Clear
+8/5/2010 2:06 PM	Clear
+8/5/2010 2:36 PM	Clear
+8/5/2010 3:06 PM	Mostly Clear
+8/5/2010 3:36 PM	Mostly Clear
+8/5/2010 4:06 PM	Mostly Clear
+8/5/2010 4:36 PM	Mostly Clear
+8/5/2010 5:06 PM	Mostly Clear
+8/5/2010 5:36 PM	Mostly Clear
+8/5/2010 6:06 PM	Mostly Clear
+8/5/2010 6:36 PM	Mostly Clear
+8/5/2010 7:06 PM	Clear
+8/5/2010 7:36 PM	Clear
+8/5/2010 8:06 PM	Clear
+8/5/2010 8:36 PM	Clear
+8/5/2010 9:06 PM	Clear
+8/5/2010 9:36 PM	Clear
+8/5/2010 10:06 PM	Mostly Clear
+8/5/2010 10:36 PM	Mostly Clear
+8/5/2010 11:06 PM	Mostly Cloudy
+8/5/2010 11:36 PM	Mostly Cloudy
+8/6/2010 12:06 AM	Partly Cloudy
+8/6/2010 12:36 AM	Partly Cloudy
+8/6/2010 1:06 AM	Mostly Cloudy
+8/6/2010 1:36 AM	Mostly Cloudy
+8/6/2010 2:06 AM	Mostly Clear
+8/6/2010 2:36 AM	Mostly Clear
+8/6/2010 3:06 AM	Mostly Clear
+8/6/2010 3:36 AM	Mostly Clear
+8/6/2010 4:06 AM	Mostly Cloudy
+8/6/2010 4:36 AM	Mostly Cloudy
+8/6/2010 5:06 AM	Mostly Clear
+8/6/2010 5:36 AM	Mostly Clear
+8/6/2010 6:06 AM	Clear
+8/6/2010 6:36 AM	Clear
+8/6/2010 7:06 AM	Overcast
+8/6/2010 7:36 AM	Overcast
+8/6/2010 8:06 AM	Clear
+8/6/2010 8:36 AM	Clear
+8/6/2010 9:06 AM	Clear
+8/6/2010 9:36 AM	Clear
+8/6/2010 10:06 AM	Clear
+8/6/2010 10:36 AM	Clear
+8/6/2010 11:06 AM	Clear
+8/6/2010 11:36 AM	Clear
+8/6/2010 12:06 PM	Clear
+8/6/2010 12:36 PM	Clear
+8/6/2010 1:06 PM	Clear
+8/6/2010 1:36 PM	Clear
+8/6/2010 2:06 PM	Clear
+8/6/2010 2:36 PM	Clear
+8/6/2010 3:06 PM	Mostly Cloudy
+8/6/2010 3:36 PM	Mostly Cloudy
+8/6/2010 4:06 PM	Partly Cloudy
+8/6/2010 4:36 PM	Partly Cloudy
+8/6/2010 5:06 PM	Partly Cloudy
+8/6/2010 5:36 PM	Partly Cloudy
+8/6/2010 6:06 PM	Clear
+8/6/2010 6:36 PM	Clear
+8/6/2010 7:06 PM	Clear
+8/6/2010 7:36 PM	Clear
+8/6/2010 8:06 PM	Mostly Cloudy
+8/6/2010 8:36 PM	Mostly Cloudy
+8/6/2010 9:06 PM	Clear
+8/6/2010 9:36 PM	Clear
+8/6/2010 10:06 PM	Clear
+8/6/2010 10:36 PM	Clear
+8/6/2010 11:06 PM	Clear
+8/6/2010 11:36 PM	Clear
+8/7/2010 12:06 AM	Partly Cloudy
+8/7/2010 12:36 AM	Partly Cloudy
+8/7/2010 1:06 AM	Clear
+8/7/2010 1:36 AM	Clear
+8/7/2010 2:06 AM	Mostly Cloudy
+8/7/2010 2:36 AM	Mostly Cloudy
+8/7/2010 3:06 AM	Partly Cloudy
+8/7/2010 3:36 AM	Mostly Clear
+8/7/2010 4:06 AM	Mostly Cloudy
+8/7/2010 4:36 AM	Overcast
+8/7/2010 5:06 AM	Mostly Cloudy
+8/7/2010 5:36 AM	Mostly Cloudy
+8/7/2010 6:06 AM	Mostly Cloudy
+8/7/2010 6:36 AM	Mostly Cloudy
+8/7/2010 7:06 AM	Mostly Clear
+8/7/2010 7:36 AM	Mostly Clear
+8/7/2010 8:06 AM	Mostly Clear
+8/7/2010 8:36 AM	Mostly Clear
+8/7/2010 9:06 AM	Mostly Clear
+8/7/2010 9:36 AM	Mostly Cloudy
+8/7/2010 10:06 AM	Mostly Clear
+8/7/2010 10:36 AM	Partly Cloudy
+8/7/2010 11:06 AM	Mostly Clear
+8/7/2010 11:36 AM	Mostly Clear
+8/7/2010 12:06 PM	Clear
+8/7/2010 12:36 PM	Clear
+8/7/2010 1:06 PM	Clear
+8/7/2010 1:36 PM	Clear
+8/7/2010 2:06 PM	Clear
+8/7/2010 2:36 PM	Clear
+8/7/2010 3:06 PM	Clear
+8/7/2010 3:36 PM	Clear
+8/7/2010 4:06 PM	Clear
+8/7/2010 4:36 PM	Clear
+8/7/2010 5:06 PM	Clear
+8/7/2010 5:36 PM	Clear
+8/7/2010 6:06 PM	Mostly Clear
+8/7/2010 6:36 PM	Mostly Clear
+8/7/2010 7:06 PM	Mostly Clear
+8/7/2010 7:36 PM	Mostly Clear
+8/7/2010 8:06 PM	Clear
+8/7/2010 8:36 PM	Clear
+8/7/2010 9:06 PM	Clear
+8/7/2010 9:36 PM	Clear
+8/7/2010 10:06 PM	Clear
+8/7/2010 10:36 PM	Clear
+8/7/2010 11:06 PM	Clear
+8/7/2010 11:36 PM	Clear
+8/8/2010 12:06 AM	Clear
+8/8/2010 12:36 AM	Clear
+8/8/2010 1:06 AM	Clear
+8/8/2010 1:36 AM	Clear
+8/8/2010 2:06 AM	Clear
+8/8/2010 2:36 AM	Fog/Haze
+8/8/2010 3:06 AM	Fog/Haze
+8/8/2010 3:36 AM	Clear
+8/8/2010 4:06 AM	Clear
+8/8/2010 4:36 AM	Clear
+8/8/2010 5:06 AM	Clear
+8/8/2010 5:36 AM	Fog/Haze
+8/8/2010 6:06 AM	Fog/Haze
+8/8/2010 6:36 AM	Fog/Haze
+8/8/2010 7:06 AM	Fog/Haze
+8/8/2010 7:36 AM	Mostly Clear
+8/8/2010 8:06 AM	Fog/Haze
+8/8/2010 8:36 AM	Partly Cloudy
+8/8/2010 9:06 AM	Clear
+8/8/2010 9:36 AM	Clear
+8/8/2010 10:06 AM	Clear
+8/8/2010 10:36 AM	Clear
+8/8/2010 11:06 AM	Clear
+8/8/2010 11:36 AM	Clear
+8/8/2010 12:06 PM	Clear
+8/8/2010 12:36 PM	Clear
+8/8/2010 1:06 PM	Clear
+8/8/2010 1:36 PM	Clear
+8/8/2010 2:06 PM	Mostly Clear
+8/8/2010 2:36 PM	Mostly Clear
+8/8/2010 3:06 PM	Clear
+8/8/2010 3:36 PM	Clear
+8/8/2010 4:06 PM	Overcast
+8/8/2010 4:36 PM	Mostly Cloudy
+8/8/2010 5:06 PM	Overcast
+8/8/2010 5:36 PM	Mostly Cloudy
+8/8/2010 6:06 PM	Mostly Cloudy
+8/8/2010 6:36 PM	Mostly Cloudy
+8/8/2010 7:06 PM	Mostly Cloudy
+8/8/2010 7:36 PM	Mostly Cloudy
+8/8/2010 8:06 PM	Overcast
+8/8/2010 8:36 PM	Overcast
+8/8/2010 9:06 PM	Mostly Clear
+8/8/2010 9:36 PM	Mostly Clear
+8/8/2010 10:06 PM	Mostly Clear
+8/8/2010 10:36 PM	Mostly Clear
+8/8/2010 11:06 PM	Clear
+8/8/2010 11:36 PM	Clear
+8/9/2010 12:06 AM	Clear
+8/9/2010 12:36 AM	Clear
+8/9/2010 1:06 AM	Clear
+8/9/2010 1:36 AM	Clear
+8/9/2010 2:06 AM	Clear
+8/9/2010 2:36 AM	Clear
+8/9/2010 3:06 AM	Clear
+8/9/2010 3:36 AM	Clear
+8/9/2010 4:06 AM	Clear
+8/9/2010 4:36 AM	Clear
+8/9/2010 5:06 AM	Clear
+8/9/2010 5:36 AM	Clear
+8/9/2010 6:06 AM	Clear
+8/9/2010 6:36 AM	Clear
+8/9/2010 7:06 AM	Clear
+8/9/2010 7:36 AM	Clear
+8/9/2010 8:06 AM	Clear
+8/9/2010 8:36 AM	Clear
+8/9/2010 9:06 AM	Clear
+8/9/2010 9:36 AM	Clear
+8/9/2010 10:06 AM	Clear
+8/9/2010 10:36 AM	Clear
+8/9/2010 11:06 AM	Clear
+8/9/2010 11:36 AM	Clear
+8/9/2010 12:06 PM	Clear
+8/9/2010 12:36 PM	Clear
+8/9/2010 1:06 PM	Clear
+8/9/2010 1:36 PM	Clear
+8/9/2010 2:06 PM	Clear
+8/9/2010 2:36 PM	Clear
+8/9/2010 3:06 PM	Clear
+8/9/2010 3:36 PM	Clear
+8/9/2010 4:06 PM	Clear
+8/9/2010 4:36 PM	Clear
+8/9/2010 5:06 PM	Clear
+8/9/2010 5:36 PM	Clear
+8/9/2010 6:06 PM	Clear
+8/9/2010 6:36 PM	Clear
+8/9/2010 7:06 PM	Clear
+8/9/2010 7:36 PM	Clear
+8/9/2010 8:06 PM	Clear
+8/9/2010 8:36 PM	Clear
+8/9/2010 9:06 PM	Clear
+8/9/2010 9:36 PM	Clear
+8/9/2010 10:06 PM	Clear
+8/9/2010 10:36 PM	Clear
+8/9/2010 11:06 PM	Clear
+8/9/2010 11:36 PM	Clear
+8/10/2010 12:06 AM	Clear
+8/10/2010 12:36 AM	Clear
+8/10/2010 1:06 AM	Clear
+8/10/2010 1:36 AM	Clear
+8/10/2010 2:06 AM	Mostly Cloudy
+8/10/2010 2:36 AM	Partly Cloudy
+8/10/2010 3:06 AM	Partly Cloudy
+8/10/2010 3:36 AM	Mostly Cloudy
+8/10/2010 4:06 AM	Overcast
+8/10/2010 4:36 AM	Overcast
+8/10/2010 5:06 AM	Mostly Cloudy
+8/10/2010 5:36 AM	Mostly Cloudy
+8/10/2010 6:06 AM	Overcast
+8/10/2010 6:36 AM	Overcast
+8/10/2010 7:06 AM	Mostly Cloudy
+8/10/2010 7:36 AM	Mostly Cloudy
+8/10/2010 8:06 AM	Mostly Clear
+8/10/2010 8:36 AM	Mostly Cloudy
+8/10/2010 9:06 AM	Mostly Cloudy
+8/10/2010 9:36 AM	Mostly Cloudy
+8/10/2010 10:06 AM	Partly Cloudy
+8/10/2010 10:36 AM	Partly Cloudy
+8/10/2010 11:06 AM	Mostly Cloudy
+8/10/2010 11:36 AM	Mostly Cloudy
+8/10/2010 12:06 PM	Mostly Cloudy
+8/10/2010 12:36 PM	Mostly Cloudy
+8/10/2010 1:06 PM	Mostly Cloudy
+8/10/2010 1:36 PM	Mostly Cloudy
+8/10/2010 2:06 PM	Overcast
+8/10/2010 2:36 PM	Overcast
+8/10/2010 3:06 PM	Mostly Cloudy
+8/10/2010 3:36 PM	Mostly Cloudy
+8/10/2010 4:06 PM	Mostly Cloudy
+8/10/2010 4:36 PM	Mostly Cloudy
+8/10/2010 5:06 PM	Mostly Cloudy
+8/10/2010 5:36 PM	Mostly Cloudy
+8/10/2010 6:06 PM	Mostly Cloudy
+8/10/2010 6:36 PM	Mostly Cloudy
+8/10/2010 7:06 PM	Clear
+8/10/2010 7:36 PM	Clear
+8/10/2010 8:06 PM	Clear
+8/10/2010 8:36 PM	Clear
+8/10/2010 9:06 PM	Clear
+8/10/2010 9:36 PM	Clear
+8/10/2010 10:06 PM	Clear
+8/10/2010 10:36 PM	Clear
+8/10/2010 11:06 PM	Clear
+8/10/2010 11:36 PM	Clear
+8/11/2010 12:06 AM	Clear
+8/11/2010 12:36 AM	Clear
+8/11/2010 1:06 AM	Clear
+8/11/2010 1:36 AM	Clear
+8/11/2010 2:06 AM	Clear
+8/11/2010 2:36 AM	Clear
+8/11/2010 3:06 AM	Clear
+8/11/2010 3:36 AM	Clear
+8/11/2010 4:06 AM	Clear
+8/11/2010 4:36 AM	Clear
+8/11/2010 5:06 AM	Clear
+8/11/2010 5:36 AM	Clear
+8/11/2010 6:06 AM	Clear
+8/11/2010 6:36 AM	Clear
+8/11/2010 7:06 AM	Mostly Clear
+8/11/2010 7:36 AM	Mostly Clear
+8/11/2010 8:06 AM	Clear
+8/11/2010 8:36 AM	Clear
+8/11/2010 9:06 AM	Clear
+8/11/2010 9:35 AM	Clear
+8/11/2010 10:05 AM	Clear
+8/11/2010 10:35 AM	Clear
+8/11/2010 11:05 AM	Clear
+8/11/2010 11:35 AM	Clear
+8/11/2010 12:05 PM	Clear
+8/11/2010 12:35 PM	Clear
+8/11/2010 1:05 PM	Clear
+8/11/2010 1:35 PM	Clear
+8/11/2010 2:05 PM	Clear
+8/11/2010 2:35 PM	Clear
+8/11/2010 3:05 PM	Clear
+8/11/2010 3:35 PM	Clear
+8/11/2010 4:05 PM	Clear
+8/11/2010 4:35 PM	Clear
+8/11/2010 5:05 PM	Clear
+8/11/2010 5:35 PM	Clear
+8/11/2010 6:05 PM	Clear
+8/11/2010 6:35 PM	Clear
+8/11/2010 7:05 PM	Clear
+8/11/2010 7:35 PM	Clear
+8/11/2010 8:05 PM	Clear
+8/11/2010 8:35 PM	Clear
+8/11/2010 9:05 PM	Clear
+8/11/2010 9:35 PM	Clear
+8/11/2010 10:05 PM	Clear
+8/11/2010 10:35 PM	Clear
+8/11/2010 11:05 PM	Clear
+8/11/2010 11:35 PM	Clear
+8/12/2010 12:05 AM	Clear
+8/12/2010 12:35 AM	Clear
+8/12/2010 1:05 AM	Clear
+8/12/2010 1:35 AM	Clear
+8/12/2010 2:05 AM	Clear
+8/12/2010 4:35 AM	Clear
+8/12/2010 5:05 AM	Clear
+8/12/2010 5:35 AM	Clear
+8/12/2010 6:05 AM	Clear
+8/12/2010 6:35 AM	Clear
+8/12/2010 7:05 AM	Clear
+8/12/2010 7:35 AM	Clear
+8/12/2010 8:05 AM	Mostly Clear
+8/12/2010 8:35 AM	Mostly Clear
+8/12/2010 9:05 AM	Clear
+8/12/2010 9:35 AM	Clear
+8/12/2010 10:05 AM	Clear
+8/12/2010 10:35 AM	Clear
+8/12/2010 11:05 AM	Clear
+8/12/2010 11:35 AM	Clear
+8/12/2010 12:05 PM	Clear
+8/12/2010 12:35 PM	Clear
+8/12/2010 1:05 PM	Clear
+8/12/2010 1:35 PM	Clear
+8/12/2010 2:05 PM	Clear
+8/12/2010 2:35 PM	Clear
+8/12/2010 3:05 PM	Clear
+8/12/2010 3:35 PM	Clear
+8/12/2010 4:05 PM	Clear
+8/12/2010 4:35 PM	Overcast
+8/12/2010 5:05 PM	Mostly Cloudy
+8/12/2010 5:35 PM	Mostly Cloudy
+8/12/2010 6:05 PM	Clear
+8/12/2010 6:35 PM	Clear
+8/12/2010 7:05 PM	Clear
+8/12/2010 7:35 PM	Clear
+8/12/2010 8:05 PM	Clear
+8/12/2010 8:35 PM	Clear
+8/12/2010 9:05 PM	Clear
+8/12/2010 9:35 PM	Clear
+8/12/2010 10:05 PM	Partly Cloudy
+8/12/2010 10:35 PM	Partly Cloudy
+8/12/2010 11:05 PM	Clear
+8/12/2010 11:35 PM	Mostly Cloudy
+8/13/2010 12:05 AM	Overcast
+8/13/2010 12:35 AM	Overcast
+8/13/2010 1:05 AM	Overcast
+8/13/2010 1:35 AM	Overcast
+8/13/2010 2:05 AM	Overcast
+8/13/2010 2:35 AM	Overcast
+8/13/2010 3:05 AM	Mostly Cloudy
+8/13/2010 3:35 AM	Mostly Cloudy
+8/13/2010 4:05 AM	Mostly Cloudy
+8/13/2010 4:35 AM	Mostly Cloudy
+8/13/2010 5:05 AM	Mostly Cloudy
+8/13/2010 5:35 AM	Mostly Cloudy
+8/13/2010 6:05 AM	Overcast
+8/13/2010 6:35 AM	Overcast
+8/13/2010 7:05 AM	Mostly Clear
+8/13/2010 7:35 AM	Mostly Cloudy
+8/13/2010 8:06 AM	Mostly Cloudy
+8/13/2010 8:36 AM	Partly Cloudy
+8/13/2010 9:06 AM	Clear
+8/13/2010 9:36 AM	Clear
+8/13/2010 10:06 AM	Clear
+8/13/2010 10:36 AM	Mostly Cloudy
+8/13/2010 11:06 AM	Overcast
+8/13/2010 11:36 AM	Overcast
+8/13/2010 12:06 PM	Overcast
+8/13/2010 12:36 PM	Partly Cloudy
+8/13/2010 1:06 PM	Partly Cloudy
+8/13/2010 1:36 PM	Mostly Cloudy
+8/13/2010 2:06 PM	Overcast
+8/13/2010 2:36 PM	Mostly Cloudy
+8/13/2010 3:06 PM	Clear
+8/13/2010 3:36 PM	Clear
+8/13/2010 4:06 PM	Clear
+8/13/2010 4:36 PM	Clear
+8/13/2010 5:06 PM	Clear
+8/13/2010 5:36 PM	Clear
+8/13/2010 6:06 PM	Clear
+8/13/2010 6:36 PM	Clear
+8/13/2010 7:06 PM	Clear
+8/13/2010 7:36 PM	Clear
+8/13/2010 8:06 PM	Clear
+8/13/2010 8:36 PM	Clear
+8/13/2010 9:06 PM	Clear
+8/13/2010 9:36 PM	Clear
+8/13/2010 10:06 PM	Clear
+8/13/2010 10:36 PM	Clear
+8/13/2010 11:06 PM	Clear
+8/13/2010 11:36 PM	Clear
+8/14/2010 12:06 AM	Clear
+8/14/2010 12:36 AM	Clear
+8/14/2010 1:06 AM	Clear
+8/14/2010 1:36 AM	Clear
+8/14/2010 2:06 AM	Clear
+8/14/2010 2:36 AM	Clear
+8/14/2010 3:06 AM	Clear
+8/14/2010 3:36 AM	Clear
+8/14/2010 4:06 AM	Clear
+8/14/2010 4:36 AM	Clear
+8/14/2010 5:06 AM	Clear
+8/14/2010 5:36 AM	Clear
+8/14/2010 6:06 AM	Clear
+8/14/2010 6:36 AM	Clear
+8/14/2010 7:06 AM	Clear
+8/14/2010 7:36 AM	Clear
+8/14/2010 8:06 AM	Clear
+8/14/2010 8:36 AM	Clear
+8/14/2010 9:06 AM	Mostly Clear
+8/14/2010 9:36 AM	Mostly Clear
+8/14/2010 10:06 AM	Clear
+8/14/2010 10:36 AM	Clear
+8/14/2010 11:06 AM	Mostly Cloudy
+8/14/2010 11:36 AM	Mostly Cloudy
+8/14/2010 12:06 PM	Overcast
+8/14/2010 12:36 PM	Overcast
+8/14/2010 1:06 PM	Mostly Cloudy
+8/14/2010 1:36 PM	Mostly Cloudy
+8/14/2010 2:06 PM	Mostly Cloudy
+8/14/2010 2:36 PM	Mostly Cloudy
+8/14/2010 3:06 PM	Mostly Cloudy
+8/14/2010 3:36 PM	Mostly Cloudy
+8/14/2010 4:06 PM	Overcast
+8/14/2010 4:36 PM	Overcast
+8/14/2010 5:06 PM	Mostly Cloudy
+8/14/2010 5:36 PM	Mostly Cloudy
+8/14/2010 6:06 PM	Clear
+8/14/2010 6:36 PM	Clear
+8/14/2010 7:06 PM	Mostly Clear
+8/14/2010 7:36 PM	Mostly Clear
+8/14/2010 8:06 PM	Clear
+8/14/2010 8:36 PM	Clear
+8/14/2010 9:06 PM	Overcast
+8/14/2010 9:36 PM	Overcast
+8/14/2010 10:06 PM	Clear
+8/14/2010 10:36 PM	Clear
+8/14/2010 11:06 PM	Clear
+8/14/2010 11:36 PM	Clear
+8/15/2010 12:06 AM	Mostly Clear
+8/15/2010 12:36 AM	Mostly Clear
+8/15/2010 1:06 AM	Mostly Cloudy
+8/15/2010 1:36 AM	Mostly Cloudy
+8/15/2010 2:06 AM	Clear
+8/15/2010 2:36 AM	Clear
+8/15/2010 3:06 AM	Clear
+8/15/2010 3:36 AM	Clear
+8/15/2010 4:06 AM	Clear
+8/15/2010 4:36 AM	Clear
+8/15/2010 5:06 AM	Clear
+8/15/2010 5:36 AM	Clear
+8/15/2010 6:06 AM	Clear
+8/15/2010 6:36 AM	Clear
+8/15/2010 7:06 AM	Clear
+8/15/2010 7:36 AM	Clear
+8/15/2010 8:06 AM	Clear
+8/15/2010 8:36 AM	Clear
+8/15/2010 9:06 AM	Clear
+8/15/2010 9:36 AM	Clear
+8/15/2010 10:06 AM	Clear
+8/15/2010 10:36 AM	Clear
+8/15/2010 11:06 AM	Clear
+8/15/2010 11:36 AM	Clear
+8/15/2010 12:06 PM	Partly Cloudy
+8/15/2010 12:36 PM	Partly Cloudy
+8/15/2010 1:06 PM	Mostly Cloudy
+8/15/2010 1:36 PM	Mostly Cloudy
+8/15/2010 2:06 PM	Mostly Cloudy
+8/15/2010 2:36 PM	Mostly Cloudy
+8/15/2010 3:06 PM	Clear
+8/15/2010 3:36 PM	Clear
+8/15/2010 4:06 PM	Mostly Clear
+8/15/2010 4:36 PM	Mostly Clear
+8/15/2010 5:06 PM	Mostly Clear
+8/15/2010 5:36 PM	Mostly Clear
+8/15/2010 6:06 PM	Partly Cloudy
+8/15/2010 6:36 PM	Partly Cloudy
+8/15/2010 7:06 PM	Mostly Clear
+8/15/2010 7:36 PM	Mostly Clear
+8/15/2010 8:06 PM	Clear
+8/15/2010 8:36 PM	Clear
+8/15/2010 9:06 PM	Clear
+8/15/2010 9:36 PM	Clear
+8/15/2010 10:06 PM	Clear
+8/15/2010 10:36 PM	Clear
+8/15/2010 11:06 PM	Clear
+8/15/2010 11:36 PM	Clear
+8/16/2010 12:06 AM	Clear
+8/16/2010 12:36 AM	Clear
+8/16/2010 1:06 AM	Clear
+8/16/2010 1:36 AM	Clear
+8/16/2010 2:06 AM	Clear
+8/16/2010 2:36 AM	Clear
+8/16/2010 3:06 AM	Clear
+8/16/2010 3:36 AM	Clear
+8/16/2010 4:06 AM	Clear
+8/16/2010 4:36 AM	Clear
+8/16/2010 5:06 AM	Clear
+8/16/2010 5:36 AM	Clear
+8/16/2010 6:06 AM	Clear
+8/16/2010 6:36 AM	Clear
+8/16/2010 7:06 AM	Clear
+8/16/2010 7:36 AM	Clear
+8/16/2010 8:06 AM	Clear
+8/16/2010 8:36 AM	Clear
+8/16/2010 9:06 AM	Clear
+8/16/2010 9:36 AM	Clear
+8/16/2010 10:06 AM	Clear
+8/16/2010 10:36 AM	Clear
+8/16/2010 11:06 AM	Clear
+8/16/2010 11:36 AM	Clear
+8/16/2010 12:06 PM	Clear
+8/16/2010 12:36 PM	Clear
+8/16/2010 1:06 PM	Clear
+8/16/2010 1:36 PM	Clear
+8/16/2010 2:06 PM	Clear
+8/16/2010 2:36 PM	Clear
+8/16/2010 3:06 PM	Clear
+8/16/2010 3:36 PM	Clear
+8/16/2010 4:06 PM	Clear
+8/16/2010 4:36 PM	Clear
+8/16/2010 5:06 PM	Clear
+8/16/2010 5:36 PM	Clear
+8/16/2010 6:06 PM	Clear
+8/16/2010 6:36 PM	Clear
+8/16/2010 7:06 PM	Clear
+8/16/2010 7:36 PM	Clear
+8/16/2010 8:06 PM	Clear
+8/16/2010 8:36 PM	Clear
+8/16/2010 9:06 PM	Clear
+8/16/2010 9:36 PM	Clear
+8/16/2010 10:06 PM	Clear
+8/16/2010 10:36 PM	Clear
+8/16/2010 11:06 PM	Clear
+8/16/2010 11:36 PM	Clear
+8/17/2010 12:06 AM	Clear
+8/17/2010 12:36 AM	Clear
+8/17/2010 1:06 AM	Clear
+8/17/2010 1:36 AM	Clear
+8/17/2010 2:06 AM	Clear
+8/17/2010 2:36 AM	Clear
+8/17/2010 3:06 AM	Clear
+8/17/2010 3:36 AM	Clear
+8/17/2010 4:06 AM	Clear
+8/17/2010 4:36 AM	Clear
+8/17/2010 5:06 AM	Clear
+8/17/2010 5:36 AM	Clear
+8/17/2010 6:06 AM	Clear
+8/17/2010 6:36 AM	Clear
+8/17/2010 7:06 AM	Clear
+8/20/2010 12:12 PM	Overcast
+8/20/2010 9:11 PM	Clear
+8/20/2010 9:42 PM	Clear
+8/20/2010 10:12 PM	Clear
+8/20/2010 10:42 PM	Clear
+8/20/2010 11:12 PM	Clear
+8/20/2010 11:42 PM	Clear
+8/21/2010 12:12 AM	Clear
+8/21/2010 12:42 AM	Clear
+8/21/2010 1:12 AM	Clear
+8/21/2010 1:42 AM	Mostly Cloudy
+8/21/2010 2:12 AM	Fog/Haze
+8/21/2010 2:42 AM	Fog/Haze
+8/21/2010 3:12 AM	Fog/Haze
+8/21/2010 3:42 AM	Fog/Haze
+8/21/2010 4:12 AM	Fog/Haze
+8/21/2010 4:42 AM	Mostly Cloudy
+8/21/2010 5:12 AM	Mostly Cloudy
+8/21/2010 5:42 AM	Partly Cloudy
+8/21/2010 6:12 AM	Fog/Haze
+8/21/2010 6:42 AM	Fog/Haze
+8/21/2010 7:12 AM	Mostly Clear
+8/21/2010 7:42 AM	Fog/Haze
+8/21/2010 8:12 AM	Partly Cloudy
+8/21/2010 8:42 AM	Partly Cloudy
+8/21/2010 9:12 AM	Clear
+8/21/2010 9:42 AM	Clear
+8/21/2010 10:12 AM	Clear
+8/21/2010 10:42 AM	Clear
+8/21/2010 11:12 AM	Clear
+8/21/2010 11:42 AM	Clear
+8/21/2010 12:12 PM	Clear
+8/21/2010 12:42 PM	Clear
+8/21/2010 1:12 PM	Clear
+8/21/2010 1:42 PM	Clear
+8/21/2010 2:12 PM	Clear
+8/21/2010 2:42 PM	Clear
+8/21/2010 3:12 PM	Clear
+8/21/2010 3:42 PM	Clear
+8/21/2010 4:12 PM	Mostly Clear
+8/21/2010 4:42 PM	Mostly Clear
+8/21/2010 9:10 PM	Clear
+8/21/2010 9:40 PM	Clear
+8/21/2010 10:10 PM	Clear
+8/21/2010 10:40 PM	Clear
+8/21/2010 11:10 PM	Clear
+8/21/2010 11:40 PM	Clear
+8/22/2010 12:10 AM	Clear
+8/22/2010 12:40 AM	Clear
+8/22/2010 1:10 AM	Clear
+8/22/2010 1:40 AM	Clear
+8/22/2010 2:10 AM	Clear
+8/22/2010 2:40 AM	Clear
+8/22/2010 3:10 AM	Clear
+8/22/2010 3:40 AM	Clear
+8/22/2010 4:10 AM	Clear
+8/22/2010 4:40 AM	Clear
+8/22/2010 5:10 AM	Clear
+8/22/2010 5:40 AM	Clear
+8/22/2010 6:10 AM	Clear
+8/22/2010 6:40 AM	Clear
+8/22/2010 7:10 AM	Clear
+8/22/2010 7:40 AM	Clear
+8/22/2010 8:10 AM	Clear
+8/22/2010 8:40 AM	Clear
+8/22/2010 9:10 AM	Clear
+8/22/2010 9:40 AM	Clear
+8/22/2010 10:10 AM	Clear
+8/22/2010 10:40 AM	Clear
+8/22/2010 11:10 AM	Clear
+8/22/2010 11:40 AM	Clear
+8/22/2010 12:10 PM	Clear
+8/22/2010 12:40 PM	Clear
+8/22/2010 1:10 PM	Clear
+8/22/2010 1:40 PM	Clear
+8/22/2010 2:10 PM	Clear
+8/22/2010 2:40 PM	Clear
+8/22/2010 3:10 PM	Clear
+8/22/2010 3:40 PM	Clear
+8/22/2010 4:10 PM	Clear
+8/22/2010 4:40 PM	Clear
+8/22/2010 5:10 PM	Clear
+8/22/2010 5:40 PM	Clear
+8/22/2010 6:10 PM	Clear
+8/22/2010 6:40 PM	Clear
+8/22/2010 7:10 PM	Clear
+8/22/2010 7:40 PM	Clear
+8/22/2010 8:10 PM	Clear
+8/22/2010 8:40 PM	Clear
+8/22/2010 9:10 PM	Clear
+8/22/2010 9:40 PM	Clear
+8/22/2010 10:10 PM	Clear
+8/22/2010 10:40 PM	Clear
+8/22/2010 11:10 PM	Clear
+8/22/2010 11:40 PM	Clear
+8/23/2010 12:10 AM	Clear
+8/23/2010 12:40 AM	Clear
+8/23/2010 1:10 AM	Clear
+8/23/2010 1:40 AM	Clear
+8/23/2010 2:10 AM	Clear
+8/23/2010 2:40 AM	Clear
+8/23/2010 3:10 AM	Clear
+8/23/2010 3:40 AM	Clear
+8/23/2010 4:10 AM	Clear
+8/23/2010 4:40 AM	Clear
+8/23/2010 5:10 AM	Clear
+8/23/2010 5:40 AM	Clear
+8/23/2010 6:10 AM	Clear
+8/23/2010 6:40 AM	Clear
+8/23/2010 7:10 AM	Clear
+8/23/2010 7:40 AM	Clear
+8/23/2010 8:10 AM	Clear
+8/23/2010 8:40 AM	Clear
+8/23/2010 9:10 AM	Clear
+8/23/2010 9:40 AM	Clear
+8/23/2010 10:10 AM	Clear
+8/23/2010 10:40 AM	Clear
+8/23/2010 11:10 AM	Partly Cloudy
+8/23/2010 11:40 AM	Partly Cloudy
+8/23/2010 12:10 PM	Mostly Clear
+8/23/2010 12:40 PM	Mostly Clear
+8/23/2010 1:10 PM	Clear
+8/23/2010 1:40 PM	Clear
+8/23/2010 2:10 PM	Mostly Cloudy
+8/23/2010 2:40 PM	Mostly Cloudy
+8/23/2010 3:10 PM	Overcast
+8/23/2010 3:40 PM	Overcast
+8/23/2010 4:10 PM	Mostly Cloudy
+8/23/2010 4:40 PM	Mostly Cloudy
+8/23/2010 5:10 PM	Overcast
+8/23/2010 5:40 PM	Mostly Cloudy
+8/23/2010 6:10 PM	Overcast
+8/23/2010 6:40 PM	Overcast
+8/23/2010 7:10 PM	Mostly Cloudy
+8/23/2010 7:40 PM	Mostly Cloudy
+8/23/2010 8:10 PM	Clear
+8/23/2010 8:40 PM	Clear
+8/23/2010 9:10 PM	Clear
+8/23/2010 9:40 PM	Clear
+8/23/2010 10:10 PM	Clear
+8/23/2010 10:40 PM	Clear
+8/23/2010 11:10 PM	Clear
+8/23/2010 11:40 PM	Clear
+8/24/2010 12:10 AM	Clear
+8/24/2010 12:40 AM	Clear
+8/24/2010 1:10 AM	Clear
+8/24/2010 1:40 AM	Clear
+8/24/2010 2:10 AM	Clear
+8/24/2010 2:40 AM	Clear
+8/24/2010 3:10 AM	Clear
+8/24/2010 3:40 AM	Clear
+8/24/2010 4:10 AM	Clear
+8/24/2010 4:40 AM	Clear
+8/24/2010 5:10 AM	Clear
+8/24/2010 5:40 AM	Clear
+8/24/2010 6:10 AM	Clear
+8/24/2010 6:40 AM	Clear
+8/24/2010 7:10 AM	Clear
+8/24/2010 7:40 AM	Clear
+8/24/2010 8:10 AM	Clear
+8/24/2010 8:40 AM	Clear
+8/24/2010 9:10 AM	Clear
+8/24/2010 9:40 AM	Clear
+8/24/2010 10:10 AM	Clear
+8/24/2010 10:40 AM	Clear
+8/24/2010 11:10 AM	Clear
+8/24/2010 11:40 AM	Clear
+8/24/2010 12:10 PM	Clear
+8/24/2010 12:40 PM	Clear
+8/24/2010 1:10 PM	Clear
+8/24/2010 1:40 PM	Clear
+8/24/2010 2:10 PM	Clear
+8/24/2010 2:40 PM	Clear
+8/24/2010 3:10 PM	Clear
+8/24/2010 3:40 PM	Clear
+8/24/2010 4:10 PM	Clear
+8/24/2010 4:40 PM	Clear
+8/24/2010 5:10 PM	Clear
+8/24/2010 5:40 PM	Clear
+8/24/2010 6:10 PM	Clear
+8/24/2010 6:40 PM	Clear
+8/24/2010 7:10 PM	Clear
+8/24/2010 7:40 PM	Clear
+8/24/2010 8:10 PM	Clear
+8/24/2010 8:40 PM	Clear
+8/24/2010 9:10 PM	Clear
+8/24/2010 9:40 PM	Clear
+8/24/2010 10:10 PM	Clear
+8/24/2010 10:40 PM	Clear
+8/24/2010 11:10 PM	Clear
+8/24/2010 11:40 PM	Clear
+8/25/2010 12:10 AM	Clear
+8/25/2010 12:40 AM	Clear
+8/25/2010 1:10 AM	Clear
+8/25/2010 1:40 AM	Clear
+8/25/2010 2:10 AM	Clear
+8/25/2010 2:40 AM	Clear
+8/25/2010 3:10 AM	Clear
+8/25/2010 3:40 AM	Clear
+8/25/2010 4:10 AM	Clear
+8/25/2010 4:40 AM	Clear
+8/25/2010 5:10 AM	Clear
+8/25/2010 5:40 AM	Clear
+8/25/2010 6:10 AM	Clear
+8/25/2010 6:40 AM	Clear
+8/25/2010 7:10 AM	Clear
+8/25/2010 7:40 AM	Clear
+8/25/2010 8:10 AM	Clear
+8/25/2010 8:40 AM	Clear
+8/25/2010 9:10 AM	Clear
+8/25/2010 9:40 AM	Clear
+8/25/2010 10:10 AM	Clear
+8/25/2010 10:40 AM	Clear
+8/25/2010 11:10 AM	Clear
+8/25/2010 11:40 AM	Clear
+8/25/2010 12:10 PM	Clear
+8/25/2010 12:40 PM	Clear
+8/25/2010 1:10 PM	Clear
+8/25/2010 1:40 PM	Clear
+8/25/2010 2:10 PM	Clear
+8/25/2010 2:40 PM	Clear
+8/25/2010 3:10 PM	Clear
+8/25/2010 3:40 PM	Clear
+8/25/2010 4:10 PM	Clear
+8/25/2010 4:40 PM	Clear
+8/25/2010 5:10 PM	Clear
+8/25/2010 5:40 PM	Clear
+8/25/2010 6:10 PM	Clear
+8/25/2010 6:40 PM	Clear
+8/25/2010 7:10 PM	Clear
+8/25/2010 7:40 PM	Clear
+8/25/2010 8:10 PM	Clear
+8/25/2010 8:40 PM	Clear
+8/25/2010 9:10 PM	Clear
+8/25/2010 9:40 PM	Clear
+8/25/2010 10:10 PM	Clear
+8/25/2010 10:40 PM	Clear
+8/25/2010 11:10 PM	Clear
+8/25/2010 11:40 PM	Clear
+8/26/2010 12:10 AM	Clear
+8/26/2010 12:40 AM	Clear
+8/26/2010 1:10 AM	Clear
+8/26/2010 1:40 AM	Clear
+8/26/2010 2:10 AM	Clear
+8/26/2010 2:40 AM	Clear
+8/26/2010 3:10 AM	Clear
+8/26/2010 3:40 AM	Clear
+8/26/2010 4:10 AM	Clear
+8/26/2010 4:40 AM	Clear
+8/26/2010 5:10 AM	Clear
+8/26/2010 5:40 AM	Clear
+8/26/2010 6:10 AM	Clear
+8/26/2010 6:40 AM	Clear
+8/26/2010 7:10 AM	Clear
+8/26/2010 7:40 AM	Clear
+8/26/2010 8:10 AM	Clear
+8/26/2010 8:40 AM	Clear
+8/26/2010 9:10 AM	Clear
+8/26/2010 9:40 AM	Clear
+8/26/2010 10:10 AM	Clear
+8/26/2010 10:40 AM	Clear
+8/26/2010 11:10 AM	Clear
+8/26/2010 11:40 AM	Clear
+8/26/2010 12:10 PM	Clear
+8/26/2010 12:40 PM	Clear
+8/26/2010 1:10 PM	Clear
+8/26/2010 1:40 PM	Clear
+8/26/2010 2:10 PM	Clear
+8/26/2010 2:40 PM	Clear
+8/26/2010 3:10 PM	Clear
+8/26/2010 3:40 PM	Clear
+8/26/2010 4:10 PM	Clear
+8/26/2010 4:40 PM	Clear
+8/26/2010 5:10 PM	Clear
+8/26/2010 5:40 PM	Clear
+8/26/2010 6:10 PM	Clear
+8/26/2010 6:40 PM	Clear
+8/26/2010 7:10 PM	Clear
+8/26/2010 7:40 PM	Clear
+8/26/2010 8:10 PM	Clear
+8/26/2010 8:40 PM	Clear
+8/26/2010 9:10 PM	Clear
+8/26/2010 9:40 PM	Clear
+8/26/2010 10:10 PM	Clear
+8/26/2010 10:40 PM	Clear
+8/26/2010 11:10 PM	Clear
+8/26/2010 11:40 PM	Clear
+8/27/2010 12:10 AM	Clear
+8/27/2010 12:40 AM	Clear
+8/27/2010 1:10 AM	Clear
+8/27/2010 1:40 AM	Clear
+8/27/2010 2:10 AM	Clear
+8/27/2010 2:40 AM	Clear
+8/27/2010 3:10 AM	Clear
+8/27/2010 3:40 AM	Clear
+8/27/2010 4:10 AM	Clear
+8/27/2010 4:40 AM	Clear
+8/27/2010 5:10 AM	Clear
+8/27/2010 5:40 AM	Clear
+8/27/2010 6:10 AM	Clear
+8/27/2010 6:40 AM	Clear
+8/27/2010 7:10 AM	Clear
+8/27/2010 7:40 AM	Clear
+8/27/2010 8:10 AM	Clear
+8/27/2010 8:40 AM	Clear
+8/27/2010 9:10 AM	Clear
+8/27/2010 9:40 AM	Clear
+8/27/2010 10:10 AM	Clear
+8/27/2010 10:40 AM	Clear
+8/27/2010 11:10 AM	Clear
+8/27/2010 11:40 AM	Clear
+8/27/2010 12:10 PM	Clear
+8/27/2010 12:40 PM	Clear
+8/27/2010 1:10 PM	Clear
+8/27/2010 1:40 PM	Clear
+8/27/2010 2:10 PM	Clear
+8/27/2010 2:40 PM	Clear
+8/27/2010 3:10 PM	Clear
+8/27/2010 3:40 PM	Clear
+8/27/2010 4:10 PM	Clear
+8/27/2010 4:40 PM	Clear
+8/27/2010 5:10 PM	Clear
+8/27/2010 5:40 PM	Clear
+8/27/2010 6:10 PM	Clear
+8/27/2010 6:40 PM	Clear
+8/27/2010 7:10 PM	Clear
+8/27/2010 7:40 PM	Clear
+8/27/2010 8:10 PM	Clear
+8/27/2010 8:40 PM	Clear
+8/27/2010 9:10 PM	Clear
+8/27/2010 9:40 PM	Clear
+8/27/2010 10:10 PM	Clear
+8/27/2010 10:40 PM	Clear
+8/27/2010 11:10 PM	Clear
+8/27/2010 11:40 PM	Clear
+8/28/2010 12:10 AM	Clear
+8/28/2010 12:40 AM	Clear
+8/28/2010 1:10 AM	Clear
+8/28/2010 1:40 AM	Clear
+8/28/2010 2:10 AM	Clear
+8/28/2010 2:40 AM	Clear
+8/28/2010 3:10 AM	Clear
+8/28/2010 3:40 AM	Clear
+8/28/2010 4:10 AM	Clear
+8/28/2010 4:40 AM	Clear
+8/28/2010 5:10 AM	Clear
+8/28/2010 5:40 AM	Clear
+8/28/2010 6:10 AM	Clear
+8/28/2010 6:40 AM	Clear
+8/28/2010 7:10 AM	Clear
+8/28/2010 7:40 AM	Clear
+8/28/2010 8:10 AM	Clear
+8/28/2010 8:40 AM	Clear
+8/28/2010 9:10 AM	Clear
+8/28/2010 9:40 AM	Clear
+8/28/2010 10:10 AM	Clear
+8/28/2010 10:40 AM	Clear
+8/28/2010 11:10 AM	Clear
+8/28/2010 11:40 AM	Clear
+8/28/2010 12:10 PM	Clear
+8/28/2010 12:40 PM	Clear
+8/28/2010 1:10 PM	Clear
+8/28/2010 1:40 PM	Clear
+8/28/2010 2:10 PM	Clear
+8/28/2010 2:40 PM	Clear
+8/28/2010 3:10 PM	Clear
+8/28/2010 3:40 PM	Clear
+8/28/2010 4:10 PM	Clear
+8/28/2010 4:40 PM	Clear
+8/28/2010 5:10 PM	Clear
+8/28/2010 5:40 PM	Clear
+8/28/2010 6:10 PM	Clear
+8/28/2010 6:40 PM	Clear
+8/28/2010 7:10 PM	Clear
+8/28/2010 7:40 PM	Clear
+8/28/2010 8:10 PM	Clear
+8/28/2010 8:40 PM	Clear
+8/28/2010 9:10 PM	Clear
+8/28/2010 9:40 PM	Clear
+8/28/2010 10:10 PM	Clear
+8/28/2010 10:40 PM	Clear
+8/28/2010 11:10 PM	Clear
+8/28/2010 11:40 PM	Clear
+8/29/2010 12:10 AM	Clear
+8/29/2010 12:40 AM	Clear
+8/29/2010 1:10 AM	Clear
+8/29/2010 1:40 AM	Clear
+8/29/2010 2:10 AM	Clear
+8/29/2010 2:40 AM	Clear
+8/29/2010 3:10 AM	Clear
+8/29/2010 3:40 AM	Clear
+8/29/2010 4:10 AM	Clear
+8/29/2010 4:40 AM	Clear
+8/29/2010 5:10 AM	Clear
+8/29/2010 5:40 AM	Clear
+8/29/2010 6:10 AM	Clear
+8/29/2010 6:40 AM	Clear
+8/29/2010 7:10 AM	Clear
+8/29/2010 7:40 AM	Clear
+8/29/2010 8:10 AM	Mostly Clear
+8/29/2010 8:40 AM	Mostly Clear
+8/29/2010 9:10 AM	Clear
+8/29/2010 9:40 AM	Clear
+8/29/2010 10:10 AM	Clear
+8/29/2010 10:40 AM	Clear
+8/29/2010 11:10 AM	Clear
+8/29/2010 11:40 AM	Clear
+8/29/2010 12:10 PM	Clear
+8/29/2010 12:40 PM	Clear
+8/29/2010 1:10 PM	Clear
+8/29/2010 1:40 PM	Clear
+8/29/2010 2:10 PM	Clear
+8/29/2010 2:40 PM	Clear
+8/29/2010 3:10 PM	Clear
+8/29/2010 3:40 PM	Clear
+8/29/2010 4:10 PM	Clear
+8/29/2010 4:40 PM	Clear
+8/29/2010 5:10 PM	Clear
+8/29/2010 5:40 PM	Clear
+8/29/2010 6:10 PM	Clear
+8/29/2010 6:40 PM	Clear
+8/29/2010 7:10 PM	Clear
+8/29/2010 7:40 PM	Clear
+8/29/2010 8:10 PM	Clear
+8/29/2010 8:40 PM	Clear
+8/29/2010 9:10 PM	Clear
+8/29/2010 9:40 PM	Clear
+8/29/2010 10:10 PM	Clear
+8/29/2010 10:40 PM	Clear
+8/29/2010 11:10 PM	Clear
+8/29/2010 11:40 PM	Clear
+8/30/2010 12:10 AM	Clear
+8/30/2010 12:40 AM	Clear
+8/30/2010 1:10 AM	Clear
+8/30/2010 1:40 AM	Clear
+8/30/2010 2:10 AM	Clear
+8/30/2010 2:40 AM	Clear
+8/30/2010 3:10 AM	Clear
+8/30/2010 3:40 AM	Clear
+8/30/2010 4:10 AM	Clear
+8/30/2010 4:40 AM	Clear
+8/30/2010 5:10 AM	Clear
+8/30/2010 5:40 AM	Clear
+8/30/2010 6:10 AM	Clear
+8/30/2010 6:40 AM	Clear
+8/30/2010 7:10 AM	Partly Cloudy
+8/30/2010 7:40 AM	Partly Cloudy
+8/30/2010 8:10 AM	Partly Cloudy
+8/30/2010 8:40 AM	Partly Cloudy
+8/30/2010 9:10 AM	Mostly Clear
+8/30/2010 9:40 AM	Mostly Clear
+8/30/2010 10:10 AM	Mostly Clear
+8/30/2010 10:40 AM	Mostly Clear
+8/30/2010 11:10 AM	Clear
+8/30/2010 11:40 AM	Clear
+8/30/2010 12:10 PM	Clear
+8/30/2010 12:40 PM	Clear
+8/30/2010 1:10 PM	Clear
+8/30/2010 1:40 PM	Clear
+8/30/2010 2:10 PM	Clear
+8/30/2010 2:40 PM	Clear
+8/30/2010 3:10 PM	Clear
+8/30/2010 3:40 PM	Clear
+8/30/2010 4:10 PM	Clear
+8/30/2010 4:40 PM	Clear
+8/30/2010 5:10 PM	Clear
+8/30/2010 5:40 PM	Clear
+8/30/2010 6:10 PM	Mostly Cloudy
+8/30/2010 6:40 PM	Mostly Cloudy
+8/30/2010 7:10 PM	Mostly Cloudy
+8/30/2010 7:40 PM	Mostly Cloudy
+8/30/2010 8:10 PM	Mostly Cloudy
+8/30/2010 8:40 PM	Mostly Cloudy
+8/30/2010 9:10 PM	Overcast
+8/30/2010 9:40 PM	Mostly Cloudy
+8/30/2010 10:10 PM	Mostly Cloudy
+8/30/2010 10:40 PM	Mostly Cloudy
+8/30/2010 11:10 PM	Mostly Cloudy
+8/30/2010 11:40 PM	Mostly Cloudy
+8/31/2010 12:10 AM	Overcast
+8/31/2010 12:40 AM	Partly Cloudy
+8/31/2010 1:10 AM	Mostly Cloudy
+8/31/2010 1:40 AM	Partly Cloudy
+8/31/2010 2:10 AM	Clear
+8/31/2010 2:40 AM	Clear
+8/31/2010 3:10 AM	Mostly Clear
+8/31/2010 3:40 AM	Mostly Clear
+8/31/2010 4:10 AM	Mostly Cloudy
+8/31/2010 4:40 AM	Mostly Cloudy
+8/31/2010 5:10 AM	Overcast
+8/31/2010 5:40 AM	Overcast
+8/31/2010 6:10 AM	Overcast
+8/31/2010 6:40 AM	Overcast
+8/31/2010 7:10 AM	Overcast
+8/31/2010 7:40 AM	Overcast
+8/31/2010 8:10 AM	Mostly Cloudy
+8/31/2010 8:40 AM	Mostly Cloudy

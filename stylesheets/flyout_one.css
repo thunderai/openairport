@@ -1,0 +1,41 @@
+/* ================================================================ 
+This copyright notice must be untouched at all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssmenus.co.uk
+Copyright (c) 2009- Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+#flyout {float:left; padding:0; margin:3px 0 0 0; list-style:none; position:relative; width:100px;}
+#flyout ul {padding:0; margin:0; list-style:none; width:130px; height:auto; background: url(_cssimages/trans.gif); position:absolute; left:-9999px; top:0;}
+#flyout table {border-collapse:collapse; width:0; height:0; margin:-1px -10px;}
+
+#flyout li {float:left; margin-bottom:1px;}
+#flyout li a {display:block; float:left; width:100px; height:24px; background:#888; color:#000; line-height:24px; font-family:arial, sans-serif; font-size:11px; text-decoration:none; text-indent:10px;}
+#flyout li a.fly {background:#888 url(_cssimages/right-arrow.gif) no-repeat right center;}
+
+#flyout li:hover {position:relative;}
+#flyout li a:hover {position:relative; background-color:#e60; color:#fff;}
+#flyout li:hover > a {background-color:#e60; color:#fff;}
+
+#flyout ul li a {background:#aaa;}
+#flyout ul li a.fly {background:#aaa url(_cssimages/right-arrow.gif) no-repeat right center;}
+#flyout ul ul li a {background:#ccc;}
+#flyout ul ul li a.fly {background:#ccc url(_cssimages/right-arrow.gif) no-repeat right center;}
+#flyout ul ul ul li a {background:#ddd;}
+
+#flyout li a.current,
+#flyout ul li a.current,
+#flyout ul ul li a.current,
+#flyout ul ul ul li a.current {background-color:#c40; color:#fff;}
+
+#flyout :hover ul,
+#flyout :hover ul :hover ul,
+#flyout :hover ul :hover ul :hover ul {left:80px;}
+
+#flyout :hover ul ul,
+#flyout :hover ul :hover ul ul {left:-9999px;}
+
+#flyout ul li:hover > a {background-color:#e60; color:#fff;}
+#flyout ul ul li:hover > a {background-color:#e60; color:#fff;}

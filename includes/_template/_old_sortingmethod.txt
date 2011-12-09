@@ -1,0 +1,62 @@
+									if($discrepancyrepairid == '') {
+											// This Discrepancy has never been fixed.
+											// Display the Options to fix it!
+											echo "=-> Never been fixed <i>(Add ability to repair)</i><br>";
+											$add_abilityto_repair = 1;
+										}
+										else {
+											// There must be at least one repair record for this discrepancy!
+											// Has it ever been bounced?
+											echo "=-> x1+ Repair Records Exisit <br>";
+											if($discrepancybouncedid == '') {
+													// This discrepancy has never been bounced, so it must be repaired.
+													// Display the Mark Bounced Options
+													echo "=-> Never has been bounced <i>(Add ability to bounce)</i><br>";
+													$add_abilityto_bounce = 1;
+												}
+												else {
+													// This discrepancy has at least one bounced record. 
+													// What is most recent, the bounce or the repair record?
+													echo "=-> x1+ Bounce Records Exisit <br>";
+													if($discrepancybounceddate > $discrepancyrepairdate) {
+															// The discrepancy has more recently been bounced than repaired.
+															// Display options to Repair it!
+															echo "=-> Bounce Date > Repair Date <i>(Add ability to repair)</i> <br>";
+															$add_abilityto_repair = 1;
+														}
+														else {
+															// The Bounce Date is either the same as or less than he repair date
+															// Check to see if the dates are the same
+															if($discrepancybounceddate == $discrepancyrepairdate) {
+																	// The dates are the same, so now the time is important
+																	echo "=-> Bounce Date = Repair Date <br>";
+																	if($discrepancybouncedtime > $discrepancyrepairtime) {
+																			// The time this discrepancy was bounced is greater than the repair time
+																			// This means the bounce is active and the discrepancy should be repaired.
+																			echo "=-> Bounce Time > Repair Time <i>(Add ability to repair)</i> <br>";
+																			$add_abilityto_repair = 1;
+																		}
+																		else {
+																			if ($discrepancybouncedtime == $discrepancyrepairtime) {
+																					// Are the two the same?
+																					//  I have no idea how this could even happen
+																					echo "=-> Bounce Time = Repair Time <i>(Violation of Quantum Mechanics)</i> <br>";
+																					// Do nothing but be confused
+																				}
+																				else {
+																					// If the times are not the same, and Bounce time is not greater than repair time..
+																					// This discrepancy is currently repaired.  Display Bounce ability
+																					echo "=-> Bounce Time < Repair Time <i>(Add ability to bounce)</i> <br>";
+																					$add_abilityto_bounce = 1;
+																				}
+																		}
+																}
+																else {
+																	// Bounce Date must be less than repair date
+																	// Display ability to bounce
+																	echo "=-> Bounce Date < Repair Date <i>(Add ability to bounce)</i> <br>";
+																	$add_abilityto_bounce = 1;
+																}
+														}
+												}
+										}

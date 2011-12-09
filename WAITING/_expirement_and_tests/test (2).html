@@ -1,0 +1,51 @@
+<html>
+<head><title></title>
+
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+
+window.onload=function()
+{
+document.getElementById("d2").onclick = slideIt;
+document.getElementById("d3").onclick = slideIn;
+};
+
+function slideIt()
+{
+
+var slidingDiv = document.getElementById("d1");
+var stopPosition = 50;
+
+if (parseInt(slidingDiv.style.left) < stopPosition )
+{
+slidingDiv.style.left = parseInt(slidingDiv.style.left) + 2 + "px";
+setTimeout(slideIt, 1);
+}
+}
+
+function slideIn()
+{ 
+
+var slidingDiv = document.getElementById("d1");
+var stopPosition = -150;
+
+
+if (parseInt(slidingDiv.style.left) > stopPosition )
+{ 
+slidingDiv.style.left = parseInt(slidingDiv.style.left) - 2 + "px";
+setTimeout(slideIn, 1);
+}
+
+}
+//]]>
+</script>
+</head>
+<body>
+
+<div id="d2" >Show</div>
+<div id="d3" >hide</div>
+
+<div id="d1" style="position:absolute; left:-150px; top:230px">horizontally sliding div</div>
+
+</body>
+</html>
