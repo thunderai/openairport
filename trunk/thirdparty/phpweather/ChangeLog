@@ -1,0 +1,3322 @@
+2004-06-17 12:54  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/contributors-body.texi:
+
+	Fixed plain @.
+
+2004-06-17 12:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Remove any extra spaces in those two variables.
+
+2004-06-01 20:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/contributors-body.texi, output/pw_text_pt.php:
+
+	Added a Portuguese translation made by Cláudio Gamboa.
+
+2004-06-01 20:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_null.php:
+
+	The third field should be trimmed to remove the added padding.
+
+2004-05-29 16:08  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv, doc/src/contributors-body.texi:
+
+	Update of the Brazillian stations.
+
+2004-05-10 09:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Fix for bug report #951022 --- no initialization of $metar_time
+	when no METAR is received.
+
+2004-02-22 12:18  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text_en_US.php:
+
+	Past tense
+
+2004-02-11 15:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/contributors-body.texi:
+
+	Let's not forget Nick Crossland (ncrossland) for making the British
+	English translation.
+
+2004-02-11 14:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/make_config.php:
+
+	This will detect when session.auto_start is turned on, and abort so
+	that the user doesn't see a bunch of errors.  Closes #816921.
+
+2004-02-11 14:08  Martin Geisler  <gimpster@gimpster.com>
+
+	* languages.php, pw_utilities.php, output/pw_text_en.php,
+	output/pw_text_en_GB.php, output/pw_text_en_US.php:
+
+	Added a British English translation from Nick Crossland
+	(ncrossland), and reworked the object hiarachy to support dialects
+	within a language.
+
+	The idea is that pw_text_en_US contains the code and pw_text_en_GB
+	extends this class to overrides a few strings.	I've left a
+	pw_text_en class that can be used as an alias for pw_text_en_US.
+
+	The function get_languages in pw_utilities has been adjusted
+	accordingly.
+
+2004-02-11 14:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	Use plural form of 'meter' here, this closes #891081 at
+	SourceForge, thanks goes to Nick Crossland (ncrossland) for
+	spotting this.
+
+2004-02-03 16:37  etienne_t
+
+	* ChangeLog:
+
+	Entries from the 2.1.2 release
+
+2004-02-03 16:33  etienne_t
+
+	* VERSION:
+
+	This is PHP Weather version 2.2.1
+
+2004-02-03 16:22  etienne_t
+
+	* .cvsignore:
+
+	added test2.php to .cvsignore
+
+2004-02-01 17:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	More auto-generated documentation which shouldn't be in CVS either.
+
+2004-02-01 17:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: phpweather.dvi, phpweather.html, phpweather.info,
+	phpweather.info-1, phpweather.info-2, phpweather.pdf,
+	phpweather.ps, phpweather.txt:
+
+	I don't think the auto-generated documentation should be in CVS.
+
+2004-01-30 20:46  etienne_t
+
+	* data_retrieval.php, phpweather.php, test2.php,
+	db/pw_db_mysql.php, db/pw_db_null.php, output/pw_text.php:
+
+	Fixed the timestamp for METAR retreival and archiving in mysql and
+	null backends.	The timestamp is kept as a unix timestamp (UTC) in
+	the objects.  The mysql backend has been modified to keep a UTC
+	format in the table.
+
+2004-01-03 19:05  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, phpweather.php:
+
+	This restores the null and mysql database backends to working
+	order... let's hope they stay that way.
+
+2004-01-03 18:38  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_mysql.php:
+
+	Hmm... that was broke!
+
+2004-01-03 18:38  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	I really think we should give this all it can take, so that we
+	catch undefined variables... remember, the index.php page is only
+	for demonstration purposes.
+
+2004-01-03 10:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Reindention --- I read through the code and expanded a comment to
+	better document the behavious or gmmktime.
+
+2004-01-02 02:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_fi.php:
+
+	Updates from Kari Salovaara.
+
+2004-01-01 23:46  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Entries from the 2.1.2 release.
+
+2004-01-01 23:45  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	This is PHP Weather version 2.2.0.
+
+2004-01-01 23:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/: contributors.texi, phpweather.texi:
+
+	More timestamps...
+
+2004-01-01 23:36  Martin Geisler  <gimpster@gimpster.com>
+
+	* INSTALL, README, README-CVS, make-release.sh:
+
+	Updated year to 2004 --- Happy New Year!
+
+2004-01-01 23:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	Use the new script to generate the documentation for the release.
+
+2004-01-01 23:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* .cvsignore:
+
+	Also, please ignore the AUTHORS file for it's now autogenerated.
+
+2004-01-01 23:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/.cvsignore:
+
+	Now please ignore all the phpweather.txt, phpweather.ps, ... files.
+
+2004-01-01 23:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/generate-doc.sh:
+
+	I've replaced the autogenerated files with a scipt that can
+	generate them --- this script is also used for new releases.
+
+2004-01-01 23:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	The AUTHORS file is now generated from the Texinfo documentation.
+
+	The release will now be pulled from the CVS server for developer
+	logins, bypassing the delay for the anonymous CVS service at
+	SourceForge.
+
+2004-01-01 22:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/phpweather.texi:
+
+	Moved the Contributors chapter to contributors-body.texi, and
+	expanded things like "it's" to "it is".
+
+2004-01-01 22:49  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/contributors-body.texi:
+
+	Hmm, there shouldn't be any indention after chapters etc.
+
+2004-01-01 21:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/: contributors.texi, contributors-body.texi:
+
+	I've made a stand-alone Texinfo file that can be used to generate
+	the AUTHORS file.  This will make sure that the AUTHORS file is in
+	sync with the Contributors chapter in the manual.
+
+2003-12-30 16:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/: DJ.php, US.php, ZA.php, stations.db:
+
+	Regenerated from the updated stations.csv file.
+
+2003-12-30 16:06  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	Updated list of South African airports from Warren Rohner.
+
+2003-12-30 16:01  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Removed a couple of old debug statements.
+
+2003-10-23 12:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_nl.php:
+
+	Fixes sent to me by Nico Out <nmm.out@hccnet.nl>.
+
+2003-10-10 23:33  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, doc/src/phpweather.texi:
+
+	Added latest contributors.  I think the AUTHORS file ought to be
+	linked to the Contributors section in the Texinfo source so that
+	the two doesn't have to be keept synchronized.
+
+2003-10-07 22:41  Martin Geisler  <gimpster@gimpster.com>
+
+	* icons/vrb.png:
+
+	That one shouldn't have been commited, for I'm keeping the animated
+	GIF image for the variable wind conditions.  I would have preffered
+	to convert it into a MNG movie, but the MNG format still isn't
+	supported by any major browsers --- they've even recently removed
+	support for MNG animations from Mozilla... :-(
+
+2003-10-07 22:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* currentimage.php, index.php, test.php,
+	config/connectivity_test.php, config/index.php,
+	config/make_config.php, config/make_db.php,
+	config/make_stations.php, config/speed_test.php,
+	output/pw_images.php:
+
+	From GIF to PNG images all around.
+
+2003-10-07 22:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* icons/: 0cloud.gif, 0cloud.png, 0cloud_fog.gif, 0cloud_fog.png,
+	1cloud_fog.gif, 1cloud_fog.png, 1cloud_heavyrain.gif,
+	1cloud_heavyrain.png, 1cloud_lightrain.gif, 1cloud_lightrain.png,
+	1cloud_modrain.gif, 1cloud_modrain.png, 1cloud_norain.gif,
+	1cloud_norain.png, 2cloud_fog.gif, 2cloud_fog.png, 2cloud_hail.gif,
+	2cloud_hail.png, 2cloud_heavyrain.gif, 2cloud_heavyrain.png,
+	2cloud_lightrain.gif, 2cloud_lightrain.png, 2cloud_modrain.gif,
+	2cloud_modrain.png, 2cloud_norain.gif, 2cloud_norain.png,
+	2cloud_snow.gif, 2cloud_snow.png, 2cloud_thunders.gif,
+	2cloud_thunders.png, 3cloud_fog.gif, 3cloud_fog.png,
+	3cloud_hail.gif, 3cloud_hail.png, 3cloud_heavyrain.gif,
+	3cloud_heavyrain.png, 3cloud_lightrain.gif, 3cloud_lightrain.png,
+	3cloud_modrain.gif, 3cloud_modrain.png, 3cloud_norain.gif,
+	3cloud_norain.png, 3cloud_snow.gif, 3cloud_snow.png,
+	3cloud_thunders.gif, 3cloud_thunders.png, 4_cloud_modrain.png,
+	4cloud_fog.gif, 4cloud_fog.png, 4cloud_hail.png,
+	4cloud_heavyhail.gif, 4cloud_heavyhail.png, 4cloud_heavyrain.gif,
+	4cloud_heavyrain.png, 4cloud_heavysnow.gif, 4cloud_heavysnow.png,
+	4cloud_lighthail.gif, 4cloud_lighthail.png, 4cloud_lightrain.gif,
+	4cloud_lightrain.png, 4cloud_lightsnow.gif, 4cloud_lightsnow.png,
+	4cloud_modrain.gif, 4cloud_modrain.png, 4cloud_norain.gif,
+	4cloud_norain.png, 4cloud_thunders.gif, 4cloud_thunders.png,
+	eee.gif, eee.png, n_0cloud.gif, n_0cloud.png, n_0cloud_fog.gif,
+	n_0cloud_fog.png, n_1cloud_fog.gif, n_1cloud_fog.png,
+	n_1cloud_heavyrain.gif, n_1cloud_heavyrain.png,
+	n_1cloud_lightrain.gif, n_1cloud_lightrain.png,
+	n_1cloud_modrain.gif, n_1cloud_modrain.png, n_1cloud_norain.gif,
+	n_1cloud_norain.png, n_2cloud_fog.gif, n_2cloud_fog.png,
+	n_2cloud_hail.gif, n_2cloud_hail.png, n_2cloud_heavyrain.gif,
+	n_2cloud_heavyrain.png, n_2cloud_lightrain.gif,
+	n_2cloud_lightrain.png, n_2cloud_modrain.gif, n_2cloud_modrain.png,
+	n_2cloud_norain.gif, n_2cloud_norain.png, n_2cloud_snow.gif,
+	n_2cloud_snow.png, n_2cloud_thunders.gif, n_2cloud_thunders.png,
+	n_3cloud_fog.gif, n_3cloud_fog.png, n_3cloud_hail.gif,
+	n_3cloud_hail.png, n_3cloud_heavyrain.gif, n_3cloud_heavyrain.png,
+	n_3cloud_lightrain.gif, n_3cloud_lightrain.png,
+	n_3cloud_modrain.gif, n_3cloud_modrain.png, n_3cloud_norain.gif,
+	n_3cloud_norain.png, n_3cloud_snow.gif, n_3cloud_snow.png,
+	n_3cloud_thunders.gif, n_3cloud_thunders.png, ne.gif, ne.png,
+	nee.gif, nee.png, nne.gif, nne.png, nnn.gif, nnn.png, nnw.gif,
+	nnw.png, nodir.gif, nodir.png, nw.gif, nw.png, nww.gif, nww.png,
+	phpweather-black.gif, phpweather-black.png,
+	phpweather-long-black.gif, phpweather-long-black.png,
+	phpweather-long-white.gif, phpweather-long-white.png,
+	phpweather-white.gif, phpweather-white.png, se.gif, se.png,
+	see.gif, see.png, sse.gif, sse.png, sss.gif, sss.png, ssw.gif,
+	ssw.png, sw.gif, sw.png, sww.gif, sww.png, temp_nodata.gif,
+	temp_nodata.png, tempchilled.gif, tempchilled.png, temphigh.gif,
+	temphigh.png, templow.gif, templow.png, vrb.png, wind_nodata.gif,
+	wind_nodata.png, www.gif, www.png:
+
+	Out with GIF images, in with new, beautiful PNG images drawn by
+	Justin Heideman!
+
+2003-10-02 22:54  etienne_t
+
+	* data_retrieval.php, phpweather.php, db/pw_db_adodb.php,
+	db/pw_db_mysql.php:
+
+	Added retrieval of archived metars.  The current METAR is still in
+	metar and decoded_metar, time is in YYYYDDMMhhmmss format. There
+	are additionnal arrays metar_arch decoded_metar_arch which contain
+	all the METARs in the period set by data_retrieval::set_times().
+	Modified db/pw_adodb.php and db/pw_mysql.php.
+
+2003-09-30 20:01  etienne_t
+
+	* db/pw_db_mysql.php:
+
+	Modified create_tables()
+
+2003-09-30 19:47  etienne_t
+
+	* data_retrieval.php, defaults-dist.php, db/pw_db_mysql.php:
+
+	Added archiving of METAR and TAF reports. The functions
+	insert_metar, update_metar, insert_taf, update_taf have been
+	modified to include the time of the report in the archive DB.
+	Modified only pw_db_mysql to reflect these changes. The DBs
+	pw_metars_arch and pw_tafs_arch must be created. You must set
+	properties archive_metars and archive_tafs to true for the archive
+	to happen transparently at each insert or update.
+
+2003-09-20 22:18  etienne_t
+
+	* phpweather.php, test2.php, output/pw_text.php:
+
+	Mods for TAF. Use timestamps in the taf periods (YYYYMMDDhhmmss).
+	Include PROB text in the hourly report.  Descriptive data for
+	periods is in a sub-array 'desc'. Added a function
+	phpweather::get_taf_by_hour for a subset of the hourly report.
+
+2003-09-16 22:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_cs.php, pw_text_hu.php, pw_text_pl.php,
+	pw_text_sk.php, pw_text_tr.php:
+
+	Latest translation: Polish by Michal Margula
+	<alchemyx@uznam.net.pl>.  I've also added some comments that will
+	tell Emacs the encoding of the files so that it can display the
+	characters correctly.
+
+2003-09-13 02:38  etienne_t
+
+	* data_retrieval.php, phpweather.php, test2.php,
+	output/pw_text.php:
+
+	Added hour-by-hour decoding of the taf.  test2.php was modified to
+	show that. Interpolation is done in BECMG periods and PROB periods
+	are not added to the hour-by-hour report.
+
+2003-09-08 08:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	I've updated the defaults to reflect the values given in
+	config/make_config.php.  This will break existing installations
+	where the tables miss the 'pw_' prefix.
+
+	How should we handle this, would it be enough to simply note it in
+	the download instructions on SourceForge?
+
+2003-09-08 07:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/make_config.php:
+
+	Let's include the new db_tafs option and also a couple of forgotten
+	options for the icons.
+
+2003-09-08 04:25  etienne_t
+
+	* test2.php:
+
+	Added test2.php to test the retrieval and decoding of METAR and TAF
+	reports
+
+2003-09-08 04:20  etienne_t
+
+	* data_retrieval.php, defaults-dist.php, phpweather.php,
+	db/pw_db_mysql.php, db/pw_db_null.php:
+
+	Added TAF support.  Modified data_retrieval.php, defaults-dist.php,
+	phpweather.php, pw_db_mysql.php, pw_db_null.php.  Needs to add
+	output functionality and support all backends.
+
+2003-09-02 18:06  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Latest contributers.
+
+2003-09-02 18:06  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	We actually require those files...  Versions of PHP prior to 4.0.2
+	distinguished between include() and require() in that require()
+	were handled unconditionally in a preprocessor-like fashion whereas
+	include() only read the file when needed.  Now that both functions
+	(or rather language constructs) work the same we can switch to
+	require().
+
+2003-09-02 17:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	This should load the DBA extension on systems that doesn't do this
+	by default.
+
+2003-09-02 17:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text.php, pw_text_es.php:
+
+	Patches from Pablo Alcaraz (pabloa) that update the Spanish
+	translation and fixes a bug with the visibility display.
+
+2003-08-03 22:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, output/pw_text_it.php, output/pw_text_tr.php:
+
+	Lots of new translations!
+
+2003-08-03 15:10  Ondrej Jombik   <nepto@pobox.sk>
+
+	* output/: pw_text_cs.php, pw_text_sk.php:
+
+	Updated links in source headers.
+
+2003-07-01 10:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: make_config.php, pw_option.php, pw_option_integer.php,
+	pw_option_multi_select.php, pw_option_select.php,
+	pw_option_text.php:
+
+	Updated the Configuration Builder to match the new dependency
+	classes and added the fetch_method option.
+
+	Also, the generated PHP code for the defaults.php file now deals
+	correctly with embedded single and double quotes in strings. Not
+	that there's much need for these (except possibly in mark_begin and
+	mark_end) but they're now properly escaped.
+
+2003-07-01 10:05  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: pw_dependency.php, pw_dependency_and.php,
+	pw_dependency_equal.php, pw_dependency_not.php,
+	pw_dependency_or.php:
+
+	The dependency classes can now handle full Boolean expressions with
+	the pw_dependency_or, pw_dependency_and, and pw_dependency_not
+	classes.
+
+	The old pw_dependency class is now called pw_dependency_equal
+	because it depends on a given option being equal to a given value.
+	The pw_dependency class is only there to act as some form of
+	interface although it isn't strictly necessary.
+
+2003-07-01 09:34  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Added PhpDoc comments to get_metar_file() and get_metar_socket().
+
+2003-06-14 23:37  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	The final full-stop would be omitted if the dew-point was missing
+	in the report.
+
+2003-06-14 23:35  Martin Geisler  <gimpster@gimpster.com>
+
+	* test.php:
+
+	Now with the entire decoded METAR.
+
+2003-06-14 23:34  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Fixed decoded of UK temperature parts with missing dew-point,
+	thanks to the report and explanation given by Tom McDonald and Nick
+	B.
+
+2003-05-08 19:42  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, make-release.sh, output/pw_text.php:
+
+	Instead of rounding the $minutes_old and $hours, we truncate.  The
+	old code would make a report that is 6000 seconds old look like it
+	was 2 hours and 40 minutes old because the 1.66 hours were rounded
+	upward to 2 hours.
+
+	Thanks goes to Jim Whitehead for pointing this out and fixing it.
+
+2003-04-22 20:49  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/make_db.php:
+
+	More fixes from Andrew Simpson (andrewsimpson). This closes
+	#724856.
+
+2003-04-20 13:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Latest ChangeLog entries.
+
+2003-04-20 13:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	PHP Weather 2.1.2.
+
+2003-04-20 13:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, INSTALL, README, README-CVS, defaults-dist.php,
+	images-test.php, make-release.sh, config/make_config.php,
+	config/pw_validator_ereg.php, config/pw_validator_range.php:
+
+	Updated copyright statements a bit, and reworded some paragraphs.
+
+	Fixed the last couple of short open tags that were still hiding...
+	Thanks goes to Andrew Simpson (andrewsimpson) for reporting this.
+
+2003-03-05 21:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Latest ChangeLog entries.
+
+2003-03-05 20:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	This is version 2.1.1.
+
+2003-03-05 20:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Most significant entries in the ChangeLog since 2.1.0:
+
+	* New German translation by Konrad Tadesse.  * Configuration
+	problem in output modules (bug #613963) fixed.	* Added a simple
+	page to help people test their connectivity.  * The arrows that
+	show the wind direction can be reversed.
+
+2003-03-05 19:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php:
+
+	This verbosity-thing isn't really used... There's no real reason to
+	make an extra member variable just to hold this, when we have it as
+	$this->properties['verbosity'].
+
+2003-03-05 19:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_images.php, pw_output.php, pw_text.php:
+
+	This should fix bug #613963 at SourceForge. The problem was, that
+	pw_text_xx and pw_images always used the default settings, and
+	refused to react to settings in the phpweather object they used.
+
+	You can now control things by first setting defaults in
+	defaults.php, second by giving the phpweather object an array with
+	settings when it's created, and third by overriding the previous
+	settings by giving pw_text_xx or pw_images an array with settings
+	upon creation.
+
+2003-03-05 18:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_de.php:
+
+	Small fixes from Konrad Tadesse.
+
+2003-03-04 14:36  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_de.php, AUTHORS:
+
+	Super! A German translation from Konrad Tadesse.
+
+2003-01-21 22:27  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php, output/pw_images.php:
+
+	Rudy Boedts wanted the direction of the arrows changed, so this is
+	now configurable through the reverse_dir option.
+
+2003-01-21 22:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh, update-changelog.sh:
+
+	A script to generate the ChangeLog with consistent options.
+
+2003-01-16 12:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/connectivity_test.php:
+
+	Updated relative links to stylesheet and logo.
+
+2003-01-16 12:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: connectivity_test.php, index.php:
+
+	Added a simple page to help people test if they can connect to the
+	NWS.
+
+2002-12-28 14:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Hmm, this should be the last changes - here comes 2.1.0!
+
+2002-12-28 14:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Added link to the configuration tools.
+
+2002-12-28 14:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: make_config.php, pw_optiongroup.php:
+
+	Added extra 'Update options' buttons and reformatted the bottom
+	'Download the Configuration' bottom so that value attribute is no
+	longer split between two lines - this confused Mozilla.
+
+2002-12-28 14:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: .cvsignore, phpweather.dvi, phpweather.html,
+	phpweather.info, phpweather.info-1, phpweather.info-2,
+	phpweather.pdf, phpweather.ps, phpweather.txt, src/phpweather.texi:
+
+	Fixed bad reference and regenerated documentation. The generated
+	documentation should probably not be in CVS at all, but we'll deal
+	with that later.
+
+2002-12-28 13:41  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Updated with changes from 2.0.0 to 2.1.0.
+
+2002-12-28 13:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION, doc/src/phpweather.texi:
+
+	Version 2.1.0.
+
+2002-12-28 13:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* .cvsignore:
+
+	I believe these files aren't created anymore, and so doesn't need
+	to be ignored.
+
+2002-12-28 13:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* usermap:
+
+	Added entry for Ondrej Jombik and made the email adresses align
+	nicely.
+
+2002-12-28 12:48  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	Changed '\' into '/'. Why should anybody want a backslash in the
+	name of station?
+
+2002-12-28 12:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Add entry for Rudy Boedts.
+
+2002-12-28 12:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_nl.php:
+
+	Update from Rudy Boedts.
+
+2002-12-28 00:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: make_config.php, pw_dependency.php,
+	pw_dependency_or.php, pw_option.php, pw_option_select.php,
+	pw_optiongroup.php, reset_session.php:
+
+	Updated to support PHP with register_globals turned off.
+
+2002-12-27 22:19  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/phpweather.texi:
+
+	Old uncommitted edits...
+
+2002-12-19 01:07  Ondrej Jombik   <nepto@pobox.sk>
+
+	* output/pw_text_sk.php:
+
+	Added method parse_runway_group() to have better handling of runway
+	visibilities in slovak translation.
+
+2002-12-16 00:15  Ondrej Jombik   <nepto@pobox.sk>
+
+	* output/pw_text_sk.php:
+
+	Added proper snowing handling.	Removed some unneccessary comments
+	at the end of file.
+
+2002-11-10 23:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_da.php, pw_text_no.php:
+
+	Removed extra space in Danish translation, and added missing string
+	to Norwegian translation, perhaps you could verify that this means
+	what I think it means in Norwegian, Sven-Erik?
+
+2002-11-10 23:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php, config/make_config.php, db/pw_db_adodb.php:
+
+	A new database backend: ADOdb. This is a wrapper library written in
+	PHP that supports no less than 28(!) databases. So now there's no
+	excuse for not using a database with PHP Weather.
+
+2002-11-10 23:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* test.php:
+
+	Make this work with PHP 4.2.3.
+
+2002-10-29 08:52  Max Hammond     <max@flipstorm.net>
+
+	* data_retrieval.php:
+
+	Oops. I think this was my first contribution to the project, and
+	it's taken this long to spot the problem with it :)
+
+2002-10-24 15:54  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, output/pw_text_fr.php:
+
+	Cool - a French translation thanks to Guillaume Petit
+	<gpetit@fr.st>!
+
+2002-10-20 15:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text.php, pw_text_da.php, pw_text_en.php,
+	pw_text_no.php:
+
+	Fix for a problem found by Sean <sean@arrowsmith.biz>. The problem
+	was, that the report said 'There were The sky was overcast...' when
+	we had a OVC cloud group. This should fix that problem.
+
+	I've also changed the translation of 'cloud_vertical_visibility' so
+	that it fits into the 'There was ...' part. I've updated the
+	English, Danish ans Norwegian translations.
+
+2002-10-01 19:03  Ondrej Jombik   <nepto@pobox.sk>
+
+	* output/pw_text_cs.php:
+
+	Little fix in function parse_cloud_group($cloud_group).  Removed
+	unneccessary test metars from the bottom of file.
+
+2002-09-27 20:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, output/pw_text_cs.php, output/pw_text_nl.php:
+
+	Added Dutch and Czech translations and updated the AUTHORS file
+	with Bas Elshof <bas@elshof.de>, Václav Ríkal
+	<vaclavr@physics.muni.cz> and Radoslava Fedáková
+	<mortischka@pobox.sk>.
+
+2002-09-25 18:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv, db/files/EE.php, db/files/stations.db:
+
+	Updated ICAO for Tallinn/Estonia, thanks to a report from Kalle
+	Volkov. This closes bug 612423.
+
+2002-09-22 09:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Stupid switch!
+
+2002-09-22 09:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, defaults-dist.php:
+
+	Is fetch_method better than fetch_function? I hope so. The value is
+	now also chacked before we call the relevant function.
+
+2002-09-22 09:43  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	Ups - wrong filename.
+
+2002-09-20 20:44  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, defaults-dist.php:
+
+	This should fix bug 611597 by giving the user the option between
+	using fsockopen() and file() to retrieve the METAR.
+
+2002-09-18 13:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, data_retrieval.php:
+
+	This is a better place to give credit to Paul Kairis. I've also
+	added Kari Salovaara and Tage Malmen for doing Swedish and Finnish
+	translation.
+
+2002-09-10 10:06  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_fi.php, pw_text_sv.php:
+
+	Added ChangeLog,v 1.16 2004/06/17 12:57:24 gimpster Exp tags.
+
+2002-09-10 10:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_fi.php, pw_text_sv.php:
+
+	Kari Salovaara <kari.salovaara@pp1.inet.fi> and Tage Malmen has
+	made these two translations of PHP Weather into Finnish and
+	Swedish.
+
+2002-09-05 16:32  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* output/pw_text_hu.php:
+
+	Just a little Hungarian grammatical correction.
+
+2002-09-05 01:47  Ondrej Jombik   <nepto@pobox.sk>
+
+	* output/pw_text_sk.php:
+
+	Some new sentences/words were translated. There are currently only
+	few untranslated items.
+
+	Weather reporting function print_pretty_weather() and clouds
+	reporting function print_pretty_clouds() were rewritten to handle
+	much more cases with proper grammar handling.
+
+2002-09-04 21:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* pw_utilities.php:
+
+	This should clear things up a bit.
+
+2002-09-02 18:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, phpweather.php, pw_utilities.php,
+	config/make_config.php:
+
+	Move phpweather::get_languages() to pw_utilities as this doesn't
+	really has anything to do with the phpweather class. Updated
+	make_config.php to use get_languages() for a dynamic list of
+	available languages.
+
+2002-08-30 13:01  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Updated for version 2.0.0.
+
+2002-08-30 13:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	Version 2.0.0 is coming your way!
+
+2002-08-30 12:58  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Let's not forget these two guys :-)
+
+2002-08-28 21:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_da.php, pw_text_en.php, pw_text_es.php,
+	pw_text_hu.php, pw_text_no.php, pw_text_sk.php:
+
+	Fixing comments and reindenting code.
+
+2002-08-28 21:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	Until we get some strings for precipitation, we might as well
+	disable the output to prevent the ugly warnings.
+
+2002-08-28 10:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Fix from Reini Urban <rurban@x-ray.at> to deal with PHP 4.2 where
+	the default setting for register_globals is off.
+
+2002-08-28 10:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, index.php, pw_utilities.php:
+
+	More good stuff from Ondrej Jombik <nepto@pobox.sk>... The
+	index.php page has been rewritten to provide the same functionality
+	with less and more clear code.
+
+	I've updated data_rettrieval.php to deal with the changed
+	lookup_icao method in the database backends.
+
+2002-08-28 10:05  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/: pw_db_common.php, pw_db_dba.php, pw_db_mysql.php,
+	pw_db_null.php, pw_db_pgsql.php, files/stations.db:
+
+	Applied patches from Ondrej Jombik <nepto@pobox.sk> - I've changed
+	them a little from what was sent to the mailing list.
+
+	The lookup_icao($icao) method now returns an three element array
+	with the name of the station, the name of the country, and the
+	country code. The new functions get_name($icao),
+	get_country($icao), and get_country_code($icao) are convenience
+	functions that return what you think they return :-)
+
+	The stations.db file has been regenerated to reflect the changes in
+	the pw_db_null class.
+
+2002-08-28 09:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/HU.php:
+
+	Regenerated with accents.
+
+2002-08-27 23:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Patch from Reini Urban <rurban@x-ray.at>. In PHP 4.2 the default
+	for allow_url_fopen is off - so we now download the METAR reports
+	ourselves.
+
+2002-08-27 17:37  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* stations.csv:
+
+
+	Adding accents to Hungarian station names, according to iso-8859-1
+	code.
+
+2002-08-26 23:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	Same effect, but easier to understand, IMHO.
+
+2002-08-26 21:48  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	Changed text for alt tag, thanks to Ondrej Jombik
+
+2002-08-26 16:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* README, README-CVS:
+
+	Minor fixes.
+
+2002-08-26 16:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	There's no need (in PHP version 4) to supply an empty array to
+	functions that already default to the empty array.
+
+	Also, use English as the default language.
+
+2002-08-26 15:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	Make some scripts quiet.
+
+2002-08-26 15:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* test.php:
+
+	More useful test page.
+
+2002-08-26 14:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Links to documentation.
+
+2002-08-26 13:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/phpweather.ps:
+
+	Let's not forget this one...
+
+2002-08-26 13:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	Sort this as well.
+
+2002-08-26 13:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	A little clarity.
+
+2002-08-26 13:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	When we read the directory, we get the entries in a somewhat random
+	order. This gives a better display in the dropdown boxes.
+
+2002-08-26 13:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	A little cache to prevent rereading the directory.
+
+2002-08-26 13:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	Better release script.
+
+2002-08-26 12:47  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: phpweather.dvi, phpweather.html, phpweather.info,
+	phpweather.info-1, phpweather.info-2, phpweather.pdf,
+	phpweather.txt:
+
+	Output from Texinfo sources.
+
+2002-08-26 12:46  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/src/: phpweather.texi, texinfo.tex:
+
+	Texinfo sources.
+
+2002-08-12 23:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Support for humidex thanks to Robin Senior
+	<8rjs3@qlink.queensu.ca>.  See this page for an explaination of
+	humidex:
+
+	  http://www.theweathernetwork.com/help/glossary/humidex.htm
+
+2002-08-12 23:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_no.php:
+
+	Updates from sven-erik, this closes 562977.
+
+2002-07-14 23:05  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Added entry for Ondrej Jombik <nepto@pobox.sk>.
+
+2002-07-14 23:03  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/speed_test.php:
+
+	Don't hide the errors.
+
+2002-07-14 23:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/make_config.php:
+
+	Hmm, my Mozilla doesn't treat newlines in the value attribute
+	correctly... strange and annoying.
+
+2002-07-14 22:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	Cool - PHP has an elseif keyword :-)
+
+2002-07-14 22:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_sk.php:
+
+	Slovak translation from Ondrej Jombik <nepto@pobox.sk> - thanks!
+
+2002-06-29 11:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_images.php:
+
+	I hope this fixed the problems with $phenomena being undefined.
+
+2002-06-29 10:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Fixed PE -> PL noticed by Ondrej Jombik <nepto@pobox.sk> - thanks.
+	I also noticed that there wasn't a constructor(!) instead there was
+	a function called metar_parser()... That's also fixed now.
+
+2002-06-20 11:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_es.php:
+
+	Ups - no default value for the $input variable.
+
+2002-06-04 12:11  Max Hammond     <max@flipstorm.net>
+
+	* currentimage.php:
+
+	New file to return the current sky image as an image directly. See
+	file for usage notes.
+
+2002-05-31 14:11  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text_es.php:
+
+	Fixed for feelslike
+
+2002-05-29 20:42  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: make_config.php, make_db.php, make_stations.php,
+	pw_option_text.php, pw_optiongroup.php:
+
+	Hmm, the validator is quite picky...
+
+2002-05-29 20:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, make_config.php, make_db.php,
+	make_stations.php, speed_test.php:
+
+	More cleanups. The new stylesheet is used, and I hope that the
+	files can be validated as XHTML documents.
+
+2002-05-29 20:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, pw_style.css:
+
+	Cleanups... I've added a stylesheet since we're starting to have a
+	couple of XHTML pages by now.
+
+2002-05-29 19:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Great! A Spanish translation of PHP Weather.
+
+2002-05-29 15:32  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text_es.php:
+
+	Added Spanish translation, thanks to Jesús Peñas
+	<jpc@educaplus.org>
+
+2002-05-28 13:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, make_stations.php:
+
+	I've made make_stations.php so that we can go from stations.cvs to
+	a database (using make_db.php) and back again using
+	make_stations.php.
+
+2002-05-28 13:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/: AF.php, AG.php, AO.php, AQ.php, AR.php, AT.php,
+	AU.php, BA.php, BD.php, BE.php, BF.php, BG.php, BJ.php, BO.php,
+	BR.php, BS.php, BW.php, CA.php, CD.php, CF.php, CG.php, CH.php,
+	CI.php, CK.php, CL.php, CM.php, CN.php, CO.php, CR.php, CU.php,
+	CY.php, CZ.php, DE.php, DJ.php, DK.php, DM.php, DO.php, DZ.php,
+	EC.php, EE.php, EG.php, EH.php, ES.php, ET.php, FI.php, FJ.php,
+	FK.php, FM.php, FR.php, GA.php, GB.php, GE.php, GF.php, GH.php,
+	GL.php, GN.php, GP.php, GQ.php, GR.php, GS.php, GT.php, GW.php,
+	GY.php, HK.php, HN.php, HR.php, HT.php, HU.php, ID.php, IE.php,
+	IL.php, IN.php, IQ.php, IR.php, IS.php, IT.php, JO.php, JP.php,
+	KE.php, KH.php, KI.php, KM.php, KP.php, KR.php, LA.php, LK.php,
+	LR.php, LS.php, LV.php, LY.php, MA.php, MD.php, MG.php, ML.php,
+	MM.php, MR.php, MU.php, MV.php, MW.php, MX.php, MY.php, MZ.php,
+	NA.php, NC.php, NE.php, NG.php, NL.php, NO.php, NP.php, NZ.php,
+	OM.php, PA.php, PE.php, PF.php, PG.php, PH.php, PK.php, PL.php,
+	PM.php, PT.php, PY.php, RE.php, RO.php, RU.php, RW.php, SA.php,
+	SB.php, SC.php, SD.php, SE.php, SI.php, SK.php, SN.php, SO.php,
+	SR.php, ST.php, SY.php, TD.php, TG.php, TH.php, TL.php, TN.php,
+	TO.php, TR.php, TT.php, TV.php, TZ.php, UA.php, UG.php, UM.php,
+	US.php, UY.php, UZ.php, VE.php, VN.php, VU.php, WS.php, YE.php,
+	YU.php, ZA.php, ZM.php, ZW.php, stations.db:
+
+	New stations and new countries!
+
+2002-05-28 13:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_null.php:
+
+	Fix the check for readability and remove the code that generated
+	countries.php because this file now has all the countries in it
+	anyway.
+
+2002-05-28 13:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/countries.php:
+
+	I've update the file with the names of all countries, not just the
+	ones used in stations.cvs at the moment.
+
+2002-05-28 13:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	Tom Corser <tom@tomcorser.com> sent me a dump of his list of
+	stations.  There was 2201 new ICAOs in his file, so we now know of
+	5131 stations in 210 countries!
+
+	Tom has told me that some of the ICAOs seams to have stopped
+	working, so the above figures are somewhat optimistic.
+
+2002-05-20 17:41  Martin Geisler  <gimpster@gimpster.com>
+
+	* INSTALL:
+
+	Removed text about how it 'was easier for us to put documentation
+	on phpweather.net'.
+
+	Also updated the part about how to configure PHP Weather.
+
+2002-05-20 16:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_pgsql.php:
+
+	I did some tests with speed_test.php and it turned out, that it
+	didn't make any difference wether or not I cached the number of
+	rows in the result set.
+
+2002-05-20 15:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Updated.
+
+2002-05-20 15:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/index.php:
+
+	Added a link to speed_test.php.
+
+2002-05-20 15:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/speed_test.php:
+
+	I made this little file while I was playing with the different
+	database backends.
+
+2002-05-20 15:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Cosmetics...
+
+2002-05-20 15:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	Those .cvsignore files should also be removed from a release.
+
+2002-05-20 15:48  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_mysql.php:
+
+	Some minor changes I made while I made the PostgreSQL backend. It's
+	now possible to use a non-standard port - that was ignored before.
+
+2002-05-20 15:47  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_pgsql.php:
+
+	I've updated the PostgreSQL backend so that it actually works! :-)
+	I've tested it on my PostgreSQL database version 7.2.1 which is the
+	one that comes with Debian unstable.
+
+2002-05-18 09:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	It seams that pow() cannot handle floats passed to it as strings,
+	at least not in PHP 4.2.0 at gimpster.com. The strange thing is
+	that it works in PHP 4.1.2 at my local machine.
+
+2002-05-18 08:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	When the windchill and heatindex was calculated, the temperature
+	and windspeed was compared to strings and not integers.
+
+	I also re-indented some of the code.
+
+2002-05-17 16:21  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_da.php:
+
+	Updated with translation of 'feelslike'.
+
+2002-05-16 20:35  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_en.php:
+
+	How did that happen? :-)
+
+2002-05-16 20:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text_da.php, pw_text_en.php, pw_text_hu.php,
+	pw_text_no.php:
+
+	Made the second argument optional with these constructors as well.
+
+2002-05-16 19:52  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* output/pw_text_hu.php:
+
+	Translation of '...feels like'.
+
+2002-05-16 19:46  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text.php:
+
+	rats
+
+2002-05-16 19:44  Max Hammond     <max@flipstorm.net>
+
+	* output/: pw_text.php, pw_text_da.php, pw_text_en.php,
+	pw_text_hu.php, pw_text_no.php:
+
+	Combined windchill and heatindex into one 'feels like' - sorry
+	translators. I think this is a better solution
+
+2002-05-15 22:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	This file is no longer needed now that /config/make_db.php handles
+	the creation of the necessary tables in the database.
+
+2002-05-15 22:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, make_config.php, make_db.php:
+
+	I've moved the Configuration Builder from index.php to
+	make_config.php and added make_db.php which can be used to
+	(re)create the database.
+
+2002-05-15 22:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, data_retrieval.php, db_layer.php,
+	phpweather.php, output/pw_images.php, output/pw_text.php:
+
+	All constructors can now be called without any parameters - they
+	all use an empty array as the default. This was removed some time
+	ago because it didn't work in PHP3, but now that we're using PHP4
+	it works again.
+
+	I also made an extra check in output/pw_text.php so that missing
+	clouds no longer trigger a warning.
+
+2002-05-12 15:09  Max Hammond     <max@flipstorm.net>
+
+	* test.php:
+
+	Made it work again
+
+2002-05-12 15:08  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text.php, output/pw_text_da.php, output/pw_text_en.php,
+	output/pw_text_hu.php, output/pw_text_no.php, phpweather.php:
+
+	Added heat index, thanks to David Kjellquist
+
+2002-05-10 18:35  Max Hammond     <max@flipstorm.net>
+
+	* stations.csv:
+
+	Added new spanish station
+
+2002-04-14 18:27  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, pw_optiongroup.php:
+
+	Hehe - that was much easier that I thought... The optiongroups can
+	now be toggled on and off. The state is remembered when people
+	click the 'Update Configuration' button.
+
+	I have (as usual) only tested this with Mozilla 0.9.9.
+
+2002-04-13 13:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Updated documentation.
+
+2002-04-13 13:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: pw_validator.php, pw_dependency.php,
+	pw_dependency_or.php, pw_option.php, pw_optiongroup.php,
+	pw_validator_ereg.php, pw_validator_range.php:
+
+	Added documentation.
+
+2002-04-12 22:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	We now use $this->properties['cache_timeout'] instead of the
+	hardcoded 3600 seconds.
+
+2002-04-12 22:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/pw_validator.php:
+
+	Added documentation.
+
+2002-04-12 22:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: pw_validator_range.php, pw_option.php:
+
+	Documentation plus some minor bugfixes.
+
+2002-04-12 22:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/index.php:
+
+	Two new options were added: cache_timeout and offset. I've also
+	reindented the code.
+
+2002-04-12 22:01  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/pw_option_integer.php:
+
+	New wrapper-type: integers doesn't need to be quoted in
+	defaults.php.
+
+2002-04-12 22:00  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	Added a new option: cache_timeout. This is used to determine when a
+	METAR is old. The default value is 3600 seconds which was the value
+	used in data_retrieval before.
+
+2002-04-12 21:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	New station discovered by Chris Hankinson <chris@lecn.com>
+
+2002-04-12 21:38  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	This is probably less confusing...
+
+2002-04-09 23:21  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, pw_option_text.php, pw_validator.php,
+	pw_validator_ereg.php, pw_validator_range.php:
+
+	Hey - it turned out to be quite easy to validate the input using
+	regular expression in Javascript...
+
+	As far as I understand it, then these regular expressions only work
+	in Javascript version 1.2 and later. But it's actually not that
+	important, as this is simply extra functionality - you can still
+	use a browser like lynx that doesn't do Javascript.
+
+2002-04-07 18:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/reset_session.php:
+
+	Hmm, $_SERVER didn't work either.
+
+2002-04-07 18:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/index.php:
+
+	Ups - $_REQUEST was too new for SourceForge. I've also changed some
+	include() to require_once() since that is what I mean: the script
+	shouldn't run without these files.
+
+2002-04-07 18:38  Martin Geisler  <gimpster@gimpster.com>
+
+	* config/: index.php, pw_dependency.php, pw_dependency_or.php,
+	pw_option.php, pw_option_boolean.php, pw_option_multi_select.php,
+	pw_option_select.php, pw_option_text.php, pw_optiongroup.php,
+	pw_validator.php, pw_validator_ereg.php, pw_validator_range.php,
+	reset_session.php:
+
+	This is a new and improved configurator - a script that can be used
+	to generate a defaults.php file for PHP Weather.
+
+	The new thing is, that the options now depend on each other - you
+	cannot configure the database password if you're using a DBA
+	database, because that kind of database doesn't use a password. The
+	options are also validated so that the default ICAO really is a
+	string of four letters or digits.
+
+	I've dropped the idea about having the script save the
+	configuration.	It only worked when the webserver had
+	write-permission to the directory (which was rare) and it caused
+	some security-problems.
+
+	There's also no code for generating the databases. I think it would
+	be better if we made a separate script for that. Perhaps we should
+	couple this with the code that updates the METARs from cycle-files.
+
+	The classes still lack documentation...
+
+2002-03-29 13:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Cleanups. I'm was looking through the code to document the
+	$decoded_metar array and found a lot of cruft.
+
+2002-03-29 00:38  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text.php:
+
+	new function to help customise it
+
+2002-03-28 21:47  Max Hammond     <max@flipstorm.net>
+
+	* configurator.php:
+
+	Added norwegian
+
+2002-03-28 21:44  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	I think it's easier to follow the flow if we just do this. Also
+	added icon
+
+2002-03-28 21:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	Bad - we should never output anything directly from this method.
+
+2002-03-28 15:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_hu.php:
+
+	There was some blank lines at the bottom of this file. It's
+	important to eliminate such lines now that we send HTTP headers
+	out.
+
+2002-03-28 15:49  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, pw_utilities.php, output/pw_text.php:
+
+	Rewrite to accommodate for the charset header.
+	pw_text::print_pretty() does no longer output anything, instead it
+	returns a string with the output. Perhaps it should be renamed,
+	since 'print' implies that it generates output?
+
+2002-03-28 15:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_hu.php:
+
+	Hmm, we will use ISO-8859-2 instead of this UTF-8 thing, so I'm
+	reverting this to version 1.4.
+
+2002-03-27 21:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Let's try with a real HTTP header instead.
+
+2002-03-27 21:43  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_hu.php:
+
+	Small updates in the comments, but more important: I've tried to
+	save the file as UTF-8 on my system, let's see how this goes...
+
+2002-03-27 21:34  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Fix those alt attributes too.
+
+2002-03-27 21:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Ugh - we're found the XML-with-PHP problem I've heard about, but
+	never thought that I would see. I don't think that we can require
+	people to set 'short_open_tag false' in their configuration files
+	(or .htaccess files for that matter) so we cannot have this line in
+	our files.
+
+2002-03-27 21:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	More updates for XHTML. I'm not sure about that UTF-8 thing. As far
+	as I understand it, then UTF-8 covers both ISO-8859-1 and
+	ISO-8859-2. So if we specify that the charset is UTF-8, then we
+	should be OK?
+
+2002-03-27 20:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	This should be wrapped in a call to debug().
+
+2002-03-27 20:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, pw_utilities.php:
+
+	This should fix most of the problems with XHTML in the pages.
+
+2002-03-27 15:13  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text.php:
+
+	Utility function
+
+2002-03-27 14:47  Max Hammond     <max@flipstorm.net>
+
+	* index.php, pw_utilities.php:
+
+	XHTMLisation
+
+2002-03-27 14:21  Max Hammond     <max@flipstorm.net>
+
+	* icons/: phpweather-black.gif, phpweather-long-black.gif,
+	phpweather-long-white.gif, phpweather-white.gif:
+
+	Updated cloud (again) and new larger icons too
+
+2002-03-27 10:59  Max Hammond     <max@flipstorm.net>
+
+	* INSTALL, README:
+
+	Updated
+
+2002-03-27 10:28  Max Hammond     <max@flipstorm.net>
+
+	* icons/: phpweather-black.gif, phpweather-white.gif:
+
+	New cloud
+
+2002-03-26 23:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text.php:
+
+	The global $charset variable is now updated wheneven a pw_text
+	object is created. The demo-pages will have to be redone, so that
+	the output object can be created before header.php is included.
+
+	I don't know if this is overkill - I cannot see any difference in
+	my browser when I look at the Hungarian translation using
+	ISO-8859-1 and ISO-8859-2. Perhaps we could just send a header that
+	tells people that all pages are written in Unicode? I think Unicode
+	covers both encodings.
+
+2002-03-26 21:50  Max Hammond     <max@flipstorm.net>
+
+	* icons/: phpweather-black.gif, phpweather-white.gif:
+
+	New icons - What do we think?
+
+2002-03-26 20:09  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	Increased font size
+
+2002-03-26 19:52  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* output/pw_text_hu.php:
+
+	Adding the Hungarian translation of word 'windchill'.
+
+2002-03-26 18:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/: pw_db_common.php, pw_db_mysql.php, pw_db_pgsql.php:
+
+	It's now up to the database backend to do it's own quoting on the
+	data it receives in insert_metar() and update_metar(). This is
+	because the backends have different needs: the 'real' databases
+	want quotes quoted whereas the dba backend has to do escape colons.
+
+2002-03-26 18:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	Aha! Some METARs had colons in them, which is the same character I
+	use to separate the METAR from the timestamp. When the data was
+	retrieved later and run through explode, this caused trouble.
+
+2002-03-26 18:44  Max Hammond     <max@flipstorm.net>
+
+	* output/pw_text_no.php:
+
+	Updated norwegian translation, thanks to Sven-Erik
+
+2002-03-26 18:39  Max Hammond     <max@flipstorm.net>
+
+	* test.php, icons/tempchilled.gif, output/pw_images.php:
+
+	Added icon for windchilled temperature, updated test.php to include
+	images
+
+2002-03-26 17:37  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	The reports might be duplicated in the cycle files, and two reports
+	might even have the same timestamp. This should make sure, that the
+	newest report (the one furthest down in the file) overwrites any
+	previous reports.
+
+2002-03-26 16:31  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	Change of heart about the best way to include the style, already :)
+
+2002-03-26 16:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Extra check to ensure consistency in the decoded METAR. The problem
+	was METARs like this one:
+
+	  EGBE 260820Z 0200KT 340V060 CAVOK 06/02 Q1033
+
+	This METAR has a malformed wind-group: '0200KT 340V060', but the
+	last part of it would be parsed correctly. So there would be
+	information about variable wind-direction, but no information about
+	the speed.
+
+2002-03-26 16:26  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	Added inline style to body element, added information about our
+	homepage and NOAA, changed error_reporting to E_ERROR - it throws
+	up a lot of junk that will only be interesting to developers
+
+2002-03-26 00:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	This keeps getting better and better... :-)
+
+2002-03-25 23:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	A flush() here should make the output even better :-)
+
+2002-03-25 23:44  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	This should make the browsers understand, that this is text, and
+	not HTML. It also works from the commandline, at least on my
+	system.
+
+2002-03-25 23:33  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php, db/pw_db_common.php:
+
+	Nicer output. When we run this from a cronjob, we can just redirect
+	it to /dev/null, but it's nice to see how it goes when run by hand.
+
+2002-03-25 23:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	Hmm, typoes in the debug - what's next?
+
+2002-03-25 21:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	Second try on this
+
+2002-03-25 21:19  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	More debug info needed!
+
+2002-03-25 21:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	Stupid error...
+
+2002-03-25 21:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	We need more debug-output...
+
+2002-03-25 20:58  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	It seams that I cannot make the connection to the DBA database.
+
+2002-03-25 20:38  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	Hmm, it seams that there can be garbage in the METAR reports...
+
+2002-03-25 20:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	This was giving errors if there wasn't any data available.
+
+2002-03-25 20:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	Let's try just one more time...
+
+2002-03-25 20:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	I admit it, that my own fault :-)
+
+2002-03-25 20:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	Argh - yet another difference between my system and SourceForge!
+
+2002-03-25 20:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	Ugh! This is kinda ugly - when I run this at SourceForge, then the
+	script isn't included in $argv - when I run this on my machine, the
+	first entry in $argv is the filename the script was invoked as...
+
+	Let's just call this a temporary fix :-)
+
+2002-03-25 19:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_updater.php:
+
+	This little script will update the METAR database with new data.
+	It's meant to be called periodically from a cronjob.
+
+2002-03-25 19:35  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_common.php:
+
+	Hehe - this is kind of cool :-) We can now update the databases
+	with fresh data from cycle files. These files contain all the
+	METARs received in the last 'cycle' at the NWS.
+
+2002-03-25 19:32  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_mysql.php:
+
+	It seams that the Debian guys have decided to include MySQL support
+	as a loadable module for Apache. So I needed these lines to make
+	things work. I've looked at how things are done in phpMyAdmin so I
+	think it will work on Windows too.
+
+2002-03-24 20:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	I removed the entries for people who have translations for the old
+	version. Hint: make a translation for the new version, and I'll add
+	you to the list again :-)
+
+2002-03-24 19:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/pw_text_da.php:
+
+	Updated windchill.
+
+2002-03-24 17:25  Max Hammond     <max@flipstorm.net>
+
+	* phpweather.php, output/pw_text.php, output/pw_text_da.php,
+	output/pw_text_en.php, output/pw_text_hu.php,
+	output/pw_text_no.php:
+
+	Added windchill factor
+
+2002-03-24 16:44  Max Hammond     <max@flipstorm.net>
+
+	* .cvsignore:
+
+	ignore test.php file
+
+2002-03-24 16:43  Max Hammond     <max@flipstorm.net>
+
+	* test.php:
+
+	Might as well get it right *sigh*
+
+2002-03-24 16:40  Max Hammond     <max@flipstorm.net>
+
+	* test.php:
+
+	A file to make testing weather parsing easier and quicker for
+	developers.
+
+2002-03-22 17:54  Max Hammond     <max@flipstorm.net>
+
+	* data_retrieval.php:
+
+	Typo? Was broken, now fixed.
+
+2002-03-20 19:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, configurator.php, data_retrieval.php,
+	db_layer.php, images-test.php, phpweather.php, db/pw_db_common.php,
+	db/pw_db_dba.php, db/pw_db_mysql.php, db/pw_db_null.php,
+	db/pw_db_pgsql.php, output/pw_images.php, output/pw_text.php,
+	output/pw_text_hu.php:
+
+	All files now use require_once() instead of just require() - this
+	means, that there's no need for those 'if defined('...') return
+	...' statements at the top of each file any more.
+
+2002-03-18 18:10  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Cleanups.
+
+2002-03-18 17:32  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/.cvsignore:
+
+	It's these files that should be ignored...
+
+2002-03-18 16:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/pw_db_dba.php:
+
+	Added a suffix on the filenames so it doesn't use the same name at
+	the default null database.
+
+2002-03-18 16:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/.cvsignore:
+
+	These files are created by the dba backend and should be ignored by
+	CVS.
+
+2002-03-18 16:19  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php, output/pw_images.php:
+
+	There has to be a way to specify the path of the icons relative to
+	the document that uses pw_images to display them.
+
+2002-03-18 16:14  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_text.php, pw_text_en.php:
+
+	Let's just wait a little with this table-thing...
+
+2002-03-18 16:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* pw_utilities.php:
+
+	I think people would appreciate these functions.
+
+2002-03-18 13:46  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog, usermap:
+
+	This is a pretty good compromise, I think...
+
+2002-03-17 21:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS:
+
+	Added Gyulai Mihály to the list of authors - about time some would
+	say :-)
+
+2002-03-17 14:52  Max Hammond     <max@flipstorm.net>
+
+	* index.php:
+
+	Correcting path to images output
+
+2002-03-17 14:24  Max Hammond     <max@flipstorm.net>
+
+	* usermap:
+
+	Updated my email address to what I actually use :)
+
+2002-03-17 14:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog, usermap:
+
+	Updated ChangeLog and added iridium to the usermappings.
+
+	By the way, what do people think about having their email-addresses
+	written all over the place without any SPAM-protection?
+
+	I have no problem with this myself, as my email-address is SPAM-
+	protected by a program called TMDA, but it just occurred to me that
+	some of you might have tied to keep your address 'secret' and then
+	I just write it all over the place...
+
+	In short: feel free to edit usermap and AUTHORS if you want the
+	info to be different than what I've made.
+
+2002-03-17 14:06  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	New property for pw_text. I'm not actually sure these properties
+	should be collected here, I think it would be better if they were
+	in right in the class-file.
+
+	I also removed the language property as it isn't used anymore.
+
+2002-03-17 14:03  Martin Geisler  <gimpster@gimpster.com>
+
+	* languages.php:
+
+	Mapping between language-codes and corresponding English names.
+
+2002-03-17 14:02  Martin Geisler  <gimpster@gimpster.com>
+
+	* images-test.php:
+
+	Really nice test-page for pw_images made by Ray van Beek.
+
+2002-03-17 13:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	The images found by pw_images are now also part of the output.
+
+2002-03-17 13:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* output/: pw_images.php, pw_text.php, pw_text_da.php,
+	pw_text_en.php, pw_text_hu.php, pw_text_no.php:
+
+	The new output modules. pw_text does that locale_common did before,
+	and pw_text_xx are the localized version of the class. pw_images is
+	new - it selects suitable images for display with or instead of the
+	textual report.
+
+2002-03-17 13:32  Martin Geisler  <gimpster@gimpster.com>
+
+	* metar_parser.php, phpweather.php:
+
+	The METAR parser is now in class phpweather, so there's no need for
+	the file metar_parser.php.
+
+2002-03-16 13:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	That should have been commited a long time ago...
+
+2002-03-15 13:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* icons/: temp_nodata.gif, wind_nodata.gif:
+
+	We need these files too. Perhaps we should use something else than
+	the text 'No data' - something more international. I think we could
+	use the question-mark for the temperature, but unfortunately that's
+	already used with the wind...
+
+2002-03-15 12:01  Max Hammond     <max@flipstorm.net>
+
+	* data_retrieval.php:
+
+	Oops
+
+2002-03-15 11:37  Max Hammond     <max@flipstorm.net>
+
+	* icons/: 0cloud.gif, 0cloud_fog.gif, 1cloud_fog.gif,
+	1cloud_heavyrain.gif, 1cloud_lightrain.gif, 1cloud_modrain.gif,
+	1cloud_norain.gif, 2cloud_fog.gif, 2cloud_hail.gif,
+	2cloud_heavyrain.gif, 2cloud_lightrain.gif, 2cloud_modrain.gif,
+	2cloud_norain.gif, 2cloud_snow.gif, 2cloud_thunders.gif,
+	3cloud_fog.gif, 3cloud_hail.gif, 3cloud_heavyrain.gif,
+	3cloud_lightrain.gif, 3cloud_modrain.gif, 3cloud_norain.gif,
+	3cloud_snow.gif, 3cloud_thunders.gif, 4cloud_fog.gif,
+	4cloud_heavyhail.gif, 4cloud_heavyrain.gif, 4cloud_heavysnow.gif,
+	4cloud_lighthail.gif, 4cloud_lightrain.gif, 4cloud_lightsnow.gif,
+	4cloud_modrain.gif, 4cloud_norain.gif, 4cloud_thunders.gif,
+	eee.gif, n_0cloud.gif, n_0cloud_fog.gif, n_1cloud_fog.gif,
+	n_1cloud_heavyrain.gif, n_1cloud_lightrain.gif,
+	n_1cloud_modrain.gif, n_1cloud_norain.gif, n_2cloud_fog.gif,
+	n_2cloud_hail.gif, n_2cloud_heavyrain.gif, n_2cloud_lightrain.gif,
+	n_2cloud_modrain.gif, n_2cloud_norain.gif, n_2cloud_snow.gif,
+	n_2cloud_thunders.gif, n_3cloud_fog.gif, n_3cloud_hail.gif,
+	n_3cloud_heavyrain.gif, n_3cloud_lightrain.gif,
+	n_3cloud_modrain.gif, n_3cloud_norain.gif, n_3cloud_snow.gif,
+	n_3cloud_thunders.gif, ne.gif, nee.gif, nne.gif, nnn.gif, nnw.gif,
+	nodir.gif, nw.gif, nww.gif, se.gif, see.gif, sse.gif, sss.gif,
+	ssw.gif, sw.gif, sww.gif, temphigh.gif, templow.gif, vrb.gif,
+	www.gif:
+
+	added icons
+
+2002-03-15 11:22  Max Hammond     <max@flipstorm.net>
+
+	* data_retrieval.php:
+
+	Added set_metar() for testing etc
+
+2002-03-07 09:42  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php:
+
+	Updated for new db-names.
+
+2002-03-07 09:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/: db_common.php, db_dba.php, db_mysql.php, db_null.php,
+	db_pgsql.php, pw_db_common.php, pw_db_dba.php, pw_db_mysql.php,
+	pw_db_null.php, pw_db_pgsql.php:
+
+	Applied patch from Carsten Klapp <carstenklapp@mac.com> - thanks a
+	lot. I also did some reformatting on some of the comments.
+
+2001-12-20 19:11  Max Hammond     <max@flipstorm.net>
+
+	* defaults-dist.php, metar_parser.php:
+
+	Hacking around a bug in PHP function gmmktime
+
+2001-12-19 10:07  Max Hammond     <max@flipstorm.net>
+
+	* metar_parser.php:
+
+	oops. that should not have been committed...
+
+2001-12-19 10:04  Max Hammond     <max@flipstorm.net>
+
+	* metar_parser.php, db/db_pgsql.php:
+
+	Patched to make it work :)
+
+2001-12-19 09:12  Max Hammond     <max@flipstorm.net>
+
+	* data_retrieval.php:
+
+	Forced cache reload
+
+2001-12-18 21:52  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_mysql.php:
+
+	Applied patch from Max Hammond - thanks a lot!
+
+2001-08-19 13:58  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	More fixes... I had a problem with magic_quotes_gpc. If turned on,
+	things like 'font color="red">' would be passed to the script as
+	'<font color=\"red\">' which doesn't work at all.
+
+	I don't know why they invented this whole magic-quotes-thing, but I
+	find it highly annoying. It should be up to the script to escape
+	any quotes it doesn't like.
+
+2001-08-19 13:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	It would be a good idea to translate the special characters into
+	their HTML entities, before we show the new configfile to the
+	user...
+
+	Martijn Moret <martijn@moret.org> made me aware of this - thanks.
+
+2001-08-19 12:46  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	Typo...
+
+2001-08-19 12:46  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Some servers only say '200' instead of '200 OK' when they're about
+	to send the document.
+
+2001-07-31 18:52  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* configurator.php, data_retrieval.php:
+
+	Minor comment modifications.
+
+2001-07-17 12:27  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Nothing to worry about...
+
+2001-07-17 12:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	Added a description of the verbosity variable.
+
+2001-07-17 12:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	This makes sure that we start out with a reasonable verbosity.
+	Setting it to 1, makes sure that it only prints errors.
+
+2001-07-17 12:12  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php:
+
+	We now have three functions for reporting errors, warnings, and
+	debug-information. They all accept a message (mandatory argument)
+	and optionally a filename and a linenumber.
+
+	Whether or not the functions make any output, is controlled by
+	$this->verbosity.
+
+2001-07-17 12:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_mysql.php:
+
+	It now throws an error with an explanation of went wrong, if
+	anything goes wrong - that made sense, didn't it? :-)
+
+2001-07-14 21:47  Martin Geisler  <gimpster@gimpster.com>
+
+	* metar_parser.php:
+
+	Instead of storing the different groups (cloud, weather, wind) like
+	group1, group2 etc, they're now stored as group[0], group[1] etc.
+	This makes it easier to pass them around.
+
+2001-07-13 18:02  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* phpweather.php:
+
+	langauge -> language ! Fortunately only in the comments...
+
+2001-07-13 09:21  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_dba.php:
+
+	Updated documentaion a bit
+
+2001-07-13 09:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* usermap:
+
+	This file is used when generating the ChangeLog.
+
+2001-07-13 09:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	It's actually possible to add a @link tag to the doc-comment.
+
+2001-07-13 09:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	Added a header. I think I'll move the configurator.php to it's own
+	directory, and then split the file up into several smaller files so
+	tha PHPDoc can undertand what's going on...
+
+2001-07-12 20:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: .cvsignore, base_object.html, data_retrieval.html,
+	db_common.html, db_dba.html, db_layer.html, db_mysql.html,
+	db_null.html, db_pgsql.html, empty.html, frame_packagelist.html,
+	index.html, locale_common.html, locale_en.html, metar_parser.html,
+	packageelementlist_PHP_Weather.html, phpdoc.css, phpdoc.dtd,
+	phpdoc_classtree.html, phpdoc_elementlist.html,
+	phpdoc_packagelist.html, phpdoc_xmlfiles.html, phpweather.html:
+
+	The documentation has been moved to PHPWEATHER_BASE_DIR/docs.
+
+2001-07-09 20:31  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* metar_parser.php:
+
+	Rearranging comments and rounding numbers max. up to 5-6 digits.
+
+2001-07-09 19:30  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* stations.csv:
+
+	Name correction for 'Jose Marti'.
+
+2001-07-09 19:09  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* db/files/stations.db:
+
+	Name correction for 'Jose Marti'.
+
+2001-07-09 19:06  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* db/files/CU.php:
+
+	Name-correction.
+
+2001-07-08 21:28  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_mysql.php:
+
+	That shouldn't be there...
+
+2001-07-08 21:27  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_dba.php:
+
+	Ups - updated docs.
+
+2001-07-08 21:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	That's not needed anymore.
+
+2001-07-08 19:50  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* phpweather.php:
+
+
+	Rearranging comments.
+
+2001-07-08 19:43  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* INSTALL:
+
+
+	It's a bit confusing about using 'demo.php'(older version) or
+	'index.php' (newer version). I changed it to 'index.php' as this
+	INSTALL is used in the new version.
+
+	Please choose which one you want to use, Martin! Maybe 'index.php'
+	would be better in the older version, too (1.56).
+
+	I removed the lines regarding to 'Aalborg, Denmark' and 'Honolulu,
+	Hawaii', as they're not shown in the new version.
+
+2001-07-08 19:25  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* db_layer.php:
+
+
+	Rearranging comments.
+
+2001-07-08 19:21  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* data_retrieval.php:
+
+
+	Rearranging comments, removing typos...
+
+2001-07-08 18:57  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* base_object.php:
+
+
+	Rearranging comments, correcting typos...
+
+2001-07-08 18:47  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* README:
+
+
+	Rearranging comments, correcting typos...
+
+2001-07-08 18:04  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* stations.csv:
+
+
+	Liverpool -> Liverpool / John Lennon (it was published in the news,
+	maybe it's not official yet)
+
+2001-07-08 17:26  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* db/files/GB.php:
+
+
+	I modified the 'Liverpool Airport' to 'Liverpool / John Lennon
+	Airport' as they changed its name.
+
+2001-07-08 17:09  Mihaly Gyulai   gyulai.freeyellow.com/
+
+	* configurator.php, index.php:
+
+	[no log message]
+
+2001-07-08 16:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* README-CVS:
+
+	The diff says it all...
+
+2001-07-08 15:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	A slight update.
+
+2001-07-05 16:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	I just updated the ChangeLog.
+
+2001-07-05 16:05  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, data_retrieval.php, db_layer.php,
+	metar_parser.php, phpweather.php:
+
+	Let's not forget these files too...
+
+2001-07-05 16:03  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/: db_common.php, db_dba.php, db_mysql.php, db_null.php,
+	db_pgsql.php:
+
+	These files should also be a little more compatible with PHP3 now.
+
+2001-07-05 15:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	I think it's best if we name the version like this. 1.9.6 is
+	actually a lower version-number than 1.96...
+
+2001-06-30 19:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	It's now much easier to select countries, stations, and languages
+	on the page.
+
+2001-06-30 19:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Added support for Danish. We'll have to figure out a way so that
+	this can be done automatically.
+
+2001-06-30 19:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/db_dba.php:
+
+	Slight doc change.
+
+2001-06-29 11:51  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, phpweather.php:
+
+	It should now be possible to get a list of languages automatically.
+	 The translation of language codes to language names is done via
+	PHPWEATHER_BASE_DIR/locales/languages.php.
+
+	You use the function get_languages() to retrieve the list of
+	languages.
+
+2001-06-29 09:43  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	It's nice to be able to see the METAR in question...
+
+2001-06-29 09:42  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php, data_retrieval.php, defaults-dist.php:
+
+	This adds support for proxy servers.
+
+2001-06-28 11:44  Martin Geisler  <gimpster@gimpster.com>
+
+	* metar_parser.php:
+
+	I've updated the code that produces the weather-string, so that
+	it's more correct now. It probably still needs some testing.
+
+2001-06-27 15:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	I think it's better to write it this way...
+
+2001-06-27 14:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Update before we make a snapshot.
+
+2001-06-27 14:41  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	I think it's time to increment the version number a little...
+
+2001-06-27 11:36  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_en.php:
+
+	It has been moved to PHPWEATHER_BASE_DIR/locales.
+
+2001-06-27 11:35  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: base_object.html, data_retrieval.html, db_common.html,
+	db_dba.html, db_layer.html, db_mysql.html, db_null.html,
+	db_pgsql.html, frame_packagelist.html, locale_common.html,
+	locale_en.html, metar_parser.html,
+	packageelementlist_PHP_Weather.html, phpdoc_classtree.html,
+	phpdoc_elementlist.html, phpdoc_packagelist.html,
+	phpdoc_xmlfiles.html, phpweather.html:
+
+	Doc update...
+
+2001-06-27 11:32  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	Because of the special demands of db_null, we now insert all the
+	stations in one operation by calling $this->db->insert_stations().
+
+2001-06-27 11:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Various updates to ensure that it works with the new features.
+
+2001-06-27 11:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	base_object.php now contains the version-number, so it should be
+	run through sed.
+
+2001-06-27 11:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_common.php:
+
+	locale_common.php has been moved to PHPWEATHER_BASE_DIR/locales.
+
+2001-06-27 11:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	Now that all database-related files are stored under
+	PHPWEATHER_BASE_DIR/db/files, there's no need for 'db_path'.
+
+2001-06-27 11:23  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	phpweather.php is now used to define the constant
+	PHPWEATHER_BASE_DIR.  So there's no need to set this constant
+	manually.
+
+2001-06-27 11:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	We need to know the country-code for each country. The info in now
+	added infront of the name of each country.
+
+2001-06-27 11:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php:
+
+	All the different database backends are now stored in
+	PHPWEATHER_BASE_DIR/db.
+
+2001-06-27 11:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Ups, typo.
+
+2001-06-27 11:19  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php:
+
+	The version should be store here.
+
+2001-06-27 11:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/files/: AE.php, AG.php, AL.php, AM.php, AN.php, AO.php,
+	AQ.php, AR.php, AT.php, AU.php, AW.php, AZ.php, BB.php, BD.php,
+	BE.php, BG.php, BH.php, BI.php, BJ.php, BM.php, BN.php, BO.php,
+	BR.php, BS.php, BW.php, BY.php, BZ.php, CA.php, CF.php, CG.php,
+	CH.php, CI.php, CK.php, CL.php, CM.php, CN.php, CO.php, CR.php,
+	CU.php, CV.php, CX.php, CY.php, CZ.php, DE.php, DJ.php, DK.php,
+	DM.php, DO.php, DZ.php, EC.php, EG.php, ES.php, ET.php, FI.php,
+	FJ.php, FM.php, FR.php, GA.php, GB.php, GD.php, GE.php, GF.php,
+	GH.php, GI.php, GL.php, GM.php, GN.php, GP.php, GR.php, GT.php,
+	GW.php, GY.php, HK.php, HN.php, HR.php, HT.php, HU.php, ID.php,
+	IE.php, IL.php, IN.php, IO.php, IR.php, IS.php, IT.php, JM.php,
+	JO.php, JP.php, KE.php, KH.php, KI.php, KM.php, KN.php, KP.php,
+	KR.php, KW.php, KY.php, KZ.php, LA.php, LB.php, LC.php, LK.php,
+	LT.php, LU.php, LY.php, MA.php, MG.php, MH.php, MK.php, ML.php,
+	MM.php, MO.php, MQ.php, MR.php, MT.php, MU.php, MV.php, MW.php,
+	MX.php, MY.php, MZ.php, NC.php, NE.php, NI.php, NL.php, NO.php,
+	NP.php, NR.php, NZ.php, OM.php, PA.php, PE.php, PF.php, PH.php,
+	PK.php, PL.php, PR.php, PT.php, PW.php, PY.php, QA.php, RE.php,
+	RO.php, RU.php, RW.php, SA.php, SB.php, SC.php, SD.php, SE.php,
+	SG.php, SH.php, SI.php, SK.php, SL.php, SN.php, SO.php, SR.php,
+	ST.php, SV.php, SY.php, SZ.php, TD.php, TG.php, TH.php, TJ.php,
+	TN.php, TO.php, TR.php, TT.php, TV.php, TW.php, TZ.php, UA.php,
+	UG.php, UM.php, US.php, UY.php, UZ.php, VC.php, VE.php, VG.php,
+	VI.php, VN.php, VU.php, WS.php, YE.php, YU.php, ZA.php, ZM.php,
+	ZW.php, countries.php, stations.db:
+
+	These files are needed for db_null to operate. They should be
+	included in the tarball the users download, so that PHP Weather is
+	functional from the very beginning.
+
+2001-06-27 11:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* db/: db_common.php, db_dba.php, db_mysql.php, db_null.php,
+	db_pgsql.php:
+
+	These files have been updated, so that they work with the new
+	features, like get_countries() etc.
+
+2001-06-27 11:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_common.php, db_dba.php, db_mysql.php, db_null.php,
+	db_pgsql.php:
+
+	I'm moving these files to PHPWEATHER_BASE_DIR/db instead.
+
+2001-05-21 10:43  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, data_retrieval.php, db_dba.php, db_mysql.php,
+	index.php:
+
+	There's now a fine station-selector on the page. So far, it only
+	works with the MySQL database (and perhaps with PostgreSQL, if
+	anybody adds support).
+
+2001-05-20 13:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php, data_retrieval.php, db_dba.php, db_mysql.php,
+	db_null.php, defaults-dist.php, index.php, metar_parser.php,
+	stations.csv:
+
+	The reports now include the location... just use get_location() to
+	retrieve it.
+
+	This means that what was know as a 'station' before is now known as
+	'icao'. So the functions have been renamed - I hope I haven't
+	forgotten something.
+
+2001-05-19 16:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* ChangeLog:
+
+	Hey - I've generated a ChangeLog...
+
+2001-05-19 16:24  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	I've removed some of the properties, so that the defaults kick-in
+	instead.
+
+2001-05-19 16:22  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	The configurator can now also be used to generate the necessary
+	databases/tables! After that's done, it will load the
+	stations-table with data.
+
+2001-05-19 16:20  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	Table-names can't contain periods (.), so I've renamed the default
+	table-names. So now the files used by the dba backend are just
+	called 'metars' and 'stations' per default.
+
+2001-05-19 16:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_dba.php, db_mysql.php:
+
+	These two database-backends can now be configured with the
+	configurator.
+
+2001-05-19 16:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php:
+
+	Now it only included 'defaults-dist.php' once.
+
+2001-05-19 16:15  Martin Geisler  <gimpster@gimpster.com>
+
+	* stations.csv:
+
+	This file holds information about 2928 stations from 192 countries!
+	The list was carefully compiled by Sven-Erik Andersen
+	<sven_erik@andersen.as> - thanks a lot!
+
+2001-05-19 10:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* .cvsignore:
+
+	Sshh! (ignore defaults.php)
+
+2001-05-19 10:16  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	The objects are working!
+
+2001-05-19 09:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	Getting ready for the OO-approach :-)
+
+2001-05-18 15:35  Martin Geisler  <gimpster@gimpster.com>
+
+	* configurator.php:
+
+	This is kind of cool!
+
+	I've made a script that will generate a config-file, based on the
+	input from the user. The code is still rather rough, but it seams
+	to be working. I should use more functions etc...
+
+	Right now, it only generates the configuration. There's also some
+	code in it, that can generate the necessary tables in the database,
+	and populate it with data about the stations. This code should
+	probably be moved into the individual db-files.
+
+	The output is also rather sparse - if someone wants to spice it up,
+	then please do so!
+
+2001-05-18 15:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php:
+
+	Just a small doc-change.
+
+2001-05-18 15:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* .cvsignore:
+
+	Let's ignore the backups.
+
+2001-04-29 18:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	Max Hammond <max@flipstorm.net> suggested that I should use
+	ereg_replace() instead of str_replace, so that we also catches
+	triple-spaces etc.
+
+2001-04-27 19:14  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Lets start with a non-existing ICAO...
+
+2001-04-27 19:14  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_dba.php:
+
+	Ups, we have to return true here - if we don't the other function
+	will think that we couldn't connect to the database.
+
+2001-04-27 19:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/.cvsignore:
+
+	We don't need all those .xml-files.
+
+2001-04-27 19:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: class_base_object.xml, class_data_retrieval.xml,
+	class_db_common.xml, class_db_dba.xml, class_db_layer.xml,
+	class_db_mysql.xml, class_db_null.xml, class_db_pgsql.xml,
+	class_locale_common.xml, class_locale_en.xml,
+	class_metar_parser.xml, class_phpweather.xml,
+	classtree_base_object.xml, elementlist.xml, packagelist.xml:
+
+	I don't want these files to be here... They're regenerated every
+	time I run PHPDoc, so there's no need for them. It's the HTML-files
+	that are important for the documentation.
+
+2001-04-27 19:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_common.php:
+
+	These lines were in the wrong order...
+
+2001-04-27 19:07  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php:
+
+	This is more informative.
+
+2001-04-27 19:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_en.php:
+
+	Added a string for the case, when there's no data available,
+	courtesy of Max Hammond <max@flipstorm.net>.
+
+2001-04-26 15:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION, defaults-dist.php:
+
+	I've incresed the version-number a tad now that it can be used from
+	other directories...
+
+2001-04-26 13:11  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, data_retrieval.php, db_common.php, db_dba.php,
+	db_layer.php, db_mysql.php, db_null.php, db_pgsql.php, index.php,
+	locale_en.php, metar_parser.php, phpweather.php:
+
+	It should now be possible to run PHP Weather from another directory
+	than the directory with 'defaults-dist.php'. To do this, you'll
+	have to set the constant PHPWEATHER_BASE_DIR to the full path to
+	the base directory.
+
+	The best way to do this is something like this:
+
+	define('PHPWEATHER_BASE_DIR', gcwd() . '/phpweather');
+
+	Note: PHPWEATHER_BASE_DIR should not end with a slash. I haven't
+	tested this under Windows, but we'll have to find a way to convert
+	the slashed to back-slashes.
+
+2001-04-22 19:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php:
+
+	Removed an empty line?
+
+2001-04-22 19:53  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	Added a description of how the file is used.
+
+2001-04-18 20:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	There's no need to include .cvsignore in the tarball...
+
+2001-04-16 17:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	The script itself shouldn't be part of a release...
+
+2001-04-16 17:39  Martin Geisler  <gimpster@gimpster.com>
+
+	* make-release.sh:
+
+	A nice little script that takes care of building tarballs.
+
+2001-04-16 15:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION, base_object.php, data_retrieval.php, db_common.php,
+	db_dba.php, db_layer.php, index.php, locale_common.php,
+	locale_en.php, metar_parser.php, phpweather.php:
+
+	All the defaults that were scattered around in the files have been
+	moved to defaults-dist.php.
+
+	I think that's the most important change :-)
+
+2001-04-16 15:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: base_object.html, class_base_object.xml,
+	class_data_retrieval.xml, class_db_common.xml, class_db_dba.xml,
+	class_db_layer.xml, class_db_mysql.xml, class_db_none.xml,
+	class_db_null.xml, class_db_pgsql.xml, class_locale_common.xml,
+	class_locale_en.xml, class_metar_parser.xml, class_phpweather.xml,
+	classtree_base_object.xml, data_retrieval.html, db_common.html,
+	db_dba.html, db_layer.html, db_mysql.html, db_none.html,
+	db_null.html, db_pgsql.html, elementlist.xml, locale_common.html,
+	locale_en.html, metar_parser.html,
+	packageelementlist_PHP_Weather.html, packagelist.xml,
+	phpdoc_classtree.html, phpdoc_elementlist.html,
+	phpdoc_packagelist.html, phpdoc_xmlfiles.html, phpweather.html:
+
+	Updated documentation a bit... Also removed the 'none' database
+	type and added the 'null' type instead.
+
+2001-04-16 14:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* defaults-dist.php:
+
+	This file holds all the defaults. They are overridden by the those
+	in defaults.php, if such a file exists.
+
+2001-04-16 14:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* .cvsignore:
+
+	These files should be ignored...
+
+2001-04-08 09:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	The file now pretty-prints the METARs from 11 airports around the
+	world. This makes it easier to spot missing strings, etc.
+
+2001-04-08 09:58  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_dba.php:
+
+	Nothing to worry about :-)
+
+2001-04-08 09:58  Martin Geisler  <gimpster@gimpster.com>
+
+	* metar_parser.php:
+
+	I just changed a comment slightly.
+
+2001-04-08 09:57  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_common.php, locale_en.php:
+
+	Fixed the CAVOK-case.
+
+2001-04-06 15:03  Martin Geisler  <gimpster@gimpster.com>
+
+	* INSTALL:
+
+	Added information about how to create the tables in MySQL and
+	PostgreSQL.
+
+2001-04-06 15:03  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	The neutral database is now called 'null' instead of 'none'.
+
+2001-04-05 19:17  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_none.php, db_null.php:
+
+	I've changed the name from 'none' to 'null' as this is really a
+	null-database. (Just like it's called /dev/null and not /dev/none)
+
+2001-04-05 15:30  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_common.php, db_pgsql.php, phpweather.php:
+
+	I don't like all those <tab>s...
+
+2001-04-02 19:50  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: class_db_dba.xml, db_dba.html:
+
+	More doc updates...
+
+2001-04-02 19:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: class_data_retrieval.xml, class_db_common.xml,
+	class_db_dba.xml, class_db_layer.xml, class_db_mysql.xml,
+	class_db_none.xml, class_db_pgsql.xml, class_locale_common.xml,
+	class_locale_en.xml, class_metar_parser.xml, class_phpweather.xml,
+	classtree_base_object.xml, data_retrieval.html, db_common.html,
+	db_dba.html, db_layer.html, db_mysql.html, db_none.html,
+	db_pgsql.html, elementlist.xml, locale_common.html, locale_en.html,
+	metar_parser.html, packageelementlist_PHP_Weather.html,
+	packagelist.xml, phpdoc_classtree.html, phpdoc_elementlist.html,
+	phpdoc_packagelist.html, phpdoc_xmlfiles.html, phpweather.html:
+
+	Doc update...
+
+2001-04-02 19:34  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, db_mysql.php, db_none.php, db_pgsql.php,
+	index.php, locale_common.php, locale_en.php:
+
+	The timestamp is now given to the database object as a regular UNIX
+	timestamp. Also, this fixes some issues with the runway-parsing.
+
+2001-04-02 19:32  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php:
+
+	Added the DBA database object to the list of available database
+	types.
+
+2001-04-02 19:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_dba.php:
+
+	This is a database object that talks to Berkeley DB style databases
+	through the abstraction layer functions in PHP.
+
+	The most important options that this object is dependent on is:
+	'db_path' The path to the database.  'db_handler' The handler -
+	could be 'gdbm'
+
+2001-04-02 19:26  Martin Geisler  <gimpster@gimpster.com>
+
+	* VERSION:
+
+	This file holds the current version number. The README file
+	contains the string #VERSION#, which should be replaced by the
+	contents of this file, when we make a release.
+
+2001-04-02 15:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_none.php:
+
+	I've removed all methods but the three essential ones: get_metar(),
+	insert_metar() and update_metar(). These are the only functions
+	that other classes should expect to be present in a database
+	object.
+
+2001-03-30 13:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* README, db_none.php, locale_en.php, metar_parser.php:
+
+	Changed some tabs to whitespace. Also introduces #VERSION# and
+	#DATE# in the README-file. These strings are substituted, when we
+	make a new release.
+
+2001-03-28 13:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_common.php, db_mysql.php:
+
+	I just removed some tabs...
+
+2001-03-26 20:25  Martin Geisler  <gimpster@gimpster.com>
+
+	* phpweather.php, doc/base_object.html, doc/class_base_object.xml,
+	doc/class_db_none.xml, doc/class_locale_common.xml,
+	doc/db_none.html, doc/locale_common.html:
+
+	Ha-ha!! It works now! When I regenerate the docs, then I don't have
+	to commit all the files to CVS, only those who is actually changed.
+
+	It works because I've turned off keyword-substitution on the docs,
+	and then run the Apache as myself.
+
+2001-03-26 20:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* base_object.php, db_none.php, locale_common.php:
+
+	Even more doc-changes.
+
+2001-03-26 20:13  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: class_locale_common.xml, locale_common.html:
+
+	Just some more documentation-fixes.
+
+2001-03-26 19:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* doc/: base_object.html, class_base_object.xml,
+	class_data_retrieval.xml, class_db_common.xml, class_db_layer.xml,
+	class_db_mysql.xml, class_db_none.xml, class_db_pgsql.xml,
+	class_locale_common.xml, class_locale_en.xml,
+	class_metar_parser.xml, class_phpweather.xml, data_retrieval.html,
+	db_common.html, db_layer.html, db_mysql.html, db_none.html,
+	db_pgsql.html, elementlist.xml, locale_common.html, locale_en.html,
+	metar_parser.html, phpdoc_elementlist.html, phpweather.html:
+
+	Just some whitespace changes in the documentation.
+
+2001-03-25 08:48  Martin Geisler  <gimpster@gimpster.com>
+
+	* README-CVS, db_layer.php:
+
+	Just some more documentation-changes - nothing to see here.
+
+2001-03-25 08:29  Martin Geisler  <gimpster@gimpster.com>
+
+	* db_layer.php:
+
+	This comment is written in Emacs - this makes it easy to do
+	word-wrapping, etc. The buffer was started with emacsclient, so it
+	used my existing Emacs.
+
+2001-03-25 08:18  Martin Geisler  <gimpster@gimpster.com>
+
+	* INSTALL:
+
+	Just changed some more links so they point at
+	phpweather.sourceforge.net instead of gimpster.com. This is also a
+	test, to see how really long lines are handled in commit-mails.
+
+2001-03-24 20:27  Martin Geisler  <gimpster@gimpster.com>
+
+	* INSTALL, base_object.php:
+
+	Misc documentation updates
+
+2001-03-24 18:56  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	Updated some links so they point to Sourceforge. This is also the
+	first commit that should trigger a mail to the commits-list :-)
+
+2001-03-24 16:40  Martin Geisler  <gimpster@gimpster.com>
+
+	* data_retrieval.php, doc/base_object.html,
+	doc/class_base_object.xml, doc/class_data_retrieval.xml,
+	doc/class_db_common.xml, doc/class_db_layer.xml,
+	doc/class_db_mysql.xml, doc/class_db_none.xml,
+	doc/class_db_pgsql.xml, doc/class_locale_common.xml,
+	doc/class_locale_en.xml, doc/class_metar_parser.xml,
+	doc/class_phpweather.xml, doc/classtree_base_object.xml,
+	doc/data_retrieval.html, doc/db_common.html, doc/db_layer.html,
+	doc/db_mysql.html, doc/db_none.html, doc/db_pgsql.html,
+	doc/elementlist.xml, doc/empty.html, doc/frame_packagelist.html,
+	doc/index.html, doc/locale_common.html, doc/locale_en.html,
+	doc/metar_parser.html, doc/packageelementlist_PHP_Weather.html,
+	doc/packagelist.xml, doc/phpdoc.css, doc/phpdoc.dtd,
+	doc/phpdoc_classtree.html, doc/phpdoc_elementlist.html,
+	doc/phpdoc_packagelist.html, doc/phpdoc_xmlfiles.html,
+	doc/phpweather.html:
+
+	Updated the documentation a bit.
+
+2001-03-24 15:59  Martin Geisler  <gimpster@gimpster.com>
+
+	* locale_common.php:
+
+	Clear sky is reported as both SKC or CLR and not just CLR.
+
+2001-03-24 15:48  Martin Geisler  <gimpster@gimpster.com>
+
+	* AUTHORS, COPYING, INSTALL, README-CVS:
+
+	Some files that ought to be there...
+
+2001-03-24 15:47  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	The previous README is now called README-CVS - this README should
+	follow PHP Weather in tarballs etc.
+
+2001-03-23 16:19  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	More fun with CVS.
+
+2001-03-23 16:14  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	A little more text.
+
+2001-03-23 15:55  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	Just made a chage with Emacs.
+
+2001-03-23 15:49  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	Just playing...
+
+2001-03-23 15:47  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	More fun with CVS
+
+2001-03-23 15:45  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	Added header
+
+2001-03-23 14:31  Martin Geisler  <gimpster@gimpster.com>
+
+	* README:
+
+	The README-file.
+
+2001-03-22 18:09  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php:
+
+	Added <title>-tag.
+
+2001-03-22 18:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, ChangeLog, base_object.php, db_layer.php,
+	db_mysql.php, db_none.php, db_common.php, db_pgsql.php,
+	locale_en.php, phpweather.php, metar_parser.php,
+	data_retrieval.php, locale_common.php, doc/class_db_common.xml,
+	doc/class_db_mysql.xml, doc/class_db_none.xml,
+	doc/class_db_pgsql.xml, doc/class_metar_parser.xml,
+	doc/class_phpweather.xml, doc/class_data_retrieval.xml,
+	doc/class_db_layer.xml, doc/class_locale_en.xml,
+	doc/class_base_object.xml, doc/class_locale_common.xml,
+	doc/classtree_base_object.xml, doc/packagelist.xml,
+	doc/elementlist.xml, doc/frame_packagelist.html,
+	doc/phpdoc_elementlist.html, doc/phpdoc_packagelist.html,
+	doc/packageelementlist_PHP_Weather.html, doc/db_none.html,
+	doc/db_mysql.html, doc/db_common.html, doc/db_pgsql.html,
+	doc/phpweather.html, doc/data_retrieval.html,
+	doc/metar_parser.html, doc/db_layer.html, doc/locale_en.html,
+	doc/locale_common.html, doc/base_object.html,
+	doc/phpdoc_classtree.html, doc/phpdoc_xmlfiles.html:
+
+	First checkin...
+
+2001-03-22 18:04  Martin Geisler  <gimpster@gimpster.com>
+
+	* index.php, ChangeLog, base_object.php, db_layer.php,
+	db_mysql.php, db_none.php, db_common.php, db_pgsql.php,
+	locale_en.php, phpweather.php, metar_parser.php,
+	data_retrieval.php, locale_common.php, doc/class_db_common.xml,
+	doc/class_db_mysql.xml, doc/class_db_none.xml,
+	doc/class_db_pgsql.xml, doc/class_metar_parser.xml,
+	doc/class_phpweather.xml, doc/class_data_retrieval.xml,
+	doc/class_db_layer.xml, doc/class_locale_en.xml,
+	doc/class_base_object.xml, doc/class_locale_common.xml,
+	doc/classtree_base_object.xml, doc/packagelist.xml,
+	doc/elementlist.xml, doc/frame_packagelist.html,
+	doc/phpdoc_elementlist.html, doc/phpdoc_packagelist.html,
+	doc/packageelementlist_PHP_Weather.html, doc/db_none.html,
+	doc/db_mysql.html, doc/db_common.html, doc/db_pgsql.html,
+	doc/phpweather.html, doc/data_retrieval.html,
+	doc/metar_parser.html, doc/db_layer.html, doc/locale_en.html,
+	doc/locale_common.html, doc/base_object.html,
+	doc/phpdoc_classtree.html, doc/phpdoc_xmlfiles.html:
+
+	Initial revision
+

@@ -1,0 +1,81 @@
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+													?>
+					<tr>
+        					<td class="formresults">
+      						&nbsp;
+							<?=$objfields["equipment_name"];?>
+							</td>							
+      					<td class="formresults">
+      						&nbsp;
+							<?=$objfields["condition_name"];?>
+							</td>
+    					<td height="28" class="formresults">
+      						&nbsp;
+							<? 
+							$tmpfacility 	= $objfields["condition_facility_cb_int"];
+							part139333facilitycombobox($tmpfacility, "all", "notused", "hide", "all");
+							$tmpvalue 		= (string) $tmpid;
+							$tmpa 			= $tmpvalue."za";
+							$tmpd			= $tmpvalue."zd";														// Does a discrepancy Exist?
+							
+							$tmpe			= $tmpvalue."ze";														// Value in Field
+							$tmpee 			= $tmpvalue."zee";
+							$tmpeee 		= $tmpvalue."zeee";
+							?>
+							</td>
+						<td class="formresults" align="center" valign="middle">
+							<?
+							switch ($objfields['condition_facility_cb_int']) {
+									case 1:
+											?>
+      						I: <input class="commonfieldbox" type="text" ID="<?=$tmpe;?>" 		name="<?=$tmpe;?>" 		size="3" > 
+							S: <input class="commonfieldbox" type="text" ID="<?=$tmpee;?>" 		name="<?=$tmpee;?>" 	size="3" value="<?=$objfields['inventory_espec_yloc'];?>" >
+							C: <input class="commonfieldbox" type="text" ID="<?=$tmpeee;?>" 	name="<?=$tmpeee;?>" 	size="3" > 
+											<?
+											break;
+									case 2:
+										gs_conditions("all", "no", $tmpe, "show", 5);
+											break;
+									case 2:
+										gs_conditions("all", "no", $tmpe, "show", 5);
+											break;
+									case 3:
+										gs_conditions("all", "no", $tmpe, "show", 5);
+											break;
+									case 4:
+										gs_conditions("all", "no", $tmpe, "show", 5);
+											break;
+									case 5:
+											?>
+      						I: <input class="commonfieldbox" type="text" ID="<?=$tmpe;?>" 		name="<?=$tmpe;?>" 		size="3" > 
+							S: <input class="commonfieldbox" type="text" ID="<?=$tmpee;?>" 		name="<?=$tmpee;?>" 	size="3" value="<?=$objfields['inventory_espec_xloc'];?>" >
+							C: <input class="commonfieldbox" type="text" ID="<?=$tmpeee;?>" 	name="<?=$tmpeee;?>" 	size="3" > 
+											<?
+											break;
+									}
+									?>
+							</td>
+						<td class="formresults" align="center" valign="middle">
+      						<input class="commonfieldbox" type="checkbox" ID="<?=$tmpd;?>" name="<?=$tmpd;?>" size="1" value="1">
+							</td>
+						</tr>
+												<?

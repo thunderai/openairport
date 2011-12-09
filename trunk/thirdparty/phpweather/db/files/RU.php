@@ -1,0 +1,56 @@
+<?php
+/* File with stationnames in Russian Federation */
+
+$country = 'Russian Federation';
+
+$icaos   = array(
+  'URSS' => 'Adler',
+  'UHMA' => 'Anadyr',
+  'ULAA' => 'Arhangel\'Sk',
+  'UNBB' => 'Barnaul',
+  'UIKB' => 'Bodajbo',
+  'UUBP' => 'Brjansk',
+  'UHMD' => 'Buhta Providenja',
+  'UIAA' => 'Chita',
+  'UELL' => 'Cul\'Man',
+  'USSS' => 'Ekaterinburg',
+  'UHBP' => 'Ekimchan',
+  'URWI' => 'Elista',
+  'UNII' => 'Enisejsk',
+  'UHHH' => 'Habarovsk',
+  'USHH' => 'Hanty-Mansijsk',
+  'UIUH' => 'Horinsk',
+  'UIII' => 'Irkutsk',
+  'UEEE' => 'Jakutsk',
+  'UHSS' => 'Juzhno-Sahalinsk',
+  'UIKK' => 'Kirensk',
+  'ULAK' => 'Kotlas',
+  'URKK' => 'Krasnodar',
+  'UHMM' => 'Magadan',
+  'URMM' => 'Mineral\'Nye Vody',
+  'UUEE' => 'Moscow / Sheremet\'Ye',
+  'UUWW' => 'Moscow / Vnukovo',
+  'ULMM' => 'Murmansk',
+  'UINN' => 'Nizhneudinsk',
+  'UNNN' => 'Novosibirsk',
+  'UWPP' => 'Penza',
+  'UHPP' => 'Petropavlovsk-Kamchatskij',
+  'URRR' => 'Rostov-Na-Donu',
+  'UWWW' => 'Samara',
+  'ULLI' => 'St. Peterburg',
+  'USRR' => 'Surgut',
+  'UUYY' => 'Syktyvkar',
+  'ULWT' => 'Tot\'Ma',
+  'UHHO' => 'Troickoe',
+  'UUEM' => 'Tver',
+  'UIUU' => 'Ulan-Ude',
+  'UUYT' => 'Ust\', Kulom',
+  'UIIO' => 'Ust\'Ordynskij',
+  'ULOL' => 'Velikie Luki',
+  'UHWW' => 'Vladivostok',
+  'URWW' => 'Volgograd',
+  'ULWW' => 'Vologda',
+  'UUOO' => 'Voronez'
+);
+
+?>

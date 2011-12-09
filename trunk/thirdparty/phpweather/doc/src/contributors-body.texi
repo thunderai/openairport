@@ -1,0 +1,191 @@
+
+@noindent
+Everybody listed below has helped in some way with the creation of PHP
+Weather.  If, by some mistake, your name isn't listed below, then send
+a mail to Martin Geisler @email{gimpster@@gimpster.com} so that proper
+credit can given.  Please include your SourceForge login, if any, and
+an URL if you like.
+
+@table @asis
+       
+@item Kristian Kristensen (kkrz)
+
+He made the interface to PostgreSQL.
+
+@item Jeremy D. Zawodny
+
+He wrote @code{Geo::METAR}, which is a Perl module which can do some
+of the things PHP Weather now does. @code{Geo::METAR} can be found
+here: @uref{http://www.wcnet.org/jzawodn/perl/Geo-METAR/index.html}.
+
+@item Enrico Lodolo
+
+For suggesting that I use http to get the METARs instead of the much
+slower ftp.
+
+@item Stefan Wiesendanger
+
+For rewritting some large @code{case}- and @code{switch}-statements as
+a couple of arrays. This speeds-up the parsing of the METARs.
+
+@item Mike
+
+He noticed that the pressures was all wrong. I though the unit used in
+the METAR was hPa, when it really was inHg.
+
+@item Jeffrey Y. Sue
+
+Suggested that I told people how to turn off the warnings, if you
+don't establish a connection to MySQL.
+
+Later he made it possible to use PHP Weather with DBM databases. He
+also added support for precipitation. Lots of other stuff, see the
+@file{ChangeLog} for more details.
+
+@item Rutger Lubbers
+
+Noticed that South/southeast was duplicated in the directions-array.
+
+@item Eduardo Guilenea
+
+Translated PHP Weather into Spanish, and thereby forced me to add
+support for multiply languages. (Which was a Good Thing :-)
+
+@item Sven-Erik (seasoft)
+
+Translated PHP Weather into Norwegian.
+
+He also sat down and did the boring work, when he manually compiled
+the complete list of all airports available from NWS.
+
+@item Maciek Uhlig
+
+Noticed that I sometimes tried to access @code{$cloud_coverage_array}
+with just @code{$cloud_coverage} --- which, of cause, didn't work.
+
+@item Ing. Vladimir Kotala
+
+Suggested that I changed the long text @samp{@dots{} degrees Celsius}
+into the more compact @samp{@dots{} °C}, which is much
+better.
+
+@item Gyulai Mih@'aly (misibacsi) @uref{http://gyulai.freeyellow.com/}
+
+Made the Hungarian translation for PHP Weather. He has also corrected
+tons of spelling errors.
+
+@item Johnny Funder @email{jhf@@naviair.dk}
+
+Lots of explanations and suggestions. He also gave a much simpler
+formula for calculating the relative humidity.
+
+@item Ray van Beek
+
+Helped me spot a little error with the current weather. He has also
+written code that displays the current weather as an image.
+
+@item David Kjellquist
+
+Added support for windchill.
+
+@item Max Hammond (iridium)
+
+Lots of different things: bugfixes, clever suggestions, and general
+maintenance.
+
+@item Jes@'us Pe@~nas
+      
+Made the Spanish translation.
+
+@item Ondrej Jombik (nepto)
+
+Translated PHP Weather into Slovak and rewrote the navigation system
+used in index.php. He also looked at the MySQL and PostgreSQL database
+and found some security flaws.
+
+@item Reini Urban
+
+Fixed some problems with using PHP Weather on a default installation
+of PHP 4.2.
+
+@item Kari Salovaara and Tage Malmen
+
+Translated PHP Weater into Swedish and Finnish.
+
+@item Paul Kairis
+
+Wrote the code that handles connections through a proxy server.
+
+@item Bas Elshof
+
+Translated PHP Weather into Dutch.
+
+@item V@'aclav R@'{@dotless{i}}kal
+
+Made a Czech translation.
+
+@item Radoslava Fed@'akov@'a
+
+Czech translation.
+
+@item Guillaume Petit
+
+Translated PHP Weather into French.
+
+@item Rudy Boedts
+
+Updated the Dutch translation.
+
+@item Konrad Tadesse
+
+Finally, a working German translation.
+
+@item Andrew Simpson (andrewsimpson)
+
+Reported problems with the use of short open tags in a couple of
+files.
+
+@item Jim Whitehead
+
+Fixed the rounding of hours and minutes in the pretty-printed report.
+
+@item Ferhat Bingol
+
+Made a Turkish translation.
+
+@item Renato Gallmetzer
+
+Provided us with an Italian translation.
+
+@item Pablo Alcaraz (pabloa)
+
+Updated the Spanish translation and other bugfixes.
+
+@item Etienne Tourigny (etienne_t)
+
+Added a method that decodes TAF reports and made some of the database
+backends archive the data instead of always replacing the old data
+with new reports.
+
+@item Justin Heideman
+
+Drew a full set of beautiful icons for PHP Weather to display the
+current weather conditions.
+
+@item Warren Rohner
+
+Updated the South African stations in the @file{stations.csv} file.
+
+@item Nick Crossland (ncrossland)
+
+Made a British English translation.
+
+@item Jos@'e de @'Avila Junior
+
+Updated the Brazillian stations in the @file{stations.csv} file.
+
+@item Cl@'audio Gamboa
+
+Contributed a Portugues translation.
+
+@end table
