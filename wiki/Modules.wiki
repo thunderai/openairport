@@ -1,10 +1,19 @@
 #summary list of modules for OpenAirport
 
-[http://openairport.googlecode.com/files/logo.jpg]
-
-
 = The Part 139 Core =
 
+[http://openairport.googlecode.com/files/ThePart139Core.png]
+
+At the heart of OpenAirport is the Part 139.327 Airport Safety Self-Inspection Module from which all other modules contribute information, assist in the management of discrepancies, and ensure proper work flow for the maintenance of your airport. 
+
+== The Core Four ==
+
+In addition to the focal point of 14 CFR Part 139.327, three other regulations form the Part 139 Core:  
+
+  * Part 303: Personnel 
+  * Part 333: Protection of NavAids
+  * Part 337: Wildlife Hazard Management
+  * Part 339: Airport Condition Reporting
 
 = Introduction =
 
