@@ -6,7 +6,7 @@
 
 = Details =
 
-The Part 327 Module serves as the backbone of the OpenAirport system. OpenAirport uses a concept known as the [Discrepancy Life Cycle] to manage work orders, track discrepancies, discover areas of trouble, and provide as much detail as an airport desires on areas around the airport.  
+The Part 327 Module serves as the backbone of the OpenAirport system. OpenAirport uses a concept known as the [DiscrepancyLifeCycle] to manage work orders, track discrepancies, discover areas of trouble, and provide as much detail as an airport desires on areas around the airport.  
 
 = Customize =
 
