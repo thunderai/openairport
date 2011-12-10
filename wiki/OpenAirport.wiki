@@ -1,5 +1,7 @@
 #summary open source airport cmms
 
+[http://openairport.googlecode.com/files/logo.jpg]
+
 = Introduction =
 
 OpenAirport is an open source airport computer maintenance and management system.
