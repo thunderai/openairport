@@ -40,6 +40,8 @@
 			
 			include("_333_displaysummary.inc.php");
 			
+			include("_333_getccvalues.inc.php");
+			
 	// Load PreFlight Files
 			include("preflights_tbl_139_333_main_a_yn.inc.php");
 	?>
