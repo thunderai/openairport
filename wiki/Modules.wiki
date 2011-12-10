@@ -8,7 +8,7 @@ At the heart of OpenAirport is the Part 139.327 Airport Safety Self-Inspection M
 
 == The Focal Point ==
 
-14 CFR [Part 139.327] serves as the focal point of an airports operation. It ensures that an airport is always operating in the most safe and efficient way possible by managing discrepancies, tracking work-orders, and providing detail to airport staff on areas around the airport that may be either currently a concern or potential areas of concern.
+14 CFR Part 139.[327] serves as the focal point of an airports operation. It ensures that an airport is always operating in the most safe and efficient way possible by managing discrepancies, tracking work-orders, and providing detail to airport staff on areas around the airport that may be either currently a concern or potential areas of concern.
 
 == The Core Four ==
 
