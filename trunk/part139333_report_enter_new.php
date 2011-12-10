@@ -139,7 +139,25 @@ if (!isset($_POST["formsubmit"])) {
 		include("includes/_template/_tp_blockform_form_header.binc.php");
 		
 		//echo "Begin the process of doing all this impossible work";
+		?>
 		
+		
+					<tr>
+				<td colspan="3" align="center" valign="middle" class="formheaders">
+					Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
+					</td>
+				</tr>		
+			<tr>
+				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport">
+				<td class="formoptionsavilablebottom" colspan="3">
+					<input type="hidden" name="recordid" 			value="<?php echo $inspectionid;?>">
+					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">
+					</td>
+					</form>
+				</tr>
+			</table>
+	
+		<?php
 		
 		
 	// Template Form Modification (for AJAX Compatability)	
@@ -184,7 +202,7 @@ if (!isset($_POST["formsubmit"])) {
 				$sql = "SELECT * FROM tbl_139_333_sub_c WHERE condition_type_cb_int = '".$_POST['InspCheckList']."' AND condition_archived_yn = 0";
 				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 				
-				echo "[1] SQL Statement to Select _sub_c is ".$sql." <br>";
+				//echo "[1] SQL Statement to Select _sub_c is ".$sql." <br>";
 				
 				if (mysqli_connect_errno()) {
 						// there was an error trying to connect to the mysql database
@@ -233,7 +251,7 @@ if (!isset($_POST["formsubmit"])) {
 								$sql2 = "INSERT INTO tbl_139_333_sub_c_c (conditions_checklists_condition_cb_int,conditions_checklists_inspection_cb_int,conditions_checklist_discrepancy_yn,conditions_checklist_values ) VALUES ( '".$tmpid2."', '".$lastid."', '".$tmpdiscrepancy."','".$complatecellvalue."' )";
 								$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 				
-								echo "[2] SQL Statement to Select _sub_c is ".$sql2." <br>";
+								//echo "[2] SQL Statement to Select _sub_c is ".$sql2." <br>";
 								
 								//echo $sql."<br><br>";
 								if (mysqli_connect_errno()) {
@@ -257,7 +275,7 @@ if (!isset($_POST["formsubmit"])) {
 		
 		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,"Entered New NavAid Inspection");			
 			
-		echo "[3] Main NavAid Inspection has been entered. <br>";	
+		//echo "[3] Main NavAid Inspection has been entered. <br>";	
 
 	//	c). Completed Entry of Inspection of Navaid.  Now for the injection of the Periodic Inspection Record.
 									
@@ -266,8 +284,8 @@ if (!isset($_POST["formsubmit"])) {
 		$sql = "SELECT * FROM tbl_139_327_sub_d_tmp WHERE discrepancy_madebynavaid = '1' ";
 		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		
-		echo "[4] Now to Test if there is a discrepancy issued. <br>";
-		echo "[5] The SQL test for this is ".$sql." <br>";
+		//echo "[4] Now to Test if there is a discrepancy issued. <br>";
+		//echo "[5] The SQL test for this is ".$sql." <br>";
 		
 		if (mysqli_connect_errno()) {
 				// there was an error trying to connect to the mysql database
@@ -282,18 +300,19 @@ if (!isset($_POST["formsubmit"])) {
 					}
 			}
 		
-		echo "[6] There are [".$number_of_rows."] that need a new Periodic Inspection <br>";
+		//echo "[6] There are [".$number_of_rows."] that need a new Periodic Inspection <br>";
 		
 		if($number_of_rows > 0) {
 				
-				echo "Damn, I need to add a new Inspection <br>";
+				//echo "Damn, I need to add a new Inspection <br>";
+				$addedinspection = 1;
 				
 				// Start by Assembling the Inspection 327 Header
 				
 						$sql 	= "INSERT INTO tbl_139_327_main (type_of_inspection_cb_int,inspection_completed_by_cb_int,139327_date,139327_time ) VALUES ( '3', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."' )";
 						$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-						echo "[7] Insert into 327_main the following SQL Statement <font size='1'>".$sql."</font> <br>";
+						//echo "[7] Insert into 327_main the following SQL Statement <font size='1'>".$sql."</font> <br>";
 						
 						if (mysqli_connect_errno()) {
 								// there was an error trying to connect to the mysql database
@@ -306,8 +325,9 @@ if (!isset($_POST["formsubmit"])) {
 							
 								$objrs 				= mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 								$inspectionid 		= mysqli_insert_id($objcon);
+								$inspectionlinked2	= mysqli_insert_id($objcon);
 								
-								echo "[8] The ID of the new inspection is ".$inspectionid." <br>";
+								//echo "[8] The ID of the new inspection is ".$inspectionid." <br>";
 							}
 					
 				//	Now Loop through the conditions for this type of checklist
@@ -315,7 +335,7 @@ if (!isset($_POST["formsubmit"])) {
 						$sql = "SELECT * FROM tbl_139_327_sub_c WHERE condition_type_cb_int = '3' AND condition_archived_yn = 0";
 						$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 						
-						echo "[9] Loop through the _sub_c for the following SQL Statement <font size='1'>".$sql."</font> <br>";
+						//echo "[9] Loop through the _sub_c for the following SQL Statement <font size='1'>".$sql."</font> <br>";
 						
 						if (mysqli_connect_errno()) {
 								// there was an error trying to connect to the mysql database
@@ -348,7 +368,7 @@ if (!isset($_POST["formsubmit"])) {
 											
 										$sql2 = "INSERT INTO tbl_139_327_sub_c_c (conditions_checklists_condition_cb_int,conditions_checklists_inspection_cb_int,conditions_checklist_discrepancy_yn ) VALUES ( '".$tmpid."', '".$inspectionid."', '".$discrepancy."' )";
 		
-										echo "[10] Insert into _c_c the following SQL Statement <font size='1'>".$sql."</font> <br>";
+										//echo "[10] Insert into _c_c the following SQL Statement <font size='1'>".$sql."</font> <br>";
 					
 										//echo $sql2."<br><br>";
 										if (mysqli_connect_errno()) {
@@ -366,14 +386,14 @@ if (!isset($_POST["formsubmit"])) {
 									
 							}
 							
-					echo "[11] All Inspection Stuff completed.  Now to look for discrepancies <br>";
+					//echo "[11] All Inspection Stuff completed.  Now to look for discrepancies <br>";
 				
 				//	Now find all Discrepancies with the NAVAID flag, and insert them into this new inspection
 				
 						$sql = "SELECT * FROM tbl_139_327_sub_d_tmp WHERE discrepancy_madebynavaid = 1";
 						$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-						echo "[12] Select from _d_tmp the following SQL Statement <font size='1'>".$sql."</font> <br>";
+						//echo "[12] Select from _d_tmp the following SQL Statement <font size='1'>".$sql."</font> <br>";
 						
 						if (mysqli_connect_errno()) {
 								// there was an error trying to connect to the mysql database
@@ -428,7 +448,7 @@ if (!isset($_POST["formsubmit"])) {
 
 												$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 												
-												echo "[13] Insert into 327_sub_d the following SQL Statement <font size='1'>".$sql2."</font> <br>";
+												//echo "[13] Insert into 327_sub_d the following SQL Statement <font size='1'>".$sql2."</font> <br>";
 												
 												if (mysqli_connect_errno()) {
 														// there was an error trying to connect to the mysql database
@@ -442,14 +462,14 @@ if (!isset($_POST["formsubmit"])) {
 														$objrs2 			= mysqli_query($objcon2, $sql2) or die(mysqli_error($objcon2));
 														$newdiscrepancyid 	= mysqli_insert_id($objcon2);
 														
-														echo "[3][a][9] : Discrepancy has been issued a new ID ".$newdiscrepancyid." in the main _sub_d table <BR>";
+														//echo "[3][a][9] : Discrepancy has been issued a new ID ".$newdiscrepancyid." in the main _sub_d table <BR>";
 													}										
 										
 										
 												$sql2 = "SELECT * FROM tbl_139_327_sub_d_r_tmp WHERE discrepancy_repaired_inspection_id = '".$tmpinspectionsdarray[0]."' ";
 												$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 													
-												echo "[3][b][2] This will be done by searching for this SQL Statement <font size='1'>".$sql2."</font> <br>";
+												//echo "[3][b][2] This will be done by searching for this SQL Statement <font size='1'>".$sql2."</font> <br>";
 
 												if (mysqli_connect_errno()) {
 														// there was an error trying to connect to the mysql database
@@ -458,14 +478,14 @@ if (!isset($_POST["formsubmit"])) {
 													}		
 													else {
 														
-														echo "[3][b][3] : Connection Established with table '<i> tbl_139_327_sub_d_r_tmp </i>' <BR>";
+														//echo "[3][b][3] : Connection Established with table '<i> tbl_139_327_sub_d_r_tmp </i>' <BR>";
 														
 														$ddr = 0;
 														
 														$objrs2 = mysqli_query($objcon2, $sql2) or die(mysqli_error($objcon2));
 														while ($objfields = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 														
-																echo "[3][b][4] : Save temporary values to an array for future use <BR>";
+																//echo "[3][b][4] : Save temporary values to an array for future use <BR>";
 														
 																$tmpinspectionsdrarray[0]	= $objfields['discrepancy_repaired_id'];
 																$deletedridarray[$ddr]		= $objfields['discrepancy_repaired_id'];
@@ -478,7 +498,7 @@ if (!isset($_POST["formsubmit"])) {
 																$tmpinspectionsdrarray[7]	= $objfields['discrepancy_repaired_timestamp'];	
 																$tmpinspectionsdrarray[8]	= $objfields['discrepancy_repaired_signature'];													
 											
-																echo "[3][b][5] : Use temporary values to save to the main table <BR>";
+																//echo "[3][b][5] : Use temporary values to save to the main table <BR>";
 											
 																$sql3 = "INSERT INTO tbl_139_327_sub_d_r (discrepancy_repaired_inspection_id, discrepancy_repaired_by_cb_int, discrepancy_repaired_comments, discrepancy_repaired_date, discrepancy_repaired_time, discrepancy_repaired_yn)
 																VALUES ( 	'".$newdiscrepancyid."', 
@@ -490,11 +510,11 @@ if (!isset($_POST["formsubmit"])) {
 																
 																$objcon3 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 																
-																echo "[14] Insert into 327_sub_d_r the following SQL Statement <font size='1'>".$sql."</font> <br>";
+																//echo "[14] Insert into 327_sub_d_r the following SQL Statement <font size='1'>".$sql."</font> <br>";
 												
 																
 																
-																echo "[3][b][6] This will be done by searching for this SQL Statement <font size='1'>".$sql3."</font> <br>";
+																//echo "[3][b][6] This will be done by searching for this SQL Statement <font size='1'>".$sql3."</font> <br>";
 																
 																if (mysqli_connect_errno()) {
 																		// there was an error trying to connect to the mysql database
@@ -503,12 +523,12 @@ if (!isset($_POST["formsubmit"])) {
 																	}		
 																	else {
 																	
-																		echo "[3][b][7] : Connection Established with main table <BR>";
+																		//echo "[3][b][7] : Connection Established with main table <BR>";
 																	
 																		$objrs3 = mysqli_query($objcon3, $sql3) or die(mysqli_error($objcon3));
 																		$discrepancyrepairID = mysqli_insert_id($objcon3);
 																		
-																		echo "[3][b][8] : Discrepancy repair has a new ID of ".$discrepancyrepairID." <BR>";
+																		//echo "[3][b][8] : Discrepancy repair has a new ID of ".$discrepancyrepairID." <BR>";
 																	}	
 																	
 																$ddr = ($ddr + 1);	
@@ -529,7 +549,7 @@ if (!isset($_POST["formsubmit"])) {
 				$sql 	= "DELETE FROM tbl_139_327_sub_d_r_tmp WHERE discrepancy_repaired_id = ".$deletedridarray[$i]."";
 				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 												
-				echo "[4][a][2] This will be done by searching for this SQL Statement <font size='1'>".$sql."</font> <br>";
+				//echo "[4][a][2] This will be done by searching for this SQL Statement <font size='1'>".$sql."</font> <br>";
 				
 				if (mysqli_connect_errno()) {
 						// there was an error trying to connect to the mysql database
@@ -538,23 +558,23 @@ if (!isset($_POST["formsubmit"])) {
 					}		
 					else {
 					
-						echo "[4][a][3] Connection Established with Temporary Table <BR>";	
+						//echo "[4][a][3] Connection Established with Temporary Table <BR>";	
 					
 						$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 						$discrepancyrepairID = mysqli_insert_id($objcon);
 						
-						echo "[4][a][4] Applicable Temporary Discrepancies Repair Records Deleted <BR>";	
+						//echo "[4][a][4] Applicable Temporary Discrepancies Repair Records Deleted <BR>";	
 					}
 			}
 		
-		echo "[4][b][1] Loop Through Deletable Records (tbl_139_327_sub_d_tmp) <BR>";	
+		//echo "[4][b][1] Loop Through Deletable Records (tbl_139_327_sub_d_tmp) <BR>";	
 		
 		for ($i=0; $i<count($deletedidarray); $i=$i+1) {
 
 				$sql 	= "DELETE FROM tbl_139_327_sub_d_tmp WHERE Discrepancy_id = ".$deletedidarray[$i]."";
 				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 												
-				echo "[4][b][2] This will be done by searching for this SQL Statement <font size='1'>".$sql."</font> <br>";
+				//echo "[4][b][2] This will be done by searching for this SQL Statement <font size='1'>".$sql."</font> <br>";
 				
 				if (mysqli_connect_errno()) {
 						// there was an error trying to connect to the mysql database
@@ -563,18 +583,36 @@ if (!isset($_POST["formsubmit"])) {
 					}		
 					else {
 					
-						echo "[4][b][3] Connection Established with Temporary Table <BR>";	
+						//echo "[4][b][3] Connection Established with Temporary Table <BR>";	
 					
 						$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 						$discrepancyrepairID = mysqli_insert_id($objcon);
 						
-						echo "[4][b][4] Applicable Temporary Discrepancies Deleted <BR>";	
+						//echo "[4][b][4] Applicable Temporary Discrepancies Deleted <BR>";	
 					}
 			}												
 										
-										
-										
+	
 
+	//	Tell the Main Inspection what the ID was of the new inspection
+	
+				$sql = "UPDATE `tbl_139_333_main` SET `139333_linked_327_int`= '".$inspectionlinked2."' WHERE 139333_main_id = '".$lastNavAididi."' ";
+				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+				
+				if (mysqli_connect_errno()) {
+						// there was an error trying to connect to the mysql database
+						printf("connect failed: %s\n", mysqli_connect_error());
+						exit();
+					}		
+					else {
+					
+						$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+						$discrepancyrepairID = mysqli_insert_id($objcon);
+						
+					}
+	
+	
+	
 			}
 			
 			
