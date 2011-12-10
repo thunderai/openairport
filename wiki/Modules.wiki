@@ -15,10 +15,14 @@ In addition to the focal point of 14 CFR Part 139.327, three other regulations f
   * Part 337: Wildlife Hazard Management
   * Part 339: Airport Condition Reporting
 
-= Introduction =
+== The Outer Four ==
 
-Here is a list of modules for the OpenAirport version 3 system. 
+Within the core are the main functions that an airport would use on a daily bases to ensure continued safe and efficient operation; however, without the Outer Four an airport is missing out valuable tools for long-term planning and protection. The Outer Four are:
 
+  * Part 305: Paved Areas
+  * Part 309: Safety Areas
+  * Part 311: Marking Signs and Lighting
+  * Part 335: Public Protection
 
 = Details =
 
