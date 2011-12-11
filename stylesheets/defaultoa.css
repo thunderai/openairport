@@ -342,11 +342,13 @@ input.Commonfieldbox {
 .formanswers {
 	font-family: Arial Narrow; 
 	font-size: 10pt; 
-	color: #FFFFFF; 
-	border: 1px solid #AC9D8A;
+	color: #000000; 
+	border-top-style: groove; 
+	border-top-width: 2px; 
+	border-bottom: 1px groove #867C71; 
 	width: 75%;
 	text-align: left;
-	background-color: #867C71;
+	background-color: #AC9D8A;
 	}
 
 .formanswers_multicolumn {

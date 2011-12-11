@@ -35,7 +35,6 @@
 	// Legacy Includes
 			//include("includes/part139327Functions.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 			include("includes/AutoEntryFunctions.php");													// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
-			include("includes/quickinfoFunctions.php");													// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 
 	// New Style Includes 			
 			include("includes/_dateandtime/dateandtime.list.php");										// List of all Date and Time functions

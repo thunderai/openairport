@@ -93,40 +93,40 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 								
 								$basicHTML = "
 												<tr>
-													<td colspan='2' class='tableheaderleft'>
-														<b>Basic Information</b>
+													<td colspan='2' class='formoptionsavilabletop'>
+														<font size='1'><b>Basic Information</b></font>
 														</td>
 													</tr>
 												<tr>		
-													<td class='formresults'>
+													<td class='formoptions'>
 														ID
 														</td>
-													<td class='formresults'>
-															<a href='".$webroot."part139333_report_display_new.php?recordid=".$inspectionid."' target='_newreportwindowd'>".$inspectionid."</a>
+													<td class='formanswers'>
+															<a href='part139333_report_display.php?recordid=".$inspectionid."' target='_newreportwindowd'>".$inspectionid."</a>
+														</td>
+													</tr>
+												<tr>		
+													<td class='formoptions'>
+														Date / Time 
+														</td>
+													<td class='formanswers'>".
+														$objarray['139333_date']." / ".$objarray['139333_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='formresults'>
+													<td class='formoptions'>
 														Type
 														</td>
-													<td class='formresults'>".
+													<td class='formanswers'>".
 														$objarray['inspection_type']." (".$objarray['inspection_type_short_name'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td class='formresults'>
+													<td class='formoptions'>
 														Inspection By 
 														</td>
-													<td class='formresults'>".
+													<td class='formanswers'>".
 														$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
-														</td>
-													</tr>
-												<tr>		
-													<td class='formresults'>
-														Date / Time 
-														</td>
-													<td class='formresults'>".
-														$objarray['139333_date']." / ".$objarray['139333_time']." 
 														</td>
 													</tr>";
 

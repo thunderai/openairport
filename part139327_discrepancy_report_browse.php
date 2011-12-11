@@ -31,12 +31,12 @@
 
 // Load Global Include Files
 	
-		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
-		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
+		include_ONCE("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
+		include_ONCE("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
 	
 // Load Page Specific Includes
 
-		include("includes/_modules/part139327/part139327.list.php");
+		include_ONCE("includes/_modules/part139327/part139327.list.php");
 
 	// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//	THE CONTAIN CONTENTS IS THE SAME FORMAT FOR ALL BROWSE DOCUMENTS, ALTHOUGH THE DATA MAY BE DIFFERENT
