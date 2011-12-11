@@ -43,7 +43,7 @@ function loadnavmenu_3($whoareyou) {
 					</tr>
 				</table>
 				<ul id="flyout">
-					<li id="home"><a href="index.html"><b>Home</b></a></li>
+					<li id="home"><a href="index.php"><b>Home</b></a></li>
 			<?php
 			// Set initial variables
 			//		Generic Function Variables for displaying the meny structure

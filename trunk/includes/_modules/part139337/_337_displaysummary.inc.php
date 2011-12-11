@@ -85,8 +85,8 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 								
 								$basicHTML = "
 												<tr>
-													<td colspan='2' class='tableheaderleft'>
-														<b>Basic Information</b>
+													<td colspan='2' class='formoptionsavilabletop'>
+														<font size='1'><b>Basic Information</b></font>
 														</td>
 													</tr>
 												<tr>		
@@ -94,7 +94,7 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 														ID
 														</td>
 													<td class='formanswers'>
-															<a href='".$webroot."part139337_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
+															<a href='part139337_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		

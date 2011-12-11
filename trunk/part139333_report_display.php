@@ -42,7 +42,18 @@
 		
 // Collect POST Information
 		
+		
+if (!isset($_POST["recordid"])) {
+		// No Record ID defined in POST, use GET record id
+		$inspection_id			= $_GET['recordid'];
+		$from_get				= 1;
+	}
+	else {
 		$inspection_id			= $_POST['recordid'];
+		$from_get				= 0;
+	}		
+		
+		//$inspection_id			= $_POST['recordid'];
 		$menuitemid 			= $_POST['menuitemid'];													
 		$tblname				= $_POST['tblname'];													
 		$tblsubname				= $_POST['tblsubname'];	

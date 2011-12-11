@@ -97,7 +97,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' >";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
@@ -119,8 +119,8 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 								
 								$basicHTML = "
 												<tr>
-													<td colspan='2' class='tableheaderleft'>
-														<b>Basic Information</b>
+													<td colspan='2' class='formoptionsavilabletop'>
+														<font size='1'><b>Basic Information</b></font>
 														</td>
 													</tr>
 												<tr>		
@@ -128,7 +128,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														ID
 														</td>
 													<td class='formanswers'>
-															<a href='".$webroot."part139327_discrepancy_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
+															<a href='part139327_discrepancy_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
 														</td>
 													</tr>													
 												<tr>		
