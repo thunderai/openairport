@@ -1,20 +1,20 @@
 <?php
 
-function organizationcombobox($org_id, $archived, $nameofinput, $showcombobox, $default) {
+function _ac_accessleveltypecombobox($org_id, $archived, $nameofinput, $showcombobox, $default) {
 	// This function is called when you need to make a combo box which lists the susyem users for selection. 
 	// you may limit the search to a specific userid, or archived or non archived system users
 	// you also need to specify the name of the input
 	$sql	= "";
 	$nsql 	= "";
 	
-	$sql = "SELECT * FROM `tbl_organization_main` ";
+	$sql = "SELECT * FROM `tbl_navigational_control_g` ";
 
 	if ($org_id=="all") {
 			// do not add any employee ID information to the SQL String
 			$tmp_flagger = 0;
 		}
 		else {
-			$nsql = "WHERE `Organizations_id` = ".$org_id." ";
+			$nsql = "WHERE `navigational_groups_id` = ".$org_id." ";
 			$sql = $sql.$nsql;
 			$tmp_flagger = 1;
 		}
@@ -25,28 +25,28 @@ function organizationcombobox($org_id, $archived, $nameofinput, $showcombobox, $
 		else {
 			if ($archived=="yes") {
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_organization_main.org_archieved_yn = -1 ";
+							$nsql = "WHERE tbl_navigational_control_g.navigational_groups_archived_yn = 1 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND tbl_organization_main.org_archieved_yn = -1 ";
+							$nsql = "AND tbl_navigational_control_g.navigational_groups_archived_yn = 1 ";
 							$sql = $sql.$nsql;
 						}
 				}
 				else {
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_organization_main.org_archieved_yn = 0 ";
+							$nsql = "WHERE tbl_navigational_control_g.navigational_groups_archived_yn = 0 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND tbl_organization_main.org_archieved_yn = 0 ";
+							$nsql = "AND tbl_navigational_control_g.navigational_groups_archived_yn = 0 ";
 							$sql = $sql.$nsql;
 						}
 				}
 		}
-	$sql = $sql."ORDER BY org_name";
+	$sql = $sql."ORDER BY navigational_groups_name";
 	//echo $sql;
 	
 	$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -72,9 +72,9 @@ function organizationcombobox($org_id, $archived, $nameofinput, $showcombobox, $
 						
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
-							$tmporgname 	= $objfields['org_name'];
-							$tmporgtypeid 	= $objfields['org_type_cb_int'];
-							$tmporgid		= $objfields['Organizations_id'];
+					
+							$tmporgname 	= $objfields['navigational_groups_name'];
+							$tmporgid		= $objfields['navigational_groups_id'];
 							
 						if ($showcombobox=="show") {
 								?>

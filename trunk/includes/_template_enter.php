@@ -54,7 +54,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 				$fieldstring	= $fieldstring."<i>".$fieldnotes."</i>";
 				
 		// Determine Default Values
-				if($fielddefaultvalue == 'post') {
+				if($fielddefaultvalue == "post") {
 						if (!isset($_POST[$fieldname])) {
 								// Default value in post is not defined, revert back to the standard value
 								//$fielddefaultvalue;
@@ -65,6 +65,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 							}
 					}
 					else {
+						if($fieldsizex == 0) {
+								$beenposted = 1;
+							}
 						// The default value is still the same
 						//$fielddefaultvalue;
 					}
@@ -86,34 +89,46 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									if($fieldsizex == 0) {
 													// DO Not show field, Just Show Result
 													echo $fielddefaultvalue;
+													?>
+						<input class="Commonfieldbox" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" name="<?php echo $fieldname;?>" type='hidden'>
+													<?php
 												}
 												else {
 													?>
-						<input class="Commonfieldbox" type="text" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" 
+						<input class="Commonfieldbox" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" 
 													<?php
 													if($fielddefaultvalue == "current") {
 															switch ($fieldtxtname) {
 																	case "Date":
 																			?>
-						value="<?php echo date('m/d/Y');?>">
+						type="text" value="<?php echo date('m/d/Y');?>">
 																			<?php
 																		break;
 																	case "Time":
 																			?>
-						value="<?php echo date("H:i:s");?>">
+						type="text" value="<?php echo date("H:i:s");?>">
 																			<?php
 																		break;
 																	case "Year":
 																			?>
-						value="<?php echo date("Y");?>">
+						type="text" value="<?php echo date("Y");?>">
 																			<?php
-																		break;
+																		break;															
 																}
 														}
 														else {
-															?>
-						value="<?php echo $fielddefaultvalue;?>">
-															<?php										
+															switch ($fieldtxtname) {
+																	case "Password":
+																			?>
+						type="password" value="<?php echo $fielddefaultvalue;?>">
+																			<?php
+																		break;
+																	default:
+																			?>
+						type="text" value="<?php echo $fielddefaultvalue;?>">
+																			<?php
+																		break;
+																}
 														}
 												}
 										break;
@@ -148,7 +163,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																	$show = "show";
 																}
 																
-															//echo $fielddefaultvalue;
+															//echo $fielddefaultvalue." / ".$beenposted." <br>";
 															
 															if ($beenposted == 1) {			
 																	$fieldfunction($fielddefaultvalue, "all", $fieldname, $show,$fielddefaultvalue);
