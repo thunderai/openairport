@@ -1,0 +1,21 @@
+[http://openairport.googlecode.com/files/trainingtower.png]
+
+=== Introduction ===
+
+14 CFR Part 139.303 Personnel is a comprehensive part that ties many of the modules together in the way of educating your staff to be able to carry out the tasks they are assigned. 
+
+=== Details ===
+
+There are two components to a successful Part 303 implementation. The first component is the knowledge of who your staff is, what their duties are, and what you expect of them.  The other component is the training they receive in order to conduct those tasks.  The primary focus on Part 303 is in the training they receive in their assigned duties. 
+
+In many airports the staff responsible for carrying out the duties of the Airport Certification Manual will have significant overlap; however, there are few specific regulations as well that do not carry over into the other regulations well or at all. Part 139.319 and 321 have special requirements that typically require specific education and training. Where as although Part 139.337 specifics specific training requirements it has significant overlap with Part 139.327 and 339. 
+
+This overlap of function and duty builds on the basic training found in Part 139.303 and 329. 
+
+
+Keeping accurate records of wildlife activity on your airport is important so that methods can be taken to understand your specific airport issues, what the trends are in wildlife in your area, and to better control habit modification.
+
+Customize
+The wildlife action reports use the same map of the airport as every other form so it will be important for an airport to ensure their airport specific map has been changed from the default airport. The list of airport employees must also be completed by the airport in the system user’s data table.
+
+As a depth 1 module, only the location of the action is important and the location is not tied to any specific equipment so no additional data entry will be needed. An airport may choose to add animal species to the list, make modifications to the type of actions available or the behavior of the animal when wildlife action was taken. Care has been taken to ensure that the default information should pertain to all airports with no modification needed for OpenAirport to function.
