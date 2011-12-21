@@ -16,7 +16,7 @@ This overlap of function and duty builds on the basic training found in Part 139
 
 ==== The Operations Tower ====
 
-Part 139.327, 337, and 339 form the Operations Tower. Because these regulations have significant feedback between themselves their training  can usually be combined throughout the year to meet the requirements of Part 139.337 for a total of eight hours of training. If an airport uses a special class for the purposes of training wildlife or has specialized wildlife biologists is may be best to consider 337 as its own training tower similar to 321 and 319.
+Part 139.327, 337, and 339 form the Operations Tower. Because these regulations have significant feedback between themselves their training  can usually be combined throughout the year to meet the requirements of Part 139.337 for a total of eight hours of training. If an airport uses a special class for the purposes of training wildlife or has specialized wildlife biologists is may be best to consider 337 as its own training tower similar to 321 and 319. The goal of OpenAirport is to allow the airport to break down this training to manageable sessions throughout the year meeting the core group requirements plus all the components of the Operations Tower.
 
 ==== ARFF Tower (319) ====
 
