@@ -19,9 +19,9 @@
 //
 //	~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 //	
-//	Name of Document	:	navigation.list.php
+//	Name of Document	:	part139301.list.php
 //
-//	Purpose of Page		:	Lists all Navigation Functions by include.
+//	Purpose of Page		:	Lists all Part 139.301 Functions by include.
 //
 //	Special Notes		:	Under normal conditions there should be no need to change this page
 //							In the event you wish to change this page, everything should be
@@ -30,20 +30,14 @@
 //==============================================================================================
 //2345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8		
-?>
 
-<?php
 	// Load Include Files
-			include("_nav_hasslaves.inc.php");
-			include("_nav_loadmenu.inc.php");
-			include("_nav_buildbreadcrumtrail.inc.php");
-			include("_nav_getnameofmenuitemid.inc.php");
-			include("_nav_getpurposeofmenuitemid.inc.php");
-			include("_nav_navigationalcombobox.inc.php");
-			include("_nav_navigationalgroupbox.inc.php");
-			include("_nav_displaytxtonreport.inc.php");
-			include("_nav_getbysuid_navigationalgrouptext.inc.php");
+			include("_303_a_301_summaryfunction.inc.php");
+			include("_327_301_summaryfunction.inc.php");
+			include("_327_a_4_301_summaryfunction.inc.php");
+			include("_333_301_summaryfunction.inc.php");
+			include("_337_301_summaryfunction.inc.php");
 			
-			include("_nav_getnameofmenuitemid_return.inc.php");
-			include("_nav_getpurposeofmenuitemid_return.inc.php");
+	// Load PreFlight Files
+
 	?>
