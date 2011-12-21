@@ -162,7 +162,7 @@ if (!isset($_POST["strsqlwhereaddon"])) {
 	}
 	else {
 		//echo "<br>--> The form has been submited, use settings given by the user<br>";
-		if ($togfrmjoined==1) {
+		if ($frmjoined==1) {
 				//echo "<br>-- --> Checkbox is not active, slear changes to SQL Statement<br>";
 				$strsqlwhereaddon	= "";
 				$intsqlwhereaddon 	= 1;
@@ -205,6 +205,8 @@ for ($i=0; $i<count($aheadername); $i++) {
 if ($tbldatesort==1) {
 		$nsql = " WHERE ".$tbldatesorttable.".".$tbldatesortfield." >= '".$sqlfrmstartdate."' AND ".$tbldatesorttable.".".$tbldatesortfield." <= '".$sqlfrmenddate."'";
 		$sql = $sql.$nsql;
+		$intsqlwhereaddon = 1;
+		
 		?>
 		<script>	</script>
 		<?php 
@@ -213,10 +215,12 @@ if ($tbltextsort==1) {
 		if ($tbldatesort==1) {
 				$nsql = " AND ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
 				$sql = $sql.$nsql;
+				$intsqlwhereaddon = 1;
 				}
 			else {
 				$nsql = " WHERE ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
 				$sql = $sql.$nsql;	
+				$intsqlwhereaddon = 1;
 				}
 	}
 if ($strsqlwhereaddon=="none") {
@@ -227,6 +231,19 @@ if ($strsqlwhereaddon=="none") {
 				// user has choosen not to enable column joining, so dont do it
 				}
 			else {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 				// user has enabled column joining, so do it
 				$sql = $sql.$strsqlwhereaddon;
 			}
@@ -242,7 +259,7 @@ if ($tblheadersort==1) {
 					if ($tblheadersortfirstselected=="yes") {
 							//this is the first time a header has been selected
 							$tblheadersortfirstselected="no"; //set selected to no
-							$nsql=" order by ".$adatafieldtable[$i].".".$adatafield[$i]." ";
+							$nsql=" ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." ";
 							$sql = $sql.$nsql;
 						}
 						else {
@@ -253,7 +270,7 @@ if ($tblheadersort==1) {
 					if ($tblheadersortfirstselected=="yes") {
 							//this is the first time a header has been selected
 							$tblheadersortfirstselected="no"; //set selected to no
-							$nsql=" order by ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
+							$nsql=" ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
 							$sql = $sql.$nsql;
 						}
 						else {

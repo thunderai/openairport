@@ -195,11 +195,97 @@ function loadnavmenu_3($whoareyou) {
 																						} 
 																						else {
 																							?>
-															<li><a class="fly" style="margin: 0px; margin-bottom:0px; margin-top:-1px;" href="#" onMouseover="ddrivetip('<?php echo $tmpmenulongl2; ?>')"; onMouseout="hideddrivetip()"><b><?php echo $tmpmenusshortnl2;?></b><!--[if gte IE 7]><!--></a><!--<![endif]-->
+															<li><a class="fly" style="margin: 0px; margin-bottom:0px; margin-top:-1px;" href="#" onMouseover="ddrivetip('<?php echo $tmpmenulongl2;?>')"; onMouseout="hideddrivetip()"><b><?php echo $tmpmenusshortnl2;?></b><!--[if gte IE 7]><!--></a><!--<![endif]-->
 															<!--[if lte IE 6]><table><tr><td><![endif]-->
 																<ul>
 																							<?php
-																						}	//	End of Layer TWO Else Statement
+													//	//	//	Loop TWO : Root Structure	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..	..																
+																							// Clear the cache
+																									//ob_flush();
+																									//flush();
+																							
+																							// Establish Database Connection For Level TWO				
+																									$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+														
+																									if (mysqli_connect_errno()) {
+																											// there was an error trying to connect to the mysql database
+																											printf("connect failed: %s\n", mysqli_connect_error());
+																											exit();
+																										}
+																										else {
+																											$sql3 = 	"SELECT 
+																															tbl_systemusers.emp_record_id, 
+																															tbl_systemusers_ncga.navigational_user_id_cb_int, 
+																															tbl_systemusers_ncga.navigational_group_id_cb_int, 
+																															tbl_navigational_control.menu_item_id, 
+																															tbl_navigational_control.menu_item_location, 
+																															tbl_navigational_control.menu_item_slaved_to_id, 
+																															tbl_navigational_control.menu_item_name_long, 
+																															tbl_navigational_control.menu_item_name_short, 
+																															tbl_navigational_control.menu_item_archived_yn, 
+																															tbl_navigational_control_g.navigational_groups_id, 
+																															tbl_navigational_control_g.navigational_groups_id, 
+																															tbl_navigational_control_g_a.navigational_archived_yn, 
+																															tbl_navigational_control_g_a.navigational_groups_id_cb_int,
+																															tbl_navigational_control_g_a.navigational_control_id_cb_int 
+																													FROM tbl_systemusers			
+																													INNER JOIN tbl_systemusers_ncga 		ON tbl_systemusers.emp_record_id 								= tbl_systemusers_ncga.navigational_user_id_cb_int
+																													INNER JOIN tbl_navigational_control_g 	ON tbl_navigational_control_g.navigational_groups_id 			= tbl_systemusers_ncga.navigational_group_id_cb_int
+																													INNER JOIN tbl_navigational_control_g_a	ON tbl_navigational_control_g_a.navigational_groups_id_cb_int	= tbl_navigational_control_g.navigational_groups_id
+																													INNER JOIN tbl_navigational_control		ON tbl_navigational_control.menu_item_id						= tbl_navigational_control_g_a.navigational_control_id_cb_int
+																													WHERE tbl_systemusers.emp_record_id = '".$tmpuserid."' and tbl_navigational_control.menu_item_slaved_to_id = '".$tmpmenuitemidl2."' AND tbl_navigational_control.menu_item_archived_yn = 0 AND tbl_navigational_control_g_a.navigational_archived_yn = 0  
+																													ORDER BY tbl_navigational_control.menu_item_name_short asc";	
+																											//echo "SQL ".$sql."<br>";
+																											
+																											$layer3menures = mysqli_query($layer3menuconn, $sql3);
+																
+																											if ($layer3menures) {
+																													// Connection to database existm
+																													$number_of_rows3 = mysqli_num_rows($layer3menures);
+																													// echo "There are ".$number_of_rows." rows in the Second level";
+																													?>
+																													<?php
+																													while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
+																															// Flush the cache
+																																	//ob_flush();
+																																	//flush();
+																															// Set the variables
+																																	$tmpmenuitemlocl3	= $layer3array['menu_item_location'];
+																																	$tmpmenuslaveidl3	= $layer3array['menu_item_slaved_to_id'];
+																																	$tmpmenusshortnl3   = $layer3array['menu_item_name_short'];
+																																	$tmpmenuitemidl3	= $layer3array['menu_item_id'];
+																																	$tmpmenulongl3		= $layer3array['menu_item_name_long'];
+																															// Determine if there are any menu items slaved to this menu item
+																																	$nor3	= _nav_hasslaves($tmpmenuitemidl3);
+																																	
+																															if ($nor3 == 0) {
+																																	// There are no menu items slaved to this menu item.
+																																	//	it will be a selectable menu itme
+																																	?>
+																									<li style="<!--[if lte IE 6]>margin-top:-3px;<![endif]-->">
+																										<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $tmpmenuitemidl3;?>" method="POST" action="<?php echo $tmpmenuitemlocl3;?>" target="layouttableiframecontent">
+																											<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemidl3;?>">
+																											<a href="#" onclick="javascript:document.menuitem<?php echo $tmpmenuitemidl3;?>.submit()" onMouseover="ddrivetip('<?php echo $tmpmenulongl3; ?>')"; onMouseout="hideddrivetip()"><?php echo $tmpmenusshortnl3;?></a>
+																											</form>
+																										</li>
+																																	<?php
+																																} 
+																																else {
+																																	?>
+																									<li><a class="fly" style="margin: 0px; margin-bottom:0px; margin-top:-1px;" href="#" onMouseover="ddrivetip('<?php echo $tmpmenulongl3; ?>')"; onMouseout="hideddrivetip()"><b><?php echo $tmpmenusshortnl3;?></b><!--[if gte IE 7]><!--></a><!--<![endif]-->
+																									<!--[if lte IE 6]><table><tr><td><![endif]-->
+																										<ul>
+																																	<?php
+																																}	//	End of Layer TWO Else Statement
+																														}	//	End of Layer TWO While Loop
+																												}	//	End of Layer TWO Record Set
+																										}	//	End of Layer TWO Connection Object
+																										?>
+																	</ul>
+																<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+																</li>
+																									<?php
+																								}	//	End of Layer THREE Else Statement
 																				}	//	End of Layer TWO While Loop
 																		}	//	End of Layer TWO Record Set
 																}	//	End of Layer TWO Connection Object
