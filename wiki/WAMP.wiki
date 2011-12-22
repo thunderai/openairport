@@ -6,6 +6,17 @@ A WAMP Server is a server that is running Microsoft Windows, uses Apache as the 
 
 == Types of WAMPs ==
 
-There are many different configurations you can use to run a WAP server, two very good applications that run stright out of the download with minimum configuration are:
+There are many different configurations you can use to run a WAMP server a comprehensive list of different system setups can be found [http://en.wikipedia.org/wiki/Comparison_of_WAMPs here], two very good applications that run straight out of the download with minimum configuration are:
 
- * [
+ * [http://www.wampserver.com/en/ WAMPServer]
+ * [http://www.apachefriends.org/en/xampp.html XAMPP]
+
+Both are great packages, I like XAMPP; however, tastes vary and so do system configurations. 
+
+== Installing OpenAirport into a WAMP ==
+
+To install OpenAirport onto a WAMP server two things must be done:
+
+  * Import the OpenAirport SQL Statement using either MySQL Administrative Tools or PHPMyadmin.  Either is good; however, importing with PHPMyadmin can break Index and InnoDB connections.
+
+  * Copy the OpenAirport code to the wwwroot directory of the WAMP Server (htdocs: Xampp, www: WAMPServer).  This is best done in its own subdirectory like C:/Xampp/htdocs/yourairport/openairport.
