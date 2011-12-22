@@ -1,0 +1,11 @@
+#summary What is a WAMP Server?
+
+= W.A.M.P. =
+
+A WAMP Server is a server that is running Microsoft Windows, uses Apache as the web service, MySQL as the database backend, and PHP as the scripting language. 
+
+== Types of WAMPs ==
+
+There are many different configurations you can use to run a WAP server, two very good applications that run stright out of the download with minimum configuration are:
+
+ * [
