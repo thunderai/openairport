@@ -28,4 +28,4 @@ There are few airports where the airport will train the FBO on fuel operations u
 
 ==== The Syllabus ====
 
-The Syllabus works and functions just like many of the other forms in OpenAirport. Allowing you to customize a training plan, track training completed and prepare reports that document when and what was trained. 
+The [Syllabus] works and functions just like many of the other forms in OpenAirport. Allowing you to customize a training plan, track training completed and prepare reports that document when and what was trained. 
