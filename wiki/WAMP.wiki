@@ -20,3 +20,6 @@ To install OpenAirport onto a WAMP server two things must be done:
   * Import the OpenAirport SQL Statement using either MySQL Administrative Tools or PHPMyadmin.  Either is good; however, importing with PHPMyadmin can break Index and InnoDB connections.
 
   * Copy the OpenAirport code to the wwwroot directory of the WAMP Server (htdocs: Xampp, www: WAMPServer).  This is best done in its own subdirectory like C:/Xampp/htdocs/yourairport/openairport.
+
+
+Once OpenAirport is installed onto the web server, you can test the install by turning on the web server and navigating your web browser to your localhost.  An airport will need to follow the [customization] procedures outlined in the [customization] page.
