@@ -42,6 +42,7 @@ The default classes are:
   * ARFF Training, (Syllabus Type A)
   * LEO Training, (Syllabus Type A)
   * Airport Security Coordinator, (Syllabus Type A) 
+  * Wildlife Hazard Management, (Syllabus Type A) 
   * Operations Personnel Training, (Syllabus Type B)
   * Vehicle Operator N/MA {Pilots,FAA,Airway Facilities,NWS}, (Syllabus Type B) 
 
