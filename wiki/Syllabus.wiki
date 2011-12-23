@@ -32,3 +32,20 @@ The syllabus works like a checklist similar to how the inspection checklist work
   * Utilizing a more general list of education will result in less storage space used by the server, quicker access to the module, and less bandwidth used. 
 
 Ultimately it is your choice on what works best with your airport needs; however, OpenAirport suggest general heading syllabus for all training sessions conducted. 
+
+== Different Classes for Different Folks ==
+
+Not everyone will require all of the training, it maybe such that your pilots whom receive drivers education don't need all of the training within the core group; however, it is important that an airport define a training program that ensures everyone receives the training necessarily to conduct their duties under the airport certification manual and that pedestrians and ground vehicles also receive training while operating at the airport.  In this case, an airport should define a number of different types of classes that can be taught to their students.
+
+The default classes are:
+
+  * ARFF Training, (Syllabus Type A)
+  * LEO Training, (Syllabus Type A)
+  * Airport Security Coordinator, (Syllabus Type A) 
+  * Operations Personnel Training, (Syllabus Type B)
+  * Vehicle Operator N/MA {Pilots,FAA,Airway Facilities,NWS}, (Syllabus Type B) 
+
+Two additional classes are provides as logical extensions of the regulatory classes as an example of what can also be done. 
+
+  * Safety Meeting (City Requirement), (Syllabus Type B)
+  * Seasonal Part-Time Employees, (Syllabus Type B)
