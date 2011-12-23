@@ -36,4 +36,8 @@ Not everyone will require all of the training, it maybe such that your pilots wh
 
 The default classes are:
 
-  * ARFF Training, (General 
+  * ARFF Training, (Syllabus Type A)
+  * LEO Training, (Syllabus Type A)
+  * Airport Security Coordinator, (Syllabus Type A) 
+  * Operations Personnel Training, (Syllabus Type B)
+  * Vehicle Operator N/MA {Pilots,FAA,Airway Facilities,NWS}, (Syllabus Type B) 
