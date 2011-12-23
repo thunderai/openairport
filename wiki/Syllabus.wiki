@@ -10,11 +10,11 @@ The foundation of 14 CFR Part 139.303 (c) is the management of your training ses
 
 There are three ways to utilize the syllabus:
 
-  * One checklist item specif icing outside training completed. Best used for Wildlife Management (337) and Hazardous Materials (327).
+  * A). One checklist item specif icing outside training completed. Best used for Wildlife Management (337) and Hazardous Materials (327).
 
-  * General subject headers of the training conducted in each class.  Usable in any part and is probably the preferred method. More on why latter.
+  * B). General subject headers of the training conducted in each class.  Usable in any part and is probably the preferred method. More on why latter.
 
-  * A very specific list of the training conducted and would essentially be the instructors training guide. This is not recommended as the syllabus in OpenAirport as explained latter.
+  * C). A very specific list of the training conducted and would essentially be the instructors training guide. This is not recommended as the syllabus in OpenAirport as explained latter.
 
 
 == Complexity in the Syllabus ==
