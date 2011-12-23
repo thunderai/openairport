@@ -29,3 +29,11 @@ There are few airports where the airport will train the FBO on fuel operations u
 ==== The Syllabus ====
 
 The [Syllabus] works and functions just like many of the other forms in OpenAirport. Allowing you to customize a training plan, track training completed and prepare reports that document when and what was trained. 
+
+==== Different Classes for Different Folks ====
+
+Not everyone will require all of the training, it maybe such that your pilots whom receive drivers education don't need all of the training within the core group; however, it is important that an airport define a training program that ensures everyone receives the training necessarily to conduct their duties under the airport certification manual and that pedestrians and ground vehicles also receive training while operating at the airport.  In this case, an airport should define a number of different types of classes that can be taught to their students.
+
+The default classes are:
+
+  * ARFF Training, (General 
