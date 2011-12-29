@@ -43,7 +43,7 @@
 		}
 
 ?>
-<form action="<?php echo $formaction;?>" method="post" NAME="<?php echo $formname;?>" ID="<?php echo $formname;?>" 
+<form enctype="multipart/form-data" action="<?php echo $formaction;?>" method="post" NAME="<?php echo $formname;?>" ID="<?php echo $formname;?>" 
 <?php
 	if($formopen == 1) {
 			// Open this form into a new window

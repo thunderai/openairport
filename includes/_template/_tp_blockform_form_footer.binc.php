@@ -44,7 +44,7 @@
 									_tp_control_footbuttons(2,"sorttable");
 								}	
 							if($display_pushdown == 1) {
-									_tp_control_footbuttons(3,$formname,$otherid);
+									_tp_control_footbuttons(3,$pushdown_frmname,$pushdown_otherid,$pushdown_script);
 								}									
 							if($display_submit == 1) {
 									_tp_control_footbuttons(4,$formname,$submitbuttonname);

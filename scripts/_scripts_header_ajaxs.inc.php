@@ -32,6 +32,8 @@
 	// Link to AJAX Script Files
 
 ?>	
+		<script type="text/javascript" src="scripts/_ajax/ajax_part139_303_c.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_303_c_push_new_subjectnote.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/ajax_part139_327.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_push_new_discrepancy.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/ajax_part139_333.js"></script>
