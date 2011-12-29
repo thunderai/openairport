@@ -224,6 +224,12 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						<input type="checkbox" class="commonfieldbox" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;	
+									case 6:		// Datacell is a file select box
+									?>
+						<input type="file" class="commonfieldbox" name="<?php echo $fieldname;?>" CHECKED value="1">
+											<?php
+										break;											
+										
 									
 									
 									

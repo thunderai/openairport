@@ -33,6 +33,9 @@
 
 	// Load Include Files
 			include("_303_a_display_report_summary.inc.php");
+			include("_303_c_typescombobox.inc.php");
+			include("_303_c_typescomboboxwall.inc.php");
+
 			
 	// Load PreFlight Files
 			include("preflights_tbl_139_303_main_a_yn.inc.php");
