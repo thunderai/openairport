@@ -2,6 +2,6 @@
 
 = News and Events =
 
-|| *Date* || *Comments* ||
-|| 2012 / 01 / 03 || I have figured out how I am going to handle student training and will complete that module in the near future. ||
-|| 2012 / 01 / 01 || Happy New Year. I have been busy with things away from OpenAirport for the last few weeks.  I hope to fix that by spending more time programming in the new year. I hope your new year is going well. ||
+Listed here are news, events, comments, and development log for OpenAirport. New entries are provided by comments to this wiki page.  
+
+Please read the comments below:
