@@ -4,12 +4,14 @@
 
 14 CFR Part 139.337 Wildlife Hazard Reports is how an airport would record wildlife actions taken against animals on airport property.  
 
-= Details =
+== Details ==
 
 Keeping accurate records of wildlife activity on your airport is important so that methods can be taken to understand your specific airport issues, what the trends are in wildlife in your area, and to better control habit modification.   
 
-= Customize =
+== Videos ==
 
-The wildlife action reports use the same map of the airport as every other form so it will be important for an airport to ensure their airport specific map has been changed from the default airport. The list of airport employees must also be completed by the airport in the system user’s data table. 
+I am currently working on some videos that will showcase how the Part 337 system works that will be uploaded to the official OpenAirport youtube channel. Please stay tuned.
 
-As a depth 1 module, only the location of the action is important and the location is not tied to any specific equipment so no additional data entry will be needed. An airport may choose to add animal species to the list, make modifications to the type of actions available or the behavior of the animal when wildlife action was taken.  Care has been taken to ensure that the default information should pertain to all airports with no modification needed for OpenAirport to function. 
+== Customize ==
+
+Information on the customization of module 337 can be found [custom337 here]
