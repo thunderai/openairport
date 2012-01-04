@@ -8,6 +8,9 @@
 
 The Part 327 Module serves as the backbone of the OpenAirport system. OpenAirport uses a concept known as the [DiscrepancyLifeCycle] to manage work orders, track discrepancies, discover areas of trouble, and provide as much detail as an airport desires on areas around the airport.  
 
+== Videos ==
+
+I am currently making some videos on how to enter Part 139.327 inspections in the new version 3.0 system that will be added to the OpenAirport Youtube channel.  Please stay tuned.
 
 == Customize ==
 
