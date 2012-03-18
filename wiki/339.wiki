@@ -32,4 +32,8 @@ Clicking a picture on the Help Form will put that item into the description fiel
 
 The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the  
 [http://openairport.googlecode.com/files/sampleficonrunway.png Alaska Airlines Runway Condition Code Matrix].  By selecting the surface coverage, the depth and type of contaminant the form assigns the proper Runway Condition Code to the surface. The information is automatically input to the main form over righting anything in the field.  The temperature is pulled for the most recent METAR and can be adjusted if the user has more recent information. 
+
+=== Going from here ===
+
+Once basic data entry is completed there is a wealth of information at your disposal.  Did you know that your average Mu value is 3 less when testing up a gradient or that what you thought was your worst location on the airport actually isn't that bad. Similar to the graphic distribution of Wildlife Hazards the FiCON system can show you where your problems are, trends in surface conditions, and help you plan your next snow season more efficiently. 
   
