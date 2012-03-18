@@ -30,5 +30,5 @@ Clicking a picture on the Help Form will put that item into the description fiel
 
 [http://openairport.googlecode.com/files/FiCON_icao2.png]
 
-The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the Alaska Airlines Runway Condition Code Matrix [ http://openairport.googlecode.com/files/sampleficonrunway.png Screenshot]
+The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the Alaska Airlines Runway Condition Code Matrix [ http://openairport.googlecode.com/files/sampleficonrunway.png |Screenshot]
   
