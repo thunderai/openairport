@@ -26,4 +26,7 @@ Templates are compatible with all other methods of data entry so long as their s
 
 [http://openairport.googlecode.com/files/FiCON_help.png]
 
+Clicking a picture on the Help Form will put that item into the description field of that surface. A new help form has to be opened for every surface you want help with, but the process can be quite quick with a few clicks.  Each button just adds the information to the description so it wont overwrite anything you manually placed in the field.  When Help isn't enough or you want ICAO compliant descriptions, click the ICAO button.
+
+[http://openairport.googlecode.com/files/FiCON_icao.png]
   
