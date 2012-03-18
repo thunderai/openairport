@@ -16,7 +16,14 @@ From a world where field conditions were recorded in Good, Fair, Poor, Nil, to o
 
 === Details ====
 
-There are three ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. 
+There are a number of different ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. Shown below is the current FiCON screen being worked on from version 2 and reworked into version 3 code. The overall look wont change much but the framework behind it is undergoing many changes. 
 
 [http://openairport.googlecode.com/files/FiCON_Main.png]
+
+Conducting FiCON operations in a prompt and proper way can mean there are times where Operations is doing a FiCON every hour or as fast as they can in a major snow storm.  This process can be sped along by the process of using Templates. Templates have two flavors.  They can either be FiCONs that were entered recently or generic FiCONs from which an Operations Specialist can change some information and submit the paper-work as fast as reasonable.   Templates are tracked and OpenAirport knows if one was used when a new FiCON is created. 
+
+Templates are compatible with all other methods of data entry so long as their selected first.  Making changes manually and then selecting a template will remove everything done and revert back to the selected template. An Operations Specialist can manually enter all information in the fields if they want.  This process can be helpd with the FiCON Help/Cheat Form.
+
+[http://openairport.googlecode.com/files/FiCON_help.png]
+
   
