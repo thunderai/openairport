@@ -30,6 +30,6 @@ Clicking a picture on the Help Form will put that item into the description fiel
 
 [http://openairport.googlecode.com/files/FiCON_icao2.png]
 
-The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the Alaska Airlines Runway Condition Code Matrix 
-[http://openairport.googlecode.com/files/sampleficonrunway.png Alaska Airlines Runway Condition Code Matrix]
+The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the  
+[http://openairport.googlecode.com/files/sampleficonrunway.png Alaska Airlines Runway Condition Code Matrix].  By selecting the surface coverage, the depth and type of contaminant the form assigns the proper Runway Condition Code to the surface. The information is automatically input to the main form over righting anything in the field.  The temperature is pulled for the most recent METAR and can be adjusted if the user has more recent information. 
   
