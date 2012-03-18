@@ -16,7 +16,7 @@ From a world where field conditions were recorded in Good, Fair, Poor, Nil, to o
 
 === Details ====
 
-There are a number of different ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. Shown below is the current FiCON screen being worked on from version 2 and reworked into version 3 code. The overall look wont change much but the framework behind it is undergoing many changes. 
+There are a number of different ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. Shown below is the current FiCON screen being worked on from version 2 and reworked into version 3 code. The overall look wont change much but the framework behind it is undergoing many changes.
 
 [http://openairport.googlecode.com/files/FiCON_Main.png]
 
