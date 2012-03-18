@@ -540,23 +540,23 @@ if ($tbldisplaytotal==1) {
 									<td class="formbuttons" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_closed;?><br>
 										<input class="hidden" type="hidden" name="frmclosed" id="frmclosed" size="25" 
-										<?php 
-										if ($tblclosedsort=="1") {
-												?>
-										value="1" >
-												<?php 
-												}
+										<?php
+										if ($_POST['frmclosed'] == 0) {
+												$defaultduplicate = $en_notactive;
+											}
 											else {
+												$defaultduplicate = $en_active;
 												?>
-											>
-												<?php 
+										value="<?php echo $_POST['frmclosed'];?>"
+												<?php
 											}
 											?>
+										>
 										</td>
 									</tr>
 								<tr>
 									<td align="center" valign="middle">
-										<input class="inlinehiddenbox" type="text" name="frmclosedactive" id="frmclosedactive" size="15">
+										<input class="inlinehiddenbox" type="text" name="frmclosedactive" id="frmclosedactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
 								</table>

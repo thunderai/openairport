@@ -3,7 +3,8 @@ function _dp_327_discrepancies($dasharray) {
 		//						0					1						2					3					4					5					6					7					8					9
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
-<table border="1" width="290" align="left" valign="top" style="border-collapse:collapse;Margin:5px;">
+<!--<div id="div_327discrepancies" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
+<table border="1" width="45%" align="left" valign="top" style="border-collapse:collapse;Margin:5px;float:left;">
 	<tr>
 		<td class="tableheaderleft">
 			<font size='2'>
@@ -40,6 +41,15 @@ function _dp_327_discrepancies($dasharray) {
 				$objrs = mysqli_query($objconn, $sql);		
 				if ($objrs) {
 						$number_of_rows 	= mysqli_num_rows($objrs);
+						if($number_of_rows == 0) {
+								?>
+	<tr>
+		<td colspan="2" class='formresults'>
+			No Discrepancies
+			</td>
+		</tr>
+								<?php
+							}
 						while ($objarray 	= mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 						
 								$displayrow					= 0;
@@ -82,8 +92,10 @@ function _dp_327_discrepancies($dasharray) {
 			$functionworkorderpage	= 'part139327_discrepancy_report_display_workorder.php';
 			$functionrepairpage		= 'part139327_discrepancy_report_repair.php';
 			$functionbouncepage		= 'part139327_discrepancy_report_bounce.php';
+			$functionclosedpage		= 'part139327_discrepancy_report_closed.php';
 			$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
 			$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
+			$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
 			// Utilize our lies
 			?>
 			<table border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='right'>
@@ -108,6 +120,11 @@ function _dp_327_discrepancies($dasharray) {
 			</td>
 		</tr>
 	</table>
+<!--	</div>
+	
+	<script type="text/javascript">
+	var googlewin=dhtmlwindow.open("div4", "div", "div_327discrepancies", "<?php echo $dasharray[2];?>", "width=300px,height=750px,left=820px;top=40px;resize=1,scrolling=1,center=0", "recal")
+	</script>-->
 	<?php
 	}
 ?>

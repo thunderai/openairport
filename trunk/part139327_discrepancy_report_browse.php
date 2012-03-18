@@ -54,7 +54,7 @@
 		$tbl_show_headersort		= 1;												// 1: Allow User to Show Records by Header; 	0: Prevent User from sorting records by Header.
 		$tbl_show_duplicatesort		= 1;												// 1: Default to Show DUPLICATE Records;		0: Default to NOT show DUPLICATE Recrords. 
 		$tbl_show_archivedsort		= 1;												// 1: Default to Show ARCHIVED Records; 		0: Default to NOT show ARCHIVED Recrords.
-		$tbl_show_closedsort		= 0;												// 1: Default to Show CLOSED Records; 			0: Default to NOT show CLOSED Recrords
+		$tbl_show_closedsort		= 1;												// 1: Default to Show CLOSED Records; 			0: Default to NOT show CLOSED Recrords
 		$tbl_show_joinedsort		= 1;												// 1: Allow User to Show Records by Text; 		0: Prevent User from sorting records by Text.
 		$tbl_show_pagation			= 1;
 		
@@ -78,7 +78,7 @@
 		$runpreflights				= 1;												// Tells the Program if it should run the preflight settings
 		$function_duplicatesort		= 'preflights_tbl_139_327_main_sub_d_d_yn';			// The Name of the function to call to sort out DUPLICATE Records.
 		$function_archivedsort		= 'preflights_tbl_139_327_main_sub_d_a_yn';			// The Name of the function to call to sort out ARCHIEVED Records.
-		$function_closedsort		= '';												// The Name of the function to call to sort out CLOSED Records.
+		$function_closedsort		= 'preflights_tbl_139_327_main_sub_d_c_yn';			// The Name of the function to call to sort out CLOSED Records.
 
 	// Aditional Commands Settings
 		//		Notes:  For this form I have disabled the Archived, Duplicate, and Error controls because you can quickly access them from the EDIT Function.
@@ -92,10 +92,13 @@
 
 		$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		$array_repairedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_r WHERE discrepancy_repaired_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_repaired.php");
+		$array_closedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
 
+		
 		$functionworkorderpage		= "part139327_discrepancy_report_display_workorder.php";
 		$functionbouncepage			= "part139327_discrepancy_report_bounce.php";
 		$functionrepairpage			= "part139327_discrepancy_report_repair.php";
+		$functionclosedpage			= "part139327_discrepancy_report_closed.php";
 		
 		$functionduplicatepage		= "part139327_discrepancy_report_duplicate.php";
 		$functionarchievedepage		= "part139327_discrepancy_report_archieved.php";

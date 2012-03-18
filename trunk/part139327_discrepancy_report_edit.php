@@ -115,6 +115,10 @@ if (!isset($_POST['recordid'])) {
 														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
 														$functionpage	= "part139327_discrepancy_report_error.php";														
 														_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
+														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
+														$functionpage	= "part139327_discrepancy_report_closed.php";														
+														_tp_control_closed($objarray['Discrepancy_id'], $settingsarray, $functionpage);															
+														
 														// That was fun, love modules.  No need to do that for the rest as it's not so simple here.
 														// Need to figure out what the current status of this discrepancy is!
 														// Status:
@@ -128,8 +132,10 @@ if (!isset($_POST['recordid'])) {
 														$functionworkorderpage	= 'part139327_discrepancy_report_display_workorder.php';
 														$functionrepairpage		= 'part139327_discrepancy_report_repaired.php';
 														$functionbouncepage		= 'part139327_discrepancy_report_bounce.php';
+														$functionclosedpage		= 'part139327_discrepancy_report_closed.php';
 														$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
 														$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
+														$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
 														// Utilize our lies
 														include("includes/_template/_tp_blockform_workorder.binc.php");	
 														?>

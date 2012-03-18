@@ -87,7 +87,7 @@ if (!isset($_POST["formsubmit"])) {
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
 			$display_submit 		= 1;															// 1: Display Submit Button,	0: No
-				$submitbuttonname	= 'Save Error Report';										// Name of the Submit Button
+				$submitbuttonname	= 'Save Repair Report';										// Name of the Submit Button
 			$display_close			= 1;															// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
