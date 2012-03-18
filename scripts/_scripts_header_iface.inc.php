@@ -42,3 +42,4 @@
 			<script type="text/javascript" src="scripts/_iface/cal_conf2.js"></script>
 			<script type="text/javascript" src="scripts/_iface/_frm_calibration.js"></script>
 			<script type="text/javascript" src="scripts/_iface/_frm_displaybutton.js"></script>
+			<script type="text/javascript" src="scripts/_iface/dhtmlwindow.js"></script>

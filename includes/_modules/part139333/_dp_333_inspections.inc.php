@@ -3,7 +3,8 @@ function _dp_333_inspections($dasharray) {
 		//						0					1						2					3					4					5					6					7					8					9
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
-<table border="1" width="270" align="left" valign="top" style="border-collapse:collapse;Margin:5px;">
+<!--<div id="div_333inspections" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
+<table border="1" width="45%" align="left" valign="top" style="border-collapse:collapse;Margin:5px;float:left;">
 	<tr>
 		<td class="tableheaderleft">
 			<font size='2'>
@@ -75,6 +76,11 @@ function _dp_333_inspections($dasharray) {
 			</td>
 		</tr>
 	</table>
+<!--	</div>
+	
+	<script type="text/javascript">
+	var googlewin=dhtmlwindow.open("div5", "div", "div_333inspections", "<?php echo $dasharray[2];?>", "width=300px,height=100px,left=5px;top=640px;resize=1,scrolling=1,center=0", "recal")
+	</script>	-->
 	<?php
 	}
 ?>

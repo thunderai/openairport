@@ -34,6 +34,7 @@
 	// Load Include Files
 			include("_tp_control_duplicate.inc.php");
 			include("_tp_control_archived.inc.php");
+			include("_tp_control_closed.inc.php");
 			include("_tp_control_error.inc.php");
 			include("_tp_control_footbuttons.inc.php");
 			include("_tp_files_read_weather.inc.php");

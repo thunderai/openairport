@@ -89,9 +89,9 @@ if ($_SESSION['user_id']=="") {
 	}
 	else {
 		?>
-		<table width="100%" height="1000">
+		<table width="100%" height="1000" valign="top">
 			<tr>
-				<td>
+				<td valign='top'>
 					<?php
 		//$tmpstarttime 	= time();
 
@@ -109,4 +109,5 @@ if ($_SESSION['user_id']=="") {
 		<?php
 
 	}
-?>
+	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
+?>	

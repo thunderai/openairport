@@ -11,11 +11,13 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 		//					6 : 1 + Duplicate
 		//					7 : 1 + Error
 		//					8 : 1 + Owned
+		//					9 : 1 + Closed
 		
 		$display_basic 		= 0;
 		$display_extended 	= 0;
 		$display_repaired 	= 0;
 		$display_bounced 	= 0;
+		$display_closed		= 0;
 		$display_archived 	= 0;
 		$display_duplicate 	= 0;	
 		$display_error 		= 0;		
@@ -38,6 +40,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 				$display_extended 	= 1;
 				$display_repaired 	= 1;
 				$display_bounced 	= 1;
+				$display_closed		= 1;
 				$display_archived 	= 1;
 				$display_duplicate 	= 1;	
 				$display_error 		= 1;		
@@ -73,7 +76,11 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 				$display_extended 	= 1;
 				$display_ownedby  	= 1;				
 			}	
-			
+		if($detail_level == 9) {
+				$display_basic 		= 1;
+				$display_extended 	= 1;
+				$display_closed  	= 1;				
+			}				
 			
 			
 		$sql 		= "SELECT * FROM tbl_139_327_sub_d 
@@ -422,13 +429,116 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 												// DO NOT display anything YET!!!!!
 											}
 									}
+
+								if($display_closed == 1) {	
+
+										// Display all Bounced Information
+										$sql2 = "SELECT * FROM tbl_139_327_sub_d_c 
+										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d_c.discrepancy_closed_by_cb_int 
+										WHERE discrepancy_closed_inspection_id = '".$discrepancyid."' AND discrepancy_closed_yn = 1 
+										ORDER BY discrepancy_closed_date,discrepancy_closed_time";
+										
+										//echo $sql2;
+										
+										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+										if (mysqli_connect_errno()) {
+												// there was an error trying to connect to the mysql database
+												printf("connect failed: %s\n", mysqli_connect_error());
+												exit();
+											}
+											else {
+												$objrs2 = mysqli_query($objconn2, $sql2);
+												if ($objrs2) {
+														$number_of_rows = mysqli_num_rows($objrs2);
+														if($number_of_rows >=1) {
+																
+																$closedHTML_i = "
+																				<tr>
+																					<td colspan='2' class='tableheaderleft'>
+																						<b>Closed Information</b>
+																						</td>
+																					</tr>
+																				";
+																				
+																if($returnhtml == 0) {
+																		// Just display the results now
+																		echo $closedHTML_i;
+																	}
+																	else {
+																		// DO NOT display anything YET!!!!!
+																	}		
+															}
+															else {
+															
+																$closedHTML_i = "
+																				<tr>
+																					<td colspan='2' class='tableheaderleft'>
+																						<b>Closed Information</b>
+																						</td>
+																					</tr>
+																				<tr>
+																					<td colspan='2' class='formanswers'>
+																						<b>There are no records to display</b>
+																						</td>
+																					</tr>
+																				";
+																				
+																if($returnhtml == 0) {
+																		// Just display the results now
+																		echo $closedHTML_i;
+																	}
+																	else {
+																		// DO NOT display anything YET!!!!!
+																	}															
+															}
+															
+														while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
+														
+																$closedHTML = $closedHTML."
+																				<tr>		
+																					<td align='center' valign='middle' class='formoptions'>
+																						Date / Time
+																						</td>
+																					<td class='formanswers'>".
+																						$objarray2['discrepancy_closed_date']." / ".$objarray2['discrepancy_closed_time']." 
+																						</td>
+																					</tr>
+																				<tr>		
+																					<td align='center' valign='middle' class='formoptions'>
+																						Bounced By
+																						</td>
+																					<td class='formanswers'>".
+																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
+																						</td>
+																					</tr>
+																				<tr>		
+																					<td align='center' valign='middle' class='formoptions'>
+																						Comments
+																						</td>
+																					<td class='formanswers'>".
+																						$objarray2['discrepancy_closed_reason']." 
+																						</td>
+																					</tr>
+																				";
+															}
+													}
+											}
+										if($returnhtml == 0) {
+												// Just display the results now
+												echo $closedHTML;
+											}
+											else {
+												// DO NOT display anything YET!!!!!
+											}
+									}
+
 									
 								if($display_archived == 1) {	
 
 										// Display all Bounced Information
 										$sql2 = "SELECT * FROM tbl_139_327_sub_d_a 
 										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d_a.discrepancy_archieved_by_cb_int 
-										WHERE discrepancy_archeived_inspection_id = '".$discrepancyid."' AND discrepancy_archieved_yn = 0 
+										WHERE discrepancy_archeived_inspection_id = '".$discrepancyid."' AND discrepancy_archieved_yn = 1 
 										ORDER BY discrepancy_archieved_date,discrepancy_archieved_time";
 										
 										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -528,7 +638,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 										// Display all Bounced Information
 										$sql2 = "SELECT * FROM tbl_139_327_sub_d_d 
 										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d_d.discrepancy_duplicate_by_cb_int 
-										WHERE discrepancy_duplicate_inspection_id = '".$discrepancyid."' AND discrepancy_duplicate_yn = 0 
+										WHERE discrepancy_duplicate_inspection_id = '".$discrepancyid."' AND discrepancy_duplicate_yn = 1 
 										ORDER BY discrepancy_duplicate_date,discrepancy_duplicate_time";
 										
 										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -636,7 +746,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 										// Display all Bounced Information
 										$sql2 = "SELECT * FROM tbl_139_327_sub_d_e 
 										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d_e.discrepancy_error_by_cb_int 
-										WHERE discrepancy_error_inspection_id = '".$discrepancyid."' AND discrepancy_error_yn = 0 
+										WHERE discrepancy_error_inspection_id = '".$discrepancyid."' AND discrepancy_error_yn = 1 
 										ORDER BY discrepancy_error_date,discrepancy_error_time";
 										
 										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -834,7 +944,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 			}
 			else {
 				// Assemble a return variable
-				$return_string = $table_i."".$basicHTML."".$extendedHTML."".$repairedHTML_i."".$repairedHTML."".$bouncedHTML_i."".$bouncedHTML."".$ownedbyHTML_i."".$ownedbyHTML."".$archievedHTML_i."".$archievedHTML."".$duplicateHTML_i."".$duplicateHTML."".$errorHTML_i."".$errorHTML."".$table_o."";
+				$return_string = $table_i."".$basicHTML."".$extendedHTML."".$repairedHTML_i."".$repairedHTML."".$bouncedHTML_i."".$bouncedHTML."".$closedHTML_i."".$closedHTML."".$ownedbyHTML_i."".$ownedbyHTML."".$archievedHTML_i."".$archievedHTML."".$duplicateHTML_i."".$duplicateHTML."".$errorHTML_i."".$errorHTML."".$table_o."";
 				return $return_string;
 			}			
 	}

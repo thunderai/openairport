@@ -351,6 +351,17 @@ input.Commonfieldbox {
 	background-color: #AC9D8A;
 	}
 
+.formanswers_dp {
+	font-family: Arial Narrow; 
+	font-size: 10pt; 
+	color: #000000; 
+	border-top-style: groove; 
+	border-top-width: 2px; 
+	border-bottom: 1px groove #867C71; 
+	text-align: left;
+	background-color: #AC9D8A;
+	}
+	
 .formanswers_multicolumn {
 	font-family: Arial Narrow; 
 	font-size: 10pt; 

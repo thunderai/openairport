@@ -31,6 +31,8 @@
 
 // LOAD INCLUDE FILES
 
+		// Load Systemuser Dashpanel
+			include("includes/_systemusers/_dp_su_dailyactivity.inc.php");
 		// Load Part 139.327 Inspection Dashpanel
 			include("includes/_modules/part139327/part139327.list.php");
 			include("includes/_modules/part139327/_dp_327_inspections.inc.php");
@@ -62,7 +64,6 @@
 			}
 			else {
 				$objrs = mysqli_query($objconn, $sql);
-					
 				if ($objrs) {
 						$number_of_rows = mysqli_num_rows($objrs);
 						// Take the number of rows returned divided by 2.

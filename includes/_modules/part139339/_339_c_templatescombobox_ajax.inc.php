@@ -1,0 +1,165 @@
+<?php
+function part139339_c_templatescombobox_ajax($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
+	// $suppliedid		, is the number of the group to do the search for ;
+	// $archived		, do you want to list all menu items, or just the archived ones;
+	// $nameofinout		, what is the name of the select box that 'could' be ceated by this function;
+	// $showcombobox	, Do you want to show the combo box select input style or just the text without the input box;
+	// $default			, What is the default group to display in the combobox when it is displayed;
+
+	// Examples
+	
+	//	$adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "");
+	// This example will only show one record, and it will not be in a combobox input box, but rather be displayed as text.
+	
+	// Phase A: Initial Settings
+
+		if ($showcombobox=="show") {
+				?>
+				<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" ID="<?php echo $nameofinput;?>" onchange="call_server_ficon_loadtemplate(<?php echo $_SESSION['user_id'];?>);">>
+					<option value=0>If you want to use a template, select one from this list</option>
+					<?php
+			}
+
+	// Phase B: List the "x" most recent Field Condition Reports that were conducted
+	
+		$sql			= "";																							
+		$nsql 			= "";	
+		
+		$mynewdate		= strftime("%Y-%m-%d", strtotime("-1 days")); 
+		
+		$sql			= "SELECT * FROM tbl_139_339_main WHERE 139339_date >= '".$mynewdate."' ";
+	
+		$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+		
+		if (mysqli_connect_errno()) {
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}
+			else {
+				$objrs_support = mysqli_query($objconn_support, $sql);
+				if ($objrs_support) {
+						$number_of_rows = mysqli_num_rows($objrs_support);
+						//printf("result set has %d rows. \n", $number_of_rows);
+						while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
+								$tmpsuppliedid 		= $objfields['139339_main_id'];
+								$tmpsupplieddate 	= $objfields['139339_date'];
+								$tmpsuppliedtime	= $objfields['139339_time'];
+								$tmpsuppliedmetar	= $objfields['139339_metar'];
+								?>
+								<OPTION VALUE="mr<?php echo $tmpsuppliedid;?>">Recent: (<?php echo $tmpsupplieddate;?> / <?php echo $tmpsuppliedtime;?>)</option>
+								<?php
+							}
+					}
+			}
+			
+			?>
+			<OPTION VALUE="0">-//--\\--//--\\--//--\\--//--\\--//--\\-</option>
+			<?php
+	
+	
+	
+	$sql	= "";																									// Define the sql variable, just in case
+	$nsql 	= "";																									// Define the nsql variable, just in case
+	
+	$sql = "SELECT * FROM tbl_139_339_main_t ";																		// start the SQL Statement with the common syntax
+
+	if ($suppliedid=="all") {																						// if supplied 'all' for the menu_id so the following
+			// do not add any employee ID information to the SQL String
+			$tmp_flagger = 0;																						// important to tell the procedures below this happened
+		}
+		else {
+			$nsql = "WHERE `139339_main_t_id` = ".$suppliedid." ";													// if supplied a menu_id, then add it to the SQL Statement
+			$sql = $sql.$nsql;																						// combine the nsql and sql strings
+			$tmp_flagger = 1;																						// important to tell the procedures below this happened
+		}
+
+	if ($archived == "all") {																						// if supplied 'all' for the archived variable do the following
+																													// Do not add any systemuser archived information to the SQL string
+		}
+		else {
+			if ($archived=="yes") {																					// If archived is 'yes' then
+					if ($tmp_flagger==0) {	
+							$nsql = "WHERE 139339_main_t_a_yn = -1 ";
+							$sql = $sql.$nsql;
+							$tmp_flagger = 1;
+						}
+						else {
+							$nsql = "AND 139339_main_t_a_yn = -1 ";
+							$sql = $sql.$nsql;
+						}
+				}
+				else {
+					if ($tmp_flagger==0) {
+							$nsql = "WHERE 139339_main_t_a_yn = 0 ";
+							$sql = $sql.$nsql;
+							$tmp_flagger = 1;
+						}
+						else {
+							$nsql = "AND 139339_main_t_a_yn = 0 ";
+							$sql = $sql.$nsql;
+						}
+				}
+		}
+	//echo $sql;
+	
+	$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+	
+	if (mysqli_connect_errno()) {
+			printf("connect failed: %s\n", mysqli_connect_error());
+			exit();
+		}
+		else {
+			$objrs_support = mysqli_query($objconn_support, $sql);
+			if ($objrs_support) {
+					$number_of_rows = mysqli_num_rows($objrs_support);
+					//printf("result set has %d rows. \n", $number_of_rows);
+
+					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
+							$tmpsuppliedid 		= $objfields['139339_main_t_id'];
+							$tmpsuppliedname 	= $objfields['139339_main_t_name'];
+							$tmpsuppliedarch	= $objfields['139339_main_t_a_yn'];
+							
+						if ($showcombobox=="show") {
+								?>
+		<option 
+								<?php
+							}
+							if ($suppliedid = "all") {
+									$intsuppliedid	= (double) $default;
+									if ($tmpsuppliedid == $intsuppliedid) {
+											if ($showcombobox=="show") {
+													?>
+				SELECTED
+													<?php
+												}
+										}
+										else {
+											// There is no user specified so we dont need to set a defualt value
+										}
+								}
+								else {
+								
+								}
+								if ($showcombobox=="show") {
+										?>
+				value="<?php echo $tmpsuppliedid;?>">Template: <?php echo $tmpsuppliedname;?></option>
+										<?php
+									}
+									else {
+										?>
+				<?php echo $tmpsuppliedname;?>
+										<?php
+									}
+								}	// End of while loop
+								mysqli_free_result($objrs_support);
+								mysqli_close($objconn_support);
+								if ($showcombobox=="show") {
+										?>
+		</SELECT>
+										<?php
+									}
+						}	// end of Res Record Object						
+				}
+	}

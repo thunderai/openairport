@@ -287,6 +287,84 @@ if (!isset($_POST["recordid"])) {
 							</table>
 						</td>
 					</tr>
+<tr>
+				<td colspan="2">
+					<table border="0" cellpadding="1" width="100%" id="table1" cellpadding="0" style="border-collapse: collapse">			
+							<?php
+							$sql2 = "SELECT * FROM tbl_139_327_sub_d_c 
+							INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d_c.discrepancy_closed_by_cb_int 
+							WHERE discrepancy_closed_inspection_id = '".$recordid."' AND discrepancy_closed_yn = 1
+							ORDER BY discrepancy_closed_date,discrepancy_closed_time";
+							
+							//echo $sql2;
+							
+							$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+							if (mysqli_connect_errno()) {
+									// there was an error trying to connect to the mysql database
+									printf("connect failed: %s\n", mysqli_connect_error());
+									exit();
+								}
+								else {
+									$objrs2 = mysqli_query($objconn2, $sql2);
+									if ($objrs2) {
+											$number_of_rows = mysqli_num_rows($objrs2);
+											
+											if ($number_of_rows >= 1) {
+											?>
+						<tr>
+							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><b>Closed History</b></font>
+								</td>
+							</tr>
+						<tr>
+							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" />Date</font>
+								</td>
+							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" />Time</font>
+								</td>
+							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" />By</font>
+								</td>
+							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" />Comments</font>
+								</td>
+							</tr>							
+											<?php
+												}
+												else {
+													?>
+						<tr>
+							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><b>No Closed History</b></font>
+								</td>
+							</tr>													
+													<?php
+												}
+											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
+													?>
+						<tr>
+							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_date'];?>
+								</td>		
+							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_time'];?>
+								</td>	
+							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><?php echo $objarray2['emp_initials'];?>
+								</td>		
+							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_reason'];?>
+								</td>									
+							</tr>														
+													<?php
+												}
+										}
+								}
+							?>
+							</table>
+						</td>
+					</tr>
 				</table>
 			</div>
 					<?
