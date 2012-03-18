@@ -33,6 +33,12 @@ Clicking a picture on the Help Form will put that item into the description fiel
 The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the  
 [http://openairport.googlecode.com/files/sampleficonrunway.png Alaska Airlines Runway Condition Code Matrix].  By selecting the surface coverage, the depth and type of contaminant the form assigns the proper Runway Condition Code to the surface. The information is automatically input to the main form over righting anything in the field.  The temperature is pulled for the most recent METAR and can be adjusted if the user has more recent information. 
 
+=== Surface Anomalies ===
+
+You know they exist. Like discrepancies in a 327 inspection anomalies are situations on your airfield that are not easily explainable with text but can be quite easy to understand if you show a graphic location to someone.  After building the basic FiCON the user can place anomalies on the report explaining situation things like berms, snow drifts, or whatever they feel is important. If you have the time to data entry it, its possible to show it.  
+
+Anomalies are not copied from templates and don't follow the same rules as a discrepancy from a 327 inspection.  They can be tracked, shown on maps, but they can't be 'closed', 'repaired', 'bounced', and have no status.  Once they are on the report they will not automatically exist in future FiCONs unlike a discrepancy.  Snow removal is fluid and a FiCON should only display the current scenario and the anomalies that process creates. 
+
 === Going from here ===
 
 Once basic data entry is completed there is a wealth of information at your disposal.  Did you know that your average Mu value is 3 less when testing up a gradient or that what you thought was your worst location on the airport actually isn't that bad. Similar to the graphic distribution of Wildlife Hazards the FiCON system can show you where your problems are, trends in surface conditions, and help you plan your next snow season more efficiently. 
