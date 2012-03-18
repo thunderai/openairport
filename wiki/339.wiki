@@ -12,4 +12,8 @@ The most common use for 14 CFR Part 139.339 is in Winter or Special Operations t
 
 in OpenAirport a Field Condition Report (FiCON) is tied to the surfaces at your airport. By default there is only one type of FiCON as opposed to the basic four type of 327 inspections; however, there is no limit to how you design and build your own FiCONs. There is no preferred order in which to file your 327 or your 339 FiCON.  The FiCON will pull information from known NOTAMs closing surfaces as needed or opening them as you make changes during the snow removal process.
 
+=== Background ====
+
+Accidents happen and it is our job as Airport Management and Operations Personnel to keep our airports safe, efficient, and economical. 
+
   
