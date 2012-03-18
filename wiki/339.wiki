@@ -14,6 +14,9 @@ There are a few important things to be aware of. The FAA is currently in the pro
 
 From a world where field conditions were recorded in Good, Fair, Poor, Nil, to one where only 'quantifiable' Mu values were provided, to a more holistic approach isn't a bad thing and OpenAirport works to ensure your airport has the ability to provide information to the pilot in a format you can use and they will want. 
 
-=== Screen Shots ====
+=== Details ====
 
+There are three ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. 
+
+[http://openairport.googlecode.com/files/FiCON_Main.png]
   
