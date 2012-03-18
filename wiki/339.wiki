@@ -1,0 +1,9 @@
+[http://openairport.googlecode.com/files/snowplow.jpg]
+
+=== Introduction ===
+
+14 CFR Part 139.339 Field Condition Reporting describes regulations pertaining to how an airport shares information about what the airfield looks like going beyond what discrepancies there are on the field like in Part 139.327. 
+
+This is done in two ways a), Through the NOTAM system, and b). Through internal communication that provides specific information about the airport to all tenants and users. Part 139.339 (b) describes NOTAM procedures and Part 139.339 (c) describes the specific information for tenants an airport will share. 
+
+=== Details ===
