@@ -104,8 +104,11 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 									$functionworkorderpage	= 'part139327_discrepancy_report_display_workorder.php';
 									$functionrepairpage		= 'part139327_discrepancy_report_repair.php';
 									$functionbouncepage		= 'part139327_discrepancy_report_bounce.php';
+									$functionclosedpage		= 'part139327_discrepancy_report_closed.php';
 									$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
 									$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
+									$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
+									
 									// Utilize our lies
 									include("includes/_template/_tp_blockform_workorder.binc.php");	
 									

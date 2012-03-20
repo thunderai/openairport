@@ -43,14 +43,15 @@
 			//include("_327_discrepancydisplaysummary.inc.php");	
 			//include("_327_reportdisplaysummary.inc.php");
 			
-			include("_339_typescombobox.inc.php");
-			include("_339_typescomboboxwall.inc.php");
+			include("_339_c_typescombobox.inc.php");
+			include("_339_c_typestextfield.inc.php");
+			include("_339_c_typescomboboxwall.inc.php");
 			
 			include("_339_c_templatescombobox_ajax.inc.php");			
 			include("_339_c_templatescombobox.inc.php");
 			
 	// Load PreFlight Files
-			//include("preflights_tbl_139_327_main_a_yn.inc.php");
+			include("preflights_tbl_139_339_c_main_a_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_a_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_c_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_d_yn.inc.php");
