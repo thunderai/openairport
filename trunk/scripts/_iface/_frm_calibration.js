@@ -6,8 +6,8 @@ function toggle(showHideDiv) {
 	else {
 		ele.style.display = "block";
 	}
-} 	
-		
+} 
+	
 function checkcalibration(fieldtext) {
 	
 	var cv = escape(fieldtext) + "c";

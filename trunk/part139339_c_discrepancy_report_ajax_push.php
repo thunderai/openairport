@@ -70,7 +70,7 @@
 		// Define SQL
 		$sql = "SELECT * FROM tbl_139_339_sub_d WHERE Discrepancy_inspection_id = '".$tmp_inspectionid."'";
 		
-		echo $sql;
+		//echo $sql;
 		
 		// Establish a Conneciton with the Database
 		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);

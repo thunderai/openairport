@@ -185,7 +185,21 @@ if (!isset($_POST["formsubmit"])) {
 											</tr>
 										<tr>
 											<td colspan="3" class="formoptionsavilabletop">
-												The FiCON has been added to the Database, Would you like to add any graphical additions to the FiCON? If so click the Add Graphic button, otherwise or when finished click the print button
+												<p>
+													The Field Condition Report has been successfully added 
+													to the database.<br>
+													<br>
+													If you want to add any graphic anomalies to the report, 
+													please click the 'Add Anomalies' button below.  Each 
+													anomaly will automatically be associated with this Field 
+													Condition Report and displayed on the report.<br>
+													<br>
+													If you do not wish to add a surface anomaly to this 
+													report or once you have completed adding any anomalies 
+													you wish click the 'Print Report' button. The Field 
+													Condition Report is not officially filled until you 
+													press the 'Print Report' button.
+													</p>
 												</td>
 											</tr>
 		<?										
@@ -368,7 +382,7 @@ if (!isset($_POST["formsubmit"])) {
 											</td>
 										</tr>											
 										<tr>
-											<form style="margin-bottom:0;" action="part139339_c_report_display.php" method="POST" name="printform" id="printform" target="PrinterFriendlyReport" onsubmit="window.open('', 'PrinterFriendlyReport', 'width=717,height=962,status=no,resizable=no,scrollbars=yes')">
+											<form style="margin-bottom:0;" action="part139339_c_report_display_new.php" method="POST" name="printform" id="printform" target="PrinterFriendlyReport" onsubmit="window.open('', 'PrinterFriendlyReport', 'width=800,height=962,status=no,resizable=no,scrollbars=yes')">
 											<td class="formoptionsavilablebottom" colspan="3">
 												<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
 												<input type="hidden" name="recordid" 			value="<?php echo $lastid;?>">

@@ -191,6 +191,9 @@ if (!isset($_POST["formsubmit"])) {
 										<tr>
 											<td colspan="2" class="formoptionsavilablebottom">
 												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">
+												<?php
+												_tp_control_footbuttons(1,0,0,0);
+												?>
 												</td>
 											</tr>
 										</table>
@@ -342,6 +345,8 @@ if (!isset($_POST["formsubmit"])) {
 														$fieldname = "addeddis_".$tmp_conditionid."";
 														_tp_control_footbuttons(3,$fieldname,$_POST['recordid'],'call_server_pnd_339_c');
 													}
+													_tp_control_footbuttons(1,0,0,0);
+												
 												?>
 												</td>
 											</tr>										
