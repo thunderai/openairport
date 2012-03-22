@@ -34,6 +34,8 @@
 	// Load Include Files
 			include("_339_c_facilitycombobox.inc.php");
 			include("_339_c_facilitycomboboxwall.inc.php");	
+			include("_339_c_facilitycomboboxlimitedtomu.inc.php");	
+			
 			
 			//include("_327_conditionscombobox.inc.php");
 			//include("_327_conditionscomboboxwall.inc.php");			

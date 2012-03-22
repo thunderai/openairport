@@ -76,10 +76,20 @@
 		$tmp_runwayort_12			= -1;
 		$tmp_runwayort_17			= -1;
 		
+		
+	if (!isset($_POST['recordid'])) {
+			$recordid = $_GET['recordid'];
+	}
+	else {
+			$recordid = $_POST['recordid'];
+	}
+	
+	//echo $recordid." 878888888 ";
+		
 	$sql = "SELECT * FROM tbl_139_339_main 
 	INNER JOIN tbl_139_339_sub_t ON 139339_type_id = 139339_type_cb_int 
 	INNER JOIN tbl_139_339_sub_t_i ON 139339_sub_t_id_int = 139339_type_id 
-	WHERE 139339_main_id = '".$_POST['recordid']."' ";
+	WHERE 139339_main_id = '".$recordid."' ";
 
 	//make connection to database
 	$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -239,7 +249,7 @@
 							$sql = "SELECT * FROM tbl_139_339_sub_c_c 
 									INNER JOIN tbl_139_339_sub_c ON 139339_cc_c_cb_int = 139339_c_id 
 									INNER JOIN tbl_139_339_sub_c_f ON 139339_f_id = 139339_c_facility_cb_int 
-									WHERE 139339_cc_ficon_cb_int = '".$_POST['recordid']."' 
+									WHERE 139339_cc_ficon_cb_int = '".$recordid."' 
 									ORDER BY 139339_f_order, 139339_f_name, 139339_c_name";
 							
 							//echo $sql;
@@ -492,7 +502,7 @@
 	$OffSetY 	= -50;
 	$tmpzindex 	= 14;
 	
-		$sql = "SELECT * FROM tbl_139_339_sub_d WHERE Discrepancy_inspection_id = '".$_POST['recordid']."' ";
+		$sql = "SELECT * FROM tbl_139_339_sub_d WHERE Discrepancy_inspection_id = '".$recordid."' ";
 						
 		$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 	

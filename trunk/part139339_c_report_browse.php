@@ -99,8 +99,8 @@
 		
 		$function_calendar			= 'part139339_c_report_calendar.php';					// The URL of the webpage to load to display the Calendar.
 		$function_printout			= '_general_printouts_get.php';							// The URL of the webpage to load to display the Printout.
-		$function_distribution		= '';													// The URL of the webpage to load to display the Distribition Chart.
-		$function_linechart			= '';													// The URL of the webpage to load to display the Line Chart.		
+		$function_distribution		= 'part139339_c_report_display_distribution_loader.php';													// The URL of the webpage to load to display the Distribition Chart.
+		$function_linechart			= 'part139339_c_report_display_linechart_loader.php';													// The URL of the webpage to load to display the Line Chart.		
 		
 		$functioneditpage 			= "part139339_c_report_edit.php";						// Name of page used to edit the record
 		$functionsummarypage 		= "part139339_c_report_summary.php";					// Name of page used to display a summary of the record
