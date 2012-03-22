@@ -1,5 +1,5 @@
 <?php
-function part139339_c_facilitycombobox($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
+function part139339_c_facilitycombobox_limitedtomu($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
 	// $suppliedid		, is the number of the group to do the search for ;
 	// $archived		, do you want to list all menu items, or just the archived ones;
 	// $nameofinout		, what is the name of the select box that 'could' be ceated by this function;
@@ -15,46 +15,10 @@ function part139339_c_facilitycombobox($suppliedid, $archived, $nameofinput, $sh
 	$sql	= "";																				// Define the sql variable, just in case
 	$nsql 	= "";																				// Define the nsql variable, just in case
 	
-	$sql = "SELECT * FROM tbl_139_339_sub_c_f ";											// start the SQL Statement with the common syntax
+	$sql = "SELECT * FROM tbl_139_339_sub_c_f 
+			WHERE 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 ";
+									// start the SQL Statement with the common syntax
 
-	if ($suppliedid=="all") {																		// if supplied 'all' for the menu_id so the following
-			// do not add any employee ID information to the SQL String
-			$tmp_flagger = 0;																	// important to tell the procedures below this happened
-		}
-		else {
-			$nsql = "WHERE `139339_f_id` = ".$suppliedid." ";										// if supplied a menu_id, then add it to the SQL Statement
-			$sql = $sql.$nsql;																	// combine the nsql and sql strings
-			$tmp_flagger = 1;																	// important to tell the procedures below this happened
-		}
-
-	if ($archived == "all") {																	// if supplied 'all' for the archived variable do the following
-																								// Do not add any systemuser archived information to the SQL string
-		}
-		else {
-			if ($archived=="yes") {																// If archived is 'yes' then
-					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_139_339_sub_c_f.139339_f_archived_yn = -1 ";
-							$sql = $sql.$nsql;
-							$tmp_flagger = 1;
-						}
-						else {
-							$nsql = "AND tbl_139_339_sub_c_f.139339_f_archived_yn = -1 ";
-							$sql = $sql.$nsql;
-						}
-				}
-				else {
-					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_139_339_sub_c_f.139339_f_archived_yn = 0 ";
-							$sql = $sql.$nsql;
-							$tmp_flagger = 1;
-						}
-						else {
-							$nsql = "AND tbl_139_339_sub_c_f.139339_f_archived_yn = 0 ";
-							$sql = $sql.$nsql;
-						}
-				}
-		}
-	//echo $sql;
 	
 	$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 	
@@ -70,6 +34,7 @@ function part139339_c_facilitycombobox($suppliedid, $archived, $nameofinput, $sh
 					if ($showcombobox=="show") {
 							?>
 	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+		<option value="all">All Surfaces</option>
 					<?php 
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {

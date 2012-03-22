@@ -29,6 +29,7 @@
                 <File name="part139339_c_report_enter_new.php" />
                 <File name="part139339_c_report_help_conditions.php" />
                 <File name="part139339_c_report_help_icao.php" />
+                <File name="part139339_c_report_display_linechart_loader.php" />
             </Folder>
             <Folder name="Discrepancies (Anomalies)">
                 <File name="part139339_c_discrepancy_report_new.php" />
