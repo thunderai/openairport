@@ -75,7 +75,6 @@
 		
 		$tmp_runwayort_12			= -1;
 		$tmp_runwayort_17			= -1;
-		$display_menu_item			= array();
 		
 		
 	if (!isset($_POST['recordid'])) {
@@ -171,10 +170,6 @@
 	$tmpid			= $objarray['139339_main_id'];
 	$tmpdate 		= $objarray['139339_date'];
 	$tmptime 		= $objarray['139339_time'];
-	
-	$main_id		= $objfields['139339_main_id'];
-	$main_time		= $objfields['139339_time'];
-	$main_date		= $objfields['139339_date'];
 	
 	//Display Hard Text
 	//					Filed Name / Variable				b	f	h	j		w		x		y	z
@@ -273,34 +268,11 @@
 											//printf("result set has %d rows. \n", $number_of_rows);
 					
 											while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-																										
 													$tmpid 					= $objfields['139339_c_id'];
 													$current_facility 		= $objfields['139339_c_facility_cb_int'];
 													$current_facility_rwy	= $objfields['139339_f_rwy_yn'];
 													$tmpcondname			= $objfields['139339_c_name'];
 													$tmp_xlox				= $objfields['139339_cc_xloc'];
-													
-													$facility_id			= $objfields['139339_f_id'];				// The ID of the facility row
-													$facility_name			= $objfields['139339_f_name'];				// The Name of this facility. Typically english readable
-													$facility_is_runway		= $objfields['139339_f_rwy_yn'];			// Toggle for dynamic control. 0: Nothing special, 1: Is a runway, 2: is a holder for runway orintation, 3: Checkbox not applicable to a surface
-													
-													$condition_id			= $objfields['139339_c_id'];				// The ID of the condition row
-													$condition_name			= $objfields['139339_c_name'];				// The Programming name of this condition.  Typically not something readable
-													$condition_type			= $objfields['139339_c_type_cb_int'];		// The type of FiCON this condition is part of.  Timeline....
-													$condition_field_type	= $objfields['139339_cc_type'];				// Describes the type of input box this is:  0:Mu Value, 1: checkbox, 2: text
-													$condition_xlocation	= $objfields['139339_cc_xloc'];				// Describes the order to sort this condition
-
-													$condition_location_x	= $objfields['139339_cc_location_x'];
-													$condition_location_y	= $objfields['139339_cc_location_y'];
-													
-													
-													$checklist_item_id		= $objfields['139339_cc_id'];				// ID of the checklist item
-													$checklist_item_disc	= $objfields['139339_cc_d_yn'];				// Value of the discrepancy (could be Mu value, a surface description, or a checkbox toggle).
-													
-													//$main_id				= $objfields['139339_main_id'];
-													//$main_time			= $objfields['139339_time'];
-													//$main_date			= $objfields['139339_date'];
-													
 													
 													$tmpcondnamestr			= str_replace(" ","",$tmpcondname);
 													
@@ -510,25 +482,8 @@
 							</td>																		
 															<?
 																}
-												
-												
-												
-												// INSERT NEW SURFACE DRAWING FUNCTION HERE !!!!!!!!!
-												// Things the function will need
-												// The condition ID
-												//		_location_x
-												//		_location_y
-												//		value
-												// Make an ARRAY of the things it will need
-												
-												//								id,	Location X			, Location Y			, Value
-												$display_menu_item[$i] 	= array($tmpid,$condition_location_x,$condition_location_y	,$checklist_item_disc,$facility_is_runway,$facility_name);
-												
-												//include("includes/_modules/part139339/_339_c_displayelement.inc.php");
-												
 												$previous_facility	= $objfields['139339_c_facility_cb_int'];
 												$i 				= $i + 1;
-												
 												}	// End of while loop
 												mysqli_free_result($res);
 												mysqli_close($objcon);
@@ -539,128 +494,199 @@
 				</div>
 					<?
 					}
-			}
-	}
+					}
+					}
 	// Step Two Display Anomali Information
 	
-	// DISCREPANCY DISPLAY PROCEDURES
-	//
-	//  There are two types of discrepancies we need to display
-	//		1.  Those part of this inspection
-	//		2.	Those discrepancies not already fixed but still exisit at the time of this inspection
-	//
-	//		Type 1. is much easier to display, so lets start with that!
-	//				Like any other display of discrepancies we will use the_327_discrepancydisplaybox function
-	//				Set-up Initial variables
-
-	$tempX				= 580;
-	$tempY				= 155;
-	$tempYo				= 155;
-	$tmpzindex 			= 14;
-	$passindex			= 0;
-	$distools			= 1;
-	$lastadd			= 0;
-
-// 				For the Purposes of displaying more than one Discrepancy, we will also set-up these variables
-
-	$spacebetweendis	= 20;
-	$lastdisheight		= 0;
-	$totaldisheight		= 0;
-
-//				Build SQL String
-
-	$sql1 = "SELECT * FROM tbl_139_339_sub_d WHERE discrepancy_inspection_id = ".$recordid." ORDER BY Discrepancy_location_y";
-	//echo $sql1;
+	$OffSetX 		= -4;
+	$OffSetY 	= -50;
+	$tmpzindex 	= 14;
 	
-//				make Connection
-
-	$objconn1 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-
-//				Attempt Connection
-
-	if (mysqli_connect_errno()) {
-			// there was an error trying to connect to the mysql database
-			printf("connect failed: %s\n", mysqli_connect_error());
-			exit();
-		}
-		else {
-
-//				Connection Sucessful
-
-			$objrs1 = mysqli_query($objconn1, $sql1);
+		$sql = "SELECT * FROM tbl_139_339_sub_d WHERE Discrepancy_inspection_id = '".$recordid."' ";
 						
-			if ($objrs1) {
-					$number_of_rows = mysqli_num_rows($objrs1);
-					while ($objarray1 = mysqli_fetch_array($objrs1, MYSQLI_ASSOC)) {	
-
-//				Connduct tests to see if Discrepancy should even be displayed.
-//					We might not show the discrepancy even if it was part of this inspection for any of the reasons below:
-//					1. Archieved, 2. Duplicate, ...
-
-							$displayrow					= 1;
-							$lastdisheight 				= 0;
-							
-							//$displayrow_a				= preflights_tbl_139_327_main_sub_d_a_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is archieved.
-							//$displayrow_d				= preflights_tbl_139_327_main_sub_d_d_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is duplicate.
-//
-							//echo "Display A ".$displayrow_a." / Display D ".$displayrow_d." <br>";
-							
-							if($displayrow == 1) {
-							//echo "Display ".$display."<br>sddsfsdfsd";
-
-//				Record some information about the current discrepancy	
-
-									$disx		= convertfromlargescale_to_smallscale_x($objarray1['Discrepancy_location_x'],$maparray);
-									$disy		= convertfromlargescale_to_smallscale_y($objarray1['Discrepancy_location_y'],$maparray);
-									
-									$disid		= $objarray1['Discrepancy_id'];
-									$disname 	= $objarray1['Discrepancy_name'];
-									$disremarks = $objarray1['discrepancy_remarks'];	
-									
-									if ($passindex == 0) {
-											// No discrepancy has been displayed, use default settings
-											//$tempX			= 580;
-											//$tempY			= 155;
-										}
-										else {
-											$tempY		= $tempYo + ( $totaldisheight + ( $spacebetweendis) );
-											$tempX		= $tempX;
-										}
-										
-									$lastdisheight = part139339_c_discrepancydisplaybox("Discrepancy Display Box", 1, 2, 30, "left", 150, $tempX, $tempY, 5, $disid, $disname, $disremarks, $disx, $disy, $distools);
-								}
-							
-							$passindex 		= ( $passindex + 1 );	
-							$totaldisheight = ( $totaldisheight + $lastdisheight );
-							//echo "Total Disheight = ".$totaldisheight."/ ".$tempY;
-						}
-				}
-		}
-		
-	$placeoverlays = 1;
+		$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 	
-	if($placeoverlays == 1) {
-			// Display overlay stuff
-			
-			// Get count of elements in the storage array
-			
-			$records = count($display_menu_item);
-			
-			//echo "Number of Records: ".$records." <br>";
-			
-			for ($j=0; $j<count($display_menu_item); $j=$j+1) {
-				
-				
-					include("includes/_modules/part139339/_339_c_displayelement.inc.php");
-												
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}
+			else {
+				$objrs = mysqli_query($objconn, $sql);
+		
+				if ($objrs) {
+						$number_of_rows = mysqli_num_rows($objrs);
+						if ($number_of_rows==0) {
+								//echo "There are no Anomalies associated with this Field Condition Report";
+								//echo "no records found";
+							}
+							else {
+								while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
+										// Loop through each anomalie attached to this field condition report and display them according to the type of anomalie they are
+										if ($objarray['discrepancy_type_cb_int']==1) {
+												// This anomalie is locaized
+												$TempX 						= ($objarray['Discrepancy_location_x'] + $OffSetX );
+												$TempY						= ($objarray['Discrepancy_location_y'] + $OffSetY );
+												?>
+												<div style="position:absolute; z-index:1; left:<?=$TempX-12;?>; top:<?=$TempY-10;?>; width:122; align="left">
+													<table border="0" width="12%" cellspacing="0" cellpadding="0" id="table1" width="122">
+														<tr>
+															<td width="53"				align="right" 	valign="top" rowspan="4" 				background="images/part_139_327/dboxleftroller.gif"	><img border="0" 	src="images/part_139_327/dboxtarget.gif" width="53" 	height="58"></td>
+															<td width="16" 	height="26"	align="left" 	valign="top"																	><img border="0" 	src="images/part_139_327/dboxid.gif" 	width="16" 	height="26"></td>
+															<td width="83" 	height="26" align="left" 	valign="middle" bgcolor="#0000FF" style="border-left-width: 1px; border-right-width: 1px; border-top: 1px solid #000000; border-bottom: 1px solid #000000">&nbsp;<font size="2" color="#FFFFFF"><?=$objarray['Discrepancy_id'];?></font></td>
+															<td width="10" 	height="26" align="right" 	valign="top"																	><img border="0" 	src="images/part_139_327/dboxidright.gif" width="10" height="26"></td>
+															</tr>
+														<tr>
+															<td width="83" 				align="left" 	valign="top" rowspan="4" colspan="2"											><img border="0" 	src="images/part_139_327/dboxidbottom.gif" width="83" height="3"><br>
+																<table border="0" cellspacing="0" cellpadding="0" id="table1" width="100%">
+																	<tr>
+																		<td>
+																			<font size="1">Name:</font>
+																			</td>
+																		</tr>
+																	<tr>
+																		<td background="images/part_139_327/dboxbackground.gif">
+																			<font size="2"><b><?=$objarray['Discrepancy_name'];?></b></font>
+																			</td>
+																		</tr>
+																	<tr>
+																		<td>
+																			<font size="1">Description:</font>
+																			</td>
+																		</tr>
+																	<tr>
+																		<td background="images/part_139_327/dboxbackground.gif">
+																			<font size="3"><b><?=$objarray['discrepancy_remarks'];?></b></font>
+																			</td>
+																		</tr>
+																	<tr>
+																		<td>
+																			<table border="0" cellspacing="0" cellpadding="0" id="table1" width="100%">
+																				<tr>
+
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>							
+															<td width="8%" align="left" valign="top" background="images/part_139_327/dboxrightroller.gif" height="72"><img border="0" src="images/part_139_327/dboxrighttopcorner.gif" width="10" height="8"></td>
+															</tr>
+														<tr>
+															<td width="8%" background="images/part_139_327/dboxrightroller.gif" height="19">&nbsp;</td>
+															</tr>
+														<tr>
+															<td width="8%" background="images/part_139_327/dboxrightroller.gif" height="60">&nbsp;</td>
+															</tr>
+														<tr>
+															<td rowspan="2" align="left" valign="top"><img border="0" src="images/part_139_327/dboxlefbottomcorner.gif" width="53" height="12"></td>
+															<td width="8%" rowspan="2" align="left" valign="top"><img border="0" src="images/part_139_327/dboxrightbottomcorner.gif" width="10" height="12"></td>
+															</tr>
+														<tr>
+															<td width="44%" colspan="2" align="left" valign="bottom" background="images/part_139_327/dboxbottomroller.gif"><img border="0" src="images/part_139_327/dboxbottom.gif" width="59" height="6"></td>
+															</tr>
+														</table>
+													</div>
+												<?
+											}
+											else {
+												// Anomalie is an area
+												$xaverage 	= 0;
+												$xtotal	= 0;
+												$yaverage 	= 0;
+												$ytotal	= 0;
+												?>
+												<div id="myCanvas_<?=($objarray['Discrepancy_id']);?>" style="position:absolute;z-index:3;"></div>
+													<script type="text/javascript">
+													<!--
+													function myDrawFunction() {
+														// Get The current Numbers from the Edit Table, and set them to the variable.
+														var xpoints = "<?=$objarray['discrepancy_xpoints'];?>";
+														var ypoints = "<?=$objarray['discrepancy_ypoints'];?>";
+														var xtotal = 0;
+														var ytotal = 0;
+														var xaverage = 0;
+														var yaverage = 0;
+
+														// Take apart the string values of the text fiel and put the strings into an array
+														var xpoints=xpoints.split(",");
+														var ypoints=ypoints.split(",");
+
+														// In each array take the string and convert it into a number adjusting for mouse pointer error
+														for (i=0; i<xpoints.length; ++i) {
+														  xpoints[i] = xpoints[i] * 1 - 21;
+														  xtotal = xtotal + xpoints[i];
+														  } // for
+														  xaverage = (xtotal/xpoints.length);
+														for (i=0; i<ypoints.length; ++i) {
+														  ypoints[i] = ypoints[i] * 1 + 60;  
+														  ytotal = ytotal + ypoints[i];
+														  } // for
+														  yaverage = (ytotal/ypoints.length);
+
+														// Draw the Pavement section
+														jg.setColor("#ff000f"); // red
+														jg.drawPolyline(xpoints, ypoints);
+														jg.paint();
+													}													
+
+													var jg = new jsGraphics("myCanvas_<?=($objarray['Discrepancy_id']);?>");
+
+													myDrawFunction();													
+													//-->
+													</script>
+												<?
+												// Now we need to center the label of this area.  TO do that we average the numbers in each x and y points.
+												$tmpxpoints = (explode(",",$objarray['discrepancy_xpoints']));
+												$tmpypoints = (explode(",",$objarray['discrepancy_ypoints']));
+												//echo $tmpxpoints;
+												for ($i=0; $i<count($tmpxpoints); $i=$i+1) {
+												//echo  $tmpxpoints[$i];
+													$xtotal = ($xtotal + $tmpxpoints[$i]);
+													if ($i==0) {
+															//nothing
+														}
+														else {
+															$xaverage = ($xtotal/$i);
+														}
+													}
+													$xaverage = ($xtotal/$i);
+													//echo $xaverage;
+												for ($i=0; $i<count($tmpypoints); $i=$i+1) {
+													$ytotal = ($ytotal + $tmpypoints[$i]);
+													if ($i==0) {
+															//nothing
+														}
+														else {
+															$yaverage = ($ytotal/$i);
+														}
+													}
+												?>
+												<div style="position:absolute; z-index:1; left:<?=$xaverage-12;?>; top:<?=$yaverage-10;?>; width:122; align="left">
+													<font size="2"><b><?=$objarray['Discrepancy_name'];?></b></font><br>
+													<font size="3"><b><?=$objarray['discrepancy_remarks'];?></b></font>
+													</div>												
+												<?
+											}
+									}
+							}
+					}
 			}
 			
-			
-	}		
-		
-		
-		
+	for ($i=0; $i<count($arunway_number_17); $i=$i+1) {
+		//$arunway_number[$inner_rwy_loop]	= $objfields["139339_cc_d_yn"];
+		//$arunway_x[$inner_rwy_loop]	= $tmp_x;
+		//$arunway_y[$inner_rwy_loop]	= $tmp_y;																		
+		displayficonmuelement(10, $arunway_x_17[$i], $arunway_y_17[$i], 5,10, 20, 1735, "images/part_139_339/139_339_1735overlayblank.gif", $arunway_number_17[$i], $abrakingaction);
+		}
 
+	for ($i=0; $i<count($arunway_number_12); $i=$i+1) {
+		//$arunway_number[$inner_rwy_loop]	= $objfields["139339_cc_d_yn"];
+		//$arunway_x[$inner_rwy_loop]	= $tmp_x;
+		//$arunway_y[$inner_rwy_loop]	= $tmp_y;																		
+		displayficonmuelement(10, $arunway_x_12[$i], $arunway_y_12[$i], 5,25, 20, 1230, "images/part_139_339/139_339_1230overlayblank.gif", $arunway_number_12[$i], $abrakingaction);
+		}		
+
+		
 			$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
 			$tmpsqltime		= date("H:i:s");
 			$tmpsqlauthor	= $_SESSION["user_id"];
