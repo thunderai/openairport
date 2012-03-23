@@ -50,4 +50,10 @@ Anomalies are not copied from templates and don't follow the same rules as a dis
 === Going from here ===
 
 Once basic data entry is completed there is a wealth of information at your disposal.  Did you know that your average Mu value is 3 less when testing up a gradient or that what you thought was your worst location on the airport actually isn't that bad. Similar to the graphic distribution of Wildlife Hazards the FiCON system can show you where your problems are, trends in surface conditions, and help you plan your next snow season more efficiently. 
+
+[http://openairport.googlecode.com/files/FiCON_surfacehistory.png]
+
+Having control over your data is important because it grants you the ability to see what is going on at your airport down to the surface level. Tracking the condition of a surface through its history helps you know what are trouble spots, what areas need special focus, and helps replay a snow storm after it is over. 
+
+The Surface History report shows you the history of any surface you want or all surfaces if you want that too. Runways are shown in cross section and taxiways and ramps are shown by chronological trend. You can control the search dates, if you want to include Mu's over 40 or when no Mu values are included in the report at all.
   
