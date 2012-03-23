@@ -114,59 +114,7 @@ if (!isset($_POST["formsubmit"])) {
 	}
 	else {
 	
-	// FORM HEADER
-	// -----------------------------------------------------------------------------------------\\
-			$formname			= "edittable";													// HTML Name for Form
-			$formaction			= '';															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
-			$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
-				$formtarget		= '';															// HTML Name for the window
-				$location		= $formtarget;													// Leave the same as $formtarget
 	
-	// FORM NAME and Sub Title
-	//------------------------------------------------------------------------------------------\\
-			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
-			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
-			$subtitle 			= "Here is a Summary of the information you entered";			// Subt title of the FORM, shown to the user
-
-	// FORM SUMMARY information
-	//------------------------------------------------------------------------------------------\\
-			$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
-				$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
-				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
-				$detailtodisplay		= '';													// See Summary Function for how to use this number
-				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
-					
-		include("includes/_template/_tp_blockform_form_header.binc.php");
-		
-		//echo "Begin the process of doing all this impossible work";
-		?>
-		
-		
-					<tr>
-				<td colspan="3" align="center" valign="middle" class="formheaders">
-					Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
-					</td>
-				</tr>		
-			<tr>
-				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport">
-				<td class="formoptionsavilablebottom" colspan="3">
-					<input type="hidden" name="recordid" 			value="<?php echo $inspectionid;?>">
-					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">
-					</td>
-					</form>
-				</tr>
-			</table>
-	
-		<?php
-		
-		
-	// Template Form Modification (for AJAX Compatability)	
-										
-		// Form has been submitted
-		// There are two things that must be done initialy before we go off to the discrepancy page.
-		// Step 1). Add the Inspection Header information to the database
-		// Step 2). Add each checklist item to the database for that inspection.
-		
 		$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
 		
 		$sql = "INSERT INTO tbl_139_333_main (139333_type_cb_int,139333_by_cb_int,139333_date,139333_time ) VALUES ( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."' )";
@@ -191,6 +139,63 @@ if (!isset($_POST["formsubmit"])) {
 						//printf("Last inserted record has id %d\n", LAST_INSERT_ID());
 						//echo mysql_insert_id($mysqli);
 						}
+						
+	// FORM HEADER
+	// -----------------------------------------------------------------------------------------\\
+			$formname			= "edittable";													// HTML Name for Form
+			$formaction			= '';															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+				$formtarget		= '';															// HTML Name for the window
+				$location		= $formtarget;													// Leave the same as $formtarget
+	
+	// FORM NAME and Sub Title
+	//------------------------------------------------------------------------------------------\\
+			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
+			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
+			$subtitle 			= "Here is a Summary of the information you entered";			// Subt title of the FORM, shown to the user
+
+	// FORM SUMMARY information
+	//------------------------------------------------------------------------------------------\\
+			$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+				$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
+				$detailtodisplay		= '';													// See Summary Function for how to use this number
+				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+					
+		include("includes/_template/_tp_blockform_form_header.binc.php");
+		
+		
+		//echo "Begin the process of doing all this impossible work";
+		?>
+		</form>
+		
+					<tr>
+				<td colspan="3" align="center" valign="middle" class="formheaders">
+					Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
+					</td>
+				</tr>		
+			<tr>
+				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport2">
+				<td class="formoptionsavilablebottom" colspan="3">
+					<input type="hidden" name="recordid" 			value="<?php echo $lastid;?>">
+					<input type="hidden" name="InspCheckList" 			value="<?php echo $_POST['InspCheckList'];?>">
+					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">
+					</td>
+					</form>
+				</tr>
+			</table>
+	
+		<?php
+		
+		
+	// Template Form Modification (for AJAX Compatability)	
+										
+		// Form has been submitted
+		// There are two things that must be done initialy before we go off to the discrepancy page.
+		// Step 1). Add the Inspection Header information to the database
+		// Step 2). Add each checklist item to the database for that inspection.
+		
+
 						
 	// Inspection Header has been entered into the Database 
 

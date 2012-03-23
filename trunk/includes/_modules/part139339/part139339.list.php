@@ -37,7 +37,7 @@
 			include("_339_c_facilitycomboboxlimitedtomu.inc.php");	
 			
 			//include("_339_c_displayficonmenuelement.inc.php");
-			
+			include("_339_c_prioritycombobox.inc.php");	
 			
 			//include("_327_conditionscombobox.inc.php");
 			//include("_327_conditionscomboboxwall.inc.php");			
@@ -47,8 +47,8 @@
 			
 			
 			//include("_327_discrepancy_getstage.inc.php");
-			//include("_327_discrepancydisplaysummary.inc.php");	
-			//include("_327_reportdisplaysummary.inc.php");
+			include("_339_c_discrepancydisplaysummary.inc.php");	
+			include("_339_c_reportdisplaysummary.inc.php");
 			
 			include("_339_c_typescombobox.inc.php");
 			include("_339_c_typestextfield.inc.php");

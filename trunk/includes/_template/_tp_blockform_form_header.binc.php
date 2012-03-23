@@ -56,7 +56,7 @@
 		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
 		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
 		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?=$_POST['recordid'];?>">
+		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?php echo $_POST['recordid'];?>">
 		<input type="hidden" name="frmstartdateo"	id="frmstartdateo"		value="<?php echo $bstart_date;?>">
 		<input type="hidden" name="frmenddateo"		id="frmenddateo"		value="<?php echo $bend_date;?>">
 	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">

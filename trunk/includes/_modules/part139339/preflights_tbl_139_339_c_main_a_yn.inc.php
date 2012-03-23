@@ -3,8 +3,11 @@
 function preflights_tbl_139_339_c_main_a_yn($recordid,$tblarchivedsort) {
 
 		$isarchived = 0;
+		$displayrow	= 1;
 
-		$sql2 = "SELECT * FROM tbl_139_339_main_a WHERE 139339_a_inspection_id = '".$recordid."' ";
+		$sql2 = "SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = '".$recordid."' ";
+		
+		//echo $sql2;
 		//make connection to database
 		$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		if (mysqli_connect_errno()) {
@@ -43,6 +46,8 @@ function preflights_tbl_139_339_c_main_a_yn($recordid,$tblarchivedsort) {
 				$displayrow=1;
 			}
 			
+	//echo $displayrow;		
 	return $displayrow;
+	
 	}
 ?>
