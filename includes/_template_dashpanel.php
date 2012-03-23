@@ -43,7 +43,9 @@
 		// Load Part 139.337 Wildlife Hazard Reports Dashpanel
 			include("includes/_modules/part139337/part139337.list.php");
 			include("includes/_modules/part139337/_dp_337_inspections.inc.php");
-		
+		// Load Part 139.337 Wildlife Hazard Reports Dashpanel
+			include("includes/_modules/part139339/part139339.list.php");
+			include("includes/_modules/part139339/_dp_339_c_inspections.inc.php");		
 // START DASHBOARD PROCEDURES
 		
 		$counter 		= 0;
