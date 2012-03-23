@@ -16,7 +16,7 @@ function part139339_c_facilitycombobox_limitedtomu($suppliedid, $archived, $name
 	$nsql 	= "";																				// Define the nsql variable, just in case
 	
 	$sql = "SELECT * FROM tbl_139_339_sub_c_f 
-			WHERE 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 ";
+			WHERE 139339_f_rwy_yn != 2 AND 139339_f_rwy_yn != 3 ";
 									// start the SQL Statement with the common syntax
 
 	

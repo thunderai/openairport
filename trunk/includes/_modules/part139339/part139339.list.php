@@ -36,11 +36,16 @@
 			include("_339_c_facilitycomboboxwall.inc.php");	
 			include("_339_c_facilitycomboboxlimitedtomu.inc.php");	
 			
+			//include("_339_c_displayficonmenuelement.inc.php");
+			
 			
 			//include("_327_conditionscombobox.inc.php");
 			//include("_327_conditionscomboboxwall.inc.php");			
 			//include("_327_discrepancycombobox.inc.php");
-			//include("_327_discrepancydisplaybox.inc.php");
+			
+			include("_339_c_discrepancydisplaybox.inc.php");
+			
+			
 			//include("_327_discrepancy_getstage.inc.php");
 			//include("_327_discrepancydisplaysummary.inc.php");	
 			//include("_327_reportdisplaysummary.inc.php");
