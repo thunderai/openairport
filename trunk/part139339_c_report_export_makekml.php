@@ -327,18 +327,21 @@ $nStyle->setAttribute('id', 'style'.$idSuffix);
 													$locationx		= $xlocations[$k];
 													$locationy 		= $ylocations[$k];
 													
-													//$locationx		= convertfromlargescale_to_smallscale_x($objarray['Discrepancy_location_x'],$maparray);
-													//$locationy 		= convertfromlargescale_to_smallscale_y($objarray['Discrepancy_location_y'],$maparray);
-																	
+													$locationx		= convertfromlargescale_x_to_gps_long($locationx,$convertarray);
+													$locationy 		= convertfromlargescale_y_to_gps_lat($locationy,$convertarray);
+																
 													
 													//echo "Location X ".$locationx."<br>";
 													//echo "Location Y ".$locationy."<br>";
 													//$locationx		= settype($locationx,'int');
 													//$locationy		= settype($locationy,'int');
 													
-													$record_long 	= ($long0 + $delta_x * $locationx);
-													$record_long 	= $record_long * -1;
-													$record_lat 	= ($lat0 + $delta_y * $locationy);
+													//$record_long 	= ($long0 + $delta_x * $locationx);
+													//$record_long 	= $record_long * -1;
+													//$record_lat 	= ($lat0 + $delta_y * $locationy);
+													
+													$record_long	= $locationx;
+													$record_lat		= $locationy;
 													
 													if($k == 0) {
 															$first_y = $record_long;
@@ -446,6 +449,6 @@ $ringtype->appendChild($coordnode);
 
 $kmlOutput = $dom->saveXML();
 header('Content-type: application/vnd.google-earth.kml+xml');
-header('Content-Disposition: attachment; filename="SurfaceAnomaly.kml"');
+header('Content-Disposition: attachment; filename="SurfaceMuValues.kml"');
 echo $kmlOutput;
 ?>
