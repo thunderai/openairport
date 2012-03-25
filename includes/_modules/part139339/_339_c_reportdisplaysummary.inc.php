@@ -87,7 +87,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 						$number_of_rows 	= mysqli_num_rows($objrs);
 						while ($objarray 	= mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 						
-								$inspectionid = $objarray['inspection_system_id'];
+								//$inspectionid = $objarray['inspection_system_id'];
 								
 								$basicHTML = "
 												<tr>
@@ -140,11 +140,13 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 									
 										// Display all Repaired Information
 										$sql2 = "SELECT * FROM tbl_139_339_sub_c_c 										
-										INNER JOIN tbl_139_339_sub_c 	ON tbl_139_339_sub_c.conditions_id = tbl_139_339_sub_c_c.conditions_checklists_condition_cb_int 
-										INNER JOIN tbl_139_339_sub_c_f 	ON tbl_139_339_sub_c_f.facility_id = tbl_139_339_sub_c.condition_facility_cb_int 
-										WHERE tbl_139_339_sub_c_c.conditions_checklists_inspection_cb_int = ".$inspectionid." 
-										ORDER BY facility_name,condition_name";
+										INNER JOIN tbl_139_339_sub_c 	ON tbl_139_339_sub_c.139339_c_id = tbl_139_339_sub_c_c.139339_cc_c_cb_int  
+										INNER JOIN tbl_139_339_sub_c_f 	ON tbl_139_339_sub_c_f.139339_f_id = tbl_139_339_sub_c.139339_c_facility_cb_int  
+										WHERE tbl_139_339_sub_c_c.139339_cc_ficon_cb_int = ".$inspectionid." 
+										ORDER BY 139339_f_name,139339_c_name";
 								
+										//echo $sql2;
+										
 										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 										if (mysqli_connect_errno()) {
 												// there was an error trying to connect to the mysql database
@@ -184,22 +186,27 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 															
 														while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 													
-																$founddiscrepancy = $objarray2['conditions_checklist_discrepancy_yn'];
-																if($founddiscrepancy == 0) {
-																		//Nothing Found
-																		$txt_found = "No Discrepancy Noted";
-																	}
-																	else {
-																		$txt_found = "<b>Discrepancy Noted</b>";
-																	}
+																//$founddiscrepancy = $objarray2['conditions_checklist_discrepancy_yn'];
+																if($objarray2['139339_cc_d_yn'] == 0) {
+																		$tmp_text = "NO";
+																}
+																else {
+																		$tmp_text = "YES";
+																}
+																if($objarray2['139339_cc_d_yn'] > 1) {
+																		$tmp_text = $objarray2['139339_cc_d_yn'];
+																}
+																if($objarray2['139339_cc_d_yn'] == "") {
+																		$tmp_text = "No Conditon Provided";
+																}
 
 																$checklistHTML = $checklistHTML."									
 																				<tr>		
 																					<td class='formresults'>".
-																						$objarray2['facility_name']." / ".$objarray2['condition_name']."
+																						$objarray2['139339_f_name']." / ".$objarray2['139339_c_name']."
 																						</td>
 																					<td class='formresults'>".
-																						$txt_found."
+																						$tmp_text."
 																						</td>	
 																					</tr>
 																				";
@@ -256,7 +263,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																$discrepHTML = $discrepHTML."		
 																				<tr>		
 																					<td colspan='2' class='formoptions'>
-																						Single Discrepancy Info
+																						Single Anomaly Info
 																						</td>
 																					</tr>	
 																				<tr>		
@@ -264,7 +271,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																						ID
 																						</td>
 																					<td class='formresults'>
-																						<a href='".$webroot."part139339_discrepancy_report_display.php?recordid=".$objarray2['Discrepancy_id']."' target='_newreportwindowd'>".$objarray2['Discrepancy_id']."</a>
+																						<a href='".$webroot."part139339_c_discrepancy_report_display.php?recordid=".$objarray2['Discrepancy_id']."' target='_newreportwindowd'>".$objarray2['Discrepancy_id']."</a>
 																						</td>
 																					</tr>																					
 																				<tr>		
@@ -315,8 +322,8 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 								if($display_archived == 1) {
 
 										// Display all Repaired Information
-										$sql2 = "SELECT * FROM tbl_139_339_main_a 
-										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_339_main_a.139339_a_by_cb_int  
+										$sql2 = "SELECT * FROM tbl_139_339_sub_a 
+										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_339_sub_a.139339_a_by_cb_int  
 										WHERE 139339_a_inspection_id = '".$inspectionid."' AND 139339_a_yn = 1 
 										ORDER BY 139339_a_date, 139339_a_time";
 										
@@ -392,10 +399,12 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 								if($display_error == 1) {	
 
 										// Display all Bounced Information
-										$sql2 = "SELECT * FROM tbl_139_339_main_e 
-										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_339_main_e.139339_eoo_by_cb_int 
+										$sql2 = "SELECT * FROM tbl_139_339_sub_e 
+										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_339_sub_e.139339_eoo_by_cb_int 
 										WHERE 139339_eoo_i_id = '".$inspectionid."' AND 139339_eoo_yn = 1  
 										ORDER BY 139339_eoo_date, 139339_eoo_time";
+										
+										//echo $sql2;
 										
 										$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 										if (mysqli_connect_errno()) {
