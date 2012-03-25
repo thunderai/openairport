@@ -4,20 +4,4 @@
 
 There are a number of ways to go about making a shape file for your defined surfaces used by the FiCON system.  The way I have done it is outlined below:
 
-General outline.  I'll write a more specific version in the future.
-
-== STEP ONE ==
-
-Google Earth Overlay Process (Required for all exporting of data - Not just FiCONs).
-
-== STEP TWO ==
-
-Trace Airport Surface Process
-
-== STEP THREE ==
-
-Convert KML file to largescale x,y values
-
-== STEP FOUR ==
-
-That is it.  It can take sometime to trace all of the airport surfaces, export them to KML, copy the long,lat from the KML file to the OpenAirport import tool and then copied into the proper field of the defined surface, but once it is completed you can view your field condition reports in 3D.  Once you have done it, you will never look at Mu Values the same.
+In the truck is the LibreOffice spreadsheet that details the process.  It isn't complicated, but it can take some time to trace all of the airport surfaces, export them to KML, copy the long,lat from the KML file to the OpenAirport import tool and then copied into the proper field of the defined surface, but once it is completed you can view your field condition reports in 3D.  Once you have done it, you will never look at Mu Values the same.
