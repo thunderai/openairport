@@ -57,6 +57,6 @@ Having control over your data is important because it grants you the ability to 
 
 The Surface History report shows you the history of any surface you want or all surfaces if you want that too. Runways are shown in cross section and taxiways and ramps are shown by chronological trend. You can control the search dates, if you want to include Mu's over 40 or when no Mu values are included in the report at all.
 
-[http://openairport.googlecode.com/files/FiCON_in_3d.png]
+[http://openairport.googlecode.com/files/ficon_in_3d.png]
 
 It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. 
