@@ -88,8 +88,8 @@
 		
 		$runpostflights				= 1;												// Tells the program if it should run the postflight controls
 		
-		$array_archivedcontrol		= array("SELECT * FROM tbl_139_339_a WHERE 139339_a_inspection_id = ",	"139339",	"part139339_c_report_display_archived.php");
-		$array_errorcontrol			= array("SELECT * FROM tbl_139_339_e_main_e WHERE 139339_eoo_i_id = ",	"139339",	"part139339_c_report_display_error.php");
+		$array_archivedcontrol		= array("SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = "	,	"139339",	"part139339_c_report_display_archived.php");
+		$array_errorcontrol			= array("SELECT * FROM tbl_139_339_sub_e WHERE 139339_eoo_i_id = "			,	"139339",	"part139339_c_report_display_error.php");
 
 		//$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		//$array_duplicatecontrol	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
@@ -101,6 +101,10 @@
 		$function_printout			= '_general_printouts_get.php';							// The URL of the webpage to load to display the Printout.
 		$function_distribution		= 'part139339_c_report_display_distribution_loader.php';													// The URL of the webpage to load to display the Distribition Chart.
 		$function_linechart			= 'part139339_c_report_display_linechart_loader.php';													// The URL of the webpage to load to display the Line Chart.		
+		$function_mapit				= 'part139339_c_report_display_mapit_loader.php';		// The URL of the webpage to load to display the Mapit.		
+		$function_googleearthit		= 'part139339_c_report_export_makekml.php';			// The URL of he webpage used to generate this information.	
+	
+
 		
 		$functioneditpage 			= "part139339_c_report_edit.php";						// Name of page used to edit the record
 		$functionsummarypage 		= "part139339_c_report_summary.php";					// Name of page used to display a summary of the record

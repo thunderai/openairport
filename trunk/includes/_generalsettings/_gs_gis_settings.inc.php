@@ -75,8 +75,48 @@
 			// GPS_Lat_x 		= (location_x * delta_x + lat0);
 			// GPS_Lng_y 		= (location_y * delta_y + long0);
 			
+			//function convert(lat, lon){
+			// var y = ((-1 * lat) + 90) * (MAP_HEIGHT / 180);
+			// var x = (lon + 180) * (MAP_WIDTH / 360);
+			// return {x:x,y:y};
+			//							0		,	1		,	2	,	3
+			$convertarray		= array($delta_x, $delta_y	, $lat0	, $long0);
+
+	
+// FUNCTIONS TO CONVERT LARGE SCALE X,Y TO GPS LAT,LONG
+//
+	
+	function convertfromlargescale_to_gps_x($location_y,$convertarray) {
+			// Convert a large scale X Location into a Long GPS location
+			$tmp_x			= 0;
+			// ALLLL WRRRRRRRRRRROOOOOOOOOOONGGGGGGGGGGGGGGG
+			//$tmp_x			= ($convertarray[3] + $convertarray[0] * $location_x);
+			//$tmp_x			= ($tmp_x * -1);
 			
-		// Function Convert Large Scale into Small Scale Location Numbers for reports
+			$temp_x 		= ($convertarray[2] + $convertarray[1] * $location_y);
+			
+			return $tmp_x;
+	
+	}
+	
+	function convertfromlargescale_to_gps_y($location_x,$convertarray) {
+			// Convert a large scale X Location into a Lat GPS location
+			$tmp_y			= 0;
+			
+			//$tmp_y			= ($convertarray[2] + $convertarray[1] * $location_y);
+			
+			$tmp_y			= ($convertarray[3] + $convertarray[0] * $location_x);
+			$tmp_y 			= $tmp_y * -1;
+			
+
+			return $tmp_y;													
+		
+	}			
+		
+		
+// FUNCTIONS TO CONVERT LARGE SCALE X,Y INTO SMALL SCALE X,Y FOR REPORTS
+//
+
 	function convertfromlargescale_to_smallscale_x($location_x,$maparray) {
 		
 			// $maparray[1][1] is smallmap_x
