@@ -56,4 +56,7 @@ Once basic data entry is completed there is a wealth of information at your disp
 Having control over your data is important because it grants you the ability to see what is going on at your airport down to the surface level. Tracking the condition of a surface through its history helps you know what are trouble spots, what areas need special focus, and helps replay a snow storm after it is over. 
 
 The Surface History report shows you the history of any surface you want or all surfaces if you want that too. Runways are shown in cross section and taxiways and ramps are shown by chronological trend. You can control the search dates, if you want to include Mu's over 40 or when no Mu values are included in the report at all.
-  
+
+[http://openairport.googlecode.com/files/FiCON_in_3d.png]
+
+It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. 
