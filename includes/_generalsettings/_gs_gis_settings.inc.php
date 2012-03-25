@@ -86,28 +86,23 @@
 // FUNCTIONS TO CONVERT LARGE SCALE X,Y TO GPS LAT,LONG
 //
 	
-	function convertfromlargescale_to_gps_x($location_y,$convertarray) {
-			// Convert a large scale X Location into a Long GPS location
-			$tmp_x			= 0;
-			// ALLLL WRRRRRRRRRRROOOOOOOOOOONGGGGGGGGGGGGGGG
-			//$tmp_x			= ($convertarray[3] + $convertarray[0] * $location_x);
-			//$tmp_x			= ($tmp_x * -1);
+	function convertfromlargescale_y_to_gps_lat($location_y,$convertarray) {
 			
-			$temp_x 		= ($convertarray[2] + $convertarray[1] * $location_y);
+			$tmp_x	= 0;
 			
+			$tmp_x 	= ($convertarray[2] + $convertarray[1] * $location_y);
+
 			return $tmp_x;
 	
 	}
 	
-	function convertfromlargescale_to_gps_y($location_x,$convertarray) {
-			// Convert a large scale X Location into a Lat GPS location
-			$tmp_y			= 0;
+	function convertfromlargescale_x_to_gps_long($location_x,$convertarray) {
 			
-			//$tmp_y			= ($convertarray[2] + $convertarray[1] * $location_y);
+			$tmp_y	= 0;
+
+			$tmp_y 	= ($convertarray[3] + $convertarray[0] * $location_x);
 			
-			$tmp_y			= ($convertarray[3] + $convertarray[0] * $location_x);
-			$tmp_y 			= $tmp_y * -1;
-			
+			$tmp_y 	= $tmp_y * -1;
 
 			return $tmp_y;													
 		

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>ALpha - 1.kml</name>
+	<Style id="style_Mu29">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="style_Mu290">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu291</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu29</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style_Mu291">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>ALpha - 1</name>
+		<styleUrl>#style_Mu290</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.16839173274362,44.92192986332596,0 -97.1684810749436,44.92200853510374,0 -97.16854142352813,44.92208673314051,0 -97.16857178880306,44.92217444656227,0 -97.16858512508544,44.92224885524632,0 -97.1685710757138,44.92232407939128,0 -97.16854868709835,44.92239118262983,0 -97.16852460764558,44.92244036427976,0 -97.1680284796314,44.92293510599191,0 -97.1679334720387,44.9229951025233,0 -97.16784344112597,44.92302227600811,0 -97.167731256689,44.92303484069584,0 -97.1675989240692,44.92302717702096,0 -97.16749826822637,44.92299491509272,0 -97.16735819635449,44.92316348675018,0 -97.16754550457084,44.92322065032904,0 -97.16773169358653,44.92322968146969,0 -97.16791278627481,44.92321213795652,0 -97.16809515279483,44.92315023638835,0 -97.1682343323577,44.92306565654199,0 -97.16833626510037,44.92298412530161,0 -97.16841527248833,44.92289617823962,0 -97.16855089497793,44.92275372665367,0 -97.16890582050259,44.92239530417578,0 -97.16898116719518,44.92232741566298,0 -97.16901908106495,44.9223023608325,0 -97.16906642432332,44.92229635216062,0 -97.16910503728661,44.92229270706992,0 -97.1691442304046,44.92229897389186,0 -97.16839173274362,44.92192986332596,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

@@ -78,15 +78,15 @@ if (!isset($_POST["formsubmit"])) {
 		
 		//Try string replace on 0
 		
-		echo "<br> String: ".$_POST['shapetext']."<br>";
+		//echo "<br> String: ".$_POST['shapetext']."<br>";
 		
 		$gelocations_a	= str_replace(",0 ",",0,",$_POST['shapetext']);
 		
-		echo "<br> String: ".$gelocations_a."<br>";
+		//echo "<br> String: ".$gelocations_a."<br>";
 		
 		$gelocations_a = substr_replace($gelocations_a ,"",-1);
 		
-		echo "<br> String: ".$gelocations_a."<br>";
+		//echo "<br> String: ".$gelocations_a."<br>";
 		
 		$gelocations_a	= explode(",",$gelocations_a);
 		$size_of_array 	= count($gelocations_a);
@@ -102,8 +102,8 @@ if (!isset($_POST["formsubmit"])) {
 				//	[1] is a Lat
 				//	[2] is a height
 				
-				echo "<br> K: ".$k." <br>";
-				echo "<br> yt: ".$gelocations_a[$k].", xt: ".$gelocations_a[$k+1].", zt: ".$gelocations_a[$k+2]."<br>";
+			//	echo "<br> K: ".$k." <br>";
+			//	echo "<br> yt: ".$gelocations_a[$k].", xt: ".$gelocations_a[$k+1].", zt: ".$gelocations_a[$k+2]."<br>";
 				
 				$tmp_x	= (-$gelocations_a[$k]/$delta_x) - ($long0/$delta_x);
 				$tmp_x	= round($tmp_x,0);
@@ -133,8 +133,64 @@ if (!isset($_POST["formsubmit"])) {
 				
 		}
 		
-		echo "<br> X:".$x_string."<br>";
-		echo "<br> Y:".$y_string."<br>";
-		echo "<br> Z:".$z_string."<br>";
+		$x_string = substr_replace($x_string ,"",-1);
+		$y_string = substr_replace($y_string ,"",-1);
+		$z_string = substr_replace($z_string ,"",-1);
+		
+		//echo "<br> X:".$x_string."<br>";
+		//echo "<br> Y:".$y_string."<br>";
+		//echo "<br> Z:".$z_string."<br>";
+		
+	// FORM HEADER
+	// -----------------------------------------------------------------------------------------\\
+			$formname			= "edittable";													// HTML Name for Form
+			$formaction			= '';															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+				$formtarget		= '';															// HTML Name for the window
+				$location		= $formtarget;													// Leave the same as $formtarget
+	
+	// FORM NAME and Sub Title
+	//------------------------------------------------------------------------------------------\\
+			$form_menu			= "TOOL: Manufacture LargeScale Shape Coords";					// Name of the FORM, shown to the user
+			$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+			$subtitle 			= "Copy the Coordinates from the KML file into the text box";	// Subt title of the FORM, shown to the user
+
+	// FORM SUMMARY information
+	//------------------------------------------------------------------------------------------\\
+			$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+				$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
+				$detailtodisplay		= 0;													// See Summary Function for how to use this number
+				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+					
+		include("includes/_template/_tp_blockform_form_header.binc.php");				
+		
+	// Load Form Elements	
+	// Place Default values from the POST Here or enter 'post'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
+	//																																																																												|
+	//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\								|
+	//																																																																				 v								v		
+	//form_new_control("disdate"		,"Date"				, "Enter the date this inspection was marked as a duplicate","The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1,0,0,'post',0);
+	//form_new_control("distime"		,"Time"				, "Enter the time this inspection was marked as a duplicate","The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1,0,0,'post',0);
+	//form_new_control("disauthor"	,"Entry By"			, "Who found and reported this inspection"					,"Your name has automatically been provided!"			,"(cannot be changed)"		,3,0,0,'post',"systemusercombobox");
+	form_new_control("shapetext_x"		,"KML GE Poly X"			, "Copy KML Polygon Coordinates from KML Raw File","Open the KML file in a text Editor","",2,35,4,$x_string,0);
+	form_new_control("shapetext_y"		,"KML GE Poly Y"			, "Copy KML Polygon Coordinates from KML Raw File","Open the KML file in a text Editor","",2,35,4,$y_string ,0);
+	form_new_control("shapetext_z"		,"KML GE Poly Z"			, "Copy KML Polygon Coordinates from KML Raw File","Open the KML file in a text Editor","",2,35,4,$z_string ,0);
+		
+	
+	//form_new_control("disarchive"	,"Mark Archieved"	, "Checking this box will mark the inspection as archieved"	,"Only do this if you are sure you need to archieve it"	,"(checked = archieved)"	,5,0,4,'post',0);
+	//
+	// FORM FOOTER
+	//------------------------------------------------------------------------------------------\\
+			$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+				$submitbuttonname	= '';														// Name of the Submit Button
+			$display_close			= 1;														// 1: Display Close Button, 	0: No
+			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+			$display_refresh		= 1;														// 1: Display Refresh Button, 	0: No
+			
+		include("includes/_template/_tp_blockform_form_footer.binc.php");			
+		
+		
+		
 	}		
 		?>

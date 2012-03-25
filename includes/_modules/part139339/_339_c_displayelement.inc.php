@@ -135,16 +135,7 @@
 						//topright_x = xpoints[0] + 10;
 						//topright_y = ypoints[0] + 10;
 						
-						jg.setColor("#FFFFFF"); 
-						jg.setStroke(1);
-						
-						jg.drawLine(xpoints[i], ypoints[i], topright_x, topright_y); 
-						
-						var label_x = topright_x + 2;
-						var label_y = topright_y - 10;
-						
-						jg.setFont("arial","7px",Font.ITALIC_BOLD);
-						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label_x,label_y);
+
 					}			  
 					  
 					  
@@ -189,20 +180,19 @@
 					// Draw the Pavement section
 					jg.setColor("<?php echo $linecolor;?>"); // red
 					jg.setStroke(6); 
-					<?php
-					if($display_menu_item[$j][4] == 8) {
-							// Use Fill
-							?>
 					jg.fillPolygon(xpoints, ypoints);	
-							<?php
-					}
-					else {
-							// Use Poluline
-						?>
-					jg.drawPolyline(xpoints, ypoints);
-					<?php
-					}
-					?>
+					
+						jg.setColor("#FFFFFF"); 
+						jg.setStroke(1);
+						
+						//jg.drawLine(xpoints[i], ypoints[i], topright_x, topright_y); 
+						
+						var label_x = xaverage;
+						var label_y = yaverage;
+						
+						jg.setFont("arial","12px",Font.ITALIC_BOLD);
+						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label_x,label_y);
+						
 					jg.paint();
 				}													
 
