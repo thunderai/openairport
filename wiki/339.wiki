@@ -59,4 +59,4 @@ The Surface History report shows you the history of any surface you want or all 
 
 [http://openairport.googlecode.com/files/ficon_in_3d.png]
 
-It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. 
+It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. Clicking the export to Google Earth while browsing FiCONs allows you to customize how to Mu Values will appear in 3D.  You can show a single FiCON, an average between given dates, etc.
