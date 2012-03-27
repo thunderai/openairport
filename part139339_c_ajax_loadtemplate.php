@@ -195,11 +195,13 @@
 				$sql = "SELECT * FROM tbl_139_339_main
 				INNER JOIN tbl_139_339_sub_c_c 		ON tbl_139_339_sub_c_c.139339_cc_ficon_cb_int 	= tbl_139_339_main.139339_main_id 
 				INNER JOIN tbl_139_339_sub_c		ON tbl_139_339_sub_c_c.139339_cc_c_cb_int		= tbl_139_339_sub_c.139339_c_id
+				INNER JOIN tbl_139_339_sub_c_f		ON tbl_139_339_sub_c_f.139339_f_id				= tbl_139_339_sub_c.139339_c_facility_cb_int 
 				WHERE `139339_main_id` = ".$InspCheckList." ";	
 			} else {
 				$sql = "SELECT * FROM tbl_139_339_main_t 
 				INNER JOIN tbl_139_339_main_t_cc 	ON tbl_139_339_main_t_cc.139339_t_cc_ficon_cb_int 	= tbl_139_339_main_t.139339_main_t_id 
 				INNER JOIN tbl_139_339_sub_c		ON tbl_139_339_main_t_cc.139339_t_cc_c_cb_int		= tbl_139_339_sub_c.139339_c_id
+				INNER JOIN tbl_139_339_sub_c_f		ON tbl_139_339_sub_c_f.139339_f_id				= tbl_139_339_sub_c.139339_c_facility_cb_int 
 				WHERE `139339_main_t_id` = ".$InspCheckList." ";	
 			}
 		//echo $sql;
@@ -220,7 +222,22 @@
 							
 								$tmpcondname	= $objfields['139339_c_name'];
 								$tmpcondnamestr	= str_replace(" ","",$tmpcondname);
+								
+								$tmpfieldname 	= str_replace(" ","",$objfields["139339_c_name"]);
+								$rootname 		= str_replace("Closed","",$tmpfieldname);
+								$rootname 		= str_replace("closed","",$rootname);
+								//echo $rootname;
 							
+								if($objfields["139339_f_rwy_yn"] == 1) {
+										$function = "closesurface_rwy";
+									}
+									elseif($objfields["139339_f_rwy_yn"] == 3) {
+										$function = "closesurface_junk";
+									}
+									else {
+										$function = "closesurface";
+									}
+																	
 								//$tmpisnull = is_null($objfields['139339_t_cc_d_yn']);
 								//echo $tmpisnull;
 								if ($recent == 1) {				
@@ -243,15 +260,15 @@
 										// Elemement is a Checkbox					
 										if ($tmpvalue!=1) {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input class='Commonfieldbox' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr."value='1'>";												
-												$tmpstring 	= $tmpstring.$tmpnewstring;												
-												$tmpstring 	= $tmpstring."|";
+												$tmpnewstring 	= "<input class='Commonfieldbox' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' value='1' />";												
+												$tmpstring 		= $tmpstring.$tmpnewstring;												
+												$tmpstring 		= $tmpstring."|";
 											}
 											else {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input class='Commonfieldbox' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." value='1' CHECKED>";												
-												$tmpstring 	= $tmpstring.$tmpnewstring;												
-												$tmpstring 	= $tmpstring."|";
+												$tmpnewstring 	= "<input class='Commonfieldbox' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." value='1' CHECKED>";												
+												$tmpstring 		= $tmpstring.$tmpnewstring;												
+												$tmpstring 		= $tmpstring."|";
 											}
 									}
 									else {

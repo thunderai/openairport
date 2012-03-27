@@ -428,7 +428,7 @@
 											echo $objfields["139339_cc_d_yn"];
 											break;
 									case 1:
-											if ($objfields["139339_cc_d_yn"]==1) {
+											if ($objfields["139339_cc_d_yn"]== 1) {
 													// Display Yes
 													echo "Yes";
 												}

@@ -66,7 +66,7 @@
 		$tbltextsort 				= 0;												// 1: Allow User to Sort Records by Text; 		0: Prevent User from sorting records by Text.
 		$tblheadersort				= 1;												// 1: Allow User to Sort Records by Header; 	0: Prevent User from sorting records by Header.
 		$tblduplicatesort			= 0;												// 1: Default to Use DUPLICATE Records;			0: Default to NOT show DUPLICATE Recrords. 
-		$tblarchivedsort			= 1;												// 1: Default to Use ARCHIVED Records; 			0: Default to NOT show ARCHIVED Recrords.
+		$tblarchivedsort			= 0;												// 1: Default to Use ARCHIVED Records; 			0: Default to NOT show ARCHIVED Recrords.
 		$tblclosedsort				= 0;												// 1: Default to Use CLOSED Records; 			0: Default to NOT show CLOSED Recrords
 		$tbljoinedsort				= 0;												// 1: Default to Use JOINED Records; 			0: Default to NOT show JOINED Recrords
 		
@@ -102,7 +102,7 @@
 		$function_distribution		= 'part139339_c_report_display_distribution_loader.php';													// The URL of the webpage to load to display the Distribition Chart.
 		$function_linechart			= 'part139339_c_report_display_linechart_loader.php';													// The URL of the webpage to load to display the Line Chart.		
 		$function_mapit				= 'part139339_c_report_display_mapit_loader.php';		// The URL of the webpage to load to display the Mapit.		
-		$function_googleearthit		= 'part139339_c_report_export_makekml.php';			// The URL of he webpage used to generate this information.	
+		$function_googleearthit		= 'part139339_c_report_export_loader.php';			// The URL of he webpage used to generate this information.	
 	
 
 		

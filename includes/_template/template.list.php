@@ -42,6 +42,9 @@
 			include("_tp_control_auto_logentry.inc.php");
 			include("_tp_debugging.inc.php");
 			
+			include("_tp_ui_strinptags.inc.php");
+			include("_tp_ui_strip_input.inc.php");
+			
 	// DON'T LOAD BLOCK FORMS HERE!!!
 
 	?>
