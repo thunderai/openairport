@@ -22,17 +22,39 @@ function buildbreadcrumtrail($menuitemidsupplied,$frmstartdate = '01/01/2000',$f
 		$layer1sid 		= "";
 		$layer1url 		= "";
 	
-	
+
 	// Put HOME Menu Option In
 	?>
-						<table border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td class="cookietrail">
-									<a href="index_new.php">Home</a> .\.
-									</td>
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" />
+		<tr>
+			<td class="formresults">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" id="table1" class="formsubmit">
+					<tr>
+						<td class="formoptionsubmit" onMouseover="ddrivetip('Navigate to Home')"; onMouseout="hideddrivetip()" />
+							<a href="index_new.php">
+							<font color="#FFFFFF" size="2" />Home</font>
+							</a>
+							</td>
+						</tr>
+					</table>
+				</td>				
 	<?php
 	
-	// Step 1, What is this menu item slaved to?
+	// WHat is the current menu item ID ?
+	//	$menuitemidsupplied
+	//	====> Work backwards from this menu item storing information as we go
+	
+	// GET INFORMATION ABOUT THE CURRENT MENU ITEM
+	
+	$menuitem_id			= "";
+	$menuitem_location 		= "";
+	$menuitem_name_long 	= "";
+	$menuitem_name_short 	= "";
+	$menuitem_purpose		= "";
+	$menuitem_slaved_to_id	= "";
+	$menuitem_root			= "";
+	$menuitem_loop			= 0;
+	
 	$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 				
 	if (mysqli_connect_errno()) {
@@ -43,164 +65,261 @@ function buildbreadcrumtrail($menuitemidsupplied,$frmstartdate = '01/01/2000',$f
 		else {
 		
 			$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$menuitemidsupplied."'";
+			//echo "1st SQL Statement is: ".$sql." <br>";
+			
 			$layer3menures = mysqli_query($layer3menuconn, $sql);
 			if ($layer3menures) {
 					$number_of_rows = mysqli_num_rows($layer3menures);
 					//printf("result set has %d rows. \n", $number_of_rows);
 					while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
-							$layer3id	= $layer3array['menu_item_slaved_to_id'];
-							$layer3sid	= $layer3array['menu_item_id'];
-							$layer3name	= $layer3array['menu_item_name_long'];
-							$layer3url	= $layer3array['menu_item_location'];
-							// We now have layer 3 information, we need layer 2 information
+						
 							
-							// Get layer 2 information
-							$layer2menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+							$menuitem_id			= $layer3array['menu_item_id'];
+							$menuitem_location 		= $layer3array['menu_item_location'];
+							$menuitem_name_long 	= $layer3array['menu_item_name_long'];
+							$menuitem_name_short 	= $layer3array['menu_item_name_short'];
+							$menuitem_purpose		= $layer3array['menu_item_purpose'];
+							$menuitem_slaved_to_id	= $layer3array['menu_item_slaved_to_id'];
+							$menuitem_root			= $layer3array['menu_item_root_yn'];
+							
+							//										0				,1					,2					,3						,4					,5						,6
+							$menuitem_array[$menuitem_loop] = array($menuitem_id	,$menuitem_location	,$menuitem_name_long,$menuitem_name_short	,$menuitem_purpose	,$menuitem_slaved_to_id	,$menuitem_root);
+
+							$menuitem_id			= "";
+							$menuitem_location 		= "";
+							$menuitem_name_long 	= "";
+							$menuitem_name_short 	= "";
+							$menuitem_purpose		= "";
+							$menuitem_slaved_to_id	= "";
+							$menuitem_root			= "";
+							$menuitem_loop			= 1;
+			
+							$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+										
 							if (mysqli_connect_errno()) {
 									// there was an error trying to connect to the mysql database
 									printf("connect failed: %s\n", mysqli_connect_error());
 									exit();
-								}			
+								}
 								else {
-									$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$layer3id."'";
-									$layer2menures = mysqli_query($layer2menuconn, $sql);
-									if ($layer2menures) {
-											$number_of_rows = mysqli_num_rows($layer2menures);
+								
+									$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$menuitem_array[0][5]."'";
+									//echo "2nd SQL Statement is: ".$sql." <br>";
+									
+									$layer3menures = mysqli_query($layer3menuconn, $sql);
+									if ($layer3menures) {
+											$number_of_rows = mysqli_num_rows($layer3menures);
 											//printf("result set has %d rows. \n", $number_of_rows);
-											while ($layer2array = mysqli_fetch_array($layer2menures, MYSQLI_ASSOC)) {
-													$layer2id	= $layer2array['menu_item_slaved_to_id'];
-													$layer2sid	= $layer2array['menu_item_id'];
-													$layer2name	= $layer2array['menu_item_name_long'];
-													$layer2url	= $layer2array['menu_item_location'];
-													// We now have layer 2 information, we need layer 1 information
+											while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
+												
 													
-													// Get layer 1 information
-													$layer1menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+													$menuitem_id			= $layer3array['menu_item_id'];
+													$menuitem_location 		= $layer3array['menu_item_location'];
+													$menuitem_name_long 	= $layer3array['menu_item_name_long'];
+													$menuitem_name_short 	= $layer3array['menu_item_name_short'];
+													$menuitem_purpose		= $layer3array['menu_item_purpose'];
+													$menuitem_slaved_to_id	= $layer3array['menu_item_slaved_to_id'];
+													$menuitem_root			= $layer3array['menu_item_root_yn'];
+													
+													//										0				,1					,2					,3						,4					,5						,6
+													$menuitem_array[$menuitem_loop] = array($menuitem_id	,$menuitem_location	,$menuitem_name_long,$menuitem_name_short	,$menuitem_purpose	,$menuitem_slaved_to_id	,$menuitem_root);
+
+													// Get information about the item it is slaved to
+													$menuitem_id			= "";
+													$menuitem_location 		= "";
+													$menuitem_name_long 	= "";
+													$menuitem_name_short 	= "";
+													$menuitem_purpose		= "";
+													$menuitem_slaved_to_id	= "";
+													$menuitem_root			= "";
+													$menuitem_loop			= 2;
+													
+													$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+																
 													if (mysqli_connect_errno()) {
 															// there was an error trying to connect to the mysql database
 															printf("connect failed: %s\n", mysqli_connect_error());
 															exit();
-														}			
+														}
 														else {
-															$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$layer2id."'";
-															$layer1menures = mysqli_query($layer1menuconn, $sql);
-															if ($layer1menures) {
-																	$number_of_rows = mysqli_num_rows($layer1menures);
+														
+															$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$menuitem_array[1][5]."'";
+															//echo "3rd SQL Statement is: ".$sql." <br>";
+															
+															$layer3menures = mysqli_query($layer3menuconn, $sql);
+															if ($layer3menures) {
+																	$number_of_rows = mysqli_num_rows($layer3menures);
 																	//printf("result set has %d rows. \n", $number_of_rows);
-																	while ($layer1array = mysqli_fetch_array($layer1menures, MYSQLI_ASSOC)) {
-																			$layer1id	= $layer1array['menu_item_slaved_to_id'];
-																			$layer1sid	= $layer1array['menu_item_id'];
-																			$layer1name	= $layer1array['menu_item_name_long'];
-																			$layer1url	= $layer1array['menu_item_location'];
-																			// We now have layer 1 information, we are done.
-						
-																		}	// End of layer 1 while loop
-																		mysqli_free_result($layer1menures);
-																		mysqli_close($layer1menuconn);
-																} 	// end of layer 1 active object if statement
-															}	// end of layer 1 open connection
-												}	// End of layer 2 while loop
-												mysqli_free_result($layer2menures);
-												mysqli_close($layer2menuconn);
-										} 	// end of layer 2 active object if statement
-									}	// end of layer 2 open connection
-						}	// End of layer 3 while loop
-						mysqli_free_result($layer3menures);
-						mysqli_close($layer3menuconn);
-				} 	// end of layer 3 active object if statement
-			}	// end of layer 3 open connection
+																	while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
+																		
+																			
+																			$menuitem_id			= $layer3array['menu_item_id'];
+																			$menuitem_location 		= $layer3array['menu_item_location'];
+																			$menuitem_name_long 	= $layer3array['menu_item_name_long'];
+																			$menuitem_name_short 	= $layer3array['menu_item_name_short'];
+																			$menuitem_purpose		= $layer3array['menu_item_purpose'];
+																			$menuitem_slaved_to_id	= $layer3array['menu_item_slaved_to_id'];
+																			$menuitem_root			= $layer3array['menu_item_root_yn'];
+									
+																			//										0				,1					,2					,3						,4					,5						,6
+																			$menuitem_array[$menuitem_loop] = array($menuitem_id	,$menuitem_location	,$menuitem_name_long,$menuitem_name_short	,$menuitem_purpose	,$menuitem_slaved_to_id	,$menuitem_root);
+																			
+																			$menuitem_id			= "";
+																			$menuitem_location 		= "";
+																			$menuitem_name_long 	= "";
+																			$menuitem_name_short 	= "";
+																			$menuitem_purpose		= "";
+																			$menuitem_slaved_to_id	= "";
+																			$menuitem_root			= "";
+																			$menuitem_loop			= 3;
+																			
+																			$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+																						
+																			if (mysqli_connect_errno()) {
+																					// there was an error trying to connect to the mysql database
+																					printf("connect failed: %s\n", mysqli_connect_error());
+																					exit();
+																				}
+																				else {
+																				
+																					$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$menuitem_array[2][5]."'";
+																					//echo "4th SQL Statement is: ".$sql." <br>";
+																					
+																					$layer3menures = mysqli_query($layer3menuconn, $sql);
+																					if ($layer3menures) {
+																							$number_of_rows = mysqli_num_rows($layer3menures);
+																							//printf("result set has %d rows. \n", $number_of_rows);
+																							while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
+																								
+																									
+																									$menuitem_id			= $layer3array['menu_item_id'];
+																									$menuitem_location 		= $layer3array['menu_item_location'];
+																									$menuitem_name_long 	= $layer3array['menu_item_name_long'];
+																									$menuitem_name_short 	= $layer3array['menu_item_name_short'];
+																									$menuitem_purpose		= $layer3array['menu_item_purpose'];
+																									$menuitem_slaved_to_id	= $layer3array['menu_item_slaved_to_id'];
+																									$menuitem_root			= $layer3array['menu_item_root_yn'];
+																									
+																									//										0				,1					,2					,3						,4					,5						,6
+																									$menuitem_array[$menuitem_loop] = array($menuitem_id	,$menuitem_location	,$menuitem_name_long,$menuitem_name_short	,$menuitem_purpose	,$menuitem_slaved_to_id	,$menuitem_root);
+
+																									$menuitem_id			= "";
+																									$menuitem_location 		= "";
+																									$menuitem_name_long 	= "";
+																									$menuitem_name_short 	= "";
+																									$menuitem_purpose		= "";
+																									$menuitem_slaved_to_id	= "";
+																									$menuitem_root			= "";
+																									$menuitem_loop			= 4;
+																									
+																									$layer3menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+																												
+																									if (mysqli_connect_errno()) {
+																											// there was an error trying to connect to the mysql database
+																											printf("connect failed: %s\n", mysqli_connect_error());
+																											exit();
+																										}
+																										else {
+																										
+																											$sql = "select * from tbl_navigational_control where tbl_navigational_control.menu_item_id = '".$menuitem_array[3][5]."'";
+																											//echo "5th SQL Statement is: ".$sql." <br>";
+																											
+																											$layer3menures = mysqli_query($layer3menuconn, $sql);
+																											if ($layer3menures) {
+																													$number_of_rows = mysqli_num_rows($layer3menures);
+																													//printf("result set has %d rows. \n", $number_of_rows);
+																													while ($layer3array = mysqli_fetch_array($layer3menures, MYSQLI_ASSOC)) {
+																														
+																															
+																															$menuitem_id			= $layer3array['menu_item_id'];
+																															$menuitem_location 		= $layer3array['menu_item_location'];
+																															$menuitem_name_long 	= $layer3array['menu_item_name_long'];
+																															$menuitem_name_short 	= $layer3array['menu_item_name_short'];
+																															$menuitem_purpose		= $layer3array['menu_item_purpose'];
+																															$menuitem_slaved_to_id	= $layer3array['menu_item_slaved_to_id'];
+																															$menuitem_root			= $layer3array['menu_item_root_yn'];
+																															
+																															//										0				,1					,2					,3						,4					,5						,6
+																															$menuitem_array[$menuitem_loop] = array($menuitem_id	,$menuitem_location	,$menuitem_name_long,$menuitem_name_short	,$menuitem_purpose	,$menuitem_slaved_to_id	,$menuitem_root);
+																													}
+																											}
+																										}
+																							}
+																					}
+																				}
+																	}
+															}
+														}
+											}
+									}
+								}
+					}
+			}
+		}
+		
+		
+
+	function display_menu_item( $menuitem_array, $uselement, $toggle_fullname = 0 ) {
+		$start_date = '2000/01/01';
+		$end_date	= date('Y/m/d');
+		
+		if($toggle_fullname == 1) {
+				// Show fullname in bar
+				$nametodisplay = $menuitem_array[$uselement][2];
+		}
+		else {
+				$nametodisplay = $menuitem_array[$uselement][3];
+		}
+		if($menuitem_array[$uselement][1] == '') {
+				// NULL MENU VALUE. yeah their the same, so what.... maybe i want it that way!
+				$message = "<b>Purpose</b> <br> ".$menuitem_array[$uselement][4];
+		}
+		else {
+				$message = "<b>Purpose</b> <br> ".$menuitem_array[$uselement][4];
+		}
+		?>
+			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitemlayer1" method="POST" action="<?php echo $menuitem_array[$uselement][1];?>?frmstartdate=<?php echo $start_date;?>&frmenddate=<?php echo $end_date;?>">
+			<td class="formresults">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" id="table1" class="formsubmit">
+					<tr>
+						<td class="formoptionsubmit" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+							<input type="hidden" name="menuitemid" value="<?php echo $menuitem_array[$uselement][0];?>">
+							<a href="#" onclick="javascript:document.menuitemlayer1.submit()">
+								<font color="#FFFFFF" size="2" /><?php echo $nametodisplay;?></font>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+				</form>
+		<?php		
+		
+		}
+		
+	// Count elements in the array
+	//echo "<br> There are <b>".count($menuitem_array)."</b> elements in the array <br>";
+	//echo "<br> Flipping the array <br>";
 	
-			if ($layer1url=="unslaved") {					
-					?>
-								<td class="cookietrail">
-									<?php echo $layer1name?> .\\.
-									</td>
-					<?php
-				}
-				else {
-					if ($layer1name=="") {
-							// There is nothing to display
-						}
-						else {
-					?>				
-								<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitemlayer1" method="POST" action="<?php echo $layer1url?>?frmstartdate=<?php echo $frmstartdate;?>&frmenddate=<?php echo $frmenddate;?>">
-								<td class="cookietrail">
-									<input type="hidden" name="menuitemid" value="<?php echo $layer1sid;?>">
-									<a href="#" onclick="javascript:document.menuitemlayer1.submit()"><?php echo $layer1name?></a> .\\.
-									</td>
-									</form>
-					<?php
-						}
-				}
-			if ($layer2url=="unslaved") {					
-					?>
-								<td class="cookietrail">
-									<?php echo $layer2name?> .\\.
-									</td>
-					<?php
-				}
-				else {
-					if ($layer2name=="") {
-							// There is nothing to display
-						}
-						else {
-					?>				
-								<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitemlayer2" method="POST" action="<?php echo $layer2url?>?frmstartdate=<?php echo $frmstartdate;?>&frmenddate=<?php echo $frmenddate;?>">
-								<td class="cookietrail">
-									<input type="hidden" name="menuitemid" value="<?php echo $layer2sid;?>">
-									<a href="#" onclick="javascript:document.menuitemlayer2.submit()"><?php echo $layer2name?></a> .\\.
-									</td>
-									</form>
-					<?php
-						}
-				}
-			if ($layer3url=="unslaved") {					
-					?>
-								<td class="cookietrail">
-									<?php echo $layer3name?> .\\\.
-									</td>
-					<?php
-				}
-				else {
-						if ($layer3name=="") {
-							// There is nothing to display
-						}
-						else {
-					?>				
-								<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitemlayer3" method="POST" action="<?php echo $layer3url?>?frmstartdate=<?php echo $frmstartdate;?>&frmenddate=<?php echo $frmenddate;?>">
-								<td class="cookietrail">
-									<input type="hidden" name="menuitemid" value="<?php echo $layer3sid;?>">
-									<a href="#" onclick="javascript:document.menuitemlayer3.submit()"><?php echo $layer3name?></a> .\\\.
-									</td>
-									</form>
-					<?php
-						}
-				}
-			if ($layer4url=="unslaved") {					
-					?>
-								<td class="cookietrail">
-									<?php echo $layer4name?> .\\\\.
-									</td>
-					<?php
-				}
-				else {
-					if ($layer4name=="") {
-							// There is nothing to display
-						}
-						else {
-					?>				
-								<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitemlayer4" method="POST" action="<?php echo $layer4url?>">
-								<td class="cookietrail">
-									<input type="hidden" name="menuitemid" value="<?php echo $layer4sid;?>">
-									<a href="#" onclick="javascript:document.menuitemlayer4.submit()"><?php echo $layer4name?></a> .\\\\.
-									</td>
-									</form>
-					<?php
-						}
-				}
-				?>
+	$menuitem_array_f = array_reverse($menuitem_array);
+	
+	// Loop through the array
+	for ($i=0; $i<count($menuitem_array_f); $i=$i+1) {
+			// Show Menu Information
+			if($i == (count($menuitem_array_f) - 1)) {
+					// This is really the last element of the array
+					$toggle = 1;
+			}
+			else {
+					$toggle = 0;
+			}
+		
+			
+			display_menu_item( $menuitem_array_f, $i, $toggle );
+		}
+	?>
 			</tr>
 		</table>
 	<?php
 }
+		
 ?>

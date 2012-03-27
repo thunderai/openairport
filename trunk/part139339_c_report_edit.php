@@ -130,9 +130,9 @@ if (!isset($inspection_id)) {
 									</td>
 								<td class="formanswers">
 									<?php
-									$uidate = sqldate2amerdate($objarray['139327_date']);
+									$uidate = sqldate2amerdate($objarray['139339_date']);
 									?>											
-									<input class="Commonfieldbox" type="text" name="disdate" size="10" value="<?php echo $uidate;?>">
+									<input class="Commonfieldbox" type="text" name="frmdate" size="10" value="<?php echo $uidate;?>">
 									</td>
 								</tr>
 							<tr>
@@ -140,7 +140,7 @@ if (!isset($inspection_id)) {
 									Time
 									</td>
 								<td class="formanswers">
-									<input class="Commonfieldbox" type="text" name="distime" size="10" value="<?php echo $objarray['139327_time'];?>">
+									<input class="Commonfieldbox" type="text" name="frmtime" size="10" value="<?php echo $objarray['139339_time'];?>">
 									</td>
 								</tr>	
 							<tr>
@@ -202,27 +202,11 @@ if (!isset($inspection_id)) {
 												</td>
 											</tr>
 										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Date
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" 	type="text" 	name="frmdate" ID="frmdate" 	size="10"	value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-												Time
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" 	type="text" 	name="frmtime"	ID="frmtime"	size="10" 	value="<?echo date("H:i:s");?>">
-												</td>
-											</tr>
-										<tr>
 											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
 												Notes
 												</td>
 											<td class="formanswers">
-												<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60">Mu readings taken with a Vericom 3000 RFM unit<br>Check Local NOTAMs</textarea>
+												<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60"><?php echo $objarray['139339_notes'];?></textarea>
 												</td>
 											</tr>
 										</table>
@@ -370,7 +354,10 @@ if (!isset($inspection_id)) {
 													}
 													?>
 													<?php
-												$tmpfieldname = str_replace(" ","",$objfields["139339_c_name"]);
+												$tmpfieldname 	= str_replace(" ","",$objfields["139339_c_name"]);
+												$tmpfieldname 	= str_replace(" ","",$objfields["139339_c_name"]);
+												$rootname 		= str_replace("Closed","",$tmpfieldname);
+												$rootname 		= str_replace("closed","",$rootname);
 												
 												switch ($objfields['139339_cc_type']) {
 														case 0:
@@ -378,29 +365,42 @@ if (!isset($inspection_id)) {
 																		// Display Full FiCON Information
 																		?>
 						<td class="formresults">
-							<input class="Commonfieldbox" type="text" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:30px;" size="2" maxlength="2" />
+							<input class="Commonfieldbox" type="text" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:30px;" size="2" maxlength="2" value="<?php echo $objfields["139339_cc_d_yn"];?>" />
 							</td>
 																		<?php
 																	}
 																break;
 														case 1:
-																// This is the initial Closed Column.
-														
-																if ($tmp_is_closed==1) {							
-																		?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" CHECKED onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" style="width:20px;" size="4" />
-							</td>
-																		<?php
+																?>
+							<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+								<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
+																<?php
+																
+																if($objfields["139339_f_rwy_yn"] == 1) {
+																		$function = "closesurface_rwy";
+																	}
+																	elseif($objfields["139339_f_rwy_yn"] == 3) {
+																		$function = "closesurface_junk";
 																	}
 																	else {
-																		?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" style="width:20px;" size="4" />
-							<!--onClick="window.open('part139339_sub_n_main_entry.php','NewNOTAM','width=600,height=600,toolbar=no, location=no,directories=no,status=no,menubar=no,scrollbars=no,copyhistory=no,resizable=yes')">-->
-							</td>
-																		<?php
+																		$function = "closesurface";
 																	}
+																		
+																if($objfields['139339_cc_d_yn'] == 1) {
+
+																	
+																		?>
+							value="1" CHECKED onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+																		<?php
+																		
+																}
+																else {
+																	
+																	?>																	
+							value="1" onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+																		<?php
+																		
+																}
 																break;
 														case 2:
 																if ($fullorshort==0){
@@ -412,6 +412,11 @@ if (!isset($inspection_id)) {
 								if ($tmp_is_closed==1) {
 										?>
 										value="CLOSED" 
+										<?php
+									}
+									else {
+										?>
+										value="<?php echo $objfields["139339_cc_d_yn"];?>"
 										<?php
 									}
 								?>
@@ -460,7 +465,7 @@ if (!isset($inspection_id)) {
 											</tr>
 										<tr>
 											<td height="32" colspan="12" class="formoptionsavilablebottom" valign="middle">
-												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
+												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">&nbsp;
 												</td>
 											</tr>
 										</table>
@@ -475,254 +480,154 @@ if (!isset($inspection_id)) {
 			}
 			else {
 				?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td class="tableheadercenter">
-									Inspection Edit Form
-									</td>
-								<td class="tableheaderright">
-									(Use to make changes to discrepancies)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Facility
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Condition
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Discrepancy
-												</td>
-											</tr>
+
 		<?										
 		// Form has been submitted
 		// There are two things that must be done initialy before we go off to the discrepancy page.
 		// Step 1). Add the Inspection Header information to the database
 		// Step 2). Add each checklist item to the database for that inspection.
 		
-		echo "PART ONE: Update Inpsection Record Table with new values <br>";
+		//echo "PART ONE: Update Inpsection Record Table with new values <br>";
 		
-		$tmpdate = AmerDate2SqlDateTime($_POST['disdate']);
-		$sql = "UPDATE tbl_139_327_main SET type_of_inspection_cb_int='".$_POST['distype']."', inspection_completed_by_cb_int='".$_POST['disauthor']."', 139327_date='".$tmpdate."', 139327_time='".$_POST['distime']."' WHERE inspection_system_id=".$_POST['recordid'];
+		// Condition User Input
 		
-		echo "[1][a][1] This is done with the following SQL Statement ".$sql." <br>";
+		$tmpdate		= strip_input($_POST['frmdate']);
+		$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
+		
+		$tmptime		= strip_input($_POST['frmtime']);
+		
+		$tmp_frmnotes 	= strip_input($_POST['frmnotes']);
+		
+		$sql = "UPDATE tbl_139_339_main SET 139339_type_cb_int='".$_POST['distype']."', 139339_by_cb_int='".$_POST['disauthor']."', 139339_date='".$tmpdate."', 139339_time='".$tmptime."', 139339_notes='".$tmp_frmnotes."' WHERE 139339_main_id=".$_POST['recordid'];
+		
+		//echo "[1][a][1] This is done with the following SQL Statement ".$sql." <br>";
 
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		//mysql_insert_id();
 				
 				if (mysqli_connect_errno()) {
-						echo "[1][a][2] Connection REJECTED <br>";
+						//echo "[1][a][2] Connection REJECTED <br>";
 						printf("connect failed: %s\n", mysqli_connect_error());
 						exit();
 					}		
 					else {
 
-						echo "[1][a][2] Connection Established <br>";						
+						//echo "[1][a][2] Connection Established <br>";						
 						$objrs = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 						$lastid = mysqli_insert_id($mysqli);
 						
-						echo "[1][a][2] The Inpsection has been updated with ID ".$lastid." <br>";
+						//echo "[1][a][2] The Inpsection has been updated with ID ".$lastid." <br>";
 						}
 		
-		echo "PART TWO: Find all Condition Checklists that are part of the inspection <br>";
+		//echo "PART TWO: Find all Condition Checklists that are part of the inspection <br>";
 		
-		$sql = "SELECT * FROM tbl_139_327_sub_c_c WHERE conditions_checklists_inspection_cb_int=".$_POST['recordid'];
+		$sql = "SELECT * FROM tbl_139_339_sub_c_c 
+		INNER JOIN tbl_139_339_sub_c ON tbl_139_339_sub_c.139339_c_id = tbl_139_339_sub_c_c.139339_cc_c_cb_int 
+		WHERE 139339_cc_ficon_cb_int=".$_POST['recordid'];
 		
-		echo "[2][a][1] This is done with the following SQL Statement ".$sql." <br>";
+		//echo "[2][a][1] This is done with the following SQL Statement ".$sql." <br>";
 		
 		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 				
 				if (mysqli_connect_errno()) {
-						echo "[2][a][2] Connection REJECTED <br>";
+						//echo "[2][a][2] Connection REJECTED <br>";
 						printf("connect failed: %s\n", mysqli_connect_error());
 						
 						exit();
 					}		
 					else {
 					
-						echo "[2][a][2] Connection Established <br>";						
+						//echo "[2][a][2] Connection Established <br>";						
 						$objrs = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 						
-						echo "[2][a][3] Loop through Condition Checklists <br>";	
+						//echo "[2][a][3] Loop through Condition Checklists <br>";	
 						
 						while ($objfields = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 						
-								echo "[2][a][4] For each record store values into temporary variables <br>";
+								//echo "[2][a][4] For each record store values into temporary variables <br>";
 
-								$tmpchecklistid 			= $objfields['conditions_checklists_id'];					// ID of COndition Checklist
-								$tmpchecklistconditionid	= $objfields['conditions_checklists_condition_cb_int'];		// ID of Condition tbl_139_sub_c
-								$tmpchecklistinspectionid	= $objfields['conditions_checklists_inspection_cb_int'];	// ID of inspection tbl_139_327_main
-								$tmpchecklistdiscrepancy	= $objfields['conditions_checklist_discrepancy_yn'];		// 1/0 value of discrepancy
+								$tmpchecklistid 			= $objfields['139339_cc_id'];					// ID of COndition Checklist
+								$tmpchecklistconditionid	= $objfields['139339_cc_c_cb_int'];				// ID of Condition tbl_139_sub_c
+								$tmpchecklistinspectionid	= $objfields['139339_cc_ficon_cb_int'];			// ID of inspection tbl_139_327_main
+								$tmpchecklistdiscrepancy	= $objfields['139339_cc_d_yn'];					// 1/0 value of discrepancy
 								$tmpstring	 				= (string) $tmpchecklistconditionid;
 								$tmpa 						= $tmpstring."za";
 								$tmpd						= $tmpstring."zd";
+								
+								
+								
+								$tmpcondname				= $objfields['139339_c_name'];
+								$tmpcondnamestr				= str_replace(" ","",$tmpcondname);
+								$tmpvalue					= $_POST[$tmpcondnamestr];
 							
-								echo "[2][a][5] Form Field for boxes Acceptable ".$tmpa." / Discrepancy ".$tmpd." <br>";
+								//echo "[2][a][5] Form Field for boxes Acceptable ".$tmpa." / Discrepancy ".$tmpd." <br>";
 
-								if(!isset($_POST[$tmpd])) {
-										//echo "No variable exists (tmpd)";
-										$tmpdiscrepancy		= 0;
-									}
-									else {
-										//echo "variable exists (tmpd)";
-										$tmpdiscrepancy		= $_POST[$tmpd];
-										}
-										
-								if(!isset($_POST[$tmpa])) {
-										//echo "No variable exists (tmpa)";
-										$tmpacceptable		= 0;
-									}
-									else {
-										//echo "variable exists (tmpa)";
-										$tmpacceptable		= $_POST[$tmpa];
-										}
+								// Condition User Input
 								
-								if($tmpacceptable == 0) {
-										// there are no discrepancies
-										$tmpvalue	= 0;
-										if ($tmpdiscrepancy == 0) {
-												// Both are negative, what gives
-												$tmpvalue 	= 0;
-											}
-											else {
-												// tmpdiscrepancy is not equal to zero
-												$tmpvalue	= 1;
-											}
-									}
-									else {
-										//$tmpvalue = 1;
-									}
-								if ($tmpvalue=="") {
-										$tmpvalue = 0;
-									}
+								$tmpvalue		= strip_input($tmpvalue);
+								
 									
-								echo "[2][a][6] Temp Value is ".$tmpvalue." <br>";								
-								echo "[2][b][1] Update the Condition Checklist as needed <br>";
+								//echo "[2][a][6] Temp Value is ".$tmpvalue." <br>";								
+								//echo "[2][b][1] Update the Condition Checklist as needed <br>";
 								
-								$sql2 = "UPDATE tbl_139_327_sub_c_c SET conditions_checklists_condition_cb_int='".$tmpchecklistconditionid."', conditions_checklists_inspection_cb_int='".$_POST['recordid']."', conditions_checklist_discrepancy_yn='".$tmpvalue."' WHERE conditions_checklists_id=".$tmpchecklistid;
+								$sql2 = "UPDATE tbl_139_339_sub_c_c SET 139339_cc_c_cb_int='".$tmpchecklistconditionid."', 139339_cc_ficon_cb_int='".$_POST['recordid']."', 139339_cc_d_yn='".$tmpvalue."' WHERE 139339_cc_id=".$tmpchecklistid;
 								
-								echo "[2][b][2] UPDATE using the following SQL Statement ".$sql2." <br>";
+								//echo "[2][b][2] UPDATE using the following SQL Statement ".$sql2." <br>";
 								
 								$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 				
 								if (mysqli_connect_errno()) {
-										echo "[2][b][3] Connection REJECTED <br>";
+										//echo "[2][b][3] Connection REJECTED <br>";
 										printf("connect failed: %s\n", mysqli_connect_error());
 										exit();
 									}		
 									else {
-										echo "[2][b][3] Connection Established <br>";
+										//echo "[2][b][3] Connection Established <br>";
 										$objrs2 = mysqli_query($objcon2, $sql2) or die(mysqli_error($objcon2));										
 										$lastchkid = mysqli_insert_id($objcon2);
 										
-										echo "[2][b][4] The Condition Checklist has been updated with ID ".$lastchkid." <br>";
+										//echo "[2][b][4] The Condition Checklist has been updated with ID ".$lastchkid." <br>";
 										
 									}
 										
-										if ($tmpvalue==1) {
-										
-												echo "[2][c][1] Show Discrepancies part of the inspection <br>";
-												
-												$sql3 = "SELECT * FROM tbl_139_327_sub_c WHERE conditions_id = '".$tmpchecklistconditionid."'";
-												
-												echo "[2][c][2] UPDATE using the following SQL Statement ".$sql3." <br>";
-												
-												$objcon3 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-														
-												if (mysqli_connect_errno()) {
-														echo "[2][c][3] Connection REJECTED <br>";
-														printf("connect failed: %s\n", mysqli_connect_error());
-														exit();
-													}		
-													else {
-														echo "[2][c][3] Connection Established <br>";
-														
-														$objrs3 = mysqli_query($objcon3, $sql3) or die(mysqli_error($objcon3));
-														
-														echo "[2][d][1] Loop through Conditions <br>";
-														
-														while ($objfields3 = mysqli_fetch_array($objrs3, MYSQLI_ASSOC)) {
-														
-																echo "[2][d][2] Store values into temporary variables <br>";
-														
-																$tmpfacilityid		= $objfields3['condition_facility_cb_int'];
-																$tmpcondname		= $objfields3['condition_name'];
-															}
-													}
-													?>
-										<tr>
-											<td class="formresults">
-												<?
-												part139327facilitycombobox($tmpfacilityid, "all", "notused", "hide", "all");
-												?>
-												</td>
-											<td class="formresults">
-												<?=$tmpcondname;?>
-												</td>
-											<form style="margin-bottom:0;" action="part139327_discrepancy_report_new.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="window.open('', 'AddDiscrepancy', 'width=550,height=550,status=no,resizable=no,scrollbars=yes')">
-											<td class="formresults" align="center" valign="middle">
-												<input type="hidden" name="conditionid" 		value="<?=$tmpchecklistconditionid?>">
-												<input type="hidden" name="recordid" 			value="<?=$inspection_id?>">
-												<input type="hidden" name="checklistid" 		value="<?=$tmpchecklistid?>">
-												<input type="hidden" name="facilityid" 			value="<?=$tmpfacilityid;?>">
-												<input type="hidden" name="conditionname" 		value="<?=$tmpcondname;?>">
-												<input type="hidden" name="inspectiontypeid" 	value="<?=$_POST['distype'];?>">
-												<input type="submit" name="b1" 					value="Yes (Manage)"			class="formsubmit">
-												</td>
-											</form>
-											</tr>
-											<?
-												}	// End of tmpvalue =1
+						
 							$tmpvalue 			= "";
 							$tmpacceptable		= "";
 							$tmpdiscrepancy		= "";
 							}	// End of while loop
 							
 							?>
-										<tr>
-											<form style="margin-bottom:0;" action="part139327_report_display_new.php" method="POST" name="printform" id="printform" target="PrinterFriendlyReport" onsubmit="window.open('', 'PrinterFriendlyReport', 'width=717,height=962,status=no,resizable=no,scrollbars=yes')">
-											<td class="formoptionsavilablebottom" colspan="3">
-												<input type="hidden" name="conditionid" 		value="<?=$tmpchecklistconditionid?>">
-												<input type="hidden" name="recordid" 			value="<?=$inspection_id?>">
-												<input type="hidden" name="checklistid" 		value="<?=$tmpchecklistid?>">
-												<input type="hidden" name="facilityid" 			value="<?=$tmpfacilityid;?>">
-												<input type="submit" name="b1" 					value="Print Report"			class="formsubmit">
-												</td>
-											</form>
-										</table>
-									</td>
-								</tr>
-							</table>
+
+							
+							
+							
+							
 							<?
 					}	// End of good connection					
 					
 		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$tmpsqltime		= date("H:i:s");
 		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Edited record ID:".$inspection_id." in table tbl_139_327_main";
+		$dutylogevent	= "Edited record ID:".$inspection_id." in table tbl_139_339_main";
 		
 		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
 
 		
 		// Populate an error report
 		
-		$sql = "INSERT INTO tbl_139_327_main_e (inspection_error_inspection_id, inspection_error_by_cb_int, inspection_error_reason, inspection_error_date, inspection_error_time, inspection_error_yn)
-		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['diseditwhy']."', '".$sqldate."', '".$_POST['distime']."', '1' )";
+		// COndition Input
+		
+		$tmpvalue		= strip_input($_POST['diseditwhy']);
+		
+		
+		$sql = "INSERT INTO tbl_139_339_sub_e (139339_eoo_i_id, 139339_eoo_by_cb_int, 139339_eoo_reason, 139339_eoo_date, 139339_eoo_time, 139339_eoo_yn)
+		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$tmpvalue."', '".$tmpsqldate."', '".$tmptime."', '1' )";
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			//mysql_insert_id();
 				
 				if (mysqli_connect_errno()) {
 						// there was an error trying to connect to the mysql database
-						printf("connect failed: %s\n", mysqli_connect_error());
+						//printf("connect failed: %s\n", mysqli_connect_error());
 						exit();
 					}		
 					else {
@@ -730,9 +635,44 @@ if (!isset($inspection_id)) {
 						$objrs = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 						$lastid = mysqli_insert_id($mysqli);
 						}
+		
+		$tblname		= "Condition Report Summary Report";
+		$tblsubname		= "(summary of information)";
+			
+				
+				?>		
 						
+		<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
+			<input type="hidden" name="formsubmit" 		ID="formsubmit"		value="1">
+			<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$_POST['recordid'];?>">
+		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="10" class="tableheaderleft">&nbsp;</td>
+				<td class="tableheadercenter">
+					<?php echo $tblname;?>
+					</td>
+				<td class="tableheaderright">
+					(<?php echo $tblsubname;?>)
+					</td>
+				</tr>
+			<tr>
+				<td colspan="3" class="tablesubcontent">
+					<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
+						<tr>
+							<td colspan="3">
+								<?php
+								_339_c_display_report_summary($_POST['recordid'],2,0);
+								?>
+								</td>
+							</tr>		
+						</table>
+					</td>
+				</tr>
+			</table>
+			<?php
 			}	// End of Summary Page
 	}	// End of inspectionid
+	
 
 	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
 ?>

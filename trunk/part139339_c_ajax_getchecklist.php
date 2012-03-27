@@ -331,36 +331,50 @@
 															?>
 															<?php
 												$tmpfieldname = str_replace(" ","",$objfields["139339_c_name"]);
+												// This is the initial Closed Column.
+												$rootname = str_replace("Closed","",$tmpfieldname);
+												$rootname = str_replace("closed","",$rootname);
+												//echo $rootname;
 												
 												switch ($objfields['139339_cc_type']) {
 														case 0:
-																if ($fullorshort==0){
-																		// Display Full FiCON Information
-																		?>
+																?>
 						<td class="formresults">
 							<input class="Commonfieldbox" type="text" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:30px;" size="2" maxlength="2" />
 							</td>
-																		<?php
-																	}
+																<?php
 																break;
 														case 1:
-																// This is the initial Closed Column.
-														
-																if ($tmp_is_closed==1) {							
-																		?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" CHECKED onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" style="width:20px;" size="4" />
-							</td>
-																		<?php
+																?>
+							<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+								<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
+																<?php
+																
+																if($objfields["139339_f_rwy_yn"] == 1) {
+																		$function = "closesurface_rwy";
+																	}
+																	elseif($objfields["139339_f_rwy_yn"] == 3) {
+																		$function = "closesurface_junk";
 																	}
 																	else {
-																		?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" style="width:20px;" size="4" />
-							<!--onClick="window.open('part139339_sub_n_main_entry.php','NewNOTAM','width=600,height=600,toolbar=no, location=no,directories=no,status=no,menubar=no,scrollbars=no,copyhistory=no,resizable=yes')">-->
-							</td>
-																		<?php
+																		$function = "closesurface";
 																	}
+																		
+																if($objfields['139339_cc_d_yn'] == 1) {
+
+																	
+																		?>
+							value="1" CHECKED onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+																		<?php
+																		
+																}
+																else {
+																	
+																	?>																	
+							value="1" onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+																		<?php
+																		
+																}
 																break;
 														case 2:
 																if ($fullorshort==0){
@@ -389,7 +403,8 @@
 																	}
 																break;
 														case 3:
-																?>
+															
+															?>
 						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
 							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" />
 							</td>

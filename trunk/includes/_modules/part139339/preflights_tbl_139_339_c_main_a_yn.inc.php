@@ -1,18 +1,15 @@
 <?
-// Determines if the selected inspection is archived.
 function preflights_tbl_139_339_c_main_a_yn($recordid,$tblarchivedsort) {
-
+		
 		$isarchived = 0;
-		$displayrow	= 1;
 
 		$sql2 = "SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = '".$recordid."' ";
-		
 		//echo $sql2;
 		//make connection to database
 		$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-		if (mysqli_connect_errno()) {
+			if (mysqli_connect_errno()) {
 				// there was an error trying to connect to the mysql database
-				printf("connect failed: %s\n", mysqli_connect_error());
+				//printf("connect failed: %s\n", mysqli_connect_error());
 				exit();
 			}
 			else {
@@ -25,7 +22,7 @@ function preflights_tbl_139_339_c_main_a_yn($recordid,$tblarchivedsort) {
 							}
 					}
 			}
-		
+
 		//echo "isarchieved ".$isarchived;	
 		//echo "Duplicatesort ".$tblarchivedsort;
 		
@@ -45,9 +42,9 @@ function preflights_tbl_139_339_c_main_a_yn($recordid,$tblarchivedsort) {
 				// This record is not a duplicate, and not archived, so lets display it anyway
 				$displayrow=1;
 			}
-			
-	//echo $displayrow;		
-	return $displayrow;
+		
+	//echo "Display Row :".$displayrow;
 	
+	return $displayrow;
 	}
 ?>

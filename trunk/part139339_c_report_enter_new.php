@@ -151,7 +151,6 @@ if (!isset($_POST["formsubmit"])) {
 	}
 	else {
 		?>
-		<br>
 						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 							<tr>
 								<td width="10" class="tableheaderleft">&nbsp;</td>
