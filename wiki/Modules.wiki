@@ -31,11 +31,11 @@ Within the core are the main functions that an airport would use on a daily base
 = Details =
 
 || *Regulation* || *Name* || *Depth* || *completed* ||
-|| [303] || Training Requirements || 2 || started ||
+|| [303] || Training Requirements || 2 || holding ||
 || [327] || Airfield Safety Self Inspections || 1 || yes ||
 || [333] || Protection of NavAids || 2 || yes ||
 || [337] || Wildlife Hazards || 1 || yes ||
-|| [339] || Field Condition Reporting || 2 || no ||
+|| [339] || Field Condition Reporting || 2 || almost completed ||
 
 
 ===Depth===
