@@ -94,7 +94,7 @@ if (!isset($_POST["formsubmit"])) {
 												?>
 												</td>
 											<td class="formoptions" align="center">
-												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_ficon(<?php echo $_SESSION['user_id'];?>);"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
+												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_ficon(<?php echo $_SESSION['user_id'];?>,'report');"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
 												</td>
 											</tr>
 										<tr>

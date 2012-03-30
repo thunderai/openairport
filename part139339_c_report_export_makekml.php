@@ -16,18 +16,46 @@
 
 // get information from the loading form...
 	//Get Information from the FORM
-		$tmpstartdate 	= $_POST['frmstartdate'];
-		$tmpenddate 	= $_POST['frmenddate'];
-		$tmpstartdate2 	= $_POST['frmstartdateo'];
-		$tmpenddate2	= $_POST['frmenddateo'];	
+		
+		// THIS PAGE CAN BE ACCESSED AS A NETWORK LINK KML FILE.
+		//		IT WILL NEED CERTAIN VALUES SET TO DEFAULTS IF NO INFORMATION IS PROVIDED
+		//		SHOULD BE APPLICABLE TO WHAT YOU WOULD EXPECT FROM A NETWORK KML FILE
+		
+		// TEST TO SEE IF THIS IS FROM THE LOADER OR A NETWORK LINK....
+		if (!isset($_POST["$tmpenddate"])) {
+				// FORM END DATE IS NOT DEFINED, THIS IS PROBABLY A NETWORK KML FILE, SET DEFAULTS
+				
+				$current_year	= date('Y');
+				$tmpstartdate 	= "01/01/2000";
+				$tmpenddate 	= "12/31/".$current_year;
+				//$tmpstartdate2 	= $_POST['frmstartdateo'];
+				//$tmpenddate2	= $_POST['frmenddateo'];	
 
-		$timeperiod		= $_POST['discondition'];		// Combobox
-		$ficonid		= $_POST['disfacility'];		// Input Box
-		$averagemus		= $_POST['disusedates']; 		// Check box
-		$use40andup		= $_POST['disuse40']; 			// Check box		
-		$usenullmu		= $_POST['disuseblank']; 		// Check box	
-		$ussettings		= $_POST['disusebrowser']; 		// Check box	
+				$timeperiod		= "all";
+				$ficonid		= "";
+				$averagemus		= 1;
+				$use40andup		= 1;		
+				$usenullmu		= 0;	
+				$ussettings		= 1;			
+		
+		}
+		else {
+				// FORM IS MOST PROBABLY FROM THE LOADER, USE USER PROVIDED SETTINGS
+		
+				$tmpstartdate 	= $_POST['frmstartdate'];
+				$tmpenddate 	= $_POST['frmenddate'];
+				$tmpstartdate2 	= $_POST['frmstartdateo'];
+				$tmpenddate2	= $_POST['frmenddateo'];	
 
+				$timeperiod		= $_POST['discondition'];		// Combobox
+				$ficonid		= $_POST['disfacility'];		// Input Box
+				$averagemus		= $_POST['disusedates']; 		// Check box
+				$use40andup		= $_POST['disuse40']; 			// Check box		
+				$usenullmu		= $_POST['disuseblank']; 		// Check box	
+				$ussettings		= $_POST['disusebrowser']; 		// Check box	
+		
+		}
+		
 		$running_total 	= 0;
 		$i				= 0;
 		$previous_c_id	= 0;					// Is the current condition the same as the last one?

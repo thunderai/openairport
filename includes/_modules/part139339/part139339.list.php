@@ -49,6 +49,7 @@
 			//include("_327_discrepancy_getstage.inc.php");
 			include("_339_c_discrepancydisplaysummary.inc.php");	
 			include("_339_c_reportdisplaysummary.inc.php");
+			include("_339_b_reportdisplaysummary.inc.php");
 			
 			include("_339_c_typescombobox.inc.php");
 			include("_339_c_typestextfield.inc.php");
@@ -59,6 +60,8 @@
 			
 	// Load PreFlight Files
 			include("preflights_tbl_139_339_c_main_a_yn.inc.php");
+			include("preflights_tbl_139_339_b_main_a_yn.inc.php");
+			include("preflights_tbl_139_339_b_main_r_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_a_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_c_yn.inc.php");
 			//include("preflights_tbl_139_327_main_sub_d_d_yn.inc.php");
