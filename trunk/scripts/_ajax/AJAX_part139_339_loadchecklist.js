@@ -49,9 +49,18 @@ function sever_interaction_ficon()
 	}
 function call_server_ficon(id,fullorshort)
 		{
-			var InspCheckList = document.getElementById("InspCheckList").value;
-			var url = "part139339_c_ajax_getchecklist.php?InspCheckList=" + escape(InspCheckList) + "&Employee=" + escape(id) + "&fullorshort=" + escape(fullorshort);
-			Firequest.open("GET", url); 
+			var isnotam			= fullorshort;
+			
+			if(isnotam == 'notam') {
+					var url = "part139339_b_ajax_getchecklist.php";
+			}
+			else {
+					var url = "part139339_c_ajax_getchecklist.php";
+			}
+			
+			var InspCheckList 	= document.getElementById("InspCheckList").value;
+			var urlf 			= url + "?InspCheckList=" + escape(InspCheckList) + "&Employee=" + escape(id) + "&fullorshort=" + escape(fullorshort);
+			Firequest.open("GET", urlf); 
 			Firequest.onreadystatechange = sever_interaction_ficon;
 			Firequest.send('');
 		}

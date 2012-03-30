@@ -639,7 +639,6 @@ if (!isset($inspection_id)) {
 		$tblname		= "Condition Report Summary Report";
 		$tblsubname		= "(summary of information)";
 			
-				
 				?>		
 						
 		<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
