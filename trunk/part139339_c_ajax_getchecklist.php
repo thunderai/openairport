@@ -281,7 +281,16 @@
 													WHERE 139339_cc_c_cb_int =".$tmpid."";
 													
 										$objcon_sub = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-
+									
+									$display_total 		= array();
+									$display_totals 	= 0;
+									$alterclosed 		= 0;
+									$mesasge			= "";
+									$checked			= "";
+									$display_archived 	= "";
+									$display_closed 	= "";
+									$skipping			= "";
+													
 									
 									if (mysqli_connect_errno()) {
 											printf("connect failed: %s\n", mysqli_connect_error());
@@ -297,25 +306,43 @@
 															$displayrow 		= 1;
 															$tmp_is_closed 		= 0;
 													
+															//if($objfields_sub['139339_cc_d_yn'] == 1) {
+																	// Does the surface have a closed surface noration?
+																	// It must otherwise we wouldn't even be in here
+																	// We need to know two things:
+																	//	is the NOTAM that caused this notation closed?
+																	//	is it archived?
+																	// 		if it is either of those things we dont need to condier it.
 															
-															//$displayrow			= preflight_tbl_139339_sub_n_a($objfields_sub['139339_sub_n_id'],0);	
-															//echo "Display Archived ".$displayrow."<br>";														
-															//$display_archived	= $displayrow;
-															//$displayrow			= preflight_tbl_139339_sub_n_r($objfields_sub['139339_sub_n_id'],0);
-															//echo "Display Closed ".$displayrow."<br>";
-															//$display_closed		= $displayrow;
-															
-														//	echo "<br>";
-														//	echo "NOTAM ID  |".$objfields_sub['139339_sub_n_id']."|<br>";
-														//	echo "Archived  |".$display_archived."|<br>";
-														//	echo "Closed	|".$display_closed."|<br>";
-															
-															if ($display_archived==1) {
-																	if ($display_closed==1) {
-																			// NOTAM IS ACTIVE
-																			$tmp_is_closed = 1;
-																		}
-																}	// End of test to determine if the notam is active
+																	// Test for archived. If 1 not archived, 0 is archived?
+																	$display_archived		= preflights_tbl_139_339_sub_n_a_yn($objfields_sub['139339_sub_n_id'],0);	
+																		//echo "Display Archived = ".$display_archived."<br>";
+																	$display_closed			= preflights_tbl_139_339_sub_n_r_yn($objfields_sub['139339_sub_n_id'],0);
+																		//echo "Display Closed = ".$display_closed."<br>";
+																	
+																	if($display_archived == 0) {
+																			// Surface is archived, skipp the rest
+																			$skipping = 1;
+																	} else {														
+																			
+																			if($display_closed == 1) {
+																					// Surface NOTAM has no closed records
+																					$alterclosed = 1;
+																				} else {
+																					// Surface currently has closed notams on file
+																					$alterclosed = 0;
+																				}
+																				
+																			//echo "Alter Closed: ".$alterclosed."<br>";
+																	}
+																	
+															//echo "<br>";
+															//echo "NOTAM ID  |".$objfields_sub['139339_sub_n_id']."|<br>";
+															//echo "Archived  |".$display_archived."|<br>";
+															//echo "Closed	|".$display_closed."|<br>";
+																
+															//$display_totals = $display_totals + $displayrow;
+															//}	
 														}	// End of Sub While Loop	
 												}	// End of Sub Object
 												else {
@@ -328,8 +355,8 @@
 							</td>
 															<?php
 															}
-															?>
-															<?php
+
+															
 												$tmpfieldname = str_replace(" ","",$objfields["139339_c_name"]);
 												// This is the initial Closed Column.
 												$rootname = str_replace("Closed","",$tmpfieldname);
@@ -359,31 +386,28 @@
 																	else {
 																		$function = "closesurface";
 																	}
-																		
-																if($objfields['139339_cc_d_yn'] == 1) {
-
-																	
-																		?>
-							value="1" CHECKED onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																		<?php
-																		
-																}
-																else {
-																	
-																	?>																	
-							value="1" onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																		<?php
-																		
-																}
+																
+																//echo "Alter Closed: ".$alterclosed."<br>";
+																
+																if($alterclosed == 1) {
+																		// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+																		$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+																		$checked = "CHECKED";
+																	} else {
+																		// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+																		$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+																		$checked = "";
+																	}
+																	?>
+							value="1" <?php echo $checked;?> onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																	<?php
 																break;
 														case 2:
-																if ($fullorshort==0){
-																		// Display Full FiCON Information
 																		?>
 						<td class="formresults">
 							<input class="Commonfieldbox" type="text" id="<?php echo $tmpfieldname;?>" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" size="20" 
 								<?php
-								if ($tmp_is_closed==1) {
+								if ($alterclosed == 1) {
 										?>
 										value="CLOSED" 
 										<?php
@@ -399,8 +423,7 @@
 							//
 							?>
 							</td>
-																		<?php
-																	}
+																<?php
 																break;
 														case 3:
 															
