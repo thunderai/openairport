@@ -299,55 +299,7 @@ if (!isset($inspection_id)) {
 												$tmpvalue 	= (string) $tmpid;
 												$tmpa 		= $tmpvalue."za";
 												$tmpd		= $tmpvalue."zd";
-							
-										// Check to see if this record condition has a currently active NOTAM saying it is closed
-												$sql_sub 	= "SELECT * FROM tbl_139_339_sub_n_cc 
-																INNER JOIN tbl_139_339_sub_n ON tbl_139_339_sub_n.139339_sub_n_id = tbl_139_339_sub_n_cc.139339_cc_ficon_cb_int 
-																WHERE 139339_cc_c_cb_int =".$tmpid."";
-																
-													$objcon_sub = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-												
-												if (mysqli_connect_errno()) {
-														printf("connect failed: %s\n", mysqli_connect_error());
-														exit();
-													}
-													else {
-														$res_sub = mysqli_query($objcon_sub, $sql_sub);
-														if ($res_sub) {
-																$number_of_rows = mysqli_num_rows($res_sub);
-																//printf("result set has %d rows. \n", $number_of_rows);					
-																while ($objfields_sub = mysqli_fetch_array($res_sub, MYSQLI_ASSOC)) {
-																
-																		$displayrow 		= 1;
-																		$tmp_is_closed 		= 0;
-																
-																		
-																		//$displayrow			= preflight_tbl_139339_sub_n_a($objfields_sub['139339_sub_n_id'],0);	
-																		//echo "Display Archived ".$displayrow."<br>";														
-																		//$display_archived	= $displayrow;
-																		//$displayrow			= preflight_tbl_139339_sub_n_r($objfields_sub['139339_sub_n_id'],0);
-																		//echo "Display Closed ".$displayrow."<br>";
-																		//$display_closed		= $displayrow;
-																		
-																		//	echo "<br>";
-																		//	echo "NOTAM ID  |".$objfields_sub['139339_sub_n_id']."|<br>";
-																		//	echo "Archived  |".$display_archived."|<br>";
-																		//	echo "Closed	|".$display_closed."|<br>";
-																
-																		if ($display_archived==1) {
-																				if ($display_closed==1) {
-																						// NOTAM IS ACTIVE
-																						$tmp_is_closed = 1;
-																					}
-																			}	// End of test to determine if the notam is active
-																	}	// End of Sub While Loop	
-															}	// End of Sub Object
-															else {
-													//echo "There are no records for this condition";
-															}
-													}
-												// END OF CHECK...
 													?>
 												</td>
 													<?php
@@ -387,21 +339,19 @@ if (!isset($inspection_id)) {
 																	}
 																		
 																if($objfields['139339_cc_d_yn'] == 1) {
-
+																	// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+																		$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+																		$checked = "CHECKED";
+																	} else {
+																		// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+																		$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+																		$checked = "";
+																	}
+																	?>
 																	
-																		?>
-							value="1" CHECKED onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																		<?php
-																		
-																}
-																else {
-																	
-																	?>																	
-							value="1" onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																		<?php
-																		
-																}
-																break;
+							value="1" <?php echo $checked;?> onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																	<?php
+															break;
 														case 2:
 																if ($fullorshort==0){
 																		// Display Full FiCON Information

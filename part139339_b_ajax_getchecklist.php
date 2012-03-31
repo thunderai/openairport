@@ -144,7 +144,7 @@
 							// Define SQL
 							$sql = "SELECT * FROM tbl_139_339_sub_c 
 									INNER JOIN tbl_139_339_sub_c_f ON 139339_f_id = 139339_c_facility_cb_int					
-									WHERE 139339_c_type_cb_int = '".$InspCheckList."' AND 139339_c_archived_yn = 0 AND 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 
+									WHERE 139339_c_type_cb_int = '".$InspCheckList."' AND 139339_c_archived_yn = 0 AND 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 OR 139339_f_rwy_yn = 8 
 									ORDER BY 139339_f_order, 139339_f_name, 139339_c_name";
 							
 							//echo $sql;
