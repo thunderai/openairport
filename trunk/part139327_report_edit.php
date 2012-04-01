@@ -110,9 +110,11 @@ if (!isset($inspection_id)) {
 														$settingsarray 	= array("SELECT * FROM tbl_139_327_main_a WHERE inspection_archived_inspection_id = ",	"inspection",	"part139327_report_display_archived.php");
 														$functionpage	= "part139327_report_archieved.php";														
 														_tp_control_archived($inspection_id, $settingsarray, $functionpage);
+														
 														$settingsarray 	= array("SELECT * FROM tbl_139_327_main_e WHERE inspection_error_inspection_id = ",	"inspection",	"part139327_report_display_error.php");
 														$functionpage	= "part139327_report_error.php";														
 														_tp_control_error($inspection_id, $settingsarray, $functionpage);	
+														
 														?>														
 														</tr>
 													</table>

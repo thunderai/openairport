@@ -1,7 +1,7 @@
 <?php
 
-//								id,	Location X			, Location Y			, Value
-//$display_menu_item 	= array($tmpid,$condition_location_x,$condition_location_y	,$checklist_item_disc);
+//								id		, Location X			, Location Y			, Value
+//$display_menu_item 	= array($tmpid	,$condition_location_x	,$condition_location_y	,$checklist_item_disc);
 
 //$tmplocationx	= convertfromlargescale_to_smallscale_x($objarray['139337_locationx'],$maparray);
 //$tmplocationy	= convertfromlargescale_to_smallscale_y($objarray['139337_locationy'],$maparray);
@@ -24,6 +24,8 @@
 		
 		$xlocations		= explode(",",$display_menu_item[$j][1]);
 		$ylocations		= explode(",",$display_menu_item[$j][2]);
+		$value_is		= $display_menu_item[$j][3];
+		
 		
 		$size_of_array 	= count($xlocations);
 		$value_of_mu	= $display_menu_item[$j][3];
@@ -48,6 +50,13 @@
 				$linecolor = "#399C0E";
 		}	
 		
+		if($value_is == 'Closed') {
+				$linewidth = "4";
+				$linecolor = "#FF0000";
+		} else {
+				$linewidth = "6";
+				$linecolor = $linecolor;
+		}
 		
 									
 		//echo "Size of Array : ".$display_menu_item[$j][1]." <br>";
@@ -179,7 +188,7 @@
 					
 					// Draw the Pavement section
 					jg.setColor("<?php echo $linecolor;?>"); // red
-					jg.setStroke(6); 
+					jg.setStroke('<?php echo $linewidth;?>'); 
 					jg.fillPolygon(xpoints, ypoints);	
 					
 						jg.setColor("#FFFFFF"); 
