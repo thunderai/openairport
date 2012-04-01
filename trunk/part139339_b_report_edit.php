@@ -284,9 +284,11 @@
 																							
 																							$objcon_sub = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-																							$display_total = array();
+																							$display_total 	= array();
 																							$display_totals = 0;
-																							$alterclosed = 0;
+																							$alterclosed 	= 0;
+																							$cellvalue		= 0;
+																							$mine			= 0;
 																	
 																							if (mysqli_connect_errno()) {
 																									printf("connect failed: %s\n", mysqli_connect_error());
@@ -301,8 +303,21 @@
 																											
 																													$displayrow 		= 1;
 																													$tmp_is_closed 		= 0;
+																													$mine				= 0;
+																													$message			= "";
+																													$checked			= "";
+																													$cellvalue			= "";
+																													
+																													$owned_notam 		= $objfields_sub['139339_cc_ficon_cb_int'];
+																													$cellvalue			= $objfields_sub['139339_cc_d_yn'];
+																													
+																													if($owned_notam == $inspection_id) {
+																															// THIS SURFACE NOTAM BELONGS TO THE EDITED NOTAM
+																															//echo "This is my surface notam <br>";
+																															$mine = 1;
+																													}
 																					
-																													if($objfields_sub['139339_cc_d_yn'] == 1) {
+																													if($cellvalue == 1) {
 																															// Does the surface have a closed surface noration?
 																															// It must otherwise we wouldn't even be in here
 																															// We need to know two things:
@@ -360,39 +375,68 @@
 																						$rootname = str_replace("closed","",$rootname);
 																						//echo $rootname;
 												
+																						//echo "CC_Type: ".$objfields['139339_cc_type']."<br>";
+												
 																						switch ($objfields['139339_cc_type']) {
 																								case 0:
 
 																										break;
 																								case 1:
-																										if($alterclosed == 1) {
-																											 // Dont even show it here
-																											 ?>
-																											 <td class="formresults">
-																												Surface is already closed
-																												</td>
-																												<?php
-																											 
-																										} else {
 																										?>
 																	<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-																		<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
 																										<?php
-
-																												if($objfields['139339_cc_d_yn'] == 1) {
-																														?>
-																	value="1" CHECKED onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																														<?php
+																										//echo "Records show that this surface has a value of :".$cellvalue."<br>";
 																												
+																										if($mine == 1) {
+																												?>
+																		<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
+																												<?php
+																												// Surface Closed checkbox and surface belong to this NOTAM
+																												//	Allthough it to be changed.
+																												if($cellvalue == 1) {
+																														// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+																														$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+																														$checked = "CHECKED";
+																													} else {
+																														// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+																														$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+																														$checked = "";
 																													}
-																													else {
-																											
-																														?>																	
-																	value="1" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
-																														<?php
+																												?>
+																			value="1" <?php echo $checked;?> onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																												<?php
+																											} else {
+																												// SURFACE CLOSED CHECKBOX AND SURFACE NO NOT BELONG TO THIS NOTAM.
+																												//	FOLLOW NORMAL RULES
 																												
+																												if($alterclosed == 1) {
+																														// Dont even show it here
+																														?>
+																														<i>Surface is closed by a NOTAM: <a href="part139339_b_report_display_new.php?recordid=<?php echo $owned_notam;?>" target="_reportwindow" /><?php echo $owned_notam;?></a></i>
+																														<?php
+																													 
+																													} else {
+																														?>
+																		<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
+																														<?php
+																														if($cellvalue == 1 AND $display_closed == 1) {
+																																// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+																																$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+																																$checked = "CHECKED";
+																															} else {
+																																// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+																																$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+																																$checked = "";
+																															}
+																															?>
+																		value="1" <?php echo $checked;?> onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																															<?php
 																													}
 																											}
+																										?>
+																	
+																	<?php
+																										
 																										break;
 																								case 2:
 
