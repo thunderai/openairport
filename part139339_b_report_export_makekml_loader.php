@@ -51,16 +51,16 @@
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
 			$formname			= "edittable";													// HTML Name for Form
-			$formaction			= "part139339_b_report_display_mapit_chart.php";				// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formaction			= "part139339_b_report_export_makekml.php";						// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
 				$formtarget		= "Mapit_DiscrepancyLocationChart";								// HTML Name for the window
 				$location		= $formtarget;													// Leave the same as $formtarget
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= "Mapit! NOTAM Location Loader";								// Name of the FORM, shown to the user
+			$form_menu			= "Export NOTAM Location Loader";								// Name of the FORM, shown to the user
 			$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
-			$subtitle 			= "Use this form to map out anomaly locations";					// Subt title of the FORM, shown to the user
+			$subtitle 			= "Use this form to export NOTAM Locations";					// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
 	//------------------------------------------------------------------------------------------\\

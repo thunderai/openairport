@@ -50,13 +50,20 @@
 				$linecolor = "#399C0E";
 		}	
 		
-		if($value_is == 'Closed') {
-				$linewidth = "4";
-				$linecolor = "#FF0000";
-		} else {
-				$linewidth = "6";
-				$linecolor = $linecolor;
-		}
+		switch($value_is) {
+				case "Closed":
+					$linewidth = "4";
+					$linecolor = "#FF0000";
+					break;
+				case "Expired":
+					$linewidth = "4";
+					$linecolor = "#00FF00";	
+					break;
+				default:
+					$linewidth = "6";
+					$linecolor = $linecolor;
+					break;
+			}
 		
 									
 		//echo "Size of Array : ".$display_menu_item[$j][1]." <br>";

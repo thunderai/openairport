@@ -278,7 +278,7 @@
 							// Check to see if this record condition has a currently active NOTAM saying it is closed
 									$sql_sub 	= "SELECT * FROM tbl_139_339_sub_n_cc 
 													INNER JOIN tbl_139_339_sub_n ON tbl_139_339_sub_n.139339_sub_n_id = tbl_139_339_sub_n_cc.139339_cc_ficon_cb_int 
-													WHERE 139339_cc_c_cb_int =".$tmpid."";
+													WHERE 139339_cc_c_cb_int =".$tmpid." AND 139339_cc_d_yn = 1 AND 139339_cc_a_yn = 0";
 													
 										$objcon_sub = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 									
