@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Folder>
-    <name>OAv3t NL - Part 139.339 (c) Surface Anomalies</name>
+    <name>OAv3t NL - Part 139.339 (b) Active Notams</name>
     <visibility>0</visibility>
     <open>0</open>
     <description>Network Link into the OpenAirport v3t System</description>
     <NetworkLink>
-      <name>339 (c) Surface Anomalies</name>
+      <name>339 (b) Active Notams</name>
       <visibility>0</visibility>
       <open>0</open>
-      <description>Locations where Surface Anomalies have been reported</description>
+      <description>Surfaces where there are currently Active Notams. (Red - Active) (Green - Expired)</description>
       <refreshVisibility>0</refreshVisibility>
       <flyToView>0</flyToView>
 		<refreshMode>onInterval</refreshMode>
@@ -17,7 +17,7 @@
 		<minRefreshPeriod>1800</minRefreshPeriod>
 	  
       <Link>
-        <href>http://localhost/openairportv3t/part139339_c_discrepancy_report_export_makekml.php</href>
+        <href>http://localhost/openairportv3t/part139339_b_report_export_makekml.php</href>
       </Link>
     </NetworkLink>
   </Folder>
