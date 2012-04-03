@@ -62,3 +62,6 @@ The Surface History report shows you the history of any surface you want or all 
 It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. Clicking the export to Google Earth while browsing FiCONs allows you to customize how to Mu Values will appear in 3D.  You can show a single FiCON, an average between given dates, etc.
 
 This is accomplished by creating a polygon in the shape of a defined surface and then using one of the OpenAirport tools to convert the raw GPS Lat,Long into internal X,Y coordinates. These shapes are also used in the FiCON Report in displaying Mu Values on the surface map itself (shown on the report image above). The actual procedure is outlined [makesurfaceshape here].
+
+[http://openairport.googlecode.com/files/ficon_notams.png]
+With NOTAM's now in Google Earth you can view all your notam's in 3D.  In the example above, Red/Maroon are surfaces that are currently closed. Green are surfaces that have expired NOTAMs, and surfaces without a height polygon have no NOTAMs.  This can be changed to only display currently closed surfaces and in such a situation all you see are the red/maroon surfaces. A Network GE Link exists to only show current NOTAMs.
