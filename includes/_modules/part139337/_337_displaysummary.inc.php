@@ -63,11 +63,11 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				echo "<table class='layout_dashpanel_container_table' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				$table_i = "<table class='layout_dashpanel_container_table' />";
 			}
 
 		
@@ -85,39 +85,39 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 								
 								$basicHTML = "
 												<tr>
-													<td colspan='2' class='formoptionsavilabletop'>
-														<font size='1'><b>Basic Information</b></font>
+													<td colspan='2' class='forms_coumn_header'>
+														Basic Information
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														ID
 														</td>
-													<td class='formanswers'>
-															<a href='part139337_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
+													<td class='forms_coumn_results_row'>
+														<a href='#' onclick='openmapchild(&quot;part139337_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Date / Time
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['139337_date']." / ".$objarray['139337_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Species
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['139337_sub_s_name']."
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Action Taken
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['139337_sub_an_name']."
 														</td>
 													</tr>";

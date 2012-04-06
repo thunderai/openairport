@@ -71,11 +71,11 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				echo "<table class='layout_dashpanel_container_table' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				$table_i = "<table class='layout_dashpanel_container_table' />";
 			}
 
 		
@@ -93,39 +93,39 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 								
 								$basicHTML = "
 												<tr>
-													<td colspan='2' class='formoptionsavilabletop'>
-														<font size='1'><b>Basic Information</b></font>
+													<td colspan='2' class='forms_coumn_header'>
+														Basic Information
 														</td>
 													</tr>
 												<tr>		
-													<td class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														ID
 														</td>
-													<td class='formanswers'>
-															<a href='part139333_report_display.php?recordid=".$inspectionid."' target='_newreportwindowd'>".$inspectionid."</a>
+													<td class='forms_coumn_results_row'>
+														<a href='#' onclick='openmapchild(&quot;part139333_report_display.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Date / Time 
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['139333_date']." / ".$objarray['139333_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Type
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['inspection_type']." (".$objarray['inspection_type_short_name'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td class='formoptions'>
+													<td class='forms_coumn_results_header'>
 														Inspection By 
 														</td>
-													<td class='formanswers'>".
+													<td class='forms_coumn_results_row'>".
 														$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 														</td>
 													</tr>";

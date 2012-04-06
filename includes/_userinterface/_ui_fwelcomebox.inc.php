@@ -32,7 +32,7 @@ function fwelcomebox($user) {
 							mysqli_free_result($objrs_support);
 							mysqli_close($objconn_support);
 							?>
-<font color="#ffffff" face="arial narrow" size="2">welcome, <?php echo $tmpfirstname;?>&nbsp;<?php echo $tmplastname;?></font>
+welcome, <?php echo $tmpfirstname;?>&nbsp;<?php echo $tmplastname;?>
 							<?
 						
 							}

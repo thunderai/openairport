@@ -53,6 +53,8 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 				$fieldstring	= $fieldstring.$fieldcomment."<br>";
 				$fieldstring	= $fieldstring."<i>".$fieldnotes."</i>";
 				
+				$tmp_default	= $fielddefaultvalue;
+				
 		// Determine Default Values
 				if($fielddefaultvalue == "post") {
 						if (!isset($_POST[$fieldname])) {
@@ -60,8 +62,10 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 								//$fielddefaultvalue;
 							}
 							else {
-								$fielddefaultvalue = $_POST[$fieldname];
-								$beenposted = 1;
+								// STRIP INPUT AND PREP FOR SQL INJECTION
+								
+								$fielddefaultvalue 	= $_POST[$fieldname];
+								$beenposted 		= 1;
 							}
 					}
 					else {
@@ -241,5 +245,27 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						</td>
 					</tr>
 					<?php
+					
+	//echo "Default Value: ".$tmp_default."<br>";			
+	// STRIP USER INPUT ON DEFAULT VALUE 'POST'
+	
+	if($tmp_default == 'post') {
+
+			// STRIP INPUT AND PREP FOR SQL INJECTION
+			$tmp_value			= $_POST[$fieldname];
+			//echo "Origional Value: ] ".$tmp_value." [<br>";
+			
+			$tmp_value			= strip_input($tmp_value);
+			//echo "Stripped Value: ] ".$tmp_value." [<br>";
+			
+			$tmp_value			= scrub_input($tmp_value);
+			//echo "Scrubbed Value: ] ".$tmp_value." [<br>";
+			
+			//echo "Temp Value cleaned is: ".$tmp_value." <br>";
+			
+			return $tmp_value;
+		}
+								
+								
 	}
 	?>

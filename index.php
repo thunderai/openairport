@@ -53,18 +53,16 @@ if (!isset($_POST["systemuserid"])) {
 // Display Navigational Menu System as well as login controls.
 // This must be done first to ensure that the rest of the controls on the page work.z-index:
 	?>
-	<div ID="menusystem" style="position:fixed;left:-13px;top:-16px;height:768px;width:100px;padding:1em;z-index:9;">
+	<div ID="menusystem" style="position:fixed;top:40px;height:45px;width:100%;z-index:9;">
 		<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
 			<tr>
-				<td colspan="4" class="layout_navigation" id="navigational_control">
+				<td class="layout_topheader_menubar" id="navigational_control">
 					<?php
 					// Display Navigtional Menu System					
-					$whoareyou = $_SESSION["user_id"];					
-					loadnavmenu_3($whoareyou);
+					$whoareyou = $_SESSION["user_id"];	
+					//loadnavmenu_3($whoareyou);				
+					loadnavmenu_4($whoareyou);
 					?>
-					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-					<img src="stylesheets/_cssimages/layoutheaderlogo.gif" id="spotlight" speed="50" align="center">
-					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 					</td>
 				</tr>
 			</table>
@@ -72,11 +70,14 @@ if (!isset($_POST["systemuserid"])) {
 <?php
 // Display Header Information
 ?>
-	<div style="position:fixed;left:100px;top:0px;z-index:2;width:90%;" align="center" ID="content">
+	<div style="position:fixed;left:0px;top:0px;z-index:2;width:100%;" align="center" ID="content">
 		<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0" style="margin: 0px;">
 			<tr>
 				<td rowspan="2" colspan="2" width="300"	class="layout_topheaderleft" id="layout_topheaderleft" align="left" valign="middle">
-					&nbsp;<?php echo $nameofairport;?>
+					<?php echo $nameofairport;?><br>
+					<?php
+					fwelcomebox($whoareyou);
+					?>
 					</td>
 				</tr>
 			<tr>
@@ -95,23 +96,13 @@ if (!isset($_POST["systemuserid"])) {
 					?>
 					</td>
 				</tr>
-			<tr>
-				<td colspan="4" class="layout_welcomebox" id="welcomebox">
-					&nbsp;
-					<?php
-					// Display Welcome message to logged in user. 
-					//		Function is controlled in teh UsertFunctions Include
-					fwelcomebox($whoareyou);
-					?>
-					</td>
-				</tr>
 			</table>
 		</div>
 <?php
 // Display iFrame Information
 ?>		
-	<div style="position:absolute;left:105px;top:45px;width:90%;z-index:1;">	
-		<table width="100%">
+	<div style="position:absolute;left:0px;top:65px;width:100%;z-index:1;">	
+		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td height="300" width="*" colspan="4" rowspan="1" class="layouttablecontent" 		id="contentsection">					
 					<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%; display:none"></iframe>
@@ -122,8 +113,8 @@ if (!isset($_POST["systemuserid"])) {
 <?php
 // Display Footer Information
 ?>
-	<div style="position:fixed;bottom:-3px;left:100px;width:90%;z-index:2;">		
-		<table width="100%">
+	<div style="position:fixed;bottom:-3px;left:0px;width:100%;z-index:2;">		
+		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td id="footernavigation" colspan="4" valign="top" align="center" height="1">
 					<table border="0" cellpadding="0" cellspacing="0" class="layout_navigation" width="100%">

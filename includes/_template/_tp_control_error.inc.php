@@ -14,10 +14,8 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 				// Provide ability to Add new Error Records reguardless
 				?>
 						<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="reportform" id="reportform" target="MarkasError" onsubmit="openchild600('<?php echo $functionpage;?>','MarkasError')">
-						<td class="formoptionsubmit" onMouseover="ddrivetip('File Error Report')"; onMouseout="hideddrivetip()">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-							<input type="submit" value="ME" NAME="b1" ID="b1" class="formsubmit" alt="Errors" onMouseover="ddrivetip('File Error Report')"; onMouseout="hideddrivetip()">
-							</td>
+							<input type="submit" value="ME" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Errors" onMouseover="ddrivetip('File Error Report')"; onMouseout="hideddrivetip()">
 							</form>
 				<?php
 				$sql2 = $settingsarray[0]."'".$tblkeyfield."' LIMIT 1";
@@ -45,11 +43,9 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 												$tmpid = $objarray2[$settingsarray[1]."_error_id"];
 												?>
 						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="reportform" id="reportform" target="SummaryReport_ErrorReport" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReport_ErrorReport')">
-						<td class="formoptionsubmit">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-							<input type="submit" value="EH" NAME="e1" ID="e1" class="formsubmit" alt="Error" onMouseover="ddrivetip('Error Report')"; onMouseout="hideddrivetip()">
-							</td>
-						</form>
+							<input type="submit" value="EH" NAME="e1" ID="e1" class="buttons_quickaccess" alt="Error" onMouseover="ddrivetip('Error Report')"; onMouseout="hideddrivetip()">
+							</form>
 											<?php
 											}
 									}

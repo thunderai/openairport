@@ -25,31 +25,31 @@ function systemusercomboboxwall($user_id, $archived, $nameofinput, $showcombobox
 		else {
 			if ($archived=="yes") {
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_systemusers.emp_archieved = -1 ";
+							$nsql = "WHERE tbl_systemusers.emp_archieved_yn = -1 AND emp_record_id <> 65 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND Table_employee_listing.emp_archieved = -1 ";
+							$nsql = "AND Table_employee_listing.emp_archieved_yn = -1 AND emp_record_id <> 65 ";
 							$sql = $sql.$nsql;
 						}
 				}
 				else {
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_systemusers.emp_archieved = 0 ";
+							$nsql = "WHERE tbl_systemusers.emp_archieved_yn = 0 AND emp_record_id <> 65 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND tbl_systemusers.emp_archieved = 0 ";
+							$nsql = "AND tbl_systemusers.emp_archieved_yn = 0 AND emp_record_id <> 65 ";
 							$sql = $sql.$nsql;
 						}
 				}
 		}
 	//echo $sql;
 	
-	$objconn_support = mysqli_connect("localhost", "webuser", "limitaces", "openairport");
-	
+	$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
 	if (mysqli_connect_errno()) {
 			printf("connect failed: %s\n", mysqli_connect_error());
 			exit();
@@ -62,7 +62,7 @@ function systemusercomboboxwall($user_id, $archived, $nameofinput, $showcombobox
 					if ($showcombobox=="show") {
 							?>
 	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>">
-		<option value="">Select someone from the list if applicable</option>
+		<option value="all">All Users</option>
 					<?php
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {

@@ -4,33 +4,33 @@ function _dp_su_dailyactivity($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_dutylog" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table border="1" width="45%" align="left" valign="top" style="border-collapse:collapse;Margin:5px;float:left;">
+<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
 	<tr>
-		<td class="tableheaderleft">
+		<td class="layout_dashpanel_container_header">
 			<font size='2'>
 				<b>
 					<?php echo $dasharray[2];?>
 					</b>
 				</font>
 			</td>
-		<td class="tableheaderright">
+		<td class="layout_dashpanel_container_header_right">
 			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
 				<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
-				<input class="formsubmit" type="button" name="button" value="<?php echo $dasharray[9];?>" onclick="javascript:document.menuitem<?php echo $dasharray[6];?>.submit()">
+				<input class="buttons_quickaccess" type="button" name="button" value="<?php echo $dasharray[9];?>" onclick="javascript:document.menuitem<?php echo $dasharray[6];?>.submit()">
 				</form>
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" class='formresults'>
+		<td colspan="2">
 			<table width="100%" cellpadding="0" cellspacing="0">
 				<tr>
-					<td class="formoptions" width="30">
+					<td class="forms_coumn_header" width="30">
 						ID
 						</td>
-					<td class="formoptions" width="50">
+					<td class="forms_coumn_header" width="50">
 						When
 						</td>
-					<td class="formoptions" width="200">
+					<td class="forms_coumn_header" width="200">
 						Log Entry
 						</td>
 					</tr>
