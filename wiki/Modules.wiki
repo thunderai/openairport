@@ -28,6 +28,10 @@ Within the core are the main functions that an airport would use on a daily base
   * Part 311: Marking Signs and Lighting
   * Part 335: Public Protection
 
+== Lines of Communication ==
+
+Even the most robust of computer systems are worthless if their not used and no one communicates with one another about what is going on at the airport. The Core Four and The Outer Four serve as functional modules that drive data collection but to facilitate and encourage communication OpenAirport takes a step forward and allows the user to be [alerted] when new records are created, edited, displayed, etc.
+
 = Details =
 
 || *Regulation* || *Name* || *Depth* || *completed* ||
