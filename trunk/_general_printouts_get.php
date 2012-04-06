@@ -36,6 +36,7 @@
 	
 // Load Page Specific Includes
 
+		include("includes/_modules/part139303/part139303.list.php");
 		include("includes/_modules/part139327/part139327.list.php");
 		include("includes/_modules/part139333/part139333.list.php");
 		include("includes/_modules/part139337/part139337.list.php");

@@ -36,13 +36,18 @@
 	// Load Include Files
 			include("_nav_hasslaves.inc.php");
 			include("_nav_loadmenu.inc.php");
+			include("_nav_loadmenu_v4.inc.php");
 			include("_nav_buildbreadcrumtrail.inc.php");
 			include("_nav_getnameofmenuitemid.inc.php");
 			include("_nav_getpurposeofmenuitemid.inc.php");
 			include("_nav_navigationalcombobox.inc.php");
 			include("_nav_navigationalgroupbox.inc.php");
+			include("_nav_navigationalcombobox_bypage.inc.php");
 			include("_nav_displaytxtonreport.inc.php");
 			include("_nav_getbysuid_navigationalgrouptext.inc.php");
+			
+			
+			
 			
 			include("_nav_getnameofmenuitemid_return.inc.php");
 			include("_nav_getpurposeofmenuitemid_return.inc.php");

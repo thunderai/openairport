@@ -46,7 +46,7 @@
 		
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures		
 		
@@ -122,10 +122,28 @@
 									form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,35				,0				,$objarray['emp_username']				,0);
 									form_new_control("303password"	,"Password"			, "Enter your Password"								,"Your password can be edited"																					,""							,1				,35				,0				,$objarray['emp_password']				,0);
 									form_new_control("303password2"	,"Password"			, "Confirm your Password"							,"Your passwords must be the same"																				,""							,1				,35				,0				,$objarray['emp_password']				,0);
+									form_new_control("303emails"	,"emails"			, "Enter Emails to contact you"						,"seperate each email with a cama (\,). You can also include your Cell Phone SMS number!"																			,""							,2				,35				,3				,$objarray['emp_emails']				,0);
 									form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,$objarray['emp_organiation_cb_int']	,"organizationcombobox");
 									form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,$objarray['navigational_groups_id']	,"_ac_accessleveltypecombobox");
 									?>
 					<table width="100%">
+						<tr>
+							<td class="formheaders" colspan="4">
+								DASH PANEL
+								</td>
+							</tr>
+						<tr>
+							<td class="formresults" colspan="4">
+								<p>
+									Below are all of the avilable Dashpanel windows that can be displayed on the <b>HOME</b> 
+									screen. You may choose if you want the window displayed or not and in what order you 
+									wish to order them. In the '<i>Display</i>' colum checking the box will display the window
+									unchecking the box will hide that window. In the '<i>Display Order</i>' column enter a number
+									in the priority you wish to see the window. A smaller number wil be displayed first while a 
+									larger number will be displayed last. Experiment with the order and see how you like it.
+									</p>
+								</td>
+							</tr>							
 						<tr>
 							<td class="formheaders">
 								Dash Name
@@ -146,7 +164,7 @@
 									
 									$sql2 		= "SELECT * FROM tbl_dashpanel_main 
 													INNER JOIN tbl_navigational_control ON tbl_navigational_control.menu_item_id = tbl_dashpanel_main.dash_menulink_int 
-													WHERE dash_hidden_yn = 0";									
+													WHERE dash_hidden_yn = 0";
 									$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 									
 									errorreport("[4]. Connect to Database with the Following SQL Statement :".$sql2." ",$debug);
@@ -247,7 +265,117 @@
 										}
 										?>
 						</table>
+					<table width="100%">
+						<tr>
+							<td class="formheaders" colspan="4">
+								Messaging and Emails
+								</td>
+							</tr>
+						<tr>
+							<td class="formresults" colspan="4">
+								<p>
+									You are allowed to have up to <b>five</b> alerts that you will receive text messages or emails from. 
+									Under the '<i>Page Name</i>' column you can select the module name you want to be alerted about. Under 
+									the '<i>Event Type</i>' coulmn you can select the type of alert you want to be messaged about and under
+									the '<i>By Whom</i>' you can select which person you want to be alerted if they cause the action. You 
+									may <b>NOT</b> choose to be alerted of all Page Names and any fields below that include 
+									"<em>All Modules</em>" will be ignored.  You may choose to be alerted by all events and by all people. If you 
+									no longer want to receive alerts from a '<i>Page Name</i>', select "<em>All Modules</em>" from that row
+									and click the '<i>Submit Changes</i>' button.
+									</p>
+								</td>
+							</tr>
+						<tr>
+							<td class="formheaders">
+								Page Name
+								</td>
+							<td class="formheaders">
+								Event Type
+								</td>
+							<td class="formheaders">
+								By Whom
+								</td>								
+							</tr>
+								<?php
+								$i			= 1;
+								// NEED TO LOAD EXISTING MESSAGES AND ALERTS
+								$sql2 		= "SELECT * FROM tbl_139_modules_sms 
+													WHERE 139_sms_by_int = '".$_SESSION['user_id']."' AND 139_sms_hidden_yn = 0";
+								$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+								
+								errorreport("[4]. Connect to Database with the Following SQL Statement :".$sql2." ",$debug);
+								
+								if (mysqli_connect_errno()) {
+										// there was an error trying to connect to the mysql database
+										printf("connect failed: %s\n", mysqli_connect_error());
+										exit();
+									}
+									else {
+										$objrs2 = mysqli_query($objconn2, $sql2);
+												
+										if ($objrs2) {
+												$number_of_rows2 = mysqli_num_rows($objrs2);
+
+												while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
+														
+														$sms_id			= $objarray2['139_sms_id_int'];
+														$sms_by_id		= $objarray2['139_sms_by_int'];
+														$sms_mod_id		= $objarray2['139_sms_module_int'];
+														$sms_event_id	= $objarray2['139_sms_event_int'];
+														$sms_whom_id	= $objarray2['139_sms_bywhom_int'];
+														$sms_hide_id	= $objarray2['139_sms_hidden_yn'];
+														
+														?>
+							<tr>
+								<td class="formresults" />
+								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $i;?>_event_trigger_id" ID="<?php echo $i;?>_event_trigger_id" VALUE="<?php echo $sms_id;?>">
+								<?php
+								navigationalcombobox_bypage('all', 'no', $i.'_event_trigger_module', 'show', $sms_mod_id);
+								?>
+							<td class="formresults" />
+								<?php
+								gs_eventtypeswall('all', 'no', $i.'_event_trigger_event', 'show', $sms_event_id);
+								?>
+								</td>
+							<td class="formresults" />
+								<?php
+								 systemusercomboboxwall('all', 'no', $i.'_event_trigger_who', 'show', $sms_whom_id);
+								?>
+								</td>
+							</tr>	
+														<?php
+														$i				= $i + 1;
+													}
+											}
+									}
+							
+								// DETERMINE HOW MANY MORE ROWS TO MAKE
+								$max_rows		= 5;
+								$remaing_rows 	= $max_rows - $i;
+							
+								//echo "There are: ".$i."rows and rows ".$remaing_rows." rows to make <br>";
+							
+								for ($j=$i; $j<=$max_rows; $j=$j+1) {
+									?>
+							<tr>
+								<td class="formresults" />
+								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $j;?>_event_trigger_id" ID="<?php echo $j;?>_event_trigger_id" VALUE="new">
+								<?php
+								navigationalcombobox_bypage('all', 'no', $j.'_event_trigger_module', 'show', 'all');
+								?>
+							<td class="formresults" />
+								<?php
+								gs_eventtypeswall('all', 'no', $j.'_event_trigger_event', 'show', 'all');
+								?>
+								</td>
+							<td class="formresults" />
+								<?php
+								 systemusercomboboxwall('all', 'no', $j.'_event_trigger_who', 'show', 'all');
+								?>
+								</td>
+							</tr>								
 										<?php
+										}
 								}
 						}
 				}				
@@ -288,18 +416,23 @@
 		//																																																																										|
 		//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\									|
 		//																																																																	 v									v
-		form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,"post"			,0);
-		form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
-		form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
-		form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,0				,0				,'post'			,0);
-		form_new_control("303password"	,"Password"			, "Enter your Password"								,"Your password can be edited"																					,""							,1				,0				,0				,'post'			,0);
-		form_new_control("303password2"	,"Password"			, "Confirm your Password"							,"Your passwords must be the same"																				,""							,1				,0				,0				,'post'			,0);
-		form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,'post'			,"organizationcombobox");
-		form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,'post'			,"_ac_accessleveltypecombobox");
+					form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,"post"			,0);
+					form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
+					form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
+		$username 	= form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,0				,0				,'post'			,0);
+		$password1	= form_new_control("303password"	,"Password"			, "Enter your Password"								,"Your password can be edited"																					,""							,1				,0				,0				,'post'			,0);
+		$password2	= form_new_control("303password2"	,"Password"			, "Confirm your Password"							,"Your passwords must be the same"																				,""							,1				,0				,0				,'post'			,0);
+		$emails		= form_new_control("303emails"	,"emails"			, "Enter Emails to contact you"						,"seperate each email with a cama (\,)"																			,""							,2				,0				,0				,'post'			,0);
+					form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,'post'			,"organizationcombobox");
+					form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,'post'			,"_ac_accessleveltypecombobox");
+	
+		// Strip Input
+			
+			
 	
 		// DO UPDATE OF MAIN TABLE HERE
 		
-		$sql = "UPDATE tbl_systemusers SET emp_username='".$_POST['303username']."', emp_password='".$_POST['303password']."' WHERE emp_record_id = ".$_SESSION['user_id']." ";
+		$sql = "UPDATE tbl_systemusers SET emp_username='".$username."', emp_password='".$password1."', emp_emails='".$emails."' WHERE emp_record_id = ".$_SESSION['user_id']." ";
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		//mysql_insert_id();
 				
@@ -318,6 +451,11 @@
 	
 		?>
 					<table width="100%">
+						<tr>
+							<td class="formheaders" colspan="4">
+								DASH PANEL
+								</td>
+							</tr>
 						<tr>
 							<td class="formheaders">
 								Dash Name
@@ -369,8 +507,13 @@
 															$formvalue	= "dashdsp_".$dash_id;
 															$formvalued	= $_POST[$formvalue];
 															
+															$formvalued = sanatize_inputs($formvalued);
+															
 															$formvalue	= "dashpri_".$dash_id;
 															$formvaluep	= $_POST[$formvalue];
+															
+															$formvaluep = sanatize_inputs($formvaluep);													
+															
 															
 															
 															if($formvaluep == '') {
@@ -505,6 +648,188 @@
 												}
 										}
 										?>
+					<table width="100%">
+						<tr>
+							<td class="formheaders" colspan="4">
+								Messaging and Emails
+								</td>
+							</tr>
+						<tr>
+							<td class="formheaders">
+								Page Name
+								</td>
+							<td class="formheaders">
+								Event Type
+								</td>
+							<td class="formheaders">
+								By Whom
+								</td>								
+							</tr>
+							<?php
+							
+							for ($j=1; $j<6; $j=$j+1) {
+								
+									$error = 1;
+									
+									// ASSEMBLE FIELD NAMES
+									$trigger_id		= $j."_event_trigger_id";
+									$trigger_mod	= $j."_event_trigger_module";
+									$trigger_event	= $j."_event_trigger_event";
+									$trigger_whom	= $j."_event_trigger_who";
+									
+									$tmp_t_id		= $_POST[$trigger_id];
+									$tmp_t_mod		= $_POST[$trigger_mod];
+									$tmp_t_evt		= $_POST[$trigger_event];
+									$tmp_t_whom		= $_POST[$trigger_whom];
+									
+									if($tmp_t_id == 'new') {
+											$id = 'new';
+										} else {
+											$id = $tmp_t_id;
+										}
+									
+									
+									if($tmp_t_evt == 'all') {
+											// USER SELECTED ALL EVENTS COMPENSATING....
+											$event_field 	= '139_sms_event_txt';
+											$event_default 	= 'all';
+											$event_fieldc	= '139_sms_event_int';
+											$event_defaultc = 0;
+										} else {
+											$event_field 	= '139_sms_event_int';
+											$event_default 	= $tmp_t_evt;
+											$event_fieldc	= '139_sms_event_txt';
+											$event_defaultc = '';
+										}
+										
+									if($tmp_t_whom == 'all') {
+											// USER SELECTED ALL EVENTS COMPENSATING....
+											$whom_field 	= '139_sms_bywhom_txt';
+											$whom_default 	= 'all';
+											$whom_fieldc	= '139_sms_bywhom_int';
+											$whom_defaultc 	= 0;
+										} else {
+											$whom_field 	= '139_sms_bywhom_int';
+											$whom_default 	= $tmp_t_whom;
+											$whom_fieldc	= '139_sms_bywhom_txt';
+											$whom_defaultc 	= '';
+										}
+									
+									if($_POST[$trigger_mod] == 'all') {
+											// User has All Modules selected. Maybe this is an attempt to delet an alert?
+											if($_POST[$trigger_id] == 'new') {
+													// THIS IS A REQUEST FOR A NEW ROW, BUT ALL IS SELECTED IGNORE IT
+													
+													//echo "Module selected is all, and is a new row. Reject input";
+													$error = 1;
+													
+												} else {
+													// USER HAS AN ID HERE AND HAS SELECTED ALL MODULES ON PURPOSE.
+													//	UPDATE RECORD AND HIDE IT SO USER WONT SEE IT ANYMORE.
+													
+													//echo "Achiving record id: ".$_POST[$trigger_id]." <br>";
+													
+													$sql2 = "UPDATE tbl_139_modules_sms SET 139_sms_hidden_yn = 1 WHERE 139_sms_id_int = '".$tmp_t_id."' "; 
+													
+													//echo "SQL Statement is: ".$sql2." <br>";
+													
+													$error = 0;
+												
+												}
+										} else {
+											// USER HAS SELECTED A SPECIFIC MODULE. CHECK IF ITS NEW OR NOT.
+											if($_POST[$trigger_id] == 'new') {
+													// THIS IS A REQUEST FOR A NEW ROW, INSERT ROW
+													
+													//echo "Module selected and row is new. Insert Row.";
+													
+													$sql2 = "INSERT INTO tbl_139_modules_sms (139_sms_by_int, 139_sms_module_int, ".$event_field.", ".$whom_field.", 139_sms_hidden_yn) 
+																VALUES ( '".$_SESSION['user_id']."', '".$tmp_t_mod."', '".$event_default."', '".$whom_default."', 0 )";
+													
+													//echo "SQL Statement is: ".$sql2." <br>";
+													
+													$error = 0;
+													
+												} else {
+													// This is a request to update a row with new information
+													
+													//echo "Updating record id: ".$_POST[$trigger_id]." <br>";
+													
+													$sql2 = "UPDATE tbl_139_modules_sms SET 139_sms_module_int='".$tmp_t_mod."', 
+																".$event_field."='".$event_default."', 
+																".$whom_field."='".$whom_default."',  
+																".$event_fieldc."='".$event_defaultc."',
+																".$whom_fieldc."='".$whom_defaultc."' 
+															WHERE 139_sms_id_int = '".$tmp_t_id."' "; 
+													
+													//echo "SQL Statement is: ".$sql2." <br>";
+																										
+													$error = 0;
+												
+												}	
+										}
+
+									if($error == 1) {
+											// Do nothing
+											//echo "There was an error with your request <br>";
+											$lastid = 'new';
+										} else {
+											
+											$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+																		//mysql_insert_id();
+																		
+											if (mysqli_connect_errno()) {
+													// there was an error trying to connect to the mysql database
+													printf("connect failed: %s\n", mysqli_connect_error());
+													exit();
+												}		
+												else {
+												//mysql_insert_id();
+													$objrs = mysqli_query($mysqli, $sql2) or die(mysqli_error($mysqli));
+													$lastid = mysqli_insert_id($mysqli);
+												}	
+										}
+							
+								if($tmp_t_mod == 'all') {
+										// Display Nothing
+									} else {
+										?>
+							<tr>
+								<td class="formresults" />
+								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $trigger_id;?>" ID="<?php echo $trigger_id;?>" VALUE="<?php echo $lastid;?>">
+								<?php
+								if($tmp_t_mod == 'all') {
+										echo "all";
+								} else {
+								navigationalcombobox_bypage($tmp_t_mod, 'no', $trigger_mod, 'hide', $tmp_t_mod);
+								}
+								?>
+							<td class="formresults" />
+								<?php
+								if($event_default == 'all') {
+										echo "all";
+								} else {
+								gs_eventtypeswall($event_default, 'no', $trigger_event, 'hide', $event_default);
+								}
+								?>
+								</td>
+							<td class="formresults" />
+								<?php
+								if($whom_default == 'all') {
+										echo "all";
+								} else {								
+								 systemusercomboboxwall($whom_default, 'no', $trigger_whom, 'hide', $whom_default);
+								}
+								?>
+								</td>
+							</tr>								
+									<?php
+									}
+							}
+							
+							
+							
+							?>											
 						</table>
 										<?php	
 		//

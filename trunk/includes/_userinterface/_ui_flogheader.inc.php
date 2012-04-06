@@ -16,9 +16,9 @@ function flogheader($user) {
 			?>
 <table border="0" id="table3" cellspacing="2" cellpadding="0" width="100%">
 	<tr>
-		<td id="login" 		onMouseOver="this.bgColor='#6D84B4' " onMouseOut="this.bgColor='#3B5998'" onclick="window.location='index_newlogin.php'" 								style="cursor:hand;"><img src="stylesheets/_cssimages/icon_logout.gif" 		height="25" alt="Logout!"></td>
-		<td id="lregister" 	onMouseOver="this.bgColor='#6D84B4' " onMouseOut="this.bgColor='#3B5998'" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"><img src="stylesheets/_cssimages/icon_settings.gif" 	height="25" alt="Settings!"></td>
-		<td id="help" 		onMouseOver="this.bgColor='#6D84B4' " onMouseOut="this.bgColor='#3B5998'" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')"			style="cursor:hand;"><img src="stylesheets/_cssimages/icon_help.gif" 		height="25" alt="Help!"></td>
+		<td id="login" 			onclick="window.location='index_newlogin.php'" 								style="cursor:hand;"><img src="stylesheets/_cssimages/icon_logout.gif" 		height="25" alt="Logout!"></td>
+		<td id="lregister" 		onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"><img src="stylesheets/_cssimages/icon_settings.gif" 	height="25" alt="Settings!"></td>
+		<td id="help" 			onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')"			style="cursor:hand;"><img src="stylesheets/_cssimages/icon_help.gif" 		height="25" alt="Help!"></td>
 		</tr>
 	</table>
 			<?

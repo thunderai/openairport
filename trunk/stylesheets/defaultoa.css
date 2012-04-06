@@ -61,41 +61,259 @@ body {
 	border-width: 2px;
 	}
 
-.layout_topheaderleft { 
-	background-image: url('_cssimages/layoutheaderbackground.gif'); 
-	font-family:Arial; 
-	color:#FFFFFF; 
-	font-size:10pt; 
-	letter-spacing:2pt; 
-	height:55; 
-	padding-left:5px; 
-	vertical-align:middle; 
-	text-align:left;
-	}
+.layout_topheaderleft {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
 
-.layout_topheadercenter { 
-	background-image: url('_cssimages/layoutheaderbackground.gif'); 
-	font-family:Arial; 
-	color:#FFFFFF; 
-	font-size:10pt; 
-	letter-spacing:1pt; 
-	height:55; 
-	padding-left:5px; 
-	vertical-align:middle; 
-	text-align:left 
-	}
+background-image: url('_cssimages/bg_top.png'); 
 
-.layout_topheaderright { 
-	background-image: url('_cssimages/layoutheaderbackground.gif'); 
-	font-family:Arial; 
-	color:#FFFFFF; 
-	font-size:10pt; 
-	letter-spacing:2pt; 
-	height:55; 
-	padding-right:0px; 
-	vertical-align:middle; 
-	text-align:right; 
-	}
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+}
+
+.layout_topheadercenter {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-image: url('_cssimages/bg_top.png'); 
+
+}
+
+.layout_topheaderright {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-image: url('_cssimages/bg_top.png'); 
+
+}
+
+.layout_topheader_menubar {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-image: url('_cssimages/bg_top.png'); 
+
+}
+
+.layout_dashpanel_header {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-color: #F4F4F4;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #000000;
+
+}
+
+.layout_dashpanel_container {
+
+margin:15px;
+ 
+list-style:none; 
+white-space:nowrap; 
+
+text-align:left;
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+
+border:0px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+float:left;
+
+}
+
+
+.layout_dashpanel_container_div {
+ 
+width:100%;
+
+margin:0px;
+ 
+text-align:left;
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+border:0px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+}
+
+.layout_dashpanel_container_table {
+ 
+width:100%;
+ 
+text-align:left;
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+border:0px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+}
+
+.layout_dashpanel_container_header {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-color: #1E2023;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+
+border:1px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+.layout_dashpanel_container_header_right {margin:0; list-style:none; white-space:nowrap; text-align:right;  background:#000; 
+
+background-color: #1E2023;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+border:1px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+.buttons_quickaccess {
+background-image: linear-gradient(bottom, rgb(5,75,204) 27%, rgb(31,118,155) 64%);
+background-image: -o-linear-gradient(bottom, rgb(5,75,204) 27%, rgb(31,118,155) 64%);
+background-image: -moz-linear-gradient(bottom, rgb(5,75,204) 27%, rgb(31,118,155) 64%);
+background-image: -webkit-linear-gradient(bottom, rgb(5,75,204) 27%, rgb(31,118,155) 64%);
+background-image: -ms-linear-gradient(bottom, rgb(5,75,204) 27%, rgb(31,118,155) 64%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.27, rgb(5,75,204)),
+	color-stop(0.64, rgb(31,118,155))
+);
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+
+border:2px solid ;
+border-style:solid;
+border-color:#000000;
+
+}
+
+.forms_coumn_header {margin:0; list-style:none; white-space:nowrap; text-align:center;  background:#000; 
+
+background-color: #378EAE;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+border:1px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+.forms_coumn_results_header {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-color: #F4F4F4;
+
+font-family:Helvetica,sans-serif;
+font-size:14px; 
+color: #000000; 
+
+
+width:33%;
+
+
+border:1px solid ;
+border-top-style: groove; 
+border-top-width: 2px; 
+border-bottom: 1px groove #867C71;   
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+.forms_coumn_results_browse_header {margin:0; list-style:none; white-space:nowrap;  background:#000; 
+
+background-color: #F4F4F4;
+
+font-family:Helvetica,sans-serif;
+font-size:14px; 
+text-align:center;
+color: #000000;
+
+border:1px solid ;
+border-top-style: groove; 
+border-top-width: 2px; 
+border-bottom: 1px groove #867C71;   
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+
+.forms_coumn_results_row {margin:0; list-style:none; white-space:nowrap; text-align:left;  background:#000; 
+
+background-color: #FFFFFF;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #000000; 
+
+border:1px solid ;
+border-top-style: groove; 
+border-top-width: 2px; 
+border-bottom: 1px groove #867C71;   
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
+
+.forms_coumn_footer {margin:0; list-style:none; white-space:nowrap; text-align:center;  background:#000; 
+
+background-color: #378EAE;
+
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+border:1px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+opacity:0.8;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+}
 
 .headeroption {
 	font-family: Arial Narrow; 
@@ -106,18 +324,6 @@ body {
 	padding-left:2px; 
 	padding-right:2px; 
 	background-color: #3B5998;
-	}
-
-.layout_navigation { 
-	text-align: left; 
-	vertical-align:top;
-	font-family: Arial Narrow; 
-	font-size: 12pt; 
-	color: #000000; 
-	background-image: url('_cssimages/layoutnavigationbackground.gif'); 
-	background-position: left top; 
-	width:152;
-	padding-top:5px
 	}
 
 .layout_welcomebox { 

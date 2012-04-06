@@ -31,18 +31,18 @@ if($functionworkorderpage == '') {
 					// Display WorkOrder Button 
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="ViewWorkOrder" onsubmit="openmapchild('<?php echo $functionworkorderpage;?>','ViewWorkOrder');" >
-	<td class="formoptionsubmit">
+	<td >
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="WO" NAME="b1" ID="b1" class="formsubmit" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="WO" NAME="b1" ID="b1" class="buttons_quickaccess" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>
 					<?php
 					// Display 'Mark Repaired' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
-	<td class="formoptionsubmit" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
+	<td onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="MR" NAME="b1" ID="b1" class="formsubmit" alt="Repair It" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="MR" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Repair It" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>	
 					<?php
@@ -52,54 +52,54 @@ if($functionworkorderpage == '') {
 					// Display WorkOrder Button 
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="reportform" id="reportform" target="ViewWorkOrder" onsubmit="openmapchild('','ViewWorkOrder');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="WO" NAME="b1" ID="b1" class="formsubmit" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="WO" NAME="b1" ID="b1" class="buttons_quickaccess" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>															
 					<?php
 					// Display 'Repair History' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="RH" NAME="r1" ID="r1" class="formsubmit" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="RH" NAME="r1" ID="r1" class="buttons_quickaccess" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>															
 					<?php
 					// Display 'Bounced History' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="BH" NAME="b1" ID="b1" class="formsubmit" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="BH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>		
 					<?php											
 					// Display 'Mark Bounced' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionbouncepage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionbouncepage;?>MarkasBounce" onsubmit="openchild600('<?php echo $functionbouncepage;?>','<?php echo $functionbouncepage;?>MarkasBounce');" >
-	<td class="formoptionsubmit" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">
+	<td onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="MB" NAME="b1" ID="b1" class="formsubmit" alt="Bounce It" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="MB" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounce It" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>		
 					<?php
 					// Display 'Closed History' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $array_closedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_closedcontrol[2];?>ViewclosedHistory" onsubmit="openchild600('<?php echo $array_closedcontrol[2];?>','<?php echo $array_closedcontrol[2];?>ViewclosedHistory');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="CH" NAME="b1" ID="b1" class="formsubmit" alt="Bounced" onMouseover="ddrivetip('closed Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="CH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('closed Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>		
 					<?php											
 					// Display 'Mark Closed' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
-	<td class="formoptionsubmit" onMouseover="ddrivetip('File closed Report');"  onMouseout="hideddrivetip()">
+	<td onMouseover="ddrivetip('File closed Report');"  onMouseout="hideddrivetip()">
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="MC" NAME="b1" ID="b1" class="formsubmit" alt="Bounce It" onMouseover="ddrivetip('File closed Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="MC" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounce It" onMouseover="ddrivetip('File closed Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>	
 
@@ -112,36 +112,36 @@ if($functionworkorderpage == '') {
 					// Display WorkOrder Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="reportform" id="reportform" target="ViewWorkOrder" onsubmit="openmapchild('','ViewWorkOrder');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="WO" NAME="b1" ID="b1" class="formsubmit" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="WO" NAME="b1" ID="b1" class="buttons_quickaccess" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>															
 					<?php
 					// Display 'Repair History' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_repairedcontrol[2];?>PrinterFriendlyWindow" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="RH" NAME="r1" ID="r1" class="formsubmit" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="RH" NAME="r1" ID="r1" class="buttons_quickaccess" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>															
 					<?php
 					// Display 'Bounced History' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_bouncedcontrol[2];?>ViewBouncedHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
-	<td class="formoptionsubmit">
+	<td>
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="BH" NAME="b1" ID="b1" class="formsubmit" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="BH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>		
 					<?php
 					// Display 'Mark Repaired' Button
 					?>
 	<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
-	<td class="formoptionsubmit" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
+	<td onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
 		<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<input type="submit" value="MR" NAME="b1" ID="b1" class="formsubmit" alt="Repair It" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
+		<input type="submit" value="MR" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Repair It" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
 		</td>
 		</form>	
 					<?php

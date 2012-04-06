@@ -4,24 +4,22 @@ function _dp_339_c_inspections($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_339inspections" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table border="1" width="45%" align="left" valign="top" style="border-collapse:collapse;Margin:5px;float:left;">
+<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
 	<tr>
-		<td class="tableheaderleft">
+		<td class="layout_dashpanel_container_header">
 			<font size='2'>
 				<b>
 					<?php echo $dasharray[2];?>
 					</b>
 				</font>
 			</td>
-		<td class="tableheaderright">
+		<td class="layout_dashpanel_container_header_right">
 			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
 				<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
-				<input class="formsubmit" type="button" name="button" value="<?php echo $dasharray[9];?>" onclick="javascript:document.menuitem<?php echo $dasharray[6];?>.submit()">
+				<input class="buttons_quickaccess" type="button" name="button" value="<?php echo $dasharray[9];?>" onclick="javascript:document.menuitem<?php echo $dasharray[6];?>.submit()">
 				</form>
 			</td>
 		</tr>
-	<tr>
-		<td colspan="2" class='formresults'>
 	<?php
 
 		// Loop through active discrepancies and display a summary report for each one
@@ -44,7 +42,11 @@ function _dp_339_c_inspections($dasharray) {
 						if($number_of_rows == 0){
 								// Nothing to Display
 								?>
-			No Records to Display Today
+	<tr>
+		<td colspan="2" class="forms_coumn_header">
+			No Inspections Today
+			</td>
+		</tr>
 								<?php
 							}
 						
@@ -65,16 +67,22 @@ function _dp_339_c_inspections($dasharray) {
 									}
 									else {
 										// Check Status of this Discrepancy, ie. Get the current stage
-										
+												?>
+	<tr>
+		<td colspan="2">
+		<?php										
 										_339_c_display_report_summary($tmp_inspection_id,0,0);
+										?>
+			</td>
+		</tr>
+										<?php
+										
 									}
 							}	
 					}
 			}
 
 		?>
-			</td>
-		</tr>
 	</table>
 <!--	</div>
 	

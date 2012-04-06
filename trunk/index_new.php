@@ -89,7 +89,7 @@ if ($_SESSION['user_id']=="") {
 	}
 	else {
 		?>
-		<table width="100%" height="1000" valign="top">
+		<table width="100%" height="1000" valign="top" background="images/part_139_327/part139_327_airportmap_new_color.png" />
 			<tr>
 				<td valign='top'>
 					<?php

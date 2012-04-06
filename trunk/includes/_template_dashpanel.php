@@ -43,9 +43,11 @@
 		// Load Part 139.337 Wildlife Hazard Reports Dashpanel
 			include("includes/_modules/part139337/part139337.list.php");
 			include("includes/_modules/part139337/_dp_337_inspections.inc.php");
-		// Load Part 139.337 Wildlife Hazard Reports Dashpanel
+		// Load Part 139.339 Field COndition Reports Dashpanel
 			include("includes/_modules/part139339/part139339.list.php");
-			include("includes/_modules/part139339/_dp_339_c_inspections.inc.php");		
+			include("includes/_modules/part139339/_dp_339_c_inspections.inc.php");
+			include("includes/_modules/part139339/_dp_339_b_inspections.inc.php");
+			
 // START DASHBOARD PROCEDURES
 		
 		$counter 		= 0;
@@ -76,12 +78,8 @@
 						?>
 <table border="1" width="100%" align="left" valign="top" cellpadding="4" cellspacing="4" style="border-collapse:collapse;">
 	<tr>
-		<td colspan="2" class="tableheaderleft">
-			<font size='3'>
-				<b>
-					<?php echo $nameofairport;?> Dashboard
-					</b>
-				</font>
+		<td colspan="2" class="layout_dashpanel_header">
+			<?php echo $nameofairport;?> Dashboard
 			</td>
 		</tr>
 	<tr>

@@ -66,7 +66,7 @@
 anylinkcssmenu.init("anchorclass")
 </script>	
 			</head>
-		<body leftmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;" onLoad="cacheOff()">
+		<body leftmargin="0px" rightmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;margin-right:0px;" onLoad="cacheOff()">
 			<a href="#top"></a>
 	<?php
 	// Load Javascript Body Cache Procedures

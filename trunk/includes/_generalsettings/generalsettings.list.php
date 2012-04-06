@@ -40,4 +40,7 @@
 			include("_gs_monthscombobox.inc.php");
 			include("_gs_numberofrowsbysql.inc.php");
 			include("_gs_gis_settings.inc.php");
+			
+			include("_gs_eventtypes.inc.php");
+			include("_gs_eventtypeswall.inc.php");
 	?>

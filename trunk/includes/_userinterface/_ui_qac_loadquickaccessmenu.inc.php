@@ -2,7 +2,7 @@
 	
 function loadquickaccessmenu($user) {
 ?>
-<table border="0" height="20" border="0" id="quickaccessitem" cellpadding="2" cellspacing="2" background="stylesheets/_cssimages/layoutheaderbackground.gif">
+<table border="0" height="20" border="0" id="quickaccessitem" cellpadding="2" cellspacing="2" />
 	<Tr>
 <?php 
 
@@ -34,7 +34,7 @@ function loadquickaccessmenu($user) {
 							$tmpmenuslaved	= $newarray['menu_item_slaved_to_id'];
 							?>
 	<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;display:inline;" name="qac_menuitem<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="layouttableiframecontent">
-		<td width="50" class="formresults" onclick="javascript:document.menuitem<?php echo $tmpmenuitemid;?>.submit()" style="cursor:hand" onMouseover="ddrivetip('<?php echo $tmpmenuitemloc;?>')"; onMouseout="hideddrivetip()">
+		<td width="50" class="buttons_quickaccess" onclick="javascript:document.menuitem<?php echo $tmpmenuitemid;?>.submit()" style="cursor:hand" onMouseover="ddrivetip('<?php echo $tmpmenuitemloc;?>')"; onMouseout="hideddrivetip()">
 			<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemid;?>"></font>
 			<?php echo $tmpmenusshortnl;?><br>
 			</td>

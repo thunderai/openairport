@@ -60,11 +60,11 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				echo "<table class='layout_dashpanel_container_table' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				$table_i = "<table class='layout_dashpanel_container_table' />";
 			}
 
 		

@@ -33,6 +33,5 @@
 
 ?>	
 		<link href="stylesheets/defaultoa.css" 		rel="stylesheet" type="text/css">
-		<link href="stylesheets/css_play.css"		rel="stylesheet" type="text/css" 	media="all" >
-		<link href="stylesheets/flyout_one.css"		rel="stylesheet" type="text/css" 	media="all" >
 		<link href="stylesheets/dhtmlwindow.css" 	rel="stylesheet" type="text/css"	media="screen">
+		<link href="stylesheets/css_play_v4.css" 	rel="stylesheet" type="text/css"	media="screen">

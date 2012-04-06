@@ -372,8 +372,7 @@ if ($tbldisplaytotal==1) {
 		
 	<table border="0" cellspacing="0" cellpadding="0" width="100%" id="tblbrowseformtable" style="border-collapse: collapse; border-style: none; ">
 		<tr>
-			<td width="3%" class="tableheaderleft">&nbsp;</td>
-			<td class="tableheadercenter" width="95%" align="left" valign="middle">
+			<td class="layout_dashpanel_container_header" />
 				<?php 
 				////echo "frmstartdate >".$uifrmstartdate."< <br>";
 				getnameofmenuitemid($strmenuitemid, "long", 4, "#ffffff",$_SESSION['user_id']);
@@ -385,15 +384,13 @@ if ($tbldisplaytotal==1) {
 				?>
 				)
 				</td>
-			<td class="tableheaderright" width="2%" align="right" valign="middle">
-				<font size="1">&nbsp;</font>
 			</tr>
 		<tr>
 			<!-- THis is the ROW where all of the FORM search display controls are shows -->
-			<td colspan="3" class="tablesubcontent" align="right">
+			<td colspan="3" align="right">
 				<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="100%" style="border-collapse: collapse; border-style: none; ">
 					<tr>
-						<td class="formoptions"	align="center" valign="middle" width="250">
+						<td class="forms_coumn_footer" align="center" valign="middle" width="250">
 							<?php 
 							// -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - 
 							// DATE SORTING CONTROLS
@@ -405,11 +402,11 @@ if ($tbldisplaytotal==1) {
 											?>
 							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="250" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons"	align="center"	valign="middle">
+									<td class="buttons_quickaccess"	align="center"	valign="middle">
 										<?php echo $en_start_date;?><br>
 										<input 	class="commonfieldbox" type="text" name="frmstartdate"	id="frmstartdate"	size="8" value="<?php echo $uifrmstartdate;?>" 	onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('Calendar1')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
 										</td>
-									<td class="formbuttons"	align="center"	valign="middle">
+									<td class="buttons_quickaccess"	align="center"	valign="middle">
 										<?php echo $en_end_date;?><br>
 										<input 	class="commonfieldbox" type="text" name="frmenddate" 	ID="frmenddate" 	size="8" value="<?php echo $uifrmenddate;?>" 	onchange="javascript:(isdate(this.form.frmenddate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('Calendar2')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
 										</td>
@@ -433,10 +430,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_textsort == 1) {
 								// echo "Page is set to display the Text Sort field";
 								?>
-						<td class="formoptions"	align="center" valign="middle" width="210" style="cursor:hand">
+						<td align="center" valign="middle" width="210" style="cursor:hand">
 							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="210" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons"	align="center"	valign="middle"	onMouseover="ddrivetip('<?php echo $en_textlike;?>')"; onMouseout="hideddrivetip()">
+									<td class="buttons_quickaccess" align="center"	valign="middle"	onMouseover="ddrivetip('<?php echo $en_textlike;?>')"; onMouseout="hideddrivetip()">
 										<?php
 										if ($tbltextsort == 1) {
 												?>
@@ -462,10 +459,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_joinedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td class="formoptions" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmjoined');" style="cursor:hand">
+						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmjoined');" style="cursor:hand">
 							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_joined;?></b><br>Use this control to link any underlined item to other underlined items.<br>')"; onMouseout="hideddrivetip()">
+									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_joined;?></b><br>Use this control to link any underlined item to other underlined items.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_joined;?><br>
 										<input class="hidden" type="hidden" name="frmjoined" id="frmjoined" size="25" 
 										<?php 
@@ -485,7 +482,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td align="center" valign="middle">
+									<td class="buttons_quickaccess" />
 										<input class="inlinehiddenbox" type="text" name="frmjoinedactive" id="frmjoinedactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -499,10 +496,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_archivedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td class="formoptions" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmarchives');" style="cursor:hand">
+						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmarchives');" style="cursor:hand">
 							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_archived;?></b><br>Use this control to show archived records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_archived;?></b><br>Use this control to show archived records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_archived;?><br>
 										<input class="hidden" type="hidden" name="frmarchives" id="frmarchives" size="25" 
 										<?php
@@ -520,7 +517,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td align="center" valign="middle">
+									<td class="buttons_quickaccess" />
 										<input class="inlinehiddenbox" type="text" name="frmarchivesactive" id="frmarchivesactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -534,10 +531,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_closedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td class="formoptions" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmclosed');" style="cursor:hand">
+						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmclosed');" style="cursor:hand">
 							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_closed;?><br>
 										<input class="hidden" type="hidden" name="frmclosed" id="frmclosed" size="25" 
 										<?php
@@ -555,7 +552,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td align="center" valign="middle">
+									<td class="buttons_quickaccess" />
 										<input class="inlinehiddenbox" type="text" name="frmclosedactive" id="frmclosedactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -569,10 +566,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_duplicatesort == 1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td class="formoptions" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmduplicate');" style="cursor:hand">
+						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmduplicate');" style="cursor:hand">
 							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formbuttons" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_duplicate;?></b><br>Use this control to show duplicated records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_duplicate;?></b><br>Use this control to show duplicated records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_duplicate;?><br>
 										<input class="hidden" type="hidden" name="frmduplicate" id="frmduplicate" size="4" 
 										<?php
@@ -590,7 +587,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td align="center" valign="middle">
+									<td class="buttons_quickaccess" />
 										<input class="inlinehiddenbox" type="text" name="frmduplicateactive" id="frmduplicateactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -599,8 +596,8 @@ if ($tbldisplaytotal==1) {
 										<?php
 							}							
 							?>
-						<td class="formoptionsR" align="center" valign="middle">
-							<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.sorttable.submit()">
+						<td class="forms_coumn_footer" align="center" valign="middle">
+							<input class="buttons_quickaccess" type="button" name="button" value="submit" onclick="javascript:document.sorttable.submit()">
 							</td>
 						</tr>
 					</table>
@@ -626,7 +623,7 @@ if ($tbldisplaytotal==1) {
 						<td>
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formoptionsavilablebottom">
+									<td class="forms_coumn_results_browse_header">
 										<table border="0" cellspacing="0" cellpadding="0" align="right" valign="middle" height="20" style="border-collapse: collapse; border-style: none; ">
 											<tr>
 																	<?php 
@@ -797,10 +794,10 @@ if ($tbldisplaytotal==1) {
 						<td class="tabledatarow">
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="formheaders" width="45">
+									<td class="forms_coumn_header" width="45">
 										ID
 										</td>
-									<td class="formheaders" width="80">
+									<td class="forms_coumn_header" width="80">
 										Functions
 										</td>
 																	<?php  
@@ -817,7 +814,7 @@ if ($tbldisplaytotal==1) {
 																							break;
 																				}
 																			?>
-									<td class="formheaders" width="<?php echo $cellwidth[$i];?>">
+									<td class="forms_coumn_header" width="<?php echo $cellwidth[$i];?>">
 																			<?php
 																			if ($tblheadersort==1) {
 																					?>
@@ -832,7 +829,7 @@ if ($tbldisplaytotal==1) {
 																	if ($runpostflights == 1) {
 																			// Display Classification Column
 																			?>
-									<td class="formheaders" width="80">
+									<td class="forms_coumn_header" width="80">
 										Added Commands
 										</td>
 																			<?php
@@ -923,14 +920,14 @@ if ($tbldisplaytotal==1) {
 																			if ($displayrow == 1) {
 																					?>
 							<tr>
-								<td class="formresults" align="center" valign="middle" height="32" width="45">
+								<td class="forms_coumn_results_browse_header" align="center" valign="middle" height="32" width="45">
 									<?php echo $objarray[$tblkeyfield];?>
 									</td>
-								<td align="center" class="formresults" width="80">
-									<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1" class="formsubmit">
+								<td align="center" width="80" class="forms_coumn_results_row">
+									<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1">
 										<tr>
 											<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="EditRecordWindow" onsubmit="openmapchild('','EditRecordWindow')";>
-											<td class="formoptionsubmit" onMouseover="ddrivetip('Edit Record')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Edit Record')"; onMouseout="hideddrivetip()">
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -955,11 +952,11 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="formsubmit"	type="submit" name="b1" 				id="b1" 				value="E">
+												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="E">
 												</td>
 											</form>
 											<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="SummaryReportWindow" onsubmit="openchild600('','SummaryReportWindow')";>
-											<td class="formoptionsubmit" onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip()">
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -984,11 +981,11 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="formsubmit"	type="submit" name="b1" 				id="b1" 				value="S">
+												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="S">
 												</td>
 											</form>
 											<form style="margin-bottom:0;" action="<?php echo $functionprinterpage;?>" method="POST" name="reportform" id="reportform" target="PrinterRecordWindow" onsubmit="openmapchild('','PrinterRecordWindow')";>
-											<td class="formoptionsubmit" onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip()">
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -1013,7 +1010,7 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="formsubmit"	type="submit" name="b1" 				id="b1" 				value="R">
+												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="R">
 												</td>
 											</form>
 											</tr>
@@ -1030,7 +1027,7 @@ if ($tbldisplaytotal==1) {
 																										}
 																								}
 																						?>
-								<td align="center" valign="middle" class="formresults" width="<?php echo $cellwidth[$i];?>" >
+								<td align="center" valign="middle" class="forms_coumn_results_row" width="<?php echo $cellwidth[$i];?>" >
 																						<?php  
 																						switch ($adatafieldid[$i]) {
 																								case "notjoined":
@@ -1185,7 +1182,7 @@ if ($tbldisplaytotal==1) {
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-								<td align="right" valign="middle" class="formresults">
+								<td align="right" valign="middle" class="forms_coumn_results_row">
 									<table>
 										<tr>
 																							<?php
@@ -1217,7 +1214,7 @@ if ($tbldisplaytotal==1) {
 																	if ($tbldisplaytotal==1) {
 																			?>
 								<tr>
-									<td colspan="2" align="center" valign="middle" class="formresults">
+									<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
 										Total
 										</td>
 																			<?php 
@@ -1228,18 +1225,18 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-									<td align="center" valign="middle" class="formresults">
+									<td align="center" valign="middle" class="forms_coumn_results_row">
 										<?php echo $arowtotal[$i];?>
 										</td>
 																					<?php
 																				}
 																			?>
-									<td align="center" valign="middle" class="formresults">
+									<td align="center" valign="middle" class="forms_coumn_results_row">
 										
 										</td>																			
 									</tr>
 								<tr>
-									<td colspan="2" align="center" valign="middle" class="formresults">
+									<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
 										Average
 										</td>									
 																			<?php 
@@ -1250,7 +1247,7 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-									<td align="center" valign="middle" class="formresults">
+									<td align="center" valign="middle" class="forms_coumn_results_row">
 																					<?php
 																					if($acalculatet[$i] == 1) {
 																							echo $tmpavg;
@@ -1263,7 +1260,7 @@ if ($tbldisplaytotal==1) {
 																					<?php
 																				}
 																			?>
-									<td align="center" valign="middle" class="formresults">
+									<td align="center" valign="middle" class="forms_coumn_results_row">
 										
 										</td>	
 									</tr>										
