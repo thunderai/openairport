@@ -1,0 +1,8 @@
+T (68F)
+DP (66.2F)
+V (10SM)
+B (29.85Hg)
+W 220@7KT
+S Mostly Cloudy
+C 500
+H 94%
