@@ -39,11 +39,22 @@
 		include("includes/_modules/part139327/part139327.list.php");
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
-		
+
 // Define Variables	
 		
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 2;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
 		$tblname		= "Inspection Summary Report";
 		$tblsubname		= "(summary of information)";
+		
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures
 		
 		//echo "POST is ".$_POST['recordid']."<br>";
 
@@ -77,12 +88,15 @@
 			</table>
 			<?php
 			
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Discrepancy ID ".$_POST['recordid']." summary was viewed.";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-		
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+// Establish Page Variables
+
+		$last_main_id	= $_POST['recordid'];
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>

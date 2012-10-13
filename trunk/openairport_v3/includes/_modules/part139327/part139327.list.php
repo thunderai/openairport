@@ -52,4 +52,7 @@
 			include("preflights_tbl_139_327_main_sub_d_a_yn.inc.php");
 			include("preflights_tbl_139_327_main_sub_d_c_yn.inc.php");
 			include("preflights_tbl_139_327_main_sub_d_d_yn.inc.php");
+			
+	// DASH PANELS are NOT loaded here. Do NOT load them here...
+	//	they are loaded only on the template_dashpanel
 	?>

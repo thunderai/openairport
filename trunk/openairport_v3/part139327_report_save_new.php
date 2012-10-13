@@ -40,7 +40,16 @@
 
 // Define Variables	
 		
-		$dutylogevent	= "Added New Airport Safety Self Inspection";
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures
 		
 // Start Procedures
 	//	This will be a multi step process.
@@ -115,8 +124,9 @@
 			
 				//echo "[1][b][2] Connection to temporary main table established <br>";
 			
-				$objrs 				= mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
-				$inspectionid 		= mysqli_insert_id($objcon);
+				$objrs 			= mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$inspectionid 	= mysqli_insert_id($objcon);
+				$last_main_id	= $inspectionid;
 				
 				//echo "[1][b][3] The ID of the new inspection is ".$inspectionid." <br>";
 			}
@@ -724,7 +734,15 @@
 			</table>
 			<?php
 
+// Establish Page Variables
+
+		//$last_main_id	= $last_main_id;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
 // Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
 
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
-?>	
+?>

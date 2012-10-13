@@ -121,5 +121,7 @@ function gs_eventtypes($suppliedid, $archived, $nameofinput, $showcombobox, $def
 									}
 						}	// end of Res Record Object						
 				}
+				
+	return $tmpsuppliedname;
 	}
 	?>

@@ -37,9 +37,12 @@
 			include("_tp_control_closed.inc.php");
 			include("_tp_control_error.inc.php");
 			include("_tp_control_footbuttons.inc.php");
+			
 			include("_tp_files_read_weather.inc.php");
+			include("_tp_files_send_email.inc.php");
 			
 			include("_tp_control_auto_logentry.inc.php");
+			include("_tp_control_auto_logentry_v2.inc.php");
 			include("_tp_debugging.inc.php");
 			
 			include("_tp_ui_strinptags.inc.php");

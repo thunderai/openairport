@@ -28,10 +28,8 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 										// There are no records to display, display NRF
 										?>																																							
 						<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="MCreportform" id="MCreportform" target="MarkasClosed"  onsubmit="openchild600('<?php echo $functionpage;?>','MarkasClosed')" >
-						<td class="formoptionsubmit" onMouseover="ddrivetip('File Closed Report')"; onMouseout="hideddrivetip()">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-							<input type="submit" value="MC" NAME="b1" ID="b1" class="formsubmit" alt="Closed" onMouseover="ddrivetip('File Closed Report')"; onMouseout="hideddrivetip()">
-							</td>
+							<input type="submit" value="MC" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Closed" onMouseover="ddrivetip('File Closed Report')"; onMouseout="hideddrivetip()">
 							</form>
 										<?php
 									}
@@ -41,11 +39,9 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 												$tmpid = $objarray2[$settingsarray[1]."_closed_id"];
 												?>
 						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="Creportform" id="Creportform" target="SummaryReport_ClosedReport" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReport_CloseddReport')" >
-						<td class="formoptionsubmit">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-							<input type="submit" value="CH" NAME="a1" ID="a1" class="formsubmit" alt="Closed" onMouseover="ddrivetip('Closed Report')"; onMouseout="hideddrivetip()">
-							</td>
-						</form>
+							<input type="submit" value="CH" NAME="a1" ID="a1" class="buttons_quickaccess" alt="Closed" onMouseover="ddrivetip('Closed Report')"; onMouseout="hideddrivetip()">
+							</form>
 												<?	
 											}
 									}

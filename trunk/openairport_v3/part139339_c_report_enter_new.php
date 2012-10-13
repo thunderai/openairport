@@ -35,14 +35,9 @@
 		include("includes/POSTs.php");															// This include pulls information from the $_POST['']; variable array for use on this page
 		include("includes/_template/template.list.php");
 
-
 // Load Page Specific Includes
 
 		include("includes/_modules/part139339/part139339.list.php");
-
-// Define Variables	
-		
-		$dutylogevent	= "Added New Field Condition Report";
 		
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
@@ -224,8 +219,9 @@ if (!isset($_POST["formsubmit"])) {
 					}		
 					else {
 					//mysql_insert_id();
-						$objrs = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
-						$lastid = mysqli_insert_id($mysqli);
+						$objrs 			= mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
+						$lastid 		= mysqli_insert_id($mysqli);
+						$last_main_id 	= $lastid;
 						//echo $tmp;
 						//printf("Last inserted record has id %d\n", LAST_INSERT_ID());
 						//echo mysql_insert_id($mysqli);
@@ -396,15 +392,25 @@ if (!isset($_POST["formsubmit"])) {
 							</table>
 							<?
 						}		
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-		
 	}
 
+// Establish Page Variables
+
+		$navigation_page 			= 40;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+
+		$message_to_display_new 	= "[user] has opened a new 139.339 (c) form";
+		$message_to_display_submit	= "[user] has saved a 139.339 (c) form ID ([id])";
+		
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+		$auto_array	= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $message_to_display_submit, $message_to_display_new, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
 // Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
 
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>	

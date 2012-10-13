@@ -42,5 +42,6 @@
 			include("_gs_gis_settings.inc.php");
 			
 			include("_gs_eventtypes.inc.php");
+			include("_gs_eventtypes_silent.inc.php");		// Same as above but hard coded to not display anything, will only return the end value
 			include("_gs_eventtypeswall.inc.php");
 	?>

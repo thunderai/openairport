@@ -90,6 +90,7 @@
 		
 		$array_archivedcontrol		= array("SELECT * FROM tbl_139_339_sub_n_a WHERE 139339_n_a_inspection_id = "	,	"139339",	"part139339_b_report_display_archived.php");
 		$array_errorcontrol			= array("SELECT * FROM tbl_139_339_sub_n_e WHERE 139339_n_e_inspection_id = "	,	"139339",	"part139339_b_report_display_error.php");
+		$array_closedcontrol		= array("SELECT * FROM tbl_139_339_sub_n_r WHERE 139339_sub_n_r_cancelled_id_int = "	,	"139339_sub_n",	"part139339_b_report_display_closed.php");
 
 		//$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		//$array_duplicatecontrol	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
@@ -110,6 +111,7 @@
 		$functionsummarypage 		= "part139339_b_report_summary.php";					// Name of page used to display a summary of the record
 		$functionprinterpage 		= "part139339_b_report_display_new.php";				// Name of page used to display a printer friendly report
 		$functionworkorderpage		= '';
+		$functionclosedpage			= "part139339_b_report_closed.php";
 
 		$functionduplicatepage		= '';
 		$functionarchievedepage		= "part139339_b_report_archieved.php";
