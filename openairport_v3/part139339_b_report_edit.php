@@ -130,17 +130,16 @@
 														<?php
 														// Hijack Template Functions for our own purposes
 														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = "	,	"139339",	"part139339_c_report_display_archived.php");
-														$functionpage	= "part139339_c_report_archieved.php";														
+														$functionpage	= "part139339_b_report_archieved.php";														
 														_tp_control_archived($inspection_id, $settingsarray, $functionpage);
 														
 														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_e WHERE 139339_eoo_i_id = "			,	"139339",	"part139339_c_report_display_error.php");
-														$functionpage	= "part139339_c_report_error.php";														
+														$functionpage	= "part139339_b_report_error.php";														
 														_tp_control_error($inspection_id, $settingsarray, $functionpage);	
 														
-														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_n_r WHERE 139339_sub_n_r_cancelled_id_int = ",	"139339_sub_n",	"part139339_n_report_display_closed.php");
+														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_n_r WHERE 139339_sub_n_r_cancelled_id_int = ",	"139339_sub_n",	"part139339_b_report_closed.php");
 														$functionpage	= "part139339_b_report_closed.php";														
 														_tp_control_closed($objarray['139339_sub_n_id'], $settingsarray, $functionpage);															
-														
 														?>														
 														</tr>
 													</table>

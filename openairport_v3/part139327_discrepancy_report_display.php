@@ -51,7 +51,19 @@
 		include("includes/_template/template.list.php");
 		include("includes/_generalsettings/_gs_gis_settings.inc.php");					// Load GIS Functions
 
+// Define Variables	
+		
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 3;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
 
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures
+		
 ?>
 <HTML>
 	<HEAD>
@@ -76,6 +88,8 @@ if (!isset($_POST["recordid"])) {
 	else {
 		$recordid = $_POST['recordid'];
 	}
+	
+	$last_main_id = $recordid;
 	
 	$sql = "SELECT * FROM tbl_139_327_sub_d WHERE Discrepancy_id = '".$recordid."' ";
 
@@ -385,5 +399,16 @@ if (!isset($_POST["recordid"])) {
 					}
 			}
 	}
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
+	
+// Establish Page Variables
+		
+		
+		$auto_array					= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>

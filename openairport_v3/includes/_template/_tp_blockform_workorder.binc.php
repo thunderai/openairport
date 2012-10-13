@@ -2,6 +2,20 @@
 // Short code to make the temlate browse file shorter and more manageble.
 if($functionworkorderpage == '') {
 			// Display Nothing No Bounced, No Repair, No WorkOrder Information
+			
+			// No Workorder page defined, but do we still want to display some options anyway?
+			//		Like Mark Closed and Closed History?
+			//		is there a defined value in the closed function page?
+			if($functionclosedpage == '') {
+					
+					// No there is not, so dont display this control
+				} else {
+					
+					// There is something here, display the Closed Options
+					
+					_tp_control_closed($tblkeyvalue, $array_closedcontrol, $functionclosedpage);															
+					
+				}
 		}
 		else {
 			// To do this efficiently, run the discrepancy stage function and get the current status of the active discrepancy

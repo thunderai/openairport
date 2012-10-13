@@ -40,6 +40,20 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
+// Define Variables	
+		
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 9;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures			
+		
+	
 if (!isset($_POST["formsubmit"])) {
 
 // This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
@@ -130,7 +144,7 @@ if (!isset($_POST["formsubmit"])) {
 	form_new_control("distime"		,"Time"				, "Enter the time this WLHM Reord was closed"				,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,0				,0				,'post'					,0);
 	form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,0				,0				,'post'					,"systemusercombobox");
 	form_new_control("discomments"	,"Comments"			, "Enter how you NEED to archieve it"							,"Do not use any special characters!"																			,""							,2				,0				,4				,'post'					,0);
-	form_new_control("disarchive"	,"Mark closed"	, "Checking this box will mark the discrepancy as closed"	,"Only do this if you are sure you need to archieve it"															,"(checked = closed)"	,5				,0				,4				,'post'					,0);
+	form_new_control("disarchive"	,"Mark closed"		, "Checking this box will mark the discrepancy as closed"	,"Only do this if you are sure you need to archieve it"															,"(checked = closed)"	,5				,0				,4				,'post'					,0);
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
@@ -163,14 +177,17 @@ if (!isset($_POST["formsubmit"])) {
 						$lastid = mysqli_insert_id($mysqli);
 						}					
 
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Discrepancy ID ".$_POST['recordid']." was marked as closed.";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-		
 	}
 	
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
+// Establish Page Variables
+		
+		$last_main_id	= $lastid;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>	

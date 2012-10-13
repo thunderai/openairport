@@ -146,6 +146,19 @@ if (!isset($_GET["location"])) {
 	}
 	
 
+// Define Variables	
+		
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures		
+	
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
@@ -238,16 +251,14 @@ if (!isset($_POST["formsubmit"])) {
 			//mysql_insert_id();
 				$objrs 		= mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 				$lastid 	= mysqli_insert_id($mysqli);
+				$last_d		= $lastid;
 				$lastid1 	= mysqli_insert_id($mysqli);
 				}
 				
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Added New Discrepancy ID ".$lastid." for Inspection ID ".$tmp_recordid."";
+		//
+		// END OF PAGE EVENT FOR SAVING DISCREPANCY...
+		//
 		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-						
 		if ($_POST['diskillorder']=='') {
 				// No Killorder
 				//echo "No Killorder Issued";
@@ -271,12 +282,17 @@ if (!isset($_POST["formsubmit"])) {
 						$lastid = mysqli_insert_id($mysqli);
 						}	
 						
-				$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-				$tmpsqltime		= date("H:i:s");
-				$tmpsqlauthor	= $_SESSION["user_id"];
-				$dutylogevent	= "Discrepancy ID ".$lastid1." was repaired in Repair ID ".$lastid." ";
+				$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+				$type_page 					= 7;							// Page is Type ID, see function for notes!
+				$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+				$time_to_display_new		= date("H:i:s");
+				$force_message				= "Discrepancy ID ".$lastid1." was repaired in Repair ID ".$lastid." ";
 				
-				autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
+				$last_main_id				= $lastid;
+				$auto_array					= array($navigation_page, $_POST['disauthor'], 1, $sqldate, $_POST['distime'], $type_page,$lastid,$force_message); 
+
+				ae_completepackage($auto_array);
+				
 			}
 			?>
 						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
@@ -389,13 +405,16 @@ if (!isset($_POST["formsubmit"])) {
 							</table>				
 				
 				<?
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Added New Discrepancy ID ".$lastid." for Inspection ID ".$_POST['recordid']."";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
 		}
 
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+// Establish Page Variables
+
+		$auto_array					= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_d); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>

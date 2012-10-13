@@ -51,7 +51,20 @@
 		include("includes/_navigation/_nav_displaytxtonreport.inc.php");
 		include("includes/_template/template.list.php");
 		include("includes/_generalsettings/_gs_gis_settings.inc.php");					// Load GIS Functions
+
+// Define Variables	
 		
+		$navigation_page 			= 16;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 3;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures	
+
 		?>
 		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">
 		</HEAD>
@@ -70,6 +83,8 @@ if (!isset($_POST["recordid"])) {
 	INNER JOIN tbl_139_327_sub_t_i ON tbl_139_327_sub_t_i.139327_sub_t_id_int = tbl_139_327_sub_t.inspection_type_id 
 	WHERE inspection_system_id = '".$recordid."' ";
 
+	$last_main_id	= $recordid;
+	
 	//make connection to database
 	$objconn1 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
@@ -528,10 +543,16 @@ if (!isset($_POST["recordid"])) {
 								}
 						}														
 							
-			$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-			$tmpsqltime		= date("H:i:s");
-			$tmpsqlauthor	= $_SESSION["user_id"];
-			$dutylogevent	= "Printed Part 139 Self Inspection Report ID:".$tmpid.", dated ".$tmpdate." at ".$tmptime."";	
-			
-			autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-			?>
+	
+// Establish Page Variables
+
+		//$last_main_id	= $last_main_id;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>

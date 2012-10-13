@@ -36,6 +36,8 @@
 	// Load Include Files
 			include("_su_systemusercombobox.inc.php");
 			include("_su_systemusertextfield.inc.php");
+			include("_su_systemusertextfield_emails.inc.php");
+			
 			include("_su_systemusercomboboxwall.inc.php");
 			include("_su_dailyactivity_summary.inc.php");
 	?>

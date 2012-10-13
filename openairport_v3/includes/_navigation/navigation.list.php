@@ -47,8 +47,7 @@
 			include("_nav_getbysuid_navigationalgrouptext.inc.php");
 			
 			
-			
-			
 			include("_nav_getnameofmenuitemid_return.inc.php");
+			include("_nav_getnameofmenuitemid_return_nohtml.inc.php");
 			include("_nav_getpurposeofmenuitemid_return.inc.php");
 	?>
