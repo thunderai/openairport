@@ -44,6 +44,9 @@
 
 		$discrepancyid 	= $_POST['recordid'];
 		$disid 			= $_POST['recordid'];
+
+
+
 		
 //	Start Form Set Variables
 	
@@ -78,6 +81,8 @@ if (!isset($_POST['recordid'])) {
 				// there is nothing in the post querystring, so this must be the first time this form is being shown
 				// display form doing all our trickery!
 				// There is a Record ID Supplied, Do work
+				
+				$last_main_id	= $_POST['recordid'];
 				
 				// Connect to Database
 				$sql 		= "SELECT * FROM tbl_139_337_main WHERE 139337_id = '".$_POST['recordid']."' ";
@@ -283,15 +288,19 @@ if (!isset($_POST['recordid'])) {
 						$lastid = mysqli_insert_id($mysqli);
 						}							
 						
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Edited record ID:".$_POST["recordid"]." in table tbl_139_327_sub_d";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-
-			}
+		}
 	}
+	
+// Define Variables...
+//						for Auto Entry Function {End of Page}
 
-	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+		//$last_main_id	= $lastid;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>

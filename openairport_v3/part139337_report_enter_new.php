@@ -40,11 +40,21 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
-// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		$navigation_page 			= 21;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
 	
 		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
-// Start Procedures
+// Start Procedures...
+//		Main Page Procedures and Functions	
 
 if (!isset($_POST["formsubmit"])) {
 		// This FORM has not been submitted before
@@ -179,14 +189,18 @@ if (!isset($_POST["formsubmit"])) {
 				$lastid = mysqli_insert_id($mysqli);
 				}	
 						
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= $subtitle." with an ID of ".$lastid." has been entered";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
 	}
 
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		$last_main_id	= $lastid;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
 // Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
-?>	
+?>

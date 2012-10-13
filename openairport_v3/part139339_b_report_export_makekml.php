@@ -36,7 +36,7 @@
 // Load Page Specific Includes
 
 		include("includes/_modules/part139339/part139339.list.php");
-		include("includes/_generalsettings/_gs_gis_settings.inc.php");	
+		include("includes/_generalsettings/generalsettings.list.php");	
 		include("includes/_dateandtime/_dt_amerdate2sqldatetime.inc.php");	
 
 // Creates the Document.

@@ -47,9 +47,9 @@
 		//include("includes/AutoEntryFunctions.php");
 		include("includes/_systemusers/systemusers.list.php");
 		include("includes/_modules/part139339/part139339.list.php");
-		include("includes/_navigation/_nav_displaytxtonreport.inc.php");
+		include("includes/_navigation/navigation.list.php");
 		include("includes/_template/template.list.php");
-		include("includes/_generalsettings/_gs_gis_settings.inc.php");					// Load GIS Functions
+		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
 
 
 ?>

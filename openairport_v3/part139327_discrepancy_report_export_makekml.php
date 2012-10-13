@@ -8,7 +8,7 @@
 		
 // Load Page Specific Includes
 		include("includes/_modules/part139327/part139327.list.php");
-		include("includes/_generalsettings/_gs_gis_settings.inc.php");				
+		include("includes/_generalsettings/generalsettings.list.php");				
 					
 					
 // Creates the Document.

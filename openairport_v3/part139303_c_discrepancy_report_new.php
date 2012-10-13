@@ -39,7 +39,7 @@
 		include("includes/_modules/part139303/part139303.list.php");
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
-		//include("includes/_generalsettings/_gs_gis_settings.inc.php");
+		//include("includes/_generalsettings/generalsettings.list.php");
 		
 		
 // Define Variables	
