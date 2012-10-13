@@ -39,17 +39,35 @@
 // Load global include files
 	
 		//include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
-		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
-	
+		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page							// List of all Navigation functions
+			
 // Load Page Specific Includes
-		include("includes/_dateandtime/dateandtime.list.php");
 		include("scripts/_scripts_header_iface.inc.php");
-		include("includes/AutoEntryFunctions.php");
-		include("includes/_systemusers/systemusers.list.php");
+		//include("includes/AutoEntryFunctions.php");
+		include("includes/_template/template.list.php");
 		include("includes/_modules/part139337/part139337.list.php");
-		include("includes/_navigation/_nav_displaytxtonreport.inc.php");
-		include("includes/_generalsettings/_gs_gis_settings.inc.php");					// Load GIS Functions
+		include("includes/_dateandtime/dateandtime.list.php");										// List of all Date and Time functions
+		include("includes/_navigation/navigation.list.php");										// List of all Navigation functions			
+		include("includes/_systemusers/systemusers.list.php");										// List of all Navigation functions
+		include("includes/_generalsettings/generalsettings.list.php");	
+		
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		$navigation_page 			= 21;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 3;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
 
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions			
+		
+		
 ?>
 <HTML>
 	<HEAD>
@@ -75,6 +93,8 @@ if (!isset($_POST["recordid"])) {
 	else {
 		$recordid = $_POST['recordid'];
 	}
+	
+	$last_main_id	= $recordid;
 	
 		$sql 		= "SELECT * FROM tbl_139_337_main 
 		INNER JOIN tbl_systemusers 		ON tbl_systemusers.emp_record_id 			= tbl_139_337_main.139337_author_by_cb_int 
@@ -195,5 +215,17 @@ if (!isset($_POST["recordid"])) {
 						}
 				}
 		}
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>
+		
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		//$last_main_id	= $lastid;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>	

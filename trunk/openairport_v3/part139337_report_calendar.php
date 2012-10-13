@@ -53,8 +53,22 @@
 		$i 						= 0;															// just in case we want the i variable to be defined before we use it
 		$uisize 				= "60";															//just in case we dont define it latter, set a default here.
 		
-	// Setup Function	
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
 		
+		$navigation_page 			= 21;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 11;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions
+
 		function calendar($date) {
 	         //If no parameter is passed use the current date.
 	         if($date == null)
@@ -231,5 +245,17 @@
 		 
 		echo calendar($date);
 		}
-	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+		
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		$last_main_id	= "-";	// No Valid ID to use
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>
