@@ -36,7 +36,18 @@
 	// Start Session Variables	
 		Session_Start();
 		Session_Register("user_id");
-		Session_Register("process_login");		
+		Session_Register("process_login");
+		Session_Register("last_activity");
+		Session_Register("page_time");
+
+		$time_initiated = microtime();
+		//echo "Session Last Activity [".$_SESSION['last_activity']."] <br>";
+		$_SESSION['last_activity'] = time();
+		//echo "Session Last Activity Now is[".$_SESSION['last_activity']."] <br>";
+		$_SESSION['page_time'] = microtime();
+		
+		//echo "Page Started at time index [".$time_initiated."] <br>";
+
 	// Establish Document Type
 	?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
@@ -69,6 +80,7 @@ anylinkcssmenu.init("anchorclass")
 		<body leftmargin="0px" rightmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;margin-right:0px;" onLoad="cacheOff()">
 			<a href="#top"></a>
 	<?php
+	
 	// Load Javascript Body Cache Procedures
 		include("scripts/_scripts_body_cache.inc.php");		
 	// END OF HEADER FILE.  INDEX.PHP/ OR SPECIFIC PAGE REQUEST WILL TAKE OVER FROM HERE.

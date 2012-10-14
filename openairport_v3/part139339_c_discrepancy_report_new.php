@@ -48,7 +48,30 @@
 		$tblsubname		= "please complete the form";
 		$tmp_recordid	= 0;
 		
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
 		
+		// Navigation Page ID
+		//		Enter the ID of the Navigation Module this page belongs to.
+		//		Check the AutoEntry function for more details...
+		$navigation_page 			= 40;
+		// Page Type ID
+		//		Enter the ID of the Event type for this page.
+		//		Check the AutoEntry function for more details...
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		// Other Settings for AutoEntry
+		//		You should not need to change these values.
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions
+
 //LOAD POSTS, and if no POSTS defined load GETS
 
 if (!isset($_POST["recordid"])) {
@@ -241,16 +264,10 @@ if (!isset($_POST["formsubmit"])) {
 			//mysql_insert_id();
 				$objrs 		= mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 				$lastid 	= mysqli_insert_id($mysqli);
+				$last_main_id = $lastid;
 				$lastid1 	= mysqli_insert_id($mysqli);
 				}
 				
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Added New Discrepancy ID ".$lastid." for Inspection ID ".$tmp_recordid."";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-		
 		?>
 						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 							<tr>
@@ -356,13 +373,25 @@ if (!isset($_POST["formsubmit"])) {
 							</table>				
 				
 				<?
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor	= $_SESSION["user_id"];
-		$dutylogevent	= "Added New Discrepancy ID ".$lastid." for Inspection ID ".$_POST['recordid']."";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
 		}
 
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		// Last Main ID
+		//		This is the ID of the main record of this page, not a sub routine.
+		//		If no ID is used or possible to obtain such a browse page or a form loader enter '-'
+		//$last_main_id	= "-";
+		
+		//	AutoEntry Function Array
+		//		This array controls the values sent to the auto entry function.
+		//		No changes should be needed to it.
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>		

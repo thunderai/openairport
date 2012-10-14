@@ -39,11 +39,29 @@
 
 		include("includes/_modules/part139339/part139339.list.php");
 		
-// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		// Navigation Page ID
+		//		Enter the ID of the Navigation Module this page belongs to.
+		//		Check the AutoEntry function for more details...
+		$navigation_page 			= 40;
+		// Page Type ID
+		//		Enter the ID of the Event type for this page.
+		//		Check the AutoEntry function for more details...
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		// Other Settings for AutoEntry
+		//		You should not need to change these values.
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
 	
 		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
-// Start Procedures
+// Start Procedures...
+//		Main Page Procedures and Functions
 
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
@@ -394,18 +412,18 @@ if (!isset($_POST["formsubmit"])) {
 						}		
 	}
 
-// Establish Page Variables
+// Define Variables...
+//						for Auto Entry Function {End of Page}
 
-		$navigation_page 			= 40;							// Belongs to this Nav Item ID, see function for notes!
-		$type_page 					= 16;							// Page is Type ID, see function for notes!
-
-		$message_to_display_new 	= "[user] has opened a new 139.339 (c) form";
-		$message_to_display_submit	= "[user] has saved a 139.339 (c) form ID ([id])";
+		// Last Main ID
+		//		This is the ID of the main record of this page, not a sub routine.
+		//		If no ID is used or possible to obtain such a browse page or a form loader enter '-'
+		//$last_main_id	= "-";
 		
-		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$time_to_display_new		= date("H:i:s");
-
-		$auto_array	= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $message_to_display_submit, $message_to_display_new, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		//	AutoEntry Function Array
+		//		This array controls the values sent to the auto entry function.
+		//		No changes should be needed to it.
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 
 		ae_completepackage($auto_array);	
 	
@@ -413,4 +431,4 @@ if (!isset($_POST["formsubmit"])) {
 //	This page closes the HTML tag, nothing can come after it.
 
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
-?>	
+?>		

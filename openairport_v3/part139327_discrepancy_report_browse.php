@@ -47,7 +47,8 @@
 
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//	Not loaded here as this is a browse page and the template browse page loads its own
 	
 // Start Procedures			
 		
