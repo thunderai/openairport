@@ -378,7 +378,10 @@ if (!isset($_POST["formsubmit"])) {
 												?>
 										<tr>
 											<td class="formoptionsavilablebottom" colspan="3">
-												<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
+												<input type="hidden" 		name="recordid"			id="recordid"		value="<?php echo $inspectiontmpid;?>">
+												<input type="hidden"		name="strmenuitemid"	id="strmenuitemid" 	value="<?php echo $strmenuitemid;?>">
+												<input type="hidden"		name="frmstartdate"		id="frmstartdate" 	value="<?php echo $frmstartdate;?>">
+												<input type="hidden"		name="frmenddate"		id="frmenddate" 	value="<?php echo $frmenddate;?>">
 												<input type="submit" name="b1" 					value="Save Report >>>"			class="formsubmit">
 												</td>
 											</form>

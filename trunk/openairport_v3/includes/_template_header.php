@@ -44,7 +44,7 @@
 		//echo "Session Last Activity [".$_SESSION['last_activity']."] <br>";
 		$_SESSION['last_activity'] = time();
 		//echo "Session Last Activity Now is[".$_SESSION['last_activity']."] <br>";
-		$_SESSION['page_time'] = microtime();
+		$_SESSION['page_time'] = microtime(true);
 		
 		//echo "Page Started at time index [".$time_initiated."] <br>";
 

@@ -37,6 +37,7 @@
 // Load Page Specific Includes
 
 		include("includes/_modules/part139327/part139327.list.php");
+		include("includes/_template/template.list.php");
 
 // Define Variables	
 		
@@ -700,9 +701,14 @@
 		
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	$strmenuitemid	= $_POST["strmenuitemid"];
+	$frmstartdate	= $_POST["frmstartdate"];
+	$frmenddate		= $_POST["$frmenddate"];
+	
+	//echo "Menu Item ID :".$strmenuitemid;
+	
+	buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 
-		
 // Display end report		
 		?>
 		

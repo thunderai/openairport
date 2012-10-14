@@ -113,17 +113,21 @@ if (!isset($_POST["systemuserid"])) {
 <?php
 // Display Footer Information
 ?>
+
 	<div style="position:fixed;bottom:-3px;left:0px;width:100%;z-index:2;">		
-		<table width="100%" cellpadding="0" cellspacing="0">
+		<table width="100%" border="0" cellspacing="0" id="footer" name="footer" bgcolor="#000000">
 			<tr>
-				<td id="footernavigation" colspan="4" valign="top" align="center" height="1">
-					<table border="0" cellpadding="0" cellspacing="0" class="layout_navigation" width="100%">
-						<tr>
-							<td colspan="4" align="center" valign="top" height="1">
-								<font face="arial" size="2" color="#FFFFFF">OpenAirport.org</font><font face="arial" size="2" color="#FFFFFF"> <span title="48">©</span> <span title="10.1.1.241"><?php echo date('Y');?></span></font>
-								</td>
-							</tr>
-						</table>
+				<td colspan="4" align="center" id="timetaken" name="timetaken">
+					<font face="arial" color="#FFFFFF" size="3">
+						<align="center">Page has not completed loading, please wait...
+						</font>
+					</td>
+				</tr>
+			<tr>
+				<td colspan="4" align="center" >
+					<font face="arial" color="#FFFFFF" size="3">
+						OpenAirport.org</font><font face="arial" size="2" color="#FFFFFF"> <span title="48">©</span> <span title="10.1.1.241"><?php echo date('Y');?></span>
+						</font>
 					</td>
 				</tr>
 			</table>

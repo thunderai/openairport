@@ -4,7 +4,7 @@ function _dp_su_dailyactivity($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_dutylog" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
+<table class="layout_dashpanel_container" border="0" width="92.5%" align="left" valign="top">
 	<tr>
 		<td class="layout_dashpanel_container_header">
 			<font size='2'>
