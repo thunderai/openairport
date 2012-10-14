@@ -14,6 +14,8 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 				$sql2 = $settingsarray[0]."'".$tblkeyfield."' ";
 				$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		
+				//echo $sql2;
+		
 				if (mysqli_connect_errno()) {
 						// there was an error trying to connect to the mysql database
 						printf("connect failed: %s\n", mysqli_connect_error());

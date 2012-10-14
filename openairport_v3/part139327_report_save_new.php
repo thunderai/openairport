@@ -642,6 +642,9 @@
 		//echo "PART FIVE : Conduct Additional Work <BR>";	
 
 		//echo "Start Looking through all Discrepancies, not currently repaired<br>";
+		//
+		//	tmpinspectionarray[3] is the date of a 139.327 inspection.
+		//	Find all Discrepancies issued prior to the date of the current inspection date.
 		$sql 		= "SELECT * FROM tbl_139_327_sub_d WHERE Discrepancy_date <= '".$tmpinspectionarray[3]."' ";
 		//echo "SQL is ".$sql." <br>";
 		$objconn  	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -661,7 +664,7 @@
 								$discrepancy_id 	= $objarray['Discrepancy_id'];
 								$tmp_inspectionid	= $objarray['Discrepancy_inspection_id'];
 								//echo "Discrepancy ID is ".$discrepancy_id."<br>";								
-								$status 			= part139327discrepancy_getstage($discrepancy_id,$tmpinspectionarray[3], $tmpinspectionarray[4],0,1);
+								$status 			= part139327discrepancy_getstage($discrepancy_id,$tmpinspectionarray[3], $tmpinspectionarray[4],0,1,$tmpinspectionarray[5]);
 								//echo "The status of the Discrepancy is ".$status."<br>";
 								
 								//echo "is the Discrepancy already part of the current inspection ?<br>";
@@ -672,8 +675,12 @@
 									}
 									else {		
 										//echo "> The Discrepancy is NOT part of the current inspection, own it <br>";
-										if($status <> 2) {
-												// Discrepancy is anything but repaired....Work Order, Bounced, etc.
+										if($status <> 3) {
+												// Discrepancy is anything but closed....
+												//		Work Order, 
+												//		Bounced, 
+												//		Repaired
+												//		etc.
 												// Insert this discrepancy into the proper table.
 												
 												$sql2 		= "INSERT INTO tbl_139_327_sub_d_o (disinspection_id,disdis_id) VALUES ( '".$inspectionid."', '".$discrepancy_id."' )";

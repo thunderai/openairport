@@ -370,9 +370,9 @@ if (!isset($_POST["recordid"])) {
 	//				Like any other display of discrepancies we will use the_327_discrepancydisplaybox function
 	//				Set-up Initial variables
 		
-					$tempX				= 580;
-					$tempY				= 155;
-					$tempYo				= 155;
+					$tempX				= 570;
+					$tempY				= 170;
+					$tempYo				= 120;
 					$tmpzindex 			= 14;
 					$passindex			= 0;
 					$distools			= 1;
@@ -446,18 +446,39 @@ if (!isset($_POST["recordid"])) {
 															// No discrepancy has been displayed, use default settings
 															//$tempX			= 580;
 															//$tempY			= 155;
+															
+															//$totaldisheight	= $totaldisheight + $tempYo;
 														}
 														else {
-															$tempY		= $tempYo + ( $totaldisheight + ( $spacebetweendis) );
+															
+															echo "------------------------- 				<br>";
+															echo "Total Div Height :".$totaldisheight." 	<br>";
+															echo "Space Between Div:".$spacebetweendis." 	<br>";
+															echo "------------------------- 				<br>";
+															
+															$tempY		= ( $totaldisheight + ( $spacebetweendis) );
 															$tempX		= $tempX;
+														
+															echo "------------------------- <br>";
+															echo "Temp Y :".$tempY." 		<br>";
+															echo "temp X :".$tempX." 		<br>";
+															echo "------------------------- <br>";
 														}
 														
 													$lastdisheight = part139327discrepancydisplaybox("Discrepancy Display Box", 1, 2, 30, "left", 150, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
+													
+													echo "------------------------- 				<br>";
+													echo " Reported Div Height :".$lastdisheight." 	<br>";
+													echo "------------------------- 				<br>";
 												}
 											
 											$passindex 		= ( $passindex + 1 );	
 											$totaldisheight = ( $totaldisheight + $lastdisheight );
-											//echo "Total Disheight = ".$totaldisheight."/ ".$tempY;
+													
+											echo "------------------------- 					<br>";
+											echo " Pass Index :".$passindex."					<br>";
+											echo " New Total Div Height :".$totaldisheight." 	<br>";
+											echo "------------------------- 					<br>";
 										}
 								}
 						}
@@ -527,18 +548,40 @@ if (!isset($_POST["recordid"])) {
 															// No discrepancy has been displayed, use default settings
 															//$tempX			= 580;
 															//$tempY			= $lastadded;
+															
+															$totaldisheight		= $tempY;
+															
 														}
 														else {
-															$tempY		= $tempYo + ( $totaldisheight + ( $spacebetweendis) );
+															
+															//echo "------------------------- 				<br>";
+															//echo "Total Div Height :".$totaldisheight." 	<br>";
+															//echo "Space Between Div:".$spacebetweendis." 	<br>";
+															//echo "------------------------- 				<br>";
+															
+															$tempY		= ( $totaldisheight + ( $spacebetweendis) );
 															$tempX		= $tempX;
+															
+															//echo "------------------------- <br>";
+															//echo "Temp Y :".$tempY." 		<br>";
+															//echo "temp X :".$tempX." 		<br>";
+															//echo "------------------------- <br>";
 														}
 														
 													$lastdisheight = part139327discrepancydisplaybox("Discrepancy Display Box", 1, 2, 30, "left", 150, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
+													
+													//echo "------------------------- 				<br>";
+													//echo " Reported Div Height :".$lastdisheight." 	<br>";
+													//echo "------------------------- 				<br>";
 												}
 												
 											$passindex = $passindex + 1;	
 											$totaldisheight = ( $totaldisheight + $lastdisheight );
-											//echo "Total Disheight = ".$totaldisheight."/ ".$tempY;
+											
+											//echo "------------------------- 					<br>";
+											//echo " Pass Index :".$passindex."					<br>";
+											//echo " New Total Div Height :".$totaldisheight." 	<br>";
+											//echo "------------------------- 					<br>";
 										}
 								}
 						}														

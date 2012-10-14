@@ -22,7 +22,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 						<font size="<?php echo $fsize;?>">Name:</font>
 						<?php
 						$disheight = ($disheight + 22);
-						?>
+						?><?php echo $ypost;?>
 						</td>
 					</tr>
 				<tr>
@@ -35,7 +35,8 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 						//echo "Number of Lines ".$Taddedoffset."<br>";
 						$Taddedoffset 	= ($Taddedoffset * 20);														// Total pixels used per line
 						
-						$disheight 		= ($disheight + $Taddedoffset);
+						//$disheight 		= ($disheight + $Taddedoffset);
+						$disheight		= $disheight + 24;
 						$Taddedoffset	= 0;
 						$slength 		= 0;
 						?>
@@ -97,6 +98,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 									//				0 - Work Order
 									//				1 - Repaired
 									//				2 - Bounced	
+									//				3 - Closed
 									$status 				= part139327discrepancy_getstage($disid,0,0,0,0);
 									// Lie to the blockform
 									$imclearlyahijacker		= 1;
@@ -114,12 +116,17 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 									
 									?>	
 									</tr>
+									<?php
+									$disheight 		= ($disheight + 44);
+									//echo "[[[[".$disheight ;
+									
+									?>
 								</td>
 							</table>
 						</tr>							
 							
 							<?php
-							$disheight 		= ($disheight + 40);
+							
 						}
 					?>
 				</table>
@@ -164,7 +171,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		
 		// Add Custom Offsets (x2,y2)
 		$tempX2				= ($tempX2 - 1);
-		$tempY2				= ($tempY2 - $halfaddedoffset);
+		$tempY2				= ($tempY2 - 50);
 
 		$tempxpoints 		= $tempX.",".$tempX2;
 		$tempypoints 		= $tempY.",".$tempY2;
@@ -214,7 +221,8 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		//echo "DisHeight ".$disheight." ".$halfaddedoffset."<br>";
 		//$disheight = 140;
 				}
-		return $disheight;
 				
+		return $disheight;
+		
 		}
 		?>
