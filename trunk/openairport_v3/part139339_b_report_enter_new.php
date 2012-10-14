@@ -40,14 +40,22 @@
 
 		include("includes/_modules/part139339/part139339.list.php");
 
-// Define Variables	
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
 		
-		$dutylogevent	= "Added New NOTAM";
-		
-// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+		$navigation_page 			= 39;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 16;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
 	
 		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
+// Start Procedures...
+//		Main Page Procedures and Functions
+
 // Start Procedures
 
 if (!isset($_POST["formsubmit"])) {
@@ -171,6 +179,7 @@ if (!isset($_POST["formsubmit"])) {
 					//mysql_insert_id();
 						$objrs = mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 						$lastid = mysqli_insert_id($mysqli);
+						$last_main_id	= $lastid;
 						//echo $tmp;2
 						//printf("Last inserted record has id %d\n", LAST_INSERT_ID());
 						//echo mysql_insert_id($mysqli);
@@ -262,16 +271,19 @@ if (!isset($_POST["formsubmit"])) {
 			</table>
 							<?php
 						}		
-		$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$tmpsqltime		= date("H:i:s");
-		$tmpsqlauthor		= $_SESSION["user_id"];
-		$dutylogevent		= "Added New NOTAM";
-		
-		autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-		
+	
 	}
 
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		//$last_main_id	= $lastid;
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
 // Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
 
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
-?>	
+?>		

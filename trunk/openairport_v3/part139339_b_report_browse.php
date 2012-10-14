@@ -39,7 +39,24 @@
 // Load Page Specific Includes
 
 		include("includes/_modules/part139339/part139339.list.php");
+
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		$navigation_page 			= 39;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 15;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
 	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions	
+
+		
 	// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//	THE CONTAIN CONTENTS IS THE SAME FORMAT FOR ALL BROWSE DOCUMENTS, ALTHOUGH THE DATA MAY BE DIFFERENT
 	// 	vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -197,5 +214,16 @@
 		
 	include("includes/_template_browse.php");	
 
-	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
-?>	
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		$last_main_id	= "-";// No Valid ID to use
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
+?>		

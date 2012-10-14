@@ -51,7 +51,29 @@
 		include("includes/_template/template.list.php");
 		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
 
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		// Navigation Page ID
+		//		Enter the ID of the Navigation Module this page belongs to.
+		//		Check the AutoEntry function for more details...
+		$navigation_page 			= 40;
+		// Page Type ID
+		//		Enter the ID of the Event type for this page.
+		//		Check the AutoEntry function for more details...
+		$type_page 					= 3;							// Page is Type ID, see function for notes!
+		// Other Settings for AutoEntry
+		//		You should not need to change these values.
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
 
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions
 ?>
 <HTML>
 	<HEAD>
@@ -76,6 +98,8 @@ if (!isset($_POST["recordid"])) {
 	else {
 		$recordid = $_POST['recordid'];
 	}
+	
+	$last_main_id = $recordid;
 	
 	$sql = "SELECT * FROM tbl_139_339_sub_d WHERE Discrepancy_id = '".$recordid."' ";
 
@@ -155,5 +179,24 @@ if (!isset($_POST["recordid"])) {
 					}
 			}
 	}
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
+	
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		// Last Main ID
+		//		This is the ID of the main record of this page, not a sub routine.
+		//		If no ID is used or possible to obtain such a browse page or a form loader enter '-'
+		//$last_main_id	= $last_main_id;
+		
+		//	AutoEntry Function Array
+		//		This array controls the values sent to the auto entry function.
+		//		No changes should be needed to it.
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>

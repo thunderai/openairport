@@ -48,6 +48,22 @@
 		include("includes/_modules/part139339/part139339.list.php");
 		include("includes/_navigation/navigation.list.php");
 		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
+
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
+		
+		$navigation_page 			= 40;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 12;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	
+// Start Procedures...
+//		Main Page Procedures and Functions		
 		
 // Set Variables
 		$tmpspecies			= '';
@@ -663,7 +679,17 @@ if($counter <> 0) {
 		displaytxtonreport($use_end_date,						1, 3, 13, "left", 	190, 	395, 	52, 11);		
 
 		displaytxtonreport("Anomaly Report Hot Spots.  Red:(Very Hot)/Green:(No Action).",		1, 1, 50, "right", 	132, 	611, 	33, 12);
-				
-		
-include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes
+			
+// Define Variables...
+//						for Auto Entry Function {End of Page}
+
+		$last_main_id	= "-";	// no valid id to use
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+
+		ae_completepackage($auto_array);	
+	
+// Load End of page includes
+//	This page closes the HTML tag, nothing can come after it.
+
+		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>	
