@@ -27,13 +27,13 @@ if ($settingsarray == '') {
 						$number_of_rows = mysqli_num_rows($objrs2);
 						if ($number_of_rows == 0) {
 								// There are no records to display, display NRF
-								?>																																							
+								?>
+				<td>
 				<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="reportform" id="reportform" target="MarkasDuplicate" onsubmit="openchild600('<?php echo $functionpage;?>','MarkasDuplicate')">
-				<td class="formoptionsubmit" onMouseover="ddrivetip('File Duplicate Report')"; onMouseout="hideddrivetip()">
 					<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-					<input type="submit" value="MD" NAME="b1" ID="b1" class="formsubmit" alt="Duplicate" onMouseover="ddrivetip('File Duplicate Report')"; onMouseout="hideddrivetip()">
+					<input type="submit" value="MD" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Duplicate" onMouseover="ddrivetip('File Duplicate Report')"; onMouseout="hideddrivetip()">
+					</form>	
 					</td>
-					</form>
 								<?php
 							}
 							else {
@@ -41,12 +41,12 @@ if ($settingsarray == '') {
 								while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 										$tmpid = $objarray2[$settingsarray[1]."_duplicate_id"];
 										?>
-				<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="reportform" id="reportform" target="MarkasDuplicate_SummaryReport" onsubmit="window.open('', 'MarkasDuplicate_SummaryReport', 'width=600,height=500,status=no,resizable=no,scrollbars=yes')">
-				<td class="formoptionsubmit">
+				<td>
+				<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="reportform" id="reportform" target="MarkasDuplicateReport" onsubmit="openchild600('<?php echo $settingsarray[2];?>','MarkasDuplicateReport')" >
 					<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-					<input type="submit" value="DH" NAME="b1" ID="b1" class="formsubmit" alt="Duplicate" onMouseover="ddrivetip('Duplicate Report')"; onMouseout="hideddrivetip()">
-					</td>
+					<input type="submit" value="DH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Duplicate" onMouseover="ddrivetip('Duplicate Report')"; onMouseout="hideddrivetip()">
 					</form>
+					</td>
 									<?	
 									}
 							}

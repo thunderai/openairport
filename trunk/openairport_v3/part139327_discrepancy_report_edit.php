@@ -107,8 +107,8 @@ if (!isset($_POST['recordid'])) {
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								?>
 							<tr>
-								<td colspan="2">
-									<table cellspacing="0" width="100%">
+								<td colspan="3">
+									<table border="0" cellspacing="0" cellpadding="0" width="100%">
 										<tr>
 											<td class="formoptionsavilabletop">
 												The following options are avilable to you
@@ -153,7 +153,6 @@ if (!isset($_POST['recordid'])) {
 														// Utilize our lies
 														include("includes/_template/_tp_blockform_workorder.binc.php");	
 														?>
-																											
 														</tr>
 													</table>
 												</td>
@@ -162,7 +161,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>
 							<tr>
-								<td colspan="2" class="formoptionsavilabletop">
+								<td colspan="3" class="formoptionsavilabletop">
 									Please complete the form below in as much detail as possible, and please pay close attention to syntax.
 									</td>
 								</tr>	
@@ -170,7 +169,7 @@ if (!isset($_POST['recordid'])) {
 							<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
 								<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
 								<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $objarray['Discrepancy_id'];?>">
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
 									Date
 									</td>
 								<td class="formanswers">
@@ -181,7 +180,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(24 Hour Time)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(24 Hour Time)')"; onMouseout="hideddrivetip()">
 									Time
 									</td>
 								<td class="formanswers">
@@ -189,7 +188,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>	
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
 									Reported By
 									</td>
 								<td class="formanswers">
@@ -199,7 +198,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>											
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
 									Discrepancy Name
 									</td>
 								<td class="formanswers">
@@ -207,7 +206,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
 									Comments
 									</td>
 								<td class="formanswers">
@@ -215,7 +214,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
 									Why Edit it?
 									</td>
 								<td class="formanswers">
@@ -223,7 +222,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>								
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
 									Priority
 									</td>
 								<td class="formanswers">
@@ -233,7 +232,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>
 							<tr>
-								<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
+								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
 									Location
 									</td>
 								<td class="formanswers">
@@ -243,7 +242,7 @@ if (!isset($_POST['recordid'])) {
 									</td>
 								</tr>											
 							<tr>
-								<td colspan="2" class="formoptionsavilablebottom">
+								<td colspan="3" class="formoptionsavilablebottom">
 									<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">
 									</td>
 								</tr>

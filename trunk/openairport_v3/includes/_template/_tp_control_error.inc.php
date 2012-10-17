@@ -12,11 +12,13 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 				// -= DC = - -= DC = - -= DC = - -= DC = - -= DC = - -= DC = - -= DC = - -= DC = - -= DC = - 
 				
 				// Provide ability to Add new Error Records reguardless
-				?>
+				?>		
+						<td>
 						<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="reportform" id="reportform" target="MarkasError" onsubmit="openchild600('<?php echo $functionpage;?>','MarkasError')">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
 							<input type="submit" value="ME" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Errors" onMouseover="ddrivetip('File Error Report')"; onMouseout="hideddrivetip()">
 							</form>
+							</td>
 				<?php
 				$sql2 = $settingsarray[0]."'".$tblkeyfield."' LIMIT 1";
 				//echo $sql2;
@@ -42,10 +44,12 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_error_id"];
 												?>
-						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="reportform" id="reportform" target="SummaryReport_ErrorReport" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReport_ErrorReport')">
+						<td>
+						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="reportform" id="reportform" target="SummaryReportError" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportError')">
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
 							<input type="submit" value="EH" NAME="e1" ID="e1" class="buttons_quickaccess" alt="Error" onMouseover="ddrivetip('Error Report')"; onMouseout="hideddrivetip()">
 							</form>
+							</td>
 											<?php
 											}
 									}
