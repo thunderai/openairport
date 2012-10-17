@@ -1185,6 +1185,7 @@ if ($tbldisplaytotal==1) {
 								<td align="right" valign="middle" class="forms_coumn_results_row">
 									<table>
 										<tr>
+											<td>
 																							<?php
 																							$tblkeyvalue = $objarray[$tblkeyfield];
 																							_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
@@ -1201,6 +1202,7 @@ if ($tbldisplaytotal==1) {
 																						$tmpbouncedtime = '';
 																						$displayrow 	= 1;
 																						?>
+												</td>
 											</tr>
 										</table>
 									</td>

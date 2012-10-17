@@ -2,6 +2,7 @@
 //	 DISCREPANCY WORKORDER BLOCK FORM CONTROLS
 //		Utilize $stage information to display control buttons
 
+
 // Short code to make the temlate browse file shorter and more manageble.
 if($functionworkorderpage == '') {
 			// Display Nothing No Bounced, No Repair, No WorkOrder Information
@@ -31,8 +32,22 @@ if($functionworkorderpage == '') {
 				else {
 					$disid 				= $objarray[$tblkeyfield];
 					$array_workorder 	= array($array_bouncedcontrol,$array_repairedcontrol);
-					$status 			= part139327discrepancy_getstage($disid, 0, 0, $array_workorder,2);
+					$status 			= part139327discrepancy_getstage($disid, 0, 0, $array_workorder,0);
+				
+					//$has_been_archieved = preflights_tbl_139_327_main_sub_d_a_yn($disid,0);
+					$has_been_bounced 	= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
+					$has_been_closed 	= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
+					//$has_been_duplicate = preflights_tbl_139_327_main_sub_d_d_yn($disid,0);
+					$has_been_repaired 	= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
+				
+					//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
+					//echo "Been Closed 	: ".$has_been_closed." 		<br>";
+					//echo "Been Repaired : ".$has_been_repaired." 	<br>";
+				
 				}
+				
+			//echo "Status is :".$status;
+			
 			//  Now parse the stage information and display the proper stuff.
 			
 	// OUTPUT	
@@ -63,7 +78,7 @@ if($functionworkorderpage == '') {
 				</td>
 			<td width="40" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">	<!-- Mark Repaired-->
 				<?php
-				if($status == 0 || $status == 1) {
+				if($status == 0 || $status == 1 || $status == 3) {
 						?>
 				<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -83,13 +98,16 @@ if($functionworkorderpage == '') {
 				</td>
 			<td width="40" height="22" onMouseover="ddrivetip('View Repair History');"  onMouseout="hideddrivetip()">	<!-- History - Repaired-->
 				<?php
-				if($status == 1 || $status == 2) {
-						?>
+				if($status == 1 || $status == 2 || $status == 3) {
+						if($has_been_repaired == 1) {
+								// Discrepancy has been repaired, display the history button
+								?>
 				<form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 					<input type="submit" value="RH" NAME="r1" ID="r1" class="buttons_quickaccess" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
 					</form>							
-						<?php
+								<?php
+							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
@@ -103,7 +121,7 @@ if($functionworkorderpage == '') {
 				</td>
 			<td width="40" height="22" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">	<!-- Mark Bounced-->
 				<?php
-				if($status == 2) {
+				if($status == 2 || $status == 3) {
 						?>
 				<form style="margin-bottom:0;" action="<?php echo $functionbouncepage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionbouncepage;?>MarkasBounce" onsubmit="openchild600('<?php echo $functionbouncepage;?>','<?php echo $functionbouncepage;?>MarkasBounce');" >
 				<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -125,13 +143,16 @@ if($functionworkorderpage == '') {
 		<tr>
 			<td height="22" onMouseover="ddrivetip('View Bounce History');"  onMouseout="hideddrivetip()">	<!-- History - Bounced-->
 				<?php
-				if($status == 2) {
-						?>
+				if($status == 2 || $status == 3) {
+						if($has_been_bounced == 1) {
+								// Discrepancy has been bounced, display the history button
+								?>
 				<form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 					<input type="submit" value="BH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
 					</form>							
-						<?php
+								<?php
+							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
@@ -145,7 +166,7 @@ if($functionworkorderpage == '') {
 				</td>
 			<td height="22" onMouseover="ddrivetip('File Closed Report');"  onMouseout="hideddrivetip()"><!-- Mark Closed-->
 				<?php
-				if($status == 1 || $status == 3) {	
+				if($status == 1) {	
 						?>
 				<form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -166,12 +187,15 @@ if($functionworkorderpage == '') {
 			<td height="22" onMouseover="ddrivetip('View Closed History');"  onMouseout="hideddrivetip()">	<!-- History - Closed-->
 				<?php
 				if($status == 3) {	
-						?>
+						if($has_been_closed == 1) {
+								// Discrepancy has been closed, display the history button
+								?>
 				<form style="margin-bottom:0;" action="<?php echo $array_closedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_closedcontrol[2];?>ViewclosedHistory" onsubmit="openchild600('<?php echo $array_closedcontrol[2];?>','<?php echo $array_closedcontrol[2];?>ViewclosedHistory');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 					<input type="submit" value="CH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('closed Report');"  onMouseout="hideddrivetip()">
 					</form>		
-					<?php
+								<?php
+							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">

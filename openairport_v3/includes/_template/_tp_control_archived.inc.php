@@ -26,11 +26,13 @@ function _tp_control_archived($tblkeyfield, $settingsarray, $functionpage) {
 								$number_of_rows = mysqli_num_rows($objrs2);
 								if ($number_of_rows == 0) {
 										// There are no records to display, display NRF
-										?>																																							
+										?>
+						<td>
 						<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="MAreportform" id="MAreportform" target="MarkasArchieved"  onsubmit="openchild600('<?php echo $functionpage;?>','MarkasArchieved')" >
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
 							<input type="submit" value="MA" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Archieved" onMouseover="ddrivetip('File Archieved Report')"; onMouseout="hideddrivetip()">
 							</form>
+							</td>
 										<?php
 									}
 									else {
@@ -38,10 +40,12 @@ function _tp_control_archived($tblkeyfield, $settingsarray, $functionpage) {
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_archeived_id"];
 												?>
-						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="Areportform" id="Areportform" target="SummaryReport_ArchievedReport" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReport_ArchievedReport')" >
+						<td>
+						<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="Areportform" id="Areportform" target="SummaryReportArchieved" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportArchieved')" >
 							<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
 							<input type="submit" value="AH" NAME="a1" ID="a1" class="buttons_quickaccess" alt="Archieved" onMouseover="ddrivetip('Archieved Report')"; onMouseout="hideddrivetip()">
 							</form>
+							</td>
 												<?	
 											}
 									}
