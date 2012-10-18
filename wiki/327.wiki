@@ -70,4 +70,10 @@ Once you click the 'submit' button the inspection will be copied into a temporar
 
 The final 327 inspection report lists all of the discrepancies found during the inspection, the location of the discrepancy, the checklist items, and a line connecting the discrepancy location to the information box. 
 
-The discrepancy information box can have seven buttons to control the discrepancy. Depending on where the discrepancy is in the discrepancy life cycle certain options will be available while others options will not be. On the left side is the button 'WO' for work order. You can view the WorkOrder report [http://openairport.googlecode.com/files/OA_step8_inspection.png here].
+The discrepancy information box can have seven buttons to control the discrepancy. Depending on where the discrepancy is in the discrepancy life cycle certain options will be available while others options will not be. On the left side is the button 'WO' for work order. You can view the Work Order report [http://openairport.googlecode.com/files/OA_step8_inspection.png here]. In the example report above, discrepancy "Dirt on Sign" has the following options available: 'WO', 'MC', and 'MB'. The other discrepancy has the following options 'WO', and 'MR'.
+
+'MB' is the button to open up the Mark Bounced window. Allowing an inspector to send the discrepancy back to maintenance in case the item really wasn't fixed as required by BBP or FAA regulations. 'MC' is the button to open up the Mark Closed window. Allowing an inspector to mark the discrepancy closed and completed. Using this function after the inspector has reviewed the repair job and approved the work. The 'MR' button opens up the Mark Repaired window. Allowing maintenance to mark the discrepancy as repaired. 
+
+[http://openairport.googlecode.com/files/OA_step9_inspection.png]
+
+Back at the Dash Panel we can see the two discrepancies that were just created listed under the 327 Discrepancies and our new inspection listed under 327 Inspections Today.  
