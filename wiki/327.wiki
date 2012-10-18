@@ -1,5 +1,3 @@
-Placeholding for style
-
 [http://openairport.googlecode.com/files/runway_blog.jpg]
 
 === Introduction ===
