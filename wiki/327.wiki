@@ -51,3 +51,13 @@ Clicking the 'Map It' button opens a high precision map of the airport that the 
 The 'Kill Order' field is for situations where an inspector corrected the discrepancy while conducting the inspection but still wants to report the discrepancy. This practice is highly encouraged because the more information you collect the more useful some of the tools we will talk about latter become. If the discrepancy was not corrected out on the inspection do not enter any information in this field. 
 
 Once the Inspector has entered all the information on the discrepancy form click the 'submit' button.  A summary of the information will be displayed (not shown) and you can close the window.
+
+When all discrepancies for the inspection have been entered or all checkboxs entered that there was a discrepancy in, click the 'submit' button.
+
+[http://openairport.googlecode.com/files/OA_step5_inspection.png]
+
+After the 'submit' button is clicked the form will display a list of all areas where a discrepancy had been noted along with any discrepancies that were added using the 'ADD' button. 
+
+In the first section is the list of all checklist areas that a discrepancy was noted in.  This may include areas where you only clicked the discrepancy check box but never added a discrepancy. Click the 'Yes (manage)' button to add a new discrepancy.  There is no limit to the number of discrepancies that can be on an inspection. In the second area is a list of the discrepancies the Inspector added using the ADD button.  Discrepancies listed here may actually not be "your" discrepancies, they could be anyone's.  They can even be abandoned discrepancies that we will talk about latter. 
+
+Once you have either added added more discrepancies and reviewed your link unassociated discrepancies you can click the 'submit' button to finalize the inspection. 
