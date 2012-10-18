@@ -76,4 +76,6 @@ The discrepancy information box can have seven buttons to control the discrepanc
 
 [http://openairport.googlecode.com/files/OA_step9_inspection.png]
 
-Back at the Dash Panel we can see the two discrepancies that were just created listed under the 327 Discrepancies and our new inspection listed under 327 Inspections Today.  
+Back at the Dash Panel we can see the two discrepancies that were just created listed under the 327 Discrepancies and our new inspection listed under 327 Inspections Today.  Under each discrepancy is some of the same options that were on the inspection report. In addition there is 'MA' Mark Achieved, 'MD' Mark as a Duplicate, and 'ME' Mark with an Error. 
+
+'MA' would be used when you created a test discrepancy and you want to hide it.  Under no circumstances should you hide real life discrepancies  without consideration as to why you are doing it. 'MD' would be used to mark a discrepancy as a duplicate of another discrepancy.  This will hide the duplicate discrepancy and not consider it when displaying other charts and graphs. 'ME' is used to mark a discrepancy with an error, such as you edited the discrepancy after it was already saved.
