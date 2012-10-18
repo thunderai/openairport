@@ -150,7 +150,14 @@ if (!isset($_POST['recordid'])) {
 														$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
 														$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
 														$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
-														// Utilize our lies
+														$has_been_bounced 		= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
+			$has_been_closed 		= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
+			$has_been_repaired 		= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
+			
+			//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
+			//echo "Been Closed 	: ".$has_been_closed." 		<br>";
+			//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
+			// Utilize our lies
 														include("includes/_template/_tp_blockform_workorder.binc.php");	
 														?>
 														</tr>
