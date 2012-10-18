@@ -62,7 +62,7 @@ Once you have either added added more discrepancies and reviewed your link unass
 
 [http://openairport.googlecode.com/files/OA_step6_inspection.png]
 
-Once you click the 'submit' button the inspection will be copied into a temporary inspection location and is NOT yet published. The Inspector must click the 'Display / Print Report' button for the inspection to become published and accessible for display.  
+Once you click the 'Save Report' button the inspection will be copied from the temporary inspection location and saved and published. The Inspector may then lick the 'Display / Print Report' button to see the finalized report.
 
 [http://openairport.googlecode.com/files/OA_step7_inspection.png]
 
