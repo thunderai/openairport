@@ -12,13 +12,12 @@ The OpenAirport system utilizes the best business practices of the FAA and indus
 
 At the core of a 327 program is the airports ability to not only detect problems on the airport, but to relay those problems to the proper authorities. Regardless of who the authorities are sending accurate and timely reports is important to ensuring any problems are fixed as soon as possible. Problems on an airport come in all shapes and sizes, some more serious than others, and some can bring an entire airport to a stop. Not only affecting the income from an airline, the tenants, but can expose the airport to increased litigation. As an airport you should not follow Part 327 just to meet the regulation, you should strive to make the regulation mean something because the information you can learn about your airport from frequent inspections can tell you more about your airport than you ever thought possible. 
 
-The OpenAirport system uses a closed-loop system to track airport problems, discrepancies. Think of a discrepancy as a living thing, it is born, it dies, and in between many things happen. 
-
-
 [http://openairport.googlecode.com/files/TheDiscrepancyLifeCycle.png]
 
+The OpenAirport system uses a closed-loop system to track airport problems, discrepancies. Think of a discrepancy as a living thing, it is born, it dies, and in between many things happen. Learn more about the Discrepancy Life Cycle by visiting the [Life Cycle http://code.google.com/p/openairport/wiki/DiscrepancyLifeCycle] page.
 
-The 
+
+
 
 Accidents happen and it is our job as Airport Management and Operations Personnel to keep our airports safe, efficient, and economical. Even though we do our best accidents can still happen and that is why the prompt and proper reporting of what the airfield looks like is so important.  So important in fact that a Google search will yield more information about FiCON reporting than you may imagine. 
 
