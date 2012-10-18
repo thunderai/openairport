@@ -88,6 +88,6 @@ If you click the 'Monitor' button on the 327 Discrepancies header you will be di
 
 "Distribution Chart" will open a launcher that allows you to customize a way to map your discrepancies.  More about that function [http://code.google.com/p/openairport/wiki/327_distribution_chart here].
 
-"Map Location(s)" will open a launcher that allows you to customize a way to map your discrepancies. More about that function here.
+"Map Location(s)" will open a launcher that allows you to customize a way to map your discrepancies. More about that function [http://code.google.com/p/openairport/wiki/327_map_locations here].
 
 "Export to Google Earth" will open a launcher that allows you to customize a way to map your discrepancies. More about that function here.
