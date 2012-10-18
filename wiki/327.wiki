@@ -25,3 +25,13 @@ Entering an Airport Safety Self-Inspection into the OpenAirport system is easy a
 Entering a 327 inspection starts at the OpenAirport Dash Panel where any active discrepancies are shown and all recent inspections are displayed. In this case, there are no active discrepancies and no inspections for the day.  Any discrepancies would be listed under the 327 Discrepancies header and any inspections would be listed under the 327 Inspections Today. 
 
 Navigate to the 327 menu item and select 'New'.
+
+[http://openairport.googlecode.com/files/OA_start_inspection.png]
+
+In AC 150 5200 18C and in 14 CFR Part 139.327 the FAA recommends than an airport conduct an inspection under four different scenarios. 1. A Regularly Scheduled Inspection, 2). Continuous Surveillance of Airport Activities, 3). Periodic Condition Evaluation, 4). Special Inspection.  As part of best business practices you should be in the habit of also conducting 5). Pavement Condition Evaluation Inspections. 
+
+Each inspection type can have any number of inspection items or categories to sort by. click 'Get Checklist' once you have selected the checklist you want to use. 
+
+[http://openairport.googlecode.com/files/OA_step2_inspection.png]
+
+A checklist will display listing each of the items the inspector should be checking. Moving your mouse over each category can display an overlay that explains to the inspector what they should be looking for and what the regulation is.
