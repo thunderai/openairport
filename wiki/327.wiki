@@ -18,55 +18,6 @@ The OpenAirport system uses a closed-loop system to track airport problems, disc
 
 === Details ====
 
-Entering an Airport Safety Self-Inspection into the OpenAirport system is easy and follows the same logic as described in [http://www.faa.gov/documentLibrary/media/advisory_circular/150-5200-18C/150_5200_18C.pdf FAA AC 150 5200 18C]
+Entering an Airport Safety Self-Inspection into the OpenAirport system is easy and follows the same logic as described in [http://www.faa.gov/documentLibrary/media/advisory_circular/150-5200-18C/150_5200_18C.pdf FAA AC 150 5200 18C] with some tweaks to ensure your inspectors have all the information available to them and be as automated as possible. 
 
-
-There are a number of different ways to enter a FiCON in OpenAirport, all are done through the Main FiCON screen. Shown below is the current FiCON screen being worked on from version 2 and reworked into version 3 code. The overall look wont change much but the framework behind it is undergoing many changes.
-
-[http://openairport.googlecode.com/files/FiCON_Main.png]
-
-Conducting FiCON operations in a prompt and proper way can mean there are times where Operations is doing a FiCON every hour or as fast as they can in a major snow storm.  This process can be sped along by the process of using Templates. Templates have two flavors.  They can either be FiCONs that were entered recently or generic FiCONs from which an Operations Specialist can change some information and submit the paper-work as fast as reasonable.   Templates are tracked and OpenAirport knows if one was used when a new FiCON is created. 
-
-Templates are compatible with all other methods of data entry so long as their selected first.  Making changes manually and then selecting a template will remove everything done and revert back to the selected template. An Operations Specialist can manually enter all information in the fields if they want.  This process can be helpd with the FiCON Help/Cheat Form.
-
-[http://openairport.googlecode.com/files/FiCON_help.png]
-
-Clicking a picture on the Help Form will put that item into the description field of that surface. A new help form has to be opened for every surface you want help with, but the process can be quite quick with a few clicks.  Each button just adds the information to the description so it wont overwrite anything you manually placed in the field.  When Help isn't enough or you want ICAO compliant descriptions, click the ICAO button.
-
-[http://openairport.googlecode.com/files/FiCON_icao3.png]
-
-The ICAO form will take you step by step in formatting a compliant description of the surface that meets all of the requirements outlined by TALPA ARC [http://www.skybrary.aero/bookshelf/books/1508.pdf], and based on the  
-[http://openairport.googlecode.com/files/sampleficonrunway.png Alaska Airlines Runway Condition Code Matrix].  By selecting the surface coverage, the depth and type of contaminant the form assigns the proper Runway Condition Code to the surface. The information is automatically input to the main form over righting anything in the field.  The temperature is pulled for the most recent METAR and can be adjusted if the user has more recent information. 
-
-[http://openairport.googlecode.com/files/FiCON_icao3b.png]
-
-Want more power to express your surface in another way but still meet ICAO standard.  This will help you in adding additional information to the ICAO Runway Condition Code Statement.
-
-[http://openairport.googlecode.com/files/FiCON_report.png]
-
-I put in this report to show how a report can look with surface anomalies and colorized Mu Values on defined surfaces.  The report is currently undergoing some design changes and may look a little different in the future. As always, you can customize any of these forms in anyway you want. 
-
-=== Surface Anomalies ===
-
-You know they exist. Like discrepancies in a 327 inspection anomalies are situations on your airfield that are not easily explainable with text but can be quite easy to understand if you show a graphic location to someone.  After building the basic FiCON the user can place anomalies on the report explaining situation things like berms, snow drifts, or whatever they feel is important. If you have the time to data entry it, its possible to show it.  
-
-Anomalies are not copied from templates and don't follow the same rules as a discrepancy from a 327 inspection.  They can be tracked, shown on maps, but they can't be 'closed', 'repaired', 'bounced', and have no status.  Once they are on the report they will not automatically exist in future FiCONs unlike a discrepancy.  Snow removal is fluid and a FiCON should only display the current scenario and the anomalies that process creates. 
-
-=== Going from here ===
-
-Once basic data entry is completed there is a wealth of information at your disposal.  Did you know that your average Mu value is 3 less when testing up a gradient or that what you thought was your worst location on the airport actually isn't that bad. Similar to the graphic distribution of Wildlife Hazards the FiCON system can show you where your problems are, trends in surface conditions, and help you plan your next snow season more efficiently. 
-
-[http://openairport.googlecode.com/files/FiCON_surfacehistory.png]
-
-Having control over your data is important because it grants you the ability to see what is going on at your airport down to the surface level. Tracking the condition of a surface through its history helps you know what are trouble spots, what areas need special focus, and helps replay a snow storm after it is over. 
-
-The Surface History report shows you the history of any surface you want or all surfaces if you want that too. Runways are shown in cross section and taxiways and ramps are shown by chronological trend. You can control the search dates, if you want to include Mu's over 40 or when no Mu values are included in the report at all.
-
-[http://openairport.googlecode.com/files/ficon_in_3d.png]
-
-It has been possible to view discrepancies, wildlife hazard management actions and surface anomalies in Google Earth for sometime now; however, now you can bring Mu Values themselves to life in 3D. Clicking the export to Google Earth while browsing FiCONs allows you to customize how to Mu Values will appear in 3D.  You can show a single FiCON, an average between given dates, etc.
-
-This is accomplished by creating a polygon in the shape of a defined surface and then using one of the OpenAirport tools to convert the raw GPS Lat,Long into internal X,Y coordinates. These shapes are also used in the FiCON Report in displaying Mu Values on the surface map itself (shown on the report image above). The actual procedure is outlined [makesurfaceshape here].
-
-[http://openairport.googlecode.com/files/ficon_notams.png]
-With NOTAM's now in Google Earth you can view all your notam's in 3D.  In the example above, Red/Maroon are surfaces that are currently closed. Green are surfaces that have expired NOTAMs, and surfaces without a height polygon have no NOTAMs.  This can be changed to only display currently closed surfaces and in such a situation all you see are the red/maroon surfaces. A Network GE Link exists to only show current NOTAMs.
+Entering a 327 inspection starts at the OpenAirport Dash Panel where any active discrepancies are shown and all recent inspections are displayed. 
