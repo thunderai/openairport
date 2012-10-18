@@ -77,3 +77,17 @@ The discrepancy information box can have seven buttons to control the discrepanc
 Back at the Dash Panel we can see the two discrepancies that were just created listed under the 327 Discrepancies and our new inspection listed under 327 Inspections Today.  Under each discrepancy is some of the same options that were on the inspection report. In addition there is 'MA' Mark Achieved, 'MD' Mark as a Duplicate, and 'ME' Mark with an Error. 
 
 'MA' would be used when you created a test discrepancy and you want to hide it.  Under no circumstances should you hide real life discrepancies  without consideration as to why you are doing it. 'MD' would be used to mark a discrepancy as a duplicate of another discrepancy.  This will hide the duplicate discrepancy and not consider it when displaying other charts and graphs. 'ME' is used to mark a discrepancy with an error, such as you edited the discrepancy after it was already saved.
+
+[http://openairport.googlecode.com/files/OA_step10_inspection.png]
+
+If you click the 'Monitor' button on the 327 Discrepancies header you will be directed to the Discrepancy monitor page. The Priority of each discrepancy, the name, and inspector are listed along with the ability to edit 'E', Summarize 'S', display report 'R', and the standard options  explained before are displayed. Shown exposed is the "Form Utilities" options that allow you to explore the data in more detail.
+
+"Calendar Printout" will display all discrepancies filled per day in a calendar format from the start date to the end date for the entire month that those dates include. You can click on any discrepancies listed to learn more about each one.
+
+"Printer Friendly Format" will open a window and display everything currently displayed on the page but in a format that is easier to read and more form fitted for a printer to print. 
+
+"Distribution Chart" will open a launcher that allows you to customize a way to map your discrepancies.  More about that function here.
+
+"Map Location(s)" will open a launcher that allows you to customize a way to map your discrepancies. More about that function here.
+
+"Export to Google Earth" will open a launcher that allows you to customize a way to map your discrepancies. More about that function here.
