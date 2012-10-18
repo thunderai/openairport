@@ -14,7 +14,7 @@ At the core of a 327 program is the airports ability to not only detect problems
 
 [http://openairport.googlecode.com/files/TheDiscrepancyLifeCycle.png]
 
-The OpenAirport system uses a closed-loop system to track airport problems, discrepancies. Think of a discrepancy as a living thing, it is born, it dies, and in between many things happen. Learn more about the Discrepancy Life Cycle by visiting the [http://code.google.com/p/openairport/wiki/DiscrepancyLifeCycle] page.
+The OpenAirport system uses a closed-loop system to track airport problems, discrepancies. Think of a discrepancy as a living thing, it is born, it dies, and in between many things happen. Learn more about the Discrepancy Life Cycle by visiting the [http://code.google.com/p/openairport/wiki/DiscrepancyLifeCycle Life Cycle] page.
 
 
 
