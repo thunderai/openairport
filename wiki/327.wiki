@@ -65,3 +65,9 @@ Once you have either added added more discrepancies and reviewed your link unass
 [http://openairport.googlecode.com/files/OA_step6_inspection.png]
 
 Once you click the 'submit' button the inspection will be copied into a temporary inspection location and is NOT yet published. The Inspector must click the 'Display / Print Report' button for the inspection to become published and accessible for display.  
+
+[http://openairport.googlecode.com/files/OA_step7_inspection.png]
+
+The final 327 inspection report lists all of the discrepancies found during the inspection, the location of the discrepancy, the checklist items, and a line connecting the discrepancy location to the information box. 
+
+The discrepancy information box can have seven buttons to control the discrepancy. Depending on where the discrepancy is in the discrepancy life cycle certain options will be available while others options will not be. On the left side is the button 'WO' for work order. You can view the WorkOrder report [http://openairport.googlecode.com/files/OA_step8_inspection.png here].
