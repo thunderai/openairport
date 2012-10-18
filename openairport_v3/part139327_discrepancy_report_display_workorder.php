@@ -48,6 +48,7 @@
 		include("includes/_modules/part139327/part139327.list.php");
 		include("includes/_navigation/navigation.list.php");
 		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
+		include("includes/_template/template.list.php");
 		
 		?>
 		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">

@@ -4,7 +4,7 @@ function _dp_327_discrepancies($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_327discrepancies" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
+<table class="layout_dashpanel_container" width="45%" align="left" valign="top"  border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
 	<tr>
 		<td class="layout_dashpanel_container_header">
 			<font size='2'>
@@ -71,18 +71,19 @@ function _dp_327_discrepancies($dasharray) {
 										
 										$status = part139327discrepancy_getstage($tmpdiscrepancyid,0, 0,0,0);
 										
-										if($status == 0) {
+										if($status <> 3 ) {
 												// Display Summary Report
 												?>
 	<tr>
 		<td colspan="2" class="layout_dashpanel_container_div" />
 		<?php
+			
 												display_discrepancy_summary($tmpdiscrepancyid,0,0);
 												?>
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" class='forms_coumn_footer' align="right">
+		<td class='forms_coumn_footer' align="right">
 			<?php
 			// Load Workorder Controls
 			// Lie to the blockform
@@ -96,16 +97,45 @@ function _dp_327_discrepancies($dasharray) {
 			$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
 			$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
 			$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
+			$has_been_bounced 		= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
+			$has_been_closed 		= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
+			$has_been_repaired 		= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
+			
+			//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
+			//echo "Been Closed 	: ".$has_been_closed." 		<br>";
+			//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
+				
+				
 			// Utilize our lies
 			?>
-			<table border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='right'>
+			<table border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
 				<tr>
-			<?php
-			include("includes/_template/_tp_blockform_workorder.binc.php");	
-			?>
+					<td>
+						<?php
+						include("includes/_template/_tp_blockform_workorder.binc.php");	
+						?>
+						</td>
 					</tr>
 				</table>
-			</td>	
+			</td>
+		<td class='forms_coumn_footer' align="right">
+			<table border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
+				<tr>
+					<?php
+					include("includes/_template/template.list.php");
+					$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
+					$functionpage	= "part139327_discrepancy_report_archieved.php";														
+					_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+					$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
+					$functionpage	= "part139327_discrepancy_report_duplicate.php";														
+					_tp_control_duplicate($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+					$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
+					$functionpage	= "part139327_discrepancy_report_error.php";														
+					_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
+					?>
+					</tr>
+				</table>
+			</td>
 		</tr>
 												<?php
 											}
@@ -117,14 +147,7 @@ function _dp_327_discrepancies($dasharray) {
 		
 		
 		?>
-			</td>
-		</tr>
 	</table>
-<!--	</div>
-	
-	<script type="text/javascript">
-	var googlewin=dhtmlwindow.open("div4", "div", "div_327discrepancies", "<?php echo $dasharray[2];?>", "width=300px,height=750px,left=820px;top=40px;resize=1,scrolling=1,center=0", "recal")
-	</script>-->
 	<?php
 	}
 ?>

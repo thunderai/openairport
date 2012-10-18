@@ -28,6 +28,7 @@ if($functionworkorderpage == '') {
 					// For other pages than the template browse hijacking into the blockform
 					//$disid 			= $disid;												<- The pimary Page would know this already
 					//$status 			= part139327discrepancy_getstage($disid, 0, 0, 0, 1);	<- The primary page should have run this already
+					$grid_or_row		= 'row';
 				}
 				else {
 					$disid 				= $objarray[$tblkeyfield];
@@ -42,7 +43,9 @@ if($functionworkorderpage == '') {
 				
 					//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
 					//echo "Been Closed 	: ".$has_been_closed." 		<br>";
-					//echo "Been Repaired : ".$has_been_repaired." 	<br>";
+					//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
+					
+					$grid_or_row		= 'grid';
 				
 				}
 				
@@ -66,10 +69,16 @@ if($functionworkorderpage == '') {
 		//					} View Workorder button
 		//				3 - is Closed, no furthure abilities
 		//					} Closed History Button
-			?>
+			
+			
+if($grid_or_row == 'grid') {		
+		?>
 <font size="1">
-	<table cellpadding="0" cellspacing="0" border="0" width="160">
+	<table cellpadding="0" cellspacing="0" border="0" width="160" style="border: collapse;" align='left'>
 		<tr>
+		<?php
+	}
+	?>
 			<td  width="40" height="22" rowspan="2" onMouseover="ddrivetip('View WorkOrder');"  onMouseout="hideddrivetip()">	<!-- Workorder Report-->
 				<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="ViewWorkOrder" onsubmit="openmapchild('<?php echo $functionworkorderpage;?>','ViewWorkOrder');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -78,7 +87,7 @@ if($functionworkorderpage == '') {
 				</td>
 			<td width="40" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">	<!-- Mark Repaired-->
 				<?php
-				if($status == 0 || $status == 1 || $status == 3) {
+				if($status == 0 || $status == 1) {
 						?>
 				<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -87,9 +96,7 @@ if($functionworkorderpage == '') {
 						<?php
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center">-
-							</font>
+						<align="center" valign="bottom"><img src="images\_interface\button_inactive.png" width="36">
 						<?php
 						
 						
@@ -107,11 +114,17 @@ if($functionworkorderpage == '') {
 					<input type="submit" value="RH" NAME="r1" ID="r1" class="buttons_quickaccess" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
 					</form>							
 								<?php
+							} else {
+						?>
+						<font color="#FFFFFF" size="2">
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
+							</font>
+						<?php
 							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
-							<align="center">-
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
 							</font>
 						<?php
 						
@@ -131,7 +144,7 @@ if($functionworkorderpage == '') {
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
-							<align="center">-
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
 							</font>
 						<?php
 						
@@ -139,8 +152,14 @@ if($functionworkorderpage == '') {
 					}
 					?>
 				</td>
+<?php
+if($grid_or_row == 'grid') {		
+		?>
 			</tr>
 		<tr>
+		<?php
+	}
+	?>
 			<td height="22" onMouseover="ddrivetip('View Bounce History');"  onMouseout="hideddrivetip()">	<!-- History - Bounced-->
 				<?php
 				if($status == 2 || $status == 3) {
@@ -152,11 +171,17 @@ if($functionworkorderpage == '') {
 					<input type="submit" value="BH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
 					</form>							
 								<?php
+							} else {
+						?>
+						<font color="#FFFFFF" size="2">
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
+							</font>
+						<?php
 							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
-							<align="center">-
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
 							</font>
 						<?php
 						
@@ -166,7 +191,7 @@ if($functionworkorderpage == '') {
 				</td>
 			<td height="22" onMouseover="ddrivetip('File Closed Report');"  onMouseout="hideddrivetip()"><!-- Mark Closed-->
 				<?php
-				if($status == 1) {	
+				if($status == 2) {	
 						?>
 				<form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
 					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
@@ -176,7 +201,7 @@ if($functionworkorderpage == '') {
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
-							<align="center">-
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
 							</font>
 						<?php
 						
@@ -195,11 +220,17 @@ if($functionworkorderpage == '') {
 					<input type="submit" value="CH" NAME="b1" ID="b1" class="buttons_quickaccess" alt="Bounced" onMouseover="ddrivetip('closed Report');"  onMouseout="hideddrivetip()">
 					</form>		
 								<?php
+							} else {
+						?>
+						<font color="#FFFFFF" size="2">
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
+							</font>
+						<?php
 							}
 					} else {
 						?>
 						<font color="#FFFFFF" size="2">
-							<align="center">-
+							<align="center"><img src="images\_interface\button_inactive.png" width="36">
 							</font>
 						<?php
 						
@@ -207,8 +238,12 @@ if($functionworkorderpage == '') {
 					}
 				?>
 				</td>
+<?php
+if($grid_or_row == 'grid') {		
+		?>
 			</tr>
 		</table>
 	<?php
+	}
 		}
 		?>
