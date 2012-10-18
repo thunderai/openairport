@@ -20,4 +20,8 @@ The OpenAirport system uses a closed-loop system to track airport problems, disc
 
 Entering an Airport Safety Self-Inspection into the OpenAirport system is easy and follows the same logic as described in [http://www.faa.gov/documentLibrary/media/advisory_circular/150-5200-18C/150_5200_18C.pdf FAA AC 150 5200 18C] with some tweaks to ensure your inspectors have all the information available to them and be as automated as possible. 
 
-Entering a 327 inspection starts at the OpenAirport Dash Panel where any active discrepancies are shown and all recent inspections are displayed. 
+[http://openairport.googlecode.com/files/OA_dashpanel.png]
+
+Entering a 327 inspection starts at the OpenAirport Dash Panel where any active discrepancies are shown and all recent inspections are displayed. In this case, there are no active discrepancies and no inspections for the day.  Any discrepancies would be listed under the 327 Discrepancies header and any inspections would be listed under the 327 Inspections Today. 
+
+Navigate to the 327 menu item and select 'New'.
