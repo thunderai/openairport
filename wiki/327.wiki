@@ -86,7 +86,7 @@ If you click the 'Monitor' button on the 327 Discrepancies header you will be di
 
 "Printer Friendly Format" will open a window and display everything currently displayed on the page but in a format that is easier to read and more form fitted for a printer to print. 
 
-"Distribution Chart" will open a launcher that allows you to customize a way to map your discrepancies.  More about that function here.
+"Distribution Chart" will open a launcher that allows you to customize a way to map your discrepancies.  More about that function [http://code.google.com/p/openairport/wiki/327_distribution_chart here].
 
 "Map Location(s)" will open a launcher that allows you to customize a way to map your discrepancies. More about that function here.
 
