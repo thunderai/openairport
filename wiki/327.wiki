@@ -35,3 +35,15 @@ Each inspection type can have any number of inspection items or categories to so
 [http://openairport.googlecode.com/files/OA_step2_inspection.png]
 
 A checklist will display listing each of the items the inspector should be checking. Moving your mouse over each category can display an overlay that explains to the inspector what they should be looking for and what the regulation is.
+
+It is not necessary to click any checklist item that is acceptable. An inspector only needs to click the check box for a checklist item that they discovered a problem in. 
+
+[http://openairport.googlecode.com/files/OA_step3_inspection.png]
+
+An Inspector has three choices on how they want enter a discrepancy for their inspection. 1). They can click the check box for a discrepancy in that checklist item and enter a discrepancy latter, 2). Click the 'ADD' button which will open a new window asking for information about the discrepancy, and 3). which we will cover latter.
+
+In either of the two cases a screen like the one shows will be displayed. Provide a name of the discrepancy, some more information about the discrepancy, a priority level, and a location. 
+
+[http://openairport.googlecode.com/files/OA_step4_inspection.png]
+
+Clicking the 'Map It' button opens a high precision map of the airport that the inspector can click on to map the discrepancy.  If you click in the wrong spot you can re-click in the correct spot without reopening the map. The coordinates of the location clicked will be entered in the discrepancy form. 
