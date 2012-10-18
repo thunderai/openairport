@@ -61,3 +61,7 @@ After the 'submit' button is clicked the form will display a list of all areas w
 In the first section is the list of all checklist areas that a discrepancy was noted in.  This may include areas where you only clicked the discrepancy check box but never added a discrepancy. Click the 'Yes (manage)' button to add a new discrepancy.  There is no limit to the number of discrepancies that can be on an inspection. In the second area is a list of the discrepancies the Inspector added using the ADD button.  Discrepancies listed here may actually not be "your" discrepancies, they could be anyone's.  They can even be abandoned discrepancies that we will talk about latter. 
 
 Once you have either added added more discrepancies and reviewed your link unassociated discrepancies you can click the 'submit' button to finalize the inspection. 
+
+[http://openairport.googlecode.com/files/OA_step6_inspection.png]
+
+Once you click the 'submit' button the inspection will be copied into a temporary inspection location and is NOT yet published. The Inspector must click the 'Display / Print Report' button for the inspection to become published and accessible for display.  
