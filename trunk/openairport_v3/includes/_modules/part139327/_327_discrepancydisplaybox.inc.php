@@ -112,6 +112,8 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 									$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
 									
 									// Utilize our lies
+									
+									$grid_or_row = 'grid';
 									include("includes/_template/_tp_blockform_workorder.binc.php");	
 									
 									?>	

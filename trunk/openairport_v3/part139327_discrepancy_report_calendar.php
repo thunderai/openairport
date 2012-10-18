@@ -37,7 +37,8 @@
 	// Load Page Specific Includes
 
 		include("includes/_modules/part139327/part139327.list.php");
-
+		include("includes/_template/template.list.php");
+		
 	// GET information from the GET String
 			
 		$sql 					= $_GET['frmurl'];												// get the sql statement from the URL, this is important latter (in this document)														

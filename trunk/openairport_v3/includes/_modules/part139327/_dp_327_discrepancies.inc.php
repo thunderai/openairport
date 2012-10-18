@@ -100,7 +100,7 @@ function _dp_327_discrepancies($dasharray) {
 			$has_been_bounced 		= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
 			$has_been_closed 		= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
 			$has_been_repaired 		= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
-			
+			$grid_or_row			= '';
 			//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
 			//echo "Been Closed 	: ".$has_been_closed." 		<br>";
 			//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
@@ -122,7 +122,7 @@ function _dp_327_discrepancies($dasharray) {
 			<table border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
 				<tr>
 					<?php
-					include("includes/_template/template.list.php");
+					include_ONCE("includes/_template/template.list.php");
 					$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
 					$functionpage	= "part139327_discrepancy_report_archieved.php";														
 					_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);

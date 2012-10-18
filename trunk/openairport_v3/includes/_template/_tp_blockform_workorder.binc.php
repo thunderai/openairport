@@ -28,7 +28,11 @@ if($functionworkorderpage == '') {
 					// For other pages than the template browse hijacking into the blockform
 					//$disid 			= $disid;												<- The pimary Page would know this already
 					//$status 			= part139327discrepancy_getstage($disid, 0, 0, 0, 1);	<- The primary page should have run this already
-					$grid_or_row		= 'row';
+					if($grid_or_row == '') {
+							$grid_or_row = 'row';
+						} else {
+							$grid_or_row = 'grid';
+						}
 				}
 				else {
 					$disid 				= $objarray[$tblkeyfield];
