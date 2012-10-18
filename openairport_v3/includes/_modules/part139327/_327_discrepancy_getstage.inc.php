@@ -58,6 +58,7 @@ function part139327discrepancy_getstage($discrepancy_id,$inspection_date = 0, $i
 				$sql2 		= $array_workorder[1][0]."'".$discrepancy_id."' ORDER BY ".$array_workorder[1][1]."_repaired_date, ".$array_workorder[1][1]."_repaired_time";
 			}
 		
+		//echo $sql2;
 		$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 		if (mysqli_connect_errno()) {

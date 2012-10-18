@@ -20,6 +20,8 @@ function preflights_tbl_139_327_main_sub_d_r_yn($recordid,$tblarchivedsort) {
 						//echo ">>".$number_of_rows;
 						if ($number_of_rows > 0 ) {
 								$isarchived = 1;
+							} else {
+								$isarchived = 0;
 							}
 					}
 			}
@@ -41,7 +43,7 @@ function preflights_tbl_139_327_main_sub_d_r_yn($recordid,$tblarchivedsort) {
 			}
 			else {
 				// This record is not a duplicate, and not archived, so lets display it anyway
-				$displayrow=1;
+				$displayrow=0;
 			}
 		
 	//echo "Display Row :".$displayrow;
