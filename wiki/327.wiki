@@ -1,14 +1,18 @@
 Placeholding for style
 
-[http://openairport.googlecode.com/files/snowplow.jpg]
+[http://openairport.googlecode.com/files/runway_blog.jpg]
 
 === Introduction ===
 
-14 CFR Part 139.339 Field Condition Reporting describes regulations pertaining to how an airport shares information about what the airfield looks like going beyond what discrepancies there are on the field like in Part 139.327. 
+14 CFR Part 139.327 Airport Safety Self-Inspection describes regulations pertaining to how an airport ensures that all airport surfaces meet FAA requirements. There are extensive regulations and advisory circulars that an airport can use to ensure their self-inspection system is complete, accurate, and safe. 
 
-This is done in two ways a), Through the NOTAM system, and b). Through internal communication that provides specific information about the airport to all tenants and users. Part 139.339 (b) describes NOTAM procedures and Part 139.339 (c) describes the specific information for tenants an airport will share. 
+The OpenAirport system utilizes the best business practices of the FAA and industry leading publications to create a Part 327 system that will support your airport for years to come. 
 
 === Background ====
+
+At the core of a 327 program is the airports ability to not only detect problems on the airport, but to relay those problems to the proper authorities. Regardless of who the authorities are sending accurate and timely reports is important to ensuring any problems are fixed as soon as possible. 
+
+The 
 
 Accidents happen and it is our job as Airport Management and Operations Personnel to keep our airports safe, efficient, and economical. Even though we do our best accidents can still happen and that is why the prompt and proper reporting of what the airfield looks like is so important.  So important in fact that a Google search will yield more information about FiCON reporting than you may imagine. 
 
