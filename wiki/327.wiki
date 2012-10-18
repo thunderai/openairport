@@ -47,3 +47,7 @@ In either of the two cases a screen like the one shows will be displayed. Provid
 [http://openairport.googlecode.com/files/OA_step4_inspection.png]
 
 Clicking the 'Map It' button opens a high precision map of the airport that the inspector can click on to map the discrepancy.  If you click in the wrong spot you can re-click in the correct spot without reopening the map. The coordinates of the location clicked will be entered in the discrepancy form. 
+
+The 'Kill Order' field is for situations where an inspector corrected the discrepancy while conducting the inspection but still wants to report the discrepancy. This practice is highly encouraged because the more information you collect the more useful some of the tools we will talk about latter become. If the discrepancy was not corrected out on the inspection do not enter any information in this field. 
+
+Once the Inspector has entered all the information on the discrepancy form click the 'submit' button.  A summary of the information will be displayed (not shown) and you can close the window.
