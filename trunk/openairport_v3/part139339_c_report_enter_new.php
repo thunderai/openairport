@@ -268,9 +268,17 @@ if (!isset($_POST["formsubmit"])) {
 							$tmpcondname	= $objfields['139339_c_name'];
 							$tmpcondnamestr	= str_replace(" ","",$tmpcondname);
 							
+							echo "Condition String :".$tmpcondnamestr." ==> ";
+							echo "Condition Value from POST :".$_POST[$tmpcondnamestr]." <br>";
+							
 							$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 							//mysql_insert_id();
+				
+				
+				
+				
+				
 				
 							$sql = "INSERT INTO tbl_139_339_sub_c_c (139339_cc_c_cb_int,139339_cc_ficon_cb_int,139339_cc_d_yn) VALUES ( '".$tmpid."', '".$lastid."', '".$_POST[$tmpcondnamestr]."')";
 		

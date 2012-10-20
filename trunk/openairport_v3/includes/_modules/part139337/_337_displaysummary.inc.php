@@ -63,11 +63,11 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table class='layout_dashpanel_container_table' />";
+				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table class='layout_dashpanel_container_table' />";
+				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
 			}
 
 		

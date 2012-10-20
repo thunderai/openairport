@@ -7,13 +7,13 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		$OffSetX 		= -15;
 		$OffSetY 		= 65;
 		$disheight		= 0;
-		$tempX 			= ($disx + $OffSetX );
-		$tempY 			= ($disy + $OffSetY );
+		$tempX 			= ($disx + $OffSetX);
+		$tempY 			= ($disy + $OffSetY);
 		
 		if($txtdisplay <> "Targets Only") {
-		// DISPLAY RIGHT SIDE INFORMATION
-		//
-		?>
+				// DISPLAY RIGHT SIDE INFORMATION
+				//
+				?>
 		
 		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>; top:<?php echo ($ypost);?>; z-index:<?php echo ($zpost);?>; align="center">
 			<table border="0" width="100%" cellpadding="0" cellspacing="1" BACKGROUND="images/Part_139_327/disback.gif" style="border:1px #000000 solid">

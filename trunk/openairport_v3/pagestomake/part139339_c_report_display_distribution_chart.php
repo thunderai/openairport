@@ -87,9 +87,17 @@
 
 // Load POST Variables
 
-		$tmpyear 		= $_POST['frmyear'];
-	
-			
+	//form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	//form_new_control("frmenddate"			,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	//form_new_control("discondition"		,"Time Period"				, "Select a Condition"				,"Select a condition from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
+	//form_new_control("wlhmactivity"		,"Surface"					, "Select a Surface"				,"Select a surface from the list provided!"				,""					,3			,35				,4				,"all"					,"part139339_c_facilitycombobox_limitedtomu");
+	//form_new_control("disfacility"		,"Facility"					, "Select a Facility"				,"Select a Facility from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327facilitycomboboxwall");
+	//form_new_control("disinspection"		,"From Inspection of Type"	, "Select an Inspection Type"		,"Select an inspection from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327typescomboboxwall");
+	//form_new_control("wlhmborder"			,"Display Border"			, "Checked to display border"		,"Checking this box will place a grid on the map"		,""					,5			,50				,0				,"all"					,0);
+	//form_new_control("ficon_40"			,"Show 40 and Over"			, "Include 40s and Over or Not?"	,"Checking this box will include 40 Mus and Over. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
+	//form_new_control("ficon_none"			,"Show Null Mu"				, "Include Null Mu?"				,"Checking this box will include Mus with no value. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
+	//form_new_control("disusebrowser"		,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""				,5			,50				,0				,"all"					,0);
+				
 		if (!isset($_POST['wlhmborder'])) {
 				// Option is not set
 				$displaygridborder	= 0;
@@ -99,16 +107,30 @@
 				$displaygridborder 	= $_POST['wlhmborder'];
 			}	
 
-
+		if($_POST['ficon_40'] == '1') {
+				$include_40		= 1;
+			}
+			else {
+				$include_40		= 0;			
+			}
+			
+		if($_POST['ficon_none'] == '1') {
+				$include_0		= 1;
+			}
+			else {
+				$include_0		= 0;			
+			}
+			
+			
 	//Get Information from the FORM
 		$tmpstartdate 	= $_POST['frmstartdate'];
 		$tmpenddate 	= $_POST['frmenddate'];
 		$tmpstartdate2 	= $_POST['frmstartdateo'];
 		$tmpenddate2	= $_POST['frmenddateo'];
 		
-		$displaycondition_id 	= $_POST['discondition'];
-		//$displayfacility_id 	= $_POST['disfacility'];
-		//$displayinspection_id 	= $_POST['disinspection'];
+		$display_timeperiod 	= $_POST['discondition'];
+		$display_surface		= $_POST['wlhmactivity'];
+		$display_inspection 	= $_POST['disinspection'];
 		
 	// Convert start date and end date into sql format
 	

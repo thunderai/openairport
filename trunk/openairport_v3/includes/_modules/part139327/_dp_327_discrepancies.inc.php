@@ -21,6 +21,7 @@ function _dp_327_discrepancies($dasharray) {
 			</td>
 		</tr>
 	<?php
+	
 		// Loop through active discrepancies and display a summary report for each one
 		$sql 		= "SELECT * FROM tbl_139_327_sub_d 
 		INNER JOIN tbl_systemusers 		ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d.Discrepancy_by_cb_int 
@@ -148,6 +149,7 @@ function _dp_327_discrepancies($dasharray) {
 		
 		?>
 	</table>
+	</div>
 	<?php
 	}
 ?>

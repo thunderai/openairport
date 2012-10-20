@@ -4,7 +4,7 @@ function _dp_333_inspections($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_333inspections" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
+<table class="layout_dashpanel_container" width="45%" align="left" valign="top"  border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
 	<tr>
 		<td class="layout_dashpanel_container_header">
 			<font size='2'>
@@ -69,7 +69,7 @@ function _dp_333_inspections($dasharray) {
 										// Check Status of this Discrepancy, ie. Get the current stage
 												?>
 	<tr>
-		<td colspan="2">
+		<td colspan="2" class="layout_dashpanel_container_div">
 		<?php										
 										_333_display_report_summary($tmp_inspection_id,0,0);
 												?>
@@ -85,6 +85,7 @@ function _dp_333_inspections($dasharray) {
 			</td>
 		</tr>
 	</table>
+	</div>
 <!--	</div>
 	
 	<script type="text/javascript">

@@ -15,7 +15,7 @@ function part139339_c_templatescombobox_ajax($suppliedid, $archived, $nameofinpu
 
 		if ($showcombobox=="show") {
 				?>
-				<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" ID="<?php echo $nameofinput;?>" onchange="call_server_ficon_loadtemplate(<?php echo $_SESSION['user_id'];?>);">>
+				<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" ID="<?php echo $nameofinput;?>" onchange="call_server_ficon_loadtemplate(<?php echo $_SESSION['user_id'];?>);" />>
 					<option value=0>If you want to use a template, select one from this list</option>
 					<?php
 			}
