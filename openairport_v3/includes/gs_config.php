@@ -71,4 +71,5 @@
 		$en_pageation		= "Display Page";
 		$en_active			= "ACTIVE!";
 		$en_notactive		= "NOT ACTIVE!";
+		$en_submitform		= "Submit Request";
 ?>

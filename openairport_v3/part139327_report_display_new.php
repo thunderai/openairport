@@ -399,8 +399,7 @@ if (!isset($_POST["recordid"])) {
 							// there was an error trying to connect to the mysql database
 							printf("connect failed: %s\n", mysqli_connect_error());
 							exit();
-						}
-						else {
+						} else {
 	
 	//				Connection Sucessful
 	
@@ -575,7 +574,8 @@ if (!isset($_POST["recordid"])) {
 													//echo "------------------------- 				<br>";
 												}
 												
-											$passindex = $passindex + 1;	
+											$passindex 		= $passindex + 1;	
+											$tmpzindex		= $tmpzindex + 1;
 											$totaldisheight = ( $totaldisheight + $lastdisheight );
 											
 											//echo "------------------------- 					<br>";

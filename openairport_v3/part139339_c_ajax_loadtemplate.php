@@ -228,6 +228,10 @@
 								$rootname 		= str_replace("closed","",$rootname);
 								//echo $rootname;
 							
+								//Check to see if this checkbox has a value already in it????
+								//
+								//???
+							
 								if($objfields["139339_f_rwy_yn"] == 1) {
 										$function = "closesurface_rwy";
 									}
@@ -237,7 +241,7 @@
 									else {
 										$function = "closesurface";
 									}
-																	
+								
 								//$tmpisnull = is_null($objfields['139339_t_cc_d_yn']);
 								//echo $tmpisnull;
 								if ($recent == 1) {				
@@ -245,6 +249,18 @@
 									} else {	
 										$tmpvalue	= ($objfields['139339_t_cc_d_yn']);
 									}
+								
+								if($tmpvalue == 1) {
+										// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+										$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+										$checked = "CHECKED";
+									} else {
+										// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+										$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+										$checked = "";
+									}
+								
+								
 								
 								// The type of element is govered by the following types
 									// 0 Mu
@@ -257,16 +273,21 @@
 								// ...| 1 = InnerHTML, 2 = Value	| .$tmpcondnamestr.		| $tmpvalue
 								
 								if($element_type==1) {
+										
+										echo "field Value :".$_POST[$tmpcondnamestr]." <br>";
+										?>
+										<input type="text" value="<?php echo $_POST[$tmpcondnamestr];?>">
+										<?php
 										// Elemement is a Checkbox					
 										if ($tmpvalue!=1) {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input class='Commonfieldbox' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' value='1' />";												
+												$tmpnewstring 	= "<input onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' value='1' />";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}
 											else {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input class='Commonfieldbox' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." value='1' CHECKED>";												
+												$tmpnewstring 	= "<input onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." value='1' CHECKED >";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}

@@ -530,12 +530,12 @@ input.Commonfieldbox {
 	}
 
 .inlinehiddenbox { 
-	border:1px solid #867C71; 
+	border:0px solid #867C71; 
 	color: #FFFFFF; 
 	font-size: 14px; 
 	text-align: center; 
 	padding: 0; 
-	background-color:#867C71;
+	background-color: #196CA5;
 	}
 
 .formresults {

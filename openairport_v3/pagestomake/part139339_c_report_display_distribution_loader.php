@@ -75,14 +75,14 @@
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
 			$formname			= "mapit_form";													// HTML Name for Form
-			$formaction			= "part139339_c_discrepancy_display_distribution_chart.php";		// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formaction			= "part139339_c_report_display_distribution_chart.php";		// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
 				$formtarget		= "HSLocationWindow";											// HTML Name for the window
 				$location		= $formtarget;													// Leave the same as $formtarget
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= "Map Anomaly Hot Spots Loader";							// Name of the FORM, shown to the user
+			$form_menu			= "Map Mu Surface Hot Spots Loader";							// Name of the FORM, shown to the user
 			$form_subh			= "please complete the form";									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Part 139.339 (c) - Chart HotSpots Actions";			// Subt title of the FORM, shown to the user
 
@@ -103,9 +103,12 @@
 	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
 	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
 	form_new_control("discondition"		,"Time Period"				, "Select a Condition"				,"Select a condition from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
+	form_new_control("wlhmactivity"		,"Surface"					, "Select a Surface"				,"Select a surface from the list provided!"				,""					,3			,35				,4				,"all"					,"part139339_c_facilitycombobox_limitedtomu");
 	//form_new_control("disfacility"		,"Facility"					, "Select a Facility"				,"Select a Facility from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327facilitycomboboxwall");
 	//form_new_control("disinspection"	,"From Inspection of Type"	, "Select an Inspection Type"		,"Select an inspection from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327typescomboboxwall");
 	form_new_control("wlhmborder"		,"Display Border"			, "Checked to display border"		,"Checking this box will place a grid on the map"		,""					,5			,50				,0				,"all"					,0);
+	form_new_control("ficon_40"			,"Show 40 and Over"			, "Include 40s and Over or Not?"	,"Checking this box will include 40 Mus and Over. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
+	form_new_control("ficon_none"		,"Show Null Mu"				, "Include Null Mu?"				,"Checking this box will include Mus with no value. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
 	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""				,5			,50				,0				,"all"					,0);
 	//
 	// FORM FOOTER
@@ -117,7 +120,7 @@
 			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
 			
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
-						
+							
 // Define Variables...
 //						for Auto Entry Function {End of Page}
 

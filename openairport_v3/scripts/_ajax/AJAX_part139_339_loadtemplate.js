@@ -44,11 +44,52 @@ function sever_interaction_ficon_loadtemplate()
 		//alert(answer[5]);
 		
 		for (i=1; i<answer.length; i+=3) {
+			
 				if (answer[i]==1) {
-						document.getElementById(answer[i+1]).innerHTML = answer[i+2];
+
+						var fieldname 	= answer[i+1];
+						var fieldvalue 	= document.getElementById(fieldname).innerHTML;
+						
+						// Check to see if the string included "CHECKED"
+						//		if it does it will return the position in the string
+						//		or -1 if no return.
+						var ischecked	= fieldvalue.search("checked");
+					
+						//alert(fieldname);
+						
+						if(ischecked == -1) {
+							
+								//alert(fieldvalue);				
+					
+								document.getElementById(answer[i+1]).innerHTML = answer[i+2];
+							
+							} else {
+								
+								// Surface is closed attempt to block other items in this row
+								//		we need to know more about the field name and how it
+								//		relates to the name of the member groups as we're out
+								//		out of the loop of PHP's help.
+								
+								//alert(fieldname);
+								
+							}
+							
 					}
 				if (answer[i]==2) {
-						document.getElementById(answer[i+1]).value = answer[i+2];
+						
+						var fieldname 	= answer[i+1];
+						var fieldvalue 	= document.getElementById(fieldname).value;
+					
+						//alert(fieldname);
+						//alert(fieldvalue);				
+						
+						if(fieldvalue == 'CLOSED') {
+						
+							} else {
+						
+								document.getElementById(answer[i+1]).value = answer[i+2];
+							}
+					
 					}
 			}
 

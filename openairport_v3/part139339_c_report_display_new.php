@@ -433,7 +433,7 @@
 																						//Reset counter
 																							$rwy_loop_count = 0;
 																						//Reset Value
-																							$tmp_rwy_mu	= 0;
+																							$tmp_rwy_mu		= 0;
 																							
 																					}
 																		if ($inner_rwy_loop == 9) {
@@ -442,7 +442,7 @@
 																				// Reset Runway Orinatation Markers
 																				$tmp_runwayort_17	= -1;
 																				$tmp_runwayort_12	= -1;
-																				$thisrunway		= -1;
+																				$thisrunway			= -1;
 																			}
 																		}
 																		else {

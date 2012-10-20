@@ -388,7 +388,7 @@ if ($tbldisplaytotal==1) {
 		<tr>
 			<!-- THis is the ROW where all of the FORM search display controls are shows -->
 			<td colspan="3" align="right">
-				<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="100%" style="border-collapse: collapse; border-style: none; ">
+				<table width="100%" height="60" border="0" cellspacing="0" cellpadding="0" id="table2" style="border-collapse: collapse; border-style: none; ">
 					<tr>
 						<td class="forms_coumn_footer" align="center" valign="middle" width="250">
 							<?php 
@@ -400,7 +400,7 @@ if ($tbldisplaytotal==1) {
 									if ($tbldatesort==1) {
 											// Page is programmed to allow the sorting of records by date.  Display Date Entry Form Fields.
 											?>
-							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="250" style="border-collapse: collapse; border-style: none; ">
+							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="100%" width="250" style="border-collapse: collapse; border-style: none; ">
 								<tr>
 									<td class="buttons_quickaccess"	align="center"	valign="middle">
 										<?php echo $en_start_date;?><br>
@@ -430,8 +430,8 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_textsort == 1) {
 								// echo "Page is set to display the Text Sort field";
 								?>
-						<td align="center" valign="middle" width="210" style="cursor:hand">
-							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="55" width="210" style="border-collapse: collapse; border-style: none; ">
+						<td class="forms_coumn_footer" align="center" valign="middle" style="cursor:hand">
+							<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" id="table2" style="border-collapse: collapse; border-style: none;" />
 								<tr>
 									<td class="buttons_quickaccess" align="center"	valign="middle"	onMouseover="ddrivetip('<?php echo $en_textlike;?>')"; onMouseout="hideddrivetip()">
 										<?php
@@ -459,10 +459,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_joinedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmjoined');" style="cursor:hand">
-							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
+						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmjoined');" style="cursor:hand">
+							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none;" />
 								<tr>
-									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_joined;?></b><br>Use this control to link any underlined item to other underlined items.<br>')"; onMouseout="hideddrivetip()">
+									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_joined;?></b><br>Use this control to link any underlined item to other underlined items.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_joined;?><br>
 										<input class="hidden" type="hidden" name="frmjoined" id="frmjoined" size="25" 
 										<?php 
@@ -482,7 +482,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td class="buttons_quickaccess" />
+									<td class="buttons_quickaccess" align="center" valign="bottom"/>
 										<input class="inlinehiddenbox" type="text" name="frmjoinedactive" id="frmjoinedactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -496,10 +496,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_archivedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmarchives');" style="cursor:hand">
-							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
+						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmarchives');" style="cursor:hand">
+							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_archived;?></b><br>Use this control to show archived records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_archived;?></b><br>Use this control to show archived records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_archived;?><br>
 										<input class="hidden" type="hidden" name="frmarchives" id="frmarchives" size="25" 
 										<?php
@@ -517,7 +517,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td class="buttons_quickaccess" />
+									<td class="buttons_quickaccess" align="center" valign="bottom"/>
 										<input class="inlinehiddenbox" type="text" name="frmarchivesactive" id="frmarchivesactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -531,10 +531,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_closedsort==1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmclosed');" style="cursor:hand">
-							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
+						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmclosed');" style="cursor:hand">
+							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_closed;?><br>
 										<input class="hidden" type="hidden" name="frmclosed" id="frmclosed" size="25" 
 										<?php
@@ -552,7 +552,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td class="buttons_quickaccess" />
+									<td class="buttons_quickaccess" align="center" valign="bottom"/>
 										<input class="inlinehiddenbox" type="text" name="frmclosedactive" id="frmclosedactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -566,10 +566,10 @@ if ($tbldisplaytotal==1) {
 						if ($tbl_show_duplicatesort == 1) {
 								// echo "Page is set to display the Joined Sort field";
 								?>									
-						<td align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmduplicate');" style="cursor:hand">
-							<table width="150" border="0" cellpadding="0" cellspacing="0" class="formoptions" height="55" style="border-collapse: collapse; border-style: none; ">
+						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmduplicate');" style="cursor:hand">
+							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
 								<tr>
-									<td class="layout_dashpanel_container_header" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_duplicate;?></b><br>Use this control to show duplicated records.<br>')"; onMouseout="hideddrivetip()">
+									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_duplicate;?></b><br>Use this control to show duplicated records.<br>')"; onMouseout="hideddrivetip()">
 										<?php echo $en_duplicate;?><br>
 										<input class="hidden" type="hidden" name="frmduplicate" id="frmduplicate" size="4" 
 										<?php
@@ -587,7 +587,7 @@ if ($tbldisplaytotal==1) {
 										</td>
 									</tr>
 								<tr>
-									<td class="buttons_quickaccess" />
+									<td class="buttons_quickaccess" align="center" valign="bottom"/>
 										<input class="inlinehiddenbox" type="text" name="frmduplicateactive" id="frmduplicateactive" size="15" value="<?php echo $defaultduplicate;?>">
 										</td>
 									</tr>
@@ -597,7 +597,13 @@ if ($tbldisplaytotal==1) {
 							}							
 							?>
 						<td class="forms_coumn_footer" align="center" valign="middle">
-							<input class="buttons_quickaccess" type="button" name="button" value="submit" onclick="javascript:document.sorttable.submit()">
+							<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; " onMouseover="ddrivetip('<b><?php echo $en_submitform;?></b><br>Use this control to submit your request.<br>')"; onMouseout="hideddrivetip()" />
+								<tr>
+									<td class="buttons_quickaccess" align="center" valign="middle"/>
+										<input class="buttons_quickaccess" type="button" name="button" value="<?php echo $en_submitform;?>" onclick="javascript:document.sorttable.submit()">
+										</td>
+									</tr>
+								</table>							
 							</td>
 						</tr>
 					</table>

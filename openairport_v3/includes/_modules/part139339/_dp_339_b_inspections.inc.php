@@ -4,7 +4,7 @@ function _dp_339_b_inspections($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_339inspections" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="layout_dashpanel_container" border="0" width="45%" align="left" valign="top">
+<table class="layout_dashpanel_container" width="45%" align="left" valign="top"  border="0" cellpadding='0' cellspacing='0' style="border: collapse;" align='left'>
 	<tr>
 		<td class="layout_dashpanel_container_header">
 			<font size='2'>
@@ -21,7 +21,7 @@ function _dp_339_b_inspections($dasharray) {
 			</td>
 		</tr>
 	<?php
-
+	
 		// Loop through active discrepancies and display a summary report for each one
 		$sql 		= "SELECT * FROM tbl_139_339_sub_n 
 		INNER JOIN tbl_systemusers 		ON tbl_systemusers.emp_record_id = tbl_139_339_sub_n.139339_sub_n_by_cb_int  
@@ -31,6 +31,8 @@ function _dp_339_b_inspections($dasharray) {
 		//echo $sql;
 		$objconn 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
+		$shown	= 0;
+		
 		if (mysqli_connect_errno()) {
 				printf("connect failed: %s\n", mysqli_connect_error());
 				exit();
@@ -88,13 +90,17 @@ function _dp_339_b_inspections($dasharray) {
 								if($skipping == 1) {
 										// display nothing
 										$displayrow = 0;
+										?>
+										
+										<?php
 									}
 									else {
 										// Check Status of this Discrepancy, ie. Get the current stage
 												?>
 	<tr>
-		<td colspan="2">
-		<?php										
+		<td colspan="2" class="layout_dashpanel_container_div">
+		<?php
+			$shown = $shown + 1;
 										_339_b_display_report_summary($tmp_inspection_id,0,0);
 										?>
 			</td>
@@ -106,8 +112,19 @@ function _dp_339_b_inspections($dasharray) {
 					}
 			}
 
+		if($shown == 0) {
+				?>
+					<tr>
+		<td colspan="2" class="forms_coumn_header">
+			No Active Notams
+			</td>
+		</tr>
+				<?php
+		}
+			
 		?>
 	</table>
+	</div>
 <!--	</div>
 	
 	<script type="text/javascript">

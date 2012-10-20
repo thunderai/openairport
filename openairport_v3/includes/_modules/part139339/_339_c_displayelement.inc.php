@@ -205,10 +205,16 @@
 						
 						var label_x = xaverage;
 						var label_y = yaverage;
-						
+						<?php
+						if($display_menu_item[$j][3] == '') {
+								// Nothing there, display nothing
+							} else {
+								?>
 						jg.setFont("arial","12px",Font.ITALIC_BOLD);
 						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label_x,label_y);
-						
+								<?php
+							}
+						?>
 					jg.paint();
 				}													
 
