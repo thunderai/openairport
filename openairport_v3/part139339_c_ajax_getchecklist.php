@@ -389,14 +389,30 @@
 																
 																//echo "Alter Closed: ".$alterclosed."<br>";
 																
-																if($alterclosed == 1) {
-																		// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
-																		$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
-																		$checked = "CHECKED";
-																	} else {
-																		// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
-																		$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
-																		$checked = "";
+																$runwaytype 	= $objfields['139339_f_rwy_yn'];
+																//echo "Runway Type : ".$runwaytype." <br>";
+																
+																switch ($runwaytype) {
+																		case 2:
+																				// Runway Direction Test
+																				$message = "<b>Runway Condtion Direction</b> This check box controls which runway direction you tested the runway from. <u>Check the box</u> for tests conducted from a runway heading <u>less than and including 18</u>. If you conducted the measurements from a runway heading <u>greater than 18</u> leave the check box <u>unchecked</u>.";
+																			break;
+																		case 3:
+																				// Operational Notices
+																				$message ="<b>Snow Removal Operations</b> If there are currently snow removal operations in effect, check this box. Leave unchecked if there are no snow operations in effect.";
+																			break;
+																		default:
+																				// If all other tests fail
+																				if($alterclosed == 1) {
+																						// SURFACE IS ALREADY CLOSED, DEFAULT TO CLOSED SURFACE
+																						$message = "Surface is <u><b>Closed</b></u>. If you open the surface be sure to issue a NOTAM.";
+																						$checked = "CHECKED";
+																					} else {
+																						// SURFACE IS OPEN, DEFAULT TO OPEN SURFACE
+																						$message = "Surface is <b>Open</b>. If you close it make sure you issue a NOTAM";
+																						$checked = "";
+																					}
+																			break;
 																	}
 																	?>
 							 <?php echo $checked;?> onclick="javascript:<?php echo $function;?>('<?php echo $rootname;?>','<?php echo $tmpfieldname;?>');" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
@@ -413,7 +429,7 @@
 										<?php
 									}
 								?>
-								>
+								 onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" >
 								
 							<INPUT TYPE="button" class="formsubmit" VALUE="Help" onClick="openchild600('part139339_c_report_help_conditions.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp','helpmeselectacondition')" />
 							<INPUT TYPE="button" class="formsubmit" VALUE="ICAO" onClick="openmapchild('part139339_c_report_help_icao.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp&facility=<?php echo $tmpfacility;?>','helpmebuildicao')" />
@@ -426,17 +442,20 @@
 																<?php
 																break;
 														case 3:
-															
+																$message = "<b>Runway Condtion Direction</b> This check box controls which runway direction you tested the runway from. <u>Check the box</u> for tests conducted from a runway heading <u>less than and including 18</u>. If you conducted the measurements from a runway heading <u>greater than 18</u> leave the check box <u>unchecked</u>.";
+																
 															?>
 						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" />
+							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
 							</td>
 																<? 
 																break;
 														case 4:
+																$message = "<b>Runway Condtion Direction</b> This check box controls which runway direction you tested the runway from. <u>Check the box</u> for tests conducted from a runway heading <u>less than and including 18</u>. If you conducted the measurements from a runway heading <u>greater than 18</u> leave the check box <u>unchecked</u>.";
+																
 																?>
 						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
-							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" />
+							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
 							</td>
 																<? 
 																break;

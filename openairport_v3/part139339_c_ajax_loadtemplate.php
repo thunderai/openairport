@@ -272,7 +272,7 @@
 								// ...| Type of connection to element 	| Name of element to update 	| value to put into element
 								// ...| 1 = InnerHTML, 2 = Value	| .$tmpcondnamestr.		| $tmpvalue
 								
-								if($element_type==1) {
+								if($element_type==1 || $element_type==3 || $element_type==4) {
 										
 										echo "field Value :".$_POST[$tmpcondnamestr]." <br>";
 										?>
@@ -281,13 +281,13 @@
 										// Elemement is a Checkbox					
 										if ($tmpvalue!=1) {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' value='1' />";												
+												$tmpnewstring 	= "<input value='1' onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' />";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}
 											else {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." value='1' CHECKED >";												
+												$tmpnewstring 	= "<input value='1' onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." CHECKED />";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}

@@ -1,8 +1,7 @@
 <?php
 
-//								id		, Location X			, Location Y			, Value
-//$display_menu_item 	= array($tmpid	,$condition_location_x	,$condition_location_y	,$checklist_item_disc);
-
+//									0		, 1						, 2						, 3						, 4						, 5				, 6						, 7
+//$display_menu_item[$i] 	= array($tmpid	,$condition_location_x	,$condition_location_y	,$checklist_item_disc	,$facility_is_runway	,$facility_name	,$condition_location_rx	,$condition_location_ry);
 //$tmplocationx	= convertfromlargescale_to_smallscale_x($objarray['139337_locationx'],$maparray);
 //$tmplocationy	= convertfromlargescale_to_smallscale_y($objarray['139337_locationy'],$maparray);
 
@@ -26,6 +25,27 @@
 		$ylocations		= explode(",",$display_menu_item[$j][2]);
 		$value_is		= $display_menu_item[$j][3];
 		
+		if($display_menu_item[$j][7] == 0) {
+			
+				$rylocations = 100;
+				
+			} else {
+				
+				$rylocations	= $display_menu_item[$j][7];
+				
+			}
+		
+		if($display_menu_item[$j][6] == 0) {
+			
+				$rxlocations = 100;
+				
+			} else {
+		
+				$rxlocations	= $display_menu_item[$j][6];
+				
+			}
+		
+		//echo $rxlocations;
 		
 		$size_of_array 	= count($xlocations);
 		$value_of_mu	= $display_menu_item[$j][3];
@@ -205,13 +225,39 @@
 						
 						var label_x = xaverage;
 						var label_y = yaverage;
+						
+						var label_rx 	= <?php echo $rxlocations;?>;
+						var label_ry	= <?php echo $rylocations;?>;
+						
+						//alert(label_rx);
+						
+						var locx	= label_rx;
+						var locy	= label_ry;
+						var label2x	= locx + 10;
+						var label2y = locy - 10;
 						<?php
 						if($display_menu_item[$j][3] == '') {
 								// Nothing there, display nothing
 							} else {
 								?>
+						//alert(label_x);
+						jg.setColor("<?php echo $linecolor;?>");
+						jg.drawLine(label_x,label_y, locx, locy);
+						
+						jg.setColor("<?php echo $linecolor;?>");
+						jg.fillEllipse(locx-3,locy-3, 6, 6);
+						
+						jg.setColor("<?php echo $linecolor;?>");
+						jg.fillEllipse(label_x-3,label_y-3, 6, 6);
+						
+						jg.setColor("#000000");
 						jg.setFont("arial","12px",Font.ITALIC_BOLD);
-						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label_x,label_y);
+						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label2x+2, label2y+2);
+						
+						jg.setColor("#FFFFFF");
+						jg.setFont("arial","12px",Font.ITALIC_BOLD);
+						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label2x, label2y);
+						
 								<?php
 							}
 						?>

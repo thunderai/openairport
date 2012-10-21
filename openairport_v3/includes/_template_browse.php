@@ -1289,3 +1289,5 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 	</table>
+<br>
+<br>
