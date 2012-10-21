@@ -243,10 +243,21 @@ if (!isset($_POST["formsubmit"])) {
 						//echo $tmp;
 						//printf("Last inserted record has id %d\n", LAST_INSERT_ID());
 						//echo mysql_insert_id($mysqli);
-						}
-						
-		$sql = "SELECT * FROM tbl_139_339_sub_c WHERE 139339_c_type_cb_int = '".$_POST['InspCheckList']."' AND 139339_c_archived_yn = 0";
+						}							
+
 		
+		
+// SAVE RECORDS		
+		
+		$increment = 10;
+		
+		//$sql = "SELECT * FROM tbl_139_339_sub_c WHERE 139339_c_type_cb_int = '".$_POST['InspCheckList']."' AND 139339_c_archived_yn = 0";
+		
+		$sql = "SELECT * FROM tbl_139_339_sub_c 
+				INNER JOIN tbl_139_339_sub_c_f ON 139339_f_id = 139339_c_facility_cb_int					
+				WHERE 139339_c_type_cb_int = '".$_POST['InspCheckList']."' AND 139339_c_archived_yn = 0
+				ORDER BY 139339_f_order, 139339_f_name, 139339_c_name";
+
 		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 		//mysql_insert_id();
@@ -261,25 +272,56 @@ if (!isset($_POST["formsubmit"])) {
 						$objrs = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 						
 						while ($objfields = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
+							
+							
+								$tmpid 					= $objfields['139339_c_id'];
+								$current_facility 		= $objfields['139339_c_facility_cb_int'];
+								$current_facility_rwy	= $objfields['139339_f_rwy_yn'];
+								$tmpcondname			= $objfields['139339_c_name'];
+								$tmp_xlox				= $objfields['139339_cc_xloc'];
+								
+								$facility_id			= $objfields['139339_f_id'];				// The ID of the facility row
+								$facility_name			= $objfields['139339_f_name'];				// The Name of this facility. Typically english readable
+								$facility_is_runway		= $objfields['139339_f_rwy_yn'];			// Toggle for dynamic control. 0: Nothing special, 1: Is a runway, 2: is a holder for runway orintation, 3: Checkbox not applicable to a surface
+								
+								$condition_id			= $objfields['139339_c_id'];				// The ID of the condition row
+								$condition_name			= $objfields['139339_c_name'];				// The Programming name of this condition.  Typically not something readable
+								$condition_type			= $objfields['139339_c_type_cb_int'];		// The type of FiCON this condition is part of.  Timeline....
+								$condition_field_type	= $objfields['139339_cc_type'];				// Describes the type of input box this is:  0:Mu Value, 1: checkbox, 2: text
+								$condition_xlocation	= $objfields['139339_cc_xloc'];				// Describes the order to sort this condition
+
+								$condition_location_x	= $objfields['139339_cc_location_x'];
+								$condition_location_y	= $objfields['139339_cc_location_y'];
+								
+								
+								$checklist_item_id		= $objfields['139339_cc_id'];				// ID of the checklist item
+								$checklist_item_disc	= $objfields['139339_cc_d_yn'];				// Value of the discrepancy (could be Mu value, a surface description, or a checkbox toggle).
+								
+		
 							// We now are inside each record of each type of condition that is part of the selected checklist, now we need to add a new record to another table for each of these records.
 							// That means establishing a new connection to the database while this one is still open.
 							$tmpid 			= $objfields['139339_c_id'];
 							$tmpfacilityid	= $objfields['139339_c_facility_cb_int'];
 							$tmpcondname	= $objfields['139339_c_name'];
 							$tmpcondnamestr	= str_replace(" ","",$tmpcondname);
-							
-							echo "Condition String :".$tmpcondnamestr." ==> ";
-							echo "Condition Value from POST :".$_POST[$tmpcondnamestr]." <br>";
+							//$facility_namestr = str_replace(" ","",$facility_name);
+							$facility_namestr = str_replace("/","",$facility_namestr);
+						
+							//echo "Condition String :".$tmpcondnamestr." ==> ";
+							//echo "Condition Value from POST :".$_POST[$tmpcondnamestr]." <br>";
 							
 							$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 							//mysql_insert_id();
 				
-				
-				
-				
-				
-				
+							// Somehow we need to detect if this is a Mu value from a runway.
+							//		determine which runway it is
+							//		determine which direction the toggle is set
+							//		change the value of the post variable so the save procedure can save it
+							//		this can be hard coded to an extent, lets just try it
+							
+							//	1 - Which runway
+							
 							$sql = "INSERT INTO tbl_139_339_sub_c_c (139339_cc_c_cb_int,139339_cc_ficon_cb_int,139339_cc_d_yn) VALUES ( '".$tmpid."', '".$lastid."', '".$_POST[$tmpcondnamestr]."')";
 		
 									//echo $sql."<br><br>";
@@ -298,6 +340,8 @@ if (!isset($_POST["formsubmit"])) {
 										}
 							}
 
+		tools_tbl_139_339_c_main_changedirection($last_main_id);				
+							
 		if ($_POST['frmtemplatesave']=="YES") {
 				// Save the Template that the User Entered
 				
