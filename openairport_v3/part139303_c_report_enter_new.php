@@ -123,7 +123,7 @@ if (!isset($_POST["formsubmit"])) {
 		
 		$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
 		
-		$sql = "INSERT INTO tbl_139_303_main (139_303_type_cb_int,139_303_by_cb_int,139_303_date,139_303_time ) VALUES 
+		$sql = "INSERT INTO tbl_139_303_c_main (139_303_type_cb_int,139_303_by_cb_int,139_303_date,139_303_time ) VALUES 
 				( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."' )";
 				
 		//echo $sql;
@@ -237,8 +237,8 @@ if (!isset($_POST["formsubmit"])) {
 							
 		<?php 										
 		
-		$sql = "SELECT * FROM tbl_139_303_sub_c 
-				INNER JOIN tbl_139_303_sub_c_f ON tbl_139_303_sub_c_f.facility_id = tbl_139_303_sub_c.condition_facility_cb_int 
+		$sql = "SELECT * FROM tbl_139_303_c_sub_c 
+				INNER JOIN tbl_139_303_c_sub_c_f ON tbl_139_303_c_sub_c_f.facility_id = tbl_139_303_c_sub_c.condition_facility_cb_int 
 				WHERE condition_type_cb_int = '".$_POST['InspCheckList']."' AND condition_archived_yn = 0";
 		
 		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -281,7 +281,7 @@ if (!isset($_POST["formsubmit"])) {
 										// User has selected this class topic as being taught.  Save the record
 										//	Save record
 								
-										$sql2 = "INSERT INTO tbl_139_303_sub_c_c (conditions_checklists_condition_cb_int,conditions_checklists_inspection_cb_int,conditions_checklist_discrepancy_yn, conditions_checklist_hours ) VALUES 
+										$sql2 = "INSERT INTO tbl_139_303_c_sub_c_c (conditions_checklists_condition_cb_int,conditions_checklists_inspection_cb_int,conditions_checklist_discrepancy_yn, conditions_checklist_hours ) VALUES 
 																				( '".$tmpid."', '".$inspectiontmpid."', '".$tmp_displayrow."', '".$_POST[$tmpe]."' )";
 			
 										$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -354,7 +354,7 @@ if (!isset($_POST["formsubmit"])) {
 							//	List ALL discrepancies by THIS author in the temporary discrepancy folder for possible linking
 							//	Mark all temporary discrepancies as linked by default
 									
-									$sql = "SELECT * FROM tbl_139_303_sub_d_tmp WHERE Discrepancy_by_cb_int = ".$_POST['inspector']."";
+									$sql = "SELECT * FROM tbl_139_303_c_sub_d_tmp WHERE Discrepancy_by_cb_int = ".$_POST['inspector']."";
 									$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 									if (mysqli_connect_errno()) {
 											printf("connect failed: %s\n", mysqli_connect_error());
@@ -405,7 +405,8 @@ if (!isset($_POST["formsubmit"])) {
 												?>
 										<tr>
 											<td class="formoptionsavilablebottom" colspan="5">
-												<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
+												<input type="hidden" name="inspector"			value="<?php echo $_POST['inspector'];?>" />
+												<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>" />
 												<input type="submit" name="b1" 					value="Save Report >>>"			class="formsubmit">
 												</td>
 											</form>

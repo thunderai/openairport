@@ -1,5 +1,8 @@
 function toggle(showHideDiv) {
+	
 	var ele = document.getElementById(showHideDiv);
+	//alert("message");
+	
 	if(ele.style.display == "block") {
 			ele.style.display = "none";
 	}

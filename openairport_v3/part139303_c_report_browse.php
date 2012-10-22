@@ -102,7 +102,7 @@
 		
 		$array_archivedcontrol		= array("SELECT * FROM tbl_139_303_c_main_a WHERE 139303_c_a_inspection_id = ",	"139303_c",	"part139303_c_report_display_archived.php");
 		//$array_duplicatecontrol		= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
-		//$array_errorcontrol			= array("SELECT * FROM tbl_139_337_main_e WHERE 139337_e_inspection_id = ",	"139337",	"part139337_report_display_error.php");
+		$array_errorcontrol			= array("SELECT * FROM tbl_139_303_c_main_e WHERE 139303_c_e_inspection_id = ",	"139303_c",	"part139303_c_report_display_error.php");
 
 		//$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		//$array_repairedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_r WHERE discrepancy_repaired_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_repaired.php");
@@ -112,7 +112,7 @@
 		$functionrepairpage			= "";
 		$functionduplicatepage		= "";
 		$functionarchievedepage		= "part139303_c_report_archieved.php";
-		$functionerrorpage			= "";
+		$functionerrorpage			= "part139303_c_report_error.php";
 		
 	// What php pages are used to control the summary, printer reports, and edit functions?
 		// by default these pages should be the following
@@ -138,9 +138,9 @@
 		// what is the primary key field (id field) of the table
 		$tblkeyfield			= "139_303_id";													// What is the Auto Increment Field for this table ?
 		$tbldatesortfield		= "139_303_date";																// What is the name of field use in date sorting ?
-		$tbldatesorttable		= "tbl_139_303_main";												// What table  is that field part of ?
+		$tbldatesorttable		= "tbl_139_303_c_main";												// What table  is that field part of ?
 		$tbltextsortfield		= "";													// What is the name of the field used in text sorting ?
-		$tbltextsorttable		= "tbl_139_303_main";												// What is the name of the table used for text sorting ?
+		$tbltextsorttable		= "tbl_139_303_c_main";												// What is the name of the table used for text sorting ?
 		$tblarchivedfield		= "";																// What is the name of the field used to mark the record archived ?
 		$tblname				= "Part 139.303 (c) Personnel Records";								// What is the name of the table ? (used on edit/summary/printer report pages)
 		$tblsubname				= "List of Training Sessions";												// What is the subname of the table ? (used on edit/summary/printer report pages)

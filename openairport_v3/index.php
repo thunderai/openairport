@@ -61,12 +61,12 @@ if (!isset($_POST["systemuserid"])) {
 					// Display Navigtional Menu System					
 					$whoareyou = $_SESSION["user_id"];	
 					//loadnavmenu_3($whoareyou);				
-					loadnavmenu_4($whoareyou);
+					//loadnavmenu_4($whoareyou);
 					?>
 					</td>
 				</tr>
 			</table>
-		</div>
+		</div>	
 <?php
 // Display Header Information
 ?>
@@ -101,7 +101,7 @@ if (!isset($_POST["systemuserid"])) {
 <?php
 // Display iFrame Information
 ?>		
-	<div style="position:absolute;left:0px;top:65px;width:100%;z-index:1;">	
+	<div style="position:absolute;left:25px;top:29px;right:0;z-index:1;">	
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td height="300" width="*" colspan="4" rowspan="1" class="layouttablecontent" 		id="contentsection">					
@@ -131,7 +131,56 @@ if (!isset($_POST["systemuserid"])) {
 					</td>
 				</tr>
 			</table>
+		</div>	
+<?php
+// Navigation Display Panel
+?>
+<div class="fullscreen" style="display: none;" name="navigationdisplaypanel" id="navigationdisplaypanel">
+	<table width="100%" height="100%" border="1" cellpadding="1" cellspacing="1" name="navigationajaxtable" id="navigationajaxtable" />
+		<tr>
+			<td align="left" valign="top" name="navigationajaxcenter" id="navigationajaxcenter" />
+					<?php
+					// Display Navigtional Menu System					
+					$whoareyou = $_SESSION["user_id"];	
+					//loadnavmenu_3($whoareyou);				
+					loadnavmenu_5($whoareyou,'root');
+					?>
+				</td>
+			</tr>
+		</table>
+
+</div>		
+<?php
+// Display Side Navigational Panel
+?>		
+	<div class="navigationsidepanel" onclick="javascript:toggle('navigationdisplaypanel');" />		
+		<table width="100%" height="100%" border="0" cellspacing="0" id="footer" name="footer" bgcolor="#000000">
+			<tr>
+				<td name="navigationalsidepanel" id="navigationalsidepanel" />
+					<font size="3" color="#FFFFFF">
+						<br>
+						<br>
+						C<br>
+						L<br>
+						I<br>
+						C<br>
+						K<br>
+						<br>
+						F<br>
+						O<br>
+						R<br>
+						<br>
+						M<br>
+						E<br>
+						N<br>
+						U<br>
+						<br>
+						<br>
+					</td>
+				</tr>
+			</table>
 		</div>
+
 <?php
 include("includes/_userinterface/_ui_footer.inc.php");				// include file that gets information from form posts for navigational purposes
 ?>

@@ -33,6 +33,7 @@
 
 	// Load Include Files
 			include("_303_a_display_report_summary.inc.php");
+			include("_303_c_display_report_summary.inc.php");
 			include("_303_c_typescombobox.inc.php");
 			include("_303_c_typescomboboxwall.inc.php");
 

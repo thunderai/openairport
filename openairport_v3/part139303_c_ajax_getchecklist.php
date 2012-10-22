@@ -19,7 +19,7 @@
 //
 //	~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 //	
-//	Name of Document		:	part139303_c_ajax_getchecklist.php
+//	Name of Document		:	part139303_c_c_ajax_getchecklist.php
 //
 //	Purpose of Page			:	Load Part 139.303 (c) Inspection Checklist (AJAX)
 //
@@ -88,10 +88,10 @@
 							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
 							<?php
 							// Define SQL
-							$sql = "SELECT * FROM tbl_139_303_sub_c 
-							INNER JOIN tbl_139_303_sub_c_f ON tbl_139_303_sub_c_f.facility_id = tbl_139_303_sub_c.condition_facility_cb_int 							
+							$sql = "SELECT * FROM tbl_139_303_c_sub_c 
+							INNER JOIN tbl_139_303_c_sub_c_f ON tbl_139_303_c_sub_c_f.facility_id = tbl_139_303_c_sub_c.condition_facility_cb_int 							
 							WHERE condition_type_cb_int = '".$InspCheckList."' AND condition_archived_yn = 0
-							ORDER BY tbl_139_303_sub_c_f.facility_name, tbl_139_303_sub_c.condition_name";
+							ORDER BY tbl_139_303_c_sub_c_f.facility_name, tbl_139_303_c_sub_c.condition_name";
 							
 							//echo $sql;
 							
@@ -125,7 +125,7 @@
       						&nbsp;
 							<?php
 							$tmpfacility = $objfields["condition_facility_cb_int"];
-							//part139303_c_typescombobox($tmpfacility, "all", "notused", "hide", "all");
+							//part139303_c_c_typescombobox($tmpfacility, "all", "notused", "hide", "all");
 							$tmpvalue 	= (string) $tmpid;
 							$tmpa 		= $tmpvalue."za";
 							$tmpd		= $tmpvalue."zd";
