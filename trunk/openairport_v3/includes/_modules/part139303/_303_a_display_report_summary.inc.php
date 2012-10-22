@@ -191,7 +191,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 
 										// Display all Bounced Information
 										$sql2 = "SELECT * FROM tbl_139_303_a_main_a 
-										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_303_a_main_a.139303_a_a_inspection_id   
+										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_303_a_main_a.139303_a_a_by_cb_int   
 										WHERE 139303_a_a_inspection_id = '".$discrepancyid."' 
 										ORDER BY 139303_a_a_date,139303_a_a_time";
 										
@@ -309,7 +309,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														$number_of_rows = mysqli_num_rows($objrs2);
 														if($number_of_rows >=1) {
 																
-																$archievedHTML_i = "
+																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
 																						<b>Archived Information</b>
@@ -319,7 +319,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																				
 																if($returnhtml == 0) {
 																		// Just display the results now
-																		echo $archievedHTML_i;
+																		echo $errorHTML_i;
 																	}
 																	else {
 																		// DO NOT display anything YET!!!!!
@@ -327,7 +327,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															}
 															else {
 															
-																$archievedHTML_i = "
+																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
 																						<b>Archived Information</b>
@@ -342,7 +342,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																				
 																if($returnhtml == 0) {
 																		// Just display the results now
-																		echo $archievedHTML_i;
+																		echo $errorHTML_i;
 																	}
 																	else {
 																		// DO NOT display anything YET!!!!!
@@ -351,7 +351,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 														while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 														
-																$archivedHTML = $archivedHTML."
+																$archivedHTML = $errorHTML."
 																				<tr>		
 																					<td align='center' valign='middle' class='formoptions'>
 																						Date / Time

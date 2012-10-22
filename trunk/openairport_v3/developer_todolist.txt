@@ -1,0 +1,49 @@
+Things to do:
+
+- Add Alerts (SMS) to a table in the database for tracking.
+	= Add a DashPanel report that lists all active alerts in the DB
+		= Allow linking to the reported action (if possible) 
+	= Add a pop-up window that lists alerts since your last visit
+
+
+- Touchscreen Interface, iconize everything...
+
+- 303.c
+
+	= Finish, must complete a list of what is and what is not finished
+
+- 327
+
+	= Completed initial development. Everything should work
+	[Monitor] - If a discrepancy is outstanding, the list should show it?
+	= Need to adjust auto entry on all forms as stated above...
+	?? Should there be an option to auto close a discrepancy upon repair?
+
+	!!!! There is something wrong with the discrepancy Save code.  Some type 
+		of ID is crossed between the discrepancy ID and the repaired ID.
+		causing new discrepancies to be repaired and use information from the
+		wrong discrepancy, ie fixing discrepancies that were never suppose
+		to be fixed. 
+
+	!!!! The discrepancy display box on the inspection form needs to be fixed.
+		it is badly broken. I'm thinking I'll just redo it from scratch.
+
+
+	
+- 333
+
+	= Completed intitial development. Everything should work
+	
+- 337
+
+	= Completed intitial development. Everything should work
+
+	
+- 339.b (NOTAMS)
+	
+	= Seems feature complete
+	
+
+- 339.c (FiCONS)
+
+	= Seems feature complete

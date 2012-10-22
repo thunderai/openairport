@@ -1,3 +1,78 @@
+/*give the body height:100% so that its child
+    elements can have percentage heights*/
+  body{ height:100%;
+  	font-family: Arial Narrow; 
+	font-size: 10pt; 
+	color: #000000; 
+	letter-spacing: 1pt;
+	background-color: #FAEBD7;
+	}
+
+  /*Navigation Side Panel */
+  /* Click this to open the navigational Div Layer */
+  div.navigationsidepanel{
+    display:block;
+	z-index: 999;
+
+    /*set the div in the top-left corner of the screen*/
+    position:fixed;
+    top:40px;
+    left:0px;
+    
+    /*set the width and height to 100% of the screen*/
+    width:29px;
+    height:100%;
+	
+  }	
+	
+  /*this is what we want the div to look like*/
+  div.fullscreen{
+    display:block;
+	z-index: 999;
+
+    /*set the div in the top-left corner of the screen*/
+    position:fixed;
+    top:38px;
+    left:25px;
+    
+    /*set the width and height to 100% of the screen*/
+	right:0;
+    height:90%;
+	
+	background-color:#FFFF00;
+	
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.27, rgb(5,75,204)),
+	color-stop(0.64, rgb(31,118,155))
+);
+  }
+
+.Navigationv5table{
+
+margin:15px;
+ 
+list-style:none; 
+white-space:nowrap; 
+
+text-align:left;
+font-family:Helvetica,sans-serif;
+font-size:14px;
+color: #FFFFFF;
+
+
+border:0px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+float:left;
+
+}  
+  
+  
 div.banner {
   margin: 0;
   font-size: 80% /*smaller*/;
@@ -40,14 +115,6 @@ div.banner p {
 	left=10; top:10px; 
 	z-index:10; 
 	visibility:hidden;
-	}
-
-body { 
-	font-family: Arial Narrow; 
-	font-size: 10pt; 
-	color: #000000; 
-	letter-spacing: 1pt;
-	background-color: #FAEBD7;
 	}
 
 .layoutquickinfocontainer {

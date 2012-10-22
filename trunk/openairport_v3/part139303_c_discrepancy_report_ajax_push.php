@@ -62,7 +62,7 @@
 						</tr>
 		<?php
 		// Define SQL
-		$sql = "SELECT * FROM tbl_139_303_sub_d WHERE Discrepancy_inspection_id = '".$tmp_inspectionid."'";
+		$sql = "SELECT * FROM tbl_139_303_c_sub_d WHERE Discrepancy_inspection_id = '".$tmp_inspectionid."'";
 		
 		//echo $sql;
 		

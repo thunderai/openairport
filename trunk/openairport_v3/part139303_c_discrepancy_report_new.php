@@ -228,12 +228,12 @@ if (!isset($_POST["formsubmit"])) {
 
 		if($_POST['golive'] == 1) {
 				//echo "Dicrepancy will be pushed to the live table <br>";
-				$tablename_d	= "tbl_139_303_sub_d";
+				$tablename_d	= "tbl_139_303_c_sub_d";
 				$warning		= "The note has been pushed live!";
 			}
 			else {
 				//echo "Dicrepancy will be pushed to the temporary table <br>";
-				$tablename_d	= "tbl_139_303_sub_d_tmp";
+				$tablename_d	= "tbl_139_303_c_sub_d_tmp";
 				$warning		= "The following note has been temporarly added to the system and still needs to be linked to the Traing Record";				
 			}
 		

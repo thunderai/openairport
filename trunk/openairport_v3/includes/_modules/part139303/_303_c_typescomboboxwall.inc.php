@@ -15,7 +15,7 @@ function part139303_c_typescomboboxwall($suppliedid, $archived, $nameofinput, $s
 	$sql	= "";																				// Define the sql variable, just in case
 	$nsql 	= "";																				// Define the nsql variable, just in case
 	
-	$sql = "SELECT * FROM tbl_139_303_sub_t ";													// start the SQL Statement with the common syntax
+	$sql = "SELECT * FROM tbl_139_303_c_sub_t ";													// start the SQL Statement with the common syntax
 
 	if ($suppliedid=="all") {																	// if supplied 'all' for the menu_id so the following
 			// do not add any employee ID information to the SQL String

@@ -45,4 +45,5 @@
 		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_339_maketemplate.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_339_push_new_discrepancy.js"></script>
 
+		<script type="text/javascript" src="scripts/_ajax/AJAX_navigation_v5load.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/ajax_blockform.js"></script>

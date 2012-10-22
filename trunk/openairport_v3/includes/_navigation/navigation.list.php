@@ -35,8 +35,10 @@
 <?php
 	// Load Include Files
 			include("_nav_hasslaves.inc.php");
+			include("_nav_hasmaster.inc.php");
 			include("_nav_loadmenu.inc.php");
 			include("_nav_loadmenu_v4.inc.php");
+			include("_nav_loadmenu_v5.inc.php");
 			include("_nav_buildbreadcrumtrail.inc.php");
 			include("_nav_getnameofmenuitemid.inc.php");
 			include("_nav_getpurposeofmenuitemid.inc.php");
@@ -50,4 +52,5 @@
 			include("_nav_getnameofmenuitemid_return.inc.php");
 			include("_nav_getnameofmenuitemid_return_nohtml.inc.php");
 			include("_nav_getpurposeofmenuitemid_return.inc.php");
+			include("_nav_getpurposeofmenuitemid_return_nohtml.inc.php");
 	?>

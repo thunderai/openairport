@@ -104,7 +104,7 @@ function loadnavmenu_4($whoareyou) {
 													$tmpmenuitemidl1	= $layer1array['menu_item_id'];
 													$tmpmenulongl1		= $layer1array['menu_item_name_long'];											
 											// Determine if there are any menu items slaved to this menu item
-													$nor	= _nav_hasslaves($tmpmenuitemidl1);
+													$nor				= _nav_hasslaves($tmpmenuitemidl1);
 													
 											if ($nor == 0) {
 													// There are no menu items slaved to this menu item
