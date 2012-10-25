@@ -45,3 +45,65 @@ In order to keep track of which classes a student is in and to track their total
 Like all other module walk-through we will start at the dash panel. There are a number of discrepancies from 327 inspections displayed and many other panels that do not have much else to say to use at the moment.
 
 [http://openairport.googlecode.com/files/303_c_step_2.png]
+
+In the spirit of sharing I included a new menu system build in this walk-through. The idea is that it is touch friendly (which a goal for everything eventually), and it works rather well. Listed here are all the regulations of 14 CFR Part 139. 
+
+[http://openairport.googlecode.com/files/303_c_step_3.png]
+
+Once I clicked on the 303 button, the menu changes to show you the sub groups in 303, mainly 303 (a) and (c). Also listed are a back button, a back to the beginning button, and a back to dash panel button. At any time you can close the menu and it remembers where you last were. Clicking on the 303 (c) to continue.
+
+[http://openairport.googlecode.com/files/303_c_step_4.png]
+
+Like the menu before this screen lists the available options for this menu level. We can Browse records or add a new record.  Click New to continue.
+
+
+[http://openairport.googlecode.com/files/303_c_step_5.png]
+
+This selection of the training checklist is like all of the other checklist selection screens. Select Operations Training and click the 'Get Checklist' button. 
+
+
+[http://openairport.googlecode.com/files/303_c_step_6.png]
+
+Once the button is clicked the checklist will be displayed along with some information about the checklist, if you actually taught that topic, how long was spent on each topic, and if you want to add any notes about that topic.   Clicking 'ADD' opens a new window.
+
+
+[http://openairport.googlecode.com/files/303_c_step_7.png]
+
+it is a simple form, enter a note name, and some remarks about your note. You can use this for anything.  I attempted to be funny with what I typed in, see if you can find it latter.
+
+[http://openairport.googlecode.com/files/303_c_step_8.png]
+
+Once you have entered the information you want in the detail level you like. Click the submit button. The screen above will be displayed. In this screen you can review your topics, upload documents, manage student lists, and add additional notes if you like.
+
+[http://openairport.googlecode.com/files/303_c_step_9.png]
+
+The upload document screen is as easy to use as you can expect from OpenAirport. Select the files from your computer and click 'Save Documents'.  
+
+[http://openairport.googlecode.com/files/303_c_step_10.png]
+
+The Manage Student list is straight forward. Select a student from the list and click the 'ADD" button. the student will than show up on the bottom part of the form. The form wont let you add the same student twice and will warn you if you try. You can also remove a student from the list if you selected the wrong student.  
+
+I encourage you to select your students at least for your regular students because of what we can do with that data latter.
+
+[http://openairport.googlecode.com/files/303_c_step_11.png]
+
+The classic form save screen, click "Display Report" to see it.
+
+[http://openairport.googlecode.com/files/303_c_step_12.png]
+
+The summary report shows the information you would expect. Who taught the class, who the students were, the topics covered, any notes provided, and a link to uploaded documents ( I didn't upload any for this example). The total time taught is shown in minutes and hours.
+
+[http://openairport.googlecode.com/files/303_c_step_13.png]
+
+if you go back to the 303 (c) browse screen, and move your mouse over "Form Utilities" there are a couple of options available. Let's look at the 'Year End Report' and 'Distribution Chart'. 
+
+[http://openairport.googlecode.com/files/303_c_step_14.png]
+
+The Year End Report lists all the students who have taken a class for the given period (not necessarily a year) and the topics covered.  the students are listed across the top in pseudo vertical format, the total amount of time is also provided for each topic across all students. 
+
+At the bottom of the page is the total amount of time each student has and the total amount of time across all training across all students.
+
+[http://openairport.googlecode.com/files/303_c_step_15.png]
+
+Similar to the Year End Report is the Distribution chart. Each topic has the number of minutes trained in that category and at the bottom of the page is a bar chart that compares the amount of time spent in each topic.
+
