@@ -37,3 +37,11 @@ You may upload a class sign-in sheet and class outline to a training record.  Th
 ==== Student Attendance ====
 
 In order to keep track of which classes a student is in and to track their total training time it is necessary to add each student in a class to that training record.  This is done through the manage student attendance form within the training record report. You can learn more about student attendance [managestudents here]
+
+==== Walk-through ====
+
+[http://openairport.googlecode.com/files/303_c_step_1.png]
+
+Like all other module walk-through we will start at the dash panel. There are a number of discrepancies from 327 inspections displayed and many other panels that do not have much else to say to use at the moment.
+
+[http://openairport.googlecode.com/files/303_c_step_2.png]
