@@ -35,11 +35,11 @@ Even the most robust of computer systems are worthless if their not used and no 
 = Details =
 
 || *Regulation* || *Name* || *Depth* || *completed* ||
-|| [303] || Training Requirements || 3 || holding ||
-|| [327] || Airfield Safety Self Inspections || 1 || yes ||
-|| [333] || Protection of NavAids || 2 || yes ||
-|| [337] || Wildlife Hazards || 2 || yes ||
-|| [339] || Field Condition Reporting || 2 || almost completed ||
+|| [303] || Training Requirements || 3 || feature complete ||
+|| [327] || Airfield Safety Self Inspections || 1 || feature complete ||
+|| [333] || Protection of NavAids || 2 || feature complete ||
+|| [337] || Wildlife Hazards || 2 || feature complete ||
+|| [339] || Field Condition Reporting || 2 || feature complete ||
 
 
 ===Depth===
