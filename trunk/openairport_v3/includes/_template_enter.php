@@ -35,7 +35,7 @@
 
 // Functions
 
-function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fieldformat,$fieldtype,$fieldsizex="0",$fieldsizey="0",$fielddefaultvalue="0",$fieldfunction="0") {
+function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fieldformat,$fieldtype,$fieldsizex="0",$fieldsizey="0",$fielddefaultvalue="0",$fieldfunction="0",$ajaxpush="0",$ajaxpushfield="0",$ajaxpushscript="0",$ajaxpushid="0") {
 		// $fieldname		Name of form field
 		// $fieldtxtname	Name of form field displayed to user
 		// $fieldcomment	Instructions to user on how to use this field
@@ -175,6 +175,13 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																else {
 																	$fieldfunction("all", "all", $fieldname, $show,$fielddefaultvalue);
 																}
+																
+															if($ajaxpush=="1") {
+																	// User wants an Ajax Push Button after this field\
+																	?>
+																	<input type="button" name="pushajax" id="pushajax" value="<?php echo $fieldformat;?>" onclick="<?php echo $ajaxpushscript;?>('<?php echo $ajaxpushid;?>','<?php echo $fieldname;?>');" />
+																	<?php
+																}
 														break;
 												}
 										break;
@@ -241,7 +248,16 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									
 								}
 								?>
-						<i><?php echo $fieldformat;?></i>
+						<i>
+						<?php 
+						if($ajaxpush=="1") {
+								// DOnt Display the format text
+							} else {
+							?>
+								<?php echo $fieldformat;?></i>
+							<?php
+							}
+							?>
 						</td>
 					</tr>
 					<?php

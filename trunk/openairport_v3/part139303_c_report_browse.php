@@ -124,8 +124,8 @@
 		$functionprinterpage 		= "part139303_c_report_display.php";							// Name of page used to display a printer friendly report		
 		$function_calendar			= '';															// The URL of the webpage to load to display the Calendar.
 		$function_printout			= '_general_printouts_get.php';									// The URL of the webpage to load to display the Printout.
-		$function_yearendreport		= '';
-		$function_distribution		= '';															// The URL of the webpage to load to display the Distribition Chart.
+		$function_yearendreport		= 'part139303_c_report_display_yearendreport_loader.php';
+		$function_distribution		= 'part139303_c_report_display_distribution_loader.php';															// The URL of the webpage to load to display the Distribition Chart.
 		$function_linechart			= '';															// The URL of the webpage to load to display the Line Chart.
 		$function_mapit				= '';															// The URL of the webpage to load to display the Mapit.		
 		$function_googleearthit		= '';															// The URL of he webpage used to generate this information.			

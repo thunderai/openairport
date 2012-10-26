@@ -61,7 +61,7 @@ function systemusercombobox($user_id, $archived, $nameofinput, $showcombobox, $d
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>">
+	<SELECT class="Commonfieldbox" id="<?php echo $nameofinput;?>" name="<?php echo $nameofinput;?>">
 					<?php
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {

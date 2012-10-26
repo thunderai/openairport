@@ -37,6 +37,7 @@
 // Load Page Specific Includes
 
 		include("includes/_modules/part139303/part139303.list.php");
+		include("includes/_template/template.list.php");
 
 // Define Variables	
 		
@@ -184,7 +185,7 @@
 					</td>
 				</tr>		
 			<tr>
-				<form style="margin-bottom:0;" action="part139303_c_report_display_new.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport">
+				<form style="margin-bottom:0;" action="part139303_c_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport">
 				<td class="formoptionsavilablebottom" colspan="3">
 					<input type="hidden" name="recordid" 			value="<?php echo $_POST['recordid'];?>">
 					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">

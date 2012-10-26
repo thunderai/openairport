@@ -39,6 +39,7 @@
 		include("includes/_modules/part139303/part139303.list.php");
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
+		//include("includes/_systemusers/systemusers.list.php");
 		
 // Define Variables	
 		
@@ -55,6 +56,8 @@
 // Start Procedures	
 if (!isset($_POST["formsubmit"])) {
 
+		$recordid = $_POST['recordid'];
+
 		// FORM HEADER
 		// -----------------------------------------------------------------------------------------\\
 				$formname			= "edittable";													// HTML Name for Form
@@ -65,9 +68,9 @@ if (!isset($_POST["formsubmit"])) {
 		
 		// FORM NAME and Sub Title
 		//------------------------------------------------------------------------------------------\\
-				$form_menu			= "Upload Support Documents";									// Name of the FORM, shown to the user
+				$form_menu			= "Manage Student List";									// Name of the FORM, shown to the user
 				$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
-				$subtitle 			= "Use this form to add paper documents";						// Subt title of the FORM, shown to the user
+				$subtitle 			= "Use this form to add students to your class. Form saves automatically.";						// Subt title of the FORM, shown to the user
 
 		// FORM SUMMARY information
 		//------------------------------------------------------------------------------------------\\
@@ -80,24 +83,30 @@ if (!isset($_POST["formsubmit"])) {
 			include("includes/_template/_tp_blockform_form_header.binc.php");
 
 		?>
-		<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+		<input type="hidden" name="recordid" id="recordid" value="<?php echo $recordid;?>" />
 		<?php
 		
 		// FORM ELEMENTS
 		//-----------------------------------------------------------------------------------------\\	
 		//
-		//				Field Name			Field Text Name				Field Comment										Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-		form_new_control("disoutline"		,"Class Outline"			, "Select the PDF Document for the Class Outline"	,"File Must be a PDF Document!"							,"(PDF)"			,6			,35				,0				,""						,0);
-		form_new_control("dissignin"		,"Class Signin"				, "Select the PDF Document for the Class Singin"	,"File Must be a PDF Document!"							,"(PDF)"			,6			,35				,0				,""						,0);
-		//
+		//				Field Name			Field Text Name				Field Comment										Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function			, Ajax Push	, Ajax Push to Cell ID, 	, Ajax Script to Run			, Ajax Push ID		
+		form_new_control("pushstudent"		,"Select a Student"			, "Select a Student from the lift to the right."	,"and click the 'add' button.!"							,"ADD"				,3			,35				,0				,""						,'systemusercombobox'	, 1			, 'activestudents'			, 'call_server_303c_students'	,	$recordid);
 		// FORM FOOTER
 		//------------------------------------------------------------------------------------------\\
-				$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+				$display_submit 		= 0;														// 1: Display Submit Button,	0: No
 					$submitbuttonname	= 'Save Documents';											// Name of the Submit Button
 				$display_close			= 1;														// 1: Display Close Button, 	0: No
 				$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
-				
+		?>
+		<tr>
+			<td colspan="2" class="formoptions" name="activestudents" id="activestudents">
+				<?php 
+				load_303c_students('init',$recordid);
+				?>
+				</td>
+			</tr>
+		<?php
 			include("includes/_template/_tp_blockform_form_footer.binc.php");
 	
 	}
