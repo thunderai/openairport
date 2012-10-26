@@ -414,6 +414,8 @@ if (!isset($_POST["formsubmit"])) {
 									</td>
 								</tr>
 							</table>
+							<br>
+							<br>
 							<?php 
 	
 	}

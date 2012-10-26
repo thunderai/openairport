@@ -406,6 +406,7 @@
 		</tr>
 	</table>
 	</form>
+	<br><br>
 					<?php
 	}	
 	else {

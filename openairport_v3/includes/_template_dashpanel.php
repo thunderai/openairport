@@ -33,6 +33,10 @@
 
 		// Load Systemuser Dashpanel
 			include("includes/_systemusers/_dp_su_dailyactivity.inc.php");
+		// Load Part 139.303 c Training Records
+			include("includes/_modules/part139303/part139303.list.php");
+			include("includes/_modules/part139303/_dp_303_a_inspections.inc.php");
+			include("includes/_modules/part139303/_dp_303_c_inspections.inc.php");
 		// Load Part 139.327 Inspection Dashpanel
 			include("includes/_modules/part139327/part139327.list.php");
 			include("includes/_modules/part139327/_dp_327_inspections.inc.php");

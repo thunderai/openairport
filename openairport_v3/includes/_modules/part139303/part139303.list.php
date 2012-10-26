@@ -36,9 +36,19 @@
 			include("_303_c_display_report_summary.inc.php");
 			include("_303_c_typescombobox.inc.php");
 			include("_303_c_typescomboboxwall.inc.php");
-
+			include("_303_c_conditioncombobox.inc.php");
+			include("_303_c_conditioncomboboxwall.inc.php");
+			include("_303_c_facilitycombobox.inc.php");
+			include("_303_c_facilitycomboboxwall.inc.php");
 			
 	// Load PreFlight Files
 			include("preflights_tbl_139_303_main_a_yn.inc.php");
 			include("preflights_tbl_139_303_c_main_a_yn.inc.php");
+			
+	// Load Tool Files
+	
+			include("tools_isstudentinclass.inc.php");
+			include("tools_303_c_loadstudents.inc.php");
+			include("tools_studenttimeinaclass.inc.php");
+			
 	?>
