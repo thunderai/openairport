@@ -1,7 +1,5 @@
 == 14 CFR Part 139.303 (a) and (c) ==
 
-[http://openairport.googlecode.com/files/303_intropic.jpg]
-
 [http://openairport.googlecode.com/files/trainingtower.png]
 
 === Introduction ===
