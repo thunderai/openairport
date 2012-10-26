@@ -1,3 +1,7 @@
+== 14 CFR Part 139.303 (a) and (c) ==
+
+[http://openairport.googlecode.com/files/303_intropic.jpg]
+
 [http://openairport.googlecode.com/files/trainingtower.png]
 
 === Introduction ===
@@ -106,4 +110,3 @@ At the bottom of the page is the total amount of time each student has and the t
 [http://openairport.googlecode.com/files/303_c_step_15.png]
 
 Similar to the Year End Report is the Distribution chart. Each topic has the number of minutes trained in that category and at the bottom of the page is a bar chart that compares the amount of time spent in each topic.
-
