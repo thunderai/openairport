@@ -1,5 +1,17 @@
 == 14 CFR Part 139.303 (a) and (c) ==
 
+[http://openairport.googlecode.com/files/303_intropic.png]
+
+14 CFR Part 139.303 Personnel
+
+(a) Provide sufficient and qualified personnel to comply with the requirements of its Airport Certification Manual and the requirements of this part.
+
+(b) Equip personnel with sufficient resources needed to comply with the requirements of this part.
+
+(c) Train all personnel who access movement areas and safety areas and perform duties in compliance with the requirements of the Airport Certification Manual and the requirements of this part. This training must be completed prior to the initial performance of such duties and at least once every 12 consecutive calendar months. The curriculum for initial and recurrent training must include at least the following areas:
+
+The OpenAirport 303 module provides an airport with the capability to meet all three of these points. OpenAirport has the ability to add system users whom you can record their training and with OpenAirport you are already on your way to providing a high quality tool. The main focus of the 303 module for OpenAirport is in subsection C of the regulation.  
+
 [http://openairport.googlecode.com/files/trainingtower.png]
 
 === Introduction ===
