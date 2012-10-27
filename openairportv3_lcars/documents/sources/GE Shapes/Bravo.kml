@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Bravo.kml</name>
+	<StyleMap id="style_Mu29">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu290</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu291</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style_Mu290">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style_Mu291">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>Bravo</name>
+		<styleUrl>#style_Mu29</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.16001620499854,44.91975023598121,0 -97.16012705263211,44.91964617738027,0 -97.1600695626699,44.919620437312,0 -97.16005995165185,44.91955049086661,0 -97.15965178847094,44.91935382187751,0 -97.15968519952821,44.91938885382011,0 -97.1596792257909,44.91940771262633,0 -97.15966874693513,44.91943914431636,0 -97.15964661975755,44.91946323827177,0 -97.15961400779075,44.9194791018539,0 -97.15952533871632,44.91949036369645,0 -97.15764466708124,44.91966730986065,0 -97.15556766577178,44.91986878787533,0 -97.15345550139243,44.92006947859101,0 -97.15203394780873,44.92020939584336,0 -97.15183418576361,44.9202211404386,0 -97.15171860561938,44.92021127046756,0 -97.15160029326697,44.9201846464324,0 -97.15149781384909,44.92013872158475,0 -97.15141506561866,44.92009028085041,0 -97.15133058018297,44.92001639859903,0 -97.15126953035974,44.91993486277001,0 -97.15127264053982,44.92052377312698,0 -97.15134107057365,44.92048432387982,0 -97.15141903166669,44.9204673395966,0 -97.15163594622133,44.92043964804309,0 -97.15365398236804,44.92024699340687,0 -97.15630223906796,44.91999526550741,0 -97.1579569319802,44.91983431834386,0 -97.15976749241236,44.919660491685,0 -97.15982510931869,44.91965079713764,0 -97.15989208832919,44.91966323865971,0 -97.15994536869445,44.91968834593511,0 -97.15999570170061,44.91972030953707,0 -97.16001620499854,44.91975023598121,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

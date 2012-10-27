@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Ramp (FBO).kml</name>
+	<Style id="style_Mu2911">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ffff0055</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="style_Mu296">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu298</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu2911</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style_Mu298">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ffff0055</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>Ramp (FBO)</name>
+		<styleUrl>#style_Mu296</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.16001232736396,44.91975109591503,0 -97.16002225730614,44.91978210317336,0 -97.16002079541724,44.91981546676197,0 -97.15999482515846,44.91984889308831,0 -97.15993439648123,44.91986505001006,0 -97.15983788739646,44.91987660639175,0 -97.15932623199868,44.91992872380869,0 -97.15900011228924,44.92025263475375,0 -97.15959166246154,44.92054300799069,0 -97.15980389059293,44.92064402548827,0 -97.1604113163568,44.92003039974129,0 -97.16056697120661,44.91986483602707,0 -97.16012050357976,44.91964735681313,0 -97.16001232736396,44.91975109591503,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

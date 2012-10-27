@@ -1,0 +1,714 @@
+/*give the body height:100% so that its child
+    elements can have percentage heights*/
+	
+  body{ 
+	height:100%;
+  	font-family: Arial Narrow; 
+	font-size: 10pt; 
+	color: #FFFFFF; 
+	letter-spacing: 1pt;
+	background-color: #000000;
+	}
+
+.table_shoulder{
+	
+	background-color		: #2350B5; /* Normal Shoulder Color */
+	
+	height					: 10px;
+	width					: 140px;
+	
+	border					: 0px solid;
+	border-right			: 23px solid;
+	border-left				: 10px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;	
+	}
+
+.table_button_side_top_dark1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	margin					: 0px;
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 23px solid;
+	border-left				: 10px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	/*width					: 140px;*/
+
+	}
+	
+.table_button_top_sweep{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	margin					: 0px;
+	padding-right			: 10px;
+	padding-top				: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 23px solid;
+	border-left				: 10px solid;
+	border-top				: 2px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 10px;
+	/*width					: 140px;*/
+
+	}
+	
+.table_top_sweep{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 0px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_top_sweep_tail{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 32px solid;
+	border-bottom			: 1px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 60px;
+	
+	position				: relative;
+	bottom					: 0px;
+	left					: 0px;
+	right					: 0px;
+	}
+	
+.table_top_buttons_dark1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	margin					: 0px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 2px solid;
+	border-left				: 2px solid;
+	border-top				: 32px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 140px;
+
+	}
+
+.table_top_buttons_light1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #335DA7; /* Normal Light Color 1 */
+	
+	border-right			: 2px solid;
+	border-left				: 2px solid;
+	border-top				: 32px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 140px;
+
+	}	
+	
+.table_top_buttons_light2{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #335DA7; /* Normal Light Color 2 */
+	
+	border-right			: 2px solid;
+	border-left				: 2px solid;
+	border-top				: 32px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 140px;
+
+	}
+	
+.table_top_buttons_endcap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #4D4D4D; /* Normal Disabled / Offline */
+	
+	border-right			: 2px solid;
+	border-left				: 2px solid;
+	border-top				: 32px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 30px;
+
+	}
+	
+.table_bottom_sweep{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: center;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 0px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 10px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+
+.table_bottom_sweep_tail{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: center;
+	
+	background-color		: #2350B5; /* Normal Schoulder Color */
+	
+	border-right			: 0px solid;
+
+	border-top				: 1px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	border-left				: 0px solid;
+	border-left-color		: #2350B5;
+	
+	height					: 24px;
+	
+	position				: relative;
+	bottom					: 0px;
+	left					: 0px;
+	right					: 0px;
+
+	}	
+	
+.table_bottom_buttons_endcap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #4D4D4D; /* Normal Disabled / Offline */
+	
+	margin					: 0px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 2px solid;
+	border-left				: 1px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 30px;
+
+	}
+
+/* HELP HUTTON vvvv HELP BUTTON vvvv HELP BUTTON vvvv */
+ * /* Adds to 168 */
+.table_button_bottom_sweep{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #2350B5; /* Normal Shoulder Color */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 0px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 10px;
+	width					: 131px;
+
+	}
+	
+.table_button_side_dark1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+
+	
+.table_button_side_light1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Normal Light Color 1 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+
+.table_button_side_light2{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #4A72CA; /* Normal Light Color 2 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+	
+.table_button_side_function{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #4D4D4D; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #FFA90E; /* Yellow Alert Light C0lor 2 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+	
+.table_button_side_red_light2{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #4D4D4D; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #FE0000; /* Red Alert Light Color 2 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+	
+.table_button_side_inactive{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #CCCCCC; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #4D4D4D; /* Red Alert Light Color 2 */
+	
+	padding-right			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}	
+	
+	
+.table_bottom_shoulder{
+	
+	background-color		: #2350B5; /* Normal Shoulder Color */
+	
+	height					: 100%;
+	width					: 140px;
+	
+	border-right			: 22px solid;
+	border-left				: 15px solid;
+	border-top				: 2px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;	
+	
+	position				: relative;
+	bottom					: 0px;
+	}
+	
+.table_maincontent{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+
+	padding-right			: 5px;
+	padding-bottom			: 5px;
+	padding-left			: 5px;
+	padding-top				: 5px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+
+	}	
+
+.table_header_container{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #97C3E0; 
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 0px;
+	padding-right			: 5px;
+	padding-bottom			: 5px;
+	padding-left			: 5px;
+	padding-top				: 5px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	width					: 100%;
+	height					: 100%;
+
+	}
+	
+.welcometext{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 27pt; 
+	color					: #97C3E0; /* Normal Active Color */
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 0px;
+	padding-right			: 5px;
+	padding-bottom			: 5px;
+	padding-left			: 5px;
+	padding-top				: 5px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	width					: 100%;
+	height					: 100%;
+
+	}
+	
+.systemtext{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	font-weight				: bold;
+	color					: #CA8909; /* Yellow Alert Light Color 1 */
+	text-align				: right;
+	vertical-align			: top;
+	word-wrap				: break-word;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 0px;
+	padding-right			: 5px;
+	padding-bottom			: 5px;
+	padding-left			: 5px;
+	padding-top				: 5px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	width					: 100%;
+	height					: 170;
+
+	}
+
+.hyperlink{
+
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 6pt; 	
+	color					: #CD870D; /* Yellow Alert Light Color 1 */
+	
+	}	
+
+div.fullscreen{
+    display					:block;
+	z-index					: 999;
+
+    /*set the div in the top-left corner of the screen*/
+    position				:fixed;
+    top						:200px;
+    left					:180px;
+    
+    /*set the width and height to 100% of the screen*/
+	right:0;
+    height:75%;
+	
+	background-color		:#000000;
+
+  }
+  
+.Navigationv5table{
+
+margin:15px;
+ 
+list-style:none; 
+white-space:nowrap; 
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	color					: #CA8909; /* Yellow Alert Light Color 1 */
+	text-align				: left;
+
+
+border:0px solid ;
+border-style:solid;
+border-color:#000000;
+border-collapse:collapse;
+
+float:left;
+
+}  

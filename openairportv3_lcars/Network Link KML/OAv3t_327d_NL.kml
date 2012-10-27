@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Folder>
+    <name>OAv3t NL - Part 139.327 Discrepancies</name>
+    <visibility>0</visibility>
+    <open>0</open>
+    <description>Network Link into the OpenAirport v3t System</description>
+    <NetworkLink>
+      <name>327 Discrepancy Reports</name>
+      <visibility>0</visibility>
+      <open>0</open>
+      <description>Where Discrepancies have been reported</description>
+      <refreshVisibility>0</refreshVisibility>
+      <flyToView>0</flyToView>
+		<refreshMode>onInterval</refreshMode>
+		<refreshInterval>3600</refreshInterval>  
+		<minRefreshPeriod>1800</minRefreshPeriod>
+	  
+      <Link>
+        <href>http://localhost/openairportv3t/part139327_discrepancy_report_export_makekml.php</href>
+      </Link>
+    </NetworkLink>
+  </Folder>
+</kml>
