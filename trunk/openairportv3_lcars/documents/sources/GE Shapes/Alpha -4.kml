@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Alpha -4.kml</name>
+	<Style id="style_Mu35">
+		<IconStyle id="icon_Mu35">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu35">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu35">
+			<color>ff34ceff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style_Mu350">
+		<IconStyle id="icon_Mu35">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu35">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu35">
+			<color>ff34ceff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="style_Mu351">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu35</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu350</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark>
+		<name>Alpha -4</name>
+		<styleUrl>#style_Mu351</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.14726023612329,44.91158906270734,0 -97.14716791665573,44.91170289870929,0 -97.14696793916475,44.91195830022275,0 -97.14684637080464,44.91208085844675,0 -97.14658886424959,44.91234898378386,0 -97.14649651817895,44.91244777639391,0 -97.14644406847431,44.91258287788119,0 -97.14644860284096,44.91272484774113,0 -97.1464971779217,44.91284240836862,0 -97.14658887823811,44.91294774624915,0 -97.14667468214574,44.91301041682912,0 -97.1468779498622,44.91311319046788,0 -97.14702072642517,44.91298293919109,0 -97.14691044822799,44.91291640974473,0 -97.14678068695096,44.91284800696074,0 -97.14671190046701,44.91276338623239,0 -97.1466738284669,44.91263836744159,0 -97.14670770799177,44.91254941200348,0 -97.14680009533481,44.91243554944703,0 -97.14705040147993,44.91217900342102,0 -97.14718247232386,44.91203394547732,0 -97.14729125948047,44.91196277433887,0 -97.14742050299383,44.91191113935082,0 -97.1475580287314,44.91188079467661,0 -97.14766307475132,44.91187766781403,0 -97.14777143166963,44.91188606856294,0 -97.14787168454163,44.91190313958884,0 -97.14789530787294,44.91190423846599,0 -97.14726023612329,44.91158906270734,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

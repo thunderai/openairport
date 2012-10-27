@@ -1,0 +1,54 @@
+<NotepadPlus>
+    <Project name="OpenAirport">
+        <Folder name="Part 139.339">
+            <Folder name="Includes">
+                <File name="includes\_modules\part139339\part139339.list.php" />
+                <File name="includes\_modules\part139339\_339_c_typescomboboxwall.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_typescombobox.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_templatescombobox_ajax.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_templatescombobox.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_facilitycombobox.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_facilitycomboboxwall.inc.php" />
+                <File name="includes\_modules\part139339\preflights_tbl_139_339_c_main_a_yn.inc.php" />
+                <File name="includes\_modules\part139339\_339_c_typestextfield.inc.php" />
+            </Folder>
+            <Folder name="Scripts">
+                <File name="scripts\_ajax\AJAX_part139_339_loadchecklist.js" />
+                <File name="scripts\_ajax\AJAX_part139_339_loadtemplate.js" />
+                <File name="scripts\_ajax\AJAX_part139_339_maketemplate.js" />
+                <File name="scripts\_ajax\AJAX_part139_339_push_new_discrepancy.js" />
+            </Folder>
+            <Folder name="Root Module">
+                <File name="part139339_c_ajax_getchecklist.php" />
+                <File name="part139339_c_ajax_loadtemplate.php" />
+                <File name="part139339_c_ajax_maketemplate.php" />
+                <File name="part139339_c_discrepancy_report_ajax_push.php" />
+                <File name="part139339_c_discrepancy_report_new.php" />
+                <File name="part139339_c_report_browse.php" />
+                <File name="part139339_c_report_display_new.php" />
+                <File name="part139339_c_report_enter_new.php" />
+                <File name="part139339_c_report_help_conditions.php" />
+                <File name="part139339_c_report_help_icao.php" />
+                <File name="part139339_c_report_display_linechart_loader.php" />
+            </Folder>
+            <Folder name="Discrepancies (Anomalies)">
+                <File name="part139339_c_discrepancy_report_new.php" />
+                <File name="part139339_c_discrepancy_report_ajax_push.php" />
+            </Folder>
+        </Folder>
+        <Folder name="Templates">
+            <File name="includes\_template\_tp_blockform_form_footer.binc.php" />
+            <File name="includes\_template\_tp_blockform_form_header.binc.php" />
+            <File name="includes\_template\_tp_blockform_workorder.binc.php" />
+            <File name="includes\_template\_tp_control_archived.inc.php" />
+            <File name="includes\_template\_tp_control_auto_logentry.inc.php" />
+            <File name="includes\_template\_tp_control_closed.inc.php" />
+            <File name="includes\_template\_tp_control_duplicate.inc.php" />
+            <File name="includes\_template\_tp_control_error.inc.php" />
+            <File name="includes\_template\_tp_control_footbuttons.inc.php" />
+            <File name="includes\_template\_tp_debugging.inc.php" />
+            <File name="includes\_template\_tp_files_read_weather.inc.php" />
+            <File name="includes\_template\template.list.php" />
+        </Folder>
+    </Project>
+</NotepadPlus>
