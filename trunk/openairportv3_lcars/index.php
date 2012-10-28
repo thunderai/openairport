@@ -94,7 +94,7 @@ if (!isset($_POST["systemuserid"])) {
 				</td>			
 			</tr>
 		<tr>
-			<td name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_dark1" onclick="javascript:toggle('navigationdisplaypanel');" />
+			<td name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('navigationdisplaypanel');" />
 				Menu
 				</td>
 			</tr>
@@ -168,7 +168,7 @@ if (!isset($_POST["systemuserid"])) {
 		</table>
 	</div>
 
-<div style="position:fixed;left:0px;top:170px;right:0;z-index:1;">	
+<div style="position:fixed;left:0px;top:175px;right:0;z-index:2;">	
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td rowspan="2" class="table_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;" onMouseover="ddrivetip('Open Help Screen');" onMouseout="hideddrivetip();"/>

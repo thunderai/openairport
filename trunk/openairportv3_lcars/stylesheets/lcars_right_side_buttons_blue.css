@@ -1,0 +1,143 @@
+.table_top_right_bottom_sweep{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #8D9BFE; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #0033FF; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 7px solid;
+	border-left				: 39px solid;
+	border-top				: 0px solid;
+	border-bottom			: 5px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 22px;
+	width					: 131px;
+
+	}
+
+.table_button_right_side_light1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #8D9BFE; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #0166FF; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 7px solid;
+	border-left				: 39px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+	
+.table_button_right_side_light2{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #8D9BFE; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #4259FF; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 7px solid;
+	border-left				: 39px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+.table_button_right_side_dark1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #8D9BFE; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #0100C8; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 7px solid;
+	border-left				: 39px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}
+	
+.table_button_right_side_function{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #FFA90E; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 7px solid;
+	border-left				: 39px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 131px;
+
+	}

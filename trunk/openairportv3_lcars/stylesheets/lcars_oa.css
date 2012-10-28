@@ -27,35 +27,7 @@
 	border-collapse			: collapse;	
 	}
 
-.table_button_side_top_dark1{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #133D87; /* Normal Dark Color 1 */
-	
-	margin					: 0px;
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
 
-	border-right			: 23px solid;
-	border-left				: 10px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	/*width					: 140px;*/
-
-	}
 	
 .table_button_top_sweep{
 	
@@ -269,7 +241,7 @@
 	
 	background-color		: #2350B5; /* Normal Schoulder Color */
 	
-	border-right			: 0px solid;
+	border-right			: 4px solid;
 
 	border-top				: 1px solid;
 	border-bottom			: 0px solid;
@@ -305,7 +277,7 @@
 	white-space				: nowrap; 
 
 	border-right			: 2px solid;
-	border-left				: 1px solid;
+	border-left				: 2px solid;
 	border-top				: 0px solid;
 	border-bottom			: 0px solid;
 	border-style			: solid;
@@ -313,157 +285,13 @@
 	border-collapse			: collapse;
 	
 	height					: 22px;
-	width					: 30px;
+	width					: 35px;
 
 	}
 
 /* HELP HUTTON vvvv HELP BUTTON vvvv HELP BUTTON vvvv */
  * /* Adds to 168 */
-.table_button_bottom_sweep{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #2350B5; /* Normal Shoulder Color */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
 
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 0px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 10px;
-	width					: 131px;
-
-	}
-	
-.table_button_side_dark1{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #133D87; /* Normal Dark Color 1 */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
-
-	}
-
-	
-.table_button_side_light1{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #335DA7; /* Normal Light Color 1 */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
-
-	}
-
-.table_button_side_light2{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #4A72CA; /* Normal Light Color 2 */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
-
-	}
-	
-.table_button_side_function{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #4D4D4D; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #FFA90E; /* Yellow Alert Light C0lor 2 */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
-
-	}
 	
 .table_button_side_red_light2{
 	
@@ -474,35 +302,6 @@
 	vertical-align			: bottom;
 	
 	background-color		: #FE0000; /* Red Alert Light Color 2 */
-	
-	padding-right			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 22px solid;
-	border-left				: 15px solid;
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
-
-	}
-	
-.table_button_side_inactive{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #CCCCCC; 
-	text-align				: right;
-	vertical-align			: bottom;
-	
-	background-color		: #4D4D4D; /* Red Alert Light Color 2 */
 	
 	padding-right			: 10px;
 	padding-bottom			: 10px;
@@ -638,8 +437,8 @@
 .systemtext{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 14pt; 
-	font-weight				: bold;
+	font-size				: 10pt; 
+	
 	color					: #CA8909; /* Yellow Alert Light Color 1 */
 	text-align				: right;
 	vertical-align			: top;
@@ -690,7 +489,25 @@ div.fullscreen{
 	background-color		:#000000;
 
   }
-  
+ 
+div.exportscreen{
+    display					:block;
+	z-index					: 999;
+
+    /*set the div in the top-left corner of the screen*/
+    position				:fixed;
+    top						:50px;
+    left					:50px;
+    
+    /*set the width and height to 100% of the screen*/
+	right					:50px;
+    height					:25%;
+	width					: 50%;
+	
+	background-color		:#000000;
+
+  } 
+
 .Navigationv5table{
 
 margin:15px;
@@ -712,3 +529,216 @@ border-collapse:collapse;
 float:left;
 
 }  
+
+
+.table_top_right_sweep{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 15px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_top_right_sweep_tail{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	color					: #FFA90E; /* Blue Alert Active Color */
+	text-align				: right;
+	
+	background-color		: #000000; 
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 10px solid;
+	border-left				: 10px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 29px;
+	width					: 80%;
+	}
+	
+.table_top_right_sweep_bullet{
+	
+	text-align				: left;
+	
+	background-color		: #0033FF; /* Blue Alert Shoulder Color*/
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 29px;
+	width					: 30px;
+
+	-webkit-border-radius	: 13px 0px 0px 13px;
+	-moz-border-radius		: 13px 0px 0px 13px;
+	border-radius			: 13px 0px 0px 13px;
+	
+	}
+	
+.table_top_right_container{
+	
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}
+	
+	
+.table_bottom_right_container{
+	
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}
+	
+.table_bottom_right_container_button{
+	
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	float					: right;
+	margin					: 5px;
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}
+	
+.table_bottom_right_sweep{
+	
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	margin					: 15px;
+	 
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+
+.table_bottom_right_sweep_bullet{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	color					: #8D9BFE; /* Blue Alert Active Color */
+	text-align				: left;
+	
+	background-color		: #0033FF; /* Blue Alert Shoulder Color*/
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 23px;
+	width					: 30px;
+
+	-webkit-border-radius: 13px 0px 0px 13px;
+	-moz-border-radius: 13px 0px 0px 13px;
+	border-radius: 13px 0px 0px 13px;
+	
+	}	
+	
+.table_bottom_right_sweep_tail{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	color					: #8D9BFE; /* Blue Alert Active Color */
+	text-align				: right;
+	
+	background-color		: #0033FF; /* Blue Alert Shoulder Color*/
+	
+	list-style				: none; 
+	white-space				: nowrap; 
+
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 23px;
+	width					: 80%;
+	}

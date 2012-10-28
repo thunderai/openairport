@@ -36,7 +36,19 @@
 			include("_tp_control_archived.inc.php");
 			include("_tp_control_closed.inc.php");
 			include("_tp_control_error.inc.php");
+			include("_tp_control_exports.inc.php");
 			include("_tp_control_footbuttons.inc.php");
+			
+			include("_tp_control_sortby_archieved.inc.php");
+			include("_tp_control_sortby_closed.inc.php");
+			include("_tp_control_sortby_date.inc.php");
+			include("_tp_control_sortby_duplicate.inc.php");
+			include("_tp_control_sortby_joined.inc.php");
+			include("_tp_control_sortby_text.inc.php");
+			include("_tp_control_sortby_page.inc.php");
+			
+			include("_tp_control_function_quickaccess.inc.php");
+			include("_tp_control_function_utilities.inc.php");
 			
 			include("_tp_files_read_weather.inc.php");
 			include("_tp_files_send_email.inc.php");
@@ -47,7 +59,7 @@
 			
 			include("_tp_ui_strinptags.inc.php");
 			include("_tp_ui_strip_input.inc.php");
-			
+
 	// DON'T LOAD BLOCK FORMS HERE!!!
 
 	?>

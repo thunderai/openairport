@@ -1,0 +1,228 @@
+/*give the body height:100% so that its child
+    elements can have percentage heights*/
+
+.table_top_left_sweep{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+
+.table_bottom_left_sweep{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_top_right_sweep{
+	
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}	
+
+.table_bottom_right_sweep{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_right_top_vtail{
+	
+	text-align				: right;
+	vertical-align			: top;	
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 1px solid;
+	border-left				: 3px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 12px;
+	
+	-webkit-border-radius	: 0px 0px 6px 6px;
+	-moz-border-radius		: 0px 0px 6px 6px;
+	border-radius			: 0px 0px 6px 6px;
+	
+	}
+
+.table_left_top_vtail{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 3px solid;
+	border-left				: 1px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 12px;
+
+	-webkit-border-radius	: 0px 0px 6px 6px;
+	-moz-border-radius		: 0px 0px 6px 6px;
+	border-radius			: 0px 0px 6px 6px;
+	
+	}	
+	
+.table_left_bottom_vtail{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 2px solid;
+	border-left				: 1px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 12px;
+
+	-webkit-border-radius	: 6px 6px 0px 0px;
+	-moz-border-radius		: 6px 6px 0px 0px;
+	border-radius			: 6px 6px 0px 0px;
+	
+	}	
+
+.table_right_bottom_vtail{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 1px solid;
+	border-left				: 3px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 12px;
+
+	-webkit-border-radius	: 6px 6px 0px 0px;
+	-moz-border-radius		: 6px 6px 0px 0px;
+	border-radius			: 6px 6px 0px 0px;
+	
+	}	
+	
+.table_top_tail{
+	
+	text-align				: left;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 1px solid;
+	border-bottom			: 39px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 58px;
+
+	}
+	
+.table_bottom_tail{
+	
+	text-align				: left;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 36px solid;
+	border-bottom			: 3px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+
+	}	
+
+.table_export_overlay_center{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}	
