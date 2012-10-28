@@ -78,7 +78,7 @@
 		$sqlfrmenddate 			= amerdate2sqldatetime($uifrmenddate);
 
 // Build the breadcrum navigation method
-		buildbreadcrumtrail($strmenuitemid,$uifrmstartdate,$uifrmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$uifrmstartdate,$uifrmenddate);
 		
 // Decode information which was passed to this page by the POST or GET comment that was serialized		
 		
@@ -369,244 +369,125 @@ if ($tbldisplaytotal==1) {
 		<input class="combobox" 		type="hidden" name="intfrmjoined" 		id="intfrmjoined"		size="4"	value="<?php echo $intfrmjoined;?>">
 		<input class="combobox" 		type="hidden" name="strsqlwhereaddon" 	id="strsqlwhereaddon"	size="55"	value="<?php echo $strsqlwhereaddon;?>">
 		<input class="combobox"			type="hidden" name="intsqlwhereaddon" 	id="intsqlwhereaddon"	size="10"	value="<?php echo $intsqlwhereaddon;?>">
+
+
+<div class="exportscreen" style="display: none;" name="exportdisplaypanel" id="exportdisplaypanel">
+	<?php
+	$encoded 			  = urlencode($sql);		
+	$array_settings[0][0] = $function_calendar;
+	$array_settings[0][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+	$array_settings[0][2] = 'PrinterFriendlyCalenderFormat';
+	$array_settings[0][3] = $en_calendarprint;
+	
+	$array_settings[1][0] = $function_yearendreport;
+	$array_settings[1][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+	$array_settings[1][2] = 'PrinterFriendlyYearEndFormat';
+	$array_settings[1][3] = $en_yearendreport;
+	
+	$array_settings[2][0] = $function_printout;
+	$array_settings[2][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
+	$array_settings[2][2] = 'PrinterFriendlyPrintoutFormat';
+	$array_settings[2][3] = $en_printerprint;
+	
+	$array_settings[3][0] = $function_distribution;
+	$array_settings[3][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[3][2] = 'PrinterFriendlyLoadDistFormat';
+	$array_settings[3][3] = $en_distribution;
+	
+	$array_settings[4][0] = $function_linechart;
+	$array_settings[4][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[4][2] = 'PrinterLineChartFormat';
+	$array_settings[4][3] = $en_linechart;
+
+	$array_settings[5][0] = $function_mapit;
+	$array_settings[5][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[5][2] = 'PrinterFriendlyMapIt';
+	$array_settings[5][3] = $en_mapit;
+	
+	$array_settings[6][0] = $function_googleearthit;
+	$array_settings[6][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[6][2] = 'PrinterFriendlyGoogleEarth';
+	$array_settings[6][3] = $en_googleearthit;
+	
+	_tp_control_exports($array_settings);
+	?>
+	</div>
+
 		
-	<table border="0" cellspacing="0" cellpadding="0" width="100%" id="tblbrowseformtable" style="border-collapse: collapse; border-style: none; ">
+<div style="position:fixed;right:0px;top:5px;z-index:99;">	
+	<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
-			<td class="layout_dashpanel_container_header" />
+			<td class="table_top_right_sweep_bullet" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
+				&nbsp;
+				<?php
+				$name 		= getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#ffffff",$_SESSION['user_id']);
+				$purpose	= getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				?>				
+				</td>
+			<td class="table_top_right_sweep_tail" onMouseover="ddrivetip('<?php echo $purpose;?>');" onMouseout="hideddrivetip();"/>
 				<?php 
 				////echo "frmstartdate >".$uifrmstartdate."< <br>";
-				getnameofmenuitemid($strmenuitemid, "long", 4, "#ffffff",$_SESSION['user_id']);
+				echo $name;
 				?>
-				(
-				<?php 
-				////echo "frmstartdate >".$uifrmstartdate."< <br>";
-				getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-				?>
-				)
+				</td>
+			<td rowspan="2" class="table_top_right_sweep" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
+				<img src="images/_interface/lcars_top_right_sweep.png" border="0" style="float:left;" />
 				</td>
 			</tr>
 		<tr>
+			<td rowspan="2" colspan="2" class="table_top_right_container" />
+				<?php
+				// Load Control Buttons
+				_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_start_date	,$en_turned_off									,'frmstartdate'								,$uifrmstartdate,'Calendar1');
+				_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_end_date	,$en_turned_off									,'frmenddate'								,$uifrmenddate	,'Calendar2');
+				_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
+				_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
+				_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$_POST['frmarchives']);
+				_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$_POST['frmclosed']);
+				_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$_POST['frmduplicate']);
+				?>
+				</td>
+			</tr>
+		<tr>
+			<td class="table_top_right_bottom_sweep" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
+				<?php echo $en_submitform;?>
+				</td>
+			</tr>			
+		</table>
+	</div>
+
+<div style="position:fixed;right:0px;bottom:5px;z-index:99;">
+	<table border="0" cellpadding="0" cellspacing="0" />
+			<tr>
+			<td colspan="2" height="51px" class="table_bottom_right_container" />
+				<?php
+				_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
+				_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
+
+				_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
+				?>
+				</td>
+			<td rowspan="2" class="table_bottom_right_sweep" />
+				<img src="images/_interface/lcars_bottom_right_sweep.png" border="0" style="float:left;" />
+				</td>
+			</tr>
+		<tr>
+			<td class="table_bottom_right_sweep_bullet" />
+				&nbsp;
+				</td>
+			<td class="table_bottom_right_sweep_tail" />
+				&nbsp;
+				</td>
+			</tr>
+		</table>
+	</div>
+
+<div style="padding-top:140px;">
+
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" id="tblbrowseformtable" style="border-collapse: collapse; border-style: none; ">
+		<tr>
 			<!-- THis is the ROW where all of the FORM search display controls are shows -->
 			<td colspan="3" align="right">
-				<table width="100%" height="60" border="0" cellspacing="0" cellpadding="0" id="table2" style="border-collapse: collapse; border-style: none; ">
-					<tr>
-						<td class="forms_coumn_footer" align="center" valign="middle" width="250">
-							<?php 
-							// -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - 
-							// DATE SORTING CONTROLS
-							// -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - -= DSC = - 
-							if ($tbl_show_datesort==1) {
-									// echo "Page is set to display the Joined Sort field";				
-									if ($tbldatesort==1) {
-											// Page is programmed to allow the sorting of records by date.  Display Date Entry Form Fields.
-											?>
-							<table border="0" cellspacing="0" cellpadding="0" id="table2" height="100%" width="250" style="border-collapse: collapse; border-style: none; ">
-								<tr>
-									<td class="buttons_quickaccess"	align="center"	valign="middle">
-										<?php echo $en_start_date;?><br>
-										<input 	class="commonfieldbox" type="text" name="frmstartdate"	id="frmstartdate"	size="8" value="<?php echo $uifrmstartdate;?>" 	onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('Calendar1')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
-										</td>
-									<td class="buttons_quickaccess"	align="center"	valign="middle">
-										<?php echo $en_end_date;?><br>
-										<input 	class="commonfieldbox" type="text" name="frmenddate" 	ID="frmenddate" 	size="8" value="<?php echo $uifrmenddate;?>" 	onchange="javascript:(isdate(this.form.frmenddate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('Calendar2')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
-										</td>
-									</tr>
-								</table>
-							</td>
-											<?php 
-										}
-										else {
-											?>
-							<?php echo $en_turned_off;?>
-											<?php 
-										}
-										?>
-							</td>
-										<?php
-								}
-						// -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - 
-						// TEXT SORTING CONTROLS
-						// -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - -= TSC = - 
-						if ($tbl_show_textsort == 1) {
-								// echo "Page is set to display the Text Sort field";
-								?>
-						<td class="forms_coumn_footer" align="center" valign="middle" style="cursor:hand">
-							<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" id="table2" style="border-collapse: collapse; border-style: none;" />
-								<tr>
-									<td class="buttons_quickaccess" align="center"	valign="middle"	onMouseover="ddrivetip('<?php echo $en_textlike;?>')"; onMouseout="hideddrivetip()">
-										<?php
-										if ($tbltextsort == 1) {
-												?>
-										<?php echo $en_textlike;?><br>
-										<input class="commonfieldbox" type="text" name="frmtextlike" size="25" value="<?php echo $frmtextlike;?>">
-												<?php
-											}
-											else {
-												?>
-										<?php echo $en_turned_off;?><br><br>
-												<?php
-											}
-											?>
-												</td>
-									</tr>
-								</table>
-							</td>
-								<?php
-							}
-						// -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - 
-						// JOINED SORTING CONTROLS
-						// -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - -= JSC = - 
-						if ($tbl_show_joinedsort==1) {
-								// echo "Page is set to display the Joined Sort field";
-								?>									
-						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmjoined');" style="cursor:hand">
-							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none;" />
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_joined;?></b><br>Use this control to link any underlined item to other underlined items.<br>')"; onMouseout="hideddrivetip()">
-										<?php echo $en_joined;?><br>
-										<input class="hidden" type="hidden" name="frmjoined" id="frmjoined" size="25" 
-										<?php 
-										if ($frmjoined=="1") {
-												$defaultduplicate = $en_active;
-												?>
-										value="1" >
-												<?php 
-												}
-											else {
-												$defaultduplicate = $en_notactive;
-												?>
-											>
-												<?php 
-											}
-											?>
-										</td>
-									</tr>
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="bottom"/>
-										<input class="inlinehiddenbox" type="text" name="frmjoinedactive" id="frmjoinedactive" size="15" value="<?php echo $defaultduplicate;?>">
-										</td>
-									</tr>
-								</table>
-							</td>							
-										<?php
-							}
-						// -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - 
-						// ARCHIVED SORTING CONTROLS
-						// -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - -= ASC = - 
-						if ($tbl_show_archivedsort==1) {
-								// echo "Page is set to display the Joined Sort field";
-								?>									
-						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmarchives');" style="cursor:hand">
-							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_archived;?></b><br>Use this control to show archived records.<br>')"; onMouseout="hideddrivetip()">
-										<?php echo $en_archived;?><br>
-										<input class="hidden" type="hidden" name="frmarchives" id="frmarchives" size="25" 
-										<?php
-										if ($_POST['frmarchives'] == 0) {
-												$defaultduplicate = $en_notactive;
-											}
-											else {
-												$defaultduplicate = $en_active;
-												?>
-										value="<?php echo $_POST['frmarchives'];?>"
-												<?php
-											}
-											?>
-										>
-										</td>
-									</tr>
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="bottom"/>
-										<input class="inlinehiddenbox" type="text" name="frmarchivesactive" id="frmarchivesactive" size="15" value="<?php echo $defaultduplicate;?>">
-										</td>
-									</tr>
-								</table>
-							</td>							
-										<?php
-							}
-						// -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - 
-						// CLOSED SORTING CONTROLS
-						// -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - 						
-						if ($tbl_show_closedsort==1) {
-								// echo "Page is set to display the Joined Sort field";
-								?>									
-						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmclosed');" style="cursor:hand">
-							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_closed;?></b><br>Use this control to show closed out records.<br>')"; onMouseout="hideddrivetip()">
-										<?php echo $en_closed;?><br>
-										<input class="hidden" type="hidden" name="frmclosed" id="frmclosed" size="25" 
-										<?php
-										if ($_POST['frmclosed'] == 0) {
-												$defaultduplicate = $en_notactive;
-											}
-											else {
-												$defaultduplicate = $en_active;
-												?>
-										value="<?php echo $_POST['frmclosed'];?>"
-												<?php
-											}
-											?>
-										>
-										</td>
-									</tr>
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="bottom"/>
-										<input class="inlinehiddenbox" type="text" name="frmclosedactive" id="frmclosedactive" size="15" value="<?php echo $defaultduplicate;?>">
-										</td>
-									</tr>
-								</table>
-							</td>							
-										<?php
-							}
-						// -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - 
-						// DUPLICATE SORTING CONTROLS
-						// -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - -= CSC = - 						
-						if ($tbl_show_duplicatesort == 1) {
-								// echo "Page is set to display the Joined Sort field";
-								?>									
-						<td class="forms_coumn_footer" align="center" valign="middle" width="150" onclick="javascript:updatecontrolform('frmduplicate');" style="cursor:hand">
-							<table width="150" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; ">
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="middle" onMouseover="ddrivetip('<b><?php echo $en_duplicate;?></b><br>Use this control to show duplicated records.<br>')"; onMouseout="hideddrivetip()">
-										<?php echo $en_duplicate;?><br>
-										<input class="hidden" type="hidden" name="frmduplicate" id="frmduplicate" size="4" 
-										<?php
-										if ($_POST['frmduplicate'] == 0) {
-												$defaultduplicate = $en_notactive;
-											}
-											else {
-												$defaultduplicate = $en_active;
-												?>
-										value="<?php echo $_POST['frmduplicate'];?>"
-												<?php
-											}
-											?>
-										>
-										</td>
-									</tr>
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="bottom"/>
-										<input class="inlinehiddenbox" type="text" name="frmduplicateactive" id="frmduplicateactive" size="15" value="<?php echo $defaultduplicate;?>">
-										</td>
-									</tr>
-								</table>
-							</td>							
-										<?php
-							}							
-							?>
-						<td class="forms_coumn_footer" align="center" valign="middle">
-							<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" class="formoptions" style="border-collapse: collapse; border-style: none; " onMouseover="ddrivetip('<b><?php echo $en_submitform;?></b><br>Use this control to submit your request.<br>')"; onMouseout="hideddrivetip()" />
-								<tr>
-									<td class="buttons_quickaccess" align="center" valign="middle"/>
-										<input class="buttons_quickaccess" type="button" name="button" value="<?php echo $en_submitform;?>" onclick="javascript:document.sorttable.submit()">
-										</td>
-									</tr>
-								</table>							
-							</td>
-						</tr>
-					</table>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border-style: none; ">	
 							<?php 
 							$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -625,177 +506,6 @@ if ($tbldisplaytotal==1) {
 																}
 																else {
 																	?>
-					<tr>
-						<td>
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border-style: none; ">
-								<tr>
-									<td class="forms_coumn_results_browse_header">
-										<table border="0" cellspacing="0" cellpadding="0" align="right" valign="middle" height="20" style="border-collapse: collapse; border-style: none; ">
-											<tr>
-																	<?php 
-																	// Create an SQL Statement that can be used to pass along to the form Sub Functions.
-																	$encoded = urlencode($sql);		
-																	////echo "The encoded SQL Statement is ".$encoded."<br><br><br>";												
-																	// Currently this process does not work because Internet Explorer limits the total number of characters that can be passed in the GET Statement of the URL.
-																	// Should that limit be removed or changed we might be able to pass the SQL Statement in the URL as desired.
-																	?>
-																	<?php 
-																	// Pageation Display
-																	// 		The Total number of records found is in the variable : $number_of_rows
-																	// 			This variable is unrelaible in that it includes records which may be arhived or hidden.
-																	// 		There is no reiable way to counteract this problem since we don't know the status of the record
-																	//			until it is displaued. We have to base our display on incorrect data and hope for the best.
-																	//			a possible solution to this would be to load everything into an array and then use that array 
-																	//			to display the information.  For now, lets do it the inaccurate way first. 
-																	// echo "Total number of rows is :".$number_of_rows."<br>";
-																	// This doesn't work!!!  Variable is defined by the limit function, we need a total from another source
-																	// $sql_failsafe has the SQL syntax right before the limit switch is put into place. We need to run that 
-																	//		that SQL statement and see what gives.  A general function can do this:
-																	$sql_failsafe_rows = gs_numberofrows($sql_failsafe);
-																			//echo "SQL Failsafe Rows :".$sql_failsafe_rows."<br>";
-																	$totalpages = ($sql_failsafe_rows / $tblpagationgroup);
-																			//echo "Total Number of Pages : ".$totalpages."<br>";
-																	$totalpages	= round($totalpages+1,0);
-																			// I dislike adding a 1 to the result as it isn't proper rounding
-																			// 1.1111 should be increased to 2, not 2.11111
-																			// This will give false info where only 2 records would be .1111 (2/18)
-																			//echo "Total Number of Pages : ".$totalpages."<br>";
-																	$totalpages	= ($totalpages - 1);
-																			//echo "Total Number of Pages : ".$totalpages."<br>";
-																	?>
-												<td class="formoptionsubmit" ID="pageation" NAME="pageation" align="center" valign="middle">
-													
-													<select class="inlinehiddenbox" name="formoptionpageation" ID="formoptionpageation" onchange="this.form.submit(); ">
-																	<?php 
-																	for ($j=0; $j<($totalpages+1); $j=$j+1) {
-																			?>
-														<option value="<?php echo $j;?>" 
-																			<?php 
-																			if ($j==$_POST['formoptionpageation']) {
-																					?>
-															SELECTED 
-																					<?php 
-																				}
-																			$from 	= ( ( ( $j ) * $tblpagationgroup ) + 1 );
-																			$to		= ( ( ( $from ) + $tblpagationgroup ) - 1 );
-																			?>							
-															><?php echo $en_pageation;?> <?php echo $j;?> R:(<?php echo $from;?>-<?php echo $to;?>)</option>
-																			<?php 
-																		}
-																		?>
-														</select>
-													</td>
-																	<?php
-																	// Save to Quick Access System
-																	// Check to see if this menu item is already in this users tbl_quickaccess_control
-																	$qac_exisists = qac_test_exisist($strmenuitemid,$_SESSION["user_id"],"test");
-																	//echo $qac_exisists;
-																	// This screen is not in the users Quick Access Menu System, Display the option to add it
-																	?>
-												<td ID="quickaccess" NAME="quickaccess" class="formoptionsubmit" onclick="javascript:call_server_blockform('<?php echo $strmenuitemid;?>','<?php echo $_SESSION["user_id"];?>','frmfunctionqac')" >
-													<input class="hidden" 			type="hidden" 	name="frmfunctionqac" 		id="frmfunctionqac" 		size="25" value="<?php echo $qac_exisists;?>">
-																	<?php
-																	if ($qac_exisists == 0) {
-																			$en_quickaccesstmp = $en_quickaccess;
-																		}
-																		else {
-																			$en_quickaccesstmp = $en_quickaccessno;
-																		}
-																		?>											
-													<input class="inlinehiddenbox" 	type="text" 	name="frmfunctionqacactive" id="frmfunctionqacactive" 	size="25" value="<?php echo $en_quickaccesstmp;?>"> 
-													</td>
-												<td class="formoptionsubmit" align="center" valign="middle">
-													&nbsp;&nbsp;&nbsp;<a href="#" onclick="javascript:document.sorttable.submit()" class="anchorclass myownclass" rel="submenu3">
-														<font color="#FFFFFF" size="3">Form Utilities</font>
-														</a>&nbsp;&nbsp;&nbsp;
-                                                   <div id="submenu3" class="anylinkcsscols">
-														<div class="column">
-															<b>Reports</b>
-															<ul>
-																		<?php
-																	if ($function_calendar != '') {
-																			// Page has allowed the Calendar Printout Function.
-																			?>					
-																<li class="formoptionsubmit" onclick="openmapchild('<?php echo $function_calendar;?>?frmurl=<?php echo $encoded;?>&frmstartdate=<?php echo $uifrmstartdate;?>&frmenddate=<?php echo $uifrmenddate;?>','PrinterCalenderFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_calendarprint;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}
-																	if ($function_yearendreport != '') {
-																			// Page has allowed the Calendar Printout Function.
-																			?>					
-																<li class="formoptionsubmit" onclick="openchild600('<?php echo $function_yearendreport;?>?frmurl=<?php echo $encoded;?>&frmstartdate=<?php echo $uifrmstartdate;?>&frmenddate=<?php echo $uifrmenddate;?>','PrinterYearEndFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_yearendreport;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}	
-																	if ($function_printout != '') {	
-																			// Page has allowed the Printer Friendly PrintOut Function.
-																			?>
-																<li class="formoptionsubmit" onclick="openmapchild('<?php echo $function_printout;?>?frmurl=<?php echo $encoded;?>&menuitemid=<?php echo $strmenuitemid;?>&aheadername=<?php echo $straheadername;?>&adatafield=<?php echo $stradatafield;?>&tblkeyfield=<?php echo $tblkeyfield;?>&tbldatesortfield=<?php echo $tbldatesortfield;?>&tbldatesorttable=<?php echo $tbldatesorttable;?>&tbltextsortfield=<?php echo $tbltextsortfield;?>&tbltextsorttable=<?php echo $tbltextsorttable;?>&adatafieldtable=<?php echo $stradatafieldtable;?>&adatafieldid=<?php echo $stradatafieldid;?>&adataspecial=<?php echo $stradataspecial;?>&ainputtype=<?php echo $strainputtype;?>&adataselect=<?php echo $stradataselect;?>&tblarchivedfield=<?php echo $tblarchivedfield?>','PrinterPrintoutFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_printerprint;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}
-																	?>
-																</ul>
-															</div>
-														<div class="column">
-															<b>Charts</b>
-															<ul>
-																	<?php
-																	if ($function_distribution != '') {
-																			// Page has allowed the Distribution Chart Function.
-																			?>														
-																<li class="formoptionsubmit" onclick="openchild600('<?php echo $function_distribution;?>?startdate=<?php echo $uifrmstartdate;?>&enddate=<?php echo $uifrmenddate;?>','PrinterLoadDistFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_distribution;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}																														
-																	if ($function_linechart != '') {
-																			// Page has allowed the Line Chart Function.
-																			?>														
-																<li class="formoptionsubmit" onclick="openchild600('<?php echo $function_linechart;?>?startdate=<?php echo $uifrmstartdate;?>&enddate=<?php echo $uifrmenddate;?>','PrinterLineChartFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_linechart;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}															
-																	if ($function_mapit != '') {
-																			// Page has allowed the Mapit Function.
-																			?>														
-																<li class="formoptionsubmit" onclick="openchild600('<?php echo $function_mapit;?>?startdate=<?php echo $uifrmstartdate;?>&enddate=<?php echo $uifrmenddate;?>','PrinterMapitFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_mapit;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}	
-																	?>
-																</ul>
-															</div>
-														<div class="column">
-															<b>Exports</b>
-															<ul>
-																	<?php
-																	if ($function_googleearthit != '') {
-																			// Page has allowed the Mapit Function.
-																			?>														
-																<li class="formoptionsubmit" onclick="opensmallchild('<?php echo $function_googleearthit;?>?startdate=<?php echo $uifrmstartdate;?>&enddate=<?php echo $uifrmenddate;?>','PrinterExportGoogleEarthFormat');" >
-																	&nbsp;&nbsp;<?php echo $en_googleearthit;?>&nbsp;&nbsp;
-																	</li>
-																			<?php 
-																		}	
-																	?>
-																</ul>
-															</div>
-														</div>
-													</td>													
-												<!-- menu System was Here in buttons TD -->
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
 					<tr>
 						<td class="tabledatarow">
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="border-collapse: collapse; border-style: none; ">
@@ -1289,5 +999,6 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 	</table>
+	</div>
 <br>
 <br>

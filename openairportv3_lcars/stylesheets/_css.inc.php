@@ -32,7 +32,27 @@
 	// Link to AJAX Script Files
 
 ?>	
-		<link href="stylesheets/lcars_oa.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_oa.css" 								rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_left_side_buttons_normal.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_left_top_side_buttons_normal.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_right_side_buttons_blue.css" 			rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_form_overlay_yellow.css" 				rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_normal_active.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_normal_dark1.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_normal_inactive.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_normal_light1.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_normal_light2.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_blue_active.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_blue_dark1.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_blue_inactive.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_blue_light1.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_blue_light2.css" 		rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_yellow_active.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_yellow_dark1.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_yellow_inactive.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_yellow_light1.css" 	rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_command_buttons_yellow_light2.css" 	rel="stylesheet" type="text/css">
 		<!--<link href="stylesheets/newoa.css" 		rel="stylesheet" type="text/css">-->
 		<link href="stylesheets/dhtmlwindow.css" 	rel="stylesheet" type="text/css"	media="screen">
+		<!--<link href="stylesheets/reports_oa.css" 	rel="stylesheet" type="text/css"	media="screen">-->
 	

@@ -55,9 +55,12 @@
 		$en_joined			= "Join Fields";
 		$en_joined_desc		= "Clck to Join: Use this control to join underlined items";
 		$en_textlike		= "Text Like ? :";
-		$en_archived		= "Display Archives";
-		$en_closed			= "Display Closed";
-		$en_duplicate		= "Display Duplicate";
+		$en_archived		= "Archived";
+		$en_closed			= "Closed";
+		$en_duplicate		= "Duplicate";
+		$en_select_page		= "Page";
+		$en_quickaccess_f	= "";
+		$en_form_exports	= "Form Utilities";
 		$en_calendarprint	= "Calendar Printout";
 		$en_yearendreport	= "Year End Report";
 		$en_printerprint	= "Printer Friendly Report";
