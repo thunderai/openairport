@@ -75,4 +75,8 @@
 		$en_active			= "ACTIVE!";
 		$en_notactive		= "NOT ACTIVE!";
 		$en_submitform		= "Submit Request";
+		$en_id				= "Record ID";
+		$en_functions		= "Functions";
+		$en_commands		= "Commands";
+		$en_open_commands	= "Controls";
 ?>

@@ -491,20 +491,16 @@ div.fullscreen{
   }
  
 div.exportscreen{
-    display					:block;
+   
 	z-index					: 999;
-
+	
     /*set the div in the top-left corner of the screen*/
     position				:fixed;
-    top						:50px;
-    left					:50px;
+    bottom					:60px;
+    left					:0px;
     
     /*set the width and height to 100% of the screen*/
-	right					:50px;
-    height					:25%;
-	width					: 50%;
 	
-	background-color		:#000000;
 
   } 
 
@@ -663,6 +659,18 @@ float:left;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
+	
+	}
+	
+.table_overlay_container_button{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	float					: left;
+	margin					: 5px;
 	
 	}
 	

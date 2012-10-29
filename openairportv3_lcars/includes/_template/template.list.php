@@ -37,6 +37,7 @@
 			include("_tp_control_closed.inc.php");
 			include("_tp_control_error.inc.php");
 			include("_tp_control_exports.inc.php");
+			include("_tp_control_controls.inc.php");
 			include("_tp_control_footbuttons.inc.php");
 			
 			include("_tp_control_sortby_archieved.inc.php");

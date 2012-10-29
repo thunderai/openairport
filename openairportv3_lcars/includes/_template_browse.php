@@ -456,33 +456,41 @@ if ($tbldisplaytotal==1) {
 		</table>
 	</div>
 
-<div style="position:fixed;right:0px;bottom:5px;z-index:99;">
+<div style="position:fixed;right:4px;bottom:0px;z-index:99;">
 	<table border="0" cellpadding="0" cellspacing="0" />
+		<tr>
+			<td colspan="2">
+				&nbsp;
+				</td>
+			<td class="table_bottom_right_bottom_sweep" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
+				<?php echo $en_submitform;?>
+				</td>
+			</tr>
+		<tr>
 			<tr>
 			<td colspan="2" height="51px" class="table_bottom_right_container" />
 				<?php
 				_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
 				_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
-
 				_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
 				?>
 				</td>
-			<td rowspan="2" class="table_bottom_right_sweep" />
+			<td rowspan="2" class="table_bottom_right_sweep" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
 				<img src="images/_interface/lcars_bottom_right_sweep.png" border="0" style="float:left;" />
 				</td>
 			</tr>
 		<tr>
-			<td class="table_bottom_right_sweep_bullet" />
+			<td class="table_bottom_right_sweep_bullet" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
 				&nbsp;
 				</td>
-			<td class="table_bottom_right_sweep_tail" />
+			<td class="table_bottom_right_sweep_tail" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
 				&nbsp;
 				</td>
 			</tr>
 		</table>
 	</div>
 
-<div style="padding-top:140px;">
+<div style="padding-top:115px;">
 
 	<table border="0" cellspacing="0" cellpadding="0" width="100%" id="tblbrowseformtable" style="border-collapse: collapse; border-style: none; ">
 		<tr>
@@ -507,14 +515,14 @@ if ($tbldisplaytotal==1) {
 																else {
 																	?>
 					<tr>
-						<td class="tabledatarow">
-							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="border-collapse: collapse; border-style: none; ">
+						<td >
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" />
 								<tr>
-									<td class="forms_coumn_header" width="45">
-										ID
+									<td class="table_browse_id" />
+										<?php echo $en_id;?>
 										</td>
-									<td class="forms_coumn_header" width="80">
-										Functions
+									<td class="table_browse_functions" />
+										<?php echo $en_functions;?>
 										</td>
 																	<?php  
 																	for ($i=0; $i<count($aheadername); $i=$i+1) {
@@ -530,13 +538,27 @@ if ($tbldisplaytotal==1) {
 																							break;
 																				}
 																			?>
-									<td class="forms_coumn_header" width="<?php echo $cellwidth[$i];?>">
+									<td>
 																			<?php
 																			if ($tblheadersort==1) {
 																					?>
-										<a href="#" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); "><font color="#ffffff"><?php echo $aheadername[$i];?></font></a>
-										<br>(<input class="inlinehiddenbox" type="text" size="8" id="<?php echo $adatafield[$i];?>" name="<?php echo $adatafield[$i];?>" value="<?php echo $aheadersort[$i];?>">)
-																					<?php  
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); ">
+											<tr>
+												<td class="table_browse_header_top" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b>Sort Field</b>Click here to resort this field');" onMouseout="hideddrivetip();"/>
+													<?php echo $aheadername[$i];?>
+													</td>
+												</tr>
+											<tr>
+												<td class="table_browse_header_middle" />
+													<input class="table_browse_header_field" type="text" size="8" id="<?php echo $adatafield[$i];?>" name="<?php echo $adatafield[$i];?>" value="<?php echo $aheadersort[$i];?>">
+													</td>
+												</tr>
+											<tr>
+												<td class="table_browse_header_bottom" />
+													&nbsp;
+													</td>
+											</table>
+																				<?php  
 																				} 
 																			?>
 										</td>
@@ -545,13 +567,23 @@ if ($tbldisplaytotal==1) {
 																	if ($runpostflights == 1) {
 																			// Display Classification Column
 																			?>
-									<td class="forms_coumn_header" width="80">
-										Added Commands
+									<td rowspan="2" class="table_button_right_side_light2" width="142">
+										<?php echo $en_commands;?>
 										</td>
 																			<?php
 																		}
 																	?>
 									</tr>
+								<tr>
+								<?php
+								$cols = count($aheadername);
+								$cols = $cols + 2;
+								?>
+								<td colspan="<?php echo $cols;?>" />
+									&nbsp;
+									</td>
+								</tr>
+									
 								</form>
 																	<?php 
 																	while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
@@ -634,16 +666,16 @@ if ($tbldisplaytotal==1) {
 																				}												
 										
 																			if ($displayrow == 1) {
-																					?>
+																					?>																					
 							<tr>
-								<td class="forms_coumn_results_browse_header" align="center" valign="middle" height="32" width="45">
+								<td class="table_browse_row_id" />
 									<?php echo $objarray[$tblkeyfield];?>
 									</td>
-								<td align="center" width="80" class="forms_coumn_results_row">
-									<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1">
+								<td width="80" class="table_browse_row_functions_spaces" />
+									<table border="0" cellspacing="0" cellpadding="0" width="100%" height="39" id="table1">
 										<tr>
 											<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="EditRecordWindow" onsubmit="openmapchild('','EditRecordWindow')";>
-											<td onMouseover="ddrivetip('Edit Record')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Edit Record')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps" />
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -668,11 +700,14 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="E">
+												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="E">
 												</td>
 											</form>
+										<td class="table_browse_row_functions_spaces" />
+											&nbsp;
+											<td>
 											<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="SummaryReportWindow" onsubmit="openchild600('','SummaryReportWindow')";>
-											<td onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps">
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -697,11 +732,14 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="S">
+												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="S">
 												</td>
 											</form>
+										<td class="table_browse_row_functions_spaces" />
+											&nbsp;
+											<td>	
 											<form style="margin-bottom:0;" action="<?php echo $functionprinterpage;?>" method="POST" name="reportform" id="reportform" target="PrinterRecordWindow" onsubmit="openmapchild('','PrinterRecordWindow')";>
-											<td onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip()">
+											<td onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps">
 												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -726,9 +764,12 @@ if ($tbldisplaytotal==1) {
 												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="buttons_quickaccess"	type="submit" name="b1" 				id="b1" 				value="R">
+												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="R">
 												</td>
 											</form>
+										<td class="table_browse_row_functions_spaces" />
+											&nbsp;
+											<td>	
 											</tr>
 										</table>
 									</td>
@@ -743,7 +784,7 @@ if ($tbldisplaytotal==1) {
 																										}
 																								}
 																						?>
-								<td align="center" valign="middle" class="forms_coumn_results_row" width="<?php echo $cellwidth[$i];?>" >
+								<td class="table_browse_row_field" width="<?php echo $cellwidth[$i];?>" >
 																						<?php  
 																						switch ($adatafieldid[$i]) {
 																								case "notjoined":
@@ -780,10 +821,8 @@ if ($tbldisplaytotal==1) {
 																																$tmpcbfield = "Yes";
 																															}
 																															?>
-									<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
-										<font color="#000000">
-											<?php echo $tmpcbfield;?>
-											</font>
+									<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
+										<?php echo $tmpcbfield;?>
 										</a>				
 																															<?php 
 																													break;
@@ -791,10 +830,8 @@ if ($tbldisplaytotal==1) {
 																														$tmp_previous_value	= ($tmp_current_value);
 																														////echo "Previous Value is ".$tmp_previous_value."";
 																														?>
-									<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
-										<font color="#000000">
-											<?php echo $objarray[$adatafield[$i]];?>
-											</font>
+									<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
+										<?php echo $objarray[$adatafield[$i]];?>
 										</a>
 																														<?php 
 																														$tmp_current_value	= ($objarray[$adatafield[$i]]);
@@ -825,32 +862,32 @@ if ($tbldisplaytotal==1) {
 																										switch ($aheadername[$i]) {
 																												case "Item Leased":	
 																														?>
-											<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
-												<font color="#000000">
+											<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
+												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $tmp_previous_value);
 																														////echo $tmp;																
 																														break;
 																												case "Object":
 																														?>
-											<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
-												<font color="#000000">
+											<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
+												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $tmp_previous_value);
 																														////echo $tmp;																
 																													break;
 																												case "Replacement Year":
 																														?>
-											<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
-												<font color="#000000">
+											<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
+												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $objarray[$tblkeyfield],$objarray[$adatafield[0]]);
 																														////echo $tmp;																
 																													break;
 																												default:
 																														?>
-											<a href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
-												<font color="#000000">
+											<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
+												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "");																
 																													break;
@@ -858,7 +895,7 @@ if ($tbldisplaytotal==1) {
 																										$tmp_current_value	= ($objarray[$adatafield[$i]]);
 																										////echo "<br>Current Value is ".$tmp_current_value."<br>";
 																										?>
-													</font>
+													
 												</a>
 																										<?php  
 																										
@@ -891,24 +928,28 @@ if ($tbldisplaytotal==1) {
 																										}
 																							}
 																						//} 
+																						
+																						
 																						?>
 									</td>
 																						<?php  
 																						}
+																						
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-								<td align="right" valign="middle" class="forms_coumn_results_row">
-									<table>
-										<tr>
-											<td>
+								<td class="table_button_right_side_slim_function" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" onclick="javascript:toggle('controldisplaypanel');"/>
+									<?php
+									echo $en_open_commands;
+									// Load Command Cell
+									?>
 																							<?php
-																							$tblkeyvalue = $objarray[$tblkeyfield];
+																							/* $tblkeyvalue = $objarray[$tblkeyfield];
 																							_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
 																							_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
 																							_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
 																								
-																							include("includes/_template/_tp_blockform_workorder.binc.php");
+																							include("includes/_template/_tp_blockform_workorder.binc.php"); */
 																						}
 																						$tmprepairid 	= '';
 																						$tmprepairdate 	= '';
@@ -918,10 +959,19 @@ if ($tbldisplaytotal==1) {
 																						$tmpbouncedtime = '';
 																						$displayrow 	= 1;
 																						?>
-												</td>
-											</tr>
-										</table>
 									</td>
+								</tr>
+							<tr>
+								<?php
+								$cols = count($aheadername);
+								$cols = $cols + 2;
+								?>
+								<td colspan="<?php echo $cols;?>" />
+									&nbsp;
+									</td>
+								<td class="table_button_right_side_slim_shoulder">
+									&nbsp;
+									</td>	
 								</tr>
 																						<?php 	
 																				}
@@ -999,6 +1049,7 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 	</table>
+	<font size="1"><br><br><br>
 	</div>
 <br>
 <br>

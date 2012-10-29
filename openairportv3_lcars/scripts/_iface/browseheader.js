@@ -28,6 +28,12 @@ function updatesortform(strCell)
 
 	var strCellName = escape(strCell);
 	document.getElementById(strCellName).value = intNewCellvalue;
+	
+	var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+	var newmessage = "Sorting control has been moved to " + intNewCellvalue + " << ";
+	var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+	parent.document.getElementById('SystemText').innerHTML = completed_message;	
+	
 	document.sorttable.submit();					
 	}
 function updatewhereform(strCell)
@@ -61,12 +67,22 @@ function updatecontrolform(strCell)
 	var fieldtocontrol_show		= fieldtocontrol + "active";
 
 	if (currentvalueinfield == 1) {
+		
+		var message = "NOT ACTIVE!";
 		document.getElementById(fieldtocontrol).value		= 0;
-		document.getElementById(fieldtocontrol_show).value	= "NOT Active";
+		document.getElementById(fieldtocontrol_show).value	= message;
+		
 		}
 	if (currentvalueinfield == 0) {
+		
+		var message = "ACTIVE!";
 		document.getElementById(fieldtocontrol).value 		= 1;
-		document.getElementById(fieldtocontrol_show).value	= "Active!";
+		document.getElementById(fieldtocontrol_show).value	= message;
 		}
+		
+		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+		var newmessage = "Sorting control has been moved to " + message + " << ";
+		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+		parent.document.getElementById('SystemText').innerHTML = completed_message;	
 	
 	}

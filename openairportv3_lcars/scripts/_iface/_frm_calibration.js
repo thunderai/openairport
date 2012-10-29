@@ -5,10 +5,18 @@ function toggle(showHideDiv) {
 	
 	if(ele.style.display == "block") {
 			ele.style.display = "none";
-	}
-	else {
-		ele.style.display = "block";
-	}
+			var message = "Overlay Closed";
+		}
+		else {
+			ele.style.display = "block";
+			var message = "Overlay Opened";
+		}
+	
+	
+		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+		var newmessage = "Sorting control has been moved to " + message + " << ";
+		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+		parent.document.getElementById('SystemText').innerHTML = completed_message;	
 } 
 	
 function checkcalibration(fieldtext) {

@@ -158,7 +158,7 @@ if (!isset($_POST["systemuserid"])) {
 		</table>
 	</div>
 	
-<div style="position:fixed;left:180px;top:200px;right:0;z-index:99;overflow-y:scroll;height: 75%;">	
+<div style="position:fixed;left:180px;top:200px;right:0;z-index:99;overflow: hidden;height: 75%;">	
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="table_maincontent" />

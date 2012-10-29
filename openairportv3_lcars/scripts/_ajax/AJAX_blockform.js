@@ -61,13 +61,24 @@ function call_server_blockform(memnuid,userid,fieldtocontrol)
 			request.send('');
 
 			if (currentvalueinfield == 1) {
+				
+				var message = "Add to Quick Menu";
 				document.getElementById(fieldtocontrol).value		= 0;
-				document.getElementById(fieldtocontrol_show).value	= "Add to Quick Menu";
+				document.getElementById(fieldtocontrol_show).value	= message;
+				
 				}
 			if (currentvalueinfield == 0) {
+				
+				var message = "Remove from Quick Menu!";
 				document.getElementById(fieldtocontrol).value 		= 1;
-				document.getElementById(fieldtocontrol_show).value	= "Remove from Quick Menu!";
+				document.getElementById(fieldtocontrol_show).value	= message;
+				
 				}
+				
+		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+		var newmessage = message + " << ";
+		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+		parent.document.getElementById('SystemText').innerHTML = completed_message;	
 		
 		}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
