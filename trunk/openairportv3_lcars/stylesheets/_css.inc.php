@@ -37,6 +37,7 @@
 		<link href="stylesheets/lcars_left_top_side_buttons_normal.css" 	rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_right_side_buttons_blue.css" 			rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_form_overlay_yellow.css" 				rel="stylesheet" type="text/css">
+		<link href="stylesheets/lcars_browse.css" 							rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_command_buttons_normal_active.css" 	rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_command_buttons_normal_dark1.css" 	rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_command_buttons_normal_inactive.css" 	rel="stylesheet" type="text/css">
