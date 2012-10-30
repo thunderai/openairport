@@ -3,7 +3,7 @@
 	
   body{ 
 	height:100%;
-  	font-family: Arial Narrow; 
+  	font-family: Impact, Charcoal, sans-serif; 
 	font-size: 10pt; 
 	color: #FFFFFF; 
 	letter-spacing: 1pt;
@@ -498,6 +498,8 @@ div.exportscreen{
     position				:fixed;
     bottom					:60px;
     left					:0px;
+	
+	background-color		:#000000;
     
     /*set the width and height to 100% of the screen*/
 	
@@ -606,8 +608,6 @@ float:left;
 	text-align				: right;
 	vertical-align			: top;
 	
-	background-color		: #000000; /* Black */
-	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -621,14 +621,25 @@ float:left;
 	
 .table_bottom_right_container{
 	
-	text-align				: right;
+	text-align				: left;
 	vertical-align			: bottom;
 	
 	background-color		: #000000; /* Black */
 	
-	list-style				: none; 
-	white-space				: nowrap; 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 16px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}
 
+.table_bottom_right_container2{
+	
+	
+	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -636,6 +647,12 @@ float:left;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
+	
+	text-align				: right;
+	vertical-align			: top;	
+	
+	width					: 600px;
+	height					: 50px;
 	
 	}
 	
@@ -649,9 +666,6 @@ float:left;
 	float					: right;
 	margin					: 5px;
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -661,6 +675,26 @@ float:left;
 	border-collapse			: collapse;
 	
 	}
+	
+.table_bottom_right_container_button2{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Black */
+	
+	float					: left;
+	margin					: 5px;
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	}	
 	
 .table_overlay_container_button{
 	

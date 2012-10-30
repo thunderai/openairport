@@ -9,7 +9,7 @@
 	
 	background-color		: #986509; /* Shoulder color */
 	
-	padding					: 5px;
+	padding					: 2px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -22,9 +22,9 @@
 	height					: 20px;
 	width					: 50px;
 	
-	-webkit-border-radius	: 25px 25px 25px 25px;
-	-moz-border-radius		: 25px 25px 25px 25px;
-	border-radius			: 25px 25px 25px 25px;
+	-webkit-border-radius	: 15px 15px 15px 15px;
+	-moz-border-radius		: 15px 15px 15px 15px;
+	border-radius			: 15px 15px 15px 15px;
 	
 	}
 
@@ -39,7 +39,7 @@
 	
 	background-color		: #986509; /* Shoulder color */
 	
-	padding					: 5px;
+	padding					: 2px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -49,9 +49,9 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	-webkit-border-radius	: 25px 25px 25px 25px;
-	-moz-border-radius		: 25px 25px 25px 25px;
-	border-radius			: 25px 25px 25px 25px;
+	-webkit-border-radius	: 15px 15px 15px 15px;
+	-moz-border-radius		: 15px 15px 15px 15px;
+	border-radius			: 15px 15px 15px 15px;
 	
 	}
 	
@@ -66,7 +66,7 @@
 	
 	background-color		: #986509; /* Shoulder color */
 	
-	padding					: 5px;
+	padding					: 2px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -76,9 +76,9 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	-webkit-border-radius	: 25px 25px 0px 0px;
-	-moz-border-radius		: 25px 25px 0px 0px;
-	border-radius			: 25px 25px 0px 0px;
+	-webkit-border-radius	: 15px 15px 0px 0px;
+	-moz-border-radius		: 15px 15px 0px 0px;
+	border-radius			: 15px 15px 0px 0px;
 	
 	}	
 
@@ -89,7 +89,7 @@
 	
 	background-color		: #000000; /* Shoulder color */
 	
-	padding					: 5px;
+	padding					: 2px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -108,7 +108,7 @@
 	
 	background-color		: #986509; /* Shoulder color */
 	
-	padding					: 5px;
+	padding					: 2px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -118,9 +118,9 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	-webkit-border-radius	: 0px 0px 25px 25px;
-	-moz-border-radius		: 0px 0px 25px 25px;
-	border-radius			: 0px 0px 25px 25px;
+	-webkit-border-radius	: 0px 0px 15px 15px;
+	-moz-border-radius		: 0px 0px 15px 15px;
+	border-radius			: 0px 0px 15px 15px;
 	
 	}	
 	
@@ -179,8 +179,7 @@ a.header_link{
 	-webkit-border-radius	: 15px 0px 0px 15px;
 	-moz-border-radius		: 15px 0px 0px 15px;
 	border-radius			: 15px 0px 0px 15px;
-	
-	height					: 25px;
+
 	}	
 
 .table_browse_row_functions_spaces{
@@ -238,7 +237,30 @@ a.header_link{
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
+	
+	height					: 23px;
 	}
+	
+.table_browse_row_functions_inputfield_inactive{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #4D4D4D; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #000000; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 23px;
+	}	
 	
 .table_browse_row_field{
 	
@@ -264,7 +286,7 @@ a.header_link{
 	-moz-border-radius		: 15px 0px 0px 15px;
 	border-radius			: 15px 0px 0px 15px;
 	
-	height					: 25px;
+	height					: 15px;
 	}	
 	
 .table_button_right_side_slim_function{
@@ -278,19 +300,16 @@ a.header_link{
 	background-color		: #FFA90E; /* Blue Alert Shoulder Color */
 	
 	padding-left			: 10px;
-	padding-bottom			: 10px;
-	 
+	padding-bottom			: 5px;
+
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;	
 	border-right			: 7px solid;
 	border-left				: 39px solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
-
-	
-	height					: 25px;
 	width					: 131px;
 
 	}	
@@ -320,29 +339,23 @@ a.table_browse_row_joinable{
 	-moz-border-radius		: 15px 0px 0px 15px;
 	border-radius			: 15px 0px 0px 15px;
 	
-	height					: 25px;
+	height					: 15px;
 	}	
 
 	
 .table_button_right_side_slim_shoulder{
 	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: left;
-	vertical-align			: bottom;
-	
 	background-color		: #0033FF; /* Blue Alert Shoulder Color */
 	
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;	
 	border-right			: 7px solid;
 	border-left				: 39px solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
-	
-	border-top				: 2px solid;
-	border-bottom			: 2px solid;
-	border-style			: solid;
 
 	width					: 131px;
+	height					: 2px;
 
 	}	

@@ -18,6 +18,66 @@ function toggle(showHideDiv) {
 		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
 		parent.document.getElementById('SystemText').innerHTML = completed_message;	
 } 
+
+function toggle2(showHideDiv,maxcounter) {
+	
+	var ele = document.getElementById(showHideDiv);
+	var maxdiv = maxcounter;
+	
+	//alert(maxcounter);
+	
+	maxdiv = maxdiv * 1;
+	
+	//alert(maxdiv);
+	// Force all known DIVs hidden
+	
+	for (i=1;i<maxdiv;i++) { 
+			
+			//alert(i);
+			
+			var divtohide_name = "divform_" + i;
+			
+			//alert(divtohide);
+			
+			//divtohide = document.getElementById(divtohide);
+			
+			var element =  document.getElementById(divtohide_name);
+			
+			if (typeof(element) != 'undefined' && element != null)
+			{
+			  if(divtohide_name == showHideDiv) {
+					// Do nothing
+			  } else {
+					document.getElementById(divtohide_name).style.display = "none";
+			  }
+			}
+			
+			
+			
+			var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+			var newmessage = "Hidding Div Layer " + i + " << ";
+			var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+			parent.document.getElementById('SystemText').innerHTML = completed_message;	
+		}
+	
+	
+	
+	
+	if(ele.style.display == "block") {
+			ele.style.display = "none";
+			var message = "Overlay " + showHideDiv + " Closed";
+		}
+		else {
+			ele.style.display = "block";
+			var message = "Overlay " + showHideDiv + " Opened";
+		}
+	
+	
+		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
+		var newmessage = "Showing Row Controls " + message + " << ";
+		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
+		parent.document.getElementById('SystemText').innerHTML = completed_message;	
+}
 	
 function checkcalibration(fieldtext) {
 	

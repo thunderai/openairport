@@ -1,4 +1,6 @@
-<link href="stylesheets/_css.inc.css" 				rel="stylesheet" type="text/css">
+<?php
+include("stylesheets/_css.inc.php");
+?>
 		
 <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
 	<tr>

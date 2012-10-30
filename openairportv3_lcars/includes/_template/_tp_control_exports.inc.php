@@ -33,31 +33,50 @@ function _tp_control_exports($array_settings) {
 	
 	
 		?>
-<table border="0" cellpadding="0" cellspacing="0" width="100%" />
+		
+<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="400"/>
 	<tr>
-		<td colspan="2" class="table_top_left_sweep" onclick="javascript:toggle('exportdisplaypanel');" />
-			<img src="images/_interface/lcars_io_top_left_sweep.png" />
-			</td>
-		<td class="table_top_tail" onclick="javascript:toggle('exportdisplaypanel');" />
-			</td>
-		<td class="table_top_export_center" />
-			Export Forms
-			</td>
-		<td class="table_top_tail" onclick="javascript:toggle('exportdisplaypanel');" />
-			</td>
-		<td colspan="2" class="table_top_right_sweep" onclick="javascript:toggle('exportdisplaypanel');" />
-			<img src="images/_interface/lcars_io_top_right_sweep.png" />
+		<td colspan="10" class="table_overlay_border_slim" />
+			&nbsp;
 			</td>
 		</tr>
 	<tr>
-		<td onclick="javascript:toggle('exportdisplaypanel');"/>
+		<td class="table_overlay_border" />
 			&nbsp;
 			</td>
-		<td rowspan="3" colspan="5" class="table_export_overlay_center"/>
-				<?php
-				if ($function_calendar != '') {
+		<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/> 
+			&nbsp;
+			</td>
+		<td class="table_overlay_bullet_gap" />
+			&nbsp;
+			</td>
+		<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
+			Form Utiltities
+			</td>			
+		<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();" />
+			&nbsp;
+			</td>			
+		<td class="table_overlay_bullet_gap" />
+			&nbsp;
+			</td>
+		<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
+			&nbsp;
+			</td>
+		<td class="table_overlay_border" />
+			&nbsp;
+			</td>
+		</tr>
+	<tr>
+		<td colspan="10" class="table_overlay_border_slim" />
+			&nbsp;
+			</td>
+		</tr>
+	<tr>
+		<td colspan="10" />
+			<?php
+			if ($function_calendar != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_calendar;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
+			<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_calendar;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -82,7 +101,7 @@ function _tp_control_exports($array_settings) {
 					
 				if ($function_yer != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_yer;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_yer;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -107,7 +126,7 @@ function _tp_control_exports($array_settings) {
 				
 				if ($function_printout != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_printout;?>?frmurl=<?php echo $function_po_url;?>','<?php echo $function_po_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_printout;?>?frmurl=<?php echo $function_po_url;?>','<?php echo $function_po_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -132,7 +151,7 @@ function _tp_control_exports($array_settings) {
 				
 				if ($function_dist != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_dist;?>?<?php echo $function_dist_url;?>','<?php echo $function_dist_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_dist;?>?<?php echo $function_dist_url;?>','<?php echo $function_dist_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -157,7 +176,7 @@ function _tp_control_exports($array_settings) {
 				
 				if ($function_linec != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_linec;?>?<?php echo $function_linec_url;?>','<?php echo $function_linec_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_linec;?>?<?php echo $function_linec_url;?>','<?php echo $function_linec_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -182,7 +201,7 @@ function _tp_control_exports($array_settings) {
 				
 				if ($function_map != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_map;?>?<?php echo $function_map_url;?>','<?php echo $function_map_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_map;?>?<?php echo $function_map_url;?>','<?php echo $function_map_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -207,7 +226,7 @@ function _tp_control_exports($array_settings) {
 				
 				if ($function_ge != '') {
 					?>
-				<table border="0" cellpadding="0" cellspacing="0" class="table_overlay_container_button" onclick="openchild600('<?php echo $function_ge;?>?<?php echo $function_ge_url;?>','<?php echo $function_ge_page;?>');"/>
+				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_ge;?>?<?php echo $function_ge_url;?>','<?php echo $function_ge_page;?>');"/>
 					<tr>
 						<td class="table_button_bullet_right_dark1_normal" />
 							&nbsp;
@@ -229,41 +248,45 @@ function _tp_control_exports($array_settings) {
 					</table>					
 					<?php
 					}					
-				?>		
-				</td>			
-		<td onclick="javascript:toggle('exportdisplaypanel');"/>
+				?>	
+			</td>
+		</tr>
+	<tr>
+		<td colspan="10" class="table_overlay_border_slim" />
+			&nbsp;
+			</td>
+		</tr>
+	<tr>
+		<td class="table_overlay_border" />
+			&nbsp;
+			</td>
+		<td class="table_overlay_left_bullet" onclick="javascript:toggle('exportdisplaypanel');" />
+			&nbsp;
+			</td>
+		<td class="table_overlay_bullet_gap" />
+			&nbsp;
+			</td>
+		<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('exportdisplaypanel');"/>
+			&nbsp;
+			</td>
+		<td class="table_overlay_closeplate" onclick="javascript:toggle('exportdisplaypanel');"/>
+			Close
+			</td>			
+		<td class="table_overlay_bullet_gap" />
+			&nbsp;
+			</td>
+		<td class="table_overlay_right_bullet" onclick="javascript:toggle('exportdisplaypanel');"/>
+			&nbsp;
+			</td>
+		<td class="table_overlay_border" />
+			&nbsp;
+			</td>
+		</tr>
+	<tr>
+		<td colspan="10" class="table_overlay_border_slim" />
 			&nbsp;
 			</td>
 		</tr>	
-	<tr>
-		<td style="height:40px;"/>
-			&nbsp;
-			</td>			
-		<td />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td class="table_left_bottom_vtail" onclick="javascript:toggle('exportdisplaypanel');"/>
-			&nbsp;
-			</td>			
-		<td class="table_right_bottom_vtail" onclick="javascript:toggle('exportdisplaypanel');"/>
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td colspan="2" class="table_bottom_left_sweep" onclick="javascript:toggle('exportdisplaypanel');" />
-			<img src="images/_interface/lcars_io_bottom_left_sweep.png" />
-			</td>
-		<td colspan="3" class="table_bottom_tail" onclick="javascript:toggle('exportdisplaypanel');" />
-			&nbsp;
-			</td>
-		<td colspan="2" class="table_bottom_right_sweep" onclick="javascript:toggle('exportdisplaypanel');" />
-			<img src="images/_interface/lcars_io_bottom_right_sweep.png" />
-			</td>
-		</tr>		
 	</table>
-		
 	<?php
-
 }
