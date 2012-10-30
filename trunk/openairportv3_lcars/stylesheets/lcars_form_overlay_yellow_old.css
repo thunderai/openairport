@@ -1,0 +1,230 @@
+/*give the body height:100% so that its child
+    elements can have percentage heights*/
+
+.table_top_left_sweep{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+
+	
+	/*width					: 140px;*/
+
+	}
+
+.table_bottom_left_sweep{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_top_right_sweep{
+	
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+
+	
+	/*width					: 140px;*/
+
+	height					: 5px;
+	}	
+
+.table_bottom_right_sweep{
+	
+	text-align				: right;
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Black */
+	
+
+	
+	/*width					: 140px;*/
+
+	}
+	
+.table_right_top_vtail{
+	
+	text-align				: right;
+	vertical-align			: top;	
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 1px solid;
+	border-left				: 3px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 12px;
+	
+	-webkit-border-radius	: 0px 0px 5px 5px;
+	-moz-border-radius		: 0px 0px 5px 5px;
+	border-radius			: 0px 0px 5px 5px;
+	
+	}
+
+.table_left_top_vtail{
+	
+	text-align				: left;
+	vertical-align			: top;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 3px solid;
+	border-left				: 1px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 12px;
+
+	-webkit-border-radius	: 0px 0px 5px 5px;
+	-moz-border-radius		: 0px 0px 5px 5px;
+	border-radius			: 0px 0px 5px 5px;
+	
+	}	
+	
+.table_left_bottom_vtail{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 2px solid;
+	border-left				: 1px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 12px;
+
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	-moz-border-radius		: 5px 5px 0px 0px;
+	border-radius			: 5px 5px 0px 0px;
+	
+	}	
+
+.table_right_bottom_vtail{
+	
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 1px solid;
+	border-left				: 3px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 12px;
+
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	-moz-border-radius		: 5px 5px 0px 0px;
+	border-radius			: 5px 5px 0px 0px;
+	
+	}	
+	
+.table_top_tail{
+	
+	text-align				: left;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 1px solid;
+	border-bottom			: 40px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+	width					: 50px;
+
+	}
+	
+.table_side_tail{
+	
+	text-align				: left;
+	
+	background-color		: #000000; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 1px solid;
+	border-bottom			: 39px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+
+	}
+
+.table_top_export_center{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 14pt; 
+	color					: #FED966; /* Blue Alert Active Color */
+	text-align				: center;	
+	vertical-align			: top;
+	
+	background-color		: #000000; /* Shoulder color */
+	
+
+	}
+	
+.table_bottom_tail{
+	
+	text-align				: left;
+	
+	background-color		: #986509; /* Shoulder color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 35px solid;
+	border-bottom			: 3px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 50px;
+
+	}	
+
+.table_export_overlay_center{
+	
+	text-align				: left;	
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Shoulder color */
+	
+	width					: 350px;
+
+	}	

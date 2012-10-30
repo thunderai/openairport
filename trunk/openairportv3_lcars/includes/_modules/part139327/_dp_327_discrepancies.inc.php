@@ -113,7 +113,7 @@ function _dp_327_discrepancies($dasharray) {
 				<tr>
 					<td>
 						<?php
-						include("includes/_template/_tp_blockform_workorder.binc.php");	
+						include("includes/_template/_tp_blockform_workorder_browser.binc.php");	
 						?>
 						</td>
 					</tr>

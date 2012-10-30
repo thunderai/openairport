@@ -50,3 +50,4 @@
 		<script type="text/javascript" src="scripts/_ajax/AJAX_navigation_v5load.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/ajax_blockform.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_quickacces.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_load_controls.js"></script>

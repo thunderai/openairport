@@ -144,7 +144,7 @@ function ae_completepackage($settingsarray) {
 		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
 		parent.document.getElementById('SystemText').innerHTML = completed_message;
 		parent.document.getElementById('actionid').innerHTML = <?php echo $page_type;?>;
-		parent.document.getElementById('typeid').innerHTML = <?php echo $main_id;?>;
+		//parent.document.getElementById('typeid').innerHTML = <?php echo $main_id;?>;
 		</script>	
 		<?php
 		

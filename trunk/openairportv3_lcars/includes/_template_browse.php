@@ -39,6 +39,8 @@
 		
 		// Run Template Engine
 		
+		$div_counter 			= 0;
+		$load_control_string	= '';
 		
 		$sql = "SELECT ".$tblkeyfield.",";														// Start SQL adding on the id field first						
 		
@@ -91,6 +93,13 @@
 		$strainputtype			= urlencode(serialize($ainputtype));			// dont touch
 		$stradataselect			= urlencode(serialize($adataselect));			// dont touch
 		$strainputcomment		= urlencode(serialize($ainputcomment));			// dont touch
+		
+		$straarchivedcontrol	= urlencode(serialize($array_archivedcontrol));	// dont touch
+		$strabouncedcontrol		= urlencode(serialize($array_bouncedcontrol));	// dont touch
+		$straclosedcontrol		= urlencode(serialize($array_closedcontrol));	// dont touch			
+		$straduplicatecontrol	= urlencode(serialize($array_duplicatecontrol));// dont touch
+		$straerrorcontrol		= urlencode(serialize($array_errorcontrol));	// dont touch
+		$strarepairedcontrol	= urlencode(serialize($array_repairedcontrol));	// dont touch		
 		
 	// store this array into a serialized array
 		$sadatafield 			= (serialize($adatafield));						// dont touch
@@ -371,7 +380,7 @@ if ($tbldisplaytotal==1) {
 		<input class="combobox"			type="hidden" name="intsqlwhereaddon" 	id="intsqlwhereaddon"	size="10"	value="<?php echo $intsqlwhereaddon;?>">
 
 
-<div class="exportscreen" style="display: none;" name="exportdisplaypanel" id="exportdisplaypanel">
+<div class="exportscreen" style="display: none; z-index:11;" name="exportdisplaypanel" id="exportdisplaypanel">
 	<?php
 	$encoded 			  = urlencode($sql);		
 	$array_settings[0][0] = $function_calendar;
@@ -414,7 +423,7 @@ if ($tbldisplaytotal==1) {
 	</div>
 
 		
-<div style="position:fixed;right:0px;top:5px;z-index:99;">	
+<div style="position:fixed;right:0px;top:5px;z-index:9;">	
 	<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="table_top_right_sweep_bullet" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
@@ -456,19 +465,19 @@ if ($tbldisplaytotal==1) {
 		</table>
 	</div>
 
-<div style="position:fixed;right:4px;bottom:0px;z-index:99;">
+<div style="position:fixed;right:4px;bottom:0px;z-index:9;">
 	<table border="0" cellpadding="0" cellspacing="0" />
 		<tr>
-			<td colspan="2">
-				&nbsp;
+			<td colspan="2" name="recordrowcontrols" id="recordrowcontrols" align="left" valign="top" />
+				1). If you see nothing here, adjust your search critera making a wider selection will result in more matches. <br>
+				2). if there are items shown, the system is waiting for you to select a Record Row Form Control...
 				</td>
 			<td class="table_bottom_right_bottom_sweep" onclick="javascript:document.sorttable.submit();" onMouseover="ddrivetip('Submit Request');" onMouseout="hideddrivetip();"/>
 				<?php echo $en_submitform;?>
 				</td>
 			</tr>
 		<tr>
-			<tr>
-			<td colspan="2" height="51px" class="table_bottom_right_container" />
+			<td colspan="2" class="table_bottom_right_container" />
 				<?php
 				_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
 				_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
@@ -670,6 +679,10 @@ if ($tbldisplaytotal==1) {
 							<tr>
 								<td class="table_browse_row_id" />
 									<?php echo $objarray[$tblkeyfield];?>
+									<?php
+									$div_counter = $div_counter + 1;
+									$load_control_string = $load_control_string."Record ID : ".$objarray[$tblkeyfield]."";
+									?>
 									</td>
 								<td width="80" class="table_browse_row_functions_spaces" />
 									<table border="0" cellspacing="0" cellpadding="0" width="100%" height="39" id="table1">
@@ -790,26 +803,21 @@ if ($tbldisplaytotal==1) {
 																								case "notjoined":
 																										switch ($adataspecial[$i]) {
 																												case 2:
-																														?>
-									@ <?php echo $objarray[$adatafield[$i]];?>
-																														<?php  
+									$tmp = "$ ".$objarray[$adatafield[$i]]." ";
 																													break;
 																												case 4:
-																														?>
-									$ <?php echo $objarray[$adatafield[$i]];?>
-																														<?php  
+									$tmp = "@ ".$objarray[$adatafield[$i]]." ";
 																													break;
 																												case 5:
-																														?>
-									<?php echo $objarray[$adatafield[$i]];?> %
-																														<?php  
+									$tmp = " ".$objarray[$adatafield[$i]]." % ";
 																													break;
 																												default:
-																														?>
-									<?php echo $objarray[$adatafield[$i]];?>
-																														<?php  
+									$tmp = " ".$objarray[$adatafield[$i]]." ";
 																													break;
 																											}
+																											
+																											echo $tmp;
+																											$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																									break;
 																								case "justsort":
 																										switch ($ainputtype[$i]) {
@@ -822,19 +830,27 @@ if ($tbldisplaytotal==1) {
 																															}
 																															?>
 									<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
-										<?php echo $tmpcbfield;?>
+										<?php 
+										$tmp = $tmpcbfield;
+										echo $tmp;
+										?>
 										</a>				
 																															<?php 
 																													break;
 																												default:
 																														$tmp_previous_value	= ($tmp_current_value);
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo "Previous Value is ".$tmp_previous_value."";
 																														?>
 									<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafield[$i];?>=<?php echo $objarray[$adatafield[$i]];?>'); ">
-										<?php echo $objarray[$adatafield[$i]];?>
+										<?php 
+										$tmp = $objarray[$adatafield[$i]];
+										echo $objarray[$adatafield[$i]];
+										?>
 										</a>
 																														<?php 
 																														$tmp_current_value	= ($objarray[$adatafield[$i]]);
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo "Current Value is ".$tmp_current_value."";
 																													break;
 																											}
@@ -866,6 +882,7 @@ if ($tbldisplaytotal==1) {
 												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $tmp_previous_value);
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo $tmp;																
 																														break;
 																												case "Object":
@@ -874,6 +891,7 @@ if ($tbldisplaytotal==1) {
 												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $tmp_previous_value);
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo $tmp;																
 																													break;
 																												case "Replacement Year":
@@ -882,6 +900,7 @@ if ($tbldisplaytotal==1) {
 												
 																														<?php 
 																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "", $objarray[$tblkeyfield],$objarray[$adatafield[0]]);
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo $tmp;																
 																													break;
 																												default:
@@ -889,7 +908,9 @@ if ($tbldisplaytotal==1) {
 											<a class="table_browse_row_joinable" href="javascript:updatewhereform('<?php echo $adatafieldtable[$i];?>.<?php echo $adatafieldid[$i];?>=<?php echo $tmpsqlwhereaddon;?>'); ">
 												
 																														<?php 
-																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "");																
+																														$tmp = $adataselect[$i]($objarray[$adatafieldid[$i]], "all", $adatafield[$i], "hide", "");
+																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
+																																																												
 																													break;
 																											}
 																										$tmp_current_value	= ($objarray[$adatafield[$i]]);
@@ -938,18 +959,23 @@ if ($tbldisplaytotal==1) {
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-								<td class="table_button_right_side_slim_function" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" onclick="javascript:toggle('controldisplaypanel');"/>
+								<td class="table_button_right_side_slim_function" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" onclick="javascript:call_server_load_controls('<?php echo $whoareyou;?>','<?php echo $load_control_string;?>');toggle2('divform_<?php echo $div_counter;?>','<?php echo $tblpagationgroup;?>');" />
+									<?php echo $en_open_commands;?> 
 									<?php
-									echo $en_open_commands;
+									//echo $en_open_commands;
 									// Load Command Cell
 									?>
 																							<?php
-																							/* $tblkeyvalue = $objarray[$tblkeyfield];
-																							_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
-																							_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
-																							_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
+																							$tblkeyvalue = $objarray[$tblkeyfield];
+																							//_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
+																							//_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
+																							//_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
 																								
-																							include("includes/_template/_tp_blockform_workorder.binc.php"); */
+																							//include("includes/_template/_tp_blockform_workorder.binc.php");
+																						?>
+																						
+																						<?php
+																						
 																						}
 																						$tmprepairid 	= '';
 																						$tmprepairdate 	= '';
@@ -957,20 +983,36 @@ if ($tbldisplaytotal==1) {
 																						$tmpbouncedid 	= '';
 																						$tmpbounceddate = '';
 																						$tmpbouncedtime = '';
+																						$load_control_string = '';
 																						$displayrow 	= 1;
 																						?>
 									</td>
 								</tr>
-							<tr>
+							<tr height="4">
 								<?php
 								$cols = count($aheadername);
 								$cols = $cols + 2;
 								?>
-								<td colspan="<?php echo $cols;?>" />
-									&nbsp;
+								<td colspan="<?php echo $cols;?>" align="right" style="height:5px;overflow:hidden;"/>
+									<div style="position:absolute; z-index:10; right:150px; bottom:55px; width:500;display:none;text-align:right;ertical-align: top;"; name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
+										<table border="0" cellpadding="0" cellspacing="0"/>
+											<tr>
+												<td class="table_bottom_right_container2"/>
+													<?php
+														$tblkeyvalue = $objarray[$tblkeyfield];
+														_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
+														_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
+														_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
+														
+														include("includes/_template/_tp_blockform_workorder_browser.binc.php");
+														?>
+													</td>
+												</tr>
+											</table>
+										</div>
 									</td>
 								<td class="table_button_right_side_slim_shoulder">
-									&nbsp;
+									&nbsp; <!-- GAP IN RIGHT MENU BETWEEN CONTROLS BUTTON-->
 									</td>	
 								</tr>
 																						<?php 	
