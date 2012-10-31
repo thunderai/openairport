@@ -1,118 +1,544 @@
 .table_button_side_top_dark1{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
+	font-size				: 9pt; 	
+	color					: #000000; 
 	text-align				: right;
 	vertical-align			: bottom;
 	
 	background-color		: #133D87; /* Normal Dark Color 1 */
 	
 	margin					: 0px;
-	padding-right			: 10px;
-	padding-bottom			: 10px;
+	padding-right			: 2px;
+	padding-bottom			: 2px;
 	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 23px solid;
-	border-left				: 10px solid;
+	border-right			: 48px solid;
+	border-left				: 12px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	/*width					: 140px;*/
+	height					: 40px;
+	width					: 99px;*/
 
 	}
-.table_button_side_top_light1{
+	
+.table_button_side_top_shoulder{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
+	font-size				: 9pt; 	
+	color					: #000000; 
 	text-align				: right;
 	vertical-align			: bottom;
 	
 	background-color		: #335DA7; /* Normal Dark Color 1 */
 	
 	margin					: 0px;
-	padding-right			: 10px;
-	padding-bottom			: 10px;
+	padding-right			: 2px;
+	padding-bottom			: 2px;
 	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 23px solid;
-	border-left				: 10px solid;
+	border-right			: 48px solid;
+	border-left				: 12px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	/*width					: 140px;*/
+	height					: 40px;
+	width					: 99px;*/
+
+	}	
+	
+	
+.table_button_side_top_light1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Normal Dark Color 1 */
+	
+	margin					: 0px;
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 48px solid;
+	border-left				: 12px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 40px;
+	width					: 99px;*/
 
 	}
 	
 .table_button_side_top_light2{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
+	font-size				: 9pt; 	
+	color					: #000000; 
 	text-align				: right;
 	vertical-align			: bottom;
 	
 	background-color		: #4A72CA; /* Normal Dark Color 1 */
 	
 	margin					: 0px;
-	padding-right			: 10px;
-	padding-bottom			: 10px;
+	padding-right			: 2px;
+	padding-bottom			: 2px;
 	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 23px solid;
-	border-left				: 10px solid;
+	border-right			: 48px solid;
+	border-left				: 12px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	/*width					: 140px;*/
+	height					: 40px;
+	width					: 99px;*/
 
 	}	
 
 .table_button_side_top_function{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
+	font-size				: 9pt; 	
 	color					: #000000; 
 	text-align				: right;
 	vertical-align			: bottom;
 	
 	background-color		: #FFA90E; /* Normal Dark Color 1 */
 	
-	margin					: 0px;
-	padding-right			: 10px;
-	padding-bottom			: 10px;
+	padding-right			: 2px;
+	padding-bottom			: 2px;
 	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 23px solid;
-	border-left				: 10px solid;
+	border-right			: 0px solid;
+	border-left				: 5px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	/*width					: 140px;*/
+	height					: 41px;
+	width					: 107px;
 
 	}	
+	
+.table_button_side_top_function_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 5px;
+
+	}
+	
+.table_button_side_top_function_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #FFA90E; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 15px;
+
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}		
+	
+.table_button_side_top_red{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #FFFFFF; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #FE0000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 107px;
+
+	}
+
+.table_button_side_top_red_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 5px;
+
+	}
+	
+.table_button_side_top_red_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #FE0000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 15px;
+
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}	
+	
+.table_button_side_top_inactive{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 12pt; 	
+	color					: #CCCCCC; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #4D4D4D; /* Red Alert Light Color 2 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 107px;
+
+	}
+
+.table_button_side_top_dark1_qac{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 107px;
+
+	}
+	
+.table_button_side_top_dark1_qac_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 5px;
+
+	}
+	
+.table_button_side_top_dark1_qac_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #133D87; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 15px;
+
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}	
+	
+.table_button_side_top_light1_qac{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 107px;
+
+	}
+	
+.table_button_side_top_light1_qac_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 5px;
+
+	}
+	
+.table_button_side_top_light1_qac_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 15px;
+
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}	
+	
+.table_button_side_top_light2_qac{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #4A72CA; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 5px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 107px;
+
+	}	
+	
+.table_button_side_top_light2_qac_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 5px;
+
+	}
+	
+.table_button_side_top_light2_qac_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 9pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: bottom;
+	
+	background-color		: #4A72CA; /* Normal Dark Color 1 */
+	
+	padding-right			: 2px;
+	padding-bottom			: 2px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 41px;
+	width					: 15px;
+
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}		

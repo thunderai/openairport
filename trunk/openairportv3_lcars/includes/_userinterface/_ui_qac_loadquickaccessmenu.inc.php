@@ -2,14 +2,14 @@
 	
 function loadquickaccessmenu($user,$start=0,$end=5) {
 	
-	$ary_colors 	= array('table_button_side_dark1','table_button_side_light2','table_button_side_light1');
+	$ary_colors 	= array('table_button_side_top_dark1_qac','table_button_side_top_light2_qac','table_button_side_top_light1_qac');
 	$ary_types		= array('Browse','Monitor','New');
 	
 	//$start = $start + 1;
 	
 	//include("stylesheets/_css.inc.php");
 ?>
-<table border="0" cellpadding="0" cellspacing="0" id="quickaccessitem" width="100%" />
+<table border="0" cellpadding="0" cellspacing="0" id="quickaccessitem" width="100%" style="border:0px;margin:0px;padding:0px;z-index:20;" />
 <?php 
 	$sql = "SELECT * FROM tbl_systemusers 
 			INNER JOIN tbl_quickaccess_control ON tbl_quickaccess_control.tbl_qac_systemuser_id = tbl_systemusers.emp_record_id 
@@ -109,14 +109,26 @@ function loadquickaccessmenu($user,$start=0,$end=5) {
 								}
 							
 							?>
+	<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;display:inline;" name="qac_menuitem<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="layouttableiframecontent" />						
 	<tr>
-	<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;display:inline;" name="qac_menuitem<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="layouttableiframecontent" />
-		<td class="<?php echo $style;?>" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" onMouseover="ddrivetip('<?php echo $tmpmenupurp;?>');" onMouseout="hideddrivetip();" />
-			<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemid;?>"></font>
-			<?php echo $tmpmenusshortnl;?><br>
+		<td>
+			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+				<tr>
+					<td class="<?php echo $style;?>" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" />
+						<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemid;?>" />
+						<?php echo $tmpmenusshortnl;?>
+						</td>
+					<td class="<?php echo $style;?>_gap" />
+						&nbsp;
+						</td>	
+					<td class="<?php echo $style;?>_help" onMouseover="ddrivetip('<?php echo $tmpmenupurp;?>');" onMouseout="hideddrivetip();" />
+						&nbsp;
+						</td>
+					</tr>
+				</table>
 			</td>
-		</form>
 		</tr>
+		</form>
 							<?php 
 						}	// End of while loop
 					mysqli_free_result($res);

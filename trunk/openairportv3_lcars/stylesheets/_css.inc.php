@@ -33,7 +33,6 @@
 
 ?>	
 		<link href="stylesheets/lcars_oa.css" 								rel="stylesheet" type="text/css">
-		<link href="stylesheets/lcars_left_side_buttons_normal.css" 		rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_left_top_side_buttons_normal.css" 	rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_right_side_buttons_blue.css" 			rel="stylesheet" type="text/css">
 		<link href="stylesheets/lcars_form_overlay_yellow.css" 				rel="stylesheet" type="text/css">
