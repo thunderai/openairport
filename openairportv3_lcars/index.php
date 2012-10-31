@@ -52,7 +52,232 @@ if (!isset($_POST["systemuserid"])) {
 	
 // Build New Index Layout for LCARS layout
 
+
+//  Set width to 975 to test fitting on iPad-----------------vvv
 ?>
+<div style="position:fixed;left:5px;top:5px;z-index:10;width:975px;height:620px;border:0px solid;" />
+	<table width="100%"  bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+		<tr>
+			<td align="left" valign="top">
+				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<td class="table_button_side_top_function" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('navigationdisplaypanel');" />
+							Menu
+							</td>
+						<td class="table_button_side_top_function_gap" />
+							&nbsp;
+							</td>	
+						<td class="table_button_side_top_function_help" onMouseover="ddrivetip('Open Menu Screen');" onMouseout="hideddrivetip();"/>
+							&nbsp;
+							</td>
+						</tr>
+					</table>					
+				</td>
+			<td colspan="11" rowspan="2" align="right" valign="top" />
+				<table width="100%" height="75" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;text-align: right;" />
+					<tr>
+						<td name="WelcomeText" id="WelcomeText" class="welcometext" />
+							<?php echo $nameofairport;?> - Welcome <?php fwelcomebox($whoareyou); ?>
+							</td>
+						</tr>
+					<tr>
+						<td />
+							<div name="SystemText" id="SystemText" class="systemtext" />
+								Waiting for system data...You should do something...
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>				
+			</tr>
+		<tr>
+			<td rowspan="2" class="table_top_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
+				<img src="images/_interface/lcars_top_sweep.png" />
+				</td>				
+			</tr>
+		<tr>
+			<td rowspan="2" class="table_top_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();" />
+				Settings
+				</td>
+			<td class="table_top_buttons_timetaken" id="timetaken" name="timetaken" onMouseover="ddrivetip('<b>Load Times</b><br>This page took this many milliseconds to load');" onMouseout="hideddrivetip();"/>
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_light1" id="qa_rpt" name="qa_rpt" onMouseover="ddrivetip('Menu Structure Points');" onMouseout="hideddrivetip();">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_light2">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>				
+			<td class="table_top_buttons_dark1">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_light1">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>				
+			<td class="table_top_buttons_light2">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_dark1">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_light1">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>	
+			<td class="table_top_buttons_light2">
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_top_buttons_endcap" />
+				<?php
+				$random = rand(0,10);
+				echo $random;
+				?>
+				</td>				
+			</tr>
+		<tr>
+			<td rowspan="2" class="table_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
+				<img src="images/_interface/lcars_bottom_sweep.png" />
+				</td>
+			<td colspan="3" class="table_bottom_buttons_dark1" />
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>			
+			<td colspan="3" class="table_bottom_buttons_light1" />
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td colspan="3" class="table_bottom_buttons_light2" />
+				<?php
+				$random = rand(0,2000);
+				echo $random;
+				?>
+				</td>
+			<td class="table_bottom_buttons_endcap" />
+				<?php
+				$random = rand(0,10);
+				echo $random;
+				?>
+				</td>				
+			</tr>
+		<tr>
+			<td colspan="11" rowspan="6" class="table_maincontent"/>
+				<div style="overflow-y:scroll;height:100%;">	
+					<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;"></iframe>
+					</div>
+				</td>
+			</tr>
+		<tr>
+			<td align="left" valign="top">
+				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<td class="table_button_side_top_function" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;"/>
+							Help
+							</td>
+						<td class="table_button_side_top_function_gap" />
+							&nbsp;
+							</td>	
+						<td class="table_button_side_top_function_help" onMouseover="ddrivetip('Open Help Screen');" onMouseout="hideddrivetip();"/>
+							&nbsp;
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		<tr>
+			<form>
+				<input type="hidden" size="4" name="qa_start" id="qa_start" value='0' />
+				<input type="hidden" name="qa_end" id="qa_end" value='5' />
+				</form>
+			<td align="left" valign="top">
+				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<td class="table_button_side_top_function" id="button_up" class="table_button_side_top_function" onclick="javascript:call_server_load_quickaccess('<?php echo $whoareyou;?>','up');" />
+							Up
+							</td>
+						<td class="table_button_side_top_function_gap" />
+							&nbsp;
+							</td>	
+						<td class="table_button_side_top_function_help" onMouseover="ddrivetip('Move Quick Access Menu Items Up');" onMouseout="hideddrivetip();"/>
+							&nbsp;
+							</td>
+						</tr>
+					</table>
+				</td>			
+			</tr>
+		<tr>
+			<td id="layout_topheadercenter" name="layout_topheadercenter" />
+				<?php 
+				loadquickaccessmenu($whoareyou);
+				?>
+				</td>
+			</tr>	
+		<tr>
+			<td align="left" valign="top">
+				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<td class="table_button_side_top_function" id="button_down" class="table_button_side_top_function" onclick="javascript:call_server_load_quickaccess('<?php echo $whoareyou;?>','down');" />
+							Down
+							</td>
+						<td class="table_button_side_top_function_gap" />
+							&nbsp;
+							</td>	
+						<td class="table_button_side_top_function_help" onMouseover="ddrivetip('Move Quick Access Menu Items Down');" onMouseout="hideddrivetip();"/>
+							&nbsp;
+							</td>
+						</tr>
+					</table>
+				</td>				
+			</tr>	
+		<tr>
+			<td align="left" valign="top">
+				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<td class="table_button_side_top_red" onclick="window.location='index_newlogin.php'" style="cursor:hand;" />
+							Logout
+							</td>
+						<td class="table_button_side_top_red_gap" />
+							&nbsp;
+							</td>	
+						<td class="table_button_side_top_red_help" onMouseover="ddrivetip('Logout of OpenAirport. Your information will be saved.');" onMouseout="hideddrivetip();"/>
+							&nbsp;
+							</td>
+						</tr>
+					</table>
+				</td>					
+			</tr>			
+		</table>
+	</div>
+
 <div class="fullscreen" style="display: none;" name="navigationdisplaypanel" id="navigationdisplaypanel">
 	<table width="100%" height="100%" border="0" cellpadding="1" cellspacing="1" name="navigationajaxtable" id="navigationajaxtable" />
 		<tr>
@@ -67,162 +292,7 @@ if (!isset($_POST["systemuserid"])) {
 			</tr>
 		</table>
 	</div>
-
-<div style="position:fixed;right:0px;top:50px;z-index:99;width:85%;height:80px;overflow:hidden;" align="right" ID="content">
-	<table>
-		<tr>
-			<td name="SystemText" id="SystemText" class="systemtext" />
-				Waiting for system data...You should do something...
-				</td>
-			</tr>
-		</table>	
-	</div>
 	
-<div style="position:fixed;left:0px;top:0px;z-index:2;width:100%;" align="center" ID="content">
-	<table border="0" cellspacing="0" cellpadding="0">
-		<tr>
-			<td class="table_shoulder" />
-				</td>
-			<td rowspan="3" colspan="9" class="table_header_container" />
-				<table border="0" cellpadding="0" cellspacing="0" width="100%" />
-					<tr>
-						<td name="WelcomeText" id="WelcomeText" class="welcometext" />
-							<?php echo $nameofairport;?> - Welcome <?php fwelcomebox($whoareyou); ?>
-							</td>
-						</tr>
-					</table>
-				</td>			
-			</tr>
-		<tr>
-			<td name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('navigationdisplaypanel');" />
-				Menu
-				</td>
-			</tr>
-		<tr>
-			<td class="table_button_top_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
-				Settings
-				</td>
-			</tr>
-		<tr>
-			<td class="table_top_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
-				<img src="images/_interface/lcars_top_sweep.png" border="0" style="float:left;" />
-				</td>
-			<td class="table_top_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
-				&nbsp;
-				</td>
-			<td class="table_top_buttons_light2" id="qa_rpt" name="qa_rpt" onMouseover="ddrivetip('Menu Structure Points');" onMouseout="hideddrivetip();"/>
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td class="table_top_buttons_light1" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>			
-			<td class="table_top_buttons_dark1" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>		
-			<td class="table_top_buttons_light2" id="typeid" name="typeid" onMouseover="ddrivetip('Current Type ID');" onMouseout="hideddrivetip();" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td class="table_top_buttons_light1" id="actionid" name="actionid" onMouseover="ddrivetip('Current Action ID');" onMouseout="hideddrivetip();"/>
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td class="table_top_buttons_light1" id="timetaken" name="timetaken" onMouseover="ddrivetip('Data has taken this many milliseconds to load');" onMouseout="hideddrivetip();"/>
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td class="table_top_buttons_endcap" />
-				&nbsp;
-				</td>
-			</tr>
-		<tr>
-			<td colspan="10" bgcolor="000000" />
-				&nbsp;
-				</td>
-			</tr>			
-		</table>
-	</div>
-	
-<div style="position:fixed;left:180px;top:200px;right:0;z-index:99;overflow-y:scroll;height: 75%;">	
-	<table width="100%" cellpadding="0" cellspacing="0">
-		<tr>
-			<td class="table_maincontent" />
-				<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%; display:none"></iframe>
-				</td>
-			</tr>
-		</table>
-	</div>
-
-<div style="position:fixed;left:0px;top:175px;right:0;z-index:2;">	
-	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td rowspan="2" class="table_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;" onMouseover="ddrivetip('Open Help Screen');" onMouseout="hideddrivetip();"/>
-				<img src="images/_interface/lcars_bottom_sweep.png" border="0" style="float:left;" />
-				</td>
-			<td class="table_bottom_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;" onMouseover="ddrivetip('Open Help Screen');" onMouseout="hideddrivetip();"/>
-				<a class="hyperlink" href="http://www.openairport.org" target="SourceCode">OpenAirport.org &copy; <?php echo date('Y');?></a>
-				</td>
-			<td class="table_bottom_buttons_endcap" />
-				&nbsp;
-				</td>
-			</tr>
-		<tr>	
-			<td colspan="2">
-				</td>
-			</tr>			
-		<tr>
-			<td class="table_button_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;" onMouseover="ddrivetip('Open Help Screen');" onMouseout="hideddrivetip();"/>
-				Help
-				</td>
-			</tr>
-		<tr>
-			<form>
-				<input type="hidden" size="4" name="qa_start" id="qa_start" value='0' />
-				<input type="hidden" name="qa_end" id="qa_end" value='5' />
-				</form>
-			<td id="button_up" class="table_button_side_function" onclick="javascript:call_server_load_quickaccess('<?php echo $whoareyou;?>','up');" onMouseover="ddrivetip('Load Additional Quick Access Items - Up');" onMouseout="hideddrivetip();"/>
-				Up
-				</td>
-			</tr>
-		<tr>
-			<td id="layout_topheadercenter" name="layout_topheadercenter" />
-				<?php 
-				loadquickaccessmenu($whoareyou);
-				?>
-				</td>
-			</tr>
-		<tr>
-			<td id="button_down" class="table_button_side_function" onclick="javascript:call_server_load_quickaccess('<?php echo $whoareyou;?>','down');" onMouseover="ddrivetip('Load Additional Quick Access Items - Down');" onMouseout="hideddrivetip();" />
-				Down
-				</td>
-			</tr>			
-		<tr>
-			<td class="table_button_side_red_light2" onclick="window.location='index_newlogin.php'" style="cursor:hand;" onMouseover="ddrivetip('Logout of OpenAirport. Your information will be saved.');" onMouseout="hideddrivetip();" />
-				LOGOUT
-				</td>
-			</tr>		
-		<tr>
-			<td class="table_bottom_shoulder" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</div>
 
 <?php
 include("includes/_userinterface/_ui_footer.inc.php");				// include file that gets information from form posts for navigational purposes
