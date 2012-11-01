@@ -1,50 +1,23 @@
 .table_top_right_bottom_sweep{
 	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #8D9BFE; 
-	text-align				: left;
-	vertical-align			: bottom;
+	background-color		: #2350B5; /* Blue Alert Shoulder Color */
 	
-	background-color		: #0033FF; /* Blue Alert Shoulder Color */
-	
-	padding-left			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 7px solid;
-	border-left				: 39px solid;
+	border-right			: 0px solid;
+	border-left				: 14px solid;
 	border-top				: 0px solid;
-	border-bottom			: 5px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 22px;
-	width					: 131px;
-
 	}
 
 .table_bottom_right_bottom_sweep{
 	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #8D9BFE; 
-	text-align				: left;
-	vertical-align			: bottom;
-	
 	background-color		: #0033FF; /* Blue Alert Shoulder Color */
 	
-	padding-left			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 4px solid;
-	border-left				: 40px solid;
+	border-right			: 0px solid;
+	border-left				: 0px solid;
 	border-top				: 0px solid;
 	border-bottom			: 0px solid;
 	border-style			: solid;
@@ -55,25 +28,47 @@
 	width					: 131px;
 
 	}	
-	
-.table_button_right_side_light1{
+
+.table_top_right_bottom_sweep_text{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
+	font-size				: 10pt; 	
 	color					: #8D9BFE; 
 	text-align				: left;
 	vertical-align			: bottom;
 	
-	background-color		: #0166FF; /* Blue Alert Shoulder Color */
+	background-color		: #2350B5; /* Blue Alert Shoulder Color */
 	
 	padding-left			: 10px;
 	padding-bottom			: 10px;
 	 
-	list-style				: none; 
-	white-space				: nowrap; 
+	border-right			: 0px solid;
+	border-left				: 14px solid;
+	border-top				: 0px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	width					: 50px;
 
-	border-right			: 7px solid;
-	border-left				: 39px solid;
+	}
+	
+.table_bottom_right_sorting{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #8D9BFE; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #2350B5; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0x solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
@@ -81,71 +76,62 @@
 	border-collapse			: collapse;
 	
 	height					: 50px;
-	width					: 131px;
+	width					: 96px;
 
-	}
-	
-.table_button_right_side_light2{
+	}	
+
+.table_button_right_side_gap{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #8D9BFE; 
+	font-size				: 10pt; 	
+	color					: #000000; 
 	text-align				: left;
 	vertical-align			: bottom;
 	
-	background-color		: #4259FF; /* Blue Alert Shoulder Color */
+	background-color		: #000000; /* Blue Alert Shoulder Color */
 	
-	padding-left			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 7px solid;
-	border-left				: 39px solid;
+	border-right			: 0px solid;
+	border-left				: 0px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	width					: 131px;
+	height					: 20px;
+	width					: 5px;
 
 	}
-.table_button_right_side_dark1{
+	
+.table_button_right_side_function_container{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #8D9BFE; 
-	text-align				: left;
-	vertical-align			: bottom;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: right;
+	vertical-align			: top;
 	
-	background-color		: #0100C8; /* Blue Alert Shoulder Color */
+	background-color		: #000000; /* Blue Alert Shoulder Color */
 	
-	padding-left			: 10px;
-	padding-bottom			: 10px;
-	 
-	list-style				: none; 
-	white-space				: nowrap; 
-
-	border-right			: 7px solid;
-	border-left				: 39px solid;
+	padding					:	0px;
+	margin					:	0px;
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
-	
-	height					: 50px;
-	width					: 131px;
 
-	}
+	height					: 50px;
+	width					: 107px;
+	}	
 	
 .table_button_right_side_function{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
+	font-size				: 10pt; 	
 	color					: #000000; 
 	text-align				: left;
 	vertical-align			: bottom;
@@ -155,15 +141,194 @@
 	padding-left			: 10px;
 	padding-bottom			: 10px;
 	 
-	border-right			: 7px solid;
-	border-left				: 39px solid;
+	border-right			: 0px solid;
+	border-left				: 0px solid;
 	border-top				: 2px solid;
 	border-bottom			: 2px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 50px;
-	width					: 131px;
+	height					: 20px;
+	width					: 105px;
 
 	}
+	
+.table_button_right_side_function_gap{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #000000; /* Blue Alert Shoulder Color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 5px;
+
+	}	
+	
+.table_button_right_side_function_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #FFA90E; /* Blue Alert Shoulder Color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 15px;
+
+	-webkit-border-radius: 13px 0px 0px 13px;
+	-moz-border-radius: 13px 0px 0px 13px;
+	border-radius: 13px 0px 0px 13px;	
+	
+	}	
+	
+.table_button_right_side_function_slim{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #2350B5; /* Blue Alert Shoulder Color */
+	
+	border-right			: 0px solid;
+	border-left				: 20px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 2px;
+	width					: 107px;
+
+	}	
+	
+.table_button_right_side_function_light2{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #4A72CA; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 105px;
+
+	}	
+	
+.table_button_right_side_function_light2_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #4A72CA; /* Blue Alert Shoulder Color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 15px;
+
+	-webkit-border-radius: 13px 0px 0px 13px;
+	-moz-border-radius: 13px 0px 0px 13px;
+	border-radius: 13px 0px 0px 13px;	
+	
+	}	
+	
+.table_button_right_side_function_light1{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Blue Alert Shoulder Color */
+	
+	padding-left			: 10px;
+	padding-bottom			: 10px;
+	 
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 105px;
+
+	}	
+	
+.table_button_right_side_function_light1_help{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: left;
+	vertical-align			: bottom;
+	
+	background-color		: #335DA7; /* Blue Alert Shoulder Color */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 2px solid;
+	border-bottom			: 2px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 20px;
+	width					: 15px;
+
+	-webkit-border-radius: 13px 0px 0px 13px;
+	-moz-border-radius: 13px 0px 0px 13px;
+	border-radius: 13px 0px 0px 13px;	
+	
+	}	

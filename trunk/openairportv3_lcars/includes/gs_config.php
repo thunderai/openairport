@@ -72,11 +72,12 @@
 		$en_quickaccess		= "Add to Quick Access";
 		$en_quickaccessno	= "Remove from Quick Access";
 		$en_pageation		= "Display Page";
-		$en_active			= "ACTIVE!";
-		$en_notactive		= "NOT ACTIVE!";
-		$en_submitform		= "Submit Request";
+		$en_active			= "ON";
+		$en_notactive		= "OFF";
+		$en_submitform		= "Submit";
 		$en_id				= "Record ID";
 		$en_functions		= "Functions";
 		$en_commands		= "Commands";
 		$en_open_commands	= "Controls";
+		$en_sortingfilters	= "Filters";
 ?>

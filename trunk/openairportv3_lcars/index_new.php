@@ -89,9 +89,56 @@ if ($_SESSION['user_id']=="") {
 	}
 	else {
 		?>
-		<table width="100%" height="1000" valign="top" background="images/part_139_327/part139_327_airportmap_new_color.png" />
+		<table class="table_bottom_container" border="0" cellpadding="0" cellspacing="0" />
 			<tr>
-				<td valign='top'>
+				<td class="table_bottom_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"/>
+					&nbsp;
+					</td>	
+				<td class="table_bottom_sweep_tail_filler" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>
+				<td class="table_bottom_buttons_light1" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>
+				<td class="table_bottom_buttons_light2" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>
+				<td class="table_bottom_buttons_dark1" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>			
+				<td class="table_bottom_buttons_light1" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>
+				<td class="table_bottom_buttons_light2" />
+					<?php
+					$random = rand(0,2000);
+					echo $random;
+					?>
+					</td>					
+				<td class="table_bottom_buttons_endcap" />
+					<?php
+					$random = rand(0,10);
+					echo $random;
+					?>
+					</td>				
+				</tr>
+			</table>
+
 					<?php
 		//$tmpstarttime 	= time();
 

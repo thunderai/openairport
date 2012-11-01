@@ -55,6 +55,8 @@ function call_server_blockform(memnuid,userid,fieldtocontrol)
 		var currentvalueinfield 	= document.getElementById(fieldtocontrol).value;
 		var fieldtocontrol_show		= fieldtocontrol + "active";
 		
+		//alert(fieldtocontrol_show);
+		
 			var url = "ajax_blockform.php?menuid=" + escape(memnuid) + "&Employee=" + escape(userid) + "&value=" + escape(currentvalueinfield);
 			request.open("GET", url); 
 			request.onreadystatechange = sever_interaction_blockform;
@@ -64,14 +66,14 @@ function call_server_blockform(memnuid,userid,fieldtocontrol)
 				
 				var message = "Add to Quick Menu";
 				document.getElementById(fieldtocontrol).value		= 0;
-				document.getElementById(fieldtocontrol_show).value	= message;
+				document.getElementById(fieldtocontrol_show).innerHTML	= message;
 				
 				}
 			if (currentvalueinfield == 0) {
 				
 				var message = "Remove from Quick Menu!";
 				document.getElementById(fieldtocontrol).value 		= 1;
-				document.getElementById(fieldtocontrol_show).value	= message;
+				document.getElementById(fieldtocontrol_show).innerHTML	= message;
 				
 				}
 				

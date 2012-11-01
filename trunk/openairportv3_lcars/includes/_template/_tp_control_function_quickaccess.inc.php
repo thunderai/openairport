@@ -23,37 +23,28 @@ function _tp_control_function_quickaccess($language_on,$menuitemid,$whoareyou,$t
 				$message = "<b>Quick Access</b><br>Use this control to remove this page from the quick access menu on the left side of the screen.";
 			}	
 	?>
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button">
+	<table align="left" border="0" cellpadding="0" cellspacing="0" >
 		<tr>
-			<td class="table_button_bullet_right_light1_yellow" onMouseover="ddrivetip('<?php echo $message;?>');" onMouseout="hideddrivetip();" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_light1_yellow" onMouseover="ddrivetip('<?php echo $message;?>');" onMouseout="hideddrivetip();" />
-				<?php
-				echo $language_on;
-				?>
-				</td>
-			<td class="table_button_bullet_fill_gap_light1_yellow" ID="<?php echo $td_input_name;?>" NAME="<?php echo $td_input_name;?>" onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"/>
+			<td ID="<?php echo $td_input_name;?>" NAME="<?php echo $td_input_name;?>" onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"/>
 				<?php
 				$qac_exisists = qac_test_exisist($menuitemid,$whoareyou,"test");
 				?>
 				<input class="hidden" type="hidden" name="<?php echo $input_fieldname;?>" id="<?php echo $input_fieldname;?>" size="25" value="<?php echo $qac_exisists;?>" />
 					<?php
 					if ($qac_exisists == 0) {
-							$en_quickaccesstmp = $en_quickaccess;
+							$en_quickaccesstmp 	= $en_quickaccess;
+							$tmp_message 		= $en_quickaccess;
 						}
 						else {
-							$en_quickaccesstmp = $en_quickaccessno;
+							$en_quickaccesstmp 	= $en_quickaccessno;
+							$tmp_message 		= $en_quickaccessno;
 						}
-						?>											
-				<input class="table_button_bullet_fill_input_light1_yellow" 	type="text" 	name="<?php echo $input_d_fieldname;?>" id="<?php echo $input_d_fieldname;?>" 	size="25" value="<?php echo $en_quickaccesstmp;?>"> 
+						?>
+				<span class="table_browse_inline_click_text" name="<?php echo $input_d_fieldname;?>" id="<?php echo $input_d_fieldname;?>"><?php echo $tmp_message;?></span>
 				</td>
-			<td class="table_button_bullet_tail_light1_yellow" onMouseover="ddrivetip('<?php echo $message;?>');" onMouseout="hideddrivetip();"/>
+			<td class="table_browse_inline_click_text_gap"  onMouseover="ddrivetip('<b>Quick Access</b><br>You may click this button to add or remove this form from your quick access menu on the left side of the screen.');" onMouseout="hideddrivetip();"/>
 				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_light1_yellow" onMouseover="ddrivetip('<?php echo $message;?>');" onMouseout="hideddrivetip();"/>
-				&nbsp;
-				</td>
+				</td>				
 			</tr>
 		</table>
 	<?php
