@@ -52,9 +52,6 @@ function _tp_control_sortby_page($sql,$sql_failsafe,$language_on,$tblpagationgro
 			<td class="table_button_bullet_tail_dark1_normal" />
 				&nbsp;
 				</td>
-			<td class="table_button_bullet_left_dark1_normal" />
-				&nbsp;
-				</td>
 			</tr>
 		</table>
 		<?php

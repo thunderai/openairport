@@ -86,12 +86,12 @@
 	border-right			: 2px solid;
 	border-left				: 0px solid;
 	border-top				: 13px solid;
-	border-bottom			: 5px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 5px;
+	height					: 15px;
 	width					: 80px;
 
 	}
@@ -211,6 +211,29 @@
 	width					: 30px;
 
 	}
+
+.table_bottom_container{
+	
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #000000; /* Black */
+	
+	padding					: 0px;
+	margin					: 0px;
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	width					: 100%;
+
+	}
+
 	
 .table_bottom_sweep{
 	
@@ -236,6 +259,29 @@
 .table_bottom_sweep_tail{
 	
 	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 10pt; 	
+	color					: #000000; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #2350B5; /* Normal Dark Color 1 */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 21px;
+	width					: 82px;
+
+	}	
+
+.table_bottom_sweep_tail_filler{
+	
+	font-family				: Impact, Charcoal, sans-serif;
 	font-size				: 7pt; 	
 	color					: #97C3E0; 
 	text-align				: center;
@@ -243,19 +289,17 @@
 	
 	background-color		: #2350B5; /* Normal Dark Color 1 */
 	
-	border-right			: 2px solid;
-	border-left				: 0px solid;
+	border-right			: 0px solid;
+	border-left				: 2px solid;
 	border-top				: 0px solid;
-	border-bottom			: 4px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 5px;
-	width					: 80px;
-
-	}	
-
+	height					: 21px;
+	}		
+	
 .table_bottom_buttons_dark1{
 	
 	font-family				: Impact, Charcoal, sans-serif;
@@ -269,12 +313,13 @@
 	border-right			: 2px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
-	border-bottom			: 4px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 14px;
+	height					: 21px;
+	width					: 82px;
 	}
 
 .table_bottom_buttons_light1{
@@ -289,13 +334,14 @@
 	
 	border-right			: 2px solid;
 	border-left				: 2px solid;
-	border-top				: 10px solid;
-	border-bottom			: 5px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 5px;
+	height					: 21px;
+	width					: 82px;
 
 	}	
 	
@@ -311,13 +357,14 @@
 	
 	border-right			: 2px solid;
 	border-left				: 2px solid;
-	border-top				: 10px solid;
-	border-bottom			: 5px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 5px;
+	height					: 21px;
+	width					: 82px;
 
 	}
 	
@@ -339,11 +386,14 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 5px;
-	width					: 30px;
+	height					: 21px;
+	width					: 32px;
+
 
 	}
 
+	
+	
 /* HELP HUTTON vvvv HELP BUTTON vvvv HELP BUTTON vvvv */
  * /* Adds to 168 */
 
@@ -537,7 +587,7 @@ div.exportscreen{
 	
     /*set the div in the top-left corner of the screen*/
     position				:fixed;
-    bottom					:60px;
+    bottom					:130px;
     left					:0px;
 	
 	background-color		:#000000;

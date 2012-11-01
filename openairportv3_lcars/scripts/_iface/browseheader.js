@@ -68,16 +68,16 @@ function updatecontrolform(strCell)
 
 	if (currentvalueinfield == 1) {
 		
-		var message = "NOT ACTIVE!";
+		var message = "OFF";
 		document.getElementById(fieldtocontrol).value		= 0;
-		document.getElementById(fieldtocontrol_show).value	= message;
+		document.getElementById(fieldtocontrol_show).innerHTML	= message;
 		
 		}
 	if (currentvalueinfield == 0) {
 		
-		var message = "ACTIVE!";
+		var message = "ON";
 		document.getElementById(fieldtocontrol).value 		= 1;
-		document.getElementById(fieldtocontrol_show).value	= message;
+		document.getElementById(fieldtocontrol_show).innerHTML	= message;
 		}
 		
 		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;

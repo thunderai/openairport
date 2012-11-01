@@ -52,11 +52,12 @@ if (!isset($_POST["systemuserid"])) {
 	
 // Build New Index Layout for LCARS layout
 
-
-//  Set width to 975 to test fitting on iPad-----------------vvv
+//	Set Height to 620px to test fitting on iPad--------------------------\
+//  Set width to 975px to test fitting on iPad----------------\			  |
+//															  |			  |
 ?>
 <div style="position:fixed;left:5px;top:5px;z-index:10;width:975px;height:620px;border:0px solid;" />
-	<table width="100%"  bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+	<table width="100%" bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
 		<tr>
 			<td align="left" valign="top">
 				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
@@ -91,12 +92,12 @@ if (!isset($_POST["systemuserid"])) {
 				</td>				
 			</tr>
 		<tr>
-			<td rowspan="2" class="table_top_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
+			<td rowspan="2" class="table_top_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"/>
 				<img src="images/_interface/lcars_top_sweep.png" />
 				</td>				
 			</tr>
 		<tr>
-			<td rowspan="2" class="table_top_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();" />
+			<td rowspan="1" class="table_top_sweep_tail"  style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();" />
 				Settings
 				</td>
 			<td class="table_top_buttons_timetaken" id="timetaken" name="timetaken" onMouseover="ddrivetip('<b>Load Times</b><br>This page took this many milliseconds to load');" onMouseout="hideddrivetip();"/>
@@ -111,13 +112,13 @@ if (!isset($_POST["systemuserid"])) {
 				echo $random;
 				?>
 				</td>
-			<td class="table_top_buttons_light2">
+			<td class="table_top_buttons_light2" id="actionid" name="actionid" />
 				<?php
 				$random = rand(0,2000);
 				echo $random;
 				?>
 				</td>				
-			<td class="table_top_buttons_dark1">
+			<td class="table_top_buttons_dark1" id="typeid" name="typeid" />
 				<?php
 				$random = rand(0,2000);
 				echo $random;
@@ -141,13 +142,7 @@ if (!isset($_POST["systemuserid"])) {
 				echo $random;
 				?>
 				</td>
-			<td class="table_top_buttons_light1">
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>	
-			<td class="table_top_buttons_light2">
+			<td class="table_top_buttons_light1" colspan="2">
 				<?php
 				$random = rand(0,2000);
 				echo $random;
@@ -161,43 +156,19 @@ if (!isset($_POST["systemuserid"])) {
 				</td>				
 			</tr>
 		<tr>
-			<td rowspan="2" class="table_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;" onMouseover="ddrivetip('Open User Settings Page');" onMouseout="hideddrivetip();"/>
+			<td colspan="1" ROWSPAN="2" class="table_bottom_sweep" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;">
 				<img src="images/_interface/lcars_bottom_sweep.png" />
+				
 				</td>
-			<td colspan="3" class="table_bottom_buttons_dark1" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>			
-			<td colspan="3" class="table_bottom_buttons_light1" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td colspan="3" class="table_bottom_buttons_light2" />
-				<?php
-				$random = rand(0,2000);
-				echo $random;
-				?>
-				</td>
-			<td class="table_bottom_buttons_endcap" />
-				<?php
-				$random = rand(0,10);
-				echo $random;
-				?>
-				</td>				
-			</tr>
-		<tr>
-			<td colspan="11" rowspan="6" class="table_maincontent"/>
-				<div style="overflow-y:scroll;height:100%;">	
-					<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;"></iframe>
-					</div>
+			<td colspan="11" rowspan="7" style="border:0px;padding:0px;margin:0px;" align="left" valign="top" />
+				<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;"></iframe>
 				</td>
 			</tr>
 		<tr>
-			<td align="left" valign="top">
+
+			</tr>	
+		<tr>
+			<td class="table_bottom_sweep">
 				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
 					<tr>
 						<td class="table_button_side_top_function" onclick="loadintoIframe('layouttableiframecontent', '_suc_help.php')" style="cursor:hand;"/>
@@ -232,14 +203,14 @@ if (!isset($_POST["systemuserid"])) {
 							</td>
 						</tr>
 					</table>
-				</td>			
+				</td>
 			</tr>
 		<tr>
 			<td id="layout_topheadercenter" name="layout_topheadercenter" />
 				<?php 
 				loadquickaccessmenu($whoareyou);
 				?>
-				</td>
+				</td>			
 			</tr>	
 		<tr>
 			<td align="left" valign="top">
@@ -257,12 +228,12 @@ if (!isset($_POST["systemuserid"])) {
 						</tr>
 					</table>
 				</td>				
-			</tr>	
+			</tr>			
 		<tr>
 			<td align="left" valign="top">
 				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
 					<tr>
-						<td class="table_button_side_top_red" onclick="window.location='index_newlogin.php'" style="cursor:hand;" />
+						<td class="table_button_side_top_red" onclick="window.location='index_newlogin.php'" />
 							Logout
 							</td>
 						<td class="table_button_side_top_red_gap" />
@@ -273,8 +244,8 @@ if (!isset($_POST["systemuserid"])) {
 							</td>
 						</tr>
 					</table>
-				</td>					
-			</tr>			
+				</td>			
+			</tr>
 		</table>
 	</div>
 

@@ -80,6 +80,8 @@
 						$tmp_number_of_rows	= ( $tmp_number_of_rows + 1 );
 						settype($tmp_number_of_rows,'integer');
 						?>
+						
+						
 <table border="1" width="100%" align="left" valign="top" cellpadding="4" cellspacing="4" style="border-collapse:collapse;">
 	<tr>
 		<td colspan="2" class="layout_dashpanel_header">

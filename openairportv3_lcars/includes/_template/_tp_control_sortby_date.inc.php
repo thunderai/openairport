@@ -22,9 +22,6 @@ function _tp_control_sortby_date($tbl_show_datesort,$tbldatesort,$language_on,$l
 			<td class="table_button_bullet_tail_dark1_normal" />
 				&nbsp;
 				</td>
-			<td class="table_button_bullet_left_dark1_normal" />
-				&nbsp;
-				</td>
 			</tr>
 		</table>
 					<?php
@@ -41,9 +38,6 @@ function _tp_control_sortby_date($tbl_show_datesort,$tbldatesort,$language_on,$l
 				?>
 				</td>
 			<td class="table_button_bullet_tail_inactive" onMouseover="ddrivetip('<?php echo $language_off;?>');" onMouseout="hideddrivetip();"/>
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_inactive" onMouseover="ddrivetip('<?php echo $language_off;?>');" onMouseout="hideddrivetip();"/>
 				&nbsp;
 				</td>
 			</tr>
