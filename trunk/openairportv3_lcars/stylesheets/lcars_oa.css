@@ -755,7 +755,7 @@ float:left;
 	background-color		: #000000; /* Black */
 	
 	float					: right;
-	margin					: 5px;
+	margin					: 4px;
 	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
@@ -764,6 +764,8 @@ float:left;
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
+	
+	height					:	10px;
 	
 	}
 	

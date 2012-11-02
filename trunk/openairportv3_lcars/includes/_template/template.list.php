@@ -50,6 +50,8 @@
 			
 			include("_tp_control_function_quickaccess.inc.php");
 			include("_tp_control_function_utilities.inc.php");
+			include("_tp_control_function_filters.inc.php");
+			include("_tp_control_function_submit.inc.php");
 			
 			include("_tp_files_read_weather.inc.php");
 			include("_tp_files_send_email.inc.php");

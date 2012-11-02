@@ -1,7 +1,7 @@
 <?php
 function _tp_control_function_utilities($displaypanel,$javascript_function,$language_exports) {
 	?>
-	<table width="200" align="left" border="0" cellpadding="0" cellspacing="0" />
+	<table width="175" align="left" border="0" cellpadding="0" cellspacing="0" />
 		<tr>
 			<td class="table_browse_inline_click_text" onclick="javascript:<?php echo $javascript_function;?>('<?php echo $displaypanel;?>');" />
 				<?php

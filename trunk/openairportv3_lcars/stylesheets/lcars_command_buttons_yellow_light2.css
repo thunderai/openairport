@@ -15,7 +15,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 23px;
 
 	-webkit-border-radius	: 13px 0px 0px 13px;
@@ -44,7 +44,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 23px;
 
 	-webkit-border-radius	: 0px 13px 13px 0px;
@@ -74,7 +74,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 50px;
 	
 	}
@@ -99,7 +99,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 5px;
 	
 	}
@@ -123,7 +123,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
 
@@ -147,22 +147,22 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
 	
 .table_button_bullet_input_light2_yellow{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 
-	color					: #FED966; /* Blue Alert Active Color */
+	font-size				: 15pt; 
+	color					: #FFA80C; /* Blue Alert Active Color */
 	text-align				: left;
 	
 	background-color		: #000000; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
+	padding-left			:	5px;
+	padding-right			:	5px;
+	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -171,7 +171,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}	
 .table_button_bullet_fill_input_light2_yellow{
@@ -194,6 +194,6 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}

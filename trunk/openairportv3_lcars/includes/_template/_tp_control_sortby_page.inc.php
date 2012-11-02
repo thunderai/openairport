@@ -29,7 +29,7 @@ function _tp_control_sortby_page($sql,$sql_failsafe,$language_on,$tblpagationgro
 				$totalpages	= round($totalpages+1,0);
 				$totalpages	= ($totalpages - 1);
 				?>
-				<select class="table_button_bullet_input_dark1_normal" name="<?php echo $input_name;?>" ID="<?php echo $input_name;?>" onchange="this.form.submit();" />
+				<select class="table_button_bullet_input2_dark1_normal" name="<?php echo $input_name;?>" ID="<?php echo $input_name;?>" onchange="this.form.submit();" />
 						<?php 
 						for ($j=0; $j<($totalpages+1); $j=$j+1) {
 								?>

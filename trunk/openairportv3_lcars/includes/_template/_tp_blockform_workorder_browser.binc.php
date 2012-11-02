@@ -75,328 +75,384 @@ if($functionworkorderpage == '') {
 		//					} Closed History Button
 
 	?>
+	
 <form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="ViewWorkOrder" onsubmit="openmapchild('<?php echo $functionworkorderpage;?>','ViewWorkOrder');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['Workorderreportform'].submit();" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()" />
-		<tr>
-			<td class="table_button_bullet_right_dark1_normal" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_dark1_normal" />
-				<?php
-				echo "Work Order";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_dark1_normal" />
-			<input type="submit" value="WO" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield" >
-				</td>
-			<td class="table_button_bullet_tail_dark1_normal" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_dark1_normal" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['Workorderreportform'].submit();" />
+					&nbsp;
+					</td>
+				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['Workorderreportform'].submit();" />
+					<input type="submit" value="Work Order" width="10" class="table_button_bullet_lead_dark1_normal">
+					</td>
+				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Open Work-Order');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_dark1_normal"> WO </span>
+					</td>
+				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Open Work-Order');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>	
 
 <?php
 if($status == 0 || $status == 1) {
 	
 		$skin 	= 'dark1_normal';
-		$iskin	= '';
+		$iskin	= 'dark1_normal';
 		$active = 1;
+		$value	= 'Repair It';
+		$vshort	= 'RI';
+		$message = 'Click to open a repair window';
 		
 	} else {
 		
 		$skin 	= 'inactive_normal';
-		$iskin	= '_inactive';
+		$iskin	= 'inactive_normal';
 		$active = 0;
+		$value	= 'Repair It';
+		$vshort	= 'OFF';
+		$message = 'Reapir not Needed';
 	}
 		?>
-<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
-	<input type="hidden" NAME="recordid" ID="recordid" value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['MarkRepairedreportform'].submit();" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Repair It";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="MR" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+	<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
+		<input type="hidden" NAME="recordid" ID="recordid" value="<?php echo $disid;?>">
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['MarkRepairedreportform'].submit();"
+							<?php
 						}
-				?>
-				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>	
-
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['MarkRepairedreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>
 <?php
 if($status == 1 || $status == 2 || $status == 3) {
 		
 		if($has_been_repaired == 1) {
 	
 				$skin 	= 'dark1_normal';
-				$iskin	= '';
+				$iskin	= 'dark1_normal';
 				$active = 1;
+				$value	= 'Repair History';
+				$vshort	= 'RH';
+				$message = 'Click to open a repair history window';
 		
 			} else {
 		
 				$skin 	= 'inactive_normal';
-				$iskin	= '_inactive';
+				$iskin	= 'inactive_normal';
 				$active = 0;
+				$value	= 'Repair History';
+				$vshort	= 'OFF';
+				$message = 'No Repair History to view';
 			}
 	}
 ?>	
 <form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="RepairHistoryreportform" id="RepairHistoryreportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['RepairHistoryreportform'].submit();" onMouseover="ddrivetip('View Repair History');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Repair History";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="RH" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['RepairHistoryreportform'].submit();" 
+							<?php
 						}
-				?>				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>		
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['RepairHistoryreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>	
 <?php
 if($status == 2 || $status == 3) {
 	
 		$skin 	= 'dark1_normal';
-		$iskin	= '';
+		$iskin	= 'dark1_normal';
 		$active = 1;
+				$value	= 'Bounce It';
+				$vshort	= 'MB';
+				$message = 'Click to bounce the report';
 		
 	} else {
 		
 		$skin 	= 'inactive_normal';
-		$iskin	= '_inactive';
+		$iskin	= 'inactive_normal';
 		$active = 0;
+				$value	= 'Bounce It';
+				$vshort	= 'OFF';
+				$message = 'Bounce It not avilable';
 	}
 ?>
 <form style="margin-bottom:0;" action="<?php echo $functionbouncepage;?>" method="POST" name="BounceItreportform" id="BounceItreportform" target="<?php echo $functionbouncepage;?>MarkasBounce" onsubmit="openchild600('<?php echo $functionbouncepage;?>','<?php echo $functionbouncepage;?>MarkasBounce');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['BounceItreportform'].submit();" onMouseover="ddrivetip('Mark Record Bounced');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Bounce It";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="MB" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['BounceItreportform'].submit();"
+							<?php
 						}
-				?>
-				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>		
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['BounceItreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>	
 <?php
 if($status == 2 || $status == 3) {
 		
 		if($has_been_bounced == 1) {
 	
 				$skin 	= 'dark1_normal';
-				$iskin	= '';
+				$iskin	= 'dark1_normal';
 				$active = 1;
+				$value	= 'Bounce History';
+				$vshort	= 'BH';
+				$message = 'Click to view bounce history';				
 		
 			} else {
 		
 				$skin 	= 'inactive_normal';
-				$iskin	= '_inactive';
+				$iskin	= 'inactive_normal';
 				$active = 0;
+				$value	= 'Bounce History';
+				$vshort	= 'OFF';
+				$message = 'Bounce History not avilable';				
 				
 			}
 	}
-?>		
+?>	
 <form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="BounceHistoryreportform" id="BounceHistoryreportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['BounceHistoryreportform'].submit();" onMouseover="ddrivetip('View Bounced History');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Bounce History";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="BH" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['BounceHistoryreportform'].submit();"
+							<?php
 						}
-				?>
-				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>		
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['BounceHistoryreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>		
 <?php
 if($status == 2) {
 	
 		$skin 	= 'dark1_normal';
-		$iskin	= '';
+		$iskin	= 'dark1_normal';
 		$active = 1;
+				$value	= 'Close It';
+				$vshort	= 'MC';
+				$message = 'Click to close record';			
 		
 	} else {
 		
 		$skin 	= 'inactive_normal';
-		$iskin	= '_inactive';
+		$iskin	= 'inactive_normal';
 		$active = 0;
+				$value	= 'Close It';
+				$vshort	= 'OFF';
+				$message = 'Close it Not Avilable';		
 	}
-?>	
+?>
 <form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="CloseItreportform" id="CloseItreportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['CloseItreportform'].submit();" onMouseover="ddrivetip('Mark Record Closed');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Close It";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="MC" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['CloseItreportform'].submit();"
+							<?php
 						}
-				?>
-				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>		
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['CloseItreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>		
 <?php
 if($status == 3) {	
 		
 		if($has_been_closed == 1) {
 	
 				$skin 	= 'dark1_normal';
-				$iskin	= '';
+				$iskin	= 'dark1_normal';
 				$active = 1;
+				$value	= 'Close History';
+				$vshort	= 'CH';
+				$message = 'Click to view close history';					
 		
 			} else {
 		
 				$skin 	= 'inactive_normal';
-				$iskin	= '_inactive';
+				$iskin	= 'inactive_normal';
 				$active = 0;
+				$value	= 'Close History';
+				$vshort	= 'OFF';
+				$message = 'Close History Not Avilable';					
 			}
 			?>
 <form style="margin-bottom:0;" action="<?php echo $array_closedcontrol[2];?>" method="POST" name="ClosedHistoryreportform" id="ClosedHistoryreportform" target="<?php echo $array_closedcontrol[2];?>ViewclosedHistory" onsubmit="openchild600('<?php echo $array_closedcontrol[2];?>','<?php echo $array_closedcontrol[2];?>ViewclosedHistory');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-	<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onclick="javascript:document.forms['ClosedHistoryreportform'].submit();" onMouseover="ddrivetip('View Closed History');"  onMouseout="hideddrivetip();" />
-		<tr>
-			<td class="table_button_bullet_right_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-				<?php
-				echo "Closed History";
-				?>
-				</td>
-			<td class="table_button_bullet_gap_<?php echo $skin;?>" />
-				<?php
-				if($active == 1) {
-						?>
-				<input type="submit" value="CH" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield<?php echo $iskin;?>" />
-						<?php
-					} else {
-						?>
-				<span class="table_browse_row_functions_inputfield<?php echo $iskin;?>">OFF</span>
-						<?php
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+			<tr>
+				<td class="table_button_bullet_right_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['ClosedHistoryreportform'].submit();"
+							<?php
 						}
-				?>
-				</td>
-			<td class="table_button_bullet_tail_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			<td class="table_button_bullet_left_<?php echo $skin;?>" />
-				&nbsp;
-				</td>
-			</tr>
-		</table>
-	</form>				
+						?>
+					 /> &nbsp;
+					</td>
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+					<?php 
+					if($active == 1) {
+							?>
+					onclick="javascript:document.forms['ClosedHistoryreportform'].submit();" />
+					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+					
+							<?php
+						} else {
+							?>
+					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
+							<?php
+						}
+						?>
+					</td>
+				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
+					</td>
+				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
+					&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>			
 			<?php
 	}
 		}

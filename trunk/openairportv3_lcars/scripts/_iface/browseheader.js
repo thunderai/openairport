@@ -27,7 +27,9 @@ function updatesortform(strCell)
 		}
 
 	var strCellName = escape(strCell);
+	var strCellstring = strCellName + "_string";
 	document.getElementById(strCellName).value = intNewCellvalue;
+	document.getElementById(strCellstring).innerHTML = intNewCellvalue;
 	
 	var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
 	var newmessage = "Sorting control has been moved to " + intNewCellvalue + " << ";

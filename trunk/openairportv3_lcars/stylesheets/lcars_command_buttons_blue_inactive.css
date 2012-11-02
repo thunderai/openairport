@@ -15,7 +15,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 23px;
 
 	-webkit-border-radius	: 13px 0px 0px 13px;
@@ -44,7 +44,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 23px;
 
 	-webkit-border-radius	: 0px 13px 13px 0px;
@@ -74,7 +74,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 50px;
 	
 	}
@@ -99,7 +99,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	width					: 5px;
 	
 	}
@@ -123,7 +123,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
 
@@ -147,14 +147,14 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
 	
 .table_button_bullet_input_inactive_blue{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 
+	font-size				: 15pt; 
 	color					: #FED966; /* Blue Alert Active Color */
 	text-align				: left;
 	
@@ -171,7 +171,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}	
 .table_button_bullet_fill_input_inactive_blue{
@@ -194,6 +194,6 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
