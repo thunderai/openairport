@@ -29,23 +29,18 @@ function _tp_control_archived($tblkeyfield, $settingsarray, $functionpage) {
 										?>
 	<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="MAreportform" id="MAreportform" target="MarkasArchieved"  onsubmit="openchild600('<?php echo $functionpage;?>','MarkasArchieved')" >
 		<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip()" />
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" />
 			<tr>
-				<td class="table_button_bullet_right_dark1_normal" />
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MAreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<?php
-					echo "Mark Archived";
-					?>
+				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['MAreportform'].submit();" />
+					<input type="submit" value="Mark Archived" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
-				<td class="table_button_bullet_gap_dark1_normal" />
-				<input type="submit" value="MA" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield" >
+				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_dark1_normal"> MA </span>
 					</td>
-				<td class="table_button_bullet_tail_dark1_normal" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_left_dark1_normal" />
+				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
 					&nbsp;
 					</td>
 				</tr>
@@ -59,30 +54,25 @@ function _tp_control_archived($tblkeyfield, $settingsarray, $functionpage) {
 												$tmpid = $objarray2[$settingsarray[1]."_archeived_id"];
 												?>
 												
-	<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="Areportform" id="Areportform" target="SummaryReportArchieved" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportArchieved')" >
+	<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="AHreportform" id="AHreportform" target="SummaryReportArchieved" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportArchieved')" >
 		<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onMouseover="ddrivetip('Archived History');"  onMouseout="hideddrivetip()" />
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" />
 			<tr>
-				<td class="table_button_bullet_right_dark1_normal" />
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['AHreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<?php
-					echo "Archived History";
-					?>
+				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['AHreportform'].submit();" />
+					<input type="submit" value="Archived History" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
-				<td class="table_button_bullet_gap_dark1_normal" />
-				<input type="submit" value="MA" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield" >
+				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Archived Record History');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_dark1_normal"> AH </span>
 					</td>
-				<td class="table_button_bullet_tail_dark1_normal" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_left_dark1_normal" />
+				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Archived Record History');"  onMouseout="hideddrivetip();"/>
 					&nbsp;
 					</td>
 				</tr>
 			</table>
-		</form>									
+		</form>										
 											<?	
 											}
 									}

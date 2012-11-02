@@ -36,11 +36,6 @@ function _tp_control_exports($array_settings) {
 		
 <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="400"/>
 	<tr>
-		<td colspan="10" class="table_overlay_border_slim" />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
 		<td class="table_overlay_border" />
 			&nbsp;
 			</td>
@@ -279,11 +274,6 @@ function _tp_control_exports($array_settings) {
 			&nbsp;
 			</td>
 		<td class="table_overlay_border" />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td colspan="10" class="table_overlay_border_slim" />
 			&nbsp;
 			</td>
 		</tr>	

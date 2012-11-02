@@ -307,7 +307,7 @@ if ($tblheadersort==1) {
 
 	$sql 		= str_replace("%3D","=",$sql);
 	
-	errorreport("The Completed SQL Statement is <font size='1'> ".$sql."</font>",$displayerrors);	
+	//ECHO "The Completed SQL Statement is <font size='1'> ".$sql."</font>";	
 	
 if (!isset($_POST["frmarchives"])) {
 		$tblarchivedsort	= $tblarchivedsort;
@@ -416,11 +416,11 @@ if ($tbldisplaytotal==1) {
 	
 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="margin:0px;padding:0px;">
 	<form action="<?php echo $_SERVER["PHP_SELF"];?>"  		  name="sorttable" 			id="sorttable" 						method="POST">
-		<input class="commonfieldbox"	type="hidden" name="menuitemid" 		id="menuitemid"			size="10"	value="<?php echo $_POST['menuitemid'];?>">
-		<input class="commonfieldbox" 	type="hidden" name="frmurl" 			id="frmurl"				size="1"	value="<?php echo $frmurl;?>">
-		<input class="combobox" 		type="hidden" name="intfrmjoined" 		id="intfrmjoined"		size="4"	value="<?php echo $intfrmjoined;?>">
-		<input class="combobox" 		type="hidden" name="strsqlwhereaddon" 	id="strsqlwhereaddon"	size="55"	value="<?php echo $strsqlwhereaddon;?>">
-		<input class="combobox"			type="hidden" name="intsqlwhereaddon" 	id="intsqlwhereaddon"	size="10"	value="<?php echo $intsqlwhereaddon;?>">
+	<input class="commonfieldbox"	type="hidden" name="menuitemid" 		id="menuitemid"			size="10"	value="<?php echo $_POST['menuitemid'];?>">
+	<input class="commonfieldbox" 	type="hidden" name="frmurl" 			id="frmurl"				size="1"	value="<?php echo $frmurl;?>">
+	<input class="combobox" 		type="hidden" name="intfrmjoined" 		id="intfrmjoined"		size="4"	value="<?php echo $intfrmjoined;?>">
+	<input class="combobox" 		type="hidden" name="strsqlwhereaddon" 	id="strsqlwhereaddon"	size="55"	value="<?php echo $strsqlwhereaddon;?>">
+	<input class="combobox"			type="hidden" name="intsqlwhereaddon" 	id="intsqlwhereaddon"	size="10"	value="<?php echo $intsqlwhereaddon;?>">
 	<tr>
 		<td class="table_bottom_sweep_tail_extended" />
 				&nbsp;
@@ -441,102 +441,100 @@ if ($tbldisplaytotal==1) {
 		</tr>
 	<tr>
 		<td colspan="2" rowspan="1" class="table_browse_nameplate_purpose">
-		<?php
+			<?php
 			echo $purpose;
 			?>
-			<div style="position:absolute; z-index:10; right:135px; top:45px; width:500;display:none;text-align:right;ertical-align: top;"; name="sorting_controls" id="sorting_controls" />
-				<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="400"/>
-					<tr>
-						<td colspan="10" class="table_overlay_border_slim" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td class="table_overlay_border" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/> 
-							&nbsp;
-							</td>
-						<td class="table_overlay_bullet_gap" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls tto filter your data.');" onMouseout="hideddrivetip();"/>
-							Sorting Filters
-							</td>			
-						<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>FSorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();" />
-							&nbsp;
-							</td>			
-						<td class="table_overlay_bullet_gap" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/>
-							&nbsp;
-							</td>
-						<td class="table_overlay_border" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td colspan="10" class="table_overlay_border_slim" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td colspan="10" />
-							<?php
-							// Load Control Buttons
-							_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
-							_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$_POST['frmarchives']);
-							_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$_POST['frmclosed']);
-							_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$_POST['frmduplicate']);
-							_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
-							_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_start_date	,$en_turned_off									,'frmstartdate'								,$uifrmstartdate,'Calendar1');
-							_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_end_date	,$en_turned_off									,'frmenddate'								,$uifrmenddate	,'Calendar2');
-							_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
-							?>
-					<tr>
-						<td colspan="10" class="table_overlay_border_slim" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td class="table_overlay_border" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_left_bullet" onclick="javascript:toggle('sorting_controls');" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_bullet_gap" />
-							&nbsp;
-							</td>
-						<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('sorting_controls');"/>
-							&nbsp;
-							</td>
-						<td class="table_overlay_closeplate" onclick="javascript:toggle('sorting_controls');"/>
-							Close
-							</td>			
-						<td class="table_overlay_bullet_gap" />
-							&nbsp;
-							</td>
-						<td class="table_overlay_right_bullet" onclick="javascript:toggle('sorting_controls');"/>
-							&nbsp;
-							</td>
-						<td class="table_overlay_border" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td colspan="10" class="table_overlay_border_slim" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>
+			<div style="position:fixed; z-index:10; left:0px; top:35px; width:680px;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="sorting_controls" id="sorting_controls" />
+			<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%"/>
+				<tr>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/> 
+						&nbsp;
+						</td>
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls tto filter your data.');" onMouseout="hideddrivetip();"/>
+						Sorting Filters
+						</td>			
+					<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>FSorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();" />
+						&nbsp;
+						</td>			
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/>
+						&nbsp;
+						</td>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" class="table_overlay_border_slim" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" />
+						<?php
+						// Load Control Buttons
+						
+						_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
+						_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$_POST['frmarchives']);
+						_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$_POST['frmclosed']);
+						_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$_POST['frmduplicate']);
+						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_start_date	,$en_turned_off									,'frmstartdate'								,$uifrmstartdate,'Calendar1');
+						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_end_date	,$en_turned_off									,'frmenddate'								,$uifrmenddate	,'Calendar2');
+						
+						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
+						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
+						
+						?>
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" class="table_overlay_border_slim" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_left_bullet" onclick="javascript:toggle('sorting_controls');" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('sorting_controls');"/>
+						&nbsp;
+						</td>
+					<td class="table_overlay_closeplate" onclick="javascript:toggle('sorting_controls');"/>
+						Close
+						</td>			
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_right_bullet" onclick="javascript:toggle('sorting_controls');"/>
+						&nbsp;
+						</td>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					</tr>
+				</table>
 				</div>
 			</td>
 		</tr>
 	<tr>
-		<td colspan="3" />
+		<td colspan="3" style="margin:0px;border:0px;padding:0px;"/>
+			<?php
+			// START MAIN BROWSE PROCEDURES
+			?>
 			<?php 
 							$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 							//echo $sql;
@@ -551,17 +549,119 @@ if ($tbldisplaytotal==1) {
 															$number_of_rows = mysqli_num_rows($objrs);												
 															if ($number_of_rows==0) {
 																	////echo "no records found";
+																	?>
+			<table align="center" valign="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="50%"/>
+				<tr>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_left_bullet" /> 
+						&nbsp;
+						</td>
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_nameplate" />
+						NO RESULTS
+						</td>			
+					<td colspan="3" class="table_overlay_border_tail" width="100"  />
+						&nbsp;
+						</td>			
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_right_bullet" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" class="table_overlay_border_slim" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" />
+						<BR>
+						<br><BR>
+						<br>
+						<span class="table_browse_error_text_noresults">
+							NO RESULTS WERE FOUND FOR YOUR SEARCH.
+							</span>
+						<BR>
+						<br><BR>
+						<br><BR>
+						<br>
+						<span class="table_browse_error_text_noresults_subtext">
+							It is possible results were returned but do to your filter settings they were not shown. Please adjust your settings and try again.
+							</span>	
+						<BR>
+						<br><BR>
+						<br>	
+						</td>
+					</tr>
+				<tr>
+					<td colspan="10" class="table_overlay_border_slim" />
+						&nbsp;
+						</td>
+					</tr>
+				<tr>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_left_bullet"  />
+						&nbsp;
+						</td>
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td colspan="3" class="table_overlay_border_tail" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_closeplate" />
+						NO RESULTS
+						</td>			
+					<td class="table_overlay_bullet_gap" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_right_bullet" />
+						&nbsp;
+						</td>
+					<td class="table_overlay_border" />
+						&nbsp;
+						</td>
+					</tr>
+				</table>
+																	<?php
 																}
 																else {
 																	?>
-							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" />
-								<tr>
-									<td class="table_browse_id" />
-										<?php echo $en_id;?>
-										</td>
-									<td class="table_browse_functions" />
-										<?php echo $en_functions;?>
-										</td>
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="margin:0px;border:0px;padding:0px;"/>
+				<tr>
+					<td class="table_row_header_id" onMouseover="ddrivetip('<b>Record ID</b><br>This is the ID of the record.');" onMouseout="hideddrivetip();" />
+						<?php echo $en_id;?>
+						</td>
+					<td />
+						<table style="margin:0px;border:0px;padding:0px;" width="100%" border="0" cellpadding="0" cellspacing="0" />
+							<tr>
+								<td colspan="3" class="table_row_header_functions" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b>Functions</b><br>Click one of the options below to edit the report, displayh a summary report, or a printable report.');" onMouseout="hideddrivetip();"/>
+									<?php echo $en_functions;?>
+									</td>
+								</tr>
+							<tr>
+								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Edit Report')"; onMouseout="hideddrivetip();"  />
+									E
+									</td>
+								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip();" />
+									S
+									</td>
+								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip();" />
+									R
+									</td>
+							</table>
+						</td>
 																	<?php  
 																	for ($i=0; $i<count($aheadername); $i=$i+1) {
 																			switch ($aheadername[$i]) {
@@ -576,70 +676,72 @@ if ($tbldisplaytotal==1) {
 																							break;
 																				}
 																			?>
-									<td>
+					<td style="margin:0px;border:0px;padding:0px;" />
 																			<?php
 																			if ($tblheadersort==1) {
 																					?>
-										<table width="100%" border="0" cellpadding="0" cellspacing="0" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); ">
-											<tr>
-												<td class="table_browse_header_top" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b>Sort Field</b>Click here to resort this field');" onMouseout="hideddrivetip();"/>
-													<?php echo $aheadername[$i];?>
-													</td>
-												</tr>
-											<tr>
-												<td class="table_browse_header_middle" />
-													<input class="table_browse_header_field" type="text" size="8" id="<?php echo $adatafield[$i];?>" name="<?php echo $adatafield[$i];?>" value="<?php echo $aheadersort[$i];?>">
-													</td>
-												</tr>
-											<tr>
-												<td class="table_browse_header_bottom" />
-													&nbsp;
-													</td>
-											</table>
+						<table style="margin:0px;border:0px;padding:0px;" width="100%" border="0" cellpadding="0" cellspacing="0" />
+							<tr>
+								<td class="table_row_header_column_top" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b><?php echo $aheadername[$i];?></b><br>Click the sorting direction below to change direction and sort from the other direction');" onMouseout="hideddrivetip();"/>
+									<?php echo $aheadername[$i];?>
+									</td>
+								</tr>											
+							<tr>
+								<td class="table_row_header_column_middle" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); "/>
+									<span class="table_row_header_column_middle_field" id="<?php echo $adatafield[$i];?>_string" name="<?php echo $adatafield[$i];?>_string" /> <?php echo $aheadersort[$i];?> </span>
+									<input class="table_browse_header_field" type="hidden" size="8" id="<?php echo $adatafield[$i];?>" name="<?php echo $adatafield[$i];?>" value="<?php echo $aheadersort[$i];?>">
+									</td>
+								</tr>
+							<tr>
+								<td class="table_row_header_column_bottom" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); " />
+									&nbsp;
+									</td>
+							</table>
 																				<?php  
 																				} 
 																			?>
-										</td>
+						</td>
 																			<?php 
 																		}
 																	if ($runpostflights == 1) {
 																			// Display Classification Column
 																			?>
-									<td  />
-										<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-										<tr>
-											<td class="table_button_right_side_function_light2_help" onMouseover="ddrivetip('<b><?php echo $en_submitform;?></b><br>Click the button to the right to Submit a new reqest using your defined filters');" onMouseout="hideddrivetip();"/>
-												&nbsp;
-												</td>
-											<td class="table_button_right_side_function_gap" />
-												&nbsp;
-												</td>		
-											<td class="table_button_right_side_function_light2" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:document.sorttable.submit();" />
-												<?php echo $en_submitform;?> 
-												</td>
-											</tr>
-										</table>
-										<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-										<tr>
-											<td class="table_button_right_side_function_light1_help" onMouseover="ddrivetip('<b><?php echo $en_sortingfilters;?></b><br>Click to open an overlay with filtering controls for this record');" onMouseout="hideddrivetip();"/>
-												&nbsp;
-												</td>
-											<td class="table_button_right_side_function_gap" />
-												&nbsp;
-												</td>		
-											<td class="table_button_right_side_function_light1" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('sorting_controls');" />
-												<?php echo $en_sortingfilters;?> 
-												</td>
-											</tr>
-										</table>
-										</td>
+					<td align="right" valign="top"/>
+						<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+							<tr>
+								<td class="table_button_right_side_function_light2_help" onMouseover="ddrivetip('<b><?php echo $en_submitform;?></b><br>Click the button to the right to Submit a new reqest using your defined filters');" onMouseout="hideddrivetip();"/>
+									&nbsp;
+									</td>
+								<td class="table_button_right_side_function_gap" />
+									&nbsp;
+									</td>		
+								<td class="table_button_right_side_function_light2" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:document.sorttable.submit();" />
+									<?php echo $en_submitform;?> 
+									</td>
+								</tr>
+							</table>
+						<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+							<tr>
+								<td class="table_button_right_side_function_light1_help" onMouseover="ddrivetip('<b><?php echo $en_sortingfilters;?></b><br>Click to open an overlay with filtering controls for this record');" onMouseout="hideddrivetip();"/>
+									&nbsp;
+									</td>
+								<td class="table_button_right_side_function_gap" />
+									&nbsp;
+									</td>		
+								<td class="table_button_right_side_function_light1" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('sorting_controls');" />
+									<?php echo $en_sortingfilters;?> 
+									</td>
+								</tr>
+							</table>
+						</td>
 																			<?php
 																		}
 																	?>
-											</tr>
-											</form>
-										</td>
-									</tr>
+					</tr>
+					<!-- Id say a </table> belongs in here but the code breaks-->
+				</form>
+			</td>
+		</tr>
 
 
 		
@@ -727,116 +829,116 @@ if ($tbldisplaytotal==1) {
 										
 																			if ($displayrow == 1) {
 																					?>																					
-							<tr>
-								<td class="table_browse_row_id" />
-									<?php echo $objarray[$tblkeyfield];?>
-									<?php
-									$div_counter = $div_counter + 1;
-									$load_control_string = $load_control_string."Record ID : ".$objarray[$tblkeyfield]."";
-									?>
-									</td>
-								<td width="80" class="table_browse_row_functions_spaces" />
-									<table border="0" cellspacing="0" cellpadding="0" width="100%" height="39" id="table1">
-										<tr>
-											<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="EditRecordWindow" onsubmit="openmapchild('','EditRecordWindow')";>
-											<td onMouseover="ddrivetip('Edit Record')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps" />
-												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
-												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
-												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
-												<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
-												<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
-												<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
-												<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
-												<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
-												<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
-												<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
-												<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
-												<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
-												<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
-												<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
-												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
-												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="E">
-												</td>
-											</form>
-										<td class="table_browse_row_functions_spaces" />
-											&nbsp;
-											<td>
-											<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="SummaryReportWindow" onsubmit="openchild600('','SummaryReportWindow')";>
-											<td onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps">
-												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
-												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
-												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
-												<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
-												<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
-												<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
-												<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
-												<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
-												<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
-												<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
-												<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
-												<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
-												<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
-												<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
-												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
-												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="S">
-												</td>
-											</form>
-										<td class="table_browse_row_functions_spaces" />
-											&nbsp;
-											<td>	
-											<form style="margin-bottom:0;" action="<?php echo $functionprinterpage;?>" method="POST" name="reportform" id="reportform" target="PrinterRecordWindow" onsubmit="openmapchild('','PrinterRecordWindow')";>
-											<td onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip()" class="table_browse_row_functions_gaps">
-												<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
-												<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
-												<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
-												<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
-												<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
-												<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
-												<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
-												<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
-												<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
-												<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
-												<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
-												<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
-												<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
-												<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
-												<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
-												<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
-												<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
-												<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
-												<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-												<input class="table_browse_row_functions_inputfield"	type="submit" name="b1" 				id="b1" 				value="R">
-												</td>
-											</form>
-										<td class="table_browse_row_functions_spaces" />
-											&nbsp;
-											<td>	
-											</tr>
-										</table>
-									</td>
+	<tr>
+		<td class="table_row_id" />
+			<?php echo $objarray[$tblkeyfield];?>
+			<?php
+			$div_counter = $div_counter + 1;
+			$load_control_string = $load_control_string."Record ID : ".$objarray[$tblkeyfield]."";
+			?>
+			</td>
+		<td width="80" class="table_row_function_container" />
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" height="39" id="table1">
+				<tr>
+					<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="EditRecordWindow" onsubmit="openmapchild('','EditRecordWindow')";>
+					<td class="table_browse_row_functions_gaps" />
+						<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
+						<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
+						<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
+						<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
+						<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
+						<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
+						<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
+						<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
+						<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
+						<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
+						<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
+						<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
+						<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
+						<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
+						<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
+						<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
+						<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
+						<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
+						<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
+						<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
+						<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
+						<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
+						<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
+						<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
+						<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="E">
+						</td>
+					</form>
+					<td class="table_browse_row_functions_spaces" />
+						&nbsp;
+						<td>
+						<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="SummaryReportWindow" onsubmit="openchild600('','SummaryReportWindow')";>
+						<td class="table_browse_row_functions_gaps">
+							<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
+							<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
+							<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
+							<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
+							<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
+							<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
+							<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
+							<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
+							<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
+							<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
+							<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
+							<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
+							<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
+							<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
+							<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
+							<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
+							<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
+							<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
+							<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
+							<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
+							<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
+							<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="S">
+							</td>
+						</form>
+					<td class="table_browse_row_functions_spaces" />
+						&nbsp;
+						<td>	
+						<form style="margin-bottom:0;" action="<?php echo $functionprinterpage;?>" method="POST" name="reportform" id="reportform" target="PrinterRecordWindow" onsubmit="openmapchild('','PrinterRecordWindow')";>
+						<td class="table_browse_row_functions_gaps">
+							<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
+							<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
+							<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
+							<input class="formsubmit"	type="hidden" name="inspectionid"		id="inspectionid" 		value="<?php echo $objarray[$tblkeyfield];?>">
+							<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $objarray[$tblkeyfield];?>">
+							<input class="formsubmit"	type="hidden" name="menuitemid" 		id="menuitemid"			value="<?php echo $strmenuitemid?>">
+							<input class="formsubmit"	type="hidden" name="aheadername"		id="aheadername" 		value="<?php echo $saheadername;?>">
+							<input class="formsubmit"	type="hidden" name="adatafield" 		id="adatafield"			value="<?php echo $sadatafield;?>">
+							<input class="formsubmit"	type="hidden" name="adatafieldtable" 	id="adatafieldtable"	value="<?php echo $sadatafieldtable;?>">
+							<input class="formsubmit"	type="hidden" name="adatafieldid" 		id="adatafieldid"		value="<?php echo $sadatafieldid;?>">
+							<input class="formsubmit"	type="hidden" name="adataspecial" 		id="adataspecial"		value="<?php echo $sadataspecial;?>">
+							<input class="formsubmit"	type="hidden" name="ainputtype" 		id="ainputtype"			value="<?php echo $sainputtype;?>">
+							<input class="formsubmit"	type="hidden" name="adataselect" 		id="adataselect"		value="<?php echo $sadataselect;?>">
+							<input class="formsubmit"	type="hidden" name="ainputcomment" 		id="ainputcomment"		value="<?php echo $sainputcomment;?>">
+							<input class="formsubmit"	type="hidden" name="tblname" 			id="tblname"			value="<?php echo $tblname;?>">
+							<input class="formsubmit"	type="hidden" name="tblsubname" 		id="tblsubname"			value="<?php echo $tblsubname?>">
+							<input class="formsubmit"	type="hidden" name="tblkeyfield" 		id="tblkeyfield"		value="<?php echo $tblkeyfield;?>">
+							<input class="formsubmit"	type="hidden" name="tblarchivedfield"	id="tblarchivedfield"	value="<?php echo $tblarchivedfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbldatesortfield" 	id="tbldatesortfield"	value="<?php echo $tbldatesortfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbldatesorttable" 	id="tbldatesorttable"	value="<?php echo $tbldatesorttable;?>">
+							<input class="formsubmit"	type="hidden" name="tbltextsortfield" 	id="tbltextsortfield"	value="<?php echo $tbltextsortfield;?>">
+							<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
+							<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
+							<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
+							<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="R">
+							</td>
+						</form>
+					<td class="table_browse_row_functions_spaces" />
+						&nbsp;
+						<td>	
+					</tr>
+				</table>
+			</td>
 																					<?php 
 																					for ($i=0; $i<count($aheadername); $i=$i+1) {
 																							if ($tbldisplaytotal==1) {
@@ -848,7 +950,7 @@ if ($tbldisplaytotal==1) {
 																										}
 																								}
 																						?>
-								<td class="table_browse_row_field" width="<?php echo $cellwidth[$i];?>" >
+		<td class="table_browse_row_field" width="<?php echo $cellwidth[$i];?>" >
 																						<?php  
 																						switch ($adatafieldid[$i]) {
 																								case "notjoined":
@@ -1003,27 +1105,103 @@ if ($tbldisplaytotal==1) {
 																						
 																						
 																						?>
-									</td>
+			</td>
 																						<?php  
 																						}
 																						
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-								<td  align="right" onclick="javascript:call_server_load_controls('<?php echo $whoareyou;?>','<?php echo $load_control_string;?>');toggle2('divform_<?php echo $div_counter;?>','<?php echo $tblpagationgroup;?>');" />
-									<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-										<tr>
-											<td class="table_button_right_side_function_help" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();"/>
-												&nbsp;
-												</td>
-											<td class="table_button_right_side_function_gap" />
-												&nbsp;
-												</td>		
-											<td class="table_button_right_side_function" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:toggle('navigationdisplaypanel');" />
-												<?php echo $en_open_commands;?> 
-												</td>
-											</tr>
-										</table>
+		<td  align="right" />
+			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+				<tr>
+					<td class="table_button_right_side_function_help" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();"/>
+						&nbsp;
+						</td>
+					<td class="table_button_right_side_function_gap" />
+						&nbsp;
+						<div style="position:absolute; z-index:10; left:0px; top:50px; width:680px;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
+							<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%"/>
+								<tr>
+									<td class="table_overlay_border" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_left_bullet" /> 
+										&nbsp;
+										</td>
+									<td class="table_overlay_bullet_gap" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();"/>
+										Record Controls
+										</td>			
+									<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" />
+										&nbsp;
+										</td>			
+									<td class="table_overlay_bullet_gap" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_border" />
+										&nbsp;
+										</td>
+									</tr>
+								<tr>
+									<td colspan="10" class="table_overlay_border_slim" />
+										&nbsp;
+										</td>
+									</tr>
+								<tr>
+									<td colspan="10" />								
+										<?php
+											$tblkeyvalue = $objarray[$tblkeyfield];
+											_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
+											_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
+											_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
+											
+											include("includes/_template/_tp_blockform_workorder_browser.binc.php");
+											?>
+								<tr>
+									<td colspan="10" class="table_overlay_border_slim" />
+										&nbsp;
+										</td>
+									</tr>
+								<tr>
+									<td class="table_overlay_border" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_left_bullet" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_bullet_gap" />
+										&nbsp;
+										</td>
+									<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
+										&nbsp;
+										</td>
+									<td class="table_overlay_closeplate" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
+										Close
+										</td>			
+									<td class="table_overlay_bullet_gap" />
+										&nbsp;
+										</td>
+									<td class="table_overlay_right_bullet" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
+										&nbsp;
+										</td>
+									<td class="table_overlay_border" />
+										&nbsp;
+										</td>
+									</tr>
+								</table>
+							</div>
+						</td>		
+					<td class="table_button_right_side_function" class="table_button_side_top_function" onclick="javascript:call_server_load_controls('<?php echo $whoareyou;?>','<?php echo $load_control_string;?>');toggle2('divform_<?php echo $div_counter;?>','<?php echo $tblpagationgroup;?>');"/>
+						<?php echo $en_open_commands;?> 
+						</td>
+					</tr>
+				</table>
 																							<?php
 																							$tblkeyvalue = $objarray[$tblkeyfield];
 																							//_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
@@ -1045,105 +1223,9 @@ if ($tbldisplaytotal==1) {
 																						$load_control_string = '';
 																						$displayrow 	= 1;
 																						?>
-									</td>
-								</tr>
-							<tr height="4">
-								<?php
-								$cols = count($aheadername);
-								$cols = $cols + 2;
-								?>
-								<td colspan="<?php echo $cols;?>" align="right" style="height:5px;overflow:hidden;"/>
-									<div style="position:absolute; z-index:10; right:300px; top:45px; width:500;display:none;text-align:right;ertical-align: top;"; name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
-										<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="400"/>
-											<tr>
-												<td colspan="10" class="table_overlay_border_slim" />
-													&nbsp;
-													</td>
-												</tr>
-											<tr>
-												<td class="table_overlay_border" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/> 
-													&nbsp;
-													</td>
-												<td class="table_overlay_bullet_gap" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
-													Record Controls
-													</td>			
-												<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();" />
-													&nbsp;
-													</td>			
-												<td class="table_overlay_bullet_gap" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
-													&nbsp;
-													</td>
-												<td class="table_overlay_border" />
-													&nbsp;
-													</td>
-												</tr>
-											<tr>
-												<td colspan="10" class="table_overlay_border_slim" />
-													&nbsp;
-													</td>
-												</tr>
-											<tr>
-												<td colspan="10" />								
-													<?php
-														$tblkeyvalue = $objarray[$tblkeyfield];
-														_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
-														_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
-														_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
-														
-														include("includes/_template/_tp_blockform_workorder_browser.binc.php");
-														?>
-											<tr>
-												<td colspan="10" class="table_overlay_border_slim" />
-													&nbsp;
-													</td>
-												</tr>
-											<tr>
-												<td class="table_overlay_border" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_left_bullet" onclick="javascript:toggle('exportdisplaypanel');" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_bullet_gap" />
-													&nbsp;
-													</td>
-												<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('exportdisplaypanel');"/>
-													&nbsp;
-													</td>
-												<td class="table_overlay_closeplate" onclick="javascript:toggle('exportdisplaypanel');"/>
-													Close
-													</td>			
-												<td class="table_overlay_bullet_gap" />
-													&nbsp;
-													</td>
-												<td class="table_overlay_right_bullet" onclick="javascript:toggle('exportdisplaypanel');"/>
-													&nbsp;
-													</td>
-												<td class="table_overlay_border" />
-													&nbsp;
-													</td>
-												</tr>
-											<tr>
-												<td colspan="10" class="table_overlay_border_slim" />
-													&nbsp;
-													</td>
-												</tr>
-											</table>
-										</div>
-									</td>
-								<td class="table_button_right_side_function_slim">
-									&nbsp; <!-- GAP IN RIGHT MENU BETWEEN CONTROLS BUTTON-->
-									</td>	
-								</tr>
+					</td>
+				</tr>
+							
 																						<?php 	
 																				}
 																		}	// end of looped data
@@ -1152,10 +1234,10 @@ if ($tbldisplaytotal==1) {
 
 																	if ($tbldisplaytotal==1) {
 																			?>
-								<tr>
-									<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
-										Total
-										</td>
+			<tr>
+				<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
+					Total
+					</td>
 																			<?php 
 																			for ($i=0; $i<count($aheadername); $i=$i+1) {
 																				
@@ -1164,20 +1246,20 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-									<td align="center" valign="middle" class="forms_coumn_results_row">
-										<?php echo $arowtotal[$i];?>
-										</td>
+				<td align="center" valign="middle" class="forms_coumn_results_row">
+					<?php echo $arowtotal[$i];?>
+					</td>
 																					<?php
 																				}
 																			?>
-									<td align="center" valign="middle" class="forms_coumn_results_row">
-										
-										</td>																			
-									</tr>
-								<tr>
-									<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
-										Average
-										</td>									
+					<td align="center" valign="middle" class="forms_coumn_results_row">
+													
+						</td>																			
+					</tr>
+				<tr>
+					<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
+						Average
+						</td>									
 																			<?php 
 																			for ($i=0; $i<count($aheadername); $i=$i+1) {
 																				
@@ -1186,7 +1268,7 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-									<td align="center" valign="middle" class="forms_coumn_results_row">
+					<td align="center" valign="middle" class="forms_coumn_results_row">
 																					<?php
 																					if($acalculatet[$i] == 1) {
 																							echo $tmpavg;
@@ -1195,31 +1277,41 @@ if ($tbldisplaytotal==1) {
 																							// The settings say not to make a total for this entry
 																						}
 																						?>
-										</td>
+						</td>
 																					<?php
 																				}
 																			?>
-									<td align="center" valign="middle" class="forms_coumn_results_row">
+					<td align="center" valign="middle" class="forms_coumn_results_row">
 										
-										</td>	
-									</tr>										
-																			<?php
+						</td>		
+		<?php 
+		if($number_of_rows == 0 ){
+				?>
+					</tr>
+				</table>	
+				<?php
+			}
+
 																		}	// End of Display Total
 																}	// End of more than o records returned
 														}	// End of Object
-														?>
-								</tr>
-
-	</table>								
-														<?php 
-										}	// end of records found statement
-
-							?>
-						</td>
+		if($number_of_rows != 0 ){
+				?>
 					</tr>
+				</table>	
+				<?php
+			}
+
+										}	// end of records found statement
+										?>			
+			<?php
+			// END MAIN BROWSE PROCEDURES
+			?>			
+			</td>
+		</tr>
 	<tr>
-		<td colspan="2" name="recordrowcontrols" id="recordrowcontrols">
-			Record Controls will appear here when selected.
+		<td colspan="2" name="recordrowcontrols" id="recordrowcontrols" />
+			&nbsp;
 			</td>	
 		<td rowspan="2">
 			<img src="images/_interface/lcars_bottom_right_sweep.png">
@@ -1230,14 +1322,13 @@ if ($tbldisplaytotal==1) {
 			<?php
 			_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
 			_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
+			_tp_control_function_filters('sorting_controls','toggle','Filters');
+			_tp_control_function_submit();
 			?>
 			</td>			
 		</tr>					
-				</table>	<!-- end of ajax load table-->
-			</td>
-		</tr>
 	</table>
-	<font size="1"><br><br><br>
+	<font size="1"><br><br><br></font>
 	</div>
 <br>
 <br>

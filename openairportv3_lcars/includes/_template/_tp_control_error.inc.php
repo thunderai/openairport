@@ -15,28 +15,23 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 				?>	
 	<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="MarkasErrorreportform" id="MarkasErrorreportform" target="MarkasError" onsubmit="openchild600('<?php echo $functionpage;?>','MarkasError')">
 		<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onMouseover="ddrivetip('Mark Record with an Error');"  onMouseout="hideddrivetip()" />
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
 			<tr>
-				<td class="table_button_bullet_right_dark1_normal" />
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MarkasErrorreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<?php
-					echo "Error It";
-					?>
+				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['MarkasErrorreportform'].submit();" />
+					<input type="submit" value="Mark Error" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
-				<td class="table_button_bullet_gap_dark1_normal" />
-					<input type="submit" value="ME" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield" >
+				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_dark1_normal"> ME </span>
 					</td>
-				<td class="table_button_bullet_tail_dark1_normal" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_left_dark1_normal" />
+				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
 					&nbsp;
 					</td>
 				</tr>
 			</table>
-		</form>
+		</form>	
 				<?php
 				$sql2 = $settingsarray[0]."'".$tblkeyfield."' LIMIT 1";
 				//echo $sql2;
@@ -64,23 +59,18 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 												?>
 	<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="ReportErrorreportform" id="ReportErrorreportform" target="SummaryReportError" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportError')">
 		<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button" onMouseover="ddrivetip('Mark Record with an Error');"  onMouseout="hideddrivetip()" />
-			<tr>
-				<td class="table_button_bullet_right_dark1_normal" />
+		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
+	<tr>
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['ReportErrorreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<?php
-					echo "Error History";
-					?>
+				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['ReportErrorreportform'].submit();" />
+					<input type="submit" value="Error History" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
-				<td class="table_button_bullet_gap_dark1_normal" />
-				<input type="submit" value="EH" NAME="b1" ID="b1" class="table_browse_row_functions_inputfield" >
+				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
+					<span class="table_button_bullet_input_dark1_normal"> ME </span>
 					</td>
-				<td class="table_button_bullet_tail_dark1_normal" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_left_dark1_normal" />
+				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>
 					&nbsp;
 					</td>
 				</tr>

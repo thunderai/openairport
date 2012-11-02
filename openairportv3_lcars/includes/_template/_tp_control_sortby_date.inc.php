@@ -17,7 +17,7 @@ function _tp_control_sortby_date($tbl_show_datesort,$tbldatesort,$language_on,$l
 				?>
 				</td>
 			<td class="table_button_bullet_gap_dark1_normal" />
-				<input class="table_button_bullet_input_dark1_normal" type="text" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" size="10" value="<?php echo $defaultvalue;?>" 	onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('<?php echo $calender;?>')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+				<input class="table_button_bullet_input2_dark1_normal" type="text" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" size="10" value="<?php echo $defaultvalue;?>" 	onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('<?php echo $calender;?>')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
 				</td>
 			<td class="table_button_bullet_tail_dark1_normal" />
 				&nbsp;

@@ -15,8 +15,9 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
-	width					: 23px;
+	
+	width					: 23px;	
+	height					: 50px;
 
 	-webkit-border-radius	: 13px 0px 0px 13px;
 	-moz-border-radius		: 13px 0px 0px 13px;
@@ -33,9 +34,6 @@
 	
 	background-color		: #4D4D4D; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -44,8 +42,9 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
-	width					: 23px;
+	
+	width					: 23px;	
+	height					: 50px;
 
 	-webkit-border-radius	: 0px 13px 13px 0px;
 	-moz-border-radius		: 0px 13px 13px 0px;
@@ -57,15 +56,12 @@
 	
 	font-family				: Impact, Charcoal, sans-serif;
 	font-size				: 10pt; 
-	color					: #CCCCCC; /* Blue Alert Active Color */
+	color					: #808080; /* Blue Alert Active Color */
 	text-align				: left;
 	vertical-align			: bottom;
 	
 	background-color		: #4D4D4D; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -73,9 +69,8 @@
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
-	
-	height					: 23px;
-	width					: 50px;
+
+	width					: 100px;
 	
 	}
 .table_button_bullet_tail_inactive_normal{
@@ -87,10 +82,6 @@
 	
 	background-color		: #4D4D4D; /* Blue Alert Dark 1r Color*/
 	
-
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -99,7 +90,7 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	
 	width					: 5px;
 	
 	}
@@ -107,14 +98,11 @@
 	
 	font-family				: Impact, Charcoal, sans-serif;
 	font-size				: 14pt; 
-	color					: #8D9BFE; /* Blue Alert Active Color */
+	color					: #4D4D4D; /* Blue Alert Active Color */
 	text-align				: left;
 	
 	background-color		: #000000; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -123,7 +111,8 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	
+	width					: 40px;
 	
 	}
 
@@ -131,14 +120,11 @@
 	
 	font-family				: Impact, Charcoal, sans-serif;
 	font-size				: 10pt; 
-	color					: #8D9BFE; /* Blue Alert Active Color */
+	color					: #4D4D4D; /* Blue Alert Active Color */
 	text-align				: left;
 	
 	background-color		: #4D4D4D; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -147,22 +133,22 @@
 	border-color			: #000000;
 	border-collapse			: collapse;
 	
-	height					: 23px;
+	height					: 50px;
 	
 	}
 	
 .table_button_bullet_input_inactive_normal{
 	
 	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 
-	color					: #FED966; /* Blue Alert Active Color */
+	font-size				: 15pt; 
+	color					: #4D4D4D; /* Blue Alert Active Color */
 	text-align				: left;
 	
 	background-color		: #000000; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
+	padding-left			: 5px;
+	padding-right			: 5px;
+	
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -170,22 +156,17 @@
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
-	
-	height					: 23px;
 	
 	}	
 .table_button_bullet_fill_input_inactive_normal{
 	
 	font-family				: Impact, Charcoal, sans-serif;
 	font-size				: 10pt; 
-	color					: #8D9BFE; /* Blue Alert Active Color */
+	color					: #4D4D4D; /* Blue Alert Active Color */
 	text-align				: right;
 	
 	background-color		: #4D4D4D; /* Blue Alert Dark 1r Color*/
 	
-	list-style				: none; 
-	white-space				: nowrap; 
-
 	border-right			: 0px solid;
 	border-left				: 0px solid;
 	border-top				: 0px solid;
@@ -193,7 +174,5 @@
 	border-style			: solid;
 	border-color			: #000000;
 	border-collapse			: collapse;
-	
-	height					: 23px;
 	
 	}
