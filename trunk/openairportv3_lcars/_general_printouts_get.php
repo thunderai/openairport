@@ -114,7 +114,6 @@
 				if ($objrs) {																	// if the recordsource is created without error do...
 						$number_of_rows = mysqli_num_rows($objrs);								// How many rows did the sql statement find
 						?>
-	<BODY>
 			<table border="0" width="100%" id="table1" style="border-collapse: collapse; border-style: solid; border-width: 1px; background-color: #FFFFFF">
 				<tr>
 					<td colspan="3">&nbsp;</td>
@@ -143,7 +142,7 @@
 				<tr>
 					<td width="2%">&nbsp;</td>
 					<td width="96%" style="border-style: solid; border-width: 1px" colspan="2">
-						<font face="Arial Narrow" size="2">
+						<font face="Arial Narrow" size="2" color="#000000" />
 							The following report was generated on <?php echo $tmpdate?> at <?php echo $tmptime;?>.
 							</font>
 						</td>
@@ -157,6 +156,7 @@
 								for ($i=0; $i<count($aheadername); $i=$i+1) {
 										?>
 								<td>
+									<font face="Arial Narrow" size="2" color="#000000" />
 										<?php 
 										switch ($adataspecial[$i]) {
 													case 2:
@@ -181,6 +181,7 @@
 															break;
 											}
 												?>
+												</font>
 									</td>
 												<?php
 									}
@@ -194,6 +195,7 @@
 									for ($i=0; $i<count($aheadername); $i=$i+1) {
 											?>
 								<td >
+									<font face="Arial Narrow" size="2" color="#000000" />
 											<?php
 											switch ($ainputtype[$i]) {
 													case "TEXT":	// if the user entered "TEXT' as the input type make a ttext area box
@@ -241,6 +243,7 @@
 															break;
 															}	// End of Switch
 															?>
+										</font>
 									</td>
 															<?php
 												}	// End of For Loop
@@ -256,7 +259,7 @@
 				<tr>
 			<td colspan="3">
 				<p align="right">
-					<font face="Arial Narrow" size="2">
+					<font face="Arial Narrow" size="2" color="#000000" />
 						OpenAirport - Advanced Record Keeping System (c) 2006
 						</font>
 					</p>

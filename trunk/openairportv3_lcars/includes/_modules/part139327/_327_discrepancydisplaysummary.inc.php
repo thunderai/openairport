@@ -80,9 +80,9 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 				$display_basic 		= 1;
 				$display_extended 	= 1;
 				$display_closed  	= 1;				
-			}				
-			
-			
+			}
+
+		
 		$sql 		= "SELECT * FROM tbl_139_327_sub_d 
 		INNER JOIN tbl_systemusers 		ON tbl_systemusers.emp_record_id = tbl_139_327_sub_d.Discrepancy_by_cb_int 
 		INNER JOIN tbl_139_327_main 	ON tbl_139_327_main.inspection_system_id = tbl_139_327_sub_d.Discrepancy_inspection_id 
@@ -102,16 +102,6 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 		//echo $sql;
 		$objconn 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		
-		if($returnhtml == 0) {
-				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
-			}
-			else {
-				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
-			}
-
-		
 		if (mysqli_connect_errno()) {
 				printf("connect failed: %s\n", mysqli_connect_error());
 				exit();
@@ -122,35 +112,37 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 						$number_of_rows 	= mysqli_num_rows($objrs);
 						while ($objarray 	= mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 						
-								$discrepancyid = $objarray['Discrepancy_id'];
+								$discrepancyid 	= $objarray['Discrepancy_id'];
+								
+								// Get Stage of Discrepancy
+								$status			= part139327discrepancy_getstage($discrepancyid,0, 0,0,0);
+								
+								$style_bk		= array('red','yellow','green','golden');
+								$style_root		= 'table_dashpanel_container_summary_';
+								
+		if($returnhtml == 0) {
+				// Just display the results now
+				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='".$style_root."".$style_bk[$status]."' />";
+			}
+			else {
+				// DO NOT display anything YET!!!!!
+				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='".$style_root."".$style_bk[$status]."' />";
+			}								
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														Basic Information
-														</td>
-													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='forms_coumn_results_header'>
-														ID
-														</td>
-													<td class='forms_coumn_results_row'>
-														<a href='#' onclick='openmapchild(&quot;part139327_discrepancy_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
-														</td>
-													</tr>													
-												<tr>		
-													<td align='center' valign='middle' class='forms_coumn_results_header'>
+													<td class='".$style_root."".$style_bk[$status]."_header' />
 														Name
 														</td>
-													<td class='forms_coumn_results_row''>".
-														$objarray['Discrepancy_name']."
+													<td class='".$style_root."".$style_bk[$status]."_result' />
+														<a href='#' class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;part139327_discrepancy_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$objarray['Discrepancy_name']."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='forms_coumn_results_header'>
+													<td class='".$style_root."".$style_bk[$status]."_header'>
 														Description
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='".$style_root."".$style_bk[$status]."_result' />".
 														$objarray['discrepancy_remarks']."
 														</td>
 													</tr>";
@@ -167,55 +159,55 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 							
 										$extendedHTML = "
 														<tr>
-															<td colspan='2' class='tableheaderleft'>
-																<b>Extended Information</b>
+															<td colspan='2' class='table_dashpanel_container_summary_header'>
+																Extended Information
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Entered Durring Inspection ID
 																</td>
-															<td class='formanswers'>".
+															<td class='".$style_root."".$style_bk[$status]."_result' />".
 																$objarray['Discrepancy_inspection_id'].":".$objarray['inspection_type']."
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Facility / Condition
 																</td>
-															<td class='formanswers'>".
+															<td class='".$style_root."".$style_bk[$status]."_result' />".
 																$objarray['facility_name']." / ".$objarray['condition_name']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Recorded By
 																</td>
-															<td class='formanswers'>".
+															<td class='".$style_root."".$style_bk[$status]."_result' />".
 																$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Date / Time
 																</td>
-															<td class='formanswers'>".
+															<td class='".$style_root."".$style_bk[$status]."_result' />".
 																$objarray['Discrepancy_date']." / ".$objarray['Discrepancy_time']." 
 																</td>
 															</tr>		
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Priority
 																</td>
-															<td class='formanswers'>".
+															<td class='".$style_root."".$style_bk[$status]."_result' />".
 																$objarray['general_condition_priority']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td class=".$style_root."".$style_bk[$status]."_header' />
 																Location
 																</td>
-															<td class='formanswers'>
+															<td class='".$style_root."".$style_bk[$status]."_result' />
 																X:".$objarray['Discrepancy_location_x'].", Y:".$objarray['Discrepancy_location_y']." 
 																</td>
 															</tr>
@@ -252,8 +244,8 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																
 																$repairedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Repaired Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Repaired Information
 																						</td>
 																					</tr>
 																				";
@@ -270,13 +262,13 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 															
 																$repairedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Repaired Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Repaired Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>																					
 																				";
@@ -294,26 +286,26 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 
 																$repairedHTML = $repairedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_repaired_date']." / ".$objarray2['discrepancy_repaired_time']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Repaired By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_repaired_comments']." 
 																						</td>
 																					</tr>
@@ -352,8 +344,8 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																
 																$bouncedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Bounced Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Bounced Information
 																						</td>
 																					</tr>
 																				";
@@ -370,13 +362,13 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 															
 																$bouncedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Bounced Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Bounced Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -394,26 +386,26 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														
 																$bouncedHTML = $bouncedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_bounced_date']." / ".$objarray2['discrepancy_bounced_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Bounced By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_bounced_comments']." 
 																						</td>
 																					</tr>
@@ -455,7 +447,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$closedHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Closed Information</b>
+																						Closed Information
 																						</td>
 																					</tr>
 																				";
@@ -473,12 +465,12 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$closedHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Closed Information</b>
+																						Closed Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -496,26 +488,26 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														
 																$closedHTML = $closedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_closed_date']." / ".$objarray2['discrepancy_closed_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Bounced By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_closed_reason']." 
 																						</td>
 																					</tr>
@@ -556,7 +548,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$archievedHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																						Archived Information
 																						</td>
 																					</tr>
 																				";
@@ -574,12 +566,12 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$archievedHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																						Archived Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -597,26 +589,26 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														
 																$archivedHTML = $archivedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_archieved_date']." / ".$objarray2['discrepancy_archieved_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Bounced By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_archieved_reason']." 
 																						</td>
 																					</tr>
@@ -656,7 +648,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$duplicateHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Duplicate Information</b>
+																						Duplicate Information
 																						</td>
 																					</tr>
 																				";
@@ -674,12 +666,12 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																	$duplicateHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Duplicate Information</b>
+																						Duplicate Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -697,34 +689,34 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														
 																$duplicateHTML = $duplicateHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_duplicate_date']." / ".$objarray2['discrepancy_duplicate_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Bounced By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_duplicate_reason']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Duplicate of
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_duplicate_number']." 
 																						</td>
 																					</tr>
@@ -764,7 +756,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -782,12 +774,12 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																						Error Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -806,26 +798,26 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 
 																$errorHTML = $errorHTML."												
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_error_date']." / ".$objarray2['discrepancy_error_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Bounced By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='".$style_root."".$style_bk[$status]."_result' />".
 																						$objarray2['discrepancy_error_reason']." 
 																						</td>
 																					</tr>
@@ -864,7 +856,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$ownedbyHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Owned By Information</b>
+																						Owned By Information
 																						</td>
 																					</tr>
 																				";
@@ -882,12 +874,12 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 																$ownedbyHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Owned By Information</b>
+																						Owned By Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='".$style_root."".$style_bk[$status]."_result' />
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -906,10 +898,10 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 														
 																$ownedbyHTML = $ownedbyHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class=".$style_root."".$style_bk[$status]."_header'>
 																						Inspection ID
 																						</td>
-																					<td class='formanswers'>
+																					<td class='".$style_root."".$style_bk[$status]."_result' />
 																						<a href='".$webroot."part139327_report_display_new.php?recordid=".$objarray2['disinspection_id']."' target='_newreportwindow'>".$objarray2['disinspection_id']."</a>
 																						</td>
 																					</tr>

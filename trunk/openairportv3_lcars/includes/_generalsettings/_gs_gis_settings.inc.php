@@ -35,7 +35,7 @@
 	//		y: 962 pixels
 			$reportoverlaymap_i = '139_327_overlaygrid_new.png';
 			$reportoverlaymap_x	= 750;
-			$reportoverlaymap_y = 962;		
+			$reportoverlaymap_y = 934;		
 	//	Array Element					0					1						2	
 			$areportoverlaymap	= array($reportoverlaymap_i	, $reportoverlaymap_x	, $reportoverlaymap_y );
 			

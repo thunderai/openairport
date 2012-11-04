@@ -61,7 +61,8 @@
 				INNER JOIN tbl_dashpanel_sub_s 	ON tbl_dashpanel_sub_s.navigational_group_id_cb_int = tbl_dashpanel_main.dash_id 
 				INNER JOIN tbl_systemusers		ON tbl_systemusers.emp_record_id = tbl_dashpanel_sub_s.navigational_user_id_cb_int 
 				INNER JOIN tbl_navigational_control ON tbl_navigational_control.menu_item_id = tbl_dashpanel_main.dash_menulink_int 
-				WHERE tbl_dashpanel_sub_s.navigational_user_id_cb_int = '".$_SESSION['user_id']."' ORDER BY navigational_groups_priority ";
+				WHERE tbl_dashpanel_sub_s.navigational_user_id_cb_int = '".$_SESSION['user_id']."' AND navigational_groups_display_yn = 1 
+				ORDER BY navigational_groups_priority ";
 
 		$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
@@ -82,14 +83,14 @@
 						?>
 						
 						
-<table border="1" width="100%" align="left" valign="top" cellpadding="4" cellspacing="4" style="border-collapse:collapse;">
+<table border="0" width="100%" align="left" valign="top" style="border-collapse:collapse;z-index:99;">
 	<tr>
-		<td colspan="2" class="layout_dashpanel_header">
-			<?php echo $nameofairport;?> Dashboard
+		<td colspan="2" class='table_dashpanel_container_welcome' />
+			Dashboard
 			</td>
 		</tr>
 	<tr>
-		<td>
+		<td align="left" valign="top" style="float:left;" />
 						<?php
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								//echo $counter;

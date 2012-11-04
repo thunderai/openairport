@@ -401,8 +401,12 @@
 																				$facility_is_runway2	= $facility_is_runway;
 																				$facility_name2			= $facility_name;
 														
+																				$condition_location_rx	= $objfields4['139339_cc_location_rx'];
+																				$condition_location_ry	= $objfields4['139339_cc_location_ry'];
+														
 																				//echo $facility_name2."////".$condition_location_x2."/////".$tmpid2;
-																				$display_menu_item[$i] 	= array($tmpid2,$condition_location_x2,$condition_location_y2	,"Closed",$facility_is_runway2,$facility_name2);
+																				//								0		, 1						, 2						, 3						, 4						, 5				, 6						, 7
+																				$display_menu_item[$i] 	= array($tmpid2	,$condition_location_x2	,$condition_location_y2	,"Closed"				,$facility_is_runway2	,$facility_name2,$condition_location_rx	,$condition_location_ry);
 												
 																				//echo "<br> test id: ".$display_menu_item[$i][0]."</br>";
 																				

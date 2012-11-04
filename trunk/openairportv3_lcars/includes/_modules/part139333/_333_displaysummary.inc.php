@@ -92,40 +92,35 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 								$inspectionid = $objarray['139333_main_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														Basic Information
-														</td>
-													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														ID
 														</td>
-													<td class='forms_coumn_results_row'>
-														<a href='#' onclick='openmapchild(&quot;part139333_report_display.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
+													<td class='table_dashpanel_container_summary_rowresult'>
+														<a class='table_dashpanel_container_summary_link' href='#' onclick='openmapchild(&quot;part139333_report_display.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Date / Time 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139333_date']." / ".$objarray['139333_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Type
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['inspection_type']." (".$objarray['inspection_type_short_name'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Inspection By 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 														</td>
 													</tr>";
@@ -162,15 +157,15 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 																
 																$checklistHTML_i = "
 																				<tr>		
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Checklist Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Checklist Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td class='formoptions' width='45%'>
+																					<td class='table_dashpanel_container_summary_rowheader' width='45%'>
 																						Facility / Equipment
 																						</td>
-																					<td class='formoptions'>
+																					<td class='table_dashpanel_container_summary_rowheader'>
 																						Result
 																						</td>																							
 																					</tr>
@@ -202,10 +197,10 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 
 																$checklistHTML = $checklistHTML."									
 																				<tr>		
-																					<td class='formresults'>
+																					<td class='table_dashpanel_container_summary_rowheader'>
 																						Check the ".$objarray2['facility_name']." on ".$objarray2['equipment_name']."
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$display."
 																						</td>	
 																					</tr>
@@ -245,8 +240,8 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 																
 																$archivedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archieved Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archieved Information
 																						</td>
 																					</tr>
 																				";
@@ -264,26 +259,26 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 
 																$archivedHTML = $archivedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139333_a_date']." / ".$objarray2['139333_a_time']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Repaired By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139333_a_reason']." 
 																						</td>
 																					</tr>
@@ -322,8 +317,8 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 																
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -341,26 +336,26 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 														
 																$errorHTML = $errorHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139333_e_date']." / ".$objarray2['139333_e_time']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Error By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139333_e_reason']." 
 																						</td>
 																					</tr>

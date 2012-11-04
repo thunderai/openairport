@@ -4,29 +4,19 @@ function _dp_su_dailyactivity($dasharray) {
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
 <!--<div id="div_dutylog" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="layout_dashpanel_container" border="0" width="92.5%" align="left" valign="top">
+<table class="table_dashpanel_container_daily" align="left" valign="top"  border="0" cellpadding='0' cellspacing='0' />
 	<tr>
-		<td class="layout_dashpanel_container_header">
-			<font size='2'>
-				<b>
-					<?php echo $dasharray[2];?>
-					</b>
-				</font>
+		<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
+			<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
+		<td colspan="2">
+			<input class="table_dashpanel_container_header" type="button" name="button" value="<?php echo $dasharray[2];?>" onclick="javascript:document.getElementById('menuitem<?php echo $dasharray[6];?>').submit();" />
 			</td>
-		<td class="layout_dashpanel_container_header_right">
-			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
-				<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
-				<input class="buttons_quickaccess" type="button" name="button" value="<?php echo $dasharray[9];?>" onclick="javascript:document.menuitem<?php echo $dasharray[6];?>.submit()">
-				</form>
-			</td>
+			</form>	
 		</tr>
 	<tr>
-		<td colspan="2">
+		<td colspan="2" class='table_dashpanel_container_summary_daily' />
 			<table width="100%" cellpadding="0" cellspacing="0">
 				<tr>
-					<td class="forms_coumn_header" width="30">
-						ID
-						</td>
 					<td class="forms_coumn_header" width="50">
 						When
 						</td>
@@ -40,7 +30,7 @@ function _dp_su_dailyactivity($dasharray) {
 		$sql		= "SELECT * FROM tbl_duty_log 
 						WHERE duty_log_date = '".date('Y/m/d')."' AND duty_log_archived_yn = 0 
 						ORDER BY duty_log_date DESC, duty_log_time DESC
-						LIMIT 15";
+						LIMIT 3";
 
 		//echo $sql;
 		$objconn 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -79,6 +69,10 @@ function _dp_su_dailyactivity($dasharray) {
 				</table>
 			</td>
 		</tr>
+	<tr>
+		<td colspan="2" class='table_dashpanel_container_footer' />	
+			</td>
+		</tr>		
 	</table>
 <!--	</div>
 	

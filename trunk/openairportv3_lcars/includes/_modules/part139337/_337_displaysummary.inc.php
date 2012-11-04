@@ -84,40 +84,35 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 								$discrepancyid = $objarray['139337_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														Basic Information
-														</td>
-													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														ID
 														</td>
-													<td class='forms_coumn_results_row'>
-														<a href='#' onclick='openmapchild(&quot;part139337_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
+													<td class='table_dashpanel_container_summary_rowresult'>
+														<a class='table_dashpanel_container_summary_link' href='#' onclick='openmapchild(&quot;part139337_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Date / Time
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139337_date']." / ".$objarray['139337_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Species
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139337_sub_s_name']."
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Action Taken
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139337_sub_an_name']."
 														</td>
 													</tr>";
@@ -134,55 +129,55 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 							
 										$extendedHTML = "
 														<tr>
-															<td colspan='2' class='tableheaderleft'>
-																<b>Extended Information</b>
+															<td colspan='2' class='table_dashpanel_container_summary_header'>
+																Extended Information
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Species Activity
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139337_sub_ay_name']."
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Number of Species
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139337_numberofspecies']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Results of Action Taken
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139337_resultsofaction']." 
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Weather
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139337_weather']." 
 																</td>
 															</tr>		
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																METAR
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139337_metar']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Location
 																</td>
-															<td class='formanswers'>
+															<td class='table_dashpanel_container_summary_rowresult'>
 																X:".$objarray['139337_locationx'].", Y:".$objarray['139337_locationy']." 
 																</td>
 															</tr>
@@ -219,8 +214,8 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 																
 																$archievedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archived Information
 																						</td>
 																					</tr>
 																				";
@@ -237,12 +232,12 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 															
 																$archievedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archived Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
 																						<b>There are no records to display</b>
 																						</td>
 																					</tr>
@@ -261,26 +256,26 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 														
 																$archivedHTML = $archivedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139337_a_date']." / ".$objarray2['139337_a_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Archieved By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139337_a_reason']." 
 																						</td>
 																					</tr>
@@ -320,8 +315,8 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 																
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -338,12 +333,12 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 															
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='formanswers'>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
 																						<b>There are no records to display</b>
 																						</td>
 																					</tr>
@@ -362,26 +357,26 @@ function _337_display_summary($discrepancyid = 0,$detail_level = 0,$returnhtml =
 
 																$errorHTML = $errorHTML."												
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139337_e_date']." / ".$objarray2['139337_e_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Error By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139337_e_reason']." 
 																						</td>
 																					</tr>

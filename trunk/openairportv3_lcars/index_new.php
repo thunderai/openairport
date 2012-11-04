@@ -149,7 +149,7 @@ if ($_SESSION['user_id']=="") {
 		//$displaytime	= ( $tmpstarttime - $tmpendtime );
 		
 		//echo "Display Time :".$displaytime;
-					?>
+					?>&nbsp;
 					</td>
 				</tr>
 			</table>

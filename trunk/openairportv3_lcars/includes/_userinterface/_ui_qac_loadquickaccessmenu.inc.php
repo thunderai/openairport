@@ -1,13 +1,16 @@
 <?php
 	
 function loadquickaccessmenu($user,$start=0,$end=5) {
-	
+
 	$ary_colors 	= array('table_button_side_top_dark1_qac','table_button_side_top_light2_qac','table_button_side_top_light1_qac');
 	$ary_types		= array('Browse','Monitor','New');
 	
 	//$start = $start + 1;
 	
 	//include("stylesheets/_css.inc.php");
+	
+	//echo "Start: ".$start." <br>";
+	//echo "End : ".$end." <br>";
 ?>
 <table border="0" cellpadding="0" cellspacing="0" id="quickaccessitem" width="100%" style="border:0px;margin:0px;padding:0px;z-index:20;" />
 <?php 
@@ -15,8 +18,7 @@ function loadquickaccessmenu($user,$start=0,$end=5) {
 			INNER JOIN tbl_quickaccess_control ON tbl_quickaccess_control.tbl_qac_systemuser_id = tbl_systemusers.emp_record_id 
 			INNER JOIN tbl_navigational_control ON tbl_navigational_control.menu_item_id = tbl_quickaccess_control.tbl_qac_navigation_id 
 			WHERE tbl_systemusers.emp_record_id = ".$user." AND tbl_quickaccess_control.tbl_qac_hidden_yn = 0 
-			ORDER BY tbl_navigational_control.menu_item_name_long 
-			LIMIT ".$start.",".$end." ";
+			ORDER BY tbl_navigational_control.menu_item_name_short";
 
 	//echo "The SQL Statement is :".$sql;
 	
@@ -34,37 +36,45 @@ function loadquickaccessmenu($user,$start=0,$end=5) {
 				}
 		}
 
-	$max_rows 	= $start + $end;
+	//echo "There are [ ".$number_of_rows." ] quick access menu items <br>";	
 	
-	if($number_of_rows < $end) {
-		
-			//echo "Need more";
-			//$start = $start - 1;
+	//echo "Limiting Factor is ".$end." <br>";
+	
+	if($number_of_rows <= $end) {
+			// Just display everything
+			//echo "Display All Rows <br>";
+			$start_to_use 	= 0;
+			$end_to_use		= $number_of_rows;
+		} else {
+			//echo "Limit Search Results <br>";
+			//echo "Start: [".$start."] <br>";
+			//echo "End : [".$end."] <br>";
+			//echo "There are [".$number_of_rows."] qua <br>";
 			
-			// How far beyond where we need to be are we?
+			$start_to_use 	= $start;
+			$end_to_use		= $start + $end;
 			
-			$byfar = $end - $number_of_rows;
+			//echo "Limiter [".$end_to_use."] qua <br>";
 			
-			//echo "By Far ".$byfar;
-			
-			$start = $start - $byfar;
-			
-			if($number_of_rows == 0) {
-				
-					// No rows returned. 
-					$start = 0;
+			if($end_to_use > $end) {
+					// Counts messed up, reset it to $end
+					//echo "End is larger than End. Reset <br>";
+					$end_to_use = $end;
 					
+					//$spread = $end_to_use - $start_to_use;
+					
+					//echo "Spread ".$spread." <br>";
 				}
-				
+			
 		}
 	
-		
+
 	$sql = "SELECT * FROM tbl_systemusers 
 			INNER JOIN tbl_quickaccess_control ON tbl_quickaccess_control.tbl_qac_systemuser_id = tbl_systemusers.emp_record_id 
 			INNER JOIN tbl_navigational_control ON tbl_navigational_control.menu_item_id = tbl_quickaccess_control.tbl_qac_navigation_id 
 			WHERE tbl_systemusers.emp_record_id = ".$user." AND tbl_quickaccess_control.tbl_qac_hidden_yn = 0 
-			ORDER BY tbl_navigational_control.menu_item_name_long 
-			LIMIT ".$start.",".$end." ";
+			ORDER BY tbl_navigational_control.menu_item_name_short 
+			LIMIT ".$start_to_use.",".$end_to_use." ";
 
 	//echo "The SQL Statement is :".$sql;
 	
