@@ -60,7 +60,7 @@
 		$en_duplicate		= "Duplicate";
 		$en_select_page		= "Page";
 		$en_quickaccess_f	= "";
-		$en_form_exports	= "Form Utilities";
+		$en_form_exports	= "Utilities";
 		$en_calendarprint	= "Calendar Printout";
 		$en_yearendreport	= "Year End Report";
 		$en_printerprint	= "Printer Friendly Report";
@@ -69,8 +69,8 @@
 		$en_linechart		= "Line Chart";
 		$en_mapit			= "Map Location(s)";
 		$en_googleearthit	= "Export Google Earth";
-		$en_quickaccess		= "Add to Quick Access";
-		$en_quickaccessno	= "Remove from Quick Access";
+		$en_quickaccess		= "Add ";
+		$en_quickaccessno	= "Remove ";
 		$en_pageation		= "Display Page";
 		$en_active			= "ON";
 		$en_notactive		= "OFF";
@@ -80,4 +80,5 @@
 		$en_commands		= "Commands";
 		$en_open_commands	= "Controls";
 		$en_sortingfilters	= "Filters";
+	
 ?>

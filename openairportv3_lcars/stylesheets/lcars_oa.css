@@ -575,7 +575,6 @@ div.fullscreen{
     
     /*set the width and height to 100% of the screen*/
 	right:0;
-    height:75%;
 	
 	background-color		:#000000;
 
@@ -587,7 +586,7 @@ div.exportscreen{
 	
     /*set the div in the top-left corner of the screen*/
     position				:fixed;
-    bottom					:130px;
+    bottom					:150px;
     left					:0px;
 	
 	background-color		:#000000;

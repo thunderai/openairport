@@ -80,10 +80,10 @@ if($functionworkorderpage == '') {
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
 			<tr>
-				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['Workorderreportform'].submit();" />
+				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.getElementById('Workorderreportform').submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['Workorderreportform'].submit();" />
+				<td class="table_button_bullet_lead_dark1_normal" />
 					<input type="submit" value="Work Order" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
 				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Open Work-Order');"  onMouseout="hideddrivetip();"/>
@@ -175,8 +175,8 @@ if($status == 1 || $status == 2 || $status == 3) {
 				$vshort	= 'OFF';
 				$message = 'No Repair History to view';
 			}
-	}
-?>	
+			
+	?>
 <form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="RepairHistoryreportform" id="RepairHistoryreportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
@@ -215,6 +215,9 @@ if($status == 1 || $status == 2 || $status == 3) {
 				</tr>
 			</table>
 		</form>	
+<?php		
+	}
+?>	
 <?php
 if($status == 2 || $status == 3) {
 	
@@ -295,8 +298,7 @@ if($status == 2 || $status == 3) {
 				$message = 'Bounce History not avilable';				
 				
 			}
-	}
-?>	
+		?>	
 <form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="BounceHistoryreportform" id="BounceHistoryreportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
 		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
@@ -334,7 +336,10 @@ if($status == 2 || $status == 3) {
 					</td>
 				</tr>
 			</table>
-		</form>		
+		</form>	
+<?php		
+	}
+?>	
 <?php
 if($status == 2) {
 	

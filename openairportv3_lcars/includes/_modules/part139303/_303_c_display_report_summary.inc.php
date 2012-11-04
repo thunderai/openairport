@@ -139,31 +139,27 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 								//$discrepancyid = $objarray['emp_record_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														<font size='1'><b>Basic Information</b></font>
+												<tr>		
+													<td class='table_dashpanel_container_summary_rowheader'>	
+														ID
+														</td>
+													<td class='table_dashpanel_container_summary_rowresult'>
+														<a class='table_dashpanel_container_summary_link' href='part139303_c_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>	ID
-														</td>
-													<td class='forms_coumn_results_row'>
-															<a href='part139303_c_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
-														</td>
-													</tr>
-												<tr>		
-													<td align='center' valign='middle' class='forms_coumn_results_header'>
+													<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 														First / Last  (initials)
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['emp_firstname']." / ".$objarray['emp_lastname']." (".$objarray['emp_initials'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='forms_coumn_results_header'>
+													<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 														Type of Class
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['inspection_type']." 
 														</td>
 													</tr>													
@@ -181,39 +177,39 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 							
 										$extendedHTML = "
 														<tr>
-															<td colspan='2' class='tableheaderleft'>
-																<b>Extended Information</b>
+															<td colspan='2' class='table_dashpanel_container_summary_header'>
+																Extended Information
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='forms_coumn_results_header'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Date
 																</td>
-															<td class='forms_coumn_results_row'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139_303_date']."
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='forms_coumn_results_header'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Time
 																</td>
-															<td class='forms_coumn_results_row'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139_303_time']."
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='forms_coumn_results_header'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Attendance Sheet
 																</td>
-															<td class='forms_coumn_results_row'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139_303_attendance']." 
 																</td>
 															</tr>	
 														<tr>		
-															<td align='center' valign='middle' class='forms_coumn_results_header'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Sylabus Sheet(s)
 																</td>
-															<td class='forms_coumn_results_row'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139_303_sylabus']."
 																</td>
 															</tr>															
@@ -252,8 +248,8 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																
 																$archievedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archived Information
 																						</td>
 																					</tr>
 																				";
@@ -270,13 +266,13 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 																$archievedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archived Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archived Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='forms_coumn_results_row'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -294,26 +290,26 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														
 																$archivedHTML = $archivedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139303_c_a_date']." / ".$objarray2['139303_c_a_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Archieved By
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139303_c_a_reason']." 
 																						</td>
 																					</tr>
@@ -352,8 +348,8 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -370,13 +366,13 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='forms_coumn_results_row'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -394,26 +390,26 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														
 																$archivedHTML = $errorHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139303_c_e_date']." / ".$objarray2['139303_c_e_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Archieved By
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139303_c_e_reason']." 
 																						</td>
 																					</tr>
@@ -451,8 +447,8 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																
 																$studentHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Student Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Student Information
 																						</td>
 																					</tr>
 																				";
@@ -469,13 +465,13 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 																$studentHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Student Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Student Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='forms_coumn_results_row'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -493,10 +489,10 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														
 																$studentHTML = $studentHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Student Name
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_lastname'].", ".$objarray2['emp_firstname']." (".$objarray2['emp_initials'].") 
 																						</td>
 																					</tr>
@@ -534,8 +530,8 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																
 																$topicHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Topic Notes</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Topic Notes
 																						</td>
 																					</tr>
 																				";
@@ -552,13 +548,13 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 																$topicHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Topic Notes</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Topic Notes
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='forms_coumn_results_row'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -576,18 +572,18 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														
 																$topicHTML = $topicHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Name of Topic
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['Discrepancy_name']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Remarks
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['discrepancy_remarks']." 
 																						</td>
 																					</tr>	
@@ -627,8 +623,8 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																
 																$checklistHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Checklist Items</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Checklist Items
 																						</td>
 																					</tr>
 																				";
@@ -645,13 +641,13 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 															
 																$checklistHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Checklist Items</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Checklist Items
 																						</td>
 																					</tr>
 																				<tr>
-																					<td colspan='2' class='forms_coumn_results_row'>
-																						<b>There are no records to display</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowresult'>
+																						There are no records to display
 																						</td>
 																					</tr>
 																				";
@@ -669,26 +665,26 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														
 																$checklistHTML = $checklistHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Facility
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['facility_name']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Condition
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['condition_name']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='forms_coumn_results_header'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Training Time
 																						</td>
-																					<td class='forms_coumn_results_row'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['conditions_checklist_hours']." MInutes
 																						</td>
 																					</tr>																					

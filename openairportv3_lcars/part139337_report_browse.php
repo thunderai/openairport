@@ -85,7 +85,7 @@
 		$tbljoinedsort				= 0;												// 1: Default to Use JOINED Records; 			0: Default to NOT show JOINED Recrords		
 		
 		$tblpagation				= 1;
-		$tblpagationgroup			= 18;
+		$tblpagationgroup			= 7;
 		
 	// Preflight Settings	
 		//	Proivides the recordset with additional controls not part of the database record

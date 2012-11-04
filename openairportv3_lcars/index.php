@@ -56,7 +56,7 @@ if (!isset($_POST["systemuserid"])) {
 //  Set width to 975px to test fitting on iPad----------------\			  |
 //															  |			  |
 ?>
-<div style="position:fixed;left:5px;top:5px;z-index:10;width:975px;height:620px;border:0px solid;" />
+<div style="position:fixed;left:5px;top:5px;z-index:10;width:<?php echo $width;?>;height:<?php echo $height;?>;border:0px solid;" />
 	<table width="100%" bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
 		<tr>
 			<td align="left" valign="top">
@@ -161,6 +161,20 @@ if (!isset($_POST["systemuserid"])) {
 				
 				</td>
 			<td colspan="11" rowspan="7" style="border:0px;padding:0px;margin:0px;" align="left" valign="top" />
+				<div style="z-index:15;display: none;margin-left:-4px;margin-top:-2px;padding:0px;border:0px solid;" name="navigationdisplaypanel" id="navigationdisplaypanel">
+					<table width="100%" height="<?php echo $height;?>" border="0" cellpadding="1" cellspacing="1" name="navigationajaxtable" id="navigationajaxtable" />
+						<tr>
+							<td align="left" valign="top" name="navigationajaxcenter" id="navigationajaxcenter" />
+									<?php
+									// Display Navigtional Menu System					
+									$whoareyou = $_SESSION["user_id"];	
+									//loadnavmenu_3($whoareyou);				
+									loadnavmenu_5($whoareyou,'root');
+									?>
+								</td>
+							</tr>
+						</table>
+					</div>
 				<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;"></iframe>
 				</td>
 			</tr>
@@ -186,8 +200,8 @@ if (!isset($_POST["systemuserid"])) {
 			</tr>
 		<tr>
 			<form>
-				<input type="hidden" size="4" name="qa_start" id="qa_start" value='0' />
-				<input type="hidden" name="qa_end" id="qa_end" value='5' />
+				<input type="hidden" name="qa_start" 	id="qa_start" 	value='0' />
+				<input type="hidden" name="qa_end" 		id="qa_end" 	value="<?php echo $qua_e;?>" />
 				</form>
 			<td align="left" valign="top">
 				<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
@@ -208,7 +222,8 @@ if (!isset($_POST["systemuserid"])) {
 		<tr>
 			<td id="layout_topheadercenter" name="layout_topheadercenter" />
 				<?php 
-				loadquickaccessmenu($whoareyou);
+				//echo $qua_e;
+				loadquickaccessmenu($whoareyou,0,$qua_e);
 				?>
 				</td>			
 			</tr>	

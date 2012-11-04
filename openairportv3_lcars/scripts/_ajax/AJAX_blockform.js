@@ -55,23 +55,26 @@ function call_server_blockform(memnuid,userid,fieldtocontrol)
 		var currentvalueinfield 	= document.getElementById(fieldtocontrol).value;
 		var fieldtocontrol_show		= fieldtocontrol + "active";
 		
+		var start					= parent.document.getElementById('qa_start').value;
+		var end						= parent.document.getElementById('qa_end').value;
+		
 		//alert(fieldtocontrol_show);
 		
-			var url = "ajax_blockform.php?menuid=" + escape(memnuid) + "&Employee=" + escape(userid) + "&value=" + escape(currentvalueinfield);
+			var url = "ajax_blockform.php?menuid=" + escape(memnuid) + "&Employee=" + escape(userid) + "&value=" + escape(currentvalueinfield) + "&start=" + escape(start) + "&end=" + escape(end);
 			request.open("GET", url); 
 			request.onreadystatechange = sever_interaction_blockform;
 			request.send('');
 
 			if (currentvalueinfield == 1) {
 				
-				var message = "Add to Quick Menu";
+				var message = "Add + ";
 				document.getElementById(fieldtocontrol).value		= 0;
 				document.getElementById(fieldtocontrol_show).innerHTML	= message;
 				
 				}
 			if (currentvalueinfield == 0) {
 				
-				var message = "Remove from Quick Menu!";
+				var message = "Remove - ";
 				document.getElementById(fieldtocontrol).value 		= 1;
 				document.getElementById(fieldtocontrol_show).innerHTML	= message;
 				

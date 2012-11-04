@@ -67,6 +67,35 @@
 		include("scripts/_scripts_header_ajaxs.inc.php");		
 	// Load StyleSheets (CSS)	
 		include("stylesheets/_css.inc.php");
+	
+	// Load Mobile Detect (https://github.com/serbanghita/Mobile-Detect)
+		include("thirdparty/mobile-detect/mobiledetect.php");
+		$detect = new Mobile_Detect();
+		
+		$width		= '100%';
+		$height		= '900px';
+		
+		$qua_e		= 9;
+		
+		if ($detect->isMobile()) {
+				// Any mobile device.
+				
+				$width		= '100%';
+				$height		= '400px';
+				
+				$qua_e		= 2;
+				
+			}
+		
+		if($detect->isTablet()){
+				// Any tablet device.
+				
+				$width		= '975px';
+				$height		= '620px';
+				
+				$qua_e		= 5;
+			}
+			
 	?>
 			</head>
 		<body leftmargin="0px" rightmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;margin-right:0px;" />

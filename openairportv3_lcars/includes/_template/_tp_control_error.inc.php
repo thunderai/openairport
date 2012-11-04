@@ -20,7 +20,7 @@ function _tp_control_error($tblkeyfield, $settingsarray, $functionpage) {
 				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MarkasErrorreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['MarkasErrorreportform'].submit();" />
+				<td class="table_button_bullet_lead_dark1_normal"  />
 					<input type="submit" value="Mark Error" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
 				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Archived');"  onMouseout="hideddrivetip();"/>

@@ -96,40 +96,35 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 								//$inspectionid = $objarray['inspection_system_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														Basic Information
-														</td>
-													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														ID
 														</td>
-													<td class='forms_coumn_results_row'>
-														<a href='#' onclick='openmapchild(&quot;part139339_b_report_display_new.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
+													<td class='table_dashpanel_container_summary_rowresult'>
+														<a class='table_dashpanel_container_summary_link' href='#' onclick='openmapchild(&quot;part139339_b_report_display_new.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Date / Time 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139339_sub_n_date']." / ".$objarray['139339_sub_n_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Type
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139339_type']." (".$objarray['139339_type_short_name'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Inspection By 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 														</td>
 													</tr>";
@@ -167,15 +162,15 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																
 																$checklistHTML_i = "
 																				<tr>		
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Checklist Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Checklist Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td class='formoptions' width='45%'>
+																					<td class='table_dashpanel_container_summary_rowheader' width='45%'>
 																						Facility / Condition
 																						</td>
-																					<td class='formoptions'>
+																					<td class='table_dashpanel_container_summary_rowheader'>
 																						Discrepancy
 																						</td>																							
 																					</tr>
@@ -208,10 +203,10 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 
 																$checklistHTML = $checklistHTML."									
 																				<tr>		
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowheader'>".
 																						$objarray2['139339_f_name']." / ".$objarray2['139339_c_name']."
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$tmp_text."
 																						</td>	
 																					</tr>
@@ -249,8 +244,8 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																
 																$discrepHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Discrepancy Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Discrepancy Information
 																						</td>																						
 																					</tr>
 																				";
@@ -268,63 +263,63 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 
 																$discrepHTML = $discrepHTML."		
 																				<tr>		
-																					<td colspan='2' class='formoptions'>
+																					<td colspan='2' class='table_dashpanel_container_summary_rowheader'>
 																						NOTAM Closed Information
 																						</td>
 																					</tr>	
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						ID
 																						</td>
-																					<td class='formresults'>
-																						<a href='".$webroot."part139339_b_report_display_new.php?recordid=".$objarray2['139339_sub_n_r_id']."' target='_newreportwindowd'>".$objarray2['139339_sub_n_r_id']."</a>
+																					<td class='table_dashpanel_container_summary_rowresult'>
+																						<a class='table_dashpanel_container_summary_link' href='".$webroot."part139339_b_report_display_new.php?recordid=".$objarray2['139339_sub_n_r_id']."' target='_newreportwindowd'>".$objarray2['139339_sub_n_r_id']."</a>
 																						</td>
 																					</tr>																					
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						Date / Time
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_sub_n_r_date']." / ".$objarray2['139339_sub_n_r_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						Error Reported By
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						Weather (Notification)
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_sub_n_r_wx_in']." 
 																						</td>
 																					</tr>																					
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						FBO (Notification)
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_sub_n_r_fbo_in']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						Airline (Notification)
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_sub_n_r_airline_in']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formresults'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowresult'>
 																						Notes
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_sub_n_r_notes']." 
 																						</td>
 																					</tr>
@@ -363,8 +358,8 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																
 																$archivedHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archieved Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Archieved Information
 																						</td>
 																					</tr>
 																				";
@@ -382,26 +377,26 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 
 																$archivedHTML = $archivedHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_n_a_date']." / ".$objarray2['139339_n_a_time']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Repaired By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']."
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_n_a_reason']." 
 																						</td>
 																					</tr>
@@ -442,8 +437,8 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																
 																$errorHTML_i = "
 																				<tr>
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -461,26 +456,26 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 														
 																$errorHTML = $errorHTML."
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Date / Time
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_n_e_date']." / ".$objarray2['139339_n_e_time']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Error Reported By
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['emp_firstname']." ".$objarray2['emp_lastname']." 
 																						</td>
 																					</tr>
 																				<tr>		
-																					<td align='center' valign='middle' class='formoptions'>
+																					<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																						Comments
 																						</td>
-																					<td class='formanswers'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$objarray2['139339_n_e_reason']." 
 																						</td>
 																					</tr>

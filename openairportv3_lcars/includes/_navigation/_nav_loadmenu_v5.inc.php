@@ -1,11 +1,13 @@
 <?php
-
 function loadnavmenu_5($whoareyou,$depth) {
 // Function will take the variable $whoareyou and test to see if there is a user currently 
 		//  	logged into the OpenAirport system. If no user is currently logged in, the system will
 		//		redirect the user to the login page.  Otherwise the user will be shown the 
 		//		navigational menu
 
+	$ary_colors 	= array('dark1_normal','light2_normal','light1_normal','light2_yellow');
+	$ary_types		= array('Browse','Monitor','Enter','Root');	
+		
 	if($depth == 'root') {
 		
 			$searchfield 		= 'menu_item_root_yn';
@@ -27,20 +29,20 @@ function loadnavmenu_5($whoareyou,$depth) {
 	if ($whoareyou == '') {
 			// No User, force relogin
 			?>
-			<form name="redirect" action="index_newlogin.php" method="POST">
-			<input class="combobox" type="hidden" size="1" name="redirect2">
+			<form name="redirect_form_3" id="redirect_form_3" action="index_newlogin.php" method="POST">
+			<input class="combobox" type="hidden" size="1" name="redirect_input_3" id="redirect_input_3">
 			<script>
 				<!--
 					var targetURL="index_newlogin.php"
 					var countdownfrom=1
-					var currentsecond=document.redirect.redirect2.value=countdownfrom+1
+					var currentsecond = document.getElementById('redirect_input_3').value=countdownfrom+1
 					function countredirect(){
 						if (currentsecond!=1){
 							currentsecond-=1
-							document.redirect.redirect2.value=currentsecond
+							document.getElementById('redirect_input_3').value=currentsecond
 							}
 							else{
-								document.redirect.submit();
+								document.getElementById('redirect_form_3').submit();
 						return
 						}
 						setTimeout("countredirect()",0)
@@ -53,147 +55,92 @@ function loadnavmenu_5($whoareyou,$depth) {
 		}
 		else {
 			
-			$icons_width 		= 100;
-			$icons_height 		= 166;
+			$icons_width 		= 35;
+			$icons_height 		= 35;
 			$icons_across		= 7;
 			?>
-	<table width="100%" border="0" cellpadding="1" cellspacing="1" name="navigationajaxtablesub" id="navigationajaxtablesub" />
-		<tr>
-			<td height="60" colspan="<?php echo $icons_across;?>" />
-				
-					<?php
-					//echo "Depth Charge :".$depth;
-					if($depth == 'root') {
+<table class="table_menu_bottom_container" border="0" cellspacing="0" cellpadding="0" width="100%" name="navigationajaxtablesub" id="navigationajaxtablesub" />
+	<tr>
+		<td class="table_menu_bottom_sweep_tail_filler" />
+			</td>
+		<td rowspan="2" class="table_menu_browse_top_right_sweep">
+			<img src="images/_interface/lcars_top_right_menu_sweep.png"/>
+			</td>
+		</tr>
+	<tr>
+		<td align="right" valign="center" />
+			<?php
+			
+			if($depth == 'root') {
 							?>
-				<font size="6" color="#B9B9B9" face="verdana" />
-					<b>Main Menu</b>
-					</font>
+			<span class="table_menu_nameplate"> Main Menu </span>
 							<?php
 						} else {
 							$name 		= getnameofmenuitemid_return_nohtml($depth,'long',2,2,$whoareyou);
 							$purpose 	= getpurposeofmenuitemid_return_nohtml($depth,'long',2,$whoareyou);
 							?>
-				<font size="6" color="#B9B9B9" face="verdana" />
-					<b><?php echo $name;?></b><br>
-					</font>
-				<font size="3" color="#B9B9B9" face="verdana" />
-					<b><?php echo $purpose;?></b>
-					</font>
+			<span class="table_menu_nameplate"> <?php echo $name;?> </span><br>
+			<span class="table_menu_nameplate_purpose"> <?php echo $purpose;?> </span>
 							<?php
-						}
-					?>
-					
-				</td>
-			</tr>
-		<tr>
-			<td>
-				<form 	style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_home" method="POST" action="index.php" />
-						<input type="hidden" name="menuitemid" value="index.php" />	
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="javascript:document.menuitem_home.submit();toggle('navigationdisplaypanel');" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/menu_icon_home.png">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								Home
-								</font>
-							</td>
-						</tr>
-					</table>
-					</form>
-			<?php
+						}			
+			
+			
+			?>
+			</td>
+		</tr>
+	<tr>
+		<td rowspan="4" align="left" valign="top" />
+			
+<?php
 			if($displayrootitems == 1) {
 					?>				
-				<form 	style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_tools" method="POST" action="index.php" />
-						<input type="hidden" name="menuitemid" value="index.php" />	
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="javascript:document.menuitem_tools.submit();toggle('navigationdisplaypanel');" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/menu_icon_tools.png">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								Tools
-								</font>
-							</td>
-						</tr>
-					</table>
-					</form>
-				<form 	style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_gears" method="POST" action="index.php" />
-						<input type="hidden" name="menuitemid" value="index.php" />	
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="javascript:document.menuitem_gears.submit();toggle('navigationdisplaypanel');" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/menu_icon_gears.png">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								External
-								</font>
-							</td>
-						</tr>
-					</table>
-					</form>
-			<?php
+				
+				<?php
 				} else {
 					?>
-				<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
-					<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/menu_icon_root.png">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								Main
-								</font>
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $nor;?>
-								</font>
-							</td>
-						</tr>						
-					</table>
-					</form>						
-				<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
-					<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemparent;?>');" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/menu_icon_back.png">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								Back
-								</font>
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $nor;?>
-								</font>
-							</td>
-						</tr>						
-					</table>
-					</form>					
+<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
+	<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="table_menu_container_button" />
+		<tr>
+			<td class="table_button_bullet_right_light1_yellow" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+				&nbsp;
+				</td>
+			<td class="table_button_bullet_lead_light1_yellow" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+				Back ( <?php echo $nor;?> )
+				</td>
+			<td class="table_button_bullet_gap_light1_yellow" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip();" />
+				<span class="table_button_bullet_input_light1_yellow"><img src="images/_interface/menu_icon_root.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>"></span>
+				</td>
+			<td class="table_button_bullet_tail_light1_yellow" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()" />
+				&nbsp;
+				</td>
+			</tr>
+		</table>	
+		</form>	
+<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
+	<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="table_menu_container_button" />
+		<tr>
+			<td class="table_button_bullet_right_light1_yellow" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemparent;?>');"  />
+				&nbsp;
+				</td>
+			<td class="table_button_bullet_lead_light1_yellow" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemparent;?>');" />
+				Back ( <?php echo $nor;?> )
+				</td>
+			<td class="table_button_bullet_gap_light1_yellow" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip();" />
+				<span class="table_button_bullet_input_light1_yellow"><img src="images/_interface/menu_icon_back.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>"></span>
+				</td>
+			<td class="table_button_bullet_tail_light1_yellow" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()" />
+				&nbsp;
+				</td>
+			</tr>
+		</table>	
+		</form>				
 					<?php
-				}
+				}			
+			?>
+			
+<?php
 			
 			
 			// Set initial variables
@@ -261,7 +208,9 @@ function loadnavmenu_5($whoareyou,$depth) {
 													$tmpmenuslaveidl1	= $layer1array['menu_item_slaved_to_id'];
 													$tmpmenusshortnl1  	= $layer1array['menu_item_name_short'];
 													$tmpmenuitemidl1	= $layer1array['menu_item_id'];
-													$tmpmenulongl1		= $layer1array['menu_item_name_long'];											
+													$tmpmenulongl1		= $layer1array['menu_item_name_long'];	
+													$tmpmenupurpose1	= $layer1array['menu_item_purpose'];
+													
 											// Determine if there are any menu items slaved to this menu item
 													$nor	= _nav_hasslaves($tmpmenuitemidl1);
 													
@@ -274,72 +223,151 @@ function loadnavmenu_5($whoareyou,$depth) {
 															$menu_item_icon = $layer1array['menu_item_icon'];
 															
 														}
+														
+													$style  = 'burp';
+													
+													for($i=0;$i<=count($ary_types);$i++) {
+								
+															$findme = $ary_types[$i];
+															$pos	= strpos($tmpmenulongl1, $findme);
+															//$style  = 'burp';
+															
+															if($pos === false) {
+																	// No match found
+																} else {
+																	$style = $ary_colors[$i];
+																}
+														}	
+														
+													if($style == 'burp') {
+															// Style is still burp, set it manually.
+															$style = $ary_colors[3];
+														}
 													
 											if ($nor == 0) {
 													// There are no menu items slaved to this menu item
-													?>
-				<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="MI<?php echo $tmpmenuitemidl1;?>" method="POST" action="<?php echo $tmpmenuitemlocl1;?>" target="layouttableiframecontent">
-					<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemidl1;?>">
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();toggle('navigationdisplaypanel');" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()" />
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/<?php echo $menu_item_icon;?>">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $tmpmenusshortnl1;?>
-								</font>
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $nor;?>
-								</font>
-							</td>
-						</tr>						
-					</table>
-					</form>
-													<?php
+													
+												if($tmpmenuitemlocl1 == '') {
+													
+														// Location is blank display nothing
+													} else {
+														?>
+<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="MI<?php echo $tmpmenuitemidl1;?>" method="POST" action="<?php echo $tmpmenuitemlocl1;?>" target="layouttableiframecontent">
+	<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemidl1;?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="table_menu_container_button" />
+		<tr>
+			<td class="table_button_bullet_right_<?php echo $style ;?>" onclick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();toggle('navigationdisplaypanel');"  />
+				&nbsp;
+				</td>
+			<td class="table_button_bullet_lead_<?php echo $style ;?>" onclick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();toggle('navigationdisplaypanel');" />
+				<?php echo $tmpmenusshortnl1;?>
+				</td>
+			<td class="table_button_bullet_gap_<?php echo $style ;?>" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip();" />
+				<span class="table_button_bullet_input_<?php echo $style ;?>"><img src="images/_interface/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>"></span>
+				</td>
+			<td class="table_button_bullet_tail_<?php echo $style ;?>" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()" />
+				&nbsp;
+				</td>
+			</tr>
+		</table>	
+		</form>
+														<?php
+													}
 												} 
 												else {
 													?>
 													
-				<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
-					<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
-				<table 	class="Navigationv5table" border="0" cellpadding="1" cellspacing="1" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()"/>
-					<tr>
-						<td width="100%" height="100%" align="center" valign="middle">
-							<img src="images/_interface/<?php echo $menu_item_icon;?>">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $tmpmenusshortnl1;?>
-								</font>
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle">
-							<font size="3" color="#FFFFFF">
-								<?php echo $nor;?>
-								</font>
-							</td>
-						</tr>						
-					</table>
-					</form>
+<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
+	<input type="hidden" name="menuitemidgotoajax" id="menuitemidgotoajax" value="<?php echo $tmpmenuitemidl1;?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="table_menu_container_button" />
+		<tr>
+			<td class="table_button_bullet_right_<?php echo $style ;?>" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');"  />
+				&nbsp;
+				</td>
+			<td class="table_button_bullet_lead_<?php echo $style ;?>" onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" />
+				<?php echo $tmpmenusshortnl1;?> ( <?php echo $nor;?> )
+				</td>
+			<td class="table_button_bullet_gap_<?php echo $style ;?>" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip();" />
+				<span class="table_button_bullet_input_<?php echo $style ;?>"><img src="images/_interface/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>"></span>
+				</td>
+			<td class="table_button_bullet_tail_<?php echo $style ;?>" onMouseover="ddrivetip('<?php echo $tmpmenulongl1;?>')"; onMouseout="hideddrivetip()" />
+				&nbsp;
+				</td>
+			</tr>
+		</table>	
+		</form>	
 													<?php
 												}
 										}
 								}
 						}
-						?>
-					</td>
-				</tr>
-			</table>
+						?>			
+			</td>
+		<td align="right" valign="top" class="table_menu_button_right_side_function_container" />
+			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_home" id="menuitem_home" method="POST" action="index.php" />
+				<input type="hidden" name="menuitemid" value="index.php" />	
+			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+				<tr>
+					<td class="table_menu_button_right_side_function_light2_help" onMouseover="ddrivetip('<b>HOME</b><br>Click the button to the right to load the main menu');" onMouseout="hideddrivetip();"/>
+						&nbsp;
+						</td>
+					<td class="table_menu_button_right_side_function_gap" />
+						&nbsp;
+						</td>		
+					<td class="table_menu_button_right_side_function_light2"  class="table_button_side_top_function" onclick="javascript:document.getElementById('menuitem_home').submit();toggle('navigationdisplaypanel');" />
+						Home
+						</td>
+					</tr>
+				</table>
+				</form>
+			</td>
+		</tr>
+	<tr>
+		<td align="right" valign="top" class="table_menu_button_right_side_function_container" />
+			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_home" id="menuitem_home" method="POST" action="index.php" />
+				<input type="hidden" name="menuitemid" value="index.php" />	
+			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+				<tr>
+					<td class="table_menu_button_right_side_function_light1_help" onMouseover="ddrivetip('<b>HOME</b><br>Click the button to the right to load the main menu');" onMouseout="hideddrivetip();"/>
+						&nbsp;
+						</td>
+					<td class="table_menu_button_right_side_function_gap" />
+						&nbsp;
+						</td>		
+					<td class="table_menu_button_right_side_function_light1"  class="table_button_side_top_function" onclick="javascript:document.getElementById('menuitem_home').submit();toggle('navigationdisplaypanel');" />
+						Tools
+						</td>
+					</tr>
+				</table>
+				</form>
+			</td>
+		</tr>	
+	<tr>
+		<td align="right" valign="top" class="table_menu_button_right_side_function_container" />
+			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem_home" id="menuitem_home" method="POST" action="index.php" />
+				<input type="hidden" name="menuitemid" value="index.php" />	
+			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+				<tr>
+					<td class="table_menu_button_right_side_function_light2_help" onMouseover="ddrivetip('<b>HOME</b><br>Click the button to the right to load the main menu');" onMouseout="hideddrivetip();"/>
+						&nbsp;
+						</td>
+					<td class="table_menu_button_right_side_function_gap" />
+						&nbsp;
+						</td>		
+					<td class="table_menu_button_right_side_function_light2"  class="table_button_side_top_function" onclick="javascript:document.getElementById('menuitem_home').submit();toggle('navigationdisplaypanel');" />
+						External
+						</td>
+					</tr>
+				</table>
+				</form>
+			</td>
+		</tr>	
+	<tr>
+		<td class="table_menu_button_right_side_curveoff" />
+			&nbsp;
+			</td>
+		</tr>
+	</table>
 				<?php
 				}
 		}

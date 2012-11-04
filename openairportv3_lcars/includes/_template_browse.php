@@ -444,8 +444,8 @@ if ($tbldisplaytotal==1) {
 			<?php
 			echo $purpose;
 			?>
-			<div style="position:fixed; z-index:10; left:0px; top:35px; width:680px;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="sorting_controls" id="sorting_controls" />
-			<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%"/>
+			<div style="position:fixed; z-index:10; left:0px; top:35px; width:680px;height:60%;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="sorting_controls" id="sorting_controls" />
+			<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%" height="100%" />
 				<tr>
 					<td class="table_overlay_border" />
 						&nbsp;
@@ -592,14 +592,14 @@ if ($tbldisplaytotal==1) {
 							</span>
 						<BR>
 						<br><BR>
-						<br><BR>
 						<br>
 						<span class="table_browse_error_text_noresults_subtext">
 							It is possible results were returned but do to your filter settings they were not shown. Please adjust your settings and try again.
 							</span>	
 						<BR>
 						<br><BR>
-						<br>	
+						<br>
+						<font size="1"><br><BR><br></font>
 						</td>
 					</tr>
 				<tr>
@@ -1328,7 +1328,7 @@ if ($tbldisplaytotal==1) {
 			</td>			
 		</tr>					
 	</table>
-	<font size="1"><br><br><br></font>
+	<font size="1"><br><br><br><br></font>
 	</div>
 <br>
 <br>

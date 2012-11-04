@@ -5,6 +5,9 @@ include("includes/_template_header.php");
 		$menuid 	= $_GET['menuid'];
 		$userid		= $_GET['Employee'];
 		$value		= $_GET['value'];
+		
+		$start		= $_GET['start'];
+		$end		= $_GET['end'];
 
 		$value		= ($value*1);
 		//echo "Value in field is :".$value." <br>";
@@ -67,5 +70,5 @@ include("includes/_template_header.php");
 					}
 			}
 			
-	loadquickaccessmenu($userid);
+	loadquickaccessmenu($userid,$start,$end);
 ?>

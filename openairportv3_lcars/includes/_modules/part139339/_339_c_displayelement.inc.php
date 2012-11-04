@@ -214,6 +214,7 @@
 
 					
 					// Draw the Pavement section
+					jg.setPrintable(true);
 					jg.setColor("<?php echo $linecolor;?>"); // red
 					jg.setStroke('<?php echo $linewidth;?>'); 
 					jg.fillPolygon(xpoints, ypoints);	

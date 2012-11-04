@@ -83,9 +83,8 @@ function _su_dailyactivity_summary($discrepancyid = 0,$detail_level = 0,$returnh
 								
 								$basicHTML = "
 												<tr>		
-													<td class='forms_coumn_results_row'><a href='#' onclick='openmapchild(&quot;_suc_dailyactivity.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
+													<td class='forms_coumn_results_row'><a href='#' class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;_suc_dailyactivity.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$objarray['duty_log_date']." / ".$objarray['duty_log_time']."</a>
 													</td>
-													<td class='forms_coumn_results_row'>".$objarray['duty_log_date']." / ".$objarray['duty_log_time']." </td>
 													<td class='forms_coumn_results_row'>".$objarray['duty_log_comments']."</td>
 													</tr>												
 													";
