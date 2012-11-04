@@ -35,6 +35,8 @@
 
 	include("includes/_template_header.php");																// include file that gets information from form posts for navigational purposes
 
+	
+	
 if ($_SESSION['user_id']=="") {
 		?>
 		<table border="0" width="100%" cellspacing="5" cellpadding="2">
@@ -89,6 +91,18 @@ if ($_SESSION['user_id']=="") {
 	}
 	else {
 		?>
+		<script>
+window.onload = function() {
+  var wall = new Masonry( document.getElementById('container'), {
+    // dynamically set column width to 1/5 the width of the container
+    columnWidth: function( containerWidth ) {
+      return containerWidth / 3;
+    }
+  });
+
+	};
+
+			</script>
 		<table class="table_bottom_container" border="0" cellpadding="0" cellspacing="0" />
 			<tr>
 				<td class="table_bottom_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"/>
@@ -106,7 +120,7 @@ if ($_SESSION['user_id']=="") {
 					echo $random;
 					?>
 					</td>
-				<td class="table_bottom_buttons_light2" />
+				<td class="table_bottom_buttons_light1" />
 					<?php
 					$random = rand(0,2000);
 					echo $random;
@@ -118,17 +132,14 @@ if ($_SESSION['user_id']=="") {
 					echo $random;
 					?>
 					</td>			
-				<td class="table_bottom_buttons_light1" />
+				<td class="table_bottom_sweep_tail_filler_rounded_right" />
 					<?php
 					$random = rand(0,2000);
 					echo $random;
 					?>
 					</td>
-				<td class="table_bottom_buttons_light2" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
+				<td  class="table_dashpanel_container_welcome" />
+					Dashboard
 					</td>					
 				<td class="table_bottom_buttons_endcap" />
 					<?php
@@ -138,21 +149,15 @@ if ($_SESSION['user_id']=="") {
 					</td>				
 				</tr>
 			</table>
-
-					<?php
-		//$tmpstarttime 	= time();
+		<?php
 
 		include("includes/_template_dashpanel.php");	
-		
-		//$tmpendtime 	= time();
-		
-		//$displaytime	= ( $tmpstarttime - $tmpendtime );
-		
-		//echo "Display Time :".$displaytime;
-					?>&nbsp;
+		?>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 					</td>
 				</tr>
 			</table>
+	
 		<?php
 
 	}

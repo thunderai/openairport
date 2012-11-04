@@ -3,8 +3,8 @@ function _dp_339_b_inspections($dasharray) {
 		//						0					1						2					3					4					5					6					7					8					9
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
-<!--<div id="div_339inspections" style="position:fixed;top:230px;left:10px;width:150px;z-index:90;display:none">-->
-<table class="table_dashpanel_container" align="left" valign="top"  border="0" cellpadding='0' cellspacing='0' />
+<div class="table_dashpanel_container" id="div_339binspections" />
+<table align="left" valign="top"  width="100%" border="0" cellpadding='0' cellspacing='0' />
 	<tr>
 		<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
 			<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
@@ -38,7 +38,7 @@ function _dp_339_b_inspections($dasharray) {
 								// Nothing to Display
 								?>
 	<tr>
-		<td colspan="2" class="table_dashpanel_container_noresults" />
+		<td colspan="2" class="table_dashpanel_container_noresults" align="left" valign="top" />
 			No Inspections Today
 			</td>
 		</tr>
@@ -108,7 +108,7 @@ function _dp_339_b_inspections($dasharray) {
 		if($shown == 0) {
 				?>
 					<tr>
-		<td colspan="2" class="table_dashpanel_container_noresults" />
+		<td colspan="2" class="table_dashpanel_container_noresults" align="left" valign="top" />
 			No Active Notams
 			</td>
 		</tr>
@@ -120,6 +120,7 @@ function _dp_339_b_inspections($dasharray) {
 			</td>
 		</tr>
 	</table>
+	</div>
 	<?php
 	}
 ?>

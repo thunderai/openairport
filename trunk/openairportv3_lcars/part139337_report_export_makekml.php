@@ -13,7 +13,8 @@
 		//include("includes/_systemusers/systemusers.list.php");
 		include("includes/_modules/part139337/part139337.list.php");
 		//include("includes/_navigation/navigation.list.php");
-		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions		
+		include("includes/_generalsettings/generalsettings.list.php");	
+		include("includes/_dateandtime/_dt_amerdate2sqldatetime.inc.php");		
 
 					
 // Creates the Document.
@@ -132,13 +133,101 @@ $gpsIconstyleNode->appendChild($gpsIconNode);
 $gpsStyleNode->appendChild($gpsIconstyleNode);
 $docNode->appendChild($gpsStyleNode);
 
+//Get Information from the FORM
+
+	if (!isset($_POST["frmstartdate"])) {
+			// FORM END DATE IS NOT DEFINED, THIS IS PROBABLY A NETWORK KML FILE, SET DEFAULTS
+			
+			$current_year		= date('Y');
+			$tmpstartdate 		= "01/01/2000";
+			$tmpenddate 		= "12/31/".$current_year;
+			//$tmpstartdate2 	= $_POST['frmstartdateo'];
+			//$tmpenddate2		= $_POST['frmenddateo'];	
+			
+			$tmpspecies 	= 'all';
+			$tmpactivity 	= 'all';
+			$tmpaction		= 'all';
+			
+			$displayspecies_id 	= 'all';
+			$displayactivity_id = 'all';
+			$displayaction_id 	= 'all';
+	
+		} else {
+			// FORM IS MOST PROBABLY FROM THE LOADER, USE USER PROVIDED SETTINGS
+		
+			$tmpstartdate 	= $_POST['frmstartdate'];
+			$tmpenddate 	= $_POST['frmenddate'];
+			$tmpstartdate2 	= $_POST['frmstartdateo'];
+			$tmpenddate2	= $_POST['frmenddateo'];		
+			$tmpspecies 	= $_POST['wlhmspecies'];
+			$tmpactivity 	= $_POST['wlhmactivity'];
+			$tmpaction		= $_POST['wlhmaction'];
+			
+			$displayspecies_id 	= $_POST['wlhmspecies'];
+			$displayactivity_id = $_POST['wlhmactivity'];
+			$displayaction_id 	= $_POST['wlhmaction'];
+		
+		}	
+	
+	// Convert start date and end date into sql format
+	
+		$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
+		$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
+		$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
+		$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );
+
+		$notlimited_p1 = 0;
+		$notlimited_p1 = 0;
+		$notlimited_p1 = 0;
+	
+		if($_POST['disusebrowser'] == '1') {
+				$use_start_date = $tmpsqlstartdate;
+				$use_end_date 	= $tmpsqlenddate;
+			}
+			else {
+				$use_start_date = $tmpsqlstartdate2;
+				$use_end_date 	= $tmpsqlenddate2;			
+			}		
+
+		if($displayspecies_id == 'all') {
+				// User has selected to display all animals
+				//ignore this setting
+			}
+			else {
+				// There is a control to limit the species to a specific type
+				$msql_s 		= "AND 139337_species_cb_int = '".$displayspecies_id."' ";
+			}
+			
+		if($displayactivity_id == 'all') {
+				// User has selected to display all activity
+				//ignore this setting
+			}
+			else {
+				// There is a control to limit the species to a specific type
+				$msql_ay 		= "AND 139337_activity_cb_int = '".$displayactivity_id."' ";
+			}
+			
+		if($displayaction_id == 'all') {
+				// User has selected to display all activity
+				//ignore this setting
+			}
+			else {
+				// There is a control to limit the species to a specific type
+				$msql_an 		= "AND 139337_action_cb_int = '".$displayaction_id."' ";
+			}
+
+
+
 // Loop through the connection
 // Selects all the rows in the markers table.
 		$sql 		= "SELECT * FROM tbl_139_337_main 
 		INNER JOIN tbl_systemusers 		ON tbl_systemusers.emp_record_id 			= tbl_139_337_main.139337_author_by_cb_int 
 		INNER JOIN tbl_139_337_sub_an 	ON tbl_139_337_sub_an.139337_sub_an_id 		= tbl_139_337_main.139337_action_cb_int 
 		INNER JOIN tbl_139_337_sub_ay 	ON tbl_139_337_sub_ay.139337_sub_ay_id 		= tbl_139_337_main.139337_activity_cb_int 
-		INNER JOIN tbl_139_337_sub_s 	ON tbl_139_337_sub_s.139337_sub_s_id 		= tbl_139_337_main.139337_species_cb_int  ";
+		INNER JOIN tbl_139_337_sub_s 	ON tbl_139_337_sub_s.139337_sub_s_id 		= tbl_139_337_main.139337_species_cb_int 
+		WHERE 139337_date >= '".$use_start_date."' AND 139337_date <= '".$use_end_date."' ".$msql_s." ".$msql_ay." ".$msql_an." ORDER BY 139337_sub_s_category, 139337_sub_s_name";
+
+
 		
 // Opens a connection to a MySQLi server.
 	$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);

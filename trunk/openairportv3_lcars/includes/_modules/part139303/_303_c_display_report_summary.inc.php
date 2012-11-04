@@ -118,11 +118,11 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
+				echo "<table width='100%' cellpadding='1' cellspacing='1' border='0' />";
 	}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
+				$table_i = "<table width='100%' cellpadding='1' cellspacing='1' border='0' />";
 		}
 
 		

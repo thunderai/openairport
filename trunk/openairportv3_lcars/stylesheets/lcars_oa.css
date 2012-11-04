@@ -290,7 +290,7 @@
 	background-color		: #2350B5; /* Normal Dark Color 1 */
 	
 	border-right			: 0px solid;
-	border-left				: 2px solid;
+	border-left				: 0px solid;
 	border-top				: 0px solid;
 	border-bottom			: 0px solid;
 	border-style			: solid;
@@ -299,6 +299,32 @@
 	
 	height					: 21px;
 	}		
+
+.table_bottom_sweep_tail_filler_rounded_right{
+	
+	font-family				: Impact, Charcoal, sans-serif;
+	font-size				: 7pt; 	
+	color					: #97C3E0; 
+	text-align				: center;
+	vertical-align			: center;
+	
+	background-color		: #2350B5; /* Normal Dark Color 1 */
+	
+	border-right			: 0px solid;
+	border-left				: 0px solid;
+	border-top				: 0px solid;
+	border-bottom			: 0px solid;
+	border-style			: solid;
+	border-color			: #000000;
+	border-collapse			: collapse;
+	
+	height					: 21px;
+	
+	-webkit-border-radius	: 0px 13px 13px 0px;
+	-moz-border-radius		: 0px 13px 13px 0px;
+	border-radius			: 0px 13px 13px 0px;	
+	
+	}
 	
 .table_bottom_buttons_dark1{
 	
