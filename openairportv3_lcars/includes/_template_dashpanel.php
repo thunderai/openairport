@@ -52,6 +52,12 @@
 			include("includes/_modules/part139339/_dp_339_c_inspections.inc.php");
 			include("includes/_modules/part139339/_dp_339_b_inspections.inc.php");
 			
+			?>
+	<div id="container" style="margin-top:5px;" />
+	
+	<?php
+			
+			
 // START DASHBOARD PROCEDURES
 		
 		$counter 		= 0;
@@ -82,15 +88,6 @@
 						settype($tmp_number_of_rows,'integer');
 						?>
 						
-						
-<table border="0" width="100%" align="left" valign="top" style="border-collapse:collapse;z-index:99;">
-	<tr>
-		<td colspan="2" class='table_dashpanel_container_welcome' />
-			Dashboard
-			</td>
-		</tr>
-	<tr>
-		<td align="left" valign="top" style="float:left;" />
 						<?php
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								//echo $counter;
@@ -128,7 +125,6 @@
 			<?php 
 			$tmp_dash_main_func($dasharray);
 			?>
-
 								<?php 
 								
 								if ($tmp_counter == 2) {
@@ -149,11 +145,4 @@
 				}
 		}
 		?>
-			</td>
-		</tr>
-	<tr>
-		<td>
-			<br>
-			</td>
-		</tr>
-	</table>
+		</div>

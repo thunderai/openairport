@@ -130,7 +130,7 @@
 		$function_distribution		= 'part139337_report_display_distribution_loader.php';			// The URL of the webpage to load to display the Distribition Chart.
 		$function_linechart			= '';															// The URL of the webpage to load to display the Line Chart.
 		$function_mapit				= 'part139337_report_display_mapit_loader.php';					// The URL of the webpage to load to display the Mapit.		
-		$function_googleearthit		= 'part139337_report_export_makekml.php';						// The URL of he webpage used to generate this information.			
+		$function_googleearthit		= 'part139337_report_export_makekml_loader.php';						// The URL of he webpage used to generate this information.			
 	// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	//	THE CONTAIN CONTENTS IS THE SAME FORMAT FOR ALL BROWSE DOCUMENTS, ALTHOUGH THE DATA MAY BE DIFFERENT

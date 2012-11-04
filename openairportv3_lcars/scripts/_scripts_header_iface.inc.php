@@ -46,3 +46,4 @@
 			<script type="text/javascript" src="scripts/_iface/_frm_displaybutton.js"></script>
 			<script type="text/javascript" src="scripts/_iface/_frm_339_c.js"></script>
 			<script type="text/javascript" src="scripts/_iface/_frm_clearinput.js"></script>
+			<script type="text/javascript" src="scripts/_iface/thirdparty/masonry/masonry_min.js"></script>

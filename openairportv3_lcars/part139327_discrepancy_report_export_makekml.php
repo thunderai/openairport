@@ -8,7 +8,8 @@
 		
 // Load Page Specific Includes
 		include("includes/_modules/part139327/part139327.list.php");
-		include("includes/_generalsettings/generalsettings.list.php");				
+		include("includes/_generalsettings/generalsettings.list.php");	
+		include("includes/_dateandtime/_dt_amerdate2sqldatetime.inc.php");			
 					
 					
 // Creates the Document.
@@ -127,6 +128,76 @@ $gpsIconstyleNode->appendChild($gpsIconNode);
 $gpsStyleNode->appendChild($gpsIconstyleNode);
 $docNode->appendChild($gpsStyleNode);
 
+	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+	//form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	//form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	//form_new_control("disinspectiontype","Inspection Type"			, "Select an Inspection Type"				,"Select an inspection type from the list provided!"	,""					,3			,50				,0				,"all"					,"part139327typescomboboxwall");
+	//form_new_control("disonlycurrent"	,"Only Outstanding Status"	, "Display only outstanding discrepancies"	,"Checking this box will display only outstanding discrepancies. Unchecking the box will display all discrepancies."		,""					,5			,50				,0				,"all"					,0);
+	//form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"			,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""					,5			,50				,0				,"all"					,0);
+
+	if (!isset($_POST["frmstartdate"])) {
+			// FORM END DATE IS NOT DEFINED, THIS IS PROBABLY A NETWORK KML FILE, SET DEFAULTS
+			
+			$current_year	= date('Y');
+			$tmpstartdate 	= "01/01/2000";
+			$tmpenddate 	= "12/31/".$current_year;
+			//$tmpstartdate2 	= $_POST['frmstartdateo'];
+			//$tmpenddate2	= $_POST['frmenddateo'];	
+
+			$disinspectiontype	= 'all';
+			$disonlycurrent		= 1;	
+			$disusebrowser		= 1;			
+	
+		} else {
+			// FORM IS MOST PROBABLY FROM THE LOADER, USE USER PROVIDED SETTINGS
+		
+			$tmpstartdate 	= $_POST['frmstartdate'];
+			$tmpenddate 	= $_POST['frmenddate'];
+			$tmpstartdate2 	= $_POST['frmstartdateo'];
+			$tmpenddate2	= $_POST['frmenddateo'];
+
+			$disinspectiontype	= $_POST['disinspectiontype']; 	// Check box
+			$disonlycurrent		= $_POST['disonlycurrent']; 	// Check box	
+			$disusebrowser		= $_POST['disusebrowser']; 		// Check box	
+		
+		}
+
+	// Convert start date and end date into sql format
+	
+		$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
+		$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
+		$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
+		$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );	
+
+		$sql_a = "";
+		
+		
+	// DO WE ONLY WANT THE CURRENT STATUS OR SOME OTHER CREATION?
+		if($disinspectiontype == 'all') {
+				// USER HAS SELECTED ALL TIME PERIODS
+				//	add nothing to the SQL statement
+				//echo "Nothing to add to the SQL Statement <br>";
+			} else {
+				// USER HAS SELECTED A TIME PERIOD, 
+				//	add specific data to sql statement
+				//echo "Adding to the SQL Statement <br>";
+				$sql_a = "AND tbl_139_327_main.type_of_inspection_cb_int = '".$disinspectiontype."' ";
+			}	
+			
+		if($disusebrowser == 1) {
+				$usebrowser		= 0;
+				$date_to_use_s	= $tmpsqlstartdate;
+				$date_to_use_e	= $tmpsqlenddate;
+			}
+			else {
+				$usebrowser		= 1;
+				$date_to_use_s	= $tmpsqlstartdate2;
+				$date_to_use_e	= $tmpsqlenddate2;
+			}	
+
+
+			$sql_b = "AND tbl_139_327_main.139327_date >= '".$date_to_use_s."' AND tbl_139_327_main.139327_date <= '".$date_to_use_e."' ";
+		
 // Loop through the connection
 // Selects all the rows in the markers table.
 	$sql = "SELECT * FROM tbl_139_327_sub_d 
@@ -136,6 +207,8 @@ $docNode->appendChild($gpsStyleNode);
 		INNER JOIN tbl_139_327_sub_c 	ON tbl_139_327_sub_c.conditions_id = tbl_139_327_sub_d.discrepancy_checklist_id 
 		INNER JOIN tbl_139_327_sub_c_f 	ON tbl_139_327_sub_c_f.facility_id = tbl_139_327_sub_c.condition_facility_cb_int 
 		INNER JOIN tbl_general_conditions ON tbl_general_conditions.general_condition_id = tbl_139_327_sub_d.discrepancy_priority ";
+		$sql = $sql."".$sql_a."".$sql_b."";
+		
 		
 // Opens a connection to a MySQLi server.
 	$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -163,8 +236,22 @@ $docNode->appendChild($gpsStyleNode);
 							
 							$displayrow_a				= preflights_tbl_139_327_main_sub_d_a_yn($tmpdiscrepancyid,0); // 0 will not return a row even if it is archieved.
 							$displayrow_d				= preflights_tbl_139_327_main_sub_d_d_yn($tmpdiscrepancyid,0); // 0 will not return a row even if it is duplicate.
-
-
+							$status						= part139327discrepancy_getstage($tmpdiscrepancyid,0, 0,0,0);
+							
+							$current = 'burp';
+							
+							if($disonlycurrent == 1) {
+									
+									// Display only current Discrepancies
+									if($status <> 3) {
+											$current = 1;
+										} else {
+											$current = 0;
+										}
+								} else {
+									$current = 1;
+								}
+							
 							//echo "Display A ".$displayrow_a." / Display D ".$displayrow_d." <br>";
 							
 							if($displayrow_a == 0 OR $displayrow_d == 0) {
@@ -172,7 +259,11 @@ $docNode->appendChild($gpsStyleNode);
 									$displayrow = 0;
 								}
 								else {
-									$displayrow = 1;
+									if($current == 1 ) {
+										$displayrow = 1;
+									} else {
+										$displayrow = 0;
+									}
 								}
 								
 							if($displayrow == 1) {
