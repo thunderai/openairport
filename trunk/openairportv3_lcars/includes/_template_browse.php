@@ -372,6 +372,7 @@ if ($tbldisplaytotal==1) {
 	}
 	
 	?>
+	
 <div class="exportscreen" style="display: none; z-index:11;" name="exportdisplaypanel" id="exportdisplaypanel">
 	<?php
 	$encoded 			  = urlencode($sql);		

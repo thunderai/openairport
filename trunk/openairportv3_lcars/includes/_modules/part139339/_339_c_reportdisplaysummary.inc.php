@@ -69,11 +69,11 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table class='layout_dashpanel_container_table' />";
+				echo "<table width='100%' cellpadding='1' cellspacing='1' border='0' align='left' valign='top' style='float:left;' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table class='layout_dashpanel_container_table' />";
+				$table_i = "<table width='100%' cellpadding='1' cellspacing='1' border='0' align='left' valign='top' style='float:left;' />";
 			}
 
 		
@@ -90,40 +90,35 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 								//$inspectionid = $objarray['inspection_system_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='forms_coumn_header'>
-														Basic Information
-														</td>
-													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														ID
 														</td>
-													<td class='forms_coumn_results_row'>
+													<td class='table_dashpanel_container_summary_rowresult'>
 														<a href='#' onclick='openmapchild(&quot;part139339_c_report_display_new.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Date / Time 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139339_date']." / ".$objarray['139339_time']." 
 														</td>
 													</tr>													
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Type
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['139339_type']." (".$objarray['139339_type_short_name'].") 
 														</td>
 													</tr>
 												<tr>		
-													<td class='forms_coumn_results_header'>
+													<td class='table_dashpanel_container_summary_rowheader'>
 														Inspection By 
 														</td>
-													<td class='forms_coumn_results_row'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 														</td>
 													</tr>";
@@ -161,15 +156,15 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																
 																$checklistHTML_i = "
 																				<tr>		
-																					<td colspan='2' class='tableheaderleft'>
-																						<b>Checklist Information</b>
+																					<td colspan='2' class='table_dashpanel_container_summary_header'>
+																						Checklist Information
 																						</td>
 																					</tr>
 																				<tr>
-																					<td class='formoptions' width='45%'>
+																					<td class='table_dashpanel_container_summary_rowheader' width='45%'>
 																						Facility / Condition
 																						</td>
-																					<td class='formoptions'>
+																					<td class='table_dashpanel_container_summary_rowheader'>
 																						Discrepancy
 																						</td>																							
 																					</tr>
@@ -202,10 +197,10 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 
 																$checklistHTML = $checklistHTML."									
 																				<tr>		
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowheader'>".
 																						$objarray2['139339_f_name']." / ".$objarray2['139339_c_name']."
 																						</td>
-																					<td class='formresults'>".
+																					<td class='table_dashpanel_container_summary_rowresult'>".
 																						$tmp_text."
 																						</td>	
 																					</tr>
@@ -244,7 +239,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																$discrepHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Discrepancy Information</b>
+																						Discrepancy Information
 																						</td>																						
 																					</tr>
 																				";
@@ -342,7 +337,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																$archivedHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Archieved Information</b>
+																						Archieved Information
 																						</td>
 																					</tr>
 																				";
@@ -421,7 +416,7 @@ function _339_c_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='tableheaderleft'>
-																						<b>Error Information</b>
+																						Error Information
 																						</td>
 																					</tr>
 																				";

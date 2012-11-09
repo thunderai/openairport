@@ -64,7 +64,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 		<td class="table_menu_bottom_sweep_tail_filler" />
 			</td>
 		<td rowspan="2" class="table_menu_browse_top_right_sweep">
-			<img src="images/_interface/lcars_top_right_menu_sweep.png"/>
+			<img src="images/_interface/lcars_top_right_sweep.png"/>
 			</td>
 		</tr>
 	<tr>

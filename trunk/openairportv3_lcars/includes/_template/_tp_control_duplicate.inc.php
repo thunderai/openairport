@@ -35,7 +35,7 @@ if ($settingsarray == '') {
 				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MarkDuplicatereportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['MarkDuplicatereportform'].submit();" />
+				<td class="table_button_bullet_lead_dark1_normal" />
 					<input type="submit" value="Mark Duplicate" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
 				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Duplicate');"  onMouseout="hideddrivetip();"/>

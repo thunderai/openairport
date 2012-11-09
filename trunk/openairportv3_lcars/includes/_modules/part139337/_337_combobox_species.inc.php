@@ -70,7 +70,7 @@ function part139337_combobox_animalspecies($suppliedid, $archived, $nameofinput,
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+	<SELECT class="table_forms_enter_input_field" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
 					<?php 
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
@@ -114,7 +114,7 @@ function part139337_combobox_animalspecies($suppliedid, $archived, $nameofinput,
 								mysqli_close($objconn_support);
 								if ($showcombobox=="show") {
 										?>
-		</SELECT><INPUT TYPE="button" class="formsubmit" VALUE="Help" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')">
+		</SELECT><INPUT TYPE="button" class="table_forms_button_command" VALUE="Help" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')">
 										<?php 
 									}
 						}	// end of Res Record Object						

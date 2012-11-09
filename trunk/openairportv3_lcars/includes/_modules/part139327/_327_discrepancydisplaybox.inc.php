@@ -208,6 +208,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 					  yaverage = (ytotal/ypoints.length);
 
 					// Draw the Pavement section
+					jg.setPrintable(true);
 					jg.setColor("#ff000f"); // red
 					jg.setStroke(3); 
 					jg.drawPolyline(xpoints, ypoints);

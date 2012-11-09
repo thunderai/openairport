@@ -70,7 +70,7 @@ function part139337_combobox_animalactivitywall($suppliedid, $archived, $nameofi
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+	<SELECT class="table_forms_enter_input_field" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
 		<option value="all">All Animal Activities</option>
 					<?php 
 						}

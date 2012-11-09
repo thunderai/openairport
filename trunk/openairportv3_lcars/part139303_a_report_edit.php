@@ -141,16 +141,16 @@
 									?>
 					<table width="100%">
 						<tr>
-							<td class="formheaders">
+							<td class="table_forms_enter_header">
 								Dash Name
 								</td>
-							<td class="formheaders">
+							<td class="table_forms_enter_header">
 								Menu Name
 								</td>
-							<td class="formheaders">
+							<td class="table_forms_enter_header" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()" />
 								Display
 								</td>	
-							<td class="formheaders">
+							<td class="table_forms_enter_header" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
 								Display Order
 								</td>
 							</tr>
@@ -234,14 +234,14 @@
 															
 															?>
 						<tr>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
+							<td class="table_forms_enter_input" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
 								<?php echo $dash_nl;?>
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
+							<td class="table_forms_enter_input" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
 								<?php echo $menu_nl;?>
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()">
-								<INPUT TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" 
+							<td class="table_forms_enter_input" />
+								<INPUT class='table_forms_enter_input_field' TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" 
 								<?php
 								if($array_values[$dash_id][0] == 1) {
 										?>
@@ -251,8 +251,8 @@
 									?>																									
 								>
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
-								<INPUT TYPE="text" SIZE="3" NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" VALUE="<?php echo $array_values[$dash_id][1];?>">
+							<td class="table_forms_enter_input" />
+								<INPUT class='table_forms_enter_input_field' TYPE="text" SIZE="3" NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" VALUE="<?php echo $array_values[$dash_id][1];?>">
 								</td>
 							</tr>
 															<?php

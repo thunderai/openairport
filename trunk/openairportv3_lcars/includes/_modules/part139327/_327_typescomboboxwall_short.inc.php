@@ -1,5 +1,5 @@
 <?php
-function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
+function part139327typescomboboxwall_short($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
 	// $suppliedid		, is the number of the group to do the search for ;
 	// $archived		, do you want to list all menu items, or just the archived ones;
 	// $nameofinout		, what is the name of the select box that 'could' be ceated by this function;
@@ -15,14 +15,14 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 	$sql	= "";																				// Define the sql variable, just in case
 	$nsql 	= "";																				// Define the nsql variable, just in case
 	
-	$sql = "SELECT * FROM tbl_139_327_sub_c_f ";											// start the SQL Statement with the common syntax
+	$sql = "SELECT * FROM tbl_139_327_sub_t ";											// start the SQL Statement with the common syntax
 
 	if ($suppliedid=="all") {																		// if supplied 'all' for the menu_id so the following
 			// do not add any employee ID information to the SQL String
 			$tmp_flagger = 0;																	// important to tell the procedures below this happened
 		}
 		else {
-			$nsql = "WHERE `facility_id` = ".$suppliedid." ";										// if supplied a menu_id, then add it to the SQL Statement
+			$nsql = "WHERE `inspection_type_id` = ".$suppliedid." ";										// if supplied a menu_id, then add it to the SQL Statement
 			$sql = $sql.$nsql;																	// combine the nsql and sql strings
 			$tmp_flagger = 1;																	// important to tell the procedures below this happened
 		}
@@ -33,23 +33,23 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 		else {
 			if ($archived=="yes") {																// If archived is 'yes' then
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_139_327_sub_c_f.facility_archived_yn = -1 ";
+							$nsql = "WHERE inspection_type_id.inspection_type_archived_yn = -1 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND tbl_139_327_sub_c_f.facility_archived_yn = -1 ";
+							$nsql = "AND inspection_type_id.inspection_type_archived_yn = -1 ";
 							$sql = $sql.$nsql;
 						}
 				}
 				else {
 					if ($tmp_flagger==0) {
-							$nsql = "WHERE tbl_139_327_sub_c_f.facility_archived_yn = 0 ";
+							$nsql = "WHERE inspection_type_id.inspection_type_archived_yn = 0 ";
 							$sql = $sql.$nsql;
 							$tmp_flagger = 1;
 						}
 						else {
-							$nsql = "AND tbl_139_327_sub_c_f.facility_archived_yn = 0 ";
+							$nsql = "AND inspection_type_id.inspection_type_archived_yn = 0 ";
 							$sql = $sql.$nsql;
 						}
 				}
@@ -59,7 +59,7 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 	$objconn_support = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 	
 	if (mysqli_connect_errno()) {
-			printf("connect failed: %s\n", mysqli_connect_error());
+			//printf("connect failed: %s\n", mysqli_connect_error());
 			exit();
 		}
 		else {
@@ -70,13 +70,20 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 					if ($showcombobox=="show") {
 							?>
 	<SELECT class="table_forms_enter_input_field" NAME="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
-		<option value="all">All Facility Types</option>
-							<?php 
+		<option value="all">All Inspection Types</option>
+					<?php 
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
-							$tmpsuppliedid 		= $objfields['facility_id'];
-							$tmpsuppliedname 	= $objfields['facility_name'];
-							$tmpsuppliedarch	= $objfields['facility_archived_yn'];
+							$tmpsuppliedid 		= $objfields['inspection_type_id'];
+							$tmpsuppliedname 	= $objfields['inspection_type'];
+							$tmpsuppliednames 	= $objfields['inspection_type_short_name'];
+							$tmpsuppliedarch	= $objfields['inspection_type_archived_yn'];
+							
+							// Shorten Long Name
+							
+							$tmpsuppliedname	= substr($tmpsuppliedname, 0, 15);  // abcd
+							$tmpsuppliedname	= $tmpsuppliedname.'...';
+							
 							
 						if ($showcombobox=="show") {
 								?>
@@ -101,12 +108,12 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 								}
 								if ($showcombobox=="show") {
 										?>
-				value="<?php echo $tmpsuppliedid;?>"><?php echo $tmpsuppliedname;?></option>
+				value="<?php echo $tmpsuppliedid;?>"><?php echo $tmpsuppliedname;?>&nbsp;&nbsp;(<?php echo $tmpsuppliednames;?>)</option>
 										<?php 
 									}
 									else {
 										?>
-				<?php echo $tmpsuppliedname?>
+				<?php echo $tmpsuppliedname?>&nbsp;&nbsp;(<?php echo $tmpsuppliednames;?>)
 										<?php 
 									}
 								}	// End of while loop

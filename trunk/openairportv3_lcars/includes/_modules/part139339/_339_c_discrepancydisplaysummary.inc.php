@@ -16,7 +16,7 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 		$display_error 		= 0;		
 		$display_ownedby 	= 0;
 		
-		$webroot			= "http://localhost/openairportv3t/";
+		$webroot			= "http://localhost/openairportv3_lcars/";
 		
 		if($detail_level == 0) {
 				$display_basic 		= 1;
@@ -66,11 +66,11 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
+				echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' class='layout_dashpanel_container_div'>";
+				$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0' >";
 			}
 
 		
@@ -87,32 +87,27 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 								$discrepancyid = $objarray['Discrepancy_id'];
 								
 								$basicHTML = "
-												<tr>
-													<td colspan='2' class='formoptionsavilabletop'>
-														<font size='1'><b>Basic Information</b></font>
-														</td>
-													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 														ID
 														</td>
-													<td class='formanswers'>
+													<td class='table_dashpanel_container_summary_rowresult'>
 															<a href='part139339_c_discrepancy_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
 														</td>
 													</tr>													
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 														Name
 														</td>
-													<td class='formanswers'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['Discrepancy_name']."
 														</td>
 													</tr>
 												<tr>		
-													<td align='center' valign='middle' class='formoptions'>
+													<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 														Description
 														</td>
-													<td class='formanswers'>".
+													<td class='table_dashpanel_container_summary_rowresult'>".
 														$objarray['discrepancy_remarks']."
 														</td>
 													</tr>";
@@ -129,55 +124,55 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 							
 										$extendedHTML = "
 														<tr>
-															<td colspan='2' class='tableheaderleft'>
-																<b>Extended Information</b>
+															<td colspan='2' class='table_dashpanel_container_summary_header'>
+																Extended Information
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Entered Durring Inspection ID
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['Discrepancy_inspection_id'].":".$objarray['139339_type']."
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Facility / Condition
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['139339_f_name']." / ".$objarray['139339_c_name']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Recorded By
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['emp_firstname']." ".$objarray['emp_lastname']." 
 																</td>
 															</tr>									
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Date / Time
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['Discrepancy_date']." / ".$objarray['Discrepancy_time']." 
 																</td>
 															</tr>		
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Priority
 																</td>
-															<td class='formanswers'>".
+															<td class='table_dashpanel_container_summary_rowresult'>".
 																$objarray['general_condition_priority']." 
 																</td>
 															</tr>
 														<tr>		
-															<td align='center' valign='middle' class='formoptions'>
+															<td align='center' valign='middle' class='table_dashpanel_container_summary_rowheader'>
 																Location
 																</td>
-															<td class='formanswers'>
+															<td class='table_dashpanel_container_summary_rowresult'>
 																X:".$objarray['Discrepancy_location_x'].", Y:".$objarray['Discrepancy_location_y']." 
 																</td>
 															</tr>

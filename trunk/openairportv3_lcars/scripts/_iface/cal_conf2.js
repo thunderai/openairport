@@ -2,6 +2,9 @@
 //Define calendar(s): addCalendar ("Unique Calendar Name", "Window title", "Form element's name", Form name")
 addCalendar("Calendar1", "Select Date", "frmstartdate", "sorttable");
 addCalendar("Calendar2", "Select Date", "frmenddate", "sorttable");
+addCalendar("Calendar3", "Select Date", "disdate", "edittable");
+addCalendar("Calendar4", "Select Date", "frmstartdate", "edittable");
+addCalendar("Calendar5", "Select Date", "frmenddate", "edittable");
 
 // default settings for English
 // Uncomment desired lines and modify its values

@@ -191,11 +191,10 @@ if($status == 1 || $status == 2 || $status == 3) {
 						?>
 					 /> &nbsp;
 					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
+				<td class="table_button_bullet_lead_<?php echo $skin;?>" />
 					<?php 
 					if($active == 1) {
 							?>
-					onclick="javascript:document.forms['RepairHistoryreportform'].submit();" />
 					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
 					
 							<?php

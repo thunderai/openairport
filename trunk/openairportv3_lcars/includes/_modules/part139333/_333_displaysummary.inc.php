@@ -19,7 +19,7 @@ function _333_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 		$display_archived 	= 0;
 		$display_error 		= 0;
 		
-				$webroot			= "http://localhost/openairportv3t/";
+				$webroot			= "http://localhost/openairportv3_lcars/";
 		
 		if($detail_level == 0) {
 				$display_basic 		= 1;

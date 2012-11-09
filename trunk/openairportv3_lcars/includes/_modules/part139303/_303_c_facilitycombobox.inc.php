@@ -69,7 +69,7 @@ function part139303_c_facilitycombobox($suppliedid, $archived, $nameofinput, $sh
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" NAME="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+	<SELECT class="table_forms_enter_input_field" NAME="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
 					<?php 
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {

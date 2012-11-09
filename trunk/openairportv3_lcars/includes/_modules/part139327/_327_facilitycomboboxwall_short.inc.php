@@ -1,5 +1,5 @@
 <?php
-function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
+function part139327facilitycomboboxwall_short($suppliedid, $archived, $nameofinput, $showcombobox, $default) {
 	// $suppliedid		, is the number of the group to do the search for ;
 	// $archived		, do you want to list all menu items, or just the archived ones;
 	// $nameofinout		, what is the name of the select box that 'could' be ceated by this function;
@@ -77,7 +77,12 @@ function part139327facilitycomboboxwall($suppliedid, $archived, $nameofinput, $s
 							$tmpsuppliedid 		= $objfields['facility_id'];
 							$tmpsuppliedname 	= $objfields['facility_name'];
 							$tmpsuppliedarch	= $objfields['facility_archived_yn'];
+	
+							// Shorten Long Name
 							
+							$tmpsuppliedname	= substr($tmpsuppliedname, 0, 15);  // abcd
+							$tmpsuppliedname	= $tmpsuppliedname.'...';
+	
 						if ($showcombobox=="show") {
 								?>
 		<option 

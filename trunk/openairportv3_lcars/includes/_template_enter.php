@@ -54,7 +54,18 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 				$fieldstring	= $fieldstring."<i>".$fieldnotes."</i>";
 				
 				$tmp_default	= $fielddefaultvalue;
+		
+		if($fieldtype <> 2 AND $fieldsizex <> 0 ) {
+			
+				$container 	= 'table_forms_container';
+				$style 		= 'table_forms_enter_input_field';
 				
+			} else {
+				
+				$container 	= 'table_forms_container_wide';
+				$style 		= 'table_forms_enter_input_field';
+			}
+		
 		// Determine Default Values
 				if($fielddefaultvalue == "post") {
 						if (!isset($_POST[$fieldname])) {
@@ -78,15 +89,19 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 
 		// Display Text Table Cell
 				?>
+		<div class="<?php echo $container;?>" id="div_container" />
+			<table align="left" valign="top"  width="100%" border="0" cellpadding='0' cellspacing='0' />
 				<tr>		
-					<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('<?php echo $fieldstring;?>')"; onMouseout="hideddrivetip()">
+					<td align="left" valign="middle" class="table_forms_enter_header" onMouseover="ddrivetip('<?php echo $fieldstring;?>')"; onMouseout="hideddrivetip()">
 						<?php echo $fieldtxtname;?>
 						</td>
+					</tr>
+				<tr>
 				<?php
 					
 		// Display Data Table Cell
 				?>
-					<td class="formanswers">
+					<td class="table_forms_enter_input" />
 							<?php
 							switch ($fieldtype) {
 									case 1:		// Datacell is a text box
@@ -94,18 +109,18 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													// DO Not show field, Just Show Result
 													echo $fielddefaultvalue;
 													?>
-						<input class="Commonfieldbox" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" name="<?php echo $fieldname;?>" type='hidden'>
+						<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" name="<?php echo $fieldname;?>" type='hidden'>
 													<?php
 												}
 												else {
 													?>
-						<input class="Commonfieldbox" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" 
+						<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" 
 													<?php
 													if($fielddefaultvalue == "current") {
 															switch ($fieldtxtname) {
 																	case "Date":
 																			?>
-						type="text" value="<?php echo date('m/d/Y');?>">
+						type="text" value="<?php echo date('m/d/Y');?>"> <a href="javascript:showCal('Calendar3')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
 																			<?php
 																		break;
 																	case "Time":
@@ -117,7 +132,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			?>
 						type="text" value="<?php echo date("Y");?>">
 																			<?php
-																		break;															
+																		break;
 																}
 														}
 														else {
@@ -127,6 +142,16 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						type="password" value="<?php echo $fielddefaultvalue;?>">
 																			<?php
 																		break;
+																	case "Start Date":
+																			?>
+						type="text" value="<?php echo $fielddefaultvalue;?>"> <a href="javascript:showCal('Calendar4')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+																			<?php
+																		break;	
+																	case "End Date":
+																			?>
+						type="text" value="<?php echo $fielddefaultvalue;?>"> <a href="javascript:showCal('Calendar5')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+																			<?php
+																		break;																		
 																	default:
 																			?>
 						type="text" value="<?php echo $fielddefaultvalue;?>">
@@ -143,7 +168,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 												}
 												else {
 													?>
-							<TEXTAREA class="Commonfieldbox" name="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
+							<TEXTAREA class="<?php echo $style;?>" name="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
 													<?php
 												}
 										break;
@@ -179,7 +204,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															if($ajaxpush=="1") {
 																	// User wants an Ajax Push Button after this field\
 																	?>
-																	<input type="button" name="pushajax" id="pushajax" value="<?php echo $fieldformat;?>" onclick="<?php echo $ajaxpushscript;?>('<?php echo $ajaxpushid;?>','<?php echo $fieldname;?>');" />
+																	<input class="table_forms_button_command" type="button" name="pushajax" id="pushajax" value="<?php echo $fieldformat;?>" onclick="<?php echo $ajaxpushscript;?>('<?php echo $ajaxpushid;?>','<?php echo $fieldname;?>');" />
 																	<?php
 																}
 														break;
@@ -189,9 +214,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 											if ($fielddefaultvalue == '') {
 													//echo "NO POST <br>";
 													?>
-						X: &nbsp;	<input class="Commonfieldbox" 	type="text" 	name="<?php echo $fieldname;?>X"	value="0" 		size="4">, 
-						Y: &nbsp;	<input class="Commonfieldbox" 	type="text" 	name="<?php echo $fieldname;?>Y" 	value="0" 		size="4">&nbsp;
-						&nbsp;&nbsp;<INPUT class="formsubmit" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 	onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
+						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	value="0" 		size="4">
+						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	value="0" 		size="4">
+						<INPUT class="table_forms_button_command" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 	onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
 													<?php
 												}
 												else {
@@ -203,8 +228,8 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															$fieldvalue_y 	= $_POST[$fieldname_y];												
 														?>
 												X: &nbsp;<?php echo $fieldvalue_x;?> / Y: &nbsp;<?php echo $fieldvalue_y;?>&nbsp;&nbsp;<INPUT class="formsubmit" TYPE="button" VALUE="Map It" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
-												<input class="Commonfieldbox" type="hidden" name="<?php echo $fieldname;?>X" value="<?php echo $fieldvalue_x;?>" size="4">
-												<input class="Commonfieldbox" type="hidden" name="<?php echo $fieldname;?>Y" value="<?php echo $fieldvalue_y;?>" size="4">
+												<input class="table_forms_enter_input_field" type="hidden" name="<?php echo $fieldname;?>X" value="<?php echo $fieldvalue_x;?>" size="4">
+												<input class="table_forms_enter_input_field" type="hidden" name="<?php echo $fieldname;?>Y" value="<?php echo $fieldvalue_y;?>" size="4">
 														<?php
 														}
 														else {
@@ -219,9 +244,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													$fieldvalue_x = $numberset[0];
 													$fieldvalue_y = $numberset[1];
 															?>
-						X: &nbsp;	<input class="Commonfieldbox" 	type="text" 	name="<?php echo $fieldname;?>X"	ID="<?php echo $fieldname;?>X" 	value="<?php echo $fieldvalue_x;?>" 	size="4">, 
-						Y: &nbsp;	<input class="Commonfieldbox" 	type="text" 	name="<?php echo $fieldname;?>Y" 	ID="<?php echo $fieldname;?>Y" 	value="<?php echo $fieldvalue_y;?>" 	size="4">&nbsp;
-						&nbsp;&nbsp;<INPUT class="formsubmit" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 							onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
+						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	ID="<?php echo $fieldname;?>X" 	value="<?php echo $fieldvalue_x;?>" 	size="4">
+						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	ID="<?php echo $fieldname;?>Y" 	value="<?php echo $fieldvalue_y;?>" 	size="4">
+						<INPUT class="table_forms_button_command" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 							onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
 															<?php
 														}
 												}
@@ -232,12 +257,12 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 										break;
 									case 5:		// Datacell is a checkbox
 									?>
-						<input type="checkbox" class="commonfieldbox" name="<?php echo $fieldname;?>" CHECKED value="1">
+						<input type="checkbox" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;	
 									case 6:		// Datacell is a file select box
 									?>
-						<input type="file" class="commonfieldbox" name="<?php echo $fieldname;?>" CHECKED value="1">
+						<input type="file" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;											
 										
@@ -248,18 +273,22 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									
 								}
 								?>
-						<i>
+						</td>
+					<tr>
+						<td class="table_forms_enter_footer" />
 						<?php 
 						if($ajaxpush=="1") {
 								// DOnt Display the format text
 							} else {
 							?>
-								<?php echo $fieldformat;?></i>
+								<?php echo $fieldformat;?>
 							<?php
 							}
 							?>
 						</td>
 					</tr>
+				</table>
+			</div>
 					<?php
 					
 	//echo "Default Value: ".$tmp_default."<br>";			

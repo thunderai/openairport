@@ -23,7 +23,7 @@ function display_discrepancy_summary($discrepancyid = 0,$detail_level = 0,$retur
 		$display_error 		= 0;		
 		$display_ownedby 	= 0;
 		
-				$webroot			= "http://localhost/openairportv3t/";
+				$webroot			= "http://localhost/openairportv3_lcars/";
 		
 		if($detail_level == 0) {
 				$display_basic 		= 1;

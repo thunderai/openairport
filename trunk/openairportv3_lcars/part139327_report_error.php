@@ -94,7 +94,7 @@ if (!isset($_POST["formsubmit"])) {
 	form_new_control("disdate"		,"Date"			, "Enter the date this inspection was marked as a error"		,"The current date has automatically been provided!"			,"(mm/dd/yyyy)"			,1,10,0,"current",0);
 	form_new_control("distime"		,"Time"			, "Enter the time this inspection was marked as a error"		,"The current time has automatically been provided!"			,"(hh:mm:ss) - 24 hours",1,10,0,"current",0);
 	form_new_control("disauthor"	,"Entry By"		, "Who found and reported this inspection"						,"Your name has automatically been provided!"					,"(cannot be changed)"	,3,50,0,$_SESSION['user_id'],"systemusercombobox");
-	form_new_control("discomments"	,"Comments"		, "Provide information about an error made"						,"Do not use any special characters!"							,""						,2,35,4,"",0);
+	form_new_control("discomments"	,"Comments"		, "Provide information about an error made"						,"Do not use any special characters!"							,""						,2,20,4,"",0);
 	form_new_control("disduplicate"	,"Mark Error"	, "Checking this box will mark the inspection with an error"	,"Only do this if you are sure the inspection is a duplicate"	,"(checked = error)"	,5,35,4,"current",0);
 	//
 	// FORM FOOTER

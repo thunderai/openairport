@@ -79,11 +79,20 @@
 		
 		if ($detect->isMobile()) {
 				// Any mobile device.
-				
+						
 				$width		= '100%';
 				$height		= '400px';
-				
+		
 				$qua_e		= 2;
+						
+				// Is it an iPhone?
+				if($detect->isiOS()){
+						$width		= '100%';
+						$height		= '400px';
+				
+						$qua_e		= 4;
+						
+				}
 				
 			}
 		
@@ -94,6 +103,9 @@
 				$height		= '620px';
 				
 				$qua_e		= 5;
+				
+				$detect->version('Android');
+				
 			}
 			
 	?>

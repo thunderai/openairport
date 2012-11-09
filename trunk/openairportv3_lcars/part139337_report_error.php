@@ -96,7 +96,7 @@ if (!isset($_POST["formsubmit"])) {
 		//																																																																5	Check box	,									
 		form_new_control("disdate"		,"Date"				, "Enter the date this WLHM Reord was archieved"				,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,10				,0				,"current"				,0);
 		form_new_control("distime"		,"Time"				, "Enter the time this WLHM Reord was archieved"				,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,10				,0				,"current"				,0);
-		form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,50				,0				,$_SESSION['user_id']	,"systemusercombobox");
+		form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,2				,35				,0				,$_SESSION['user_id']	,"systemusercombobox");
 		form_new_control("discomments"	,"Comments"			, "Enter how you NEED to archieve it"							,"Do not use any special characters!"																			,""							,2				,35				,4				,""						,0);
 		form_new_control("disarchive"	,"Mark Archieved"	, "Checking this box will mark the discrepancy as archieved"	,"Only do this if you are sure you need to archieve it"															,"(checked = archieved)"	,5				,35				,4				,"current"				,0);
 	//

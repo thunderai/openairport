@@ -161,21 +161,7 @@ if (!isset($_POST["systemuserid"])) {
 				
 				</td>
 			<td colspan="11" rowspan="7" style="border:0px;padding:0px;margin:0px;" align="left" valign="top" />
-				<div style="z-index:15;display: none;margin-left:-4px;margin-top:-2px;padding:0px;border:0px solid;" name="navigationdisplaypanel" id="navigationdisplaypanel">
-					<table width="100%" height="<?php echo $height;?>" border="0" cellpadding="1" cellspacing="1" name="navigationajaxtable" id="navigationajaxtable" />
-						<tr>
-							<td align="left" valign="top" name="navigationajaxcenter" id="navigationajaxcenter" />
-									<?php
-									// Display Navigtional Menu System					
-									$whoareyou = $_SESSION["user_id"];	
-									//loadnavmenu_3($whoareyou);				
-									loadnavmenu_5($whoareyou,'root');
-									?>
-								</td>
-							</tr>
-						</table>
-					</div>
-				<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;"></iframe>
+				<iframe id="layouttableiframecontent" name="layouttableiframecontent" SRC="index_new.php" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;display:none;z-index:16;"></iframe>
 				</td>
 			</tr>
 		<tr>
@@ -265,18 +251,18 @@ if (!isset($_POST["systemuserid"])) {
 	</div>
 
 <div class="fullscreen" style="display: none;" name="navigationdisplaypanel" id="navigationdisplaypanel">
-	<table width="100%" height="100%" border="0" cellpadding="1" cellspacing="1" name="navigationajaxtable" id="navigationajaxtable" />
+<table width="95%" cellpadding="0" cellspacing="0" style="margin:0px;border:0px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
-			<td align="left" valign="top" name="navigationajaxcenter" id="navigationajaxcenter" />
-					<?php
-					// Display Navigtional Menu System					
-					$whoareyou = $_SESSION["user_id"];	
-					//loadnavmenu_3($whoareyou);				
-					loadnavmenu_5($whoareyou,'root');
-					?>
-				</td>
-			</tr>
-		</table>
+			<td id='navigationajaxcenter' />
+	<?php
+	// Display Navigtional Menu System					
+	$whoareyou = $_SESSION["user_id"];	
+	//loadnavmenu_3($whoareyou);				
+	loadnavmenu_5($whoareyou,'root');
+	?>
+	</td>
+	</tr>
+	</table>
 	</div>
 	
 
