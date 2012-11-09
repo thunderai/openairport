@@ -60,11 +60,11 @@ function _su_dailyactivity_summary($discrepancyid = 0,$detail_level = 0,$returnh
 		
 		if($returnhtml == 0) {
 				// Just display the results now
-				//echo "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				echo "<table width='100%' cellpadding='1' cellspacing='1' border='0' align='left' valign='top' style='float:left;' />";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
-				//$table_i = "<table width='100%' cellpaddin='1' cellspacing='1' border='0'>";
+				$table_i = "<table width='100%' cellpadding='1' cellspacing='1' border='0' align='left' valign='top' style='float:left;' />";
 			}
 
 		
@@ -83,9 +83,9 @@ function _su_dailyactivity_summary($discrepancyid = 0,$detail_level = 0,$returnh
 								
 								$basicHTML = "
 												<tr>		
-													<td class='forms_coumn_results_row'><a href='#' class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;_suc_dailyactivity.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$objarray['duty_log_date']." / ".$objarray['duty_log_time']."</a>
+													<td class='table_dashpanel_container_summary_rowheader'><a href='#' class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;_suc_dailyactivity.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$objarray['duty_log_date']." / ".$objarray['duty_log_time']."</a>
 													</td>
-													<td class='forms_coumn_results_row'>".$objarray['duty_log_comments']."</td>
+													<td class='table_dashpanel_container_summary_rowresult'>".$objarray['duty_log_comments']."</td>
 													</tr>												
 													";
 
@@ -103,14 +103,14 @@ function _su_dailyactivity_summary($discrepancyid = 0,$detail_level = 0,$returnh
 					
 			}
 			
-/* 		if($returnhtml == 0) {
+		if($returnhtml == 0) {
 				// Just display the results now
 				echo "</table>";
 			}
 			else {
 				// DO NOT display anything YET!!!!!
 				$table_o = "</table>";
-			} */			
+			}		
 			
 		if($returnhtml == 0) {
 				// Just display the results now

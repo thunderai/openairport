@@ -9,7 +9,7 @@ function opensmallchild(file,window) {
     }
 	
 function openchild600(file,window) {
-    childWindow=open(file,window,'status=1,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=600,width=600');
+    childWindow=open(file,window,'status=1,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=600,width=750');
     if (childWindow.opener == null) childWindow.opener = self;
     }	
 	

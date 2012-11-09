@@ -40,11 +40,6 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 		
-// Define Variables	
-		
-		$tblname		= "Condition Report Summary Report";
-		$tblsubname		= "(summary of information)";
-		
 // Define Variables...
 //						for Auto Entry Function {Beginning of Page}
 		
@@ -58,39 +53,43 @@
 	
 		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
-// Start Procedures...
-//		Main Page Procedures and Functions
+// Start Procedures	
+// Define Variables	
 		
+	// FORM HEADER
+	// -----------------------------------------------------------------------------------------\\
+			$formname			= "edittable";													// HTML Name for Form
+			$formaction			= '';															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+				$formtarget		= '';															// HTML Name for the window
+				$location		= $formtarget;													// Leave the same as $formtarget
+	
+	// FORM NAME and Sub Title
+	//------------------------------------------------------------------------------------------\\
+			$form_menu			= 'Condition Summary Report';									// Name of the FORM, shown to the user
+			$form_subh			= "Here is a summary of the selected Record";					// Sub Name of the FORM, shown to the user
+			$subtitle 			= "Here is the information about the selected Report";			// Subt title of the FORM, shown to the user
 
-		?>
-		<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-			<input type="hidden" name="formsubmit" 		ID="formsubmit"		value="1">
-			<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$_POST['recordid'];?>">
-		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="10" class="tableheaderleft">&nbsp;</td>
-				<td class="tableheadercenter">
-					<?php echo $tblname;?>
-					</td>
-				<td class="tableheaderright">
-					(<?php echo $tblsubname;?>)
-					</td>
-				</tr>
-			<tr>
-				<td colspan="3" class="tablesubcontent">
-					<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-						<tr>
-							<td colspan="3">
-								<?php
-								 _339_b_display_report_summary($_POST['recordid'],2,0);
-								?>
-								</td>
-							</tr>		
-						</table>
-					</td>
-				</tr>
-			</table>
-<?php
+	// FORM SUMMARY information
+	//------------------------------------------------------------------------------------------\\
+			$displaysummaryfunction 	= 1;													// 1: Display Summary of Record, 0: Do not show summary
+				$summaryfunctionname 	= '_339_b_display_report_summary';								// Function to display the summary, leave as '' if not using the summary function
+				$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+				$detailtodisplay		= 2;													// See Summary Function for how to use this number
+				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+					
+		include("includes/_template/_tp_blockform_form_header.binc.php");			
+
+	//
+	// FORM FOOTER
+	//------------------------------------------------------------------------------------------\\
+			$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+				$submitbuttonname	= '';														// Name of the Submit Button
+			$display_close			= 1;														// 1: Display Close Button, 	0: No
+			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+			
+		include("includes/_template/_tp_blockform_form_footer.binc.php");		
 			
 // Define Variables...
 //						for Auto Entry Function {End of Page}

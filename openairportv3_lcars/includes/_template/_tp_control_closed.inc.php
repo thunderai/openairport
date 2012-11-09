@@ -36,7 +36,7 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MCreportform'].submit();" />
 					&nbsp;
 					</td>
-				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['MCreportform'].submit();" />
+				<td class="table_button_bullet_lead_dark1_normal" />
 					<input type="submit" value="Mark Closed" width="10" class="table_button_bullet_lead_dark1_normal">
 					</td>
 				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Closed');"  onMouseout="hideddrivetip();"/>

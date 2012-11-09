@@ -3,27 +3,14 @@
   width: 32.5%;
   margin: 2px;
   float: left;
+  
 }
 
 .table_dashpanel_container_daily{
 	
-	text-align				: left;
-	vertical-align			: top;
-	
-	padding					: 0px;
-	margin					: 0px;
-	
-	float					: left;
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: 0px solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	width					: 33%;
+  width: 32.5%;
+  margin: 2px;
+  float: left;
 
 	}	
 	
@@ -61,7 +48,7 @@
 	
 	background-color		: #2350B5; /* Black */
 	
-	padding					: 2px;
+	padding					: 0px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -215,7 +202,7 @@
 	
 	background-color		: #FE0000; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -238,7 +225,7 @@
 	text-align				: left;
 	vertical-align			: center;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -261,7 +248,7 @@
 	text-align				: left;
 	vertical-align			: center;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -282,7 +269,7 @@
 	text-align				: left;
 	vertical-align			: bottom;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	background-color		: #FE0000; /* Black */
@@ -308,7 +295,7 @@
 	
 	background-color		: #CD870D; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -331,7 +318,7 @@
 	text-align				: left;
 	vertical-align			: center;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -354,7 +341,7 @@
 	text-align				: left;
 	vertical-align			: center;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -375,7 +362,7 @@
 	text-align				: left;
 	vertical-align			: bottom;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	background-color		: #CD870D; /* Black */
@@ -401,7 +388,7 @@
 	
 	background-color		: #008000; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -426,7 +413,7 @@
 	
 	background-color		: #008000; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -451,7 +438,7 @@
 	
 	background-color		: #008000; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -472,7 +459,7 @@
 	text-align				: left;
 	vertical-align			: bottom;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	background-color		: #008000; /* Black */
@@ -498,7 +485,7 @@
 	
 	background-color		: #FED966; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -523,7 +510,7 @@
 	
 	background-color		: #FED966; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -548,7 +535,7 @@
 	
 	background-color		: #FED966; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -569,7 +556,7 @@
 	text-align				: left;
 	vertical-align			: center;
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	background-color		: #FED966; /* Black */
@@ -641,7 +628,7 @@ a.table_dashpanel_container_summary_link{
 	
 	background-color		: #133D87; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;
@@ -666,7 +653,7 @@ a.table_dashpanel_container_summary_link{
 	
 	background-color		: #335DA7; /* Black */
 	
-	padding					: 0px;
+	padding-left			: 5px;
 	margin					: 0px;
 	
 	border-right			: 0px solid;

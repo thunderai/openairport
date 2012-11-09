@@ -15,7 +15,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 
 		if($detail == 1) {
 				?>
-			<input class="formsubmit" type="button" name="button" value="Close Window" 			onclick="javascript:self.close()">
+			<input class="table_forms_button_command" type="button" name="button" value="Close Window" 			onclick="javascript:self.close()">
 				<?php
 			}
 			
@@ -24,7 +24,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 			<script>
 				opener.<?php echo $formname;?>.submit();
 				</script>
-				<input class="formsubmit" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:opener.sorttable.submit()">
+				<input class="table_forms_button_command" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:opener.sorttable.submit()">
 				<?php
 			}
 			
@@ -39,13 +39,13 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						//alert("hi");
 						<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');
 					</script>
-				<input class="formsubmit" type="button" name="button" value="Attach"	onClick="<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');">
+				<input class="table_forms_button_command" type="button" name="button" value="Attach"	onClick="<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');">
 				<?php
 			}
 			
 		if($detail == 4) {
 				?>
-			<input class="formsubmit" type="button" name="button" value="<?php echo $otherid;?>" onclick="javascript:document.<?php echo $formname;?>.submit()">
+			<input class="table_forms_button_command" type="button" name="button" value="<?php echo $otherid;?>" onclick="javascript:document.<?php echo $formname;?>.submit()">
 				<?php
 			}			
 			

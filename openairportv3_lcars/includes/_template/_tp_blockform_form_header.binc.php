@@ -43,6 +43,17 @@
 		}
 
 ?>
+		<script>
+window.onload = function() {
+  var wall = new Masonry( document.getElementById('container2'), {
+    // dynamically set column width to 1/5 the width of the container
+    columnWidth: function( containerWidth ) {
+      return containerWidth / 3;
+    }
+  });
+};
+			</script>
+			
 <form enctype="multipart/form-data" action="<?php echo $formaction;?>" method="post" NAME="<?php echo $formname;?>" ID="<?php echo $formname;?>" 
 <?php
 	if($formopen == 1) {
@@ -59,35 +70,76 @@
 		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?php echo $_POST['recordid'];?>">
 		<input type="hidden" name="frmstartdateo"	id="frmstartdateo"		value="<?php echo $bstart_date;?>">
 		<input type="hidden" name="frmenddateo"		id="frmenddateo"		value="<?php echo $bend_date;?>">
-	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+	<table width="100%" cellpadding="0" cellspacing="0" class="table_forms" >
 		<tr>
-			<td width="10" class="tableheaderleft">&nbsp;</td>
-			<td class="tableheadercenter"><?php echo $form_menu;?></td>
-			<td class="tableheaderright">(<i><?php echo $form_subh;?></i>)</td>
+			<td class="table_forms_left_bullet" />
+				&nbsp;
+				</td>
+			<td class="table_forms_left_bullet_gap" />
+				&nbsp;
+				</td>
+			<td class="table_forms_center" />
+				&nbsp;
+				</td>
+			<td class="table_forms_nameplate" />
+				<?php echo $form_menu;?>
+				</td>				
+			<td class="table_forms_right_bullet_gap" />
+				&nbsp;
+				</td>
+			<td class="table_forms_right_bullet" />
+				&nbsp;
+				</td>				
+			</tr>			
+		<tr>
+			<td colspan="6" class="table_forms_nameplate_purpose" />
+				<?php echo $subtitle ;?>
+				</td>				
 			</tr>
 		<tr>
-			<td colspan="3" class="tablesubcontent">
-				<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-					<?php
-					if($displaysummaryfunction == 1) {
-							?>
+			<td colspan="6" align="center" valign="top">
+				<?php
+				if($displaysummaryfunction == 1) {
+						?>
+				<table width="80%" cellpadding="0" cellspacing="0" >
 					<tr>
-						<td colspan="3">
+						<td rowspan="3" class="table_forms_summarybox_left_bullet" />
+							&nbsp;
+							</td>		
+						<td rowspan="3" class="table_forms_summarybox_left_bullet_gap" />
+							&nbsp;
+							</td>
+						<td colspan="2" class="table_forms_nameplate_summary" />
+							&nbsp;Summary of Record
+							</td>			
+						<td rowspan="3" class="table_forms_summarybox_right_bullet_gap" />
+							&nbsp;
+							</td>
+						<td rowspan="3"  class="table_forms_summarybox_right_bullet" />
+							&nbsp;
+							</td>
+						</tr>
+					<tr>
+						<td colspan="2" class="table_forms_summarybox" />
 							<?php
 							$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
 							?>
 							</td>
 						</tr>
-							<?php
-						}
-					if($detailtodisplay <> 0) {
-							// Display no sub title
-						}
-						else {
-						?>
 					<tr>
-						<td colspan="3" class="formoptionsavilabletop"><?php echo $subtitle ;?></td>
+						<td colspan="2" class="table_forms_summarybox" />
+							&nbsp;
+							</td>
 						</tr>
-						<?php
-						}
-					?>
+					</table>
+					<?php
+				}
+				?>
+				</td>
+			</tr>			
+		<tr>
+			<td colspan="6" align="left" valign="top" />
+				<table width="100%" >
+					<tr>
+						<td>
+							<div id="container2" style="margin-top:5px;" />

@@ -19,7 +19,7 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 		$display_topicnotes	= 0;
 		$display_checklists	= 0;
 
-		$webroot			= "http://localhost/openairportv3t/";
+		$webroot			= "http://localhost/openairportv3_lcars/";
 		
 		if($detail_level == 0) {
 				$display_basic 		= 1;
@@ -144,7 +144,7 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														ID
 														</td>
 													<td class='table_dashpanel_container_summary_rowresult'>
-														<a class='table_dashpanel_container_summary_link' href='part139303_c_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
+														<a class='table_dashpanel_container_summary_link' href='#' onclick='openmapchild(&quot;part139303_c_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		

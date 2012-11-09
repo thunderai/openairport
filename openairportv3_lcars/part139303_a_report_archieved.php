@@ -89,12 +89,12 @@ if (!isset($_POST["formsubmit"])) {
 	// FORM ELEMENTS
 	//-----------------------------------------------------------------------------------------\\	
 	//
-	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("disdate"			,"Date", "Enter the date this inspection was marked as a duplicate","The current date has automatically been provided!","(mm/dd/yyyy)",1,10,0,"current",0);
-	form_new_control("distime"			,"Time", "Enter the time this inspection was marked as a duplicate","The current time has automatically been provided!","(hh:mm:ss) - 24 hours",1,10,0,"current",0);
-	form_new_control("disauthor"		,"Entry By", "Who found and reported this inspection","Your name has automatically been provided!","(cannot be changed)",3,50,0,$_SESSION['user_id'],"systemusercombobox");
-	form_new_control("discomments"		,"Comments", "Enter how you NEED to archieve it","Do not use any special characters!","",2,35,4,"",0);
-	form_new_control("disarchive"		,"Mark Archieved", "Checking this box will mark the inspection as archieved","Only do this if you are sure you need to archieve it","(checked = archieved)",5,35,4,"current",0);
+	//				Field Name			, Field Text Name	, Field Comment													, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
+	form_new_control('disdate'			, 'Date'			, 'Enter the date this record was archieved'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
+	form_new_control('distime'			, 'Time'			, 'Enter the time this record was archieved'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
+	form_new_control('disauthor'		, 'Entry By'		, 'Select the person who is marking this record as archieved'	, ''													, '(cannot be changed)'			, 3				, 50			, 0				, $_SESSION['user_id'] 	, 'systemusercombobox');
+	form_new_control('discomments'		, 'Comments'		, 'Enter why you NEED to archieve it'							,'Do not use any special characters!'					, '(No Special Characters)'		, 2				, 35			, 4				, ''					, 0);
+	form_new_control('disarchive'		, 'Mark Archieved'	, 'Checking this box will mark the inspection as archieved'		,'Only do this if you are sure you need to archieve it'	, '(checked = archieved)'		, 5				, 35			, 4				, 'current'				, 0);
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
@@ -119,9 +119,9 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= "Mark Inspection Achieved - Summary Report";					// Name of the FORM, shown to the user
+			$form_menu			= "Personnel Archieved Summary";								// Name of the FORM, shown to the user
 			$form_subh			= "Here is the information you entered";						// Sub Name of the FORM, shown to the user
-			$subtitle 			= "Here is the information about the selected archieved Report";// Subt title of the FORM, shown to the user
+			$subtitle 			= "Use this form to mark the Person archieved";					// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
 	//------------------------------------------------------------------------------------------\\

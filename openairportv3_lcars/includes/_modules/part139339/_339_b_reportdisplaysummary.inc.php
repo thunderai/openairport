@@ -21,7 +21,7 @@ function _339_b_display_report_summary($inspectionid = 0,$detail_level = 0,$retu
 		$display_ownedby	= 0;
 		$display_repaired	= 0;
 		
-		$webroot			= "http://localhost/openairportv3t/";
+		$webroot			= "http://localhost/openairportv3_lcars/";
 		
 		if($detail_level == 0) {
 				$display_basic 		= 1;

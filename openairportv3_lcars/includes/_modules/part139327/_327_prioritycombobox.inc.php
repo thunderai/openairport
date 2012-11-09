@@ -5,7 +5,7 @@ function part139327prioritycombobox($suppliedid, $archived, $nameofinput, $showc
 	
 if ($showcombobox=="show") {
 		?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+	<SELECT class="table_forms_enter_input_field" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
 		<?php 
 		for ($i=1; $i<=5; $i++) {
 				if ($showcombobox=="show") {

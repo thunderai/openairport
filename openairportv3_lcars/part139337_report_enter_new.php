@@ -51,7 +51,7 @@
 // Build the BreadCrum trail... 
 //		which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures...
 //		Main Page Procedures and Functions	
@@ -71,8 +71,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
-			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
+			$form_menu			= getnameofmenuitemid_return_nohtml($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
+			$form_subh			= getpurposeofmenuitemid_return_nohtml($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Enter New Wildlife Hazard Management Report";				// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
@@ -101,8 +101,8 @@ if (!isset($_POST["formsubmit"])) {
 	form_new_control("wlhmactivity"	,"Activity"			, "Select the activity the species was doing"		,"Select from the list provided!"																				,""							,3				,50				,4				,"all"					,"part139337_combobox_animalactivity");
 	form_new_control("wlhmaction"	,"Action"			, "Select the action you took for this report"		,"Select from the list provided!"																				,""							,3				,50				,4				,"all"					,"part139337_combobox_actiontaken");
 	form_new_control("wlhmnumber"	,"Number Acted On"	, "Enter the number acted on"						,"This number should only contain the amount acted on, not the total spoted.Do not use any special characters!"	,""							,1				,5				,0				,""						,0);
-	form_new_control("wlhmresults"	,"Results of Action", "Enter the results of the action"					,"This description should explain what you did with animal and where it went.Do not use any special characters!",""							,2				,50				,4				,""						,0);
-	form_new_control("wlhmweather"	,"Current Weather"	, "Enter a description of the weather"				,"Describe the weather at the time the action /report was taken.Do not use any special characters!"				,""							,2				,50				,4				,""						,0);
+	form_new_control("wlhmresults"	,"Results of Action", "Enter the results of the action"					,"This description should explain what you did with animal and where it went.Do not use any special characters!",""							,2				,30				,4				,""						,0);
+	form_new_control("wlhmweather"	,"Current Weather"	, "Enter a description of the weather"				,"Describe the weather at the time the action /report was taken.Do not use any special characters!"				,""							,2				,30				,4				,""						,0);
 	form_new_control("Mouse"		,"Location"			, "Where was the action located"					,"Click the Map It button"																						,"(open in new window)"		,4				,4				,""				,""						,"");
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\

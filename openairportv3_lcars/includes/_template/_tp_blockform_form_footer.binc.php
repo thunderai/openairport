@@ -34,27 +34,57 @@
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8		
 
 ?>
-					<tr>
-						<td colspan="3" class="formoptionsavilablebottom">
-							<?php
-							if($display_close == 1) {
-									_tp_control_footbuttons(1,$formname);
-								}
-							if($display_refresh == 1) {
-									_tp_control_footbuttons(2,"sorttable");
-								}	
-							if($display_pushdown == 1) {
-									_tp_control_footbuttons(3,$pushdown_frmname,$pushdown_otherid,$pushdown_script);
-								}									
-							if($display_submit == 1) {
-									_tp_control_footbuttons(4,$formname,$submitbuttonname);
-								}
-								
-							?>
-		
+								</div>
 							</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
+		<tr>
+			<td colspan="6" />
+				<?php
+				if($display_close == 1) {
+						_tp_control_footbuttons(1,$formname);
+					}
+				if($display_refresh == 1) {
+						_tp_control_footbuttons(2,"sorttable");
+					}	
+				if($display_pushdown == 1) {
+						_tp_control_footbuttons(3,$pushdown_frmname,$pushdown_otherid,$pushdown_script);
+					}									
+				if($display_submit == 1) {
+						_tp_control_footbuttons(4,$formname,$submitbuttonname);
+					}
+					
+				?>
+				</td>
+			</tr>	
+		<tr>
+			<td colspan="6" class="table_forms_nameplate_purpose" />
+				&nbsp;
+				</td>				
+			</tr>			
+		<tr>
+			<td class="table_forms_left_bullet" />
+				&nbsp;
+				</td>
+			<td class="table_forms_left_bullet_gap" />
+				&nbsp;
+				</td>
+			<td class="table_forms_nameplate_left" onclick="javascript:self.close();" />
+				Close
+				</td>	
+			<td class="table_forms_center" />
+				&nbsp;
+				</td>				
+			<td class="table_forms_right_bullet_gap" />
+				&nbsp;
+				</td>
+			<td class="table_forms_right_bullet" />
+				&nbsp;
+				</td>				
+			</tr>			
 		</table>
+	</td>
+</tr>
+</table>

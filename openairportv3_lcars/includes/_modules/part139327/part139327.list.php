@@ -33,9 +33,13 @@
 
 	// Load Include Files
 			include("_327_facilitycombobox.inc.php");
-			include("_327_facilitycomboboxwall.inc.php");			
+			include("_327_facilitycomboboxwall.inc.php");	
+			include("_327_facilitycomboboxwall_short.inc.php");	
+			
 			include("_327_conditionscombobox.inc.php");
-			include("_327_conditionscomboboxwall.inc.php");			
+			include("_327_conditionscomboboxwall.inc.php");	
+			include("_327_conditionscomboboxwall_short.inc.php");	
+			
 			include("_327_discrepancycombobox.inc.php");
 			include("_327_discrepancydisplaybox.inc.php");
 			include("_327_discrepancy_getstage.inc.php");
@@ -44,6 +48,7 @@
 			
 			include("_327_typescombobox.inc.php");
 			include("_327_typescomboboxwall.inc.php");
+			include("_327_typescomboboxwall_short.inc.php");
 			include("_327_typestextfield.inc.php");			
 			include("_327_prioritycombobox.inc.php");
 			

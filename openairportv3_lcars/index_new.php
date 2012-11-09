@@ -84,9 +84,9 @@ if ($_SESSION['user_id']=="") {
 
 						<p class=MsoNormal>-Thanks.</p>
 						</div>
-						</td>
-					</tr>
-				</table>
+					</td>
+				</tr>
+			</table>
 <?php 
 	}
 	else {
@@ -153,11 +153,7 @@ window.onload = function() {
 
 		include("includes/_template_dashpanel.php");	
 		?>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-					</td>
-				</tr>
-			</table>
-	
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<?php
 
 	}
