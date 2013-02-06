@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>12m3.kml</name>
+	<StyleMap id="style_Mu39">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu390</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu391</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style_Mu390">
+		<IconStyle id="icon_Mu39">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu39">
+			<color>ff000000</color>
+		</LineStyle>
+		<PolyStyle id="poly_Mu39">
+			<color>ff2edcb8</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style_Mu391">
+		<IconStyle id="icon_Mu39">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu39">
+			<color>ff000000</color>
+		</LineStyle>
+		<PolyStyle id="poly_Mu39">
+			<color>ff2edcb8</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>12m3</name>
+		<styleUrl>#style_Mu39</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.1572030669201,44.91612817734483,0 -97.15478641409705,44.91494978908207,0 -97.15456659849215,44.91516464243902,0 -97.15698084204391,44.91634172814859,0 -97.1572030669201,44.91612817734483,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

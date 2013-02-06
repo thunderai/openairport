@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Charlie - 2.kml</name>
+	<Style id="style_Mu29">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="style_Mu290">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="style_Mu291">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu29</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu290</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark>
+		<name>Charlie - 2</name>
+		<styleUrl>#style_Mu291</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.15133390775499,44.90720058543995,0 -97.15133127401393,44.90827594263997,0 -97.15139707372209,44.90815981715675,0 -97.15146869891443,44.90806312346837,0 -97.15155323716166,44.90799230490759,0 -97.15171175166982,44.90790821264363,0 -97.151877739057,44.90785949293976,0 -97.15197099714042,44.90784895843541,0 -97.15231185566738,44.90784996827084,0 -97.15238823023822,44.90786009483124,0 -97.15244358559669,44.90788225397363,0 -97.15247065267157,44.90790631567381,0 -97.15249808684702,44.90793738471842,0 -97.15252100863097,44.90797208138677,0 -97.15253217635804,44.90800536476908,0 -97.15258458081863,44.90845409050024,0 -97.15259027020979,44.90707888953505,0 -97.15250992321968,44.90755092192372,0 -97.15246077151201,44.90759704985287,0 -97.15237329466935,44.90763023511332,0 -97.15222824973223,44.90763197835385,0 -97.15192537586712,44.90762712399894,0 -97.15172121672882,44.90757570359253,0 -97.15156323324871,44.90749659235915,0 -97.15145859346654,44.90739878497567,0 -97.15140320185537,44.90731983682023,0 -97.15133390775499,44.90720058543995,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

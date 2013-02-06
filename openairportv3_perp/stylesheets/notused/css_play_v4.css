@@ -1,0 +1,71 @@
+/* ================================================================ 
+This copyright notice must be untouched at all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/cssplaymenu-dropdown-flyout-ipad.html
+Copyright (c) 2005-2011 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+.cssplayMenu {position:relative; width:100%; margin:0 auto; text-align:center;}
+
+.cssplayMenu ul {margin:0; list-style:none; white-space:nowrap; text-align:left; display:inline-block; background:#000; padding:5px 5px;
+background-image: url('_cssimages/bg_top.png'); 
+
+border:0px solid #888;
+
+}
+.cssplayMenu ul {display:inline;}
+
+.cssplayMenu li {margin:0; padding:0; list-style:none;}
+.cssplayMenu li {display:inline-block; display:inline; top:-5px;}
+.cssplayMenu ul ul {position:absolute; left:-9999px; padding:0; }
+.cssplayMenu > ul {display:table; margin:0 auto; }
+.cssplayMenu > ul > li {float:left; display:block; position:relative; z-index:100; height:20px;}
+.cssplayMenu > ul > li:hover {display:inline-block; z-index:10;}
+
+.cssplayMenu ul a {display:block; font:13px/30px Oswald, arial,sans-serif; color:#fff; text-decoration:none;padding:0 5px;}
+
+.cssplayMenu ul li:hover > ul {left:-1px; top:30px; z-index:-1; top: 25px;}
+.cssplayMenu ul li.left:hover > ul {left:auto; right:-1px; top:30px; z-index:-1;}
+
+.cssplayMenu ul ul li:hover > ul {left:100%; top:auto; margin-top:-31px; margin-left:-10px; z-index:10;}
+.cssplayMenu li.left ul li:hover > ul {left:auto; right:100%; top:auto; margin-top:-31px; margin-right:-10px; z-index:10;}
+
+.cssplayMenu li.left ul a {text-align:right;}
+
+.cssplayMenu li:hover > a {color:#222; text-shadow:1px 1px 2px rgba(255, 255, 255, 0.6);
+background-image:-moz-linear-gradient(-90deg,rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+background-image:-ms-linear-gradient(-90deg,rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+background-image:-o-linear-gradient(-90deg,rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+background-image:-webkit-linear-gradient(-90deg,rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+background-image:linear-gradient(-90deg,rgba(255,255,255,0.5),rgba(255,255,255,0.1));
+-moz-border-radius:9px;
+-webkit-border-radius:9px;
+border-radius:9px;
+}
+.cssplayMenu ul ul li:hover a {
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+border-radius:0px;
+}
+.cssplayMenu ul ul li:first-child > a {
+-moz-border-radius:9px 9px 0 0;
+-webkit-border-radius:9px 9px 0 0;
+border-radius:9px 9px 0 0;
+}
+.cssplayMenu ul ul li:last-child > a {
+-moz-border-radius:0 0 9px 9px;
+-webkit-border-radius:0 0 9px 9px;
+border-radius:0 0 9px 9px;
+}
+.cssplayMenu.red li:hover > a {background-color:#d00;}
+.cssplayMenu.orange li:hover > a {background-color:#fa0;}
+.cssplayMenu.yellow li:hover > a {background-color:#da2;}
+.cssplayMenu.green li:hover > a {background-color:#494;}
+.cssplayMenu.blue li:hover > a {background-color:#0bf;}
+.cssplayMenu.indigo li:hover > a {background-color:#95d;}
+.cssplayMenu.violet li:hover > a {background-color:#e8e;}
+.cssplayMenu.grey li:hover > a {background-color:#999;}
+
+.cssplayMenu span {display:block; position:absolute; right:9999px; top:-35px;}
