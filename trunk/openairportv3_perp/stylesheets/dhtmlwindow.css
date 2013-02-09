@@ -2,6 +2,7 @@
 position: absolute;
 border: 2px solid black;
 visibility: hidden;
+text-align:left;vertical-align:text-top;
 background-color: transparent;
 }
 

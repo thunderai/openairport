@@ -1,15 +1,29 @@
 <?php
 function _dp_327_inspections($dasharray) {
+		
+		$module_name = '327_inspections';
+		$target_frame = '_iframe-layouttableiframecontent';
+	
 		//						0					1						2					3					4					5					6					7					8					9
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
-<div class="table_dashpanel_container" id="div_327inspections" />
-<table align="left" valign="top"  width="100%" border="0" cellpadding='0' cellspacing='0' />
+<div name="div_<?php echo $module_name;?>_container" id="div_<?php echo $module_name;?>_container"  
+	class="table_dashpanel_container" />
+	<table name="table_<?php echo $module_name;?>" id="table_<?php echo $module_name;?>" 
+		class="dashpanel_container_table" />
 	<tr>
-		<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
+		<form name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>"  
+			method="POST" 
+			action="<?php echo $dasharray[7];?>" 
+			target="<?php echo $target_frame;?>" 
+			style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
 			<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
-		<td colspan="2">
-			<input class="table_dashpanel_container_header" type="button" name="button" value="<?php echo $dasharray[2];?>" onclick="javascript:document.getElementById('menuitem<?php echo $dasharray[6];?>').submit();" />
+		<td name="header_for_<?php echo $module_name;?>" id="header_for_<?php echo $module_name;?>" 
+			class="perp_menuheader"  
+			colspan="2" />
+			<input type="button" name="button" value="<?php echo $dasharray[2];?>" 
+				class="makebuttonlooklikeaheader" 
+				onclick="javascript:document.getElementById('menuitem<?php echo $dasharray[6];?>').submit();" />
 			</td>
 			</form>	
 		</tr>
@@ -74,6 +88,7 @@ function _dp_327_inspections($dasharray) {
 							?>
 	<tr>
 		<td colspan="2" class='table_dashpanel_container_footer' />	
+			&nbsp;
 			</td>
 		</tr>
 					<?php							

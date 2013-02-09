@@ -15,7 +15,42 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 
 		if($detail == 1) {
 				?>
-			<input class="table_forms_button_command" type="button" name="button" value="Close Window" 			onclick="javascript:self.close()">
+				<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_menutable" />
+					<tr>			
+						<td name="OSpace_MClose" id="OSpace_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MClose" id="Icon_MClose" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icons_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MClose" id="ISpace_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MClose" id="Name_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" 			onclick="javascript:self.close()">
+							</td>				
+						</tr>
+					</table>
 				<?php
 			}
 			
@@ -24,7 +59,42 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 			<script>
 				opener.<?php echo $formname;?>.submit();
 				</script>
-				<input class="table_forms_button_command" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:opener.sorttable.submit()">
+				<table 	name="MenuItem_MReload" id="MenuItem_MReload" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_menutable" />
+					<tr>			
+						<td name="OSpace_MReload" id="OSpace_MReload" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
+							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MReload" id="Icon_MReload" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
+							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icons_reload.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MReload" id="ISpace_MReload" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
+							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MReload" id="Name_MReload" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
+							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:opener.sorttable.submit()">
+							</td>				
+						</tr>
+					</table>
 				<?php
 			}
 			
@@ -39,13 +109,83 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						//alert("hi");
 						<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');
 					</script>
-				<input class="table_forms_button_command" type="button" name="button" value="Attach"	onClick="<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');">
+				<table 	name="MenuItem_MAttach" id="MenuItem_MAttach" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_menutable" />
+					<tr>			
+						<td name="OSpace_MAttach" id="OSpace_MAttach" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MAttach.className='item_name_active';Icon_MAttach.className='item_name_active';ISpace_MAttach.className='item_name_active';Name_MAttach.className='item_name_active';" 
+							onmouseout="OSpace_MAttach.className='item_name_inactive';Icon_MAttach.className='item_name_inactive';ISpace_MAttach.className='item_name_inactive';Name_MAttach.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MAttach" id="Icon_MAttach" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MAttach.className='item_name_active';Icon_MAttach.className='item_name_active';ISpace_MAttach.className='item_name_active';Name_MAttach.className='item_name_active';" 
+							onmouseout="OSpace_MAttach.className='item_name_inactive';Icon_MAttach.className='item_name_inactive';ISpace_MAttach.className='item_name_inactive';Name_MAttach.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icons_attach.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MAttach" id="ISpace_MAttach" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MAttach.className='item_name_active';Icon_MAttach.className='item_name_active';ISpace_MAttach.className='item_name_active';Name_MAttach.className='item_name_active';" 
+							onmouseout="OSpace_MAttach.className='item_name_inactive';Icon_MAttach.className='item_name_inactive';ISpace_MAttach.className='item_name_inactive';Name_MAttach.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MAttach" id="Name_MAttach" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MAttach.className='item_name_active';Icon_MAttach.className='item_name_active';ISpace_MAttach.className='item_name_active';Name_MAttach.className='item_name_active';" 
+							onmouseout="OSpace_MAttach.className='item_name_inactive';Icon_MAttach.className='item_name_inactive';ISpace_MAttach.className='item_name_inactive';Name_MAttach.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Attach"	onClick="<?php echo $scriptfunction;?>('<?php echo $formname;?>','<?php echo $otherid;?>');">
+							</td>				
+						</tr>
+					</table>					
 				<?php
 			}
 			
 		if($detail == 4) {
 				?>
-			<input class="table_forms_button_command" type="button" name="button" value="<?php echo $otherid;?>" onclick="javascript:document.<?php echo $formname;?>.submit()">
+				<table 	name="MenuItem_MSubmit" id="MenuItem_MSubmit" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_menutable" />
+					<tr>			
+						<td name="OSpace_MSubmit" id="OSpace_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MSubmit" id="Icon_MSubmit" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icons_submit.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MSubmit" id="ISpace_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MSubmit" id="Name_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="<?php echo $otherid;?>" onclick="javascript:document.<?php echo $formname;?>.submit()">
+							</td>				
+						</tr>
+					</table>				
 				<?php
 			}			
 			

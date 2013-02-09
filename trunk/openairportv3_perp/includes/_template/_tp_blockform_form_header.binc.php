@@ -70,75 +70,42 @@ window.onload = function() {
 		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?php echo $_POST['recordid'];?>">
 		<input type="hidden" name="frmstartdateo"	id="frmstartdateo"		value="<?php echo $bstart_date;?>">
 		<input type="hidden" name="frmenddateo"		id="frmenddateo"		value="<?php echo $bend_date;?>">
-	<table width="100%" cellpadding="0" cellspacing="0" class="table_forms" >
+	<table class="dashpanel_container_table" >
 		<tr>
-			<td class="table_forms_left_bullet" />
-				&nbsp;
-				</td>
-			<td class="table_forms_left_bullet_gap" />
-				&nbsp;
-				</td>
-			<td class="table_forms_center" />
-				&nbsp;
-				</td>
-			<td class="table_forms_nameplate" />
+			<td class="perp_menuheader" />
 				<?php echo $form_menu;?>
-				</td>				
-			<td class="table_forms_right_bullet_gap" />
-				&nbsp;
-				</td>
-			<td class="table_forms_right_bullet" />
-				&nbsp;
-				</td>				
+				</td>			
 			</tr>			
 		<tr>
-			<td colspan="6" class="table_forms_nameplate_purpose" />
+			<td class="perp_menusubheader" />
 				<?php echo $subtitle ;?>
 				</td>				
 			</tr>
-		<tr>
-			<td colspan="6" align="center" valign="top">
 				<?php
 				if($displaysummaryfunction == 1) {
 						?>
-				<table width="80%" cellpadding="0" cellspacing="0" >
-					<tr>
-						<td rowspan="3" class="table_forms_summarybox_left_bullet" />
-							&nbsp;
-							</td>		
-						<td rowspan="3" class="table_forms_summarybox_left_bullet_gap" />
-							&nbsp;
-							</td>
-						<td colspan="2" class="table_forms_nameplate_summary" />
-							&nbsp;Summary of Record
-							</td>			
-						<td rowspan="3" class="table_forms_summarybox_right_bullet_gap" />
-							&nbsp;
-							</td>
-						<td rowspan="3"  class="table_forms_summarybox_right_bullet" />
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td colspan="2" class="table_forms_summarybox" />
-							<?php
-							$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
-							?>
-							</td>
-						</tr>
-					<tr>
-						<td colspan="2" class="table_forms_summarybox" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>
-					<?php
-				}
+		<tr>
+			<td class="item_name_active" />
+				&nbsp;Summary of Record
+				</td>
+			</tr>
+		<tr>
+			<td class="item_name_inactive" />
+				<?php
+				$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
 				?>
 				</td>
-			</tr>			
+			</tr>
 		<tr>
-			<td colspan="6" align="left" valign="top" />
+			<td class="item_name_active" />
+				&nbsp;
+				</td>
+			</tr>
+					<?php
+				}
+				?>		
+		<tr>
+			<td align="left" valign="top" class="item_name_active" />
 				<table width="100%" >
 					<tr>
 						<td>

@@ -1,4 +1,7 @@
 <?php
+// Setup Window to build things into
+
+
 //	 DISCREPANCY WORKORDER BLOCK FORM CONTROLS
 //		Utilize $stage information to display control buttons
 
@@ -73,391 +76,281 @@ if($functionworkorderpage == '') {
 		//					} View Workorder button
 		//				3 - is Closed, no furthure abilities
 		//					} Closed History Button
-
+		//open_new_littleform_window
+$icons_width = '25';
+$icons_height = '25';
+		
+$button_name 	= 'WorkOrder';
+$random_element = rand(0,10000);
+$window_name	= preg_replace('/\s+/', '', $button_name);
+$window_name	= $window_name."_".$form_name."_".$random_element;
+$button_name	= $button_name."_".$random_element."";
+$window_command	= 'open_new_report_window';
 	?>
-	
-<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="ViewWorkOrder" onsubmit="openmapchild('<?php echo $functionworkorderpage;?>','ViewWorkOrder');" >
+<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="WorkOrderForm" onSubmit="javascript:<?php echo $window_command;?>('','WorkOrderForm');" />
 	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.getElementById('Workorderreportform').submit();" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<input type="submit" value="Work Order" width="10" class="table_button_bullet_lead_dark1_normal">
-					</td>
-				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Open Work-Order');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_dark1_normal"> WO </span>
-					</td>
-				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Open Work-Order');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
+	<table 	name="MenuItem_<?php echo $window_name;?>" id="MenuItem_<?php echo $window_name;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>			
+			<td name="OSpace_<?php echo $window_name;?>" id="OSpace_<?php echo $window_name;?>" 
+				class="item_space_inactive" 
+				onmouseover="OSpace_<?php echo $window_name;?>.className='item_name_active';Icon_<?php echo $window_name;?>.className='item_name_active';ISpace_<?php echo $window_name;?>.className='item_name_active';Name_<?php echo $window_name;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $window_name;?>.className='item_name_inactive';Icon_<?php echo $window_name;?>.className='item_name_inactive';ISpace_<?php echo $window_name;?>.className='item_name_inactive';Name_<?php echo $window_name;?>.className='item_name_inactive';" 
+				/>&nbsp;
+				</td>
+			<td name="Icon_<?php echo $window_name;?>" id="Icon_<?php echo $window_name;?>" 
+				class="item_icon_inactive" 
+				onmouseover="OSpace_<?php echo $window_name;?>.className='item_name_active';Icon_<?php echo $window_name;?>.className='item_name_active';ISpace_<?php echo $window_name;?>.className='item_name_active';Name_<?php echo $window_name;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $window_name;?>.className='item_name_inactive';Icon_<?php echo $window_name;?>.className='item_name_inactive';ISpace_<?php echo $window_name;?>.className='item_name_inactive';Name_<?php echo $window_name;?>.className='item_name_inactive';" 
+				/>
+				<img src="images/_interface/menu_icon_workorder.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="ISpace_<?php echo $window_name;?>" id="ISpace_<?php echo $window_name;?>" 
+				class="item_space_inactive" 
+				onmouseover="OSpace_<?php echo $window_name;?>.className='item_name_active';Icon_<?php echo $window_name;?>.className='item_name_active';ISpace_<?php echo $window_name;?>.className='item_name_active';Name_<?php echo $window_name;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $window_name;?>.className='item_name_inactive';Icon_<?php echo $window_name;?>.className='item_name_inactive';ISpace_<?php echo $window_name;?>.className='item_name_inactive';Name_<?php echo $window_name;?>.className='item_name_inactive';" 
+				/>
+				&nbsp;
+				</td>				
+			<td name="Name_<?php echo $window_name;?>" id="Name_<?php echo $window_name;?>" 
+				class="item_space_inactive" 
+				onmouseover="OSpace_<?php echo $window_name;?>.className='item_name_active';Icon_<?php echo $window_name;?>.className='item_name_active';ISpace_<?php echo $window_name;?>.className='item_name_active';Name_<?php echo $window_name;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $window_name;?>.className='item_name_inactive';Icon_<?php echo $window_name;?>.className='item_name_inactive';ISpace_<?php echo $window_name;?>.className='item_name_inactive';Name_<?php echo $window_name;?>.className='item_name_inactive';" 
+				 />
+				<input class="makebuttonlooklikelargetext" type="submit" name="submitform" value="Work Order" />
+				</td>				
+			</tr>
 			</table>
 		</form>	
 
 <?php
-if($status == 0 || $status == 1) {
-	
-		$skin 	= 'dark1_normal';
-		$iskin	= 'dark1_normal';
-		$active = 1;
-		$value	= 'Repair It';
-		$vshort	= 'RI';
-		$message = 'Click to open a repair window';
-		
-	} else {
-		
-		$skin 	= 'inactive_normal';
-		$iskin	= 'inactive_normal';
-		$active = 0;
-		$value	= 'Repair It';
-		$vshort	= 'OFF';
-		$message = 'Reapir not Needed';
-	}
-		?>
-	<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
-		<input type="hidden" NAME="recordid" ID="recordid" value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['MarkRepairedreportform'].submit();"
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['MarkRepairedreportform'].submit();" />
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
-					
-							<?php
-						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
-						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>
-<?php
-if($status == 1 || $status == 2 || $status == 3) {
-		
-		if($has_been_repaired == 1) {
-	
-				$skin 	= 'dark1_normal';
-				$iskin	= 'dark1_normal';
+		if($status == 0 || $status == 1) {
+			
 				$active = 1;
-				$value	= 'Repair History';
-				$vshort	= 'RH';
-				$message = 'Click to open a repair history window';
-		
+				$value	= 'Repair It';
+				$vshort	= 'RI';
+				$message = 'Click to open a repair window';	
+				
 			} else {
-		
-				$skin 	= 'inactive_normal';
-				$iskin	= 'inactive_normal';
+				
 				$active = 0;
-				$value	= 'Repair History';
+				$value	= 'Repair It';
 				$vshort	= 'OFF';
-				$message = 'No Repair History to view';
+				$message = 'Reapir not Needed';
 			}
 			
-	?>
-<form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="RepairHistoryreportform" id="RepairHistoryreportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
-	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['RepairHistoryreportform'].submit();" 
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" />
-					<?php 
-					if($active == 1) {
-							?>
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+			$form_action	= $functionrepairpage;
+			$image_name		= 'repairit';
+			$button_name 	= 'RepairOrder';
+			$form_name		= 'RepairOrderReportForm';
+			$random_element = rand(0,10000);
+			$window_name	= preg_replace('/\s+/', '', $button_name);
+			$window_name	= $window_name."_".$form_name."_".$random_element;
+			$button_name	= $button_name."_".$random_element."";
+			$window_command	= 'open_new_littleform_window';
+			
+			include('includes/_template/_tp_blockform_work_button.binc.php');
+
+			$form_action	= '';
+			$image_name		= '';
+			$button_name 	= '';
+			$form_name		= '';
+			$random_element = '';
+			$window_name	= '';
+			$window_name	= '';
+			$button_name	= '';
+			$window_command = '';			
+			
+			if($status == 1 || $status == 2 || $status == 3) {
 					
-							<?php
-						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
-						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>	
-<?php		
-	}
-?>	
-<?php
-if($status == 2 || $status == 3) {
-	
-		$skin 	= 'dark1_normal';
-		$iskin	= 'dark1_normal';
-		$active = 1;
-				$value	= 'Bounce It';
-				$vshort	= 'MB';
-				$message = 'Click to bounce the report';
-		
-	} else {
-		
-		$skin 	= 'inactive_normal';
-		$iskin	= 'inactive_normal';
-		$active = 0;
-				$value	= 'Bounce It';
-				$vshort	= 'OFF';
-				$message = 'Bounce It not avilable';
-	}
-?>
-<form style="margin-bottom:0;" action="<?php echo $functionbouncepage;?>" method="POST" name="BounceItreportform" id="BounceItreportform" target="<?php echo $functionbouncepage;?>MarkasBounce" onsubmit="openchild600('<?php echo $functionbouncepage;?>','<?php echo $functionbouncepage;?>MarkasBounce');" >
-	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['BounceItreportform'].submit();"
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['BounceItreportform'].submit();" />
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
-					
-							<?php
-						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
-						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>	
-<?php
-if($status == 2 || $status == 3) {
-		
-		if($has_been_bounced == 1) {
-	
-				$skin 	= 'dark1_normal';
-				$iskin	= 'dark1_normal';
-				$active = 1;
-				$value	= 'Bounce History';
-				$vshort	= 'BH';
-				$message = 'Click to view bounce history';				
-		
-			} else {
-		
-				$skin 	= 'inactive_normal';
-				$iskin	= 'inactive_normal';
-				$active = 0;
-				$value	= 'Bounce History';
-				$vshort	= 'OFF';
-				$message = 'Bounce History not avilable';				
+					if($has_been_repaired == 1) {
 				
-			}
-		?>	
-<form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="BounceHistoryreportform" id="BounceHistoryreportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
-	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['BounceHistoryreportform'].submit();"
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['BounceHistoryreportform'].submit();" />
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
-					
-							<?php
+							$active 		= 1;
+							$value			= 'Repair History';
+							$vshort			= 'RH';
+							$message 		= 'Click to open a repair history window';
+
 						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
+					
+							$active 		= 0;
+							$value			= 'Repair History';
+							$vshort			= 'OFF';
+							$message 		= 'No Repair History to view';
 						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>	
-<?php		
-	}
-?>	
-<?php
-if($status == 2) {
+						
+					$form_action	= $array_repairedcontrol[2];
+					$button_name 	= 'RepairHistory';	
+					$form_name		= 'RepairHistoryreportform';
+					$random_element = rand(0,10000);
+					$window_name	= preg_replace('/\s+/', '', $button_name);
+					$window_name	= $window_name."_".$form_name."_".$random_element;
+					$button_name	= $button_name."_".$random_element."";
+					$window_command	= 'open_new_report_window';
+							
+					include('includes/_template/_tp_blockform_work_button.binc.php');
+					
+					$form_action	= '';
+					$image_name		= '';
+					$button_name 	= '';
+					$form_name		= '';
+					$random_element = '';
+					$window_name	= '';
+					$window_name	= '';
+					$button_name	= '';
+				}
+
+			if($status == 2 || $status == 3) {
+				
+					$active = 1;
+					$value	= 'Bounce It';
+					$vshort	= 'MB';
+					$message = 'Click to bounce the report';
+					
+				} else {
+					
+					$active = 0;
+					$value	= 'Bounce It';
+					$vshort	= 'OFF';
+					$message = 'Bounce It not avilable';
+				}
 	
-		$skin 	= 'dark1_normal';
-		$iskin	= 'dark1_normal';
-		$active = 1;
-				$value	= 'Close It';
-				$vshort	= 'MC';
-				$message = 'Click to close record';			
-		
-	} else {
-		
-		$skin 	= 'inactive_normal';
-		$iskin	= 'inactive_normal';
-		$active = 0;
-				$value	= 'Close It';
-				$vshort	= 'OFF';
-				$message = 'Close it Not Avilable';		
-	}
-?>
-<form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="CloseItreportform" id="CloseItreportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
-	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['CloseItreportform'].submit();"
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['CloseItreportform'].submit();" />
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+			$form_action	= $functionbouncepage;
+			$image_name		= 'bounceit';
+			$button_name 	= 'BounceOrder';	
+			$form_name		= 'BounceOrderReportForm';
+			$random_element = rand(0,10000);
+			$window_name	= preg_replace('/\s+/', '', $button_name);
+			$window_name	= $window_name."_".$form_name."_".$random_element;
+			$button_name	= $button_name."_".$random_element."";
+			$window_command	= 'open_new_littleform_window';
+
+			include('includes/_template/_tp_blockform_work_button.binc.php');	
+
+			$form_action	= '';
+			$image_name		= '';
+			$button_name 	= '';
+			$form_name		= '';
+			$random_element = '';
+			$window_name	= '';
+			$window_name	= '';
+			$button_name	= '';
+			
+			if($status == 2 || $status == 3) {
 					
-							<?php
+					if($has_been_bounced == 1) {
+				
+							$active = 1;
+							$value	= 'Bounce History';
+							$vshort	= 'BH';
+							$message = 'Click to view bounce history';				
+					
 						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
+
+							$active = 0;
+							$value	= 'Bounce History';
+							$vshort	= 'OFF';
+							$message = 'Bounce History not avilable';				
+							
 						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>		
-<?php
-if($status == 3) {	
-		
-		if($has_been_closed == 1) {
+						
+				$form_action	= $array_bouncedcontrol[2];
+				$image_name		= 'bouncehistory';
+				$button_name 	= 'BounceHistory';	
+				$form_name		= 'BounceHistoryReportForm';
+				$random_element = rand(0,10000);
+				$window_name	= preg_replace('/\s+/', '', $button_name);
+				$window_name	= $window_name."_".$form_name."_".$random_element;
+				$button_name	= $button_name."_".$random_element."";	
+				$window_command	= 'open_new_report_window';				
+						
+				include('includes/_template/_tp_blockform_work_button.binc.php');	
+				
+				$form_action	= '';
+				$image_name		= '';
+				$button_name 	= '';
+				$form_name		= '';
+				$random_element = '';
+				$window_name	= '';
+				$window_name	= '';
+				$button_name	= '';
+				}
+
+			if($status == 2) {
+
+					$active = 1;
+					$value	= 'Close It';
+					$vshort	= 'MC';
+					$message = 'Click to close record';			
+					
+				} else {
+					
+					$active = 0;
+					$value	= 'Close It';
+					$vshort	= 'OFF';
+					$message = 'Close it Not Avilable';		
+				}
 	
-				$skin 	= 'dark1_normal';
-				$iskin	= 'dark1_normal';
-				$active = 1;
-				$value	= 'Close History';
-				$vshort	= 'CH';
-				$message = 'Click to view close history';					
-		
-			} else {
-		
-				$skin 	= 'inactive_normal';
-				$iskin	= 'inactive_normal';
-				$active = 0;
-				$value	= 'Close History';
-				$vshort	= 'OFF';
-				$message = 'Close History Not Avilable';					
-			}
-			?>
-<form style="margin-bottom:0;" action="<?php echo $array_closedcontrol[2];?>" method="POST" name="ClosedHistoryreportform" id="ClosedHistoryreportform" target="<?php echo $array_closedcontrol[2];?>ViewclosedHistory" onsubmit="openchild600('<?php echo $array_closedcontrol[2];?>','<?php echo $array_closedcontrol[2];?>ViewclosedHistory');" >
-	<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['ClosedHistoryreportform'].submit();"
-							<?php
-						}
-						?>
-					 /> &nbsp;
-					</td>
-				<td class="table_button_bullet_lead_<?php echo $skin;?>" 
-					<?php 
-					if($active == 1) {
-							?>
-					onclick="javascript:document.forms['ClosedHistoryreportform'].submit();" />
-					<input type="submit" value="<?php echo $value;?>" width="10" class="table_button_bullet_lead_<?php echo $skin;?>">
+			$form_action	= $functionclosedpage;
+			$image_name		= 'closeit';
+			$button_name 	= 'CloseOrder';	
+			$form_name		= 'CloseOrderReportForm';
+			$random_element = rand(0,10000);
+			$window_name	= preg_replace('/\s+/', '', $button_name);
+			$window_name	= $window_name."_".$form_name."_".$random_element;
+			$button_name	= $button_name."_".$random_element."";
+			$window_command	= 'open_new_littleform_window';
+			
+			include('includes/_template/_tp_blockform_work_button.binc.php');	
+
+			$form_action	= '';
+			$image_name		= '';
+			$button_name 	= '';
+			$form_name		= '';
+			$random_element = '';
+			$window_name	= '';
+			$window_name	= '';
+			$button_name	= '';
+			
+			if($status == 3) {	
 					
-							<?php
+					if($has_been_closed == 1) {
+				
+							$active = 1;
+							$value	= 'Close History';
+							$vshort	= 'CH';
+							$message = 'Click to view close history';					
+					
 						} else {
-							?>
-					<span class="table_button_bullet_lead_<?php echo $skin;?>"> <?php echo $value;?> </span>
-							<?php
+
+							$active = 0;
+							$value	= 'Close History';
+							$vshort	= 'OFF';
+							$message = 'Close History Not Avilable';					
 						}
-						?>
-					</td>
-				<td class="table_button_bullet_gap_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_<?php echo $iskin;?>"> <?php echo $vshort;?> </span>
-					</td>
-				<td class="table_button_bullet_tail_<?php echo $skin;?>" onMouseover="ddrivetip('<?php echo $message;?>');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>			
-			<?php
-	}
+				
+					$form_action	= $array_closedcontrol[2];
+					$image_name		= 'closehistory';
+					$button_name 	= 'CloseHistory';	
+					$form_name		= 'CloseHistoryReportForm';
+					$random_element = rand(0,10000);
+					$window_name	= preg_replace('/\s+/', '', $button_name);
+					$window_name	= $window_name."_".$form_name."_".$random_element;
+					$button_name	= $button_name."_".$random_element."";
+					$window_command	= 'open_new_report_window';
+					
+					include('includes/_template/_tp_blockform_work_button.binc.php');
+					
+					$form_action	= '';
+					$image_name		= '';
+					$button_name 	= '';
+					$form_name		= '';
+					$random_element = '';
+					$window_name	= '';
+					$window_name	= '';
+					$button_name	= '';
+				}
 		}
 ?>
