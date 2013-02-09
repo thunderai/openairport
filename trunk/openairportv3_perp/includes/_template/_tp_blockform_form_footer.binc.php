@@ -34,17 +34,12 @@
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8		
 
 ?>
-								</div>
-							</td>
-						</tr>
 					</table>
-				</td>
-			</tr>
 		<tr>
-			<td class="item_name_active" />
+			<td />
 				<?php
 				if($display_close == 1) {
-						_tp_control_footbuttons(1,$formname);
+						_tp_control_footbuttons(1,$formname,$dhtml_name);
 					}
 				if($display_refresh == 1) {
 						_tp_control_footbuttons(2,"sorttable");
@@ -55,11 +50,7 @@
 				if($display_submit == 1) {
 						_tp_control_footbuttons(4,$formname,$submitbuttonname);
 					}
-					
 				?>
 				</td>
 			</tr>		
 		</table>
-	</td>
-</tr>
-</table>

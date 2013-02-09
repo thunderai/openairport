@@ -31,7 +31,7 @@ if ($settingsarray == '') {
 						if ($number_of_rows == 0) {
 								// There are no records to display, display NRF
 								$button_name 	= 'Mark Duplicate';	
-								$image_name		= 'duplicateit';
+								$image_name		= 'icon_dupit';
 								$form_name		= 'DuplicateOrderReportForm';
 								$active			= 1;
 								$value			= $button_name;
@@ -50,7 +50,7 @@ if ($settingsarray == '') {
 								while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 										$tmpid = $objarray2[$settingsarray[1]."_duplicate_id"];
 										$button_name 	= 'Duplicate History';	
-										$image_name		= 'duplicatehistory';
+										$image_name		= 'icon_duphistory';
 										$form_name		= 'DuplicateHistoryReportForm';
 										$active			= 1;
 										$value			= $button_name;
@@ -58,11 +58,11 @@ if ($settingsarray == '') {
 										$window_name	= preg_replace('/\s+/', '', $button_name);
 										$window_name	= $window_name."_".$form_name."_".$random_element;
 										$button_name	= $button_name."_".$random_element."";
-												$window_command	= 'open_new_report_window';
-												$form_action	= $settingsarray[2];
-												$disid			= $tblkeyfield;
-										
-												include('includes/_template/_tp_blockform_work_button.binc.php');
+										$window_command	= 'open_new_report_window';
+										$form_action	= $settingsarray[2];
+										$disid			= $tblkeyfield;
+								
+										include('includes/_template/_tp_blockform_work_button.binc.php');
 									}
 							}
 					}

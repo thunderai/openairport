@@ -16,19 +16,19 @@ $icons_height = '25';
 				
 				// Provide ability to Add new Error Records reguardless
 				$button_name 	= 'Mark With Error';	
-				$image_name		= 'errorit';
+				$image_name		= 'icon_editit';
 				$form_name		= 'ErrorOrderReportForm';
 				$active			= 1;
 				$value			= $button_name;
-										$random_element = rand(0,10000);
-										$window_name	= preg_replace('/\s+/', '', $button_name);
-										$window_name	= $window_name."_".$form_name."_".$random_element;
-										$button_name	= $button_name."_".$random_element."";
-										$window_command	= 'open_new_littleform_window';
-										$form_action	= $functionpage;
-										$disid			= $tblkeyfield;
-										
-										include('includes/_template/_tp_blockform_work_button.binc.php');
+				$random_element = rand(0,10000);
+				$window_name	= preg_replace('/\s+/', '', $button_name);
+				$window_name	= $window_name."_".$form_name."_".$random_element;
+				$button_name	= $button_name."_".$random_element."";
+				$window_command	= 'open_new_littleform_window';
+				$form_action	= $functionpage;
+				$disid			= $tblkeyfield;
+				
+				include('includes/_template/_tp_blockform_work_button.binc.php');
 										
 				$sql2 = $settingsarray[0]."'".$tblkeyfield."' LIMIT 1";
 				//echo $sql2;
@@ -54,12 +54,13 @@ $icons_height = '25';
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_error_id"];
 												$button_name 	= 'Error History';	
+												$image_name		= 'icon_edithistory';
 												$form_name		= 'ErrorOrderReportForm';
 												$value			= $button_name;
-										$random_element = rand(0,10000);
-										$window_name	= preg_replace('/\s+/', '', $button_name);
-										$window_name	= $window_name."_".$form_name."_".$random_element;
-										$button_name	= $button_name."_".$random_element."";
+												$random_element = rand(0,10000);
+												$window_name	= preg_replace('/\s+/', '', $button_name);
+												$window_name	= $window_name."_".$form_name."_".$random_element;
+												$button_name	= $button_name."_".$random_element."";
 												$window_command	= 'open_new_report_window';
 												$form_action	= $settingsarray[2];
 												$disid			= $tblkeyfield;

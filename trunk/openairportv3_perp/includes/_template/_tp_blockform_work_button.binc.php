@@ -1,14 +1,27 @@
+<?php
+// Set up some internal variables
+$targetname = '_iframe-'.$form_name.'_'.$random_element;
+$dhtml_name = 'dhtmlwindow_'.$form_name.'_'.$random_element;
+?>
+
 <form name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" 
-	action="<?php echo $form_action;?>"
+	action="<?php echo $form_action;?>" 
 	method="POST"
-	target="_iframe-<?php echo $form_name;?>_<?php echo $random_element;?>" <?php
+	target="<?php echo $targetname;?>"
+	<?php
 	/* onSubmit="javascript:<?php echo $window_command;?>('','<?php echo $form_name;?>');" */
 	?>
-	onSubmit="dhtmlwindow_<?php echo $form_name;?>_<?php echo $random_element;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', '<?php echo $value;?> Form', 'width=500px,height=400px,resize=1,scrolling=1,center=1', 'recal')"
+	onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', '<?php echo $value;?> Form', 'width=550px,height=400px,resize=1,scrolling=1,center=1', 'recal')"
 	style="margin-bottom:0;" />
 	<input NAME="recordid" ID="recordid"
 		value="<?php echo $disid;?>" 
 		type="hidden" />
+	<input NAME="targetname" ID="targetname"
+		value="<?php echo $targetname;?>" 
+		type="hidden" />
+	<input NAME="dhtmlname" ID="dhtmlname"
+		value="<?php echo $dhtml_name;?>" 
+		type="hidden" />		
 	<table 	name="MenuItem_<?php echo $window_name;?>" id="MenuItem_<?php echo $window_name;?>" 
 			border="0" 
 			cellpadding="0" 
@@ -48,7 +61,7 @@
 					}
 					?>
 				/>
-				<img src="images/_interface/menu_icon_<?php echo $image_name;?>.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+				<img src="images/_interface/icons/<?php echo $image_name;?>.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 				</td>
 			<td name="ISpace_<?php echo $window_name;?>" id="ISpace_<?php echo $window_name;?>" 
 				

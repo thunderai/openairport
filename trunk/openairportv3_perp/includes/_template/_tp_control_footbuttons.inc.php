@@ -9,7 +9,12 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 		// $formname
 		//		Name of the Form
 		// $otherid, Limited use
-		//		ID of the main record being edited in a summary page usually
+		//		 in a summary page usually
+		//		Detail						Purpose
+		//		1							NONE STANDARD! Name of the DHTML window command to call to close the window NONE STANDARD!
+		//		2							Not Used
+		//		3							ID of the main record being edited
+		//		4							ID of the main record being edited
 		// $scriptfunction
 		//		The name of the javascript function to use when pushing data
 
@@ -33,7 +38,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
 							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-							<img src="images/_interface/icons/icons_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MClose" id="ISpace_MClose" 
 							class="item_space_inactive" 
@@ -47,7 +52,11 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
 							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
 							/>
-							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" 			onclick="javascript:self.close()">
+							<script>
+								var ifr = parent.document.getElementById("<?php echo $otherid;?>");
+								ifr.parentNode.removeChild(ifr);
+								</script>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" 			onclick="parent.<?php echo $otherid;?>.close(); return false" />
 							</td>				
 						</tr>
 					</table>
@@ -168,7 +177,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
 							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-							<img src="images/_interface/icons/icons_submit.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icon_save.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MSubmit" id="ISpace_MSubmit" 
 							class="item_space_inactive" 

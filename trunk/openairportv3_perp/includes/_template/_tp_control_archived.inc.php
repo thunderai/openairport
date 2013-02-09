@@ -32,7 +32,7 @@ $icons_height = '25';
 								if ($number_of_rows == 0) {
 										// There are no records to display, display NRF
 										$button_name 	= 'Mark Archieved';	
-										$image_name		= 'archiveit';
+										$image_name		= 'icon_archit';
 										$form_name		= 'AchievedOrderReportForm';
 										$active			= 1;
 										$value			= $button_name;
@@ -52,7 +52,7 @@ $icons_height = '25';
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_archeived_id"];
 												$button_name 	= 'Archived History';	
-												$image_name		= 'archivedhistory';
+												$image_name		= 'icon_archhistory';
 												$form_name		= 'ArchivedHistoryReportForm';
 												$active			= 1;
 												$value			= $button_name;

@@ -114,7 +114,7 @@ function part139337_combobox_animalspecies($suppliedid, $archived, $nameofinput,
 								mysqli_close($objconn_support);
 								if ($showcombobox=="show") {
 										?>
-		</SELECT><INPUT TYPE="button" class="table_forms_button_command" VALUE="Help" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')">
+		</SELECT><img src="images/_interface/icons/icon_flag.png" width="25" height="25" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')" />
 										<?php 
 									}
 						}	// end of Res Record Object						

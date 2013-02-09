@@ -34,6 +34,37 @@
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8		
 
 // Functions
+function form_uni_control($fieldname,$fieldvalue) {
+		// Function takes the given inputs and creates FORM INPUTS with the name and value and makes it hidden for use on any form you want.
+		?>
+	<input type="hidden" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" value="<?php echo $fieldvalue;?>" />
+		<?php
+	}
+	
+function form_new_table_b($fieldname) {
+		// Function takes the given inputs and creates FORM INPUTS with the name and value and makes it hidden for use on any form you want.
+		?>
+		<table name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+			border="0" 
+			cellpadding="0" 
+			cellspacing="0" 
+			width="100%" 
+			align="left" 
+			style="text-align:left;" />
+			<tr>
+				<td class="item_name_inactive" colspan="4" />
+					Field Name
+					</td>
+				<td class="item_name_inactive" />
+					Enter Information
+					</td>
+				<td class="item_name_inactive" />
+					Data Format
+					</td>
+				</tr>
+		<?php
+	}	
+
 
 function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fieldformat,$fieldtype,$fieldsizex="0",$fieldsizey="0",$fielddefaultvalue="0",$fieldfunction="0",$ajaxpush="0",$ajaxpushfield="0",$ajaxpushscript="0",$ajaxpushid="0") {
 		// $fieldname		Name of form field
@@ -88,20 +119,137 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 					}
 
 		// Display Text Table Cell
+				$icons_width 		= 35;
+				$icons_height 		= 35;
 				?>
-		<div class="<?php echo $container;?>" id="div_container" />
-			<table align="left" valign="top"  width="100%" border="0" cellpadding='0' cellspacing='0' />
-				<tr>		
-					<td align="left" valign="middle" class="table_forms_enter_header" onMouseover="ddrivetip('<?php echo $fieldstring;?>')"; onMouseout="hideddrivetip()">
-						<?php echo $fieldtxtname;?>
-						</td>
-					</tr>
-				<tr>
-				<?php
-					
-		// Display Data Table Cell
-				?>
-					<td class="table_forms_enter_input" />
+					<tr>
+						<?php 
+						$OSpace_name 	= 'OSpace_MM'.$fieldname;
+						$ISpace_name 	= 'ISpace_MM'.$fieldname;
+						$Icon_name 		= 'Icon_MM'.$fieldname;
+						$Name_name 		= 'Name_MM'.$fieldname;	
+						$Field_name		= 'Field_MM'.$fieldname;
+						$Format_name	= 'Format_MM'.$fieldname;
+						
+						// Determine what the icon will look like....
+						switch ($fieldtype) {
+									case 1:		// Datacell is a text box
+									if($fieldsizex == 0) {
+													// Field is a Text Box being displayed without an input field
+												}
+												else {
+													
+													if($fielddefaultvalue == "current") {
+															switch ($fieldtxtname) {
+																	case "Date":
+																			// Field is a date, display date icon
+																			$icon = 'icon_date';
+																		break;
+																	case "Time":
+																			// Field is a time, display time icon
+																			$icon = 'icon_clock';
+																		break;
+																	case "Year":
+																			// Field is a year, display date icon
+																			$icon = 'icon_date';
+																		break;
+																}
+														}
+														else {
+															switch ($fieldtxtname) {
+																	case "Password":
+																			// Field is a password, display chain icon
+																			$icon = 'icon_chain';
+																		break;
+																	case "Start Date":
+																			// Field is a date, display date icon
+																			$icon = 'icon_date';
+																		break;	
+																	case "End Date":
+																			// Field is a date, display date icon
+																			$icon = 'icon_date';
+																		break;																		
+																	default:
+																			// Dont know field type, displayu default pencile icon
+																			$icon = 'icon_pencile';
+																		break;
+																}
+														}
+												}
+										break;
+									case 2:		// Datacell is a textarea
+											if($fieldsizex == 0) {
+													// Field is a textarea being displayed.
+													$icon = 'icon_pencile';
+												}
+												else {
+													// Field is a textarea, display 
+													$icon = 'icon_pencile';
+												}
+										break;
+									case 3:		// Datacell is a combobox
+											switch ($fieldtxtname) {
+													case "Priority":
+															// Field is a priority, GET a priority icon or make one...
+															$icon = 'icon_pencile';
+														break;
+													case "Entry By":
+															// Filed is a users name, display user icon
+															$icon = 'icon_person';
+														break;	
+													default:
+															// Field is a combo box, display default icon...
+															$icon = 'icon_pencile';
+														break;
+												}
+										break;
+									case 4:		// Datacell is a map button
+											// Field is a a location, display map icon
+											$icon = 'icon_world';
+										break;
+									case 5:		// Datacell is a checkbox
+											// Field is a checkbox, display check icon
+											$icon = 'icon_check';
+										break;	
+									case 6:		// Datacell is a file select box
+											// Field is an upload icon, display upload icon
+											$icon = 'icon_files';
+										break;											
+								}
+						?>
+						<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+							class="item_space_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
+							&nbsp;
+							</td>
+						<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+							class="item_icon_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
+							<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+							class="item_space_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+							class="item_name_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
+							<?php echo $fieldtxtname;?>
+							</td>		
+						<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+							class="item_field_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
 							<?php
 							switch ($fieldtype) {
 									case 1:		// Datacell is a text box
@@ -216,7 +364,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													?>
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	value="0" 		size="4">
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	value="0" 		size="4">
-						<INPUT class="table_forms_button_command" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 	onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
+						<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 													<?php
 												}
 												else {
@@ -227,7 +375,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															$fieldvalue_x 	= $_POST[$fieldname_x];
 															$fieldvalue_y 	= $_POST[$fieldname_y];												
 														?>
-												X: &nbsp;<?php echo $fieldvalue_x;?> / Y: &nbsp;<?php echo $fieldvalue_y;?>&nbsp;&nbsp;<INPUT class="formsubmit" TYPE="button" VALUE="Map It" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
+												X: &nbsp;<?php echo $fieldvalue_x;?> / Y: &nbsp;<?php echo $fieldvalue_y;?>&nbsp;&nbsp;<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 												<input class="table_forms_enter_input_field" type="hidden" name="<?php echo $fieldname;?>X" value="<?php echo $fieldvalue_x;?>" size="4">
 												<input class="table_forms_enter_input_field" type="hidden" name="<?php echo $fieldname;?>Y" value="<?php echo $fieldvalue_y;?>" size="4">
 														<?php
@@ -246,14 +394,10 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															?>
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	ID="<?php echo $fieldname;?>X" 	value="<?php echo $fieldvalue_x;?>" 	size="4">
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	ID="<?php echo $fieldname;?>Y" 	value="<?php echo $fieldvalue_y;?>" 	size="4">
-						<INPUT class="table_forms_button_command" 		type="button" 	name="maplocation"					ID="maplocation"				VALUE="Map It" 							onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')">
+						<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 															<?php
 														}
 												}
-													
-													
-												
-												
 										break;
 									case 5:		// Datacell is a checkbox
 									?>
@@ -265,18 +409,15 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						<input type="file" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;											
-										
-									
-									
-									
-									
-									
 								}
 								?>
-						</td>
-					<tr>
-						<td class="table_forms_enter_footer" />
-						<?php 
+							</td>
+						<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+							class="item_format_inactive_form" 
+							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+							/>
+							<?php 
 						if($ajaxpush=="1") {
 								// DOnt Display the format text
 							} else {
@@ -285,10 +426,8 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 							<?php
 							}
 							?>
-						</td>
+							</td>
 					</tr>
-				</table>
-			</div>
 					<?php
 					
 	//echo "Default Value: ".$tmp_default."<br>";			
