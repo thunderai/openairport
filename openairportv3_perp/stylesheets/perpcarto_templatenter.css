@@ -1,480 +1,122 @@
-.table_forms_container{
+.item_name_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+		
+.item_field_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}	
 
-  width		: 32.5%;
-  margin	: 2px;
-  float		: left;
-  
-}
+.item_format_inactive_form {
+		font-size:		10px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}			
+		
+.item_name_inactive_button_form {
+		font-size:			11px;
+		font-family:		Agency FB;
+		color: 				#FFFFFF; 
+		text-align:			left;
+		letter-spacing:		2px;
+		
+		cursor:				help;
+		background-color: 	CoCoCo;
+		opacity:			0.6;
+		}		
+		
+.item_space_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
 
-.table_forms_container_wide{
+.item_icon_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+		
+		
+.item_name_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+	
+.item_field_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
 
-  width		: 65%;
-  margin	: 2px;
-  float		: left;
-  
-}
+.item_format_active_form {
+		font-size:		10px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+		
+.item_space_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
 
-.table_forms{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	width					: 100%;
-	
-	}	
-
-.table_forms_left_bullet{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #FFA90E; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 20px;
-
-	-webkit-border-radius	: 21px 0px 0px 21px;
-	-moz-border-radius		: 21px 0px 0px 21px;
-	border-radius			: 21px 0px 0px 21px;	
-	
-	}	
-
-.table_forms_left_bullet_gap{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 5px;
-
-	}
-
-.table_forms_center{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #FFA90E; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	
-	}	
-	
-.table_forms_nameplate{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 13pt; 	
-	color					: #97C3E0; 
-	text-align				: right;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	padding-left			: 15px;
-	padding-right			: 25px;
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 300px;
-	
-	}	
-	
-.table_forms_nameplate_left{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 13pt; 	
-	color					: #97C3E0; 
-	text-align				: left;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	padding-left			: 15px;
-	padding-right			: 25px;
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 100px;
-	
-	}	
-	
-.table_forms_nameplate_summary{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #97C3E0; 
-	text-align				: left;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	
-	}		
-	
-.table_forms_right_bullet{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #FFA90E; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 20px;
-
-	-webkit-border-radius	: 0px 21px 21px 0px;
-	-moz-border-radius		: 0px 21px 21px 0px;
-	border-radius			: 0px 21px 21px 0px;	
-	
-	}	
-
-.table_forms_right_bullet_gap{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 5px;
-
-	}	
-	
-.table_forms_nameplate_purpose{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 11pt; 	
-	color					: #CCCCCC; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	
-	}
-
-.table_forms_summarybox_left_bullet{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #2350B5; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 15px;
-
-	-webkit-border-radius	: 10px 0px 0px 10px;
-	-moz-border-radius		: 10px 0px 0px 10px;
-	border-radius			: 10px 0px 0px 10px;	
-	
-	}	
-
-.table_forms_summarybox_left_bullet_gap{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 5px;
-
-	}	
-	
-.table_forms_summarybox_right_bullet{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #2350B5; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 15px;
-
-	-webkit-border-radius	: 0px 10px 10px 0px;
-	-moz-border-radius		: 0px 10px 10px 0px;
-	border-radius			: 0px 10px 10px 0px;	
-	
-	}	
-
-.table_forms_summarybox_right_bullet_gap{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	width					: 5px;
-
-	}	
-
-.table_forms_enter_header{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 12pt; 	
-	color					: #97C3E0; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #2350B5; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-
-	-webkit-border-radius	: 21px 21px 0px 0px;
-	-moz-border-radius		: 21px 21px 0px 0px;
-	border-radius			: 21px 21px 0px 0px;	
-	
-	}	
-
-.table_forms_enter_input{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #97C3E0; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #133D87; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	
-	}
-
-.table_forms_enter_input_field{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 13pt; 	
-	color					: #FED966; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #000000; /* Normal Dark Color 1 */
-	
-	padding-left			: 5px;
-	padding-right			: 5px;
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-	
-	}
-
-.table_forms_enter_footer{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 10pt; 	
-	color					: #97C3E0; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #2350B5; /* Normal Dark Color 1 */
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 21px;
-
-	-webkit-border-radius	: 0px 0px 21px 21px;
-	-moz-border-radius		: 0px 0px 21px 21px;
-	border-radius			: 0px 0px 21px 21px;	
-	
-	}	
-
-.table_forms_button_command{
-	
-	font-family				: Impact, Charcoal, sans-serif;
-	font-size				: 15pt; 	
-	color					: #000000; 
-	text-align				: center;
-	vertical-align			: center;
-	
-	background-color		: #FFA90E; /* Normal Dark Color 1 */
-	padding-left			: 10px;
-	padding-right			: 10px;
-	
-	border-right			: 0px solid;
-	border-left				: 0px solid;
-	border-top				: 0px solid;
-	border-bottom			: 0px solid;
-	border-style			: solid;
-	border-color			: #000000;
-	border-collapse			: collapse;
-	
-	height					: 40px;
-
-	-webkit-border-radius	: 21px 21px 21px 21px;
-	-moz-border-radius		: 21px 21px 21px 21px;
-	border-radius			: 21px 21px 21px 21px;
-	
-	}		
+.item_icon_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}

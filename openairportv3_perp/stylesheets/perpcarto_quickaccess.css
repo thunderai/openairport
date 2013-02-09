@@ -9,6 +9,28 @@
 		background-image:url('_cssimages/loginbackground.png');
 		}
 		
+.item_field_inactive {
+		font-size:		14px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}	
+
+.item_format_inactive {
+		font-size:		10px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}			
+		
 .item_name_inactive_button {
 		font-size:			14px;
 		font-family:		Agency FB;
@@ -45,6 +67,28 @@
 		
 .item_name_active {
 		font-size:		14px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+	
+.item_field_active {
+		font-size:		14px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+
+.item_format_active {
+		font-size:		10px;
 		font-family:	Agency FB;
 		color: 			#FFFFFF; 
 		text-align:		left;
