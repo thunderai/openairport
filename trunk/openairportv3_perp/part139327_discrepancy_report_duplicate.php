@@ -46,7 +46,7 @@
 		$type_page 					= 6;							// Page is Type ID, see function for notes!
 		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$time_to_display_new		= date("H:i:s");
-
+		
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
 		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
@@ -60,7 +60,7 @@ if (!isset($_POST["formsubmit"])) {
 //----------------------------------------------------------------------------------------------\\
 			$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
 			$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
-
+			
 //	Start Form Set Variables
 	
 	// FORM HEADER
@@ -84,19 +84,29 @@ if (!isset($_POST["formsubmit"])) {
 				$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
-					
+
 		include("includes/_template/_tp_blockform_form_header.binc.php");
 		
 	// FORM ELEMENTS
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+	form_new_table_b($formname);
 	form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was marked as a duplicate"	,"The current date has automatically been provided!"			,"(mm/dd/yyyy)"								,1,10,0,"current",0);
 	form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was marked as a duplicate"	,"The current time has automatically been provided!"			,"(hh:mm:ss) - 24 hours"					,1,10,0,"current",0);
 	form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"					,"(cannot be changed)"						,3,50,0,$_SESSION['user_id'],"systemusercombobox");
 	form_new_control("discomments"		,"Comments"			, "Enter how you KNOW this is a duplicate"						,"Do not use any special characters!"							,""											,2,35,4,"",0);
 	form_new_control("disduplicateof"	,"Duplicate of"		, "Select the discrepancy this is a duplicate of"				,""																,"(select a discrepancy from the list)"		,3,50,0,"all","discrepancycombobox");
 	form_new_control("disduplicate"		,"Mark Duplicate"	, "Checking this box will mark the discrepancy as a duplicate"	,"Only do this if you are sure the discrepancy is a duplicate"	,"(checked = duplicate)"					,5,35,4,"current",0);
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
@@ -104,10 +114,9 @@ if (!isset($_POST["formsubmit"])) {
 				$submitbuttonname	= 'Save Duplicate Report';										// Name of the Submit Button
 			$display_close			= 1;															// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
-			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
-			
+			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No		
+		
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
-	
 	
 		}
 	else {
@@ -141,12 +150,23 @@ if (!isset($_POST["formsubmit"])) {
 	//																																																																												|
 	//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\								|
 	//																																																																				 v								v		
+	form_new_table_b($formname);
 	form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was marked as a duplicate"	,"The current date has automatically been provided!"			,"(mm/dd/yyyy)"								,1,0,0,'post',0);
 	form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was marked as a duplicate"	,"The current time has automatically been provided!"			,"(hh:mm:ss) - 24 hours"					,1,0,0,'post',0);
 	form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"					,"(cannot be changed)"						,3,0,0,'post',"systemusercombobox");
 	form_new_control("discomments"		,"Comments"			, "Enter how you KNOW this is a duplicate"						,"Do not use any special characters!"							,""											,2,0,4,'post',0);
 	form_new_control("disduplicateof"	,"Duplicate of"		, "Select the discrepancy this is a duplicate of"				,""																,"(select a discrepancy from the list)"		,3,0,0,'post',"discrepancycombobox");
 	form_new_control("disduplicate"		,"Mark Duplicate"	, "Checking this box will mark the discrepancy as a duplicate"	,"Only do this if you are sure the discrepancy is a duplicate"	,"(checked = duplicate)"					,5,0,4,'post',0);
+	//form_new_table_e($formname);
+	
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
