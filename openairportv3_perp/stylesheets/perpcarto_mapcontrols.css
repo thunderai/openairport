@@ -1,0 +1,62 @@
+
+	table.maptools {
+		border-width: 2px;
+		border-spacing: 0px;
+		border-style: ridge;
+		border-color: black;
+		border-collapse: collapse;
+		background-color: transperent;
+		width:100%;
+		height:100%;
+		text-align:center;
+	}
+	table.maptools th {
+		border-width: 2px;
+		padding: 0px;
+		border-style: none;
+		border-color: gray;
+		background-color: transperent;
+		-moz-border-radius: ;
+	}
+	table.maptools td {
+		border-width: 2px;
+		padding: 0px;
+		border-style: none;
+		border-color: gray;
+		background-color: transperent;
+		-moz-border-radius: ;
+	}
+	
+	td.maptoolsheader_on {
+		font-size:16px;
+		font-family:Agency FB;
+		color: #FFFFFF; 
+		background-image:url('_cssimages/loginbackground.png');
+		letter-spacing:2px;
+		}
+	
+	td.maptoolsheader_off {
+		font-size:16px;
+		font-family:Agency FB;
+		color: #FFFFFF; 
+		background-image:url('_cssimages/loginfields.png');
+		letter-spacing:2px;
+		}	
+	
+	td.maptoolsfields_off {
+		font-size:14px;
+		font-family:Agency FB;
+		color: #FFFFFF; 
+		background-image:url('_cssimages/loginbackground.png');
+		width:50px;
+		letter-spacing:2px;
+		}
+	
+	td.maptoolsfields_on {
+		font-size:14px;
+		font-family:Agency FB;
+		color: #FFFFFF; 
+		background-image:url('_cssimages/loginfields.png');
+		width:50px;
+		letter-spacing:2px;
+		}	

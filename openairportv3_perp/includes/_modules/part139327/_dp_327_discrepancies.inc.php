@@ -1,15 +1,29 @@
 <?php
 function _dp_327_discrepancies($dasharray) {
+		
+		$module_name = '327_discrepancies';
+		$target_frame = '_iframe-layouttableiframecontent';
+	
 		//						0					1						2					3					4					5					6					7					8					9
 		//$dasharray	= array($tmp_dash_main_id	,$tmp_dash_main_func	,$tmp_dash_main_nl	,$tmp_dash_main_ns	,$tmp_dash_main_p	,$tmp_dash_main_ml	,$tmp_menu_item_id	,$tmp_menu_item_loc	,$tmp_menu_item_nl	,$tmp_menu_item_ns);
 		?>
-<div class="table_dashpanel_container" id="div_327discrepancies" />
-<table align="left" valign="top"  width="100%" border="0" cellpadding='0' cellspacing='0' />
+<div name="div_<?php echo $module_name;?>_container" id="div_<?php echo $module_name;?>_container"  
+	class="table_dashpanel_container" />
+	<table name="table_<?php echo $module_name;?>" id="table_<?php echo $module_name;?>" 
+		class="dashpanel_container_table" />
 	<tr>
-		<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>" method="POST" action="<?php echo $dasharray[7];?>" target="layouttableiframecontent">
+		<form name="menuitem<?php echo $dasharray[6];?>" id="menuitem<?php echo $dasharray[6];?>"  
+			method="POST" 
+			action="<?php echo $dasharray[7];?>" 
+			target="<?php echo $target_frame;?>" 
+			style="margin: 0px; margin-bottom:0px; margin-top:-1px;" />
 			<input type="hidden" name="menuitemid" value="<?php echo $dasharray[6];?>">
-		<td colspan="2">
-			<input class="table_dashpanel_container_header" type="button" name="button" value="<?php echo $dasharray[2];?>" onclick="javascript:document.getElementById('menuitem<?php echo $dasharray[6];?>').submit();" />
+		<td name="header_for_<?php echo $module_name;?>" id="header_for_<?php echo $module_name;?>" 
+			class="perp_menuheader"  
+			colspan="2" />
+			<input type="button" name="button" value="<?php echo $dasharray[2];?>" 
+				class="makebuttonlooklikeaheader" 
+				onclick="javascript:document.getElementById('menuitem<?php echo $dasharray[6];?>').submit();" />
 			</td>
 			</form>	
 		</tr>
@@ -81,11 +95,7 @@ function _dp_327_discrepancies($dasharray) {
 		</tr>
 	<tr>
 		<td class="<?php echo $style_root;?><?php echo $style_bk[$status];?>_commandrow" />
-			<table border="0" cellspacing="0" cellpadding="0" width="100%"/>
-				<tr>
-					<td align="left" valign="middle" class="table_dashpanel_container_clickformore" />
-						&nbsp;
-						<div style="position:fixed; z-index:10; left:0px; top:35px; width:680px;height:60%;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="327d_control_<?php echo $tmpdiscrepancyid;?>" id="327d_control_<?php echo $tmpdiscrepancyid;?>" />
+			<div name="327d_control_<?php echo $tmpdiscrepancyid;?>" id="327d_control_<?php echo $tmpdiscrepancyid;?>" style="display:none;text-align:left;vertical-align:text-top;" />
 			
 			<?php
 			// Load Workorder Controls
@@ -111,98 +121,38 @@ function _dp_327_discrepancies($dasharray) {
 				
 			// Utilize our lies
 			?>
-							<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%" height="100%" />
-								<tr>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Record Controls</b><br>You may use these controls to edit the database record');" onMouseout="hideddrivetip();"/> 
-										&nbsp;
-										</td>
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Record Controls</b><br>You may use these controls to edit the database record');" onMouseout="hideddrivetip();"/>
-										327 Discrepancy Controls
-										</td>			
-									<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Record Controls</b><br>You may use these controls to edit the database record');" onMouseout="hideddrivetip();" />
-										&nbsp;
-										</td>			
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Record Controls</b><br>You may use these controls to edit the database record');" onMouseout="hideddrivetip();"/>
-										&nbsp;
-										</td>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td colspan="10" class="table_overlay_border_slim" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td colspan="10" />
-										<?php
-										include("includes/_template/_tp_blockform_workorder_browser.binc.php");	
-										?>
-										<?php
-										include_ONCE("includes/_template/template.list.php");
-										$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
-										$functionpage	= "part139327_discrepancy_report_archieved.php";														
-										_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);
-										$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
-										$functionpage	= "part139327_discrepancy_report_duplicate.php";														
-										_tp_control_duplicate($objarray['Discrepancy_id'], $settingsarray, $functionpage);
-										$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
-										$functionpage	= "part139327_discrepancy_report_error.php";														
-										_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
-										?>
-										</td>
-									</tr>
-								<tr>
-									<td colspan="10" class="table_overlay_border_slim" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_left_bullet" onclick="javascript:toggle('327d_control_<?php echo $tmpdiscrepancyid;?>');" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('327d_control_<?php echo $tmpdiscrepancyid;?>');"/>
-										&nbsp;
-										</td>
-									<td class="table_overlay_closeplate" onclick="javascript:toggle('327d_control_<?php echo $tmpdiscrepancyid;?>');"/>
-										Close
-										</td>			
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_right_bullet" onclick="javascript:toggle('327d_control_<?php echo $tmpdiscrepancyid;?>');"/>
-										&nbsp;
-										</td>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									</tr>
-								</table>
-							</div>
-						</td>
-					<td align="right" valign="middle" class="table_dashpanel_container_commands" onclick="javascript:toggle('327d_control_<?php echo $tmpdiscrepancyid;?>');" />
-						Commands
-						</td>
-					</tr>
-				</table>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="table_dashpanel_divwindow" />
+					<tr>
+						<td />
+							<?php
+							include("includes/_template/_tp_blockform_workorder_browser.binc.php");	
+							?>
+							<?php
+							include_ONCE("includes/_template/template.list.php");
+							$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
+							$functionpage	= "part139327_discrepancy_report_archieved.php";														
+							_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+							$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
+							$functionpage	= "part139327_discrepancy_report_duplicate.php";														
+							_tp_control_duplicate($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+							$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
+							$functionpage	= "part139327_discrepancy_report_error.php";														
+							_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
+							?>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</td>
-		</tr>
+		<tr>
+			<td name="opencommands_for_discrepancy<?php echo $disid;?>" id="opencommands_for_discrepancy<?php echo $disid;?>" 
+				class="item_name_inactive" 
+				onmouseover="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_active';" 
+				onmouseout="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_inactive';" 
+				onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=150px,left=200px,top=150px,resize=0,scrolling=0,center=1'); return false;" />
+				Commands
+				</td>
+			</tr>
 												<?php
 											}
 									}	
@@ -210,6 +160,7 @@ function _dp_327_discrepancies($dasharray) {
 							?>
 	<tr>
 		<td colspan="2" class='table_dashpanel_container_footer' />	
+			&nbsp;
 			</td>
 		</tr>
 					<?php						

@@ -41,7 +41,7 @@
 				</td>
 			</tr>
 		<tr>
-			<td colspan="6" />
+			<td class="item_name_active" />
 				<?php
 				if($display_close == 1) {
 						_tp_control_footbuttons(1,$formname);
@@ -58,32 +58,7 @@
 					
 				?>
 				</td>
-			</tr>	
-		<tr>
-			<td colspan="6" class="table_forms_nameplate_purpose" />
-				&nbsp;
-				</td>				
-			</tr>			
-		<tr>
-			<td class="table_forms_left_bullet" />
-				&nbsp;
-				</td>
-			<td class="table_forms_left_bullet_gap" />
-				&nbsp;
-				</td>
-			<td class="table_forms_nameplate_left" onclick="javascript:self.close();" />
-				Close
-				</td>	
-			<td class="table_forms_center" />
-				&nbsp;
-				</td>				
-			<td class="table_forms_right_bullet_gap" />
-				&nbsp;
-				</td>
-			<td class="table_forms_right_bullet" />
-				&nbsp;
-				</td>				
-			</tr>			
+			</tr>		
 		</table>
 	</td>
 </tr>

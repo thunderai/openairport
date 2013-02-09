@@ -28,53 +28,39 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 								$number_of_rows = mysqli_num_rows($objrs2);
 								if ($number_of_rows == 0) {
 										// There are no records to display, display NRF
-										?>
-<form style="margin-bottom:0;" action="<?php echo $functionpage;?>" method="POST" name="MCreportform" id="MCreportform" target="MarkasClosed"  onsubmit="openchild600('<?php echo $functionpage;?>','MarkasClosed')" >
-<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['MCreportform'].submit();" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_lead_dark1_normal" />
-					<input type="submit" value="Mark Closed" width="10" class="table_button_bullet_lead_dark1_normal">
-					</td>
-				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Mark Record Closed');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_dark1_normal"> MC </span>
-					</td>
-				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Mark Record Closed');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>											
-									<?php
+										$button_name 	= 'Mark Closed';	
+										$image_name		= 'closeit';
+										$form_name		= 'CloseOrderReportForm';
+										$active			= 1;
+										$value			= $button_name;
+										$random_element = rand(0,10000);
+										$window_name	= preg_replace('/\s+/', '', $button_name);
+										$window_name	= $window_name."_".$form_name."_".$random_element;
+										$button_name	= $button_name."_".$random_element."";
+										$window_command	= 'open_new_littleform_window';
+										$form_action	= $functionpage;
+										$disid			= $tblkeyfield;
+										
+										include('includes/_template/_tp_blockform_work_button.binc.php');
 									}
 									else {
 										// There are records to display, display control.
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_closed_id"];
-												?>												
-<form style="margin-bottom:0;" action="<?php echo $settingsarray[2];?>" method="POST" name="Creportform" id="Creportform" target="SummaryReportClosed" onsubmit="openchild600('<?php echo $settingsarray[2];?>','SummaryReportClosed')" >
-	<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$tblkeyfield;?>">
-		<table border="0" cellpadding="0" cellspacing="0" class="table_bottom_right_container_button"  />
-			<tr>
-				<td class="table_button_bullet_right_dark1_normal" onclick="javascript:document.forms['Creportform'].submit();" />
-					&nbsp;
-					</td>
-				<td class="table_button_bullet_lead_dark1_normal" onclick="javascript:document.forms['Creportform'].submit();" />
-					<input type="submit" value="Closed History" width="10" class="table_button_bullet_lead_dark1_normal">
-					</td>
-				<td class="table_button_bullet_gap_dark1_normal" onMouseover="ddrivetip('Closed Record History');"  onMouseout="hideddrivetip();"/>
-					<span class="table_button_bullet_input_dark1_normal"> CH </span>
-					</td>
-				<td class="table_button_bullet_tail_dark1_normal" onMouseover="ddrivetip('Closed Record History');"  onMouseout="hideddrivetip();"/>
-					&nbsp;
-					</td>
-				</tr>
-			</table>
-		</form>													
-												<?	
+												$button_name 	= 'Closed History';	
+												$image_name		= 'Closedhistory';
+												$form_name		= 'ClosedHistoryReportForm';
+												$active			= 1;
+												$value			= $button_name;
+										$random_element = rand(0,10000);
+										$window_name	= preg_replace('/\s+/', '', $button_name);
+										$window_name	= $window_name."_".$form_name."_".$random_element;
+										$button_name	= $button_name."_".$random_element."";
+												$window_command	= 'open_new_report_window';
+												$form_action	= $settingsarray[2];
+												$disid			= $tblkeyfield;
+										
+												include('includes/_template/_tp_blockform_work_button.binc.php');	
 											}
 									}
 							}

@@ -110,7 +110,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MRoot.className='item_name_active';Icon_MRoot.className='item_name_active';ISpace_MRoot.className='item_name_active';Name_MRoot.className='item_name_active';" 
 							onmouseout="OSpace_MRoot.className='item_name_inactive';Icon_MRoot.className='item_name_inactive';ISpace_MRoot.className='item_name_inactive';Name_MRoot.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-							<img src="images/_interface/menu_icon_root.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_root.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MRoot" id="ISpace_MRoot" 
 							class="item_space_inactive" 
@@ -150,7 +150,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MBack.className='item_name_active';Icon_MBack.className='item_name_active';ISpace_MBack.className='item_name_active';Name_MBack.className='item_name_active';" 
 							onmouseout="OSpace_MBack.className='item_name_inactive';Icon_MBack.className='item_name_inactive';ISpace_MBack.className='item_name_inactive';Name_MBack.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemparent;?>');" />
-							<img src="images/_interface/menu_icon_back.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_back.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MBack" id="ISpace_MBack" 
 							class="item_space_inactive" 
@@ -246,7 +246,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 													
 													if($layer1array['menu_item_icon'] == '') {
 														
-															$menu_item_icon = 'menu_icon_warning.png';
+															$menu_item_icon = 'icons_warning.png';
 															
 														} else {
 															
@@ -288,7 +288,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
 							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
-							<img src="images/_interface/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive" 
@@ -338,7 +338,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" />
-							<img src="images/_interface/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive" 
@@ -383,7 +383,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MHome.className='item_name_active';Icon_MHome.className='item_name_active';ISpace_MHome.className='item_name_active';Name_MHome.className='item_name_active';" 
 							onmouseout="OSpace_MHome.className='item_name_inactive';Icon_MHome.className='item_name_inactive';ISpace_MHome.className='item_name_inactive';Name_MHome.className='item_name_inactive';" 
 							onclick="javascript:document.getElementById('menuitem_home').submit();" />
-							<img src="images/_interface/menu_icon_Home.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_home.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MHome" id="ISpace_MHome" 
 							class="item_space_inactive" 
@@ -423,7 +423,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MTools.className='item_name_active';Icon_MTools.className='item_name_active';ISpace_MTools.className='item_name_active';Name_MTools.className='item_name_active';" 
 							onmouseout="OSpace_MTools.className='item_name_inactive';Icon_MTools.className='item_name_inactive';ISpace_MTools.className='item_name_inactive';Name_MTools.className='item_name_inactive';" 
 							onclick="javascript:document.getElementById('menuitem_Tools').submit();" />
-							<img src="images/_interface/menu_icon_Tools.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_tools.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MTools" id="ISpace_MTools" 
 							class="item_space_inactive" 
@@ -463,7 +463,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MExt.className='item_name_active';Icon_MExt.className='item_name_active';ISpace_MExt.className='item_name_active';Name_MExt.className='item_name_active';" 
 							onmouseout="OSpace_MExt.className='item_name_inactive';Icon_MExt.className='item_name_inactive';ISpace_MExt.className='item_name_inactive';Name_MExt.className='item_name_inactive';" 
 							onclick="javascript:document.getElementById('menuitem_Ext').submit();" />
-							<img src="images/_interface/menu_icon_warning.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_external.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MExt" id="ISpace_MExt" 
 							class="item_space_inactive" 

@@ -1,0 +1,304 @@
+* {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: -moz-none;
+-o-user-select: none;
+user-select: none;
+}
+
+input {
+-webkit-user-select: text;
+-khtml-user-select: text;
+-moz-user-select: text;
+-o-user-select: text;
+user-select: text;
+}
+
+textarea {
+-webkit-user-select: text;
+-khtml-user-select: text;
+-moz-user-select: text;
+-o-user-select: text;
+user-select: text;
+}
+
+.perp_smallwhite_text {
+	font-size:8px;
+	font-family:Agency FB;
+	color: #FFFFFF; 
+	letter-spacing:2px;
+	height: 18px;
+	}
+
+.perp_systemactivity_box {
+	font-size:8px;
+	font-family:Agency FB;
+	color: #FFFFFF; 
+	letter-spacing:2px;
+	background-image:url('_cssimages/loginbackground.png');
+
+	}
+
+.perp_systemactivity_box_active {
+	font-size:8px;
+	font-family:Agency FB;
+	color: #FFFFFF; 
+	letter-spacing:2px;
+	background-image:url('_cssimages/loginfields.png');
+
+	}	
+	
+.perp_transperent_small_text {
+	font-size:8px;
+	font-family:Agency FB;
+	color: #FFFFFF; 
+	letter-spacing:2px;
+	
+	border: 0;
+    outline: none;
+    outline-offset: 0;
+	background:transparent;
+	}
+	
+	menunull {
+				font-size:small;
+				font-family:monospace;
+				color: #c3c3c3; 
+				background-image:url('_cssimages/topics_ns_bg.gif');
+				}	
+
+	td.menunull {
+				font-size:small;
+				font-family:monospace;
+				color: #c3c3c3; 
+				background-image:url('_cssimages/topics_ns_bg.gif');
+				}						
+	td.menuon { 
+				font-size:small;
+				font-family:monospace;
+				color: #000000; 
+				background-image:url('_cssimages/topicsbg.gif');
+				}
+	td.menuoff { 
+				font-size:small;
+				font-family:monospace;
+				color: #c3c3c3; 
+				background-image:url('_cssimages/topics_ns_bg.gif');
+				}
+
+	td.categoryheader_news {
+				font-size:large;
+				font-family:monospace;
+				color: #000000; 
+				background-image:url('_cssimages/topicsbg.gif');
+				}				
+	td.menuerror {
+				font-size:small;
+				font-family:monospace;
+				color: #FF0000; 
+				background-image:url('_cssimages/topics_ns_bg.gif');
+				}
+	A:link {
+				font-size:small;
+				font-family:monospace;
+				color: #FFFFFF; 
+				}
+	A:visited {
+				font-size:small;
+				font-family:monospace;
+				color: #FFFFFF; 
+				}	
+	A:active {
+				font-size:small;
+				font-family:monospace;
+				color: #FFFFFF; 
+				}	
+	div.raise {
+				z-index:99;
+		}	
+	div.lower {
+				z-index:98;
+		}	
+
+	table.sample {
+		border-width: 2px;
+		border-style: inset;
+		border-color: gray;
+		border-collapse: separate;
+	}
+	table.sample th {
+		border-width: 0px;
+		padding: 2px;
+		border-style: inset;
+		border-color: gray;
+		-moz-border-radius: ;
+	}
+	table.sample td {
+		border-width: 0px;
+		padding: 2px;
+		border-style: inset;
+		border-color: gray;
+		-moz-border-radius: ;
+	}		
+	
+	
+	html{
+width:100%;
+height:100%;
+}	
+	
+	td.categoryheader {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			}
+			
+	td.welcometext {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			}		
+
+	td.mappoints {
+			font-size:20px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}	
+
+	td.mappoints_over {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}
+
+	td.auxinfo_header {
+			font-size:20px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}	
+
+	td.auxinfo_subheader {
+			font-size:16px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}			
+			
+	td.auxinfo_fields {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			letter-spacing:1px;
+			height:32px;
+			}	
+
+	td.filters_header {
+			font-size:20px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}	
+
+	td.filters_subheader {
+			font-size:16px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}			
+			
+	td.filters_fields {
+			font-size:12px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			letter-spacing:1px;
+			height:25px;
+			}	
+			
+	td.filters_fields_on {
+			font-size:12px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:1px;
+			height:25px;
+			}				
+
+	div.welcome {
+			font-size:10px;
+			font-family:Agency FB;
+			color: #FFFFFF;
+			letter-spacing:4px;
+			height:12px;
+			}		
+
+	td.islandselect_header {
+			font-size:20px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}	
+
+	td.islandselect_subheader {
+			font-size:16px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			}			
+			
+	td.islandselect_fields {
+			font-size:12px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			letter-spacing:1px;
+			height:25px;
+			}	
+
+	td.maptools_header {
+			font-size:20px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:3px;
+			}	
+
+	td.maptools_subheader {
+			font-size:16px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:3px;
+			}			
+			
+	td.maptools_fields {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginbackground.png');
+			letter-spacing:2px;
+			height:25px;
+			}	
+			
+	td.maptools_fields_on {
+			font-size:14px;
+			font-family:Agency FB;
+			color: #FFFFFF; 
+			background-image:url('_cssimages/loginfields.png');
+			letter-spacing:2px;
+			height:25px;
+			}

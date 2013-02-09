@@ -92,65 +92,17 @@ if ($_SESSION['user_id']=="") {
 	else {
 		?>
 		<script>
-window.onload = function() {
-  var wall = new Masonry( document.getElementById('container'), {
-    // dynamically set column width to 1/5 the width of the container
-    columnWidth: function( containerWidth ) {
-      return containerWidth / 3;
-    }
-  });
+			window.onload = function() {
+			  var wall = new Masonry( document.getElementById('dashpanelcontainer'), {
+				// dynamically set column width to 1/5 the width of the container
+				columnWidth: function( containerWidth ) {
+				  return containerWidth / 3;
+				}
+			  });
 
-	};
-
+				};
 			</script>
-		<table class="table_bottom_container" border="0" cellpadding="0" cellspacing="0" />
-			<tr>
-				<td class="table_bottom_sweep_tail" onclick="loadintoIframe('layouttableiframecontent', 'part139303_a_report_user_edit.php')" style="cursor:hand;"/>
-					&nbsp;
-					</td>	
-				<td class="table_bottom_sweep_tail_filler" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
-					</td>
-				<td class="table_bottom_buttons_light1" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
-					</td>
-				<td class="table_bottom_buttons_light1" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
-					</td>
-				<td class="table_bottom_buttons_dark1" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
-					</td>			
-				<td class="table_bottom_sweep_tail_filler_rounded_right" />
-					<?php
-					$random = rand(0,2000);
-					echo $random;
-					?>
-					</td>
-				<td  class="table_dashpanel_container_welcome" />
-					Dashboard
-					</td>					
-				<td class="table_bottom_buttons_endcap" />
-					<?php
-					$random = rand(0,10);
-					echo $random;
-					?>
-					</td>				
-				</tr>
-			</table>
 		<?php
-
 		include("includes/_template_dashpanel.php");	
 		?>
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
