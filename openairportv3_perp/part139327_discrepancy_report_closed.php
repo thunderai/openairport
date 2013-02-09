@@ -92,11 +92,22 @@ if (!isset($_POST["formsubmit"])) {
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+	form_new_table_b($formname);
 	form_new_control("disdate"			,"Date"						, "Enter the date this discrepancy was marked as a duplicate","The current date has automatically been provided!","(mm/dd/yyyy)",1,10,0,"current",0);
 	form_new_control("distime"			,"Time"						, "Enter the time this discrepancy was marked as a duplicate","The current time has automatically been provided!","(hh:mm:ss) - 24 hours",1,10,0,"current",0);
 	form_new_control("disauthor"		,"Entry By"					, "Who found and reported this discrepancy","Your name has automatically been provided!","(cannot be changed)",3,50,0,$_SESSION['user_id'],"systemusercombobox");
 	form_new_control("discomments"		,"Comments"					, "Enter how you NEED to archieve it","Do not use any special characters!","",2,35,4,"",0);
 	form_new_control("disarchive"		,"Mark closed"			, "Checking this box will mark the discrepancy as closed","Only do this if you are sure you need to archieve it","(checked = closed)",5,35,4,"current",0);
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
+	//
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
@@ -140,11 +151,21 @@ if (!isset($_POST["formsubmit"])) {
 	//																																																																												|
 	//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\								|
 	//																																																																				 v								v		
+	form_new_table_b($formname);
 	form_new_control("disdate"		,"Date"				, "Enter the date this WLHM Reord was closed"				,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,0				,0				,'post'					,0);
 	form_new_control("distime"		,"Time"				, "Enter the time this WLHM Reord was closed"				,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,0				,0				,'post'					,0);
 	form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,0				,0				,'post'					,"systemusercombobox");
 	form_new_control("discomments"	,"Comments"			, "Enter how you NEED to archieve it"							,"Do not use any special characters!"																			,""							,2				,0				,4				,'post'					,0);
 	form_new_control("disarchive"	,"Mark closed"		, "Checking this box will mark the discrepancy as closed"	,"Only do this if you are sure you need to archieve it"															,"(checked = closed)"	,5				,0				,4				,'post'					,0);
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
