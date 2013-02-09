@@ -92,8 +92,8 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
-	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
 	form_new_control("disinspectiontype","Inspection Type"			, "Select an Inspection Type"				,"Select an inspection type from the list provided!"	,""					,3			,50				,0				,"all"					,"part139327typescomboboxwall");
 	form_new_control("disonlycurrent"	,"Only Outstanding Status"	, "Display only outstanding discrepancies"	,"Checking this box will display only outstanding discrepancies. Unchecking the box will display all discrepancies."		,""					,5			,50				,0				,"all"					,0);
 	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"			,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""					,5			,50				,0				,"all"					,0);

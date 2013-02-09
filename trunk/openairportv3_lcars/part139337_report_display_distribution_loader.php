@@ -67,7 +67,7 @@
 	
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
-			$formname			= "mapit_form";													// HTML Name for Form
+			$formname			= "edittable";													// HTML Name for Form
 			$formaction			= "part139337_report_display_distribution_chart.php";			// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
 				$formtarget		= "HSLocationWindow";											// HTML Name for the window
@@ -93,8 +93,8 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
-	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $end_date				,0);
 	form_new_control("wlhmspecies"		,"Species"					, "Select a Species"				,"Select a species from the list provided!"				,""					,3			,50				,0				,"all"					,"part139337_combobox_animalspecieswall");
 	form_new_control("wlhmactivity"		,"Activity"					, "Select an Activity"				,"Select an activity from the list provided!"			,""					,3			,35				,4				,"all"					,"part139337_combobox_animalactivitywall");
 	form_new_control("wlhmaction"		,"Action"					, "Select an Action"				,"Select an action from the list provided!"				,""					,3			,35				,4				,"all"					,"part139337_combobox_actiontakenwall");

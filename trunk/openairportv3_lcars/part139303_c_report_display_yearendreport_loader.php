@@ -93,8 +93,8 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
-	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
 	form_new_control("frm_facility"		,"Facility"					, "Select a Facility"				,"Select a facility from the list provided!"			,""					,3			,50				,0				,"all"					,"part139303_c_facilitycomboboxwall");
 	form_new_control("frm_condition"	,"Condition"				, "Select a Condition"				,"Select an condition from the list provided!"			,""					,3			,35				,4				,"all"					,"part139303_c_conditioncomboboxwall");
 	form_new_control("frm_student"		,"Students"					, "Select a Student"				,"Select an student from the list provided!"			,""					,3			,35				,4				,"all"					,"systemusercomboboxwall");

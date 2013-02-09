@@ -74,7 +74,7 @@
 	
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
-			$formname			= "mapit_form";													// HTML Name for Form
+			$formname			= "edittable";													// HTML Name for Form
 			$formaction			= "part139339_c_discrepancy_display_distribution_chart.php";		// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
 				$formtarget		= "HSLocationWindow";											// HTML Name for the window
@@ -100,8 +100,8 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
-	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);	
 	form_new_control("discondition"		,"Time Period"				, "Select a Condition"				,"Select a condition from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
 	//form_new_control("disfacility"		,"Facility"					, "Select a Facility"				,"Select a Facility from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327facilitycomboboxwall");
 	//form_new_control("disinspection"	,"From Inspection of Type"	, "Select an Inspection Type"		,"Select an inspection from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327typescomboboxwall");

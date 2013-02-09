@@ -92,8 +92,8 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
-	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
 	form_new_control("discondition"		,"Time Period"				, "Select a Time Period"					,"Select a condition from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
 	form_new_control("disusedfor"		,"Search by Date"			, "Find by Dates Issued or Dates Closed"	,"Checking this box will use the dates above as issued, unchecked will use dates as closed by"		,""					,5			,50				,0				,"all"					,0);
 	form_new_control("disonlycurrent"	,"Only Current Status"		, "Display only the current surface status"	,"Checking this box will display only the current status. Unchecking the box will allow other controls to work."		,""					,5			,50				,0				,"all"					,0);
