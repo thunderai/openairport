@@ -106,7 +106,7 @@ $window_command	= 'open_new_report_window';
 				onmouseover="OSpace_<?php echo $window_name;?>.className='item_name_active';Icon_<?php echo $window_name;?>.className='item_name_active';ISpace_<?php echo $window_name;?>.className='item_name_active';Name_<?php echo $window_name;?>.className='item_name_active';" 
 				onmouseout="OSpace_<?php echo $window_name;?>.className='item_name_inactive';Icon_<?php echo $window_name;?>.className='item_name_inactive';ISpace_<?php echo $window_name;?>.className='item_name_inactive';Name_<?php echo $window_name;?>.className='item_name_inactive';" 
 				/>
-				<img src="images/_interface/menu_icon_workorder.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+				<img src="images/_interface/icons/icon_paintroller.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 				</td>
 			<td name="ISpace_<?php echo $window_name;?>" id="ISpace_<?php echo $window_name;?>" 
 				class="item_space_inactive" 
@@ -143,7 +143,7 @@ $window_command	= 'open_new_report_window';
 			}
 			
 			$form_action	= $functionrepairpage;
-			$image_name		= 'repairit';
+			$image_name		= 'icons_tools';
 			$button_name 	= 'RepairOrder';
 			$form_name		= 'RepairOrderReportForm';
 			$random_element = rand(0,10000);
@@ -183,6 +183,7 @@ $window_command	= 'open_new_report_window';
 						
 					$form_action	= $array_repairedcontrol[2];
 					$button_name 	= 'RepairHistory';	
+					$image_name		= 'icon_repairhistory';
 					$form_name		= 'RepairHistoryreportform';
 					$random_element = rand(0,10000);
 					$window_name	= preg_replace('/\s+/', '', $button_name);
@@ -218,7 +219,7 @@ $window_command	= 'open_new_report_window';
 				}
 	
 			$form_action	= $functionbouncepage;
-			$image_name		= 'bounceit';
+			$image_name		= 'icon_bounceit';
 			$button_name 	= 'BounceOrder';	
 			$form_name		= 'BounceOrderReportForm';
 			$random_element = rand(0,10000);
@@ -257,7 +258,7 @@ $window_command	= 'open_new_report_window';
 						}
 						
 				$form_action	= $array_bouncedcontrol[2];
-				$image_name		= 'bouncehistory';
+				$image_name		= 'icon_bouncehistory';
 				$button_name 	= 'BounceHistory';	
 				$form_name		= 'BounceHistoryReportForm';
 				$random_element = rand(0,10000);
@@ -294,7 +295,7 @@ $window_command	= 'open_new_report_window';
 				}
 	
 			$form_action	= $functionclosedpage;
-			$image_name		= 'closeit';
+			$image_name		= 'icon_safe';
 			$button_name 	= 'CloseOrder';	
 			$form_name		= 'CloseOrderReportForm';
 			$random_element = rand(0,10000);

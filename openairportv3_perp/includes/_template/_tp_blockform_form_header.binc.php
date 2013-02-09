@@ -96,17 +96,6 @@ window.onload = function() {
 				?>
 				</td>
 			</tr>
-		<tr>
-			<td class="item_name_active" />
-				&nbsp;
-				</td>
-			</tr>
 					<?php
 				}
-				?>		
-		<tr>
-			<td align="left" valign="top" class="item_name_active" />
-				<table width="100%" >
-					<tr>
-						<td>
-							<div id="container2" style="margin-top:5px;" />
+				?>

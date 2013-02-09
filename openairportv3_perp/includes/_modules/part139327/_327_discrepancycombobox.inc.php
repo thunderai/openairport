@@ -99,8 +99,14 @@ function discrepancycombobox($suppliedid, $archived, $nameofinput, $showcombobox
 								
 								}
 								if ($showcombobox=="show") {
+										$display_field_value 	= 'ID:'.$tmpsuppliedid.',Name:'.$tmpsuppliedname.', Priority:'.$tmpsuppliednames.'';
+										$display_char_count		= strlen($display_field_value);
+										
+										if($display_char_count > 35) {
+											  $display_field_value = substr($display_field_value, 0, 35) . '...';
+											}
 										?>
-				value="<?php echo $tmpsuppliedid;?>">ID:<?php echo $tmpsuppliedid;?>, Name:<?php echo $tmpsuppliedname;?>, Priority:(<?php echo $tmpsuppliednames;?>)</option>
+				value="<?php echo $tmpsuppliedid;?>"><?php echo $display_field_value;?></option>
 										<?php 
 									}
 									else {
