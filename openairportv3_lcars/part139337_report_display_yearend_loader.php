@@ -66,7 +66,7 @@
 
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
-			$formname			= "mapit_form";													// HTML Name for Form
+			$formname			= "edittable";													// HTML Name for Form
 			$formaction			= "part139337_report_display_yearend_report.php";				// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
 				$formtarget		= "MapLocationWindow";											// HTML Name for the window
