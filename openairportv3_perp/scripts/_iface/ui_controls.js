@@ -149,6 +149,43 @@ function togglebutton_M(ButtonName,ButtonStatus) {
 
 }
 
+function togglebutton_M_F(ButtonName,ButtonStatus) {
+	// Takes the given variables and colors a button accordingly
+	// Each button has four parts:
+	//		Outer SPace
+	//		Icon
+	//		Inner Space
+	//		Name
+	
+	// ButtonName will be a portion of the name of the button, the applicable four used names are:
+	
+	var OSpaceName = 'OSpace_MM' + escape(ButtonName);
+	var ISpaceName = 'ISpace_MM' + escape(ButtonName);
+	var IconName = 'Icon_MM' + escape(ButtonName);
+	var NameName = 'Name_MM' + escape(ButtonName);
+	var FieldName = 'Field_MM' + escape(ButtonName);
+	var FormatName = 'Format_MM' + escape(ButtonName);
+
+	if(ButtonStatus == 'off') {
+			// Turn the button off
+			document.getElementById(OSpaceName).className = 'item_space_inactive_form';
+			document.getElementById(ISpaceName).className = 'item_space_inactive_form';
+			document.getElementById(IconName).className = 'item_icon_inactive_form';
+			document.getElementById(NameName).className = 'item_name_inactive_form';
+			document.getElementById(FieldName).className = 'item_field_inactive_form';
+			document.getElementById(FormatName).className = 'item_format_inactive_form';			
+		} else {
+			// If Not OFF Turn the button ON
+			document.getElementById(OSpaceName).className = 'item_space_active_form';
+			document.getElementById(ISpaceName).className = 'item_space_active_form';
+			document.getElementById(IconName).className = 'item_icon_active_form';
+			document.getElementById(NameName).className = 'item_name_active_form';
+			document.getElementById(FieldName).className = 'item_field_active_form';
+			document.getElementById(FormatName).className = 'item_format_active_form';			
+		}
+
+}
+
 // Establish Global Mouse Script Variables
 
 		var gettotalvalue	= "";
