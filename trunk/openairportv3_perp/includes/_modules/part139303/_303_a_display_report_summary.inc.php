@@ -86,7 +86,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														ID
 														</td>
 													<td class='table_dashpanel_container_summary_rowresult'>
-															<a href='part139303_a_report_display.php?recordid=".$discrepancyid."' target='_newreportwindowd'>".$discrepancyid."</a>
+															<a onclick='openmapchild(&quot;part139303_a_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryReportWindow&quot;)'; />".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		

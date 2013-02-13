@@ -70,7 +70,7 @@ window.onload = function() {
 		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?php echo $_POST['recordid'];?>">
 		<input type="hidden" name="frmstartdateo"	id="frmstartdateo"		value="<?php echo $bstart_date;?>">
 		<input type="hidden" name="frmenddateo"		id="frmenddateo"		value="<?php echo $bend_date;?>">
-	<table class="dashpanel_container_table" >
+	<table class="dashpanel_container_table" />
 		<tr>
 			<td class="perp_menuheader" />
 				<?php echo $form_menu;?>

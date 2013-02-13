@@ -124,6 +124,7 @@
 									//																																																													3	Combobox	,
 									//																																																													4	Map Button	,
 									//																																																													5	Check box	,									
+									form_new_table_b($formname);
 									form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_firstname']				,0);
 									form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_lastname']				,0);
 									form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_initials']				,0);
@@ -134,38 +135,33 @@
 									form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,$objarray['emp_organiation_cb_int']	,"organizationcombobox");
 									form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,$objarray['navigational_groups_id']	,"_ac_accessleveltypecombobox");
 									?>
-					<table width="100%">
-						<tr>
-							<td class="formheaders" colspan="4">
-								DASH PANEL
-								</td>
-							</tr>
-						<tr>
-							<td class="formresults" colspan="4">
-								<p>
-									Below are all of the avilable Dashpanel windows that can be displayed on the <b>HOME</b> 
-									screen. You may choose if you want the window displayed or not and in what order you 
-									wish to order them. In the '<i>Display</i>' colum checking the box will display the window
-									unchecking the box will hide that window. In the '<i>Display Order</i>' column enter a number
-									in the priority you wish to see the window. A smaller number wil be displayed first while a 
-									larger number will be displayed last. Experiment with the order and see how you like it.
-									</p>
-								</td>
-							</tr>							
-						<tr>
-							<td class="formheaders">
-								Dash Name
-								</td>
-							<td class="formheaders">
-								Menu Name
-								</td>
-							<td class="formheaders">
-								Display
-								</td>	
-							<td class="formheaders">
-								Display Order
-								</td>
-							</tr>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" />
+				<tr>
+					<td class="item_name_active" colspan="4">
+						<p>
+							Below are all of the avilable Dashpanel windows that can be displayed on the <b>HOME</b> 
+							screen. You may choose if you want the window displayed or not and in what order you 
+							wish to order them. In the '<i>Display</i>' colum checking the box will display the window
+							unchecking the box will hide that window. In the '<i>Display Order</i>' column enter a number
+							in the priority you wish to see the window. A smaller number wil be displayed first while a 
+							larger number will be displayed last. Experiment with the order and see how you like it.
+							</p>
+						</td>
+					</tr>							
+				<tr>
+					<td class="item_name_active">
+						Dash Name
+						</td>
+					<td class="item_name_active">
+						Menu Name
+						</td>
+					<td class="item_space_active">
+						Display
+						</td>	
+					<td class="item_space_active">
+						Display Order
+						</td>
+					</tr>
 									<?php
 
 									// Load all DashPanel Functions, set their values to what the user has in their own settings
@@ -245,15 +241,27 @@
 																}
 															
 															?>
-						<tr>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $dash_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $menu_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()">
-								<INPUT TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" 
+				<tr>
+					<td name="dashname<?php echo $dash_id;?>" 
+						id="dashname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $dash_nl;?>
+						</td>
+					<td name="dashmname<?php echo $dash_id;?>" 
+						id="dashmname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $menu_nl;?>
+						</td>
+					<td name="dashcheckbox<?php echo $dash_id;?>" 
+						id="dashcheckbox<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<INPUT TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" 
 								<?php
 								if($array_values[$dash_id][0] == 1) {
 										?>
@@ -262,25 +270,43 @@
 									}
 									?>																									
 								>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
-								<INPUT TYPE="text" SIZE="3" NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" VALUE="<?php echo $array_values[$dash_id][1];?>">
-								</td>
-							</tr>
+						</td>
+					<td name="dashorder<?php echo $dash_id;?>" 
+						id="dashorder<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<select NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" />
+							<?php
+							for($i=0;$i<=$number_of_rows2;$i=$i+1) {
+									
+									if($i == $array_values[$dash_id][1]) {
+											$default = 'selected="selected"';
+										} else {
+											$default = '';
+										}
+									?>
+							<option value=<?php echo $i;?>" <?php echo $default;?>/><?php echo $i;?></option>
+									<?php
+								}
+								?>
+							</select>
+						</td>
+					</tr>
 															<?php
 														}
 												}
 										}
 										?>
 						</table>
-					<table width="100%">
-						<tr>
-							<td class="formheaders" colspan="4">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" />
+				<tr>
+							<td class="item_name_active" colspan="4">
 								Messaging and Emails
 								</td>
 							</tr>
 						<tr>
-							<td class="formresults" colspan="4">
+							<td class="item_name_active" colspan="4">
 								<p>
 									You are allowed to have up to <b>five</b> alerts that you will receive text messages or emails from. 
 									Under the '<i>Page Name</i>' column you can select the module name you want to be alerted about. Under 
@@ -294,13 +320,13 @@
 								</td>
 							</tr>
 						<tr>
-							<td class="formheaders">
+							<td class="item_name_active">
 								Page Name
 								</td>
-							<td class="formheaders">
+							<td class="item_name_active">
 								Event Type
 								</td>
-							<td class="formheaders">
+							<td class="item_name_active">
 								By Whom
 								</td>								
 							</tr>
@@ -335,17 +361,17 @@
 														
 														?>
 							<tr>
-								<td class="formresults" />
+								<td class="item_name_inactive" />
 								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $i;?>_event_trigger_id" ID="<?php echo $i;?>_event_trigger_id" VALUE="<?php echo $sms_id;?>">
 								<?php
 								navigationalcombobox_bypage('all', 'no', $i.'_event_trigger_module', 'show', $sms_mod_id);
 								?>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								gs_eventtypeswall('all', 'no', $i.'_event_trigger_event', 'show', $sms_event_id);
 								?>
 								</td>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								 systemusercomboboxwall('all', 'no', $i.'_event_trigger_who', 'show', $sms_whom_id);
 								?>
@@ -366,17 +392,17 @@
 								for ($j=$i; $j<=$max_rows; $j=$j+1) {
 									?>
 							<tr>
-								<td class="formresults" />
+								<td class="item_name_inactive" />
 								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $j;?>_event_trigger_id" ID="<?php echo $j;?>_event_trigger_id" VALUE="new">
 								<?php
 								navigationalcombobox_bypage('all', 'no', $j.'_event_trigger_module', 'show', 'all');
 								?>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								gs_eventtypeswall('all', 'no', $j.'_event_trigger_event', 'show', 'all');
 								?>
 								</td>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								 systemusercomboboxwall('all', 'no', $j.'_event_trigger_who', 'show', 'all');
 								?>
@@ -386,7 +412,16 @@
 										}
 								}
 						}
-				}				
+				}	
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+		
 //
 // FORM FOOTER
 //------------------------------------------------------------------------------------------\\
@@ -425,7 +460,8 @@
 		//																																																																										|
 		//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\									|
 		//																																																																	 v									v
-					form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,"post"			,0);
+		form_new_table_b($formname);
+		form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,"post"			,0);
 					form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
 					form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
 		$username 	= form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,0				,0				,'post'			,0);
@@ -459,26 +495,33 @@
 		// Now to do what we did before with the Dash Checklists, but we will have update issues and INSERT issues. 
 	
 		?>
-					<table width="100%">
-						<tr>
-							<td class="formheaders" colspan="4">
-								DASH PANEL
-								</td>
-							</tr>
-						<tr>
-							<td class="formheaders">
-								Dash Name
-								</td>
-							<td class="formheaders">
-								Menu Name
-								</td>
-							<td class="formheaders">
-								Display
-								</td>	
-							<td class="formheaders">
-								Display Order
-								</td>
-							</tr>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" />
+				<tr>
+					<td class="item_name_active" colspan="4">
+						<p>
+							Below are all of the avilable Dashpanel windows that can be displayed on the <b>HOME</b> 
+							screen. You may choose if you want the window displayed or not and in what order you 
+							wish to order them. In the '<i>Display</i>' colum checking the box will display the window
+							unchecking the box will hide that window. In the '<i>Display Order</i>' column enter a number
+							in the priority you wish to see the window. A smaller number wil be displayed first while a 
+							larger number will be displayed last. Experiment with the order and see how you like it.
+							</p>
+						</td>
+					</tr>
+				<tr>
+					<td class="item_name_active">
+						Dash Name
+						</td>
+					<td class="item_name_active">
+						Menu Name
+						</td>
+					<td class="item_space_active">
+						Display
+						</td>	
+					<td class="item_space_active">
+						Display Order
+						</td>
+					</tr>
 									<?php
 
 									// Load all DashPanel Functions, set their values to what the user has in their own settings
@@ -623,15 +666,27 @@
 																															
 															
 																?>
-						<tr>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $dash_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $menu_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()">
-								<?php
+				<tr>
+					<td name="dashname<?php echo $dash_id;?>" 
+						id="dashname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $dash_nl;?>
+						</td>
+					<td name="dashmname<?php echo $dash_id;?>" 
+						id="dashmname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $menu_nl;?>
+						</td>
+					<td name="dashcheckbox<?php echo $dash_id;?>" 
+						id="dashcheckbox<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<?php
 								if($formvalued == 1) {
 										?>
 								Yes
@@ -643,11 +698,15 @@
 									<?php
 								}
 								?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
-								<?php echo $formvaluep;?>
-								</td>
-							</tr>
+						</td>
+					<td name="dashorder<?php echo $dash_id;?>" 
+						id="dashorder<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<?php echo $formvaluep;?>
+						</td>
+					</tr>
 															<?php
 		
 																
@@ -657,20 +716,20 @@
 												}
 										}
 										?>
-					<table width="100%">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" />
 						<tr>
-							<td class="formheaders" colspan="4">
+							<td class="item_name_active" colspan="4">
 								Messaging and Emails
 								</td>
 							</tr>
 						<tr>
-							<td class="formheaders">
+							<td class="item_name_active">
 								Page Name
 								</td>
-							<td class="formheaders">
+							<td class="item_name_active">
 								Event Type
 								</td>
-							<td class="formheaders">
+							<td class="item_name_active">
 								By Whom
 								</td>								
 							</tr>
@@ -804,7 +863,7 @@
 									} else {
 										?>
 							<tr>
-								<td class="formresults" />
+								<td class="item_name_inactive" />
 								<INPUT TYPE="hidden" SIZE="3" NAME="<?php echo $trigger_id;?>" ID="<?php echo $trigger_id;?>" VALUE="<?php echo $lastid;?>">
 								<?php
 								if($tmp_t_mod == 'all') {
@@ -813,7 +872,7 @@
 								navigationalcombobox_bypage($tmp_t_mod, 'no', $trigger_mod, 'hide', $tmp_t_mod);
 								}
 								?>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								if($event_default == 'all') {
 										echo "all";
@@ -822,7 +881,7 @@
 								}
 								?>
 								</td>
-							<td class="formresults" />
+							<td class="item_name_inactive" />
 								<?php
 								if($whom_default == 'all') {
 										echo "all";
@@ -840,11 +899,20 @@
 							
 							?>											
 						</table>
-										<?php	
+				<?php
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
+										
 		//
 		// Load Footer
 				$display_submit 	= 0;
-				$display_close 		= 0;
+				$display_close 		= 1;
 				$display_refresh	= 0;
 				$display_pushdown	= 0;
 				$display_text		= "Your information has been successfully Edited";	

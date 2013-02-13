@@ -36,8 +36,16 @@
 
 .perp_mainmenutable {
 		float:left;
-		
+		text-align: left;
+		vertical-align: top;
 		width:100%;
+		height:100%;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+
+.perp_mainmenubutton {
+		float:left;
+		
 		height:100%;
 		background-image:url('_cssimages/loginbackground.png');
 		}		

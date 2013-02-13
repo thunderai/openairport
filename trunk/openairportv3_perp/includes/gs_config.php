@@ -36,6 +36,39 @@
 		global $passwordofdatabase;
 		global $hostdomain;
 		global $hostusername;
+		
+		global $en_start_date;
+		global $en_end_date;
+		global $en_turned_off;
+		global $en_joined;
+		global $en_joined_desc;
+		global $en_textlike;
+		global $en_archived;
+		global $en_closed;
+		global $en_duplicate;
+		global $en_select_page;
+		global $en_quickaccess_f;
+		global $en_form_exports;
+		global $en_calendarprint;
+		global $en_yearendreport;
+		global $en_printerprint;
+		global $en_optionsforu;
+		global $en_distribution;
+		global $en_linechart;
+		global $en_mapit;
+		global $en_googleearthit;
+		global $en_quickaccess;
+		global $en_quickaccessno;
+		global $en_pageation;
+		global $en_active;
+		global $en_notactive;
+		global $en_submitform;
+		global $en_id;
+		global $en_functions;
+		global $en_commands;
+		global $en_open_commands;
+		global $en_sortingfilters;	
+		
 	
 		date_default_timezone_set('America/Chicago');
 	

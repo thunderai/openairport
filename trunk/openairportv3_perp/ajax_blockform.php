@@ -70,5 +70,5 @@ include("includes/_template_header.php");
 					}
 			}
 			
-	loadquickaccessmenu($userid,$start,$end);
+	loadquickaccessmenu($userid);
 ?>

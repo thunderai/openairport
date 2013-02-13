@@ -31,252 +31,545 @@ function _tp_control_exports($array_settings) {
 	$function_ge_page 	= $array_settings[6][2];
 	$function_ge_lang 	= $array_settings[6][3];	
 	
+	$icons_width		= 25;
+	$icons_height		= 25;
 	
-		?>
-		
-<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="400"/>
-	<tr>
-		<td class="table_overlay_border" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/> 
-			&nbsp;
-			</td>
-		<td class="table_overlay_bullet_gap" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
-			Form Utiltities
-			</td>			
-		<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();" />
-			&nbsp;
-			</td>			
-		<td class="table_overlay_bullet_gap" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Form Utilities</b><br>You may use these controls to export your data.');" onMouseout="hideddrivetip();"/>
-			&nbsp;
-			</td>
-		<td class="table_overlay_border" />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td colspan="10" class="table_overlay_border_slim" />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td colspan="10" />
+	
+	if ($function_calendar != '') {
+			
+			$fieldname = 'calendar';
+			$function_cal = $function_calendar;
+			$function_url = $function_cal_url;
+			$function_page = $function_cal_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php
+				echo $function_cal_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
 			<?php
-			if ($function_calendar != '') {
-					?>
-			<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_calendar;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_cal_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}
-					
-				if ($function_yer != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_yer;?>?frmurl=<?php echo $function_cal_url;?>','<?php echo $function_cal_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_yer_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}				
+		}
+	
+	if ($function_yer != '') {
+			$fieldname = 'yer';
+			$function_cal = $function_yer;
+			$function_url = $function_cal_url;
+			$function_page = $function_cal_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
 				
-				if ($function_printout != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_printout;?>?frmurl=<?php echo $function_po_url;?>','<?php echo $function_po_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_po_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
 				
-				if ($function_dist != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_dist;?>?<?php echo $function_dist_url;?>','<?php echo $function_dist_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_dist_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_yer_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
 				
-				if ($function_linec != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_linec;?>?<?php echo $function_linec_url;?>','<?php echo $function_linec_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_linec_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
 				
-				if ($function_map != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_map;?>?<?php echo $function_map_url;?>','<?php echo $function_map_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_map_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}					
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}			
+			
+	if ($function_printout != '') {
+			
+			$fieldname = 'printout';
+			$function_cal = $function_printout;
+			$function_url = $function_po_url;
+			$function_page = $function_po_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
 				
-				if ($function_ge != '') {
-					?>
-				<table class="table_overlay_container_button" border="0" cellpadding="0" cellspacing="0" onclick="openchild600('<?php echo $function_ge;?>?<?php echo $function_ge_url;?>','<?php echo $function_ge_page;?>');"/>
-					<tr>
-						<td class="table_button_bullet_right_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_lead_dark1_normal" />
-							<?php
-							echo $function_ge_lang;
-							?>
-							</td>
-						<td class="table_button_bullet_fill_gap_dark1_normal" />
-							</td>
-						<td class="table_button_bullet_tail_dark1_normal" />
-							&nbsp;
-							</td>
-						<td class="table_button_bullet_left_dark1_normal" />
-							&nbsp;
-							</td>
-						</tr>
-					</table>					
-					<?php
-					}					
-				?>	
-			</td>
-		</tr>
-	<tr>
-		<td colspan="10" class="table_overlay_border_slim" />
-			&nbsp;
-			</td>
-		</tr>
-	<tr>
-		<td class="table_overlay_border" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_left_bullet" onclick="javascript:toggle('exportdisplaypanel');" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_bullet_gap" />
-			&nbsp;
-			</td>
-		<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('exportdisplaypanel');"/>
-			&nbsp;
-			</td>
-		<td class="table_overlay_closeplate" onclick="javascript:toggle('exportdisplaypanel');"/>
-			Close
-			</td>			
-		<td class="table_overlay_bullet_gap" />
-			&nbsp;
-			</td>
-		<td class="table_overlay_right_bullet" onclick="javascript:toggle('exportdisplaypanel');"/>
-			&nbsp;
-			</td>
-		<td class="table_overlay_border" />
-			&nbsp;
-			</td>
-		</tr>	
-	</table>
-	<?php
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_po_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}					
+
+	if ($function_dist != '') {
+			
+			$fieldname = 'distribution';
+			$function_cal = $function_dist;
+			$function_url = $function_dist_url;
+			$function_page = $function_dist_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_dist_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}						
+
+	if ($function_linec != '') {
+		
+			$fieldname = 'linechart';
+			$function_cal = $function_linec;
+			$function_url = $function_linec_url;
+			$function_page = $function_linec_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_linec_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}
+
+	if ($function_map != '') {
+			
+			$fieldname 		= 'mapit';
+			$function_cal 	= $function_map;
+			$function_url 	= $function_map_url;
+			$function_page 	= $function_map_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_map_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}				
+
+	if ($function_ge != '') {
+			
+			$fieldname 		= 'googleearth';
+			$function_cal 	= $function_ge;
+			$function_url 	= $function_ge_url;
+			$function_page 	= $function_ge_page;
+			
+			?>
+	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
+		<tr>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>				
+			<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+				class="item_name_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				<?php 
+				echo $function_ge_lang;
+				?>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				/>
+				
+				</td>
+			</tr>	
+		</table>							
+			<?php
+		}
 }

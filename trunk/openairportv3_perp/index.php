@@ -50,7 +50,6 @@ if (!isset($_POST["systemuserid"])) {
 
 	$whoareyou = $_SESSION["user_id"];
 
-
 //	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 //	1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 //			 1		   2		 3		   4		 5		   6		 7		   8		 9		   0   
@@ -71,10 +70,24 @@ if (!isset($_POST["systemuserid"])) {
 						Did you Know?
 						</td>
 					<td width="*" align="right" valign="top" background="images/_interface/subheaderbg.gif">
-						<img src="images/_interface/icon_mainmenu_help.png" width="30" height="30" alt="Information" 	onClick="get4help_win=dhtmlwindow.open('gethelp_ajax'	, 'ajax', '_suc_help.php'						, 'Get Help'	, 'width=189px,height=140px,left=100px,top=150px,resize=1,scrolling=1'); return false;">
-						<img src="images/_interface/menu_icon_gears.png" 	width="30" height="30" alt="Settings" 		onClick="settings_win=dhtmlwindow.open('settings_ajax'	, 'ajax', 'part139303_a_report_user_edit.php'	, 'Settings'	, 'width=189px,height=140px,left=100px,top=150px,resize=1,scrolling=1'); return false;">
-						<a href="index_newlogin.php"><img src="images/_interface/icon_mainmenu_logout.png" border="0" width="30" height="30" alt="Log Out"></a>
+						<img style="margin-bottom:0;float:right;" src="images/_interface/icon_mainmenu_help.png" width="30" height="30" alt="Information" 	onClick="get4help_win=dhtmlwindow.open('gethelp_ajax'	, 'iframe', '_suc_help.php'						, 'Get Help'	, 'width=600px,height=400px,left=100px,top=150px,resize=1,scrolling=1,center=1'); return false;">
 						
+						
+						<?php 
+						$targetname 		= '_iframe-iEditUser_iframe_win';
+						$dhtml_name 		= 'iEditUser_iframe_var';
+						$functioneditpage 	= 'part139303_a_report_user_edit.php';
+						?>	
+					<form style="margin-bottom:0;float:right;" action="<?php echo $functioneditpage;?>" method="POST" name="userform" id="userform" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('iEditUser_iframe_win', 'iframe', '', 'Edit Your User Information', 'width=600px,height=400px,resize=1,scrolling=1,center=1', 'recal')" />
+						<input NAME="targetname" ID="targetname"
+							value="<?php echo $targetname;?>" 
+							type="hidden" />
+						<input NAME="dhtmlname" ID="dhtmlname"
+							value="<?php echo $dhtml_name;?>" 
+							type="hidden" />
+						<input type="image" src="images/_interface/icons/icon_gear.png" alt="Submit button">
+						</form>
+						<a href="index_newlogin.php" style="margin-bottom:0;float:right;"><img src="images/_interface/icon_mainmenu_logout.png" border="0" width="30" height="30" alt="Log Out"></a>
 						</td>
 					</tr>
 				</table>

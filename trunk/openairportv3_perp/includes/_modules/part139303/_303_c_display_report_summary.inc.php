@@ -144,7 +144,7 @@ function _303_c_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 														ID
 														</td>
 													<td class='table_dashpanel_container_summary_rowresult'>
-														<a class='table_dashpanel_container_summary_link' href='#' onclick='openmapchild(&quot;part139303_c_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
+														<a class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;part139303_c_report_display.php?recordid=".$discrepancyid."&quot;,&quot;SummaryWindow&quot;)'; />".$discrepancyid."</a>
 														</td>
 													</tr>
 												<tr>		
