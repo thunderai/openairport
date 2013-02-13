@@ -1,0 +1,49 @@
+.perp_header_button{
+		
+		width:100%;
+		height:100%;
+		
+		
+		}
+		
+.perp_header_button_float{
+		float:left;
+		width:100%;
+		height:100%;
+		background-image:url('_cssimages/loginbackground.png');
+		
+		}
+		
+.perp_row_left{
+
+		font-size:		12px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		opacity:		0.6;
+		background-image:url('_cssimages/loginbackground.png');
+		
+		}
+
+.perp_row_center{
+		font-size:		12px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		opacity:		0.6;
+		background-image:url('_cssimages/loginbackground.png');
+		
+		}
+		
+.perp_row_commands{
+		font-size:		12px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		opacity:		0.7;
+		background-image:url('_cssimages/loginbackground.png');
+		
+		}		
