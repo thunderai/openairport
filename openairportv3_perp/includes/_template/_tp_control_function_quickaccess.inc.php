@@ -21,13 +21,67 @@ function _tp_control_function_quickaccess($language_on,$menuitemid,$whoareyou,$t
 			else {
 				$en_quickaccesstmp = $en_quickaccessno;
 				$message = "<b>Quick Access</b><br>Use this control to remove this page from the quick access menu on the left side of the screen.";
-			}	
+			}
+
+	$icons_width		= 25;
+	$icons_height		= 25;
+	$fieldname			= 'quickaccessfunction';
 	?>
-	<table align="left" border="0" cellpadding="0" cellspacing="0" >
+<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+		border="0" 
+		cellpadding="0" 
+		cellspacing="0" 
+		class="perp_menutable" />
 		<tr>
-			<td ID="<?php echo $td_input_name;?>" NAME="<?php echo $td_input_name;?>" onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"/>
+			<?php 
+			$OSpace_name 	= 'OSpace_MM'.$fieldname;
+			$ISpace_name 	= 'ISpace_MM'.$fieldname;
+			$Icon_name 		= 'Icon_MM'.$fieldname;
+			$Name_name 		= 'Name_MM'.$fieldname;	
+			$Field_name		= 'Field_MM'.$fieldname;
+			$Format_name	= 'Format_MM'.$fieldname;
+			?>
+			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
+				
+				</td>
+			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+				class="item_icon_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
+					<?php
+					if ($qac_exisists == 0) {
+							$icon				= 'icon_add';
+						}
+						else {
+							$icon				= 'icon_remove';
+						}
+						?>
+				<img name="qac_icon_image" id="qac_icon_image" src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+				class="item_space_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
+				
+				</td>				
+			<td ID="<?php echo $td_input_name;?>" NAME="<?php echo $td_input_name;?>"  
+				class="item_name_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
 				<?php
 				$qac_exisists = qac_test_exisist($menuitemid,$whoareyou,"test");
+				//echo ":".$en_quickaccess;
 				?>
 				<input class="hidden" type="hidden" name="<?php echo $input_fieldname;?>" id="<?php echo $input_fieldname;?>" size="25" value="<?php echo $qac_exisists;?>" />
 					<?php
@@ -41,11 +95,25 @@ function _tp_control_function_quickaccess($language_on,$menuitemid,$whoareyou,$t
 						}
 						?>
 				<span class="table_browse_inline_click_text" name="<?php echo $input_d_fieldname;?>" id="<?php echo $input_d_fieldname;?>"><?php echo $tmp_message;?></span>
+				</td>		
+			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				class="item_field_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
+				
 				</td>
-			<td class="table_browse_inline_click_text_gap"  onMouseover="ddrivetip('<b>Quick Access</b><br>You may click this button to add or remove this form from your quick access menu on the left side of the screen.');" onMouseout="hideddrivetip();"/>
-				&nbsp;
-				</td>				
-			</tr>
+			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+				class="item_format_inactive_form" 
+				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
+				/>
+				
+				</td>
+			</tr>	
 		</table>
-	<?php
+<?php
 }
+?>

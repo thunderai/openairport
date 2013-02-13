@@ -53,64 +53,12 @@ function call_server_load_quickaccess(userid,direction)
 			
 			var start 	= document.getElementById('qa_start').value;
 			var end		= document.getElementById('qa_end').value;
-		
-			start 		= start * 1;
-			end 		= end * 1;
-		
-			//alert(start);
-		
-			if(direction == 'down') {
-				
-					if(start <= 0) {
-							start = 0;
-							
-							document.getElementById('button_down').className = 'table_button_side_top_inactive';
-							document.getElementById('button_up').className = 'table_button_side_top_function';
 
-							} else {
-							
-							start= start - 1;
-							//alert(start);
-							
-							document.getElementById('button_down').className = 'table_button_side_top_function';
-							document.getElementById('button_up').className = 'table_button_side_top_function';
-							document.getElementById('qa_start').value 	= start;
-							//document.getElementById('qa_end').value 	= (end - 1);
-						}
-					
-				}
-			if(direction == 'up') {
-					
-					start= start + 1;
-					//alert(start);
-					if(start >= 4) {
-							
-							start = 4;
-							document.getElementById('button_up').className = 'table_button_side_top_inactive';
-							document.getElementById('button_down').className = 'table_button_side_top_function';
-
-						} else {
-						
-					document.getElementById('button_up').className = 'table_button_side_top_function';
-					document.getElementById('button_down').className = 'table_button_side_top_function';
-					document.getElementById('qa_start').value 	= start;
-					//document.getElementById('qa_end').value 	= (end + 1);
-						}
-				}
-				
-			
-			var url 	= "ajax_load_quickaccess.php?userid=" + escape(userid) + "&start=" + escape(start) + "&end=" + escape(end);
+			var url 	= "ajax_load_quickaccess.php?userid=" + escape(userid);
 			//alert(start);
 			request.open("GET", url); 
 			request.onreadystatechange = sever_interaction_load_quickaccess;
-			request.send('');
-		
-			parent.document.getElementById('qa_rpt').innerHTML = "0S/" + document.getElementById('qa_start').value + " - " + "I/" +document.getElementById('qa_end').value;
-			
-		var currentvalueof_systemtext = parent.document.getElementById('SystemText').innerHTML;
-		var newmessage = "Move Menu System " + direction + " << ";
-		var completed_message = (newmessage) + " << " + (currentvalueof_systemtext);
-		parent.document.getElementById('SystemText').innerHTML = completed_message;		
+			request.send('');	
 		}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -133,11 +133,15 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						
 						// Determine what the icon will look like....
 						switch ($fieldtype) {
+								
 									case 1:		// Datacell is a text box
 									if($fieldsizex == 0) {
 													// Field is a Text Box being displayed without an input field
+													$icon = 'icon_no';
 												}
 												else {
+												
+													//echo $fieldtype;
 													
 													if($fielddefaultvalue == "current") {
 															switch ($fieldtxtname) {
@@ -153,9 +157,11 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			// Field is a year, display date icon
 																			$icon = 'icon_date';
 																		break;
+																	default:
+																		$icon = 'icon_pencile';
+																		break;	
 																}
-														}
-														else {
+														} else {
 															switch ($fieldtxtname) {
 																	case "Password":
 																			// Field is a password, display chain icon
@@ -180,7 +186,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									case 2:		// Datacell is a textarea
 											if($fieldsizex == 0) {
 													// Field is a textarea being displayed.
-													$icon = 'icon_pencile';
+													$icon = 'icon_no';
 												}
 												else {
 													// Field is a textarea, display 
@@ -188,19 +194,26 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 												}
 										break;
 									case 3:		// Datacell is a combobox
-											switch ($fieldtxtname) {
-													case "Priority":
-															// Field is a priority, GET a priority icon or make one...
-															$icon = 'icon_pencile';
-														break;
-													case "Entry By":
-															// Filed is a users name, display user icon
-															$icon = 'icon_person';
-														break;	
-													default:
-															// Field is a combo box, display default icon...
-															$icon = 'icon_pencile';
-														break;
+											if($fieldsizex == 0) {
+													// Field is a textarea being displayed.
+													$icon = 'icon_no';
+												}
+												else {
+													// Field is a textarea, display 
+													switch ($fieldtxtname) {
+															case "Priority":
+																	// Field is a priority, GET a priority icon or make one...
+																	$icon = 'icon_pencile';
+																break;
+															case "Entry By":
+																	// Filed is a users name, display user icon
+																	$icon = 'icon_person';
+																break;	
+															default:
+																	// Field is a combo box, display default icon...
+																	$icon = 'icon_pencile';
+																break;
+														}
 												}
 										break;
 									case 4:		// Datacell is a map button
@@ -214,7 +227,10 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									case 6:		// Datacell is a file select box
 											// Field is an upload icon, display upload icon
 											$icon = 'icon_files';
-										break;											
+										break;
+									default:
+										$icon = 'icon_pencile';
+										break;
 								}
 						?>
 						<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 

@@ -35,8 +35,15 @@
 
 ?>
 					</table>
-		<tr>
-			<td />
+				<table name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
+					border="0" 
+					cellpadding="0" 
+					cellspacing="0" 
+					width="100%" 
+					align="left" 
+					class="item_name_active" />
+					<tr>
+						<td>
 				<?php
 				if($display_close == 1) {
 						_tp_control_footbuttons(1,$formname,$dhtml_name);
@@ -50,7 +57,11 @@
 				if($display_submit == 1) {
 						_tp_control_footbuttons(4,$formname,$submitbuttonname);
 					}
+				if($display_quickaccess == 1) {
+						_tp_control_footbuttons(5,$formname,$strmenuitemid);
+					}	
 				?>
-				</td>
-			</tr>		
+							</td>
+						</tr>
+					</table>	
 		</table>

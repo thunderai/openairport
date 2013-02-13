@@ -374,6 +374,9 @@ if ($tbldisplaytotal==1) {
 	?>
 	
 <div class="exportscreen" style="display: none; z-index:11;" name="exportdisplaypanel" id="exportdisplaypanel">
+	<table width="100%" class="perp_mainmenutable" />
+		<tr>
+			<td>
 	<?php
 	$encoded 			  = urlencode($sql);		
 	$array_settings[0][0] = $function_calendar;
@@ -412,7 +415,10 @@ if ($tbldisplaytotal==1) {
 	$array_settings[6][3] = $en_googleearthit;
 	
 	_tp_control_exports($array_settings);
-	?>
+	?>		
+				</td>
+			</tr>
+		</table>
 	</div>	
 	
 <table border="0" cellspacing="0" cellpadding="0" width="100%" style="margin:0px;padding:0px;">
@@ -423,66 +429,28 @@ if ($tbldisplaytotal==1) {
 	<input class="combobox" 		type="hidden" name="strsqlwhereaddon" 	id="strsqlwhereaddon"	size="55"	value="<?php echo $strsqlwhereaddon;?>">
 	<input class="combobox"			type="hidden" name="intsqlwhereaddon" 	id="intsqlwhereaddon"	size="10"	value="<?php echo $intsqlwhereaddon;?>">
 	<tr>
-		<td class="table_bottom_sweep_tail_extended" />
-				&nbsp;
-				<?php
-				$name 		= getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#ffffff",$_SESSION['user_id']);
-				$purpose	= getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-				?>
-			</td>
-		<td class="table_browse_nameplate" />
+		<?php
+		$name 		= getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#ffffff",$_SESSION['user_id']);
+		$purpose	= getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+		?>
+		<td colspan="3" class="perp_menuheader" />
 			<?php 
 				////echo "frmstartdate >".$uifrmstartdate."< <br>";
 				echo $name;
 				?>
-			</td>	
-		<td rowspan="2" class="table_browse_top_right_sweep">
-			<img src="images/_interface/lcars_top_right_sweep.png">
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" rowspan="1" class="table_browse_nameplate_purpose">
+		<td colspan="3" rowspan="1" class="perp_menusubheader ">
 			<?php
 			echo $purpose;
 			?>
-			<div style="position:fixed; z-index:10; left:0px; top:35px; width:680px;height:60%;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="sorting_controls" id="sorting_controls" />
-			<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%" height="100%" />
-				<tr>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_left_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/> 
-						&nbsp;
-						</td>
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls tto filter your data.');" onMouseout="hideddrivetip();"/>
-						Sorting Filters
-						</td>			
-					<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>FSorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();" />
-						&nbsp;
-						</td>			
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Sorting Filters</b><br>You may use these controls to filter your data.');" onMouseout="hideddrivetip();"/>
-						&nbsp;
-						</td>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" class="table_overlay_border_slim" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" />
+			<div style="display:block;left:500px;top:300px;position:fixed;z-index:50;width:250px;height:150px;" name="sorting_controls" id="sorting_controls" />
+				<table width="100%" class="perp_mainmenutable" />
+					<tr>
+						<td>
 						<?php
 						// Load Control Buttons
-						
 						_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
 						_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$_POST['frmarchives']);
 						_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$_POST['frmclosed']);
@@ -492,39 +460,8 @@ if ($tbldisplaytotal==1) {
 						
 						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
 						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
-						
+						_tp_control_function_submit();
 						?>
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" class="table_overlay_border_slim" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_left_bullet" onclick="javascript:toggle('sorting_controls');" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('sorting_controls');"/>
-						&nbsp;
-						</td>
-					<td class="table_overlay_closeplate" onclick="javascript:toggle('sorting_controls');"/>
-						Close
-						</td>			
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_right_bullet" onclick="javascript:toggle('sorting_controls');"/>
-						&nbsp;
-						</td>
-					<td class="table_overlay_border" />
-						&nbsp;
 						</td>
 					</tr>
 				</table>
@@ -641,27 +578,15 @@ if ($tbldisplaytotal==1) {
 																	?>
 			<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="margin:0px;border:0px;padding:0px;"/>
 				<tr>
-					<td class="table_row_header_id" onMouseover="ddrivetip('<b>Record ID</b><br>This is the ID of the record.');" onMouseout="hideddrivetip();" />
-						<?php echo $en_id;?>
+					<td rowspan="2" align="left" valign="top" height="40" />
+						<?php
+						_tp_control_header_button('icon_key',$en_id,0);
+						?>
 						</td>
-					<td />
-						<table style="margin:0px;border:0px;padding:0px;" width="100%" border="0" cellpadding="0" cellspacing="0" />
-							<tr>
-								<td colspan="3" class="table_row_header_functions" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b>Functions</b><br>Click one of the options below to edit the report, displayh a summary report, or a printable report.');" onMouseout="hideddrivetip();"/>
-									<?php echo $en_functions;?>
-									</td>
-								</tr>
-							<tr>
-								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Edit Report')"; onMouseout="hideddrivetip();"  />
-									E
-									</td>
-								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Summary Report')"; onMouseout="hideddrivetip();" />
-									S
-									</td>
-								<td class="table_row_header_functions_bottom" onMouseover="ddrivetip('Full Report')"; onMouseout="hideddrivetip();" />
-									R
-									</td>
-							</table>
+					<td rowspan="2" align="left" valign="top" height="40" />
+						<?php
+						_tp_control_header_button('icon_gear',$en_functions,1);
+						?>
 						</td>
 																	<?php  
 																	for ($i=0; $i<count($aheadername); $i=$i+1) {
@@ -677,28 +602,10 @@ if ($tbldisplaytotal==1) {
 																							break;
 																				}
 																			?>
-					<td style="margin:0px;border:0px;padding:0px;" />
+					<td rowspan="2" align="left" valign="top" height="40" style="margin:0px;border:0px;padding:0px;" />
 																			<?php
 																			if ($tblheadersort==1) {
-																					?>
-						<table style="margin:0px;border:0px;padding:0px;" width="100%" border="0" cellpadding="0" cellspacing="0" />
-							<tr>
-								<td class="table_row_header_column_top" width="<?php echo $cellwidth[$i];?>" onMouseover="ddrivetip('<b><?php echo $aheadername[$i];?></b><br>Click the sorting direction below to change direction and sort from the other direction');" onMouseout="hideddrivetip();"/>
-									<?php echo $aheadername[$i];?>
-									</td>
-								</tr>											
-							<tr>
-								<td class="table_row_header_column_middle" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); "/>
-									<span class="table_row_header_column_middle_field" id="<?php echo $adatafield[$i];?>_string" name="<?php echo $adatafield[$i];?>_string" /> <?php echo $aheadersort[$i];?> </span>
-									<input class="table_browse_header_field" type="hidden" size="8" id="<?php echo $adatafield[$i];?>" name="<?php echo $adatafield[$i];?>" value="<?php echo $aheadersort[$i];?>">
-									</td>
-								</tr>
-							<tr>
-								<td class="table_row_header_column_bottom" onfocus="javascript:getvaluesortform('<?php echo $adatafield[$i];?>');" onclick="javascript:updatesortform('<?php echo $adatafield[$i];?>'); " />
-									&nbsp;
-									</td>
-							</table>
-																				<?php  
+																					_tp_control_header_button('icon_question',$aheadername[$i],2,'getvaluesortform','updatesortform',$adatafield[$i],$aheadersort[$i],$aheadername[$i]);
 																				} 
 																			?>
 						</td>
@@ -707,34 +614,19 @@ if ($tbldisplaytotal==1) {
 																	if ($runpostflights == 1) {
 																			// Display Classification Column
 																			?>
-					<td align="right" valign="top"/>
-						<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-							<tr>
-								<td class="table_button_right_side_function_light2_help" onMouseover="ddrivetip('<b><?php echo $en_submitform;?></b><br>Click the button to the right to Submit a new reqest using your defined filters');" onMouseout="hideddrivetip();"/>
-									&nbsp;
-									</td>
-								<td class="table_button_right_side_function_gap" />
-									&nbsp;
-									</td>		
-								<td class="table_button_right_side_function_light2" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onclick="javascript:document.sorttable.submit();" />
-									<?php echo $en_submitform;?> 
-									</td>
-								</tr>
-							</table>
-						<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-							<tr>
-								<td class="table_button_right_side_function_light1_help" onMouseover="ddrivetip('<b><?php echo $en_sortingfilters;?></b><br>Click to open an overlay with filtering controls for this record');" onMouseout="hideddrivetip();"/>
-									&nbsp;
-									</td>
-								<td class="table_button_right_side_function_gap" />
-									&nbsp;
-									</td>		
-								<td class="table_button_right_side_function_light1" name="navigationalsidepanel" id="navigationalsidepanel" class="table_button_side_top_function" onClick="divwin=dhtmlwindow.open('sorting_controls_div', 'div', 'sorting_controls', '#4: DIV Window Title', 'width=450px,height=300px,left=200px,top=150px,resize=1,scrolling=1'); return false" />
-									<?php echo $en_sortingfilters;?> 
-									</td>
-								</tr>
-							</table>
+					<td align="right" valign="top" height="20"/>
+						<?php
+							_tp_control_header_button('icon_submit',$en_submitform,3);
+							?>
 						</td>
+					</tr>
+				<tr>
+					<td align="right" valign="top" height="20"/>
+						<?php
+							_tp_control_header_button('icon_filter',$en_sortingfilters,4);
+							?>	
+						</td>
+					</tr>
 																			<?php
 																		}
 																	?>
@@ -831,18 +723,31 @@ if ($tbldisplaytotal==1) {
 																			if ($displayrow == 1) {
 																					?>																					
 	<tr>
-		<td class="table_row_id" />
+		<td class="perp_row_center" />
 			<?php echo $objarray[$tblkeyfield];?>
 			<?php
 			$div_counter = $div_counter + 1;
 			$load_control_string = $load_control_string."Record ID : ".$objarray[$tblkeyfield]."";
 			?>
 			</td>
-		<td width="80" class="table_row_function_container" />
+		<td width="80" class="perp_row_center" />
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" height="39" id="table1">
 				<tr>
-					<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="EditRecordWindow" onsubmit="openmapchild('','EditRecordWindow')";>
+					<td class="table_browse_row_functions_spaces" />
+						&nbsp;
+						<?php 
+						$targetname = '_iframe-i'.$objarray[$tblkeyfield].'EditWindow_iframe_win';
+						$dhtml_name = 'i'.$objarray[$tblkeyfield].'EditWindow_iframe_var';
+						?>
+						</td>	
+					<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('i<?php echo $objarray[$tblkeyfield];?>EditWindow_iframe_win', 'iframe', '', 'Edit Form for Record <?php echo $objarray[$tblkeyfield];?>', 'width=600px,height=400px,resize=1,scrolling=1,center=1', 'recal')" />
 					<td class="table_browse_row_functions_gaps" />
+						<input NAME="targetname" ID="targetname"
+							value="<?php echo $targetname;?>" 
+							type="hidden" />
+						<input NAME="dhtmlname" ID="dhtmlname"
+							value="<?php echo $dhtml_name;?>" 
+							type="hidden" />
 						<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 						<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 						<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -872,9 +777,19 @@ if ($tbldisplaytotal==1) {
 					</form>
 					<td class="table_browse_row_functions_spaces" />
 						&nbsp;
-						<td>
-						<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="SummaryReportWindow" onsubmit="openchild600('','SummaryReportWindow')";>
+						<?php 
+						$targetname = '_iframe-i'.$objarray[$tblkeyfield].'SummaryWindow_iframe_win';
+						$dhtml_name = 'i'.$objarray[$tblkeyfield].'SummaryWindow_iframe_var';
+						?>
+						</td>
+						<form style="margin-bottom:0;" action="<?php echo $functionsummarypage;?>" method="POST" name="summaryform" id="summaryform" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('i<?php echo $objarray[$tblkeyfield];?>SummaryWindow_iframe_win', 'iframe', '', 'Summary Form for Record <?php echo $objarray[$tblkeyfield];?>', 'width=550px,height=400px,resize=1,scrolling=1,center=1', 'recal')" />
 						<td class="table_browse_row_functions_gaps">
+							<input NAME="targetname" ID="targetname"
+								value="<?php echo $targetname;?>" 
+								type="hidden" />
+							<input NAME="dhtmlname" ID="dhtmlname"
+								value="<?php echo $dhtml_name;?>" 
+								type="hidden" />
 							<input class="formsubmit"	type="hidden" name="editpage" 			id="editpage"			value="<?php echo $functioneditpage;?>">
 							<input class="formsubmit"	type="hidden" name="summarypage" 		id="summarypage"		value="<?php echo $functionsummarypage;?>">
 							<input class="formsubmit"	type="hidden" name="printerpage" 		id="printerpage"		value="<?php echo $functionprinterpage;?>">
@@ -951,7 +866,7 @@ if ($tbldisplaytotal==1) {
 																										}
 																								}
 																						?>
-		<td class="table_browse_row_field" width="<?php echo $cellwidth[$i];?>" >
+		<td class="perp_row_left" width="<?php echo $cellwidth[$i];?>" >
 																						<?php  
 																						switch ($adatafieldid[$i]) {
 																								case "notjoined":
@@ -1113,96 +1028,25 @@ if ($tbldisplaytotal==1) {
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-		<td  align="right" />
-			<table bgcolor="#000000" border="0" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
-				<tr>
-					<td class="table_button_right_side_function_help" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();"/>
-						&nbsp;
-						</td>
-					<td class="table_button_right_side_function_gap" />
-						&nbsp;
-						<div style="position:absolute; z-index:10; left:0px; top:50px; width:680px;display:none;text-align:right;vertical-align: top;border:10px solid;border-color:#000000;" name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
-							<table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="100%"/>
-								<tr>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_left_bullet" /> 
-										&nbsp;
-										</td>
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_nameplate" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();"/>
-										Record Controls
-										</td>			
-									<td colspan="3" class="table_overlay_border_tail" width="100" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" />
-										&nbsp;
-										</td>			
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_right_bullet" onMouseover="ddrivetip('<b>Controls</b><br>Click to open an overlay with more controls for this record');" onMouseout="hideddrivetip();" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td colspan="10" class="table_overlay_border_slim" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td colspan="10" />								
-										<?php
-											$tblkeyvalue = $objarray[$tblkeyfield];
-											_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
-											_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
-											_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
-											
-											include("includes/_template/_tp_blockform_workorder_browser.binc.php");
-											?>
-								<tr>
-									<td colspan="10" class="table_overlay_border_slim" />
-										&nbsp;
-										</td>
-									</tr>
-								<tr>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_left_bullet" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td colspan="3" class="table_overlay_border_tail" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
-										&nbsp;
-										</td>
-									<td class="table_overlay_closeplate" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
-										Close
-										</td>			
-									<td class="table_overlay_bullet_gap" />
-										&nbsp;
-										</td>
-									<td class="table_overlay_right_bullet" onclick="javascript:toggle('divform_<?php echo $div_counter;?>');"/>
-										&nbsp;
-										</td>
-									<td class="table_overlay_border" />
-										&nbsp;
-										</td>
-									</tr>
-								</table>
-							</div>
-						</td>		
-					<td class="table_button_right_side_function" class="table_button_side_top_function" onclick="javascript:call_server_load_controls('<?php echo $whoareyou;?>','<?php echo $load_control_string;?>');divwin=dhtmlwindow.open('divform_<?php echo $div_counter;?>_div', 'div', 'divform_<?php echo $div_counter;?>', '#4: DIV Window Title', 'width=450px,height=300px,left=200px,top=150px,resize=1,scrolling=1'); return false"/>
-						<?php echo $en_open_commands;?> 
-						</td>
-					</tr>
-				</table>
+		<td  class="perp_row_commands" onclick="divwin_<?php echo $div_counter;?>=dhtmlwindow.open('divform_<?php echo $div_counter;?>_div', 'div', 'divform_<?php echo $div_counter;?>', 'Record Controls', 'width=200px,height=100px,left=200px,top=150px,resize=1,scrolling=1'); return false"/>
+			<div style="display:none;" name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
+				<table width="100%" class="perp_mainmenutable" />
+					<tr>
+						<td>
+							<?php
+				$tblkeyvalue = $objarray[$tblkeyfield];
+				_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
+				_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
+				_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
+				
+				include("includes/_template/_tp_blockform_workorder_browser.binc.php");
+				?>			</td>
+						</tr>
+					</table>
+				</div>
+				<?php echo $en_open_commands;?>
+			</td>		
+		</tr>
 																							<?php
 																							$tblkeyvalue = $objarray[$tblkeyfield];
 																							//_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
@@ -1236,7 +1080,7 @@ if ($tbldisplaytotal==1) {
 																	if ($tbldisplaytotal==1) {
 																			?>
 			<tr>
-				<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
+				<td colspan="2" align="center" valign="middle" class="perp_row_left">
 					Total
 					</td>
 																			<?php 
@@ -1247,18 +1091,18 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-				<td align="center" valign="middle" class="forms_coumn_results_row">
+				<td align="center" valign="middle" class="perp_row_left">
 					<?php echo $arowtotal[$i];?>
 					</td>
 																					<?php
 																				}
 																			?>
-					<td align="center" valign="middle" class="forms_coumn_results_row">
+					<td align="center" valign="middle" class="perp_row_left">
 													
 						</td>																			
 					</tr>
 				<tr>
-					<td colspan="2" align="center" valign="middle" class="forms_coumn_results_row">
+					<td colspan="2" align="center" valign="middle" class="perp_row_left">
 						Average
 						</td>									
 																			<?php 
@@ -1269,7 +1113,7 @@ if ($tbldisplaytotal==1) {
 																					$tmpavg = round($tmpavg,2);
 																					
 																					?>
-					<td align="center" valign="middle" class="forms_coumn_results_row">
+					<td align="center" valign="middle" class="perp_row_left">
 																					<?php
 																					if($acalculatet[$i] == 1) {
 																							echo $tmpavg;
@@ -1282,7 +1126,7 @@ if ($tbldisplaytotal==1) {
 																					<?php
 																				}
 																			?>
-					<td align="center" valign="middle" class="forms_coumn_results_row">
+					<td align="center" valign="middle" class="perp_row_left">
 										
 						</td>		
 		<?php 
@@ -1311,19 +1155,25 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" name="recordrowcontrols" id="recordrowcontrols" />
+		<td name="recordrowcontrols" id="recordrowcontrols" class="perp_mainmenutable" />
 			&nbsp;
-			</td>	
-		<td rowspan="2">
-			<img src="images/_interface/lcars_bottom_right_sweep.png">
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" align="right" class="table_bottom_bottom_sweep_tail_extended" />
+		<td colspan="2" align="right" class="perp_mainmenutable" />
 			<?php
 			_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
-			_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
 			_tp_control_function_filters('sorting_controls','toggle','Filters');
+			
+			// Display Variables for Quick Access Option
+			//echo "Element 1: | ".$en_quickaccess_f." |<br>";
+			//echo "Element 2: | ".$strmenuitemid." |<br>";
+			//echo "Element 3: | ".$_SESSION["user_id"]." |<br>";
+			//echo "Element 4: | ".$en_quickaccess." |<br>";
+			//echo "Element 5: | ".$en_quickaccessno." |<br>";
+			
+			_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
+			
 			_tp_control_function_submit();
 			?>
 			</td>			

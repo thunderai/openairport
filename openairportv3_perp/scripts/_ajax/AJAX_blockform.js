@@ -67,16 +67,18 @@ function call_server_blockform(memnuid,userid,fieldtocontrol)
 
 			if (currentvalueinfield == 1) {
 				
-				var message = "Add + ";
+				var message = "Add ";
 				document.getElementById(fieldtocontrol).value		= 0;
 				document.getElementById(fieldtocontrol_show).innerHTML	= message;
+				document.getElementById('qac_icon_image').src = 'images/_interface/icons/icon_add.png';
 				
 				}
 			if (currentvalueinfield == 0) {
 				
-				var message = "Remove - ";
+				var message = "Remove ";
 				document.getElementById(fieldtocontrol).value 		= 1;
 				document.getElementById(fieldtocontrol_show).innerHTML	= message;
+				document.getElementById('qac_icon_image').src = 'images/_interface/icons/icon_remove.png';
 				
 				}
 				

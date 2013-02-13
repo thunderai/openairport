@@ -4,10 +4,21 @@ function loadquickaccessmenu($user) {
 
 	$ary_colors 	= array('table_button_side_top_dark1_qac','table_button_side_top_light2_qac','table_button_side_top_light1_qac');
 	$ary_types		= array('Browse','Monitor','New');
-
+	$icons_width	= 15;
+	$icons_height	= 15;
 ?>
-<table border="0" cellpadding="0" cellspacing="0" id="quickaccessitem" width="100%" style="border:0px;margin:0px;padding:0px;z-index:20;" />
+<table border="0" cellpadding="0" cellspacing="0" id="quickaccessitem" name="quickaccessitem" width="100%" style="border:0px;margin:0px;padding:0px;z-index:20;" />
+<?php
+	// Talk about F'd UP... The quick access menu WILL NOT WORK without the code below....
+	//		it does, but the first one is always broken... Not sure why that matters.
+	//		I can fool it into working by having a dummy button that you cant see.
+	?>
+	<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="QUC_MI<?php echo $tmpmenuitemid;?>" id="QUC_MI<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="_iframe-layouttableiframecontent"/>
+	<input type="hidden" name="menuitemid" id="menuitemid" value="<?php echo $tmpmenuitemid;?>">
+	<table /></table>
+	</form>	
 <?php 
+	// DONT DELETE THE LITTLE FORM ABOVE... SEE NOTES ABOVE IT!!!!!
 
 	$sql = "SELECT * FROM tbl_systemusers 
 			INNER JOIN tbl_quickaccess_control ON tbl_quickaccess_control.tbl_qac_systemuser_id = tbl_systemusers.emp_record_id 
@@ -15,7 +26,7 @@ function loadquickaccessmenu($user) {
 			WHERE tbl_systemusers.emp_record_id = ".$user." AND tbl_quickaccess_control.tbl_qac_hidden_yn = 0 
 			ORDER BY tbl_navigational_control.menu_item_name_short ";
 
-	//echo "The SQL Statement is :".$sql;
+	//echo "SQL <font size='1' color='#FFFFFF'> :".$sql;
 	
 	$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 	
@@ -38,23 +49,51 @@ function loadquickaccessmenu($user) {
 							$tmpmenuicon	= $newarray['menu_item_icon'];
 							
 							?>
-	<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;display:inline;" name="qac_menuitem<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="_iframe-layouttableiframecontent" />						
-	<tr>
-		<td>
-			<table border="0" width="100%" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;"/>
-				<tr>
-					<td name="OSpace_M<?php echo $tmpmenuitemid;?>" id="OSpace_M<?php echo $tmpmenuitemid;?>" 	class="item_space_inactive" onmouseover="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_active';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_active';" onmouseout="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" />&nbsp;</td>
-					<td name="Icon_M<?php echo $tmpmenuitemid;?>" 	id="Icon_M<?php echo $tmpmenuitemid;?>" 	class="item_icon_inactive" 	onmouseover="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_active';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_active';" onmouseout="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" /><img src="images/_interface/icons/<?php echo $tmpmenuicon;?>" width="15" height="15"></td>	
-					<td name="ISpace_M<?php echo $tmpmenuitemid;?>"	id="ISpace_M<?php echo $tmpmenuitemid;?>" 	class="item_space_inactive" onmouseover="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_active';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_active';" onmouseout="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" />&nbsp;</td>
-					<td name="Name_M<?php echo $tmpmenuitemid;?>" 	id="Name_M<?php echo $tmpmenuitemid;?>" 	class="item_name_inactive" 	onmouseover="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_active';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_active';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_active';" onmouseout="Name_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';OSpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';ISpace_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';Icon_M<?php echo $tmpmenuitemid;?>.className='item_name_inactive';" onclick="javascript:document.qac_menuitem<?php echo $tmpmenuitemid;?>.submit();" style="cursor:hand;" />
-						<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemid;?>" />
-						<?php echo $tmpmenusshortnl;?>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		</form>
+			<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="QUC_MI<?php echo $tmpmenuitemid;?>" id="QUC_MI<?php echo $tmpmenuitemid;?>" method="POST" action="<?php echo $tmpmenuurl;?>" target="_iframe-layouttableiframecontent"/>
+				<input type="hidden" name="menuitemid" id="menuitemid" value="<?php echo $tmpmenuitemid;?>">
+				<table 	name="MenuItem_<?php echo $tmpmenuitemid;?>" id="MenuItem_<?php echo $tmpmenuitemid;?>" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						width="100%" style="margin:0px;padding:0px;border:0px;border-collapse:collapse;" />
+					<tr>
+						<?php 
+						$OSpace_name 	= 'OSpace_MMQ'.$tmpmenuitemid;
+						$ISpace_name 	= 'ISpace_MMQ'.$tmpmenuitemid;
+						$Icon_name 		= 'Icon_MMQ'.$tmpmenuitemid;
+						$Name_name 		= 'Name_MMQ'.$tmpmenuitemid;				
+						?>
+						<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+							class="item_space_inactive" 
+							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
+							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							&nbsp;
+							</td>
+						<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+							class="item_icon_inactive" 
+							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
+							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							<img src="images/_interface/icons/<?php echo $tmpmenuicon;?>" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+							class="item_space_inactive" 
+							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
+							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							&nbsp;
+							</td>				
+						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+							class="item_name_inactive" 
+							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
+							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							<?php echo $tmpmenusshortnl;?>
+							</td>				
+						</tr>
+					</table>
+				</form>	
 							<?php 
 						}	// End of while loop
 					mysqli_free_result($res);

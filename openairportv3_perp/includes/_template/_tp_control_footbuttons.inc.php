@@ -6,6 +6,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 		//		2 - Force refresh of Browse Table/Form
 		//		3 - Push New Discrepancy Down
 		//		4 - Display Submit Button
+		//		5 - Display QuickAccess Button
 		// $formname
 		//		Name of the Form
 		// $otherid, Limited use
@@ -15,16 +16,20 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 		//		2							Not Used
 		//		3							ID of the main record being edited
 		//		4							ID of the main record being edited
+		//		5							ID of the Navigational Menu Item
 		// $scriptfunction
 		//		The name of the javascript function to use when pushing data
 
+		 $icons_width	= 25;
+		 $icons_height	= 25;
+		
 		if($detail == 1) {
 				?>
 				<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_mainmenubutton" />
 					<tr>			
 						<td name="OSpace_MClose" id="OSpace_MClose" 
 							class="item_space_inactive" 
@@ -72,7 +77,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_mainmenubutton" />
 					<tr>			
 						<td name="OSpace_MReload" id="OSpace_MReload" 
 							class="item_space_inactive" 
@@ -122,7 +127,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_mainmenubutton" />
 					<tr>			
 						<td name="OSpace_MAttach" id="OSpace_MAttach" 
 							class="item_space_inactive" 
@@ -163,7 +168,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_mainmenubutton" />
 					<tr>			
 						<td name="OSpace_MSubmit" id="OSpace_MSubmit" 
 							class="item_space_inactive" 
@@ -196,8 +201,10 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 						</tr>
 					</table>				
 				<?php
+				}
+			if($detail == 5) {
+					_tp_control_function_quickaccess($en_quickaccess_f	,$otherid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,'Add ',				'Remove '	,'frmfunctionqacactive');
+					}
 			}			
-			
-			
-	}
+
 	?>

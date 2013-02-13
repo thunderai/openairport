@@ -33,7 +33,8 @@
 	
 		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
 		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
-	
+		include("includes/gs_config.php");
+		
 // Load Page Specific Includes
 
 		//include("includes/_modules/part139337/part139337.list.php");
@@ -72,7 +73,7 @@
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= "Your Information - Edit Form";								// Name of the FORM, shown to the user
+			$form_menu			= "Enter New Persons";											// Name of the FORM, shown to the user
 			$form_subh			= "please complete the form";									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Here is the information about you that you can edit";		// Subt title of the FORM, shown to the user
 
@@ -89,7 +90,6 @@
 			
 			include("includes/_template/_tp_blockform_form_header.binc.php");
 	
-							
 			errorreport("[3]. In While Loop Show Form Elements",$debug);
 			
 			// FORM ELEMENTS
@@ -101,6 +101,7 @@
 			//																																																													3	Combobox	,
 			//																																																													4	Map Button	,
 			//																																																													5	Check box	,									
+			form_new_table_b($formname);
 			form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,""							,1				,35				,0				,''										,0);
 			form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,""							,1				,35				,0				,''										,0);
 			form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,""							,1				,35				,0				,''										,0);
@@ -112,18 +113,18 @@
 			
 			// Build List of all DashPanel Items
 			?>
-			<table width="100%">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" />
 				<tr>
-					<td class="formheaders">
+					<td class="item_name_active">
 						Dash Name
 						</td>
-					<td class="formheaders">
+					<td class="item_name_active">
 						Menu Name
 						</td>
-					<td class="formheaders">
+					<td class="item_space_active">
 						Display
 						</td>	
-					<td class="formheaders">
+					<td class="item_space_active">
 						Display Order
 						</td>
 					</tr>
@@ -163,17 +164,47 @@
 									
 									?>
 				<tr>
-					<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
+					<td name="dashname<?php echo $dash_id;?>" 
+						id="dashname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
 						<?php echo $dash_nl;?>
 						</td>
-					<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
+					<td name="dashmname<?php echo $dash_id;?>" 
+						id="dashmname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
 						<?php echo $menu_nl;?>
 						</td>
-					<td class="formresults" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()">
+					<td name="dashcheckbox<?php echo $dash_id;?>" 
+						id="dashcheckbox<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
 						<INPUT TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" >
 						</td>
-					<td class="formresults" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
-						<INPUT TYPE="text" SIZE="3" NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" VALUE="<?php echo $array_values[$dash_id][1];?>">
+					<td name="dashorder<?php echo $dash_id;?>" 
+						id="dashorder<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<select NAME="dashpri_<?php echo $dash_id;?>" ID="dashpri_<?php echo $dash_id;?>" />
+							<?php
+							for($i=0;$i<=$number_of_rows2;$i=$i+1) {
+									
+									if($i == $array_values[$dash_id][1]) {
+											$default = 'selected="selected"';
+										} else {
+											$default = '';
+										}
+									?>
+							<option value=<?php echo $i;?>" <?php echo $default;?>/><?php echo $i;?></option>
+									<?php
+								}
+								?>
+							</select>
 						</td>
 					</tr>
 									<?php
@@ -191,6 +222,7 @@
 		$display_close			= 0;														// 1: Display Close Button, 	0: No
 		$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 		$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+		$display_quickaccess	= 1;
 		
 	include("includes/_template/_tp_blockform_form_footer.binc.php");
 
@@ -218,6 +250,7 @@
 		//																																																																										|
 		//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\									|
 		//																																																																	 v									v
+		form_new_table_b($formname);
 		form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,"post"			,0);
 		form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
 		form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,'post'			,0);
@@ -273,21 +306,21 @@
 		// Now to do what we did before with the Dash Checklists, but we will have update issues and INSERT issues. 
 	
 		?>
-					<table width="100%">
-						<tr>
-							<td class="formheaders">
-								Dash Name
-								</td>
-							<td class="formheaders">
-								Menu Name
-								</td>
-							<td class="formheaders">
-								Display
-								</td>	
-							<td class="formheaders">
-								Display Order
-								</td>
-							</tr>
+			<table width="100%">
+				<tr>
+					<td class="item_name_active">
+						Dash Name
+						</td>
+					<td class="item_name_active">
+						Menu Name
+						</td>
+					<td class="item_space_active">
+						Display
+						</td>	
+					<td class="item_space_active">
+						Display Order
+						</td>
+					</tr>
 									<?php
 
 									// Load all DashPanel Functions, set their values to what the user has in their own settings
@@ -428,14 +461,26 @@
 															
 																?>
 						<tr>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $dash_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('<?php echo $dash_purp;?>')"; onMouseout="hideddrivetip()">
-								<?php echo $menu_nl;?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Check the box to display this Dash on your DashPanel')"; onMouseout="hideddrivetip()">
-								<?php
+					<td name="dashname<?php echo $dash_id;?>" 
+						id="dashname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $dash_nl;?>
+						</td>
+					<td name="dashmname<?php echo $dash_id;?>" 
+						id="dashmname<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_name_inactive" />
+						<?php echo $menu_nl;?>
+						</td>
+					<td name="dashcheckbox<?php echo $dash_id;?>" 
+						id="dashcheckbox<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<?php
 								if($formvalued == 1) {
 										?>
 								Yes
@@ -447,16 +492,16 @@
 									<?php
 								}
 								?>
-								</td>
-							<td class="formresults" onMouseover="ddrivetip('Enter a number to sort this Dash.  The lower the number the more top of the page it will be')"; onMouseout="hideddrivetip()">
-								<?php echo $formvaluep;?>
-								</td>
-							</tr>
+						</td>
+					<td name="dashorder<?php echo $dash_id;?>" 
+						id="dashorder<?php echo $dash_id;?>" 
+						onmouseover="togglebutton_M_D('<?php echo $dash_id;?>','on');" 
+						onmouseout="togglebutton_M_D('<?php echo $dash_id;?>','off');" 
+						class="item_space_inactive" />
+						<?php echo $formvaluep;?>
+						</td>
+					</tr>
 															<?php
-		
-																
-																
-																
 														}
 												}
 										}

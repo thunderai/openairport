@@ -186,6 +186,68 @@ function togglebutton_M_F(ButtonName,ButtonStatus) {
 
 }
 
+function togglebutton_M_Q(ButtonName,ButtonStatus) {
+	// Takes the given variables and colors a button accordingly
+	// Each button has four parts:
+	//		Outer SPace
+	//		Icon
+	//		Inner Space
+	//		Name
+	
+	// ButtonName will be a portion of the name of the button, the applicable four used names are:
+	
+	var OSpaceName = 'OSpace_MMQ' + escape(ButtonName);
+	var ISpaceName = 'ISpace_MMQ' + escape(ButtonName);
+	var IconName = 'Icon_MMQ' + escape(ButtonName);
+	var NameName = 'Name_MMQ' + escape(ButtonName);
+
+	if(ButtonStatus == 'off') {
+			// Turn the button off
+			document.getElementById(OSpaceName).className = 'item_space_inactive';
+			document.getElementById(ISpaceName).className = 'item_space_inactive';
+			document.getElementById(IconName).className = 'item_icon_inactive';
+			document.getElementById(NameName).className = 'item_name_inactive';		
+		} else {
+			// If Not OFF Turn the button ON
+			document.getElementById(OSpaceName).className = 'item_space_active';
+			document.getElementById(ISpaceName).className = 'item_space_active';
+			document.getElementById(IconName).className = 'item_icon_active';
+			document.getElementById(NameName).className = 'item_name_active';		
+		}
+
+}
+
+function togglebutton_M_D(ButtonName,ButtonStatus) {
+	// Takes the given variables and colors a button accordingly
+	// Each button has four parts:
+	//		Outer SPace
+	//		Icon
+	//		Inner Space
+	//		Name
+	
+	// ButtonName will be a portion of the name of the button, the applicable four used names are:
+	
+	var OSpaceName = 'dashname' + escape(ButtonName);
+	var ISpaceName = 'dashmname' + escape(ButtonName);
+	var IconName = 'dashcheckbox' + escape(ButtonName);
+	var NameName = 'dashorder' + escape(ButtonName);
+
+	if(ButtonStatus == 'off') {
+			// Turn the button off
+			document.getElementById(OSpaceName).className = 'item_name_inactive';
+			document.getElementById(ISpaceName).className = 'item_name_inactive';
+			document.getElementById(IconName).className = 'item_space_inactive';
+			document.getElementById(NameName).className = 'item_space_inactive';		
+		} else {
+			// If Not OFF Turn the button ON
+			document.getElementById(OSpaceName).className = 'item_name_active';
+			document.getElementById(ISpaceName).className = 'item_name_active';
+			document.getElementById(IconName).className = 'item_space_active';
+			document.getElementById(NameName).className = 'item_space_active';		
+		}
+
+}
+
 // Establish Global Mouse Script Variables
 
 		var gettotalvalue	= "";

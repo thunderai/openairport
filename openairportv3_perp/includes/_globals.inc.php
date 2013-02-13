@@ -33,7 +33,7 @@
 			include("includes/POSTs.php");																// include file that gets information from form posts for navigational purposes
 
 	// Legacy Includes
-			//include("includes/part139327Functions.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
+			//include("includes/gs_config.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 			//include("includes/AutoEntryFunctions.php");													// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 
 	// New Style Includes 			

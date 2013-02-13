@@ -97,7 +97,7 @@ function _327_display_report_summary($inspectionid = 0,$detail_level = 0,$return
 														ID
 														</td>
 													<td class='table_dashpanel_container_summary_rowresult'>
-														<a href='#' class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;part139327_report_display_new.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
+														<a class='table_dashpanel_container_summary_link' onclick='openmapchild(&quot;part139327_report_display_new.php?recordid=".$inspectionid."&quot;,&quot;SummaryWindow&quot;)'; />".$inspectionid."</a>
 														</td>
 													</tr>
 												<tr>		

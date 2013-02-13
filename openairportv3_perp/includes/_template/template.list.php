@@ -39,6 +39,7 @@
 			include("_tp_control_exports.inc.php");
 			include("_tp_control_controls.inc.php");
 			include("_tp_control_footbuttons.inc.php");
+			include("_tp_control_header_button.inc.php");
 			
 			include("_tp_control_sortby_archieved.inc.php");
 			include("_tp_control_sortby_closed.inc.php");
