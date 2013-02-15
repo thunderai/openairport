@@ -322,7 +322,9 @@ if (!isset($inspection_id)) {
 		
 		echo "PART ONE: Update Inpsection Record Table with new values <br>";
 		
-		$tmpdate = AmerDate2SqlDateTime($_POST['disdate']);
+		//$tmpdate = AmerDate2SqlDateTime($_POST['disdate']);
+		$tmpdate =($_POST['disdate']);
+		
 		$sql = "UPDATE tbl_139_327_main SET type_of_inspection_cb_int='".$_POST['distype']."', inspection_completed_by_cb_int='".$_POST['disauthor']."', 139327_date='".$tmpdate."', 139327_time='".$_POST['distime']."' WHERE inspection_system_id=".$_POST['recordid'];
 		
 		echo "[1][a][1] This is done with the following SQL Statement ".$sql." <br>";

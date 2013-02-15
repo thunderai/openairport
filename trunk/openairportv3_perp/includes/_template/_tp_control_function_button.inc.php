@@ -1,15 +1,23 @@
 <?php
-function _tp_control_function_submit($formname = 'sorttable') {
+function _tp_control_function_button($formname,$label,$icon,$action = '',$target = '') {
+	// Variables
+	//	$action		is the action destination of the controlling form
+	//	$formname	is the name of the HTML form element
+	//	$target		is the name of the target window location
+	//	$label		is the name of the button displayed to the user
+	//	$icon		is the location of the image to use as an icon
 
 	$icons_width		= 25;
 	$icons_height		= 25;
-	$fieldname			= 'submitformbutton';
+	$random_number_1	= rand(1,9999);
+	$random_number_2	= rand(1,9999);
+	$fieldname			= 'button'.$random_number_1.'_'.$random_number_2;
 	?>
 <table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menutable" />
+		class="perp_menubutton" />
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;
@@ -23,6 +31,7 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				
 				/>
 				
 				</td>
@@ -30,13 +39,15 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				
 				/>
-				<img src="images/_interface/icons/icon_submit.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
 			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+
 				/>
 				
 				</td>				
@@ -44,13 +55,15 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				
 				/>
-				<input class="makebuttonlooklikelargetext" type="submit" name="button" value="Submit" />
+				<input type="submit" value="<?php echo $label;?>" width="10" class="makebuttonlooklikelargetext">
 				</td>		
 			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
-				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');"
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				
 				/>
 				
 				</td>
@@ -58,6 +71,7 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				
 				/>
 				
 				</td>

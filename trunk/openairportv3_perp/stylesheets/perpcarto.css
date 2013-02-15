@@ -302,3 +302,12 @@ height:100%;
 			letter-spacing:2px;
 			height:25px;
 			}
+			
+.ajax_results_area {
+		font-size:14px;
+		font-family:Agency FB;
+		color: #FFFFFF; 
+		opacity: 	0.6;
+		text-align: left;
+		background-image:url('_cssimages/loginfields.png');
+}			

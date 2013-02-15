@@ -42,8 +42,8 @@
 		
 // Define Variables	
 		
-		$tblname		= "Edit Discrepancy Record";
-		$tblsubname		= "please complete the form";
+		$tblname		= "Additional Options";
+		$tblsubname		= "These additional options are avilable while editing this discrepancy";
 
 // Collect POST Information
 
@@ -59,7 +59,7 @@
 
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures	
 
@@ -90,186 +90,136 @@ if (!isset($_POST['recordid'])) {
 				if ($objrs) {
 						$number_of_rows = mysqli_num_rows($objrs);
 						?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php echo $tblname;?>
-									</td>
-								<td class="tableheaderright">
-									(<?php echo $tblsubname;?>)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php echo $tblname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php echo $tblsubname;?>
+				)
+				</td>				
+			</tr>
 						<?php
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								?>
-							<tr>
-								<td colspan="3">
-									<table border="0" cellspacing="0" cellpadding="0" width="100%">
-										<tr>
-											<td class="formoptionsavilabletop">
-												The following options are avilable to you
-												</td>
-											</tr>
-										<tr>
-											<td class="formoptionsavilablebottom">
-												<table>
-													<tr>
-														<?php
-														// Hijack Template Functions for our own purposes
-														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
-														$functionpage	= "part139327_discrepancy_report_archieved.php";														
-														_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);
-														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
-														$functionpage	= "part139327_discrepancy_report_duplicate.php";														
-														_tp_control_duplicate($objarray['Discrepancy_id'], $settingsarray, $functionpage);
-														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
-														$functionpage	= "part139327_discrepancy_report_error.php";														
-														_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
-														$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
-														$functionpage	= "part139327_discrepancy_report_closed.php";														
-														_tp_control_closed($objarray['Discrepancy_id'], $settingsarray, $functionpage);															
-														
-														// That was fun, love modules.  No need to do that for the rest as it's not so simple here.
-														// Need to figure out what the current status of this discrepancy is!
-														// Status:
-														//				0 - Work Order
-														//				1 - Repaired
-														//				2 - Bounced	
-														$status 				= part139327discrepancy_getstage($disid,0,0,0,0);
-														// Lie to the blockform
-														$imclearlyahijacker		= 1;
-														$functionworkorderpage 	= 1;
-														$functionworkorderpage	= 'part139327_discrepancy_report_display_workorder.php';
-														$functionrepairpage		= 'part139327_discrepancy_report_repair.php';
-														$functionbouncepage		= 'part139327_discrepancy_report_bounce.php';
-														$functionclosedpage		= 'part139327_discrepancy_report_closed.php';
-														$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
-														$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
-														$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
-														$has_been_bounced 		= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
-			$has_been_closed 		= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
-			$has_been_repaired 		= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
-			
-			//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
-			//echo "Been Closed 	: ".$has_been_closed." 		<br>";
-			//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
-			// Utilize our lies
-														include("includes/_template/_tp_blockform_workorder.binc.php");	
-														?>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="formoptionsavilabletop">
-									Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-									</td>
-								</tr>	
-							<tr>
-							<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-								<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
-								<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $objarray['Discrepancy_id'];?>">
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-									Date
-									</td>
-								<td class="formanswers">
-									<?php
-									$uidate = sqldate2amerdate($objarray['Discrepancy_date']);
-									?>											
-									<input class="Commonfieldbox" type="text" name="disdate" size="10" value="<?php echo $uidate;?>">
-									</td>
-								</tr>
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(24 Hour Time)')"; onMouseout="hideddrivetip()">
-									Time
-									</td>
-								<td class="formanswers">
-									<input class="Commonfieldbox" type="text" name="distime" size="10" value="<?php echo $objarray['Discrepancy_time'];?>">
-									</td>
-								</tr>	
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
-									Reported By
-									</td>
-								<td class="formanswers">
-									<?php
-									systemusercombobox("all", "all", "disauthor", "show", $objarray['Discrepancy_by_cb_int']);
-									?>
-									</td>
-								</tr>											
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-									Discrepancy Name
-									</td>
-								<td class="formanswers">
-									<input class="Commonfieldbox" type="text" name="disname" size="60" value="<?php echo $objarray['Discrepancy_name'];?>">
-									</td>
-								</tr>
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-									Comments
-									</td>
-								<td class="formanswers">
-									<TEXTAREA class="Commonfieldbox" name="discomments" rows="10" cols="60"><?php echo $objarray['discrepancy_remarks'];?></TEXTAREA>
-									</td>
-								</tr>
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-									Why Edit it?
-									</td>
-								<td class="formanswers">
-									<TEXTAREA class="Commonfieldbox" name="diseditwhy" rows="10" cols="60">I am editing this discrepancy because...</TEXTAREA>
-									</td>
-								</tr>								
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
-									Priority
-									</td>
-								<td class="formanswers">
-									<?php
-									part139327prioritycombobox("all", "all", "dispri", "show", $objarray['discrepancy_priority']);
-									?>
-									</td>
-								</tr>
-							<tr>
-								<td colspan="2" align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-									Location
-									</td>
-								<td class="formanswers">
-									X: &nbsp;	<input class="Commonfieldbox"	type="text"	NAME="MouseX"	ID="MouseX"	value="<?php echo $objarray['Discrepancy_location_x'];?>" size="4">, 
-									Y: &nbsp;	<input class="Commonfieldbox" 	type="text" NAME="MouseY"	ID="MouseY" value="<?php echo $objarray['Discrepancy_location_y'];?>" size="4">&nbsp;
-												<INPUT class="formsubmit" 		TYPE="button" 							VALUE="Map Discrepancy" 											onClick="openmapchild('_general_mappoint_add.php','Win2')">
-									</td>
-								</tr>											
-							<tr>
-								<td colspan="3" class="formoptionsavilablebottom">
-									<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">
-									</td>
-								</tr>
-									<?php 
+		<tr>
+			<td colspan="3" class="item_name_inactive">
+				<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+					<tr>
+						<?php
+						// Hijack Template Functions for our own purposes
+						$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_a WHERE discrepancy_archeived_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_archived.php");
+						$functionpage	= "part139327_discrepancy_report_archieved.php";														
+						_tp_control_archived($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+						$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
+						$functionpage	= "part139327_discrepancy_report_duplicate.php";														
+						_tp_control_duplicate($objarray['Discrepancy_id'], $settingsarray, $functionpage);
+						$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_e WHERE discrepancy_error_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_error.php");
+						$functionpage	= "part139327_discrepancy_report_error.php";														
+						_tp_control_error($objarray['Discrepancy_id'], $settingsarray, $functionpage);	
+						// We might normally want to display the Closed function, but Closed has a special meaning for 327 discrepancies. 
+						//	We only want it displayed if the discrepancy has really earned closed status..
+						//
+						//$settingsarray 	= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
+						//$functionpage	= "part139327_discrepancy_report_closed.php";														
+						//_tp_control_closed($objarray['Discrepancy_id'], $settingsarray, $functionpage);															
+						
+						// That was fun, love modules.  No need to do that for the rest as it's not so simple here.
+						// Need to figure out what the current status of this discrepancy is!
+						// Status:
+						//				0 - Work Order
+						//				1 - Repaired
+						//				2 - Bounced	
+						$status 				= part139327discrepancy_getstage($disid,0,0,0,0);
+						// Lie to the blockform
+						$imclearlyahijacker		= 1;
+						$functionworkorderpage 	= 1;
+						$functionworkorderpage	= 'part139327_discrepancy_report_display_workorder.php';
+						$functionrepairpage		= 'part139327_discrepancy_report_repair.php';
+						$functionbouncepage		= 'part139327_discrepancy_report_bounce.php';
+						$functionclosedpage		= 'part139327_discrepancy_report_closed.php';
+						$array_repairedcontrol	= array(0,0,'part139327_discrepancy_report_display_repaired.php');
+						$array_bouncedcontrol	= array(0,0,'part139327_discrepancy_report_display_bounced.php');
+						$array_closedcontrol	= array(0,0,'part139327_discrepancy_report_display_closed.php');
+						$has_been_bounced 		= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
+						$has_been_closed 		= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
+						$has_been_repaired 		= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
+						
+						//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
+						//echo "Been Closed 	: ".$has_been_closed." 		<br>";
+						//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
+						// Utilize our lies
+						include("includes/_template/_tp_blockform_workorder_browser.binc.php");	
+						?>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		<tr>
+						<?php
+						// FORM HEADER
+						// -----------------------------------------------------------------------------------------\\
+								$formname			= "edittable";													// HTML Name for Form
+								$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+								$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+									$formtarget		= "";															// HTML Name for the window
+									$location		= $formtarget;													// Leave the same as $formtarget
+						
+						// FORM NAME and Sub Title
+						//------------------------------------------------------------------------------------------\\
+								$form_menu			= "Edit Discrepancy";											// Name of the FORM, shown to the user
+								$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+								$subtitle 			= "Use this form to edit a discrepancy";							// Subt title of the FORM, shown to the user
+
+						// FORM SUMMARY information
+						//------------------------------------------------------------------------------------------\\
+								$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+									$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+									$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+									$detailtodisplay		= 0;													// See Summary Function for how to use this number
+									$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+										
+							include("includes/_template/_tp_blockform_form_header.binc.php");			
+							?>
+			<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $objarray['Discrepancy_id'];?>">
+							<?php
+							form_new_table_b($formname);
+							form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,$objarray['Discrepancy_date']		,0);
+							form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,$objarray['Discrepancy_time']		,0);
+							form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$objarray['Discrepancy_by_cb_int']	,"systemusercombobox");
+							form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,38		,0		,$objarray['Discrepancy_name']		,0);
+							form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,30		,4		,$objarray['discrepancy_remarks']	,0);
+							form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,10		,0		,$objarray['discrepancy_priority']	,"gs_conditions");
+							form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$objarray['Discrepancy_location_x'].','.$objarray['Discrepancy_location_y']			,'');
+							
+							//
+							// FORM FOOTER
+							//------------------------------------------------------------------------------------------\\
+									$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+										$submitbuttonname	= 'Submit Changes';											// Name of the Submit Button
+									$display_close			= 0;														// 1: Display Close Button, 	0: No
+									$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+									$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+									
+								include("includes/_template/_tp_blockform_form_footer.binc.php");
+
 								} 
 							}
 							?>
-
-							</table>
-						</td>
-					</tr>
-				</table>
-				</form>
+			</tr>
+		</table>
 					<?php
 					}
-				}	
-			//}
-			else {
+				} else {
 		
-		$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		$sqldate		= ($_POST['disdate']);
+		//echo 'POST DATE: ['.$_POST['disdate'].']';
+		
 		
 		// Make Changes to the Discrepancy Record
 
@@ -305,98 +255,54 @@ if (!isset($_POST['recordid'])) {
 						$objrs 			= mysqli_query($mysqli, $sql) or die(mysqli_error($mysqli));
 						$last_main_id 	= mysqli_insert_id($mysqli);
 						}							
-					?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php echo $tblname;?>
-									</td>
-								<td class="tableheaderright">
-									(<?php echo $tblsubname;?>)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="2" class="formoptionsavilabletop">
-												The Following Discrepancy was sucsessfully added to the Database, you may close this window now.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Date
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['disdate']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Time
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['distime']?>
-												</td>
-											</tr>	
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Reported By
-												</td>
-											<td class="formanswers">
-												<?php
-												systemusercombobox($_POST['disauthor'], "all", "disauthor", "hide", "");
-												?>
-												</td>
-											</tr>											
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Discrepancy Name
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['disname']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Comments
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['discomments']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Priority
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['dispri']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Location
-												</td>
-											<td class="formanswers">
-												X: &nbsp;<?php echo $_POST['MouseX']?>, Y: &nbsp;<?php echo $_POST['MouseY']?>
-												</td>
-											</tr>
-										<tr>
-											<td colspan="2" class="formoptionsavilablebottom">
-												<?php
-												// Display Reload Browse Page and Close current window
-												//						D Name of Form
-												_tp_control_footbuttons(2,"sorttable");
-												?>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>				
-				
-				<?php
+	
+			// FORM HEADER
+			// -----------------------------------------------------------------------------------------\\
+					$formname			= "edittable";													// HTML Name for Form
+					$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+					$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+						$formtarget		= "";															// HTML Name for the window
+						$location		= $formtarget;													// Leave the same as $formtarget
+			
+			// FORM NAME and Sub Title
+			//------------------------------------------------------------------------------------------\\
+					$form_menu			= "Discrepancy Edit Completed";									// Name of the FORM, shown to the user
+					$form_subh			= "The discrepancy has been successfully edited";				// Sub Name of the FORM, shown to the user
+					$subtitle 			= $warning;														// Subt title of the FORM, shown to the user
+
+			// FORM SUMMARY information
+			//------------------------------------------------------------------------------------------\\
+					$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+						$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+						$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+						$detailtodisplay		= 0;													// See Summary Function for how to use this number
+						$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+							
+				include("includes/_template/_tp_blockform_form_header.binc.php");		
+			
+			form_new_table_b($formname);
+			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,0		,0		,'post'					,0);
+			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,0		,0		,'post'					,0);
+			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,0		,0		,$_SESSION['user_id']	,"systemusercombobox");
+			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,0		,0		,'post'					,0);
+			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
+			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,0		,0		,'post'					,"gs_conditions");
+			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,0		,''		,'post'					,'');
+			
+			//
+			// FORM FOOTER
+			//------------------------------------------------------------------------------------------\\
+					$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+						$submitbuttonname	= '';														// Name of the Submit Button
+					$display_close			= 0;														// 1: Display Close Button, 	0: No
+					$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+						$pushdown_script	= '';
+						$pushdown_frmname	= '';
+						$pushdown_otherid	= '';
+					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+					
+				include("includes/_template/_tp_blockform_form_footer.binc.php");				
+
 		}
 	}
 

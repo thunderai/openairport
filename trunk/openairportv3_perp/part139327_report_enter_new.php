@@ -49,7 +49,7 @@
 
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures
 	
@@ -57,108 +57,129 @@ if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
 		?>
-						<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
-							<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
-							<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
-							<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php 
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									</td>
-								<td class="tableheaderright">
-									(
-									<?php 
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-												Type of Inspection
-												</td>
-											<td align="center" valign="middle" class="formoptions">
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
+		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
+		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
+		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>
+		<tr>
+			<td colspan="3" class="tablesubcontent">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" />
+					<tr>
+						<td class="item_name_active" />
+							Type of Inspection
+							</td>
+						<td class="item_name_inactive" />
+							<?php 
+							part139327typescombobox("all", "all", "InspCheckList", "show", "");
+							?>
+							</td>
+						<td class="item_right_inactive" />
+							<?php
+							_tp_control_function_button_ajax('call_server',$_SESSION['user_id'],'Get Checklist');
+							_tp_control_function_submit('entryform');
+							?>
+							</td>
+						</tr>			
+					<tr>
+						<td colspan="3" id="CheckListData" class="ajax_results_area">
+							<center>
+								Click the <b>"Get Checklist"</b> button above to load the selected checklist. Once you click the button please wait a moment for the checklist to load.
+								</center>
 												<?php 
-												part139327typescombobox("all", "all", "InspCheckList", "show", "");
-												?>
-												</td>
-											<td class="formoptions" align="center">
-												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server(<?php echo $_SESSION['user_id'];?>);"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" id="CheckListData" class="formoptionsavilablebottom">
-												<center>After clicking the 'Get Checklist' button, please wait a moment while the checklist loads</center>
-												<?php 
-												for ($i=0; $i<150; $i=$i+1) {
+												for ($i=0; $i<50; $i=$i+1) {
 														?>
-														<br>
+							<br>
 														<?php 
 													}
 												?>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							</form>
+							</td>
+						</tr>	
+					<tr>
+						<td colspan="5" class="item_space_active" />
+							<?php		
+									$formname = 'entryform';
+							//
+							// FORM FOOTER
+							//------------------------------------------------------------------------------------------\\
+									$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+										$submitbuttonname	= 'Start 327 Record';										// Name of the Submit Button
+									$display_close			= 0;														// 1: Display Close Button, 	0: No
+									$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+									$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+									$display_quickaccess	= 1;
+									
+								include("includes/_template/_tp_blockform_form_footer.binc.php");
+								?>
+							</td>
+						</tr>	
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>	
 		<?php 
 	}
 	else {
 		?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php 
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									</td>
-								<td class="tableheaderright">
-									(
-									<?php 
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" align="center" valign="middle" class="formheaders">
-												Create New Discrepancies
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Facility
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Condition
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Discrepancy
-												</td>
-											</tr>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>	
+	<tr>
+		<td colspan="3" class="item_name_inactive">
+			Please complete the form below in as much detail as possible, and please pay close attention to syntax.
+			</td>
+		</tr>
+	<tr>
+		<td colspan="3" class="item_name_active">
+			Create New Discrepancies
+			</td>
+		</tr>
+	<tr>
+		<td class="item_name_active" />
+			Facility
+			</td>
+		<td class="item_name_active" />
+			Condition
+			</td>
+		<td class="item_name_active" />
+			Discrepancy
+			</td>
+		</tr>
 		<?php 										
 		// Form has been submitted
 		// There are two things that must be done initialy before we go off to the discrepancy page.
@@ -272,50 +293,66 @@ if (!isset($_POST["formsubmit"])) {
 													// There is a discrepancy to show
 													//echo "Yes";
 													?>
-										<tr>
-											<td class="formresults">
-												<?php 
-												part139327facilitycombobox($tmpfacilityid, "all", "notused", "hide", "all");
-												?>
-												</td>
-											<td class="formresults">
-												<?php echo $tmpcondname;?>
-												</td>
-											<form style="margin-bottom:0;" action="part139327_discrepancy_report_new.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="openchild600('', 'AddDiscrepancy');" >
-											<td class="formresults" align="center" valign="middle">
-												<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
-												<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
-												<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
-												<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
-												<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
-												<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
-												<input type="submit" name="b1" 					value="Yes (Manage)"			class="formsubmit">
-												</td>
-											</form>
-											</tr>
+	<tr>
+		<td class="item_name_small_inactive">
+			<?php 
+			part139327facilitycombobox($tmpfacilityid, "all", "notused", "hide", "all");
+			?>
+			</td>
+		<td class="item_name_small_inactive">
+			<?php echo $tmpcondname;?>
+			</td>
+		<?php
+		$form_name		= 'dform3';
+		$random_element = rand(1,9999);
+		$targetname 	= '_iframe-'.$form_name.'_'.$random_element;
+		$dhtml_name 	= 'dhtmlwindow_'.$form_name.'_'.$random_element;
+		?>		
+		<form style="margin-bottom:0;" action="part139327_discrepancy_report_new.php" method="POST" name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', 'Add Discrepancy', 'width=600px,height=300px,resize=1,scrolling=1,center=1')" />
+		<td class="item_name_active" />
+			<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
+			<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
+			<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
+			<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
+			<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
+			<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
+			<input NAME="targetname" ID="targetname"
+				value="<?php echo $targetname;?>" 
+				type="hidden" />
+			<input NAME="dhtmlname" ID="dhtmlname"
+				value="<?php echo $dhtml_name;?>" 
+				type="hidden" />
+			<?php
+			_tp_control_function_button($form_name,'Manage Discrepancies','icon_add','part139327_discrepancy_report_new.php',$targetname);
+			?>	
+			</td>
+		</form>
+		</tr>
 											<?php 
 											}
 									}
 							}
 							?>
-										<tr class="formresults">
-											<td colspan="3" name="addeddis" id="addeddis">
-												<center>New Discrepancies will be added here as you add new ones from the "Yes (manage)' from above</center>
-												<?php 
-												for ($i=0; $i<20; $i=$i+1) {
-														?>
-														<br>
-														<?php 
-													}
-												?>
-												</td>
-											</tr>
-										<form style="margin-bottom:0;" action="part139327_report_save_new.php" method="POST" name="printform" id="printform">
-										<tr>
-											<td colspan="3" align="center" valign="middle" class="formheaders">
-												Link unassociated Discrepancies
-												</td>
-											</tr>
+	<tr >
+		<td colspan="3" name="addeddis" id="addeddis" class="item_name_active">
+			<center>
+				New Discrepancies will be added here as you add new ones from the "Manage Discrepancies" button from above in any Facility
+				</center>
+			<?php 
+			for ($i=0; $i<10; $i=$i+1) {
+					?>
+						<br>
+					<?php 
+				}
+			?>				
+			</td>
+		</tr>
+	<form style="margin-bottom:0;" action="part139327_report_save_new.php" method="POST" name="printform" id="printform">
+	<tr>
+		<td colspan="3" align="center" valign="middle" class="item_name_active">
+			Link unassociated Discrepancies
+			</td>
+		</tr>
 							<?php
 							//	List ALL discrepancies by THIS author in the temporary discrepancy folder for possible linking
 							//	Mark all temporary discrepancies as linked by default
@@ -332,25 +369,25 @@ if (!isset($_POST["formsubmit"])) {
 													$number_of_rows = mysqli_num_rows($objrs_support);
 													if ($number_of_rows == 0) {
 															?>
-										<tr>
-											<td colspan="3" align="center" valign="middle" class="formresults">
-												You have no discrepancies required to be linked
-												</td>
-											</tr>
+	<tr>
+		<td colspan="3" align="center" valign="middle" class="item_name_active">
+			You have no discrepancies required to be linked
+			</td>
+		</tr>
 															<?php
 														}
 														?>
-										<tr>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Discrepancy Name
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Priority
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Add to Inspection
-												</td>
-											</tr>			
+	<tr>
+		<td class="item_name_active" />
+			Discrepancy Name
+			</td>
+		<td class="item_name_active" />
+			Priority
+			</td>
+		<td class="item_name_active" />
+			Add to Inspection
+			</td>
+		</tr>			
 															<?php
 															while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
 																	$tmpsuppliedid 		= $objfields['Discrepancy_id'];
@@ -360,41 +397,38 @@ if (!isset($_POST["formsubmit"])) {
 																	$tmpa 				= $tmpvalue."za";
 																	$tmpd				= $tmpvalue."zd";
 																	?>
-										<tr>
-											<td align="center" valign="middle" class="formresults">
-												<?php echo $tmpsuppliedname;?>
-												</td>
-											<td align="center" valign="middle" class="formresults">
-												<?php echo $tmpsuppliednames;?>
-												</td>
-											<td align="center" valign="middle" class="formresults">
-												<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1" CHECKED>
-												</td>
-											</tr>
+	<tr>
+		<td class="item_name_inactive">
+			<?php echo $tmpsuppliedname;?>
+			</td>
+		<td class="item_name_inactive">
+			<?php echo $tmpsuppliednames;?>
+			</td>
+		<td class="item_name_inactive">
+			<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1" CHECKED>
+			</td>
+		</tr>
 																	<?php
 																}
 														}
 												}
 												?>
-										<tr>
-											<td class="formoptionsavilablebottom" colspan="3">
-												<input type="hidden" 		name="recordid"			id="recordid"		value="<?php echo $inspectiontmpid;?>">
-												<input type="hidden"		name="strmenuitemid"	id="strmenuitemid" 	value="<?php echo $strmenuitemid;?>">
-												<input type="hidden"		name="frmstartdate"		id="frmstartdate" 	value="<?php echo $frmstartdate;?>">
-												<input type="hidden"		name="frmenddate"		id="frmenddate" 	value="<?php echo $frmenddate;?>">
-												<input type="submit" name="b1" 					value="Save Report >>>"			class="formsubmit">
-												</td>
-											</form>
-										</table>
-									</td>
-								</tr>
-							<tr>
-								<td>
-									<br><br><br>
-									</td>
-								</tr>
-							</table>
-							<?php 
+	</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table3" align="left" valign="top" class="item_name_active" />
+	<tr>
+		<td class="item_name_active" colspan="3">
+			<input type="hidden" 		name="recordid"			id="recordid"		value="<?php echo $inspectiontmpid;?>">
+			<input type="hidden"		name="strmenuitemid"	id="strmenuitemid" 	value="<?php echo $strmenuitemid;?>">
+			<input type="hidden"		name="frmstartdate"		id="frmstartdate" 	value="<?php echo $frmstartdate;?>">
+			<input type="hidden"		name="frmenddate"		id="frmenddate" 	value="<?php echo $frmenddate;?>">
+			<input type="hidden" 		name="inspector"							value="<?php echo $_POST['inspector'];?>" />
+			<?php
+			_tp_control_function_submit('printform');
+			?>
+			</td>
+		</tr>
+	</table>
+												<?php 
 							
 						}
 	}

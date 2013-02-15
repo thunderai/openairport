@@ -148,6 +148,37 @@ if (!isset($_GET["location"])) {
 		//$tmp_locationy 	= $alocation_s[1];	
 	}
 	
+if (!isset($_POST["targetname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		$tmp_targetname		= $_GET['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'GET VALUE IS ['.$tmp_targetname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_targetname		= $_POST['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'POST VALUE IS ['.$tmp_targetname.'] <br>';
+	}	
+
+if (!isset($_POST["dhtmlname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		// No Record ID defined in POST, use GET record id
+		$tmp_dhtmlname		= $_GET['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;
+		//echo 'GET VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_dhtmlname		= $_POST['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;		
+		//echo 'POST VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}	
+
 // Define Variables	
 		
 		$navigation_page 			= 37;							// Belongs to this Nav Item ID, see function for notes!
@@ -201,30 +232,38 @@ if (!isset($_POST["formsubmit"])) {
 					<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
 					<?php
 		
+		form_new_table_b($formname);
 		form_new_control("disauthor"		,"Entry By"				, "Who entered this note"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,50		,0		,$_SESSION['user_id']	,"systemusercombobox");
 		form_new_control("disname"			,"Subject Note Name"	, "Enter a short and concise name for this note"										,"Do not use any special characters!"					,""							,1		,47		,0		,''						,0);
 		form_new_control("discomments"		,"Subject Comments"		, "Provide your remarks for this note"													,"Do not use any special characters!"					,""							,2		,35		,4		,''						,0);
 		
-										
-	//
-	// FORM FOOTER
-	//------------------------------------------------------------------------------------------\\
-			$display_submit 		= 1;														// 1: Display Submit Button,	0: No
-				$submitbuttonname	= 'Submit';														// Name of the Submit Button
-			$display_close			= 1;														// 1: Display Close Button, 	0: No
-			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
-			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
-			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");											
+		// FORM UNIVERSAL CONTROL LOADING
+		//------------------------------------------------------------------------------------------\\
+		
+		//$targetname		= $_GET['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+		//$dhtml_name		= $_GET['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+		form_uni_control("targetname"		,$tmp_targetname);
+		form_uni_control("dhtmlname"		,$tmp_dhtmlname);
+												
+		//
+		// FORM FOOTER
+		//------------------------------------------------------------------------------------------\\
+				$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+					$submitbuttonname	= 'Submit';														// Name of the Submit Button
+				$display_close			= 1;														// 1: Display Close Button, 	0: No
+				$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+				
+			include("includes/_template/_tp_blockform_form_footer.binc.php");											
 
-		}
-	else {
+		} else {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown
 		
 		// Step 1). Load into an array all of the values from the form
 
-		$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		$sqldate		=($_POST['disdate']);
 
 		if($_POST['golive'] == 1) {
 				//echo "Dicrepancy will be pushed to the live table <br>";
@@ -282,9 +321,19 @@ if (!isset($_POST["formsubmit"])) {
 						
 			include("includes/_template/_tp_blockform_form_header.binc.php");			
 		
+		form_new_table_b($formname);
 		form_new_control("disauthor"		,"Entry By"				, "Who entered this note"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,0		,0		,$_SESSION['user_id']	,"systemusercombobox");
 		form_new_control("disname"			,"Subject Note Name"	, "Enter a short and concise name for this note"										,"Do not use any special characters!"					,""							,1		,0		,0		,$_POST['disname']		,0);
 		form_new_control("discomments"		,"Subject Comments"		, "Provide your remarks for this note"													,"Do not use any special characters!"					,""							,2		,0		,4		,$_POST['discomments']	,0);
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
 		
 	//
 	// FORM FOOTER

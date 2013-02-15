@@ -33,7 +33,11 @@
 		float:left;
 		
 		}
-
+		
+.perp_menubutton {
+		float:left;
+		height:100%;
+		}
 .perp_mainmenutable {
 		float:left;
 		text-align: left;

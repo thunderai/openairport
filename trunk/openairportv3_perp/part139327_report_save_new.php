@@ -714,33 +714,35 @@
 	
 	//echo "Menu Item ID :".$strmenuitemid;
 	
-	buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+	//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 
 // Display end report		
 		?>
-		
-		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="10" class="tableheaderleft">&nbsp;</td>
-				<td class="tableheadercenter">
-					Enter New Part 139.327 Inspection
-					</td>
-				<td class="tableheaderright">
-					(
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
+		<tr>
+			<td class="perp_menuheader" />
+				Enter New Part 139.327 Inspection
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
 					Inspection Saved
 					)
-					</td>
-				</tr>
+				</td>				
+			</tr>
+		<tr>
+			<td colspan="3" class="item_space_inactive">
+				Part 139.327 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
+				</td>
+			</tr>		
 			<tr>
-				<td colspan="3" align="center" valign="middle" class="formheaders">
-					Part 139.327 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
-					</td>
-				</tr>		
-			<tr>
-				<form style="margin-bottom:0;" action="part139327_report_display_new.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport">
-				<td class="formoptionsavilablebottom" colspan="3">
+				<form style="margin-bottom:0;" action="part139327_report_display_new.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport" onsubmit="open_new_report_window('','_printerfriendlyreport');" />
+				<td class="item_name_active" colspan="3">
 					<input type="hidden" name="recordid" 			value="<?php echo $inspectionid;?>">
-					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">
+					<?php
+					_tp_control_function_submit('printform');
+					?>
 					</td>
 					</form>
 				</tr>

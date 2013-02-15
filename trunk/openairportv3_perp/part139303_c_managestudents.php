@@ -90,7 +90,17 @@ if (!isset($_POST["formsubmit"])) {
 		//-----------------------------------------------------------------------------------------\\	
 		//
 		//				Field Name			Field Text Name				Field Comment										Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function			, Ajax Push	, Ajax Push to Cell ID, 	, Ajax Script to Run			, Ajax Push ID		
+		form_new_table_b($formname);
 		form_new_control("pushstudent"		,"Select a Student"			, "Select a Student from the lift to the right."	,"and click the 'add' button.!"							,"ADD"				,3			,35				,0				,""						,'systemusercombobox'	, 1			, 'activestudents'			, 'call_server_303c_students'	,	$recordid);
+		
+		// FORM UNIVERSAL CONTROL LOADING
+		//------------------------------------------------------------------------------------------\\
+		
+		$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+		$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+		form_uni_control("targetname"		,$targetname);
+		form_uni_control("dhtmlname"		,$dhtml_name);
+		
 		// FORM FOOTER
 		//------------------------------------------------------------------------------------------\\
 				$display_submit 		= 0;														// 1: Display Submit Button,	0: No
@@ -100,7 +110,7 @@ if (!isset($_POST["formsubmit"])) {
 				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 		?>
 		<tr>
-			<td colspan="2" class="formoptions" name="activestudents" id="activestudents">
+			<td colspan="6" class="item_name_inactive" name="activestudents" id="activestudents">
 				<?php 
 				load_303c_students('init',$recordid);
 				?>
@@ -135,9 +145,18 @@ if (!isset($_POST["formsubmit"])) {
 					$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
 			include("includes/_template/_tp_blockform_form_header.binc.php");	
-	
+		
+		form_new_table_b($formname);
 		form_new_control("disoutline"		,"Class Outline"			, "Select the PDF Document for the Class Outline"	,"File Must be a PDF Document!"							,"(PDF)"			,1			,0				,0				,"post"						,0);
 		form_new_control("dissignin"		,"Class Signin"				, "Select the PDF Document for the Class Singin"	,"File Must be a PDF Document!"							,"(PDF)"			,1			,0				,0				,"post"						,0);
+		// FORM UNIVERSAL CONTROL LOADING
+		//------------------------------------------------------------------------------------------\\
+		
+		$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+		$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+		form_uni_control("targetname"		,$targetname);
+		form_uni_control("dhtmlname"		,$dhtml_name);
+		
 		//
 		// FORM FOOTER
 		//------------------------------------------------------------------------------------------\\

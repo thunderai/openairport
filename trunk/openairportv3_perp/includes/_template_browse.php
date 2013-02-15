@@ -75,9 +75,11 @@
 //	Take information from POST and setup some variables which will be used to control information flow
 
 		$uifrmstartdate 		= $frmstartdate;
-		$sqlfrmstartdate 		= amerdate2sqldatetime($uifrmstartdate);		
+		//$sqlfrmstartdate 		= amerdate2sqldatetime($uifrmstartdate);	
+		$sqlfrmstartdate 		=($uifrmstartdate);
 		$uifrmenddate 			= $frmenddate;
-		$sqlfrmenddate 			= amerdate2sqldatetime($uifrmenddate);
+		//$sqlfrmenddate 			= amerdate2sqldatetime($uifrmenddate);
+		$sqlfrmenddate 			=($uifrmenddate);
 
 // Build the breadcrum navigation method
 		//buildbreadcrumtrail($strmenuitemid,$uifrmstartdate,$uifrmenddate);
@@ -739,8 +741,20 @@ if ($tbldisplaytotal==1) {
 						$targetname = '_iframe-i'.$objarray[$tblkeyfield].'EditWindow_iframe_win';
 						$dhtml_name = 'i'.$objarray[$tblkeyfield].'EditWindow_iframe_var';
 						?>
-						</td>	
-					<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('i<?php echo $objarray[$tblkeyfield];?>EditWindow_iframe_win', 'iframe', '', 'Edit Form for Record <?php echo $objarray[$tblkeyfield];?>', 'width=600px,height=400px,resize=1,scrolling=1,center=1', 'recal')" />
+						</td>
+					<?php
+					$openwindow = 0;
+					
+					if($openwindow == 0) {
+						?>
+						<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="_iframe-layouttableiframecontent" />
+						<?php
+						} else {
+						?>
+						<form style="margin-bottom:0;" action="<?php echo $functioneditpage;?>" method="POST" name="editform" id="editform" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('i<?php echo $objarray[$tblkeyfield];?>EditWindow_iframe_win', 'iframe', '', 'Edit Form for Record <?php echo $objarray[$tblkeyfield];?>', 'width=600px,height=400px,resize=1,scrolling=1,center=1', 'recal')" />
+						<?php
+						}
+					?>
 					<td class="table_browse_row_functions_gaps" />
 						<input NAME="targetname" ID="targetname"
 							value="<?php echo $targetname;?>" 
@@ -1028,7 +1042,7 @@ if ($tbldisplaytotal==1) {
 																					if ($runpostflights == 1) {
 																							// Run Post flight procedures
 																							?>
-		<td  class="perp_row_commands" onclick="divwin_<?php echo $div_counter;?>=dhtmlwindow.open('divform_<?php echo $div_counter;?>_div', 'div', 'divform_<?php echo $div_counter;?>', 'Record Controls', 'width=200px,height=100px,left=200px,top=150px,resize=1,scrolling=1'); return false"/>
+		<td  class="perp_row_commands" />
 			<div style="display:none;" name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
 				<table width="100%" class="perp_mainmenutable" />
 					<tr>
@@ -1044,7 +1058,10 @@ if ($tbldisplaytotal==1) {
 						</tr>
 					</table>
 				</div>
-				<?php echo $en_open_commands;?>
+				<?php
+				
+				_tp_control_function_button_div('divform_'.$div_counter,$en_open_commands,'icon_window','divform_'.$div_counter,'','200','200');
+				?>
 			</td>		
 		</tr>
 																							<?php

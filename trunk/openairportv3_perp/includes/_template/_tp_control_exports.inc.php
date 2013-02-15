@@ -192,6 +192,7 @@ function _tp_control_exports($array_settings) {
 			
 			$fieldname = 'printout';
 			$function_cal = $function_printout;
+			$function_cal_icon = 'icon_report';
 			$function_url = $function_po_url;
 			$function_page = $function_po_page;
 			

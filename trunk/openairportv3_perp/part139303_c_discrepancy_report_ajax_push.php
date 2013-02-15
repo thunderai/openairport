@@ -32,6 +32,8 @@
 // Load Global Include Files
 	
 		include("includes/_globals.inc.php");												// Need Global Variable Information
+		include("includes/_template_enter.php");
+		//include("includes/_template/template.list.php");
 		
 // Load Page Specific Includes
 
@@ -46,20 +48,20 @@
 		
 // Start Procedures		
 		?>
-				<table cellspacing="0" cellpadding="0" width="100%">
-					<tr>
-						<td colspan="2" align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-							Class Subject Notes Added for this Inspection
-							</td>
-						</tr>
-					<tr>
-      					<td class="formheaders" onMouseover="ddrivetip('Category of Inspection')"; onMouseout="hideddrivetip()">
-      							Name
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Detail to Inspect')"; onMouseout="hideddrivetip()">
-      							Remarks
-							</td>
-						</tr>
+	<table cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+			<td colspan="2" class="item_name_inactive" />
+				Class Subject Notes Added for this Inspection
+				</td>
+			</tr>
+		<tr>
+			<td class="item_name_active" />
+					Name
+				</td>
+			<td class="item_name_active" />
+					Remarks
+				</td>
+			</tr>
 		<?php
 		// Define SQL
 		$sql = "SELECT * FROM tbl_139_303_c_sub_d WHERE Discrepancy_inspection_id = '".$tmp_inspectionid."'";
@@ -81,23 +83,24 @@
 						if($number_of_rows == 0) {
 								// There are no records in this dataset
 								?>
-					<tr>
-						<td height="28" class="formresults" colspan="4">
-						No Discrepancies Added
-						</tr>
+		<tr>
+			<td colspan="4" class="item_name_active" />
+				No Discrepancies Added
+				</td>
+			</tr>
 								<?php
 							}
 							else {					
 								while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
 										?>
-					<tr>
-      					<td class="formresults" onMouseover="ddrivetip('Category of Inspection')"; onMouseout="hideddrivetip()">
-      							<?php echo $objfields['Discrepancy_name'];?>
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('Detail to Inspect')"; onMouseout="hideddrivetip()">
-      							<?php echo $objfields['discrepancy_remarks'];?>
-							</td>
-						</tr>										
+		<tr>
+			<td class="item_name_inactive" />
+					<?php echo $objfields['Discrepancy_name'];?>
+				</td>
+			<td class="item_name_inactive" />
+					<?php echo $objfields['discrepancy_remarks'];?>
+				</td>
+			</tr>										
 										<?php
 									}
 									mysqli_free_result($res);
@@ -106,4 +109,4 @@
 					}
 			}
 					?>
-					</table>
+		</table>

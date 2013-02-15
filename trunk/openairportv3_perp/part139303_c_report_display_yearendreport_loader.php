@@ -93,12 +93,22 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+	form_new_table_b($formname);
 	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
 	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
 	form_new_control("frm_facility"		,"Facility"					, "Select a Facility"				,"Select a facility from the list provided!"			,""					,3			,50				,0				,"all"					,"part139303_c_facilitycomboboxwall");
 	form_new_control("frm_condition"	,"Condition"				, "Select a Condition"				,"Select an condition from the list provided!"			,""					,3			,35				,4				,"all"					,"part139303_c_conditioncomboboxwall");
 	form_new_control("frm_student"		,"Students"					, "Select a Student"				,"Select an student from the list provided!"			,""					,3			,35				,4				,"all"					,"systemusercomboboxwall");
 	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""				,5						,50				,0				,"all"					,0);
+
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\

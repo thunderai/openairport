@@ -37,7 +37,7 @@ function sever_interaction_pnsn()
 		{
 		var answer = request.responseText.split("|");
 		//alert(answer);
-		opener.document.getElementById("addeddis").innerHTML = answer;
+		parent.document.getElementById("addeddis").innerHTML = answer;
 		
 		var iframeids=["layouttableiframecontent"]		
 		if (window.addEventListener)

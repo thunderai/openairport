@@ -13,7 +13,7 @@ if($functionworkorderpage == '') {
 			// No Workorder page defined, but do we still want to display some options anyway?
 			//		Like Mark Closed and Closed History?
 			//		is there a defined value in the closed function page?
-			if($functionclosedpage == '') {
+/* 			if($functionclosedpage == '') {
 					
 					// No there is not, so dont display this control
 				} else {
@@ -22,7 +22,7 @@ if($functionworkorderpage == '') {
 					
 					_tp_control_closed($tblkeyvalue, $array_closedcontrol, $functionclosedpage);															
 					
-				}
+				} */
 		}
 		else {
 			// To do this efficiently, run the discrepancy stage function and get the current status of the active discrepancy

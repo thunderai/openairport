@@ -248,6 +248,28 @@ function togglebutton_M_D(ButtonName,ButtonStatus) {
 
 }
 
+function togglebutton_M_C(ButtonName,ButtonStatus,maxcol) {
+	// ButtonName is the dynamic part of the column to change
+	// ButtonStatus is the direction to change in
+	// maxcol is the maximum number of columns in the row
+
+	for (var i=1;i<=maxcol;i++) { 
+		// Loop through the columns and change them as needed
+		var td_name = "col_" + i + '_r' + ButtonName;
+		//alert(td_name);
+		
+		if(ButtonStatus == 'off') {
+				// Turn the button off
+				document.getElementById(td_name).className = 'item_name_small_inactive';	
+			} else {
+				// If Not OFF Turn the button ON
+				document.getElementById(td_name).className = 'item_name_small_active';	
+			}
+			
+		}
+
+}
+
 // Establish Global Mouse Script Variables
 
 		var gettotalvalue	= "";

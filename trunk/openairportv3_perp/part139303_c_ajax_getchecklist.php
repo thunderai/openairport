@@ -31,10 +31,14 @@
 
 // Load Global Include Files
 	
-		include("includes/_globals.inc.php");												// Need Global Variable Information
+		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
+		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
+		include("includes/gs_config.php");
 		
 // Load Page Specific Includes
 
+		include("includes/_template_enter.php");
+		include("includes/_template/template.list.php");
 		include("includes/_modules/part139303/part139303.list.php");
 	
 // Define Variables	
@@ -46,46 +50,31 @@
 		
 // Start Procedures		
 		?>
-			<center>
-				<table cellspacing="3" cellpadding="5" width="100%">
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" name="frmdate" size="10" value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Time
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" name="frmtime" size="10" value="<?echo date("H:i:s");?>">
-							</td>
-						</tr>
-					</table>
-				<table cellspacing="0" cellpadding="0" width="100%">
-					<tr>
-      					<td class="formheaders" onMouseover="ddrivetip('REgulatory Requirement or Focus Group')"; onMouseout="hideddrivetip()">
-      							Focus Group (Regulation)
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Topic of Class Subject')"; onMouseout="hideddrivetip()">
-      							Class Topic
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Was this topic covered in the actual class?')"; onMouseout="hideddrivetip()">
-      							Taught ?
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Enter the number of hours spent in each subject area')"; onMouseout="hideddrivetip()">
-      							Minutes
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Click the ADD button to provide addtional information about a topic as needed.')"; onMouseout="hideddrivetip()">
-      							Notes 
-							</td>						
-						</tr>
-					<tr>
-						<td colspan="4" class="header">
-							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<?php
+	form_new_control('frmdate'			, 'Date'			, 'Enter the date this record was made'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
+	form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
+	?>
+	</table>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr>
+		<td class="item_space_active" />
+				Focus Group (Regulation)
+			</td>
+		<td class="item_space_active" />
+				Class Topic
+			</td>
+		<td class="item_space_active" />
+				Taught ?
+			</td>
+		<td class="item_space_active" />
+				Minutes
+			</td>
+		<td class="item_space_active" />
+				Notes 
+			</td>						
+		</tr>
+			<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
 							<?php
 							// Define SQL
 							$sql = "SELECT * FROM tbl_139_303_c_sub_c 
@@ -110,43 +99,76 @@
 											if($number_of_rows == 0) {
 													// There are no records in this dataset
 													?>
-					<tr>
-						<td height="28" class="formresults" colspan="4">
-						Checklist is empty.
-						</tr>
+	<tr>
+		<td class="item_space_active" colspan="5" />
+			Checklist is empty.
+			</td>
+		</tr>
 													<?php
-												}
-												else {					
+												} else {					
 													while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
 															$tmpid = $objfields['conditions_id'];
 															?>
-					<tr>
-      					<td height="28" class="formresults" onMouseover="ddrivetip('<?php echo $objfields["facility_name"];?>','yellow',300)"; onMouseout="hideddrivetip()">
-      						&nbsp;
-							<?php
-							$tmpfacility = $objfields["condition_facility_cb_int"];
-							//part139303_c_c_typescombobox($tmpfacility, "all", "notused", "hide", "all");
-							$tmpvalue 	= (string) $tmpid;
-							$tmpa 		= $tmpvalue."za";
-							$tmpd		= $tmpvalue."zd";
-							$tmpe		= $tmpvalue."ze";
-							?>
-							<?php echo $objfields["facility_name"];?>
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('<?php echo $objfields["condition_name"];?>','yellow',450)"; onMouseout="hideddrivetip()">
-      						&nbsp;
-							<?php echo $objfields["condition_name"];?>
-							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('If this topic was covered in the class, click the checkbox. Otherwise leave unchecked.')"; onMouseout="hideddrivetip()">
-      						<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpa;?>" value="1" CHECKED>
-							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('Enter the number of minutes spent on this topic.')"; onMouseout="hideddrivetip()">
-      						<input class="commonfieldbox" type="text" ID="<?=$tmpe;?>" name="<?=$tmpe;?>" value="15" size="3">
-							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('Provide additional comments about this topic, such as important notes about the trainin session or what you feel is appropriate.  You will upload a class outline and student attenance sheet on the next page. Do not place that information here.')"; onMouseout="hideddrivetip()">
-							<INPUT class="formsubmit" TYPE="button" VALUE="ADD" onClick="openchild600('part139303_c_discrepancy_report_new.php?facility=<?php echo $tmpfacility;?>&condition=<?php echo $tmpid;?>&checklist=<?php echo $InspCheckList;?>','EnterNewDiscrepancy')">
-							</td>							
-						</tr>
+	<tr>
+		<td name="col_1_r<?php echo $tmpid;?>"
+			id="col_1_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',5);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',5);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<?php
+			$tmpfacility = $objfields["condition_facility_cb_int"];
+			//part139303_c_c_typescombobox($tmpfacility, "all", "notused", "hide", "all");
+			$tmpvalue 	= (string) $tmpid;
+			$tmpa 		= $tmpvalue."za";
+			$tmpd		= $tmpvalue."zd";
+			$tmpe		= $tmpvalue."ze";
+			?>
+			<?php echo $objfields["facility_name"];?>
+			</td>
+		<td name="col_2_r<?php echo $tmpid;?>" 
+			id="col_2_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',5);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',5);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<?php echo $objfields["condition_name"];?>
+			</td>
+		<td name="col_3_r<?php echo $tmpid;?>"
+			id="col_3_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',5);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',5);" 
+			class="item_name_small_inactive"
+			/>
+			<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpa;?>" value="1" CHECKED>
+			</td>
+		<td name="col_4_r<?php echo $tmpid;?>"
+			id="col_4_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',5);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',5);" 
+			class="item_name_small_inactive"
+			/>
+			<input class="commonfieldbox" type="text" ID="<?=$tmpe;?>" name="<?=$tmpe;?>" value="15" size="3">
+			</td>
+		<td name="col_5_r<?php echo $tmpid;?>"
+			id="col_5_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',5);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',5);" 
+			class="item_name_small_inactive"
+			/>
+			<?php
+			// Need button to open window
+			// Need window command
+			//		Open in an iframe DHTML window, using the actual location with the get string. Button opens the window
+			$target = 'addsubrecord';
+			$action = 'part139303_c_discrepancy_report_new.php?facility='.$tmpfacility.'&condition='.$tmpid.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+			
+			_tp_control_function_button_iframe('addsubrecord','ADD','icon_add',$action,$target);
+			?>
+			</td>							
+		</tr>
 												<?php
 														$i = $i + 1;
 														}	// End of while loop
@@ -156,14 +178,4 @@
 										}	// end of Res Record Object						
 								}
 								?>
-					<tr>
-						<td colspan="4" align="right">
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td height="32" colspan="5" class="formoptionsavilablebottom" valign="middle">
-							<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-							</td>
-						</tr>
-					</table>
+	</table>
