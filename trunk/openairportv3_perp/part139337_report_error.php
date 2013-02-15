@@ -179,7 +179,8 @@ if (!isset($_POST["formsubmit"])) {
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
 
 
-		$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		$sqldate		= ($_POST['disdate']);
 		
 		$sql = "INSERT INTO tbl_139_337_main_e (139337_e_inspection_id, 139337_e_by_cb_int, 139337_e_reason, 139337_e_date, 139337_e_time, 139337_e_yn)
 		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['disarchive']."' )";

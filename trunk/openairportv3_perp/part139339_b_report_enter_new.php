@@ -142,8 +142,11 @@ if (!isset($_POST["formsubmit"])) {
 		// There are two things that must be done initialy before we go off to the discrepancy page.
 		// Step 1). Add the Inspection Header information to the database
 		
-		$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
-		$tmpdateclosed 	= AmerDate2SqlDateTime($_POST['frmdateclosed']);
+		//$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
+		//$tmpdateclosed 	= AmerDate2SqlDateTime($_POST['frmdateclosed']);
+		
+		$tmpdate 		= ($_POST['frmdate']);
+		$tmpdateclosed 	= ($_POST['frmdateclosed']);		
 		
 		$sql = "INSERT INTO tbl_139_339_sub_n (139339_sub_n_type_cb_int, 139339_sub_n_by_cb_int, 139339_sub_n_date, 139339_sub_n_time, 139339_sub_n_metar, 139339_sub_n_notes, 139339_sub_n_wx_in, 139339_sub_n_fbo_in, 139339_sub_n_airline_in";
 		

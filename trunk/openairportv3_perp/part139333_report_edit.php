@@ -408,7 +408,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	errorreport(".[1]. Update Main Table with new values...",$displayerrors);		
 		
-			$tmpdate 	= AmerDate2SqlDateTime($_POST['frmdate']);
+			//$tmpdate 	= AmerDate2SqlDateTime($_POST['frmdate']);
+			$tmpdate 	= ($_POST['frmdate']);
 
 			$sql 		= "UPDATE `tbl_139_333_main` SET `139333_date`='".$tmpdate."',`139333_time`= '".$_POST['frmtime']."' WHERE	139333_main_id = '".$_POST['recordid']."' ";	
 			$mysqli 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);

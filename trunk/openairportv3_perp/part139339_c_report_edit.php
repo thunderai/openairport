@@ -468,7 +468,8 @@ if (!isset($inspection_id)) {
 		// Condition User Input
 		
 		$tmpdate		= strip_input($_POST['frmdate']);
-		$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
+		//$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
+		$tmpdate 		= ($_POST['frmdate']);
 		
 		$tmptime		= strip_input($_POST['frmtime']);
 		

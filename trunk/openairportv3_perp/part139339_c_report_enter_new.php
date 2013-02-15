@@ -220,7 +220,8 @@ if (!isset($_POST["formsubmit"])) {
 		// Step 1). Add the Inspection Header information to the database
 		// Step 2). Add each checklist item to the database for that inspection.
 		
-		$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
+		//$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
+		$tmpdate = ($_POST['frmdate']);
 		
 		$sql = "INSERT INTO tbl_139_339_main (139339_type_cb_int, 139339_by_cb_int, 139339_date, 139339_time, 139339_metar, 139339_notes ) VALUES ( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."', '".$_POST['frmmetar']."', '".$_POST['frmnotes']."' )";
 				

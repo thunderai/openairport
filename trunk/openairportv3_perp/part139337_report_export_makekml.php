@@ -171,10 +171,15 @@ $docNode->appendChild($gpsStyleNode);
 	
 	// Convert start date and end date into sql format
 	
-		$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
-		$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
-		$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
-		$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );
+		//$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
+		//$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
+		//$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
+		//$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );
+		
+		$tmpsqlstartdate	= ($tmpstartdate );
+		$tmpsqlenddate		= ($tmpenddate );
+		$tmpsqlstartdate2	= ($tmpstartdate2 );
+		$tmpsqlenddate2		= ($tmpenddate2 );		
 
 		$notlimited_p1 = 0;
 		$notlimited_p1 = 0;

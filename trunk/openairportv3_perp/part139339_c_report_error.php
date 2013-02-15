@@ -189,7 +189,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// DO SQL Work			
 	
-		$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		$sqldate		= ($_POST['disdate']);
 		
 		$sql = "INSERT INTO tbl_139_339_sub_e (139339_eoo_i_id, 139339_eoo_by_cb_int, 139339_eoo_reason, 139339_eoo_date, 139339_eoo_time, 139339_eoo_yn)
 		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['disduplicate']."' )";
