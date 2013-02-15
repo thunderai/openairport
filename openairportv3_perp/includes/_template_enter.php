@@ -174,7 +174,15 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																	case "End Date":
 																			// Field is a date, display date icon
 																			$icon = 'icon_date';
-																		break;																		
+																		break;
+																	case "Date":
+																			// Field is a date, display date icon
+																			$icon = 'icon_date';
+																		break;
+																	case "Time":
+																			// Field is a time, display time icon
+																			$icon = 'icon_clock';
+																		break;																	
 																	default:
 																			// Dont know field type, displayu default pencile icon
 																			$icon = 'icon_pencile';
@@ -275,53 +283,95 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													?>
 						<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" name="<?php echo $fieldname;?>" type='hidden'>
 													<?php
-												}
-												else {
-													?>
-						<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" 
-													<?php
-													if($fielddefaultvalue == "current") {
-															switch ($fieldtxtname) {
-																	case "Date":
+												} else {
+													// Show field, and customize field accordingly
+													//	Some fields require special treatment and need to be adjusted differently
+													//	Go through each of these controls seperatly
+													switch ($fieldtxtname) {
+															// Look through fieldtext looking for custom tags
+															case "Date":
+																	// Field is a Date Field Box.
+																	// is this control displaying just the current date or a set date?
+																	if($fielddefaultvalue == "current") {
+																			// Field is displaying just the current date
 																			?>
-						type="text" value="<?php echo date('m/d/Y');?>"> <a href="javascript:showCal('Calendar3')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>')</script>
 																			<?php
-																		break;
-																	case "Time":
+																		} else {
+																			// if not the current date, then a set date
 																			?>
-						type="text" value="<?php echo date("H:i:s");?>">
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD')</script>
 																			<?php
-																		break;
-																	case "Year":
+																		}
+																break;
+															case "Time":
+																	// Field is a Time Field Box
+																	?>
+																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"
+																	<?php
+																	if($fielddefaultvalue == "current") {
 																			?>
-						type="text" value="<?php echo date("Y");?>">
+																			type="text" value="<?php echo date("H:i:s");?>">
 																			<?php
-																		break;
-																}
-														}
-														else {
-															switch ($fieldtxtname) {
-																	case "Password":
+																		} else {
 																			?>
-						type="password" value="<?php echo $fielddefaultvalue;?>">
+																			type="text" value="<?php echo $fielddefaultvalue;?>">
 																			<?php
-																		break;
-																	case "Start Date":
+																		}
+																break;
+															case "Year":
+																	// Field is a Year Field Box
+																	?>
+																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"
+																	<?php
+																	if($fielddefaultvalue == "current") {
 																			?>
-						type="text" value="<?php echo $fielddefaultvalue;?>"> <a href="javascript:showCal('Calendar4')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+																			type="text" value="<?php echo date("Y");?>" />
 																			<?php
-																		break;	
-																	case "End Date":
+																		} else {
 																			?>
-						type="text" value="<?php echo $fielddefaultvalue;?>"> <a href="javascript:showCal('Calendar5')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+																			type="text" value="<?php echo $fielddefaultvalue;?>" />
 																			<?php
-																		break;																		
-																	default:
+																		}
+																break;	
+															case "Password":
+																	// Field is a Password Field Box
+																	?>
+																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" type="password" value="<?php echo $fielddefaultvalue;?>">
+																	<?php
+																break;
+															case "Start Date":
+																	// Field is a Date Field Box.
+																	// is this control displaying just the current date or a set date?
+																	if($fielddefaultvalue == "current") {
 																			?>
-						type="text" value="<?php echo $fielddefaultvalue;?>">
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo date('Y-m-d');?>')</script>
 																			<?php
-																		break;
-																}
+																		} else {
+																			?>
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo $fielddefaultvalue;?>')</script>
+																			<?php
+																		}
+																break;
+															case "End Date":
+																	// Field is a Date Field Box.
+																	// is this control displaying just the current date or a set date?
+																	if($fielddefaultvalue == "current") {
+																			?>
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo date('Y-m-d');?>')</script>
+																			<?php
+																		} else {
+																			?>
+																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo $fielddefaultvalue;?>')</script>
+																			<?php
+																		}
+																break;	
+															default:
+																	// No special rules needed
+																	?>
+																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" type="text" value="<?php echo $fielddefaultvalue;?>">
+																	<?php
+																break;
 														}
 												}
 										break;
@@ -339,7 +389,14 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 									case 3:		// Datacell is a combobox
 											switch ($fieldtxtname) {
 													case "Priority":
-															$fieldfunction($fielddefaultvalue, "all", $fieldname, "show", "",2);
+															if($fieldsizex == 0) {
+																			// DO Not show Combobox, Just Show Result
+																			$show = "hide";
+																		}
+																		else {
+																			$show = "show";
+																		}
+															$fieldfunction($fielddefaultvalue, "all", $fieldname, $show, "",2);
 														break;
 													case "Entry By":
 															$fieldfunction($fielddefaultvalue, "all", $fieldname, "hide", "");
@@ -367,9 +424,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																
 															if($ajaxpush=="1") {
 																	// User wants an Ajax Push Button after this field\
-																	?>
-																	<input class="table_forms_button_command" type="button" name="pushajax" id="pushajax" value="<?php echo $fieldformat;?>" onclick="<?php echo $ajaxpushscript;?>('<?php echo $ajaxpushid;?>','<?php echo $fieldname;?>');" />
-																	<?php
+																	$passedparameter 	= $ajaxpushid.','.$fieldname;
+																	$label 				= $fieldformat;
+																	_tp_control_function_button_ajax($ajaxpushscript,$passedparameter,$label);
 																}
 														break;
 												}

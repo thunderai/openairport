@@ -31,10 +31,14 @@
 
 // Load Global Include Files
 	
-		include("includes/_globals.inc.php");												// Need Global Variable Information
+		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
+		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
+		include("includes/gs_config.php");
 		
 // Load Page Specific Includes
 
+		include("includes/_template_enter.php");
+		include("includes/_template/template.list.php");
 		include("includes/_modules/part139327/part139327.list.php");
 	
 // Define Variables	
@@ -46,120 +50,119 @@
 		
 // Start Procedures		
 		?>
-			<center>
-				<table cellspacing="3" cellpadding="5" width="100%">
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" name="frmdate" size="10" value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Time
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" name="frmtime" size="10" value="<?echo date("H:i:s");?>">
-							</td>
-						</tr>
-					</table>
-				<table cellspacing="0" cellpadding="0" width="100%">
-					<tr>
-      					<td class="formheaders" onMouseover="ddrivetip('Category of Inspection')"; onMouseout="hideddrivetip()">
-      							Facilities
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Detail to Inspect')"; onMouseout="hideddrivetip()">
-      							Conditions
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Is this area clear of discrepancies?')"; onMouseout="hideddrivetip()">
-      							Acceptable
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Click each area where a discrepancy exists')"; onMouseout="hideddrivetip()">
-      							Discrepancy
-							</td>
-						
-						</tr>
-					<tr>
-						<td colspan="4" class="header">
-							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
-							<?php
-							// Define SQL
-							$sql = "SELECT * FROM tbl_139_327_sub_c 
-							INNER JOIN tbl_139_327_sub_c_f ON tbl_139_327_sub_c_f.facility_id = tbl_139_327_sub_c.condition_facility_cb_int 							
-							WHERE condition_type_cb_int = '".$InspCheckList."' AND condition_archived_yn = 0
-							ORDER BY tbl_139_327_sub_c_f.facility_name, tbl_139_327_sub_c.condition_name";
-							
-							//echo $sql;
-							
-							// Establish a Conneciton with the Database
-							$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-							
-							if (mysqli_connect_errno()) {
-									printf("connect failed: %s\n", mysqli_connect_error());
-									exit();
-								}
-								else {
-									$res = mysqli_query($objcon, $sql);
-									if ($res) {
-											$number_of_rows = mysqli_num_rows($res);
-											//printf("result set has %d rows. \n", $number_of_rows);
-											if($number_of_rows == 0) {
-													// There are no records in this dataset
-													?>
-					<tr>
-						<td height="28" class="formresults" colspan="4">
-						Checklist is empty.
-						</tr>
-													<?php
-												}
-												else {					
-													while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-															$tmpid = $objfields['conditions_id'];
-															?>
-					<tr>
-      					<td height="28" class="formresults" onMouseover="ddrivetip('<?php echo $objfields["facility_description"];?>','yellow',300)"; onMouseout="hideddrivetip()">
-      						&nbsp;
-							<?php
-							$tmpfacility = $objfields["condition_facility_cb_int"];
-							part139327facilitycombobox($tmpfacility, "all", "notused", "hide", "all");
-							$tmpvalue 	= (string) $tmpid;
-							$tmpa 		= $tmpvalue."za";
-							$tmpd		= $tmpvalue."zd";
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<?php
+	form_new_control('frmdate'			, 'Date'			, 'Enter the date this record was made'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
+	form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
+	?>
+	</table>		
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr>
+		<td class="item_space_active" />
+				Facilities
+			</td>
+		<td class="item_space_active" />
+				Conditions
+			</td>
+		<td class="item_space_active" />
+				Acceptable
+			</td>
+		<td class="item_space_active" />
+				Discrepancy
+			</td>						
+		</tr>
+			<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
+	<?php
+	// Define SQL
+	$sql = "SELECT * FROM tbl_139_327_sub_c 
+	INNER JOIN tbl_139_327_sub_c_f ON tbl_139_327_sub_c_f.facility_id = tbl_139_327_sub_c.condition_facility_cb_int 							
+	WHERE condition_type_cb_int = '".$InspCheckList."' AND condition_archived_yn = 0
+	ORDER BY tbl_139_327_sub_c_f.facility_name, tbl_139_327_sub_c.condition_name";
+
+	//echo $sql;
+
+	// Establish a Conneciton with the Database
+	$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+	if (mysqli_connect_errno()) {
+			printf("connect failed: %s\n", mysqli_connect_error());
+			exit();
+		}
+		else {
+			$res = mysqli_query($objcon, $sql);
+			if ($res) {
+					$number_of_rows = mysqli_num_rows($res);
+					//printf("result set has %d rows. \n", $number_of_rows);
+					if($number_of_rows == 0) {
+							// There are no records in this dataset
 							?>
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('<?php echo $objfields["condition_description"];?>','yellow',450)"; onMouseout="hideddrivetip()">
-      						&nbsp;
-							<?php echo $objfields["condition_name"];?>
-							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('Mark category as acceptable')"; onMouseout="hideddrivetip()">
-      						<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpa;?>" value="1">
-							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('Issue New Discrepancy')"; onMouseout="hideddrivetip()">
-      						<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1">
+	<tr>
+		<td class="item_space_active" colspan="4" />
+			Checklist is empty.
+			</td>
+		</tr>
 							<?php
-							?>
-							<INPUT class="formsubmit" TYPE="button" VALUE="ADD" onClick="openchild600('part139327_discrepancy_report_new.php?facility=<?php echo $tmpfacility;?>&condition=<?php echo $tmpid;?>&checklist=<?php echo $InspCheckList;?>','EnterNewDiscrepancy')">
-							</td>
-						</tr>
-												<?php
-														$i = $i + 1;
-														}	// End of while loop
-												}
-												mysqli_free_result($res);
-												mysqli_close($objcon);
-										}	// end of Res Record Object						
-								}
-								?>
-					<tr>
-						<td colspan="4" align="right">
-							&nbsp;
-							</td>
-						</tr>
-					<tr>
-						<td height="32" colspan="4" class="formoptionsavilablebottom" valign="middle">
-							<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-							</td>
-						</tr>
-					</table>
+						}
+						else {					
+							while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+									$tmpid = $objfields['conditions_id'];
+									?>
+	<tr>
+		<td name="col_1_r<?php echo $tmpid;?>"
+			id="col_1_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<?php
+			$tmpfacility = $objfields["condition_facility_cb_int"];
+			part139327facilitycombobox($tmpfacility, "all", "notused", "hide", "all");
+			$tmpvalue 	= (string) $tmpid;
+			$tmpa 		= $tmpvalue."za";
+			$tmpd		= $tmpvalue."zd";
+			?>
+			</td>	
+		<td name="col_2_r<?php echo $tmpid;?>"
+			id="col_2_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<?php echo $objfields["condition_name"];?>
+			</td>
+		<td name="col_3_r<?php echo $tmpid;?>"
+			id="col_3_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpa;?>" value="1">
+			</td>			
+		<td name="col_4_r<?php echo $tmpid;?>"
+			id="col_4_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			&nbsp;
+			<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1">
+			<?php
+			$target = 'adddiscrepancy';
+			$action = 'part139327_discrepancy_report_new.php?facility='.$tmpfacility.'&condition='.$tmpid.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+			_tp_control_function_button_iframe($target,'ADD','icon_add',$action,$target);
+			?>
+			</td>			
+		</tr>
+									<?php
+											$i = $i + 1;
+											}	// End of while loop
+									}
+									mysqli_free_result($res);
+									mysqli_close($objcon);
+							}	// end of Res Record Object						
+					}
+					?>
+	</table>

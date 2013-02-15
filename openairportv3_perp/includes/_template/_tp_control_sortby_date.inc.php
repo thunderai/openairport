@@ -59,7 +59,7 @@ function _tp_control_sortby_date($tbl_show_datesort,$tbldatesort,$language_on,$l
 							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 							style="cursor:hand;"/>
-							<input class="table_button_bullet_input2_dark1_normal" type="text" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" size="10" value="<?php echo $defaultvalue;?>" 	onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<a href="javascript:showCal('<?php echo $calender;?>')"><img src="stylesheets/_cssimages/icon_calendar.jpg" border="0"></a>
+							<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo $defaultvalue;?>')</script>
 							</td>
 						<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
 							class="item_format_inactive_form" 

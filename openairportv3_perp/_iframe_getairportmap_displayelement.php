@@ -66,7 +66,7 @@
 											  } // for
 											  yaverage = (ytotal/ypoints.length);
 											
-											var icon 				= 'images/_interface/menu_icon_lightbulb.png';
+											var icon 				= 'images/_interface/icons/icons_light.png';
 											var icon_width 			= 25;	// Manual adjustment to override image size, and/or for programming purposes
 											var icon_height			= 25;	// Manual adjustment to override image size, and/or for programming purposes
 											var mainiconx			= ( xaverage - parseInt( icon_width / 2 ) );
@@ -106,7 +106,7 @@
 											px = px * 1;
 											py = py * 1;
 											
-											var icon 				= 'images/_interface/menu_icon_lightbulb.png';
+											var icon 				= 'images/_interface/icons/icons_light.png';
 											var label				= ' <?php echo $record_name;?> ';
 											var label_background 	= '#7d388e'; 	// Dark Purple
 											var label_color			= '#FFFFFF';	// White

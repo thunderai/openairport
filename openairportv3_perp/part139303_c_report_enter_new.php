@@ -49,7 +49,7 @@
 
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures	
 	
@@ -57,64 +57,85 @@ if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
 		?>
-						<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
-							<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
-							<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
-							<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php 
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									</td>
-								<td class="tableheaderright">
-									(
-									<?php 
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-												Type of Inspection
-												</td>
-											<td align="center" valign="middle" class="formoptions">
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
+		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
+		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
+		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
+		<tr>
+			<td class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>
+		<tr>
+			<td colspan="3" class="tablesubcontent">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" />
+					<tr>
+						<td class="item_name_active" />
+							Type of Inspection
+							</td>
+						<td class="item_name_inactive" />
+							<?php 
+							part139303_c_typescombobox("all", "all", "InspCheckList", "show", "");
+							?>
+							</td>
+						<td class="item_right_inactive" />
+							<?php
+							_tp_control_function_button_ajax('call_server_303c_checklist',$_SESSION['user_id'],'Get Checklist');
+							_tp_control_function_submit('entryform');
+							?>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="3" id="CheckListData" class="ajax_results_area">
+							<center>
+								Click the <b>"Get Checklist"</b> button above to load the selected checklist. Once you click the button please wait a moment for the checklist to load.
+								</center>
 												<?php 
-												part139303_c_typescombobox("all", "all", "InspCheckList", "show", "");
-												?>
-												</td>
-											<td class="formoptions" align="center">
-												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_303c_checklist(<?php echo $_SESSION['user_id'];?>);"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" id="CheckListData" class="formoptionsavilablebottom">
-												<center>After clicking the 'Get Checklist' button, please wait a moment while the checklist loads</center>
-												<?php 
-												for ($i=0; $i<150; $i=$i+1) {
+												for ($i=0; $i<50; $i=$i+1) {
 														?>
-														<br>
+							<br>
 														<?php 
 													}
 												?>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							</form>
+							</td>
+						</tr>					
+					<tr>
+						<td colspan="5" class="item_space_active" />
+							<?php		
+									$formname = 'entryform';
+							//
+							// FORM FOOTER
+							//------------------------------------------------------------------------------------------\\
+									$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+										$submitbuttonname	= 'Start Training Record';									// Name of the Submit Button
+									$display_close			= 0;														// 1: Display Close Button, 	0: No
+									$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+									$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+									$display_quickaccess	= 1;
+									
+								include("includes/_template/_tp_blockform_form_footer.binc.php");
+								?>
+							</td>
+						</tr>	
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
 		<?php 
 	}
 	else {
@@ -147,93 +168,114 @@ if (!isset($_POST["formsubmit"])) {
 						}		
 
 		?>
-		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
+		<tr>
+			<td class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>
+		<tr>
+			<td class="item_name_active">
+				Additional Class Options
+				</td>
+			</tr>
+		<tr>
+			<td class="item_name_inactive">
+				<table border="0" cellspacing="0" cellpadding="0" id="table2" align="left" valign="top"/>
+					<tr>
+						<?php
+						$form_name		= 'dform';
+						$random_element = rand(1,9999);
+						$targetname 	= '_iframe-'.$form_name.'_'.$random_element;
+						$dhtml_name 	= 'dhtmlwindow_'.$form_name.'_'.$random_element;
+						?>
+						<form style="margin-bottom:0;" action="part139303_c_upload_documents.php" method="POST" name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', 'Upload Supporting Materials', 'width=450px,height=250px,resize=1,scrolling=1,center=1')" />
+						<td class="item_name_active" align="left"/>
+							<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
+							<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
+							<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
+							<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
+							<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
+							<input type="hidden" name="golive" 				value="1">
+							<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
+							<input NAME="targetname" ID="targetname"
+								value="<?php echo $targetname;?>" 
+								type="hidden" />
+							<input NAME="dhtmlname" ID="dhtmlname"
+								value="<?php echo $dhtml_name;?>" 
+								type="hidden" />
+							<?php
+							_tp_control_function_button($form_name,'Upload Meeting Documents','icon_add','part139303_c_upload_documents.php',$targetname);
+							?>
+							</td>
+							</form>
+						<?php
+						$form_name		= 'dform2';
+						$random_element = rand(1,9999);
+						$targetname 	= '_iframe-'.$form_name.'_'.$random_element;
+						$dhtml_name 	= 'dhtmlwindow_'.$form_name.'_'.$random_element;
+						?>	
+						<form style="margin-bottom:0;" action="part139303_c_managestudents.php" method="POST" name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', 'Upload Supporting Materials', 'width=600px,height=300px,resize=1,scrolling=1,center=1')" />
+						<td class="item_name_active" />
+							<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
+							<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
+							<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
+							<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
+							<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
+							<input type="hidden" name="golive" 				value="1">
+							<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
+							<input NAME="targetname" ID="targetname"
+								value="<?php echo $targetname;?>" 
+								type="hidden" />
+							<input NAME="dhtmlname" ID="dhtmlname"
+								value="<?php echo $dhtml_name;?>" 
+								type="hidden" />
+							<?php
+							_tp_control_function_button($form_name,'Manage Student Attendance','icon_add','part139303_c_managestudents.php',$targetname);
+							?>
+							</td>
+							</form>	
+						</tr>
+					</table>
+				</td>
 			<tr>
-				<td width="10" class="tableheaderleft">&nbsp;</td>
-				<td class="tableheadercenter">
-					<?php 
-					getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-					?>
-					</td>
-				<td class="tableheaderright">
-					(
-					<?php 
-					getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-					?>
-					)
+				<td class="item_name_active">
+					Manage Subject Topic Groups
 					</td>
 				</tr>
-			<tr>
-				<td colspan="3" class="tablesubcontent">
-					<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-						<tr>
-							<td colspan="5" class="formoptionsavilabletop">
-								Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-								</td>
-							</tr>
-						<tr>
-							<td colspan="5" align="center" valign="middle" class="formheaders">
-								Additional Document Controls
-								</td>
-							</tr>
-						<tr>
-							<td>
-								<table>
-									<tr>
-									
-										<form style="margin-bottom:0;" action="part139303_c_upload_documents.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="openchild600('', 'AddDiscrepancy');" >
-										<td class="formresults" onMouseover="ddrivetip('Click here to upload Paper documents from this training session.  For example; the class outline or signin sheet.')"; onMouseout="hideddrivetip()">
-											<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
-											<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
-											<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
-											<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
-											<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
-											<input type="hidden" name="golive" 				value="1">
-											<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
-											<input type="submit" name="b1" 					value="Upload Meeting Documents"			class="formsubmit">
-											</td>
-											</form>	
-										<td>
-											&nbsp;
-											</td>
-										<form style="margin-bottom:0;" action="part139303_c_managestudents.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="openchild600('', 'AddDiscrepancy');" >
-										<td class="formresults" onMouseover="ddrivetip('Click here to add students to this class.  Doing this will allow the system to track training and should be considered required.')"; onMouseout="hideddrivetip()">
-											<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
-											<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
-											<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
-											<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
-											<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
-											<input type="hidden" name="golive" 				value="1">
-											<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
-											<input type="submit" name="b1" 					value="Manage Student Attendance"			class="formsubmit">
-											</td>
-											</form>	
-										</tr>
-									</table>
-								</td>
-							</tr>
-						<tr>
-							<td colspan="5" align="center" valign="middle" class="formheaders">
-								Manage Subject Topic Groups
-								</td>
-							</tr>
-						<tr>
-							<td class="formheaders" onMouseover="ddrivetip('REgulatory Requirement or Focus Group')"; onMouseout="hideddrivetip()">
-									Focus Group (Regulation)
-								</td>
-							<td class="formheaders" onMouseover="ddrivetip('Topic of Class Subject')"; onMouseout="hideddrivetip()">
-									Class Topic
-								</td>
-							<td class="formheaders" onMouseover="ddrivetip('Was this topic covered in the actual class?')"; onMouseout="hideddrivetip()">
-									Taught ?
-								</td>
-							<td class="formheaders" onMouseover="ddrivetip('Enter the number of hours spent in each subject area')"; onMouseout="hideddrivetip()">
-									Minutes
-								</td>
-							<td class="formheaders" onMouseover="ddrivetip('Click the ADD button to provide addtional information about a topic as needed.')"; onMouseout="hideddrivetip()">
-									Notes 
-								</td>						
-							</tr>
+		<tr>
+			<td class="ajax_results_area">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" align="left" valign="top"/>
+					<tr>
+						<td class="item_name_active" />
+								Focus Group (Regulation)
+							</td>
+						<td class="item_name_active" />
+								Class Topic
+							</td>
+						<td class="item_space_active" />
+								Taught ?
+							</td>
+						<td class="item_space_active" />
+								Minutes
+							</td>
+						<td class="item_space_active" />
+								Notes 
+							</td>						
+						</tr>
 							
 		<?php 										
 		
@@ -301,20 +343,26 @@ if (!isset($_POST["formsubmit"])) {
 											
 											?>
 						<tr>
-							<td class="formresults" onMouseover="ddrivetip('REgulatory Requirement or Focus Group')"; onMouseout="hideddrivetip()">
+							<td class="item_name_small_inactive" />
 								<?php echo $objfields['facility_name'];?>
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('Topic of Class Subject')"; onMouseout="hideddrivetip()">
+							<td class="item_name_small_inactive" />
 								<?php echo $objfields['condition_name'];?>
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('Was this topic covered in the actual class?')"; onMouseout="hideddrivetip()">
+							<td class="item_space_inactive" />
 								Yes
 								</td>
-							<td class="formresults" onMouseover="ddrivetip('Enter the number of hours spent in each subject area')"; onMouseout="hideddrivetip()">
+							<td class="item_space_inactive" />
 								<?php echo $_POST[$tmpe];?>
 								</td>
-							<form style="margin-bottom:0;" action="part139303_c_discrepancy_report_new.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="openchild600('', 'AddDiscrepancy');" >
-							<td class="formresults" onMouseover="ddrivetip('Click the ADD button to provide addtional information about a topic as needed.')"; onMouseout="hideddrivetip()">
+							<?php
+							$form_name		= 'dform3';
+							$random_element = rand(1,9999);
+							$targetname 	= '_iframe-'.$form_name.'_'.$random_element;
+							$dhtml_name 	= 'dhtmlwindow_'.$form_name.'_'.$random_element;
+							?>	
+							<form style="margin-bottom:0;" action="part139303_c_discrepancy_report_new.php" method="POST" name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', 'Manage Topic Notes', 'width=600px,height=300px,resize=1,scrolling=1,center=1')" />
+							<td class="item_name_active" />
 								<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
 								<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>">
 								<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
@@ -322,7 +370,15 @@ if (!isset($_POST["formsubmit"])) {
 								<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
 								<input type="hidden" name="golive" 				value="1">
 								<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
-								<input type="submit" name="b1" 					value="Yes (add new note)"			class="formsubmit">
+								<input NAME="targetname" ID="targetname"
+									value="<?php echo $targetname;?>" 
+									type="hidden" />
+								<input NAME="dhtmlname" ID="dhtmlname"
+									value="<?php echo $dhtml_name;?>" 
+									type="hidden" />
+								<?php
+								_tp_control_function_button($form_name,'Manage Topic Notes','icon_add','part139303_c_discrepancy_report_new.php',$targetname);
+								?>
 								</td>
 								</form>						
 							</tr>
@@ -332,24 +388,26 @@ if (!isset($_POST["formsubmit"])) {
 					}
 					?>
 									
-										<tr class="formresults">
-											<td colspan="5" name="addeddis" id="addeddis">
-												<center>New Class Notes will be added here as you add new ones from the "Yes (manage)' from above</center>
-												<?php 
-												for ($i=0; $i<20; $i=$i+1) {
-														?>
-														<br>
-														<?php 
-													}
-												?>
-												</td>
-											</tr>
-										<form style="margin-bottom:0;" action="part139303_c_report_save_new.php" method="POST" name="printform" id="printform">
-										<tr>
-											<td colspan="5" align="center" valign="middle" class="formheaders">
-												Link unassociated Class Notes (Temporary from the Previous Page)
-												</td>
-											</tr>
+						<tr >
+							<td colspan="5" name="addeddis" id="addeddis" class="item_name_active">
+								<center>
+									New Class Notes will be added here as you add new ones from the "Yes (manage)' from above
+									</center>
+					<?php 
+					for ($i=0; $i<10; $i=$i+1) {
+							?>
+								<br>
+							<?php 
+						}
+					?>
+								</td>
+							</tr>
+						<form style="margin-bottom:0;" action="part139303_c_report_save_new.php" method="POST" name="printform" id="printform">
+							<tr>
+								<td colspan="5" align="center" valign="middle" class="item_name_active">
+									Link unassociated Class Notes (Temporary from the Previous Page)
+									</td>
+								</tr>
 							<?php
 							//	List ALL discrepancies by THIS author in the temporary discrepancy folder for possible linking
 							//	Mark all temporary discrepancies as linked by default
@@ -366,22 +424,24 @@ if (!isset($_POST["formsubmit"])) {
 													$number_of_rows = mysqli_num_rows($objrs_support);
 													if ($number_of_rows == 0) {
 															?>
-										<tr>
-											<td colspan="5" align="center" valign="middle" class="formresults">
-												You have no class notes that need to be linked
-												</td>
-											</tr>
+							<tr>
+								<td colspan="5" align="center" valign="middle" class="item_name_active">
+									<center>
+										You have no class notes that need to be linked!
+										</center>
+									</td>
+								</tr>
 															<?php
 														}
 														?>
-										<tr>
-											<td colspan="4" align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Class Note Name
-												</td>
-											<td align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-												Add to Class Training Record
-												</td>
-											</tr>			
+							<tr>
+								<td colspan="4" class="item_name_active" />
+									Class Note Name
+									</td>
+								<td class="item_name_active" />
+									Add to Class Training Record
+									</td>
+								</tr>			
 															<?php
 															while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
 																	$tmpsuppliedid 		= $objfields['Discrepancy_id'];
@@ -390,32 +450,36 @@ if (!isset($_POST["formsubmit"])) {
 																	$tmpa 				= $tmpvalue."za";
 																	$tmpd				= $tmpvalue."zd";
 																	?>
-										<tr>
-											<td colspan="4"  align="center" valign="middle" class="formresults">
-												<?php echo $tmpsuppliedname;?>
-												</td>
-											<td align="center" valign="middle" class="formresults">
-												<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1" CHECKED>
-												</td>
-											</tr>
+							<tr>
+								<td colspan="4" class="item_name_inactive" />
+									<?php echo $tmpsuppliedname;?>
+									</td>
+								<td align="center" class="item_name_inactive" />
+									<input class="commonfieldbox" type="checkbox" name="<?php echo $tmpd;?>" value="1" CHECKED>
+									</td>
+								</tr>
 																	<?php
 																}
 														}
 												}
 												?>
-										<tr>
-											<td class="formoptionsavilablebottom" colspan="5">
-												<input type="hidden" name="inspector"			value="<?php echo $_POST['inspector'];?>" />
-												<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>" />
-												<input type="submit" name="b1" 					value="Save Report >>>"			class="formsubmit">
-												</td>
-											</form>
-										</table>
+							</table>
+							</table>
+						<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table3" align="left" valign="top" class="item_name_active" />
+							<tr>
+								<td class="item_name_active" colspan="5">
+									<input type="hidden" name="inspector"			value="<?php echo $_POST['inspector'];?>" />
+									<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>" />
+									<?php
+									_tp_control_function_submit('printform');
+									?>
 									</td>
 								</tr>
 							</table>
-							<br>
-							<br>
+							</form>
+						</td>
+					</tr>
+				</table>
 							<?php 
 	
 	}

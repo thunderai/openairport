@@ -74,8 +74,18 @@ if (!isset($_POST["formsubmit"])) {
 		//-----------------------------------------------------------------------------------------\\	
 		//
 		//				Field Name			Field Text Name				Field Comment										Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+		form_new_table_b($formname);
 		form_new_control("disoutline"		,"Class Outline"			, "Select the PDF Document for the Class Outline"	,"File Must be a PDF Document!"							,"(PDF)"			,6			,35				,0				,""						,0);
 		form_new_control("dissignin"		,"Class Signin"				, "Select the PDF Document for the Class Singin"	,"File Must be a PDF Document!"							,"(PDF)"			,6			,35				,0				,""						,0);
+	
+		// FORM UNIVERSAL CONTROL LOADING
+		//------------------------------------------------------------------------------------------\\
+		
+		$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+		$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+		form_uni_control("targetname"		,$targetname);
+		form_uni_control("dhtmlname"		,$dhtml_name);
+				
 		//
 		// FORM FOOTER
 		//------------------------------------------------------------------------------------------\\
@@ -114,8 +124,18 @@ if (!isset($_POST["formsubmit"])) {
 						
 			include("includes/_template/_tp_blockform_form_header.binc.php");	
 	
+		form_new_table_b($formname);
 		form_new_control("disoutline"		,"Class Outline"			, "Select the PDF Document for the Class Outline"	,"File Must be a PDF Document!"							,"(PDF)"			,1			,0				,0				,"post"						,0);
 		form_new_control("dissignin"		,"Class Signin"				, "Select the PDF Document for the Class Singin"	,"File Must be a PDF Document!"							,"(PDF)"			,1			,0				,0				,"post"						,0);
+		
+		// FORM UNIVERSAL CONTROL LOADING
+		//------------------------------------------------------------------------------------------\\
+		
+		$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+		$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+		form_uni_control("targetname"		,$targetname);
+		form_uni_control("dhtmlname"		,$dhtml_name);
+			
 		//
 		// FORM FOOTER
 		//------------------------------------------------------------------------------------------\\
@@ -131,8 +151,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 			// What type of training record is this?
 			
-			$sql = "SELECT * FROM tbl_139_303_main 
-					INNER JOIN tbl_139_303_sub_t ON 
+			$sql = "SELECT * FROM tbl_139_303_c_main 
+					INNER JOIN tbl_139_303_c_sub_t ON 
 					139_303_type_cb_int = inspection_type_id 
 					WHERE 139_303_id = '".$_POST['recordid']."' ";
 	
@@ -216,9 +236,9 @@ if (!isset($_POST["formsubmit"])) {
 	
 			// Update Main Training Record with the locations of the supporting documents
 										
-				$sql = "UPDATE tbl_139_303_main SET 139_303_sylabus = '".$target_path_sylabus."', 139_303_attendance = '".$target_path_attendance."'  WHERE 139_303_id = '".$_POST["recordid"]."'";
+				$sql = "UPDATE tbl_139_303_c_main SET 139_303_sylabus = '".$target_path_sylabus."', 139_303_attendance = '".$target_path_attendance."'  WHERE 139_303_id = '".$_POST["recordid"]."'";
 				
-				echo $sql;
+				//echo $sql;
 				
 				$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			

@@ -1,9 +1,9 @@
 <?php
-function _tp_control_function_submit($formname = 'sorttable') {
+function _tp_control_function_button_ajax($ajaxfunction,$passedparameter,$label) {
 
 	$icons_width		= 25;
 	$icons_height		= 25;
-	$fieldname			= 'submitformbutton';
+	$fieldname			= 'ajaxformbutton';
 	?>
 <table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
 		border="0" 
@@ -23,6 +23,7 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
 				
 				</td>
@@ -30,13 +31,15 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
-				<img src="images/_interface/icons/icon_submit.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				<img src="images/_interface/icons/icon_checklist.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
 			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
 				
 				</td>				
@@ -44,13 +47,15 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
-				<input class="makebuttonlooklikelargetext" type="submit" name="button" value="Submit" />
+				<?php echo $label;?>
 				</td>		
 			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
-				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');"
+				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
 				
 				</td>
@@ -58,6 +63,7 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+				onClick="<?php echo $ajaxfunction;?>(<?php echo $passedparameter;?>);" 
 				/>
 				
 				</td>

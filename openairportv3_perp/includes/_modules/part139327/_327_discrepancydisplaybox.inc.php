@@ -114,7 +114,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 									// Utilize our lies
 									
 									$grid_or_row = 'grid';
-									include("includes/_template/_tp_blockform_workorder.binc.php");	
+									include("includes/_template/_tp_blockform_workorder_report.binc.php");	
 									
 									?>	
 									</tr>

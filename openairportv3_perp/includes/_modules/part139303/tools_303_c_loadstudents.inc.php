@@ -44,7 +44,7 @@ function load_303c_students($phase,$recordid,$process ="0") {
 							<center>
 								<table cellspacing="0" cellpadding="0" width="100%">
 									<tr>
-										<td class="formheaders" onMouseover="ddrivetip('ERROR!')"; onMouseout="hideddrivetip()">
+										<td class="item_name_active" />
 												<font color="#FF0000" size="4"><b>Selected Student has been removed from the class</b>
 											</td>
 										</tr>
@@ -84,7 +84,7 @@ function load_303c_students($phase,$recordid,$process ="0") {
 							<center>
 								<table cellspacing="0" cellpadding="0" width="100%">
 									<tr>
-										<td class="formheaders" onMouseover="ddrivetip('ERROR!')"; onMouseout="hideddrivetip()">
+										<td class="item_name_active" />
 												<font color="#FF0000" size="4"><b>Selected Student is already in this class</b>
 											</td>
 										</tr>
@@ -100,21 +100,21 @@ function load_303c_students($phase,$recordid,$process ="0") {
 			<center>
 				<table cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-      					<td class="formheaders" onMouseover="ddrivetip('Students Last Name')"; onMouseout="hideddrivetip()">
+      					<td class="item_name_active" />
       							Last Name
 							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Student First Name')"; onMouseout="hideddrivetip()">
+      					<td class="item_name_active" />
       							First Name
 							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Student Middle Name')"; onMouseout="hideddrivetip()">
+      					<td class="item_name_active" />
       							Initials
 							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Enter the number of hours spent in each subject area')"; onMouseout="hideddrivetip()">
+      					<td class="item_name_active" />
       							Controls
 							</td>						
 						</tr>
 					<tr>
-						<td colspan="4" class="header">
+						<td colspan="4" class="item_name_active">
 							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
 							<?php
 							// Define SQL
@@ -141,7 +141,7 @@ function load_303c_students($phase,$recordid,$process ="0") {
 													// There are no records in this dataset
 													?>
 					<tr>
-						<td height="28" class="formresults" colspan="4">
+						<td height="28" class="item_space_active" colspan="4">
 						There are no students for this class at this time.
 						</tr>
 													<?php
@@ -151,21 +151,25 @@ function load_303c_students($phase,$recordid,$process ="0") {
 															$tmpid = $objfields['discrepancy_student_cb_int'];
 															?>
 					<tr>
-      					<td height="28" class="formresults" />
+      					<td height="28" class="item_name_inactive" />
       						&nbsp;
 							<?php echo $objfields["emp_lastname"];?>
 							</td>
-      					<td class="formresults" />
+      					<td class="item_name_inactive" />
       						&nbsp;
 							<?php echo $objfields["emp_firstname"];?>
 							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('If this topic was covered in the class, click the checkbox. Otherwise leave unchecked.')"; onMouseout="hideddrivetip()">
+      					<td class="item_name_inactive" />
       						&nbsp;
 							<?php echo $objfields["emp_initials"];?>
 							</td>
-      					<td class="formresults" align="center" valign="middle" onMouseover="ddrivetip('Enter the number of minutes spent on this topic.')"; onMouseout="hideddrivetip()">
-      						<input class="formsubmit" type="button" name="button" value="Remove" 			onclick="call_server_303c_students_remove('<?php echo $InspCheckList;?>','<?php echo $tmpid;?>');"/>
-							</td>						
+      					<td class="item_name_inactive"/>
+							<?php
+							$func = 'call_server_303c_students_remove';
+							$pass = $InspCheckList.','.$tmpid;
+							_tp_control_function_button_ajax($func,$pass,'Remove Student');
+							?>
+      						</td>						
 						</tr>
 												<?php
 														$i = $i + 1;

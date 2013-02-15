@@ -32,6 +32,8 @@
 // Load Global Include Files
 	
 		include("includes/_globals.inc.php");												// Need Global Variable Information
+		include("includes/_template_enter.php");
+		include("includes/_template/template.list.php");
 		
 // Load Page Specific Includes
 

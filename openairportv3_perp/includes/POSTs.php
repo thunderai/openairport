@@ -74,7 +74,7 @@
 					$tmp_daysago		= (	120	*	24	*	60	*	60);
 					//echo "Days a go".$daysago."<br>";
 					$tmp_pasttimestamp 	= ($tmp_currenttimestamp - $tmp_daysago);
-					$frmstartdate 		= date("m/d/Y", $tmp_pasttimestamp);					
+					$frmstartdate 		= date("Y-m-d", $tmp_pasttimestamp);					
 					//echo "GET/POST Value is now |".$frmstartdate."|<br>";
 				}
 				else {
@@ -88,7 +88,7 @@
 							$tmp_daysago		= (	45	*	24	*	60	*	60);
 							//echo "Days a go".$daysago."<br>";
 							$tmp_pasttimestamp 	= ($tmp_currenttimestamp - $tmp_daysago);
-							$frmstartdate 		= date("m/d/Y", $tmp_pasttimestamp);							
+							$frmstartdate 		= date("Y-m-d", $tmp_pasttimestamp);							
 							//echo "GET Value is now |".$frmstartdate."|<br>";
 						}
 						else {
@@ -107,11 +107,11 @@
 		
 	if (!isset($_POST["frmenddate"])) {
 			if (!isset($_GET["frmenddate"])) {
-					$frmenddate = date("m/d/Y");
+					$frmenddate = date("Y-m-d");
 				}
 				else {
 					if ($_GET["frmenddate"] == "") {
-							$frmenddate = date("m/d/Y");
+							$frmenddate = date("Y-m-d");
 						}
 						else {
 							$frmenddate = $_GET["frmenddate"];

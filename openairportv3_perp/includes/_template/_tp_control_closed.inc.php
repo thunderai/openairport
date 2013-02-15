@@ -29,7 +29,7 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 								if ($number_of_rows == 0) {
 										// There are no records to display, display NRF
 										$button_name 	= 'Mark Closed';	
-										$image_name		= 'closeit';
+										$image_name		= 'icon_safe';
 										$form_name		= 'CloseOrderReportForm';
 										$active			= 1;
 										$value			= $button_name;
@@ -40,6 +40,8 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 										$window_command	= 'open_new_littleform_window';
 										$form_action	= $functionpage;
 										$disid			= $tblkeyfield;
+										$icons_width	= 25;
+										$icons_height	= 25;
 										
 										include('includes/_template/_tp_blockform_work_button.binc.php');
 									}
@@ -48,7 +50,7 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 												$tmpid = $objarray2[$settingsarray[1]."_closed_id"];
 												$button_name 	= 'Closed History';	
-												$image_name		= 'Closedhistory';
+												$image_name		= 'icon_closedhistory';
 												$form_name		= 'ClosedHistoryReportForm';
 												$active			= 1;
 												$value			= $button_name;
@@ -59,6 +61,8 @@ function _tp_control_closed($tblkeyfield, $settingsarray, $functionpage) {
 												$window_command	= 'open_new_report_window';
 												$form_action	= $settingsarray[2];
 												$disid			= $tblkeyfield;
+										$icons_width	= 25;
+										$icons_height	= 25;
 										
 												include('includes/_template/_tp_blockform_work_button.binc.php');	
 											}

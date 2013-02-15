@@ -144,7 +144,37 @@ if (!isset($_GET["location"])) {
 		//$tmp_locationx 	= $alocation_s[0];
 		//$tmp_locationy 	= $alocation_s[1];	
 	}
-	
+
+if (!isset($_POST["targetname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		$tmp_targetname		= $_GET['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'GET VALUE IS ['.$tmp_targetname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_targetname		= $_POST['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'POST VALUE IS ['.$tmp_targetname.'] <br>';
+	}	
+
+if (!isset($_POST["dhtmlname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		// No Record ID defined in POST, use GET record id
+		$tmp_dhtmlname		= $_GET['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;
+		//echo 'GET VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_dhtmlname		= $_POST['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;		
+		//echo 'POST VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}		
 
 // Define Variables	
 		
@@ -162,57 +192,70 @@ if (!isset($_GET["location"])) {
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
-		?>
-						<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-							<input class="commonfieldbox" type="hidden" name="formsubmit" size="1" value="1" >
-							<input type="hidden" name="from_get" 		value="<?php echo $from_get;?>">
-							<input type="hidden" name="recordid" 		value="<?php echo $tmp_recordid;?>">
-							<input type="hidden" name="golive" 			value="<?php echo $tmp_golive;?>">
-							<input type="hidden" name="madbynavaid" 	value="<?php echo $tmp_madbynavaid;?>">
-							<input type="hidden" name="conditionid" 	value="<?php echo $tmp_conditionid;?>">
-							<input type="hidden" name="facilityid" 		value="<?php echo $tmp_facilityid;?>">
-							<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
-							
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php echo $tblname;?>
-									</td>
-								<td class="tableheaderright">
-									(<?php echo $tblsubname;?>)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="2" class="formoptionsavilabletop">
-												Enter new discprepancy below. Answer all questions.
-												</td>
-											</tr>
-										<?php
-										form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,10		,0		,"current"				,0);
-										form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,10		,0		,"current"				,0);
-										form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,50		,0		,$_SESSION['user_id']	,"systemusercombobox");
-										form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,47		,0		,$tmp_discrepancyname	,0);
-										form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,35		,4		,$tmp_discrepancycomm	,0);
-										form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,50		,0		,"all"					,"gs_conditions");
-										form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$location_s			,'');
-										form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,35		,4		,''						,0);
-										?>								
-										<tr>
-											<td colspan="2" class="formoptionsavilablebottom">
-												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-				<?
-		}
-	else {
+		
+		// FORM HEADER
+		// -----------------------------------------------------------------------------------------\\
+				$formname			= "edittable";													// HTML Name for Form
+				$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+				$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+					$formtarget		= "";															// HTML Name for the window
+					$location		= $formtarget;													// Leave the same as $formtarget
+		
+		// FORM NAME and Sub Title
+		//------------------------------------------------------------------------------------------\\
+				$form_menu			= "Add Discrepancy";											// Name of the FORM, shown to the user
+				$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+				$subtitle 			= "Use this form to add a discrepancy";							// Subt title of the FORM, shown to the user
+
+		// FORM SUMMARY information
+		//------------------------------------------------------------------------------------------\\
+				$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+					$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+					$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+					$detailtodisplay		= 0;													// See Summary Function for how to use this number
+					$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+						
+			include("includes/_template/_tp_blockform_form_header.binc.php");			
+		
+			?>
+			<input class="commonfieldbox" type="hidden" name="formsubmit" size="1" value="1" >
+			<input type="hidden" name="from_get" 		value="<?php echo $from_get;?>">
+			<input type="hidden" name="recordid" 		value="<?php echo $tmp_recordid;?>">
+			<input type="hidden" name="golive" 			value="<?php echo $tmp_golive;?>">
+			<input type="hidden" name="madbynavaid" 	value="<?php echo $tmp_madbynavaid;?>">
+			<input type="hidden" name="conditionid" 	value="<?php echo $tmp_conditionid;?>">
+			<input type="hidden" name="facilityid" 		value="<?php echo $tmp_facilityid;?>">
+			<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
+			<?php
+			form_new_table_b($formname);
+			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,"current"				,0);
+			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,"current"				,0);
+			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
+			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,38		,0		,$tmp_discrepancyname	,0);
+			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,30		,4		,$tmp_discrepancycomm	,0);
+			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,10		,0		,"all"					,"gs_conditions");
+			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$location_s			,'');
+			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,30		,4		,''						,0);
+		
+			// FORM UNIVERSAL CONTROL LOADING
+			//------------------------------------------------------------------------------------------\\
+			
+			//$targetname		= $_GET['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+			//$dhtml_name		= $_GET['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+			form_uni_control("targetname"		,$tmp_targetname);
+			form_uni_control("dhtmlname"		,$tmp_dhtmlname);
+													
+			//
+			// FORM FOOTER
+			//------------------------------------------------------------------------------------------\\
+					$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+						$submitbuttonname	= 'Submit';														// Name of the Submit Button
+					$display_close			= 1;														// 1: Display Close Button, 	0: No
+					$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+					
+				include("includes/_template/_tp_blockform_form_footer.binc.php");	
+	} else {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown
 		
@@ -294,122 +337,71 @@ if (!isset($_POST["formsubmit"])) {
 				ae_completepackage($auto_array);
 				
 			}
-			?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td class="tableheadercenter">
-									<?php echo $tblname;?>
-									</td>
-								<td class="tableheaderright">
-									(<?php echo $tblsubname;?>)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="2" class="formoptionsavilabletop">
-												<B><?php echo $warning;?></b>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Date
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['disdate']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Time
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['distime']?>
-												</td>
-											</tr>	
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Reported By
-												</td>
-											<td class="formanswers">
-												<?
-												systemusercombobox($_POST['disauthor'], "all", "disauthor", "hide", "");
-												?>
-												</td>
-											</tr>											
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Discrepancy Name
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['disname']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Comments
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['discomments']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Priority
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['dispri']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Location
-												</td>
-											<td class="formanswers">
-												X: &nbsp;<?php echo $_POST['MouseX']?>, Y: &nbsp;<?php echo $_POST['MouseY']?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-												Kill Order
-												</td>
-											<td class="formanswers">
-												<?php echo $_POST['diskillorder']?>
-												</td>
-											</tr>
-										<tr>
-											<td colspan="2" class="formoptionsavilablebottom">
-												<?php
-												// We want to display the proper foot buttons on this form, to do that we need additional information from the Inspection
-												//	form as to when this form was openned.  If it is openned via a GET statement or a POST statement.
-												//	If GET, this form was openned from the summary/linking page. ie. We need to PUSH data back down to the summary page.
-												//	if POST, this form was openned from The inspection checklist. ie we only need a close button
-												$from_get = $_POST['from_get'];
-												//echo "From Get ".$from_get."";
-												if($from_get == 1) {
-														// We used GET to load this form, push data down
-														$fieldname = "addeddis_".$tmp_conditionid."";
-														_tp_control_footbuttons(1,$fieldname,$tmp_recordid);
-													}
-													else {
-														$fieldname = "addeddis_".$tmp_conditionid."";
-														_tp_control_footbuttons(3,$fieldname,$tmp_recordid);
-													}
-												?>
-												</td>
-											</tr>										
-										</table>
-									</td>
-								</tr>
-							</table>				
+			
+			// FORM HEADER
+			// -----------------------------------------------------------------------------------------\\
+					$formname			= "edittable";													// HTML Name for Form
+					$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+					$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+						$formtarget		= "";															// HTML Name for the window
+						$location		= $formtarget;													// Leave the same as $formtarget
+			
+			// FORM NAME and Sub Title
+			//------------------------------------------------------------------------------------------\\
+					$form_menu			= "Added Subject Note";											// Name of the FORM, shown to the user
+					$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+					$subtitle 			= $warning;														// Subt title of the FORM, shown to the user
+
+			// FORM SUMMARY information
+			//------------------------------------------------------------------------------------------\\
+					$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+						$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+						$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+						$detailtodisplay		= 0;													// See Summary Function for how to use this number
+						$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+							
+				include("includes/_template/_tp_blockform_form_header.binc.php");		
+			
+			form_new_table_b($formname);
+			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,0		,0		,'post'					,0);
+			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,0		,0		,'post'					,0);
+			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,0		,0		,$_SESSION['user_id']	,"systemusercombobox");
+			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,0		,0		,'post'					,0);
+			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
+			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,0		,0		,'post'					,"gs_conditions");
+			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,0		,''		,'post'					,'');
+			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
+		
+			// FORM UNIVERSAL CONTROL LOADING
+			//------------------------------------------------------------------------------------------\\
+			
+			$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+			$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+			form_uni_control("targetname"		,$targetname);
+			form_uni_control("dhtmlname"		,$dhtml_name);
+			
 				
-				<?
+			//
+			// FORM FOOTER
+			//------------------------------------------------------------------------------------------\\
+					$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+						$submitbuttonname	= '';														// Name of the Submit Button
+					$display_close			= 1;														// 1: Display Close Button, 	0: No
+					$display_pushdown		= 1;														// 1: Display Push Down Button, 0: No
+						$pushdown_script	= 'call_server_pnd';
+						$pushdown_frmname	= "addeddis";
+						$pushdown_otherid	= $_POST['recordid'];
+					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+					
+					
+				include("includes/_template/_tp_blockform_form_footer.binc.php");													
+
 		}
 
 // Establish Page Variables
 
-		$auto_array					= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_d); 
+		$last_main_id	= $_POST['recordid'];
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_d); 
 
 		ae_completepackage($auto_array);	
 	
