@@ -107,12 +107,16 @@
 		
 	// Convert start date and end date into sql format
 	
-		$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
-		$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
-		$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
-		$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );	
+		//$tmpsqlstartdate	= amerdate2sqldatetime($tmpstartdate );
+		//$tmpsqlenddate		= amerdate2sqldatetime($tmpenddate );
+		//$tmpsqlstartdate2	= amerdate2sqldatetime($tmpstartdate2 );
+		//$tmpsqlenddate2		= amerdate2sqldatetime($tmpenddate2 );	
 
-
+		$tmpsqlstartdate	= ($tmpstartdate );
+		$tmpsqlenddate		= ($tmpenddate );
+		$tmpsqlstartdate2	= ($tmpstartdate2 );
+		$tmpsqlenddate2		= ($tmpenddate2 );	
+		
 	if (!isset($_POST['disonlycurrent'])) {
 		
 			// DO WE ONLY WANT THE CURRENT STATUS OR SOME OTHER CREATION?

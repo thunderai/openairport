@@ -245,6 +245,7 @@ if (!isset($_POST['recordid'])) {
 		// NOW UPDATE THE RECORDS
 		
 		//$sqldate		= AmerDate2SqlDateTime($_POST['wlhmdate']);
+		$sqldate		= ($_POST['wlhmdate']);
 		
 		$sql = "UPDATE tbl_139_337_main SET 139337_date='".$_POST['wlhmdate']."', 139337_time='".$_POST['wlhmtime']."', 139337_author_by_cb_int='".$_POST['wlhmauthor']."', ";
 		$sql = $sql."139337_species_cb_int='".$_POST['wlhmspecies']."', 139337_activity_cb_int='".$_POST['wlhmactivity']."', 139337_action_cb_int='".$_POST['wlhmaction']."', ";

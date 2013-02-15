@@ -142,7 +142,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 		// INSERT MAIN RECORD
 		
-		$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
+		//$tmpdate = AmerDate2SqlDateTime($_POST['frmdate']);
+		$tmpdate =($_POST['frmdate']);
 		
 		$sql = "INSERT INTO tbl_139_303_c_main (139_303_type_cb_int,139_303_by_cb_int,139_303_date,139_303_time ) VALUES 
 				( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."' )";

@@ -261,7 +261,8 @@ if (!isset($_POST["formsubmit"])) {
 		
 		// Step 1). Load into an array all of the values from the form
 
-		$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
+		$sqldate		=($_POST['disdate']);
 
 		if($_POST['golive'] == 1) {
 				//echo "Dicrepancy will be pushed to the live table <br>";

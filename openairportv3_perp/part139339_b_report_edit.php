@@ -562,8 +562,11 @@
 					// There are two things that must be done initialy before we go off to the discrepancy page.
 					// Step 1). Add the Inspection Header information to the database
 			
-					$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
-					$tmpdateclosed 	= AmerDate2SqlDateTime($_POST['frmdateclosed']);
+					//$tmpdate 		= AmerDate2SqlDateTime($_POST['frmdate']);
+					//$tmpdateclosed 	= AmerDate2SqlDateTime($_POST['frmdateclosed']);
+					
+					$tmpdate 		= ($_POST['frmdate']);
+					$tmpdateclosed 	= ($_POST['frmdateclosed']);
 			
 					$sql = "UPDATE tbl_139_339_sub_n SET 139339_sub_n_type_cb_int='".$_POST['InspCheckList']."', 139339_sub_n_by_cb_int='".$_POST['inspector']."',139339_sub_n_date='".$tmpdate."',139339_sub_n_time='".$_POST['frmtime']."',139339_sub_n_metar='".$_POST['frmmetar']."',139339_sub_n_notes='".$_POST['frmnotes']."', 139339_sub_n_wx_in='".$_POST['139339_sub_n_wx_out']."', 139339_sub_n_fbo_in='".$_POST['139339_sub_n_fbo_out']."', 139339_sub_n_airline_in='".$_POST['139339_sub_n_airline_out']."' ";
 					
