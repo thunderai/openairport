@@ -1,5 +1,5 @@
 <?php
-function _tp_control_function_submit($formname = 'sorttable') {
+function _tp_control_function_submit($formname = 'sorttable',$name = 'submit') {
 
 	$icons_width		= 25;
 	$icons_height		= 25;
@@ -45,7 +45,7 @@ function _tp_control_function_submit($formname = 'sorttable') {
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 				/>
-				<input class="makebuttonlooklikelargetext" type="submit" name="button" value="Submit" />
+				<input class="makebuttonlooklikelargetext" type="submit" name="button" value="<?php echo $name;?>" />
 				</td>		
 			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
 				class="item_field_inactive_form" 

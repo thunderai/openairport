@@ -64,9 +64,10 @@
 		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures	
+		
+		include("stylesheets/_css.inc.php");
 
 		?>
-		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">
 		</HEAD>
 	<BODY>
 <?php
@@ -243,7 +244,7 @@ if (!isset($_POST["recordid"])) {
 		
 				?>
 	<div style="position:absolute; z-index:99; left:<?php echo $checklistlocation[$i][0] + $offset_x;?>; top:<?php echo $checklistlocation[$i][1] + $offset_y;?>; width:190; align="center" />
-		<table width="100%" border="1" cellpadding="0" cellspacing="0" style="border-width: 1px; border-spacing: 0px;border-style: inset;border-color: gray;border-collapse: collapse;">
+		<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />
 				<?php
 				
 				//echo "For Loop ".$i." Iteration of ".count($checklistlocation)." 					<br>";
@@ -309,18 +310,18 @@ if (!isset($_POST["recordid"])) {
 										//echo "[in j]: Display Facility Header	<br>";
 										?>
 			<tr>
-				<td colspan="2" align="center" valign="middle" width="*" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-					<font size="2" COLOR="#000000" /><?php echo $checklistcontent[$j][1];?></font>
+				<td colspan="2" width="*" class="item_space_small_active" />
+					<?php echo $checklistcontent[$j][1];?>
 					</td>
 				</tr>
 										<?php
 									}
 									?>
 			<tr>
-				<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-					<font size="2" COLOR="#000000" /><?php echo $checklistcontent[$j][2];?></font>
+				<td width="*" class="item_space_small_inactive" />
+					<?php echo $checklistcontent[$j][2];?>
 					</td>	
-				<td  align="right" valign="middle" width="20" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+				<td width="20" class="item_space_small_inactive" />
 					<?php
 					if ($checklistcontent[$j][3] == 0) {
 							//Display Clean X
@@ -358,7 +359,24 @@ if (!isset($_POST["recordid"])) {
 	//
 	// END OF DISPLAY BASIC REPORT
 	?>
-			
+<div style="position:absolute; width:160px; left:570px; top:175px; z-index:20;" align="left" />
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />
+		<tr>
+			<td colspan="3" class="item_space_small_active" />
+				Issued Discrepancies
+				</td>			
+			</tr>	
+		<tr>
+			<td class="item_space_small_active" />
+				ID
+				</td>
+			<td class="item_name_small_active" />
+				Name
+				</td>
+			<td class="item_name_small_active" />
+				Remarks
+				</td>			
+			</tr>
 	<?php
 	// DISCREPANCY DISPLAY PROCEDURES
 	//
@@ -370,17 +388,17 @@ if (!isset($_POST["recordid"])) {
 	//				Like any other display of discrepancies we will use the_327_discrepancydisplaybox function
 	//				Set-up Initial variables
 		
-					$tempX				= 570;
-					$tempY				= 170;
-					$tempYo				= 120;
-					$tmpzindex 			= 14;
+					$tempX				= '570';
+					$tempY				= '200';
+					$tempYo				= $tempY;
+					$tmpzindex 			= '14';
 					$passindex			= 0;
 					$distools			= 1;
 					$lastadd			= 0;
 
 	// 				For the Purposes of displaying more than one Discrepancy, we will also set-up these variables
 	
-					$spacebetweendis	= 20;
+					$spacebetweendis	= 0;
 					$lastdisheight		= 0;
 					$totaldisheight		= 0;
 	
@@ -388,6 +406,112 @@ if (!isset($_POST["recordid"])) {
 	
 					$sql1 = "SELECT * FROM tbl_139_327_sub_d WHERE discrepancy_inspection_id = ".$recordid." ORDER BY Discrepancy_location_y";
 					//echo $sql1;
+					
+	//				make Connection
+	
+					$objconn1 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+	
+	//				Attempt Connection
+	
+					if (mysqli_connect_errno()) {
+							// there was an error trying to connect to the mysql database
+							printf("connect failed: %s\n", mysqli_connect_error());
+							exit();
+						} else {
+	
+	//				Connection Sucessful
+	
+							$objrs1 = mysqli_query($objconn1, $sql1);
+							$internal_counter = 0;		
+							
+							if ($objrs1) {
+									$number_of_rows = mysqli_num_rows($objrs1);
+									while ($objarray1 = mysqli_fetch_array($objrs1, MYSQLI_ASSOC)) {	
+											
+	//				Connduct tests to see if Discrepancy should even be displayed.
+	//					We might not show the discrepancy even if it was part of this inspection for any of the reasons below:
+	//					1. Archieved, 2. Duplicate, ...
+	
+											$displayrow					= 1;
+											$lastdisheight 				= 0;
+											
+											$displayrow_a				= preflights_tbl_139_327_main_sub_d_a_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is archieved.
+											$displayrow_d				= preflights_tbl_139_327_main_sub_d_d_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is duplicate.
+
+											//echo "Display A ".$displayrow_a." / Display D ".$displayrow_d." <br>";
+											
+											if($displayrow_a == 0 OR $displayrow_d == 0) {
+													// Do display Row
+													$displayrow = 0;
+												}
+												else {
+													$displayrow = 1;
+												}
+											
+											if($displayrow == 1) {
+											//echo "Display ".$display."<br>sddsfsdfsd";
+	
+												//				Record some information about the current discrepancy	
+	
+													$disx		= convertfromlargescale_to_smallscale_x($objarray1['Discrepancy_location_x'],$maparray);
+													$disy		= convertfromlargescale_to_smallscale_y($objarray1['Discrepancy_location_y'],$maparray);
+													
+													$disid		= $objarray1['Discrepancy_id'];
+													$disname 	= $objarray1['Discrepancy_name'];
+													$disremarks = $objarray1['discrepancy_remarks'];	
+													
+													$lastdisheight 	= part139327discrepancydisplaybox_new("Discrepancy Display Box", 1, 2, 30, "left", 160, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
+													
+													$tempY			= $tempY + ($lastdisheight + $spacebetweendis);
+													$tmpzindex 		= ($tmpzindex + 1);
+													$internal_counter = $internal_counter + 1;
+												}
+											
+											//echo "------------------------- 					<br>";
+											//echo " Pass Index :".$passindex."					<br>";
+											//echo " New Total Div Height :".$totaldisheight." 	<br>";
+											//echo "------------------------- 					<br>";
+											
+										}
+									if($internal_counter == 0) {
+											?>
+		<tr>
+			<td colspan="3" class="item_space_small_inactive" />
+				None Issued
+				</td>			
+			</tr>
+											<?php
+										}
+								}
+						}
+					?>
+<div style="position:absolute; width:160px; left:<?php echo $tempX;?>px; top:<?php echo $tempY;?>px; z-index:20;" />					
+	<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />					
+		<tr>
+			<td colspan="3" class="item_space_small_active" />
+				Also Owned
+				</td>			
+			</tr>					
+		<tr>
+			<td class="item_space_small_active" />
+				ID
+				</td>
+			<td class="item_name_small_active" />
+				Name
+				</td>
+			<td class="item_name_small_active" />
+				Remarks
+				</td>			
+			</tr>
+		</table>
+	</div>
+					<?php
+					$tempY			= $tempY + 25;
+//				Build SQL String
+	
+					$sql1 = "SELECT * FROM tbl_139_327_sub_d_o 
+					INNER JOIN tbl_139_327_sub_d ON tbl_139_327_sub_d_o.disdis_id = tbl_139_327_sub_d.Discrepancy_id 
+					WHERE tbl_139_327_sub_d_o.disinspection_id ='".$recordid."' ORDER BY Discrepancy_location_y";
 					
 	//				make Connection
 	
@@ -432,7 +556,7 @@ if (!isset($_POST["recordid"])) {
 											if($displayrow == 1) {
 											//echo "Display ".$display."<br>sddsfsdfsd";
 	
-	//				Record some information about the current discrepancy	
+												//				Record some information about the current discrepancy	
 	
 													$disx		= convertfromlargescale_to_smallscale_x($objarray1['Discrepancy_location_x'],$maparray);
 													$disy		= convertfromlargescale_to_smallscale_y($objarray1['Discrepancy_location_y'],$maparray);
@@ -441,39 +565,12 @@ if (!isset($_POST["recordid"])) {
 													$disname 	= $objarray1['Discrepancy_name'];
 													$disremarks = $objarray1['discrepancy_remarks'];	
 													
-													if ($passindex == 0) {
-															// No discrepancy has been displayed, use default settings
-															//$tempX			= 580;
-															//$tempY			= 155;
-															
-															//$totaldisheight	= $totaldisheight + $tempYo;
-														}
-														else {
-															
-															//echo "------------------------- 				<br>";
-															//echo "Total Div Height :".$totaldisheight." 	<br>";
-															//echo "Space Between Div:".$spacebetweendis." 	<br>";
-															//echo "------------------------- 				<br>";
-															
-															$tempY		= $tempYo + ( $totaldisheight + ( $spacebetweendis) ) + 50;
-															$tempX		= $tempX;
-														
-															//echo "------------------------- <br>";
-															//echo "Temp Y :".$tempY." 		<br>";
-															//echo "temp X :".$tempX." 		<br>";
-															//echo "------------------------- <br>";
-														}
-														
-													$lastdisheight = part139327discrepancydisplaybox("Discrepancy Display Box", 1, 2, 30, "left", 150, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
+													$lastdisheight 	= part139327discrepancydisplaybox_new("Discrepancy Display Box", 1, 2, 30, "left", 160, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
 													
-													//echo "------------------------- 				<br>";
-													//echo " Reported Div Height :".$lastdisheight." 	<br>";
-													//echo "------------------------- 				<br>";
+													$tempY			= $tempY + ($lastdisheight + $spacebetweendis);
+													$tmpzindex 		= ($tmpzindex + 1);
 												}
 											
-											$passindex 		= ( $passindex + 1 );	
-											$totaldisheight = ( $totaldisheight + $lastdisheight );
-													
 											//echo "------------------------- 					<br>";
 											//echo " Pass Index :".$passindex."					<br>";
 											//echo " New Total Div Height :".$totaldisheight." 	<br>";
@@ -481,112 +578,7 @@ if (!isset($_POST["recordid"])) {
 										}
 								}
 						}
-				
-	//		2.		Build SQL String
-	
-					$sql1 = "SELECT * FROM tbl_139_327_sub_d_o 
-					INNER JOIN tbl_139_327_sub_d ON tbl_139_327_sub_d_o.disdis_id = tbl_139_327_sub_d.Discrepancy_id 
-					WHERE tbl_139_327_sub_d_o.disinspection_id ='".$recordid."' ORDER BY Discrepancy_location_y";
-
-					//echo $sql1;
-					
-	//				make Connection
-	
-					$objconn1 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-	
-	//				Attempt Connection
-	
-					if (mysqli_connect_errno()) {
-							// there was an error trying to connect to the mysql database
-							printf("connect failed: %s\n", mysqli_connect_error());
-							exit();
-						}
-						else {
-	
-	//				Connection Sucessful
-	
-							$objrs1 = mysqli_query($objconn1, $sql1);
-										
-							if ($objrs1) {
-									$number_of_rows = mysqli_num_rows($objrs1);
-									while ($objarray1 = mysqli_fetch_array($objrs1, MYSQLI_ASSOC)) {	
-	
-	//				Connduct tests to see if Discrepancy should even be displayed.
-	//					We might not show the discrepancy even if it was part of this inspection for any of the reasons below:
-	//					1. Archieved, 2. Duplicate, ...
-	
-											$displayrow					= 1;
-											$lastdisheight 				= 0;
-											
-											$displayrow_a				= preflights_tbl_139_327_main_sub_d_a_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is archieved.
-											$displayrow_d				= preflights_tbl_139_327_main_sub_d_d_yn($objarray1['Discrepancy_id'],0); // 1 will not return a row even if it is duplicate.
-
-											//echo "Display A ".$displayrow_a." / Display D ".$displayrow_d." <br>";
-											
-											if($displayrow_a == 0 OR $displayrow_d == 0) {
-													// Do display Row
-													$displayrow = 0;
-												}
-												else {
-													$displayrow = 1;
-												}
-											
-											if($displayrow == 1) {
-											//echo "Display ".$display."<br>sddsfsdfsd";
-	
-	//				Record some information about the current discrepancy	
-	
-													$disx		= convertfromlargescale_to_smallscale_x($objarray1['Discrepancy_location_x'],$maparray);
-													$disy		= convertfromlargescale_to_smallscale_y($objarray1['Discrepancy_location_y'],$maparray);
-													
-													$disid		= $objarray1['Discrepancy_id'];
-													$disname 	= $objarray1['Discrepancy_name'];
-													$disremarks = $objarray1['discrepancy_remarks'];	
-													
-													if ($passindex == 0) {
-															// No discrepancy has been displayed, use default settings
-															//$tempX			= 580;
-															//$tempY			= $lastadded;
-															
-															$totaldisheight		= $tempY;
-															
-														}
-														else {
-															
-															//echo "------------------------- 				<br>";
-															//echo "Total Div Height :".$totaldisheight." 	<br>";
-															//echo "Space Between Div:".$spacebetweendis." 	<br>";
-															//echo "------------------------- 				<br>";
-															
-															$tempY		= ( $totaldisheight + ( $spacebetweendis) );
-															$tempX		= $tempX;
-															
-															//echo "------------------------- <br>";
-															//echo "Temp Y :".$tempY." 		<br>";
-															//echo "temp X :".$tempX." 		<br>";
-															//echo "------------------------- <br>";
-														}
-														
-													$lastdisheight = part139327discrepancydisplaybox("Discrepancy Display Box", 1, 2, 30, "left", 150, $tempX, $tempY, $tmpzindex, $disid, $disname, $disremarks, $disx, $disy, $distools);
-													
-													//echo "------------------------- 				<br>";
-													//echo " Reported Div Height :".$lastdisheight." 	<br>";
-													//echo "------------------------- 				<br>";
-												}
-												
-											$passindex 		= $passindex + 1;	
-											$tmpzindex		= $tmpzindex + 1;
-											$totaldisheight = ( $totaldisheight + $lastdisheight );
-											
-											//echo "------------------------- 					<br>";
-											//echo " Pass Index :".$passindex."					<br>";
-											//echo " New Total Div Height :".$totaldisheight." 	<br>";
-											//echo "------------------------- 					<br>";
-										}
-								}
-						}														
-							
-	
+						
 // Establish Page Variables
 
 		//$last_main_id	= $last_main_id;

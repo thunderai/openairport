@@ -218,7 +218,7 @@ if (!isset($_POST["formsubmit"])) {
 			include("includes/_template/_tp_blockform_form_header.binc.php");			
 		
 			?>
-			<input class="commonfieldbox" type="hidden" name="formsubmit" size="1" value="1" >
+			<input type="hidden" name="formsubmit" 		value="1" />
 			<input type="hidden" name="from_get" 		value="<?php echo $from_get;?>">
 			<input type="hidden" name="recordid" 		value="<?php echo $tmp_recordid;?>">
 			<input type="hidden" name="golive" 			value="<?php echo $tmp_golive;?>">
@@ -281,7 +281,7 @@ if (!isset($_POST["formsubmit"])) {
 		$sql = "INSERT INTO ".$tablename_d." (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_madebynavaid) 
 		VALUES ( '".$tmp_conditionid."', '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['disname']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['MouseX']."', '".$_POST['MouseY']."', '".$_POST['dispri']."', '".$_POST['madbynavaid']."')";
 
-		//echo $sql;
+		//echo "<font size='3' color='#FFFFFF'> The INSERT SQL Statement is : <i>".$sql."</i></font><br><br>";
 
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		//mysql_insert_id();
