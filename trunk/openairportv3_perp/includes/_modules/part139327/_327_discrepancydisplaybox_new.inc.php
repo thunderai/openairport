@@ -1,5 +1,5 @@
 <?php
-function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpost, $xpost, $ypost, $zpost, $disid, $disname,$disremarks,$disx,$disy, $distools = 0) {
+function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpost, $xpost, $ypost, $zpost, $disid, $disname,$disremarks,$disx,$disy, $distools = 0) {
 		// The purpose of this function is to generalize the Discrepancy Display box found on the Part 139.327 reports.
 		
 		//Target Locator Required Offsets
@@ -9,78 +9,62 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		$disheight		= 0;
 		$tempX 			= ($disx + $OffSetX);
 		$tempY 			= ($disy + $OffSetY);
+		$charcount		= 0;
 		
 		if($txtdisplay <> "Targets Only") {
 				// DISPLAY RIGHT SIDE INFORMATION
 				//
 				?>
 		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>; align="center">
-			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />				
 				<tr>
-					<td width="12" rowspan="8" class="item_space_small_inactive" />
-						D
-						</td>
-					<td class="item_name_small_inactive" />
-						Discrepancy ID
-						</td>
-					<td class="item_name_small_inactive" />
+					<td width="12" rowspan="8" class="item_space_small_active" />
 						<?php echo $disid;?>
 						<?php
-						$disheight 	= ($disheight + 12);
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= strlen($disid);
+						$charcount		= ($charcount + $charcount_tmp);
 						?>
 						</td>
-					</tr>					
-				<tr>
-					<td colspan="2" class="item_name_small_active" />
-						Name
-						</td>
-					</tr>
-				<tr>
-					<td colspan="2" class="item_name_small_inactive" />
+					<td class="item_name_small_inactive" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 15;
 						$name_len 	= strlen($disname);
 						if($name_len > $limit) {
 								$display_name = substr($disname, 0, $limit) . '...';
-								$disheight 	= ($disheight + 56);
+								//$disheight 	= ($disheight + 56);
 							} else {
 								$display_name  = $disname;
-								$disheight 	= ($disheight + 24);
+								//$disheight 	= ($disheight + 24);
 							}
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= strlen($display_name);
+						$charcount		= ($charcount + $charcount_tmp);	
 						?>
 						<?php echo $display_name;?>
 						</td>
-					</tr>					
-				<tr>
-					<td colspan="2" class="item_name_small_active" />
-						Description
-						</td>
-					</tr>
-				<tr>
-					<td colspan="2" class="item_name_small_inactive" />
+					<td class="item_name_small_inactive" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 30;
 						$name_len 	= strlen($disremarks);
 						if($name_len > $limit) {
 								$display_remarks = substr($disremarks, 0, $limit) . '...';
-								$disheight 	= ($disheight + 56);
+								//$disheight 	= ($disheight + 56);
 							} else {
 								$display_remarks  = $disremarks;
-								$disheight 	= ($disheight + 24);
+								//$disheight 	= ($disheight + 24);
 							}
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= strlen($display_remarks);
+						$charcount		= ($charcount + $charcount_tmp);	
 						?>
 						<?php echo $display_remarks;?>
 						</td>
 					</tr>
 				<tr>
-					<td colspan="2" class="item_name_small_active" />
-						Flags
-						</td>
-					</tr>
-				<tr>
-					<td colspan="2"  class="item_name_small_inactive" />				
+					<td colspan="3" class="item_name_small_inactive" />				
 				<?php
 					if ($distools == 1) {
 							// Display all functions and buttons for this Discrepancy
@@ -122,9 +106,21 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 								
 								$grid_or_row = 'grid';
 								include("includes/_template/_tp_blockform_workorder_report.binc.php");	
-								
+								//echo " ".$charcount." ";
 						}
-						$disheight 	= ($disheight + 25);
+						// Calculate the number of lines for this discrepancy
+						// The total number of chars that can fit on one line...
+						$line_length = 25;
+						// Divide the total number of chars in the discrepancy line by the limiting factor
+						$total_lines = ($charcount / $line_length);
+						//How many pixels is each line...
+						$pixels_per_line = 15;
+						// Take the number of lines times the number of pixels per line
+						$total_pixels = ($pixels_per_line * $total_lines);
+						// Round the total_pixels number to zero places
+						$total_pixels = round($total_pixels,0);
+						
+						$disheight 	= ($total_pixels + 15);
 						?>
 						</td>
 					</tr>
@@ -137,14 +133,11 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		?>
 		
 		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>; top:<?php echo $tempY;?>; align="left">
-			<table border="1" cellpadding="0" cellspacing="0" id="AutoNumber1">
+			<table border="0" cellpadding="0" cellspacing="0" id="AutoNumber1">
   				<tr>
-					<form style="margin-bottom:0;" action="part139327_discrepancy_report_display.php" method="POST" name="dislookform<?php echo $disid;?>" id="dislookform<?php echo $disid;?>" target="ViewWorkOrder" onsubmit="openmapchild('','ViewWorkOrder')";>
-						<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $disid;?>">
-					<td rowspan="2" width="31" height="31" align="left" valign="top" class="" onMouseover="ddrivetip('<?php echo $disid;?> : <?php echo $disremarks;?>')"; onMouseout="hideddrivetip()" onclick="javascript:document.dislookform<?php echo $disid;?>.submit()">
+					<td rowspan="2" width="31" height="31" align="left" valign="top" />
 						 <img border="0" src="images/part_139_327/discrepancywork3.gif" s="31" height="31" border="0">
 						</td>
-						</form>
 					</tr>
 				</table>
 			</div>			

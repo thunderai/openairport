@@ -73,181 +73,137 @@ if($functionworkorderpage == '') {
 		//					} View Workorder button
 		//				3 - is Closed, no furthure abilities
 		//					} Closed History Button
-			
-			
-if($grid_or_row == 'grid') {		
-		?>
-<font size="1">
-	<table cellpadding="0" cellspacing="0" border="0" width="160" style="border: collapse;" align='left'>
-		<tr>
-		<?php
-	}
-	?>
-			<td  width="40" height="22" rowspan="2" onMouseover="ddrivetip('View WorkOrder');"  onMouseout="hideddrivetip()">	<!-- Workorder Report-->
-				<form style="margin-bottom:0;" action="<?php echo $functionworkorderpage;?>" method="POST" name="Workorderreportform" id="Workorderreportform" target="ViewWorkOrder" onsubmit="openmapchild('<?php echo $functionworkorderpage;?>','ViewWorkOrder');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="WO" NAME="b1" ID="b1" 			class="input_button" onMouseover="ddrivetip('Workorder');"  onMouseout="hideddrivetip()">
-					</form>
-				</td>
-			<td width="40" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">	<!-- Mark Repaired-->
+
+				?>
+	WO
 				<?php
+				// Count char in the ID and add to total chars for this record
+				$charcount_tmp 	= 2;
+				$charcount		= ($charcount + $charcount_tmp);	
+				
 				if($status == 0 || $status == 1) {
 						?>
-				<form style="margin-bottom:0;" action="<?php echo $functionrepairpage;?>" method="POST" name="MarkRepairedreportform" id="MarkRepairedreportform" target="<?php echo $functionrepairpage;?>MarkasRepair" onsubmit="openchild600('<?php echo $functionrepairpage;?>','<?php echo $functionrepairpage;?>MarkasRepair');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="MR" NAME="b1" ID="b1" class="input_button" alt="Repair It" onMouseover="ddrivetip('File Repair Report');"  onMouseout="hideddrivetip()">
-					</form>	
+	MR	
 						<?php
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					} else {
 						?>
-						<align="center" valign="bottom"><img src="images\_interface\button_inactive.png" width="36">
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-				?>
-				</td>
-			<td width="40" height="22" onMouseover="ddrivetip('View Repair History');"  onMouseout="hideddrivetip()">	<!-- History - Repaired-->
-				<?php
+
 				if($status == 1 || $status == 2 || $status == 3) {
 						if($has_been_repaired == 1) {
 								// Discrepancy has been repaired, display the history button
 								?>
-				<form style="margin-bottom:0;" action="<?php echo $array_repairedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_repairedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_repairedcontrol[2];?>','<?php echo $array_repairedcontrol[2];?>ViewRepairHistory');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="RH" NAME="r1" ID="r1" class="input_button" alt="Repair" onMouseover="ddrivetip('Repair Report');"  onMouseout="hideddrivetip()">
-					</form>							
+	RH						
 								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);									
 							} else {
-						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
-						<?php
+								?>
+	--
+								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);							
 							}
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-				?>
-				</td>
-			<td width="40" height="22" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">	<!-- Mark Bounced-->
-				<?php
+				
 				if($status == 2 || $status == 3) {
 						?>
-				<form style="margin-bottom:0;" action="<?php echo $functionbouncepage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionbouncepage;?>MarkasBounce" onsubmit="openchild600('<?php echo $functionbouncepage;?>','<?php echo $functionbouncepage;?>MarkasBounce');" >
-				<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="MB" NAME="b1" ID="b1" class="input_button" alt="Bounce It" onMouseover="ddrivetip('File Bounce Report');"  onMouseout="hideddrivetip()">
-					</form>							
+	MB						
 						<?php
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-					?>
-				</td>
-<?php
-if($grid_or_row == 'grid') {		
-		?>
-			</tr>
-		<tr>
-		<?php
-	}
-	?>
-			<td height="22" onMouseover="ddrivetip('View Bounce History');"  onMouseout="hideddrivetip()">	<!-- History - Bounced-->
-				<?php
+				
 				if($status == 2 || $status == 3) {
 						if($has_been_bounced == 1) {
 								// Discrepancy has been bounced, display the history button
 								?>
-				<form style="margin-bottom:0;" action="<?php echo $array_bouncedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory" onsubmit="openchild600('<?php echo $array_bouncedcontrol[2];?>','<?php echo $array_bouncedcontrol[2];?>ViewRepairHistory');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="BH" NAME="b1" ID="b1" class="input_button" alt="Bounced" onMouseover="ddrivetip('Bounced Report');"  onMouseout="hideddrivetip()">
-					</form>							
+	BH						
 								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);								
 							} else {
-						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
-						<?php
+								?>
+	--
+								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);								
 							}
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-				?>
-				</td>
-			<td height="22" onMouseover="ddrivetip('File Closed Report');"  onMouseout="hideddrivetip()"><!-- Mark Closed-->
-				<?php
 				if($status == 2) {	
 						?>
-				<form style="margin-bottom:0;" action="<?php echo $functionclosedpage;?>" method="POST" name="reportform" id="reportform" target="<?php echo $functionclosedpage;?>Markasclosed" onsubmit="openchild600('<?php echo $functionclosedpage;?>','<?php echo $functionclosedpage;?>Markasclosed');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="MC" NAME="b1" ID="b1" class="input_button" alt="Bounce It" onMouseover="ddrivetip('File closed Report');"  onMouseout="hideddrivetip()">
-					</form>		
-					<?php
+	MC	
+						<?php
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);					
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-				?>
-				</td>
-			<td height="22" onMouseover="ddrivetip('View Closed History');"  onMouseout="hideddrivetip()">	<!-- History - Closed-->
-				<?php
+				
 				if($status == 3) {	
 						if($has_been_closed == 1) {
 								// Discrepancy has been closed, display the history button
 								?>
-				<form style="margin-bottom:0;" action="<?php echo $array_closedcontrol[2];?>" method="POST" name="reportform" id="reportform" target="<?php echo $array_closedcontrol[2];?>ViewclosedHistory" onsubmit="openchild600('<?php echo $array_closedcontrol[2];?>','<?php echo $array_closedcontrol[2];?>ViewclosedHistory');" >
-					<input type="hidden" NAME="recordid" ID="recordid" 			value="<?php echo $disid;?>">
-					<input type="submit" value="CH" NAME="b1" ID="b1" class="input_button" alt="Bounced" onMouseover="ddrivetip('closed Report');"  onMouseout="hideddrivetip()">
-					</form>		
+	CH	
 								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);								
 							} else {
-						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
-						<?php
+								?>
+	--
+								<?php
+								// Count char in the ID and add to total chars for this record
+								$charcount_tmp 	= 2;
+								$charcount		= ($charcount + $charcount_tmp);								
 							}
 					} else {
 						?>
-						<font color="#FFFFFF" size="2">
-							<align="center"><img src="images\_interface\button_inactive.png" width="36">
-							</font>
+	--
 						<?php
-						
-						
+						// Count char in the ID and add to total chars for this record
+						$charcount_tmp 	= 2;
+						$charcount		= ($charcount + $charcount_tmp);						
 					}
-				?>
-				</td>
-<?php
-if($grid_or_row == 'grid') {		
-		?>
-			</tr>
-		</table>
-	<?php
-	}
 		}
 		?>

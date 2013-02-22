@@ -70,7 +70,9 @@
 		<TITLE>
 			Open Airport - Airport Safety Self-Inspection Report (Printer Friendly)
 			</TITLE>
-		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">
+		<?php
+		include("stylesheets/_css.inc.php");
+		?>
 		</HEAD>
 		
 	<div style="position:absolute; z-index:1; left:3; top:84; width:<?php echo $maparray[1][1];?>;" align="left" />
@@ -127,25 +129,25 @@ if (!isset($_POST["recordid"])) {
 							?>
 							
 	<div style="position:absolute; z-index:13; left:11; top:385; width:300; align="center" />
-		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" width="100%" id="AutoNumber1" />
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" />
 			<tr>
-				<td colspan="2" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-					<font size="4" COLOR="#000000" /><b>Discrepancy Information</b></font>
+				<td colspan="2" class="item_space_small_active" />
+					Discrepancy Information
 					</td>
 				</tr>				
 			<tr>
-				<td  align="left" valign="middle" width="100" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-					<font size="2" COLOR="#000000" /><b>Name </b></font>
+				<td class="item_name_small_inactive" />
+					Name
 					</td>	
-				<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+				<td class="item_name_small_inactive" />
 					<?php echo $objarray['Discrepancy_name'];?>
 					</td>					
 				</tr>
 			<tr>
-				<td  align="left" valign="middle" width="100" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-					<font size="2" COLOR="#000000" /><b>Comments </b></font>
+				<td class="item_name_small_inactive" />
+					Comments
 					</td>	
-				<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="100" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+				<td class="item_name_small_inactive" />
 					<?php echo $objarray['discrepancy_remarks'];?>
 					</td>					
 				</tr>
@@ -172,22 +174,22 @@ if (!isset($_POST["recordid"])) {
 											if ($number_of_rows >= 1) {
 											?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><b>Repair History</b></font>
+							<td colspan="4" class="item_space_small_active" />
+								Repair History
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Date</font>
+							<td class="item_name_small_inactive" />
+								Date
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Time</font>
+							<td class="item_name_small_inactive" />
+								Time
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />By</font>
+							<td class="item_name_small_inactive" />
+								By
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Comments</font>
+							<td class="item_name_small_inactive" />
+								Comments
 								</td>
 							</tr>							
 											<?php
@@ -195,8 +197,8 @@ if (!isset($_POST["recordid"])) {
 												else {
 													?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><b>No Repair History</b></font>
+							<td colspan="4" class="item_space_small_active" />
+								No Repair History
 								</td>
 							</tr>													
 													<?php
@@ -204,17 +206,17 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_repaired_date'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_repaired_date'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_repaired_time'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_repaired_time'];?>
 								</td>	
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['emp_initials'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="75" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_repaired_comments'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_repaired_comments'];?>
 								</td>									
 							</tr>													
 													<?php
@@ -248,22 +250,22 @@ if (!isset($_POST["recordid"])) {
 											if ($number_of_rows >= 1) {
 											?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><b>Bounce History</b></font>
+							<td colspan="4" class="item_space_small_active" />
+								Bounce History
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Date</font>
+							<td class="item_name_small_inactive" />
+								Date
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Time</font>
+							<td class="item_name_small_inactive" />
+								Time
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />By</font>
+							<td class="item_name_small_inactive" />
+								By
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="75" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Comments</font>
+							<td class="item_name_small_inactive" />
+								Comments
 								</td>
 							</tr>														
 												<?php
@@ -271,8 +273,8 @@ if (!isset($_POST["recordid"])) {
 												else {
 													?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><b>No Bounce History</b></font>
+							<td colspan="4" class="item_space_small_active" />
+								No Bounce History
 								</td>
 							</tr>													
 													<?php
@@ -280,17 +282,17 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_bounced_date'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_bounced_date'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_bounced_time'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_bounced_time'];?>
 								</td>	
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['emp_initials'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_bounced_comments'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_bounced_comments'];?>
 								</td>									
 							</tr>														
 													<?php
@@ -331,17 +333,17 @@ if (!isset($_POST["recordid"])) {
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Date</font>
+							<td class="item_name_small_inactive" />
+								Date
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Time</font>
+							<td class="item_name_small_inactive" />
+								Time
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />By</font>
+							<td class="item_name_small_inactive" />
+								By
 								</td>
-							<td align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" />Comments</font>
+							<td class="item_name_small_inactive" />
+								Comments
 								</td>
 							</tr>							
 											<?php
@@ -349,8 +351,8 @@ if (!isset($_POST["recordid"])) {
 												else {
 													?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><b>No Closed History</b></font>
+							<td colspan="4" class="item_space_small_active" />
+								No Closed History
 								</td>
 							</tr>													
 													<?php
@@ -358,17 +360,17 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_date'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_closed_date'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_time'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_closed_time'];?>
 								</td>	
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['emp_initials'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td  align="right" valign="middle" width="*" align="center" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-								<font size="2" COLOR="#000000" /><?php echo $objarray2['discrepancy_closed_reason'];?>
+							<td class="item_name_small_inactive" />
+								<?php echo $objarray2['discrepancy_closed_reason'];?>
 								</td>									
 							</tr>														
 													<?php

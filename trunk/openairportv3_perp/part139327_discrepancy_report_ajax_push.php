@@ -46,26 +46,21 @@
 		
 // Start Procedures		
 		?>
-				<table cellspacing="0" cellpadding="0" width="100%">
-					<tr>
-						<td colspan="4" align="center" valign="middle" style="font-family: arial narrow; font-size: 10pt; color: #ffffff; border: 1px solid #6d84b4; padding: 1px; background-color: #3b5998; text-align:center">
-							Discrepancies Added for this Inspection
-							</td>
-						</tr>
-					<tr>
-      					<td class="formheaders" onMouseover="ddrivetip('Category of Inspection')"; onMouseout="hideddrivetip()">
-      							Name
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Detail to Inspect')"; onMouseout="hideddrivetip()">
-      							Remarks
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Is this area clear of discrepancies?')"; onMouseout="hideddrivetip()">
-      							Expansion
-							</td>
-      					<td class="formheaders" onMouseover="ddrivetip('Click each area where a discrepancy exists')"; onMouseout="hideddrivetip()">
-      							Other Commands
-							</td>
-						</tr>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">						
+	<tr>
+		<td class="item_name_active" />
+				Name
+			</td>
+		<td class="item_name_active" />
+				Remarks
+			</td>
+		<td class="item_space_active" />
+				Expansion
+			</td>
+		<td class="item_name_active" />
+				Other Commands
+			</td>
+		</tr>
 		<?php
 		// Define SQL
 		$sql = "SELECT * FROM tbl_139_327_sub_d_tmp WHERE Discrepancy_inspection_id = '".$tmp_inspectionid."'";
@@ -87,29 +82,51 @@
 						if($number_of_rows == 0) {
 								// There are no records in this dataset
 								?>
-					<tr>
-						<td height="28" class="formresults" colspan="4">
-						No Discrepancies Added
-						</tr>
+	<tr>
+		<td class="item_space_inactive" colspan="4" />
+			No Discrepancies Added
+			</td>
+		</tr>
 								<?php
 							}
 							else {					
 								while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+										$tmpid = $objfields['Discrepancy_id'];
 										?>
-					<tr>
-      					<td class="formresults" onMouseover="ddrivetip('Category of Inspection')"; onMouseout="hideddrivetip()">
-      							<?php echo $objfields['Discrepancy_name'];?>
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('Detail to Inspect')"; onMouseout="hideddrivetip()">
-      							<?php echo $objfields['discrepancy_remarks'];?>
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('Is this area clear of discrepancies?')"; onMouseout="hideddrivetip()">
-      							
-							</td>
-      					<td class="formresults" onMouseover="ddrivetip('Click each area where a discrepancy exists')"; onMouseout="hideddrivetip()">
-      							<-Recently added Discrepancies
-							</td>
-						</tr>										
+	<tr>
+		<td name="col_1_r<?php echo $tmpid;?>"
+			id="col_1_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			<?php echo $objfields['Discrepancy_name'];?>
+			</td>
+		<td name="col_2_r<?php echo $tmpid;?>"
+			id="col_2_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+			<?php echo $objfields['discrepancy_remarks'];?>
+			</td>
+		<td name="col_3_r<?php echo $tmpid;?>"
+			id="col_3_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+				
+			</td>
+		<td name="col_4_r<?php echo $tmpid;?>"
+			id="col_4_r<?php echo $tmpid;?>"
+			onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',4);" 
+			onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',4);" 
+			class="item_name_small_inactive"
+			/>
+				<-Recently added Discrepancies
+			</td>
+		</tr>										
 										<?php
 									}
 									mysqli_free_result($res);
@@ -118,4 +135,4 @@
 					}
 			}
 					?>
-					</table>
+	</table>
