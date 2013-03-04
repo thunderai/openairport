@@ -51,12 +51,6 @@
 // Start Procedures		
 		?>
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
-	<?php
-	form_new_control('frmdate'			, 'Date'			, 'Enter the date this record was made'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
-	form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
-	?>
-	</table>
-<table cellspacing="0" cellpadding="0" border="0" width="100%">
 	<tr>
 		<td class="item_space_active" />
 				Focus Group (Regulation)

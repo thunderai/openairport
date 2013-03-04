@@ -48,10 +48,12 @@ function sever_interaction_part139333()
 
 		}
 	}
-function call_server_part139333(id)
+function call_server_part139333(id,formname)
 		{
 			var InspCheckList = document.getElementById("InspCheckList").value;
-			var url = "part139333_ajax_getchecklist.php?InspCheckList=" + escape(InspCheckList) + "&Employee=" + escape(id);
+			var str_formname = escape(formname);
+			
+			var url = "part139333_ajax_getchecklist.php?InspCheckList=" + escape(InspCheckList) + "&Employee=" + escape(id) + "&Formname=" + (str_formname);
 			request_333.open("GET", url); 
 			request_333.onreadystatechange = sever_interaction_part139333;
 			request_333.send('');

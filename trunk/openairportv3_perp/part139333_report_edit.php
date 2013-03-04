@@ -85,35 +85,27 @@ if (!isset($_POST["formsubmit"])) {
 				if ($objrs) {
 						$number_of_rows = mysqli_num_rows($objrs);
 						?>
-				<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="10" class="tableheaderleft">&nbsp;</td>
-						<td class="tableheadercenter">
-							<?php echo $tblname;?>
-							</td>
-						<td class="tableheaderright">
-							(<?php echo $tblsubname;?>)
-							</td>
-						</tr>
-					<tr>
-						<td colspan="3" class="tablesubcontent">
-							<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php echo $tblname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php echo $tblsubname;?>
+				)
+				</td>				
+			</tr>
 						<?php
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								?>
+		<tr>
+			<td colspan="3" class="item_name_inactive">
+				<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 					<tr>
-						<td colspan="2">
-							<table cellspacing="0" width="100%">
-								<tr>
-									<td class="formoptionsavilabletop">
-										The following options are avilable to you
-										</td>
-									</tr>
-								<tr>
-									<td class="formoptionsavilablebottom">
-										<table>
-											<tr>
-								<?php
+						<?php
 								// Hijack Template Functions for our own purposes
 								$settingsarray 	= array("SELECT * FROM tbl_139_333_main_a WHERE 139333_a_inspection_id = ",	"139333",	"part139333_report_display_archived.php");
 								$functionpage	= "part139333_report_archieved.php";														
@@ -122,76 +114,60 @@ if (!isset($_POST["formsubmit"])) {
 								$functionpage	= "part139333_report_error.php";														
 								_tp_control_error($inspection_id, $settingsarray, $functionpage);	
 								?>														
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</table>
-							</td>
 						</tr>
-					<tr>
-					<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
+					</table>
+				</td>
+			</tr>						
 						<?php
-						$formname = 'edittable';
+						// FORM HEADER
+						// -----------------------------------------------------------------------------------------\\
+								$formname			= "edittable";													// HTML Name for Form
+								$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+								$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+									$formtarget		= "";															// HTML Name for the window
+									$location		= $formtarget;													// Leave the same as $formtarget
 						
-						?>
-						<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
-						<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $inspection_id;?>">
-						<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date
-							</td>
-						<td class="formanswers">
-								<?php
-								$uidate = sqldate2amerdate($objarray['139333_date']);
-								?>											
-							<input class="Commonfieldbox" type="text" name="frmdate" size="10" value="<?php echo $uidate;?>">
-							</td>
-						</tr>
+						// FORM NAME and Sub Title
+						//------------------------------------------------------------------------------------------\\
+								$form_menu			= "Edit 333 Inspection";										// Name of the FORM, shown to the user
+								$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+								$subtitle 			= "Use this form to edit the inspection";						// Subt title of the FORM, shown to the user
+
+						// FORM SUMMARY information
+						//------------------------------------------------------------------------------------------\\
+								$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+									$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+									$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+									$detailtodisplay		= 0;													// See Summary Function for how to use this number
+									$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+										
+							include("includes/_template/_tp_blockform_form_header.binc.php");			
+							?>								
+			<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
+			<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $inspection_id;?>">
+			<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+							<?php
+							form_new_table_b($formname);
+							form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,$objarray['139333_date']		,0);
+							form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,$objarray['139333_time']		,0);
+							form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$objarray['139333_by_cb_int']	,"systemusercombobox");
+							form_new_control("distype"			,"Type"				, "Select the type of inspection"																		,"The current type has been selected automatically"		,"(cannot be changed)"		,3		,40		,0		,$objarray['139333_type_cb_int']	,"part139333typescombobox");
+							form_new_control("diseditwhy"		,"Edit Why?"		, "Provide the reason why you are editing this inspection"												,"Do not use any special characters!"					,""							,2		,30		,4		,'I am editing this discrepancy because...'	,0);
+							?>	
+		<tr>
+			<td colspan="6" align="center" valign="middle" />
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">		
 					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(24 Hour Time)')"; onMouseout="hideddrivetip()">
-							Time
-							</td>
-						<td class="formanswers">
-							<input class="Commonfieldbox" type="text" name="frmtime" size="10" value="<?php echo $objarray['139333_time'];?>">
-							</td>
-						</tr>	
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
-							Reported By
-							</td>
-						<td class="formanswers">
-								<?php
-								systemusercombobox($_SESSION['user_id'], "all", "inspector", "hide", $_SESSION['user_id']);
-								?>
-							</td>
-						</tr>											
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
-							Type of Inspection
-							</td>
-						<td class="formanswers">
-								<?php
-								part139333typescombobox($objarray['139333_type_cb_int'], "all", "typeofinspection", "hide", $objarray['139333_type_cb_int']);
-								?>
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(no special charactors)')"; onMouseout="hideddrivetip()">
-							Why Edit it?
-							</td>
-						<td class="formanswers">
-							<TEXTAREA class="Commonfieldbox" name="diseditwhy" rows="10" cols="60">I am editing this inspection because...</TEXTAREA>
-							</td>
-						</tr>
-					<tr>
-						<td class="formheaders">
-							Equipment
+						<td class="item_space_active">
+								Equipment
 							</td>					
-						<td class="formheaders">
-							Manage Checklist Items
-							</td>
-						</tr>									
+						<td class="item_space_active">
+						<?php
+						// This is where our management DIV will be located (in the lower rows of this column).
+						?>
+								Manage Checklist Items
+								</td>
+							</tr>									
 								<?php
 								// In reality all we want to display here is one runway element heading and not all of the boxes.
 								//echo "Connect to Condition Checklist to list exisiting checklist points <br>";
@@ -301,21 +277,35 @@ if (!isset($_POST["formsubmit"])) {
 														if($check == 2) {
 																//echo "[17]. Check is equal to 2, Display Management Line <br>";
 																?>
-			<tr>
-			<td align="center" valign="middle" width="*" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-			Runway Heading <?php echo $runwayheading;?>
-			</td>			
-			<td align="center" valign="middle" width="*" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-			<INPUT class="formsubmit" TYPE="button" VALUE="Manage Checklist Items" onclick="javascript:toggle('divform_<?php echo $runwayheading ;?>');" >
-			</td>
+		<tr>
+			<td name="col_1_r<?php echo $tmpid;?>"
+				id="col_1_r<?php echo $tmpid;?>"
+				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+				class="item_name_small_inactive"
+				/>
+				Runway Heading <?php echo $runwayheading;?>
+				</td>		
+			<td name="col_2_r<?php echo $tmpid;?>"
+				id="col_2_r<?php echo $tmpid;?>"
+				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+				class="item_name_small_inactive"
+				/>
+				<?php
+				// Display Open DIV button
+				_tp_control_function_button_div('divform_'.$runwayheading,$en_managechecklist,'icon_window','divform_'.$runwayheading,'toggle','200','200');
+				?>
+				</td>
 			</tr>
 																<?php
 																//echo "[18]. Now for some horribly inefficent stuff <br>";
 																//echo "[19]. Locate only records for this equipment <br>";										
 																//echo "[20]. Assemble the Array <br>";
 																?>
-			<tr>
+		<tr>
 			<td colspan="2">
+				<div style="display: none"; name="divform_<?php echo $runwayheading ;?>_win" id="divform_<?php echo $runwayheading ;?>_win" >
 																<?php
 																
 																//echo "inspect".$InspCheckList;
@@ -342,7 +332,8 @@ if (!isset($_POST["formsubmit"])) {
 																//echo "test";	
 																include("part139333_report_edit_blockform.php");
 																?>
-			</td>
+					</div>
+				</td>
 			</tr>
 																<?php
 															}
@@ -364,8 +355,8 @@ if (!isset($_POST["formsubmit"])) {
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
 			$display_submit 		= 1;															// 1: Display Submit Button,	0: No
-				$submitbuttonname	= 'Save Record';												// Name of the Submit Button
-			$display_close			= 1;															// 1: Display Close Button, 	0: No
+				$submitbuttonname	= 'Save Changes';												// Name of the Submit Button
+			$display_close			= 0;															// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
 			
@@ -386,8 +377,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
-			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
+			$form_menu			= getnameofmenuitemid_return_nohtml($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
+			$form_subh			= getpurposeofmenuitemid_return_nohtml($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Here is a Summary of the information you entered";			// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
@@ -401,20 +392,38 @@ if (!isset($_POST["formsubmit"])) {
 		include("includes/_template/_tp_blockform_form_header.binc.php");
 		
 		//echo "Begin the process of doing all this impossible work";
+		?>
+				</form>
+		<tr>
+			<td colspan="3" class="item_space_inactive">
+				Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
+				</td>
+			</tr>		
+			<tr>
+				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport" onsubmit="open_new_report_window('','_printerfriendlyreport');" />
+				<td class="item_name_active" colspan="3">
+					<input type="hidden" name="recordid" 			value="<?php echo $_POST['recordid'];?>">
+					<?php
+					_tp_control_function_submit('printform','Print Report');
+					?>
+					</td>
+					</form>
+				</tr>
+			</table>
+			<?php
+	$displayerrors = 0;	
 		
-	$displayerrors = 1;	
-		
-	errorreport("Start Saving Procedures...",$displayerrors);	
+	//errorreport("Start Saving Procedures...",$displayerrors);	
 	
-	errorreport(".[1]. Update Main Table with new values...",$displayerrors);		
+	//errorreport(".[1]. Update Main Table with new values...",$displayerrors);		
 		
 			//$tmpdate 	= AmerDate2SqlDateTime($_POST['frmdate']);
-			$tmpdate 	= ($_POST['frmdate']);
+			$tmpdate 	= ($_POST['disdate']);
 
-			$sql 		= "UPDATE `tbl_139_333_main` SET `139333_date`='".$tmpdate."',`139333_time`= '".$_POST['frmtime']."' WHERE	139333_main_id = '".$_POST['recordid']."' ";	
+			$sql 		= "UPDATE `tbl_139_333_main` SET `139333_date`='".$tmpdate."',`139333_time`= '".$_POST['distime']."' WHERE	139333_main_id = '".$_POST['recordid']."' ";	
 			$mysqli 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-			errorreport(".[1].[1]. UPDATE Main Table with the following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);						
+			//errorreport(".[1].[1]. UPDATE Main Table with the following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);						
 					
 			if (mysqli_connect_errno()) {
 					// there was an error trying to connect to the mysql database
@@ -427,10 +436,10 @@ if (!isset($_POST["formsubmit"])) {
 					$lastid 		= mysqli_insert_id($mysqli);
 					$lastNavAididi 	= mysqli_insert_id($mysqli);
 					
-					errorreport(".[1].[2]. The Main Inspection ID <font size='1'>".$lastNavAididi."</font> has been updated...",$displayerrors);				
+					//errorreport(".[1].[2]. The Main Inspection ID <font size='1'>".$lastNavAididi."</font> has been updated...",$displayerrors);				
 					}
 
-	errorreport(".[2]. Look through Inspection Condition Checklists and update records as needed...",$displayerrors);
+	//errorreport(".[2]. Look through Inspection Condition Checklists and update records as needed...",$displayerrors);
 				
 			$sql = "SELECT * FROM tbl_139_333_sub_c_c 
 					INNER JOIN tbl_139_333_sub_c ON tbl_139_333_sub_c.conditions_id = tbl_139_333_sub_c_c.conditions_checklists_condition_cb_int 
@@ -438,7 +447,7 @@ if (!isset($_POST["formsubmit"])) {
 			
 			$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
-			errorreport(".[2].[1]. Loop through conditions with the Following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);	
+			//errorreport(".[2].[1]. Loop through conditions with the Following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);	
 			
 			if (mysqli_connect_errno()) {
 					// there was an error trying to connect to the mysql database
@@ -449,20 +458,20 @@ if (!isset($_POST["formsubmit"])) {
 				
 					$objrs = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
 					
-					errorreport(".[2].[2]. Connection to Datbase Established...",$displayerrors);
+					//errorreport(".[2].[2]. Connection to Datbase Established...",$displayerrors);
 						
 					$counter = 0;	
 						
 					while ($objfields = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {		
 							
-							errorreport(".[2].[3]. Within the While Loop Statement...",$displayerrors);
+							//errorreport(".[2].[3]. Within the While Loop Statement...",$displayerrors);
 							
 							$tmpid2 		= $objfields['conditions_id'];
 							$tmpccid		= $objfields['conditions_checklists_id'];
 							
 							$fieldname 		= $tmpid2."_";
 							
-							errorreport(".[2].[4]. Field Name is : ".$fieldname."...",$displayerrors);
+							//errorreport(".[2].[4]. Field Name is : ".$fieldname."...",$displayerrors);
 							
 							$tmpfacid2		= $objfields['condition_facility_cb_int'];
 							
@@ -489,12 +498,12 @@ if (!isset($_POST["formsubmit"])) {
 									$complatecellvalue 	= $cellvaluec;
 								}
 								
-							errorreport(".[2].[5]. Save completed value into an array...",$displayerrors);		
+							//errorreport(".[2].[5]. Save completed value into an array...",$displayerrors);		
 								
 							$array_sub_c_c_id[$counter] 	= $tmpccid;
 							$array_sub_c_c_values[$counter] = $complatecellvalue;
 							
-							errorreport(".[2].[6]. ID is :".$array_sub_c_c_id[$counter]." Value is: ".$array_sub_c_c_values[$counter]." ",$displayerrors);		
+							//errorreport(".[2].[6]. ID is :".$array_sub_c_c_id[$counter]." Value is: ".$array_sub_c_c_values[$counter]." ",$displayerrors);		
 							
 							
 							$counter = $counter + 1;	
@@ -503,22 +512,22 @@ if (!isset($_POST["formsubmit"])) {
 							
 					}	// End of Object Record Set
 					
-			errorreport(".[2].[7]. Loop through the array saving values as needed...",$displayerrors);		
+			//errorreport(".[2].[7]. Loop through the array saving values as needed...",$displayerrors);		
 
 			for ($j=0; $j<=count($array_sub_c_c_id); $j=$j+1) {			
 					
-					errorreport(".[2].8]. In For Loop Update same Record?...",$displayerrors);		
+					//errorreport(".[2].8]. In For Loop Update same Record?...",$displayerrors);		
 						
 					$array_value 	= $array_sub_c_c_values[$j];
 					$array_id		= $array_sub_c_c_id[$j];
 					
-					errorreport(".[2].[8]. The Array value is ".$array_value." ...",$displayerrors);	
-					errorreport(".[2].[9]. The Array ID is ".$array_id." ...",$displayerrors);	
+					//errorreport(".[2].[8]. The Array value is ".$array_value." ...",$displayerrors);	
+					//errorreport(".[2].[9]. The Array ID is ".$array_id." ...",$displayerrors);	
 						
 					$sql2 		= "UPDATE `tbl_139_333_sub_c_c` SET `conditions_checklist_values` = '".$array_value."' WHERE `conditions_checklists_id` = '".$array_id."' ";	
 					$objcon2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 		
-					errorreport(".[2].[10]. The UPDATE SQL Statement is : <font size='1'>".$array_id." </font> ...",$displayerrors);	
+					//errorreport(".[2].[10]. The UPDATE SQL Statement is : <font size='1'>".$array_id." </font> ...",$displayerrors);	
 
 					if (mysqli_connect_errno()) {
 							// there was an error trying to connect to the mysql database
@@ -533,13 +542,13 @@ if (!isset($_POST["formsubmit"])) {
 
 				}
 				
-	errorreport(".[3]. Now for the Harder Stuff ...",$displayerrors);	
-	errorreport(".[3].[1]. Are there any new temporary discrepancies created by the NavAid Inspection Form? ...",$displayerrors);
+	//errorreport(".[3]. Now for the Harder Stuff ...",$displayerrors);	
+	//errorreport(".[3].[1]. Are there any new temporary discrepancies created by the NavAid Inspection Form? ...",$displayerrors);
 
 			$sql = "SELECT * FROM tbl_139_327_sub_d_tmp WHERE discrepancy_madebynavaid = '1' ";
 			$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
-			errorreport(".[3].[2]. The SQL Statement is <font size='1'>".$sql."</font> ...",$displayerrors);
+			//errorreport(".[3].[2]. The SQL Statement is <font size='1'>".$sql."</font> ...",$displayerrors);
 			
 			if (mysqli_connect_errno()) {
 					// there was an error trying to connect to the mysql database
@@ -554,16 +563,16 @@ if (!isset($_POST["formsubmit"])) {
 						}
 				}
 
-			errorreport(".[3].[3]. There were ".$number_of_rows." discrepancies found ...",$displayerrors);
+			//errorreport(".[3].[3]. There were ".$number_of_rows." discrepancies found ...",$displayerrors);
 
 			if($number_of_rows > 0) {
 					
-					errorreport(".[3].[4]. There is a need to either create a new Part 139.327 inspection or make modification to an exisiting one ...",$displayerrors);	
+					//errorreport(".[3].[4]. There is a need to either create a new Part 139.327 inspection or make modification to an exisiting one ...",$displayerrors);	
 					
 					$sql = "SELECT * FROM tbl_139_333_main WHERE 139333_main_id = '".$_POST['recordid']."' ";
 					$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 					
-					errorreport(".[3].[5]. Look for information about existing 327 inspection with the following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);	
+					//errorreport(".[3].[5]. Look for information about existing 327 inspection with the following SQL Statement <font size='1'>".$sql."</font>...",$displayerrors);	
 					
 					if (mysqli_connect_errno()) {
 							// there was an error trying to connect to the mysql database
@@ -582,7 +591,7 @@ if (!isset($_POST["formsubmit"])) {
 						
 					if($linked_327_int == 0) {
 							
-							errorreport(".[3].[6]. No Previous 327 inspection exisits, make a new one. <font size='1'>".$sql."</font>...",$displayerrors);	
+							//errorreport(".[3].[6]. No Previous 327 inspection exisits, make a new one. <font size='1'>".$sql."</font>...",$displayerrors);	
 						
 							//echo "Damn, I need to add a new Inspection <br>";
 							$addedinspection = 1;
@@ -821,8 +830,8 @@ if (!isset($_POST["formsubmit"])) {
 						}
 						else {
 						
-							errorreport(".[3].[7]. A Previous Part 327 inspection exisits, create an error report for it and then add a discrepancy to it ...",$displayerrors);	
-							errorreport(".[3].[8]. Start with the error report ...",$displayerrors);	
+							//errorreport(".[3].[7]. A Previous Part 327 inspection exisits, create an error report for it and then add a discrepancy to it ...",$displayerrors);	
+							//errorreport(".[3].[8]. Start with the error report ...",$displayerrors);	
 							
 									$sql = "INSERT INTO tbl_139_327_main_e (inspection_error_inspection_id, inspection_error_by_cb_int, inspection_error_reason, inspection_error_date, inspection_error_time, inspection_error_yn)
 											VALUES ( '".$linked_327_int."', '".$_POST['inspector']."', 'Forced Error by Part 139.333 NavAid Inspection Edit (added Discrepancy)', '".$sqldate."', '".$_POST['frmtime']."', '1' )";
@@ -842,12 +851,12 @@ if (!isset($_POST["formsubmit"])) {
 													}
 
 									
-							errorreport(".[3].[9]. Loop through temporary discrepancies and add them to this inspection ID ...",$displayerrors);	
+							//errorreport(".[3].[9]. Loop through temporary discrepancies and add them to this inspection ID ...",$displayerrors);	
 												
 									$sql = "SELECT * FROM tbl_139_327_sub_d_tmp WHERE discrepancy_madebynavaid = 1";
 									$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
-									errorreport(".[3].[10]. Loop through temporary discrepancies with the following SQL Statement <font size='1'>".$sql."</font> ...",$displayerrors);			
+									//errorreport(".[3].[10]. Loop through temporary discrepancies with the following SQL Statement <font size='1'>".$sql."</font> ...",$displayerrors);			
 						
 									if (mysqli_connect_errno()) {
 											// there was an error trying to connect to the mysql database
@@ -896,7 +905,7 @@ if (!isset($_POST["formsubmit"])) {
 
 															$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 															
-															errorreport(".[3].[11]. INSERT into discrepancy table with the following SQL Statement <font size='1'>".$sql."</font> ...",$displayerrors);			
+															//errorreport(".[3].[11]. INSERT into discrepancy table with the following SQL Statement <font size='1'>".$sql."</font> ...",$displayerrors);			
 						
 															if (mysqli_connect_errno()) {
 																	// there was an error trying to connect to the mysql database

@@ -39,12 +39,15 @@
 		include("includes/_template/template.list.php");
 		include("includes/_template_enter.php");
 	
+		include("scripts/_scripts_header_iface.inc.php");
+		
 // Define Variables	
 	
 		$aInspection	= "";
 		$i				= 1;
 		$InspCheckList 	= $_GET["InspCheckList"];
 		$IntInspector 	= $_GET["Employee"];
+		$formname		= $_GET["Formname"];
 		
 // Start Procedures		
 
@@ -56,34 +59,19 @@
 	//			the windows as needed. This will also clean up the interface of the main form so it is not so long and convoluted. 
 	
 	// Display Date and Time Fields
-		?>	
-	<table cellspacing="2" cellpadding="2" width="100%">
-		<tr>
-			<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-				Date
-				</td>
-			<td class="formanswers">
-				<input class="commonfieldbox" type="text" name="frmdate" size="10" value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-				</td>
-			</tr>
-		<tr>
-			<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-				Time
-				</td>
-			<td class="formanswers">
-				<input class="commonfieldbox" type="text" name="frmtime" size="10" value="<?echo date("H:i:s");?>">
-				<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?=$InspCheckList;?>">	
-				</td>
-			</tr>
-		<?php
-		
+	?>	
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?=$InspCheckList;?>">
+	</table>
+	<?php
 	// Display Topic headings
 		?>
-		<tr>
-			<td class="formheaders">
-					Equipment
-				</td>					
-			<td class="formheaders">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">		
+	<tr>
+		<td class="item_space_active">
+				Equipment
+			</td>					
+		<td class="item_space_active">
 		<?php
 		// This is where our management DIV will be located (in the lower rows of this column).
 		?>
@@ -199,11 +187,24 @@
 										//echo "[17]. Check is equal to 2, Display Management Line <br>";
 										?>
 		<tr>
-			<td align="center" valign="middle" width="*" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
+			<td name="col_1_r<?php echo $tmpid;?>"
+				id="col_1_r<?php echo $tmpid;?>"
+				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+				class="item_name_small_inactive"
+				/>
 				Runway Heading <?php echo $runwayheading;?>
-				</td>			
-			<td align="center" valign="middle" width="*" align="center" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" height="15" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;">
-				<INPUT class="formsubmit" TYPE="button" VALUE="Manage Checklist Items" onclick="javascript:toggle('divform_<?php echo $runwayheading ;?>');" >
+				</td>		
+			<td name="col_2_r<?php echo $tmpid;?>"
+				id="col_2_r<?php echo $tmpid;?>"
+				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+				class="item_name_small_inactive"
+				/>
+				<?php
+				// Display Open DIV button
+				_tp_control_function_button_div('divform_'.$runwayheading,$en_managechecklist,'icon_window','divform_'.$runwayheading,'toggle','200','200');
+				?>
 				</td>
 			</tr>
 										<?php
@@ -213,7 +214,7 @@
 										?>
 		<tr>
 			<td colspan="2">
-				<div style="position:absolute; z-index:99; left:40; top:40; width:500;display: none"; name="divform_<?php echo $runwayheading ;?>" id="divform_<?php echo $runwayheading ;?>" >
+				<div style="display: none"; name="divform_<?php echo $runwayheading ;?>_win" id="divform_<?php echo $runwayheading ;?>_win" >
 				
 
 										<?php

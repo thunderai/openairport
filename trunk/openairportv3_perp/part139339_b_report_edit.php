@@ -97,11 +97,8 @@
 // Start Procedures
 	if (!isset($inspection_id)) {
 			// No Record ID Supplied, Crash Out
-		}
-		else {
+		} else {
 			if (!isset($_POST["formsubmit"])) {
-					
-					
 				//echo "The form has not been submitted before, this is the first time displaying the form. <br>";				
 				$sql =" SELECT * FROM tbl_139_339_sub_n WHERE 139339_sub_n_id = ".$inspection_id."";
 				//echo "Connect to database usining this SQL statement ".$sql." <br>";				
@@ -111,185 +108,113 @@
 						// there was an error trying to connect to the mysql database
 						printf("connect failed: %s\n", mysqli_connect_error());
 						exit();
-					}
-					else {
+					} else {
 						$objrs = mysqli_query($objconn, $sql);
 								
 						if ($objrs) {
 								$number_of_rows = mysqli_num_rows($objrs);
-						?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php echo $tblname;?>
-									</td>
-								<td class="tableheaderright">
-									(<?php echo $tblsubname;?>)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-						<?php
+								?>
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php echo $tblname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php echo $tblsubname;?>
+				)
+				</td>				
+			</tr>
+								<?php
 								while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 										?>
-							<tr>
-								<td colspan="2">
-									<table cellspacing="0" width="100%">
-										<tr>
-											<td class="formoptionsavilabletop">
-												The following options are avilable to you
-												</td>
-											</tr>
-										<tr>
-											<td class="formoptionsavilablebottom">
-												<table>
-													<tr>
-														<?php
-														// Hijack Template Functions for our own purposes
-														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = "	,	"139339",	"part139339_c_report_display_archived.php");
-														$functionpage	= "part139339_b_report_archieved.php";														
-														_tp_control_archived($inspection_id, $settingsarray, $functionpage);
-														
-														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_e WHERE 139339_eoo_i_id = "			,	"139339",	"part139339_c_report_display_error.php");
-														$functionpage	= "part139339_b_report_error.php";														
-														_tp_control_error($inspection_id, $settingsarray, $functionpage);	
-														
-														$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_n_r WHERE 139339_sub_n_r_cancelled_id_int = ",	"139339_sub_n",	"part139339_b_report_closed.php");
-														$functionpage	= "part139339_b_report_closed.php";														
-														_tp_control_closed($objarray['139339_sub_n_id'], $settingsarray, $functionpage);															
-														?>														
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							<tr>
-								<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-									<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
-									<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $inspection_id;?>">
-								<td colspan="2" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="2" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(select from the list)')"; onMouseout="hideddrivetip()">
-												Reported By
-												</td>
-											<td class="formanswers">
-												<?php
-												systemusercombobox($objarray['139339_sub_n_by_cb_int'], "all", "inspector", "show", $objarray['139339_sub_n_by_cb_int']);
-												?>
-												</td>
-											</tr>												
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-												Type of Inspection
-												</td>
-											<td class="formanswers">
-												<?php 
-												$InspCheckList = $objarray['139339_sub_n_type_cb_int'];
-												part139339typescombobox($objarray['139339_sub_n_type_cb_int'], "all", "InspCheckList", "show", $objarray['139339_sub_n_type_cb_int']);
-												?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-												Metar
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox"	type="text"		name="frmmetar"	ID="frmmetar"	size="90" 	value="<?php echo $objarray['139339_sub_n_metar'];?>" disabled="disabled">
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Date
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" 	type="text" 	name="frmdate" ID="frmdate" 	size="10"	value="<?php echo $objarray['139339_sub_n_date'];?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-												Time
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" 	type="text" 	name="frmtime"	ID="frmtime"	size="10" 	value="<?php echo $objarray['139339_sub_n_time'];?>">
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Date to Close
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" type="text" 	id="frmdateclosed" 	name="frmdateclosed" 	size="10" value="<?php echo $objarray['139339_sub_n_date_closed'];?>" /> <input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmdateclosed','<?echo date('m/d/Y');?>');">
-												<input class="commonfieldbox" type="hidden" id="frmdateclosedo" name="frmdateclosedo" 	size="10" value="<?php echo $objarray['139339_sub_n_date_closed'];?>" />
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the time this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.')"; onMouseout="hideddrivetip()">
-												Time to Close
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" type="text" 	id="frmtimeclosed" 	name="frmtimeclosed" 	size="10" value="<?php echo $objarray['139339_sub_n_time_closed'];?>" /> <input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmtimeclosed','<?echo date("H:i:s");?>');">
-												<input class="commonfieldbox" type="hidden" id="frmtimeclosedo" name="frmtimeclosedo" 	size="10" value="<?php echo $objarray['139339_sub_n_time_closed'];?>" />
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Wx Initials (issue)
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" type="text" id="139339_sub_n_wx_out" name="139339_sub_n_wx_out" size="10" value="<?php echo $objarray['139339_sub_n_wx_in'];?>" />
-												</td>
-											</tr>									
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												FBO Initials (issue)
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" type="text" id="139339_sub_n_fbo_out" name="139339_sub_n_fbo_out" size="10" value="<?php echo $objarray['139339_sub_n_fbo_in'];?>" />
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Airline Initials (issue)
-												</td>
-											<td class="formanswers">
-												<input class="commonfieldbox" type="text" id="139339_sub_n_airline_out" name="139339_sub_n_airline_out" size="10" value="<?php echo $objarray['139339_sub_n_airline_in'];?>" />
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-												Notes
-												</td>
-											<td class="formanswers">
-												<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60"><?php echo $objarray['139339_sub_n_notes'];?></textarea>
-												</td>
-											</tr>
-												<table cellspacing="0" cellpadding="0" width="100%">
-													<tr>
-														<td rowspan="2" class="formheaders">
-																Surface
-															</td>
-														<td rowspan="2" class="formheaders">
-																Closed ?<br>Yes?
-															</td>
-														</tr>
-													<tr>
-														<td colspan="4" class="header">
-															<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
+		<tr>
+			<td colspan="2" class="item_name_inactive">
+				<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+					<tr>
+						<?php
+						// Hijack Template Functions for our own purposes
+						$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_a WHERE 139339_a_inspection_id = "	,	"139339",	"part139339_c_report_display_archived.php");
+						$functionpage	= "part139339_b_report_archieved.php";														
+						_tp_control_archived($inspection_id, $settingsarray, $functionpage);
+
+						$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_e WHERE 139339_eoo_i_id = "			,	"139339",	"part139339_c_report_display_error.php");
+						$functionpage	= "part139339_b_report_error.php";														
+						_tp_control_error($inspection_id, $settingsarray, $functionpage);	
+
+						$settingsarray 	= array("SELECT * FROM tbl_139_339_sub_n_r WHERE 139339_sub_n_r_cancelled_id_int = ",	"139339_sub_n",	"part139339_b_report_closed.php");
+						$functionpage	= "part139339_b_report_closed.php";														
+						_tp_control_closed($objarray['139339_sub_n_id'], $settingsarray, $functionpage);															
+						?>
+						</tr>
+					</table>
+				</td>
+			</tr>										
+						<?php
+						// FORM HEADER
+						// -----------------------------------------------------------------------------------------\\
+								$formname			= "edittable";													// HTML Name for Form
+								$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+								$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+									$formtarget		= "";															// HTML Name for the window
+									$location		= $formtarget;													// Leave the same as $formtarget
+						
+						// FORM NAME and Sub Title
+						//------------------------------------------------------------------------------------------\\
+								$form_menu			= "Edit 339 b Inspection";										// Name of the FORM, shown to the user
+								$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+								$subtitle 			= "Use this form to edit the inspection";						// Subt title of the FORM, shown to the user
+
+						// FORM SUMMARY information
+						//------------------------------------------------------------------------------------------\\
+								$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+									$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+									$idtosearch				= $inspection_id;										// ID to look for in the summary function, this is typically $_POST['recordid'].
+									$detailtodisplay		= 0;													// See Summary Function for how to use this number
+									$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+										
+							include("includes/_template/_tp_blockform_form_header.binc.php");			
+							?>
+							
+							<?php
+							// FORM ELEMENTS
+							//-----------------------------------------------------------------------------------------\\	
+							//
+							//				Field Name			, Field Text Name	, Field Comment											, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
+							form_new_table_b($formname);
+							form_new_control("inspector"		, "Entry By"		, "Who found and reported this discrepancy"				,"Your name has automatically been provided!"			,"(cannot be changed)"			, 3				, 0				, 0				, $objarray['139339_sub_n_by_cb_int']		,"systemusercombobox");
+							form_new_control("InspCheckList"	, "Type"			, "Select the Species contained for this report"		,"Select from the list provided!"						,""								, 3				, 0				, 4				, $objarray['139339_sub_n_type_cb_int']		,"part139339typescombobox");
+							form_new_control('frmmetar'			, 'Metar'			, 'Enter the current Metar'								,'The current metar has automatically been provided!'	, 'METAR'						, 1				, 80			, 0 			, $objarray['139339_sub_n_metar']			, 0);
+							form_new_control('frmdate'			, 'Date'			, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 7				, 0 			, $objarray['139339_sub_n_date']			, 0);
+							form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 7				, 0 			, $objarray['139339_sub_n_time']			, 0);
+							form_new_control('frmdateclosed'	, 'Date to Close'	, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 7				, 0 			, $objarray['139339_sub_n_date_closed']		, 0);
+							form_new_control('frmtimeclosed'	, 'Time to Close'	, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 7				, 0 			, $objarray['139339_sub_n_time_closed']		, 0);
+							form_new_control('139339_sub_n_wx_out', 'Wx Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 5 			, 0 			, $objarray['139339_sub_n_wx_in']			, 0);
+							form_new_control('139339_sub_n_fbo_out', 'FBO Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 5				, 0 			, $objarray['139339_sub_n_fbo_in']			, 0);
+							form_new_control('139339_sub_n_airline_out', 'Airline Initials'	, 'Enter the Initails of Flight Service'		,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 5				, 0 			, $objarray['139339_sub_n_airline_in']			, 0);
+							form_new_control("frmnotes"			,"Comments"			, "Provide comments about this NOTAM"					,"Do not use any special characters!"					, ""							, 2				, 30			, 4				, $objarray['139339_sub_n_notes']			, 0);
+							?>
+		<tr>
+			<td colspan='6' />
+				<table cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+      					<td rowspan="2" class="item_name_active">
+      							Surface
+							</td>
+      					<td rowspan="2" class="item_name_active">
+      							Closed ?<br>Yes?
+							</td>
+						</tr>
+					<tr>
+						<td colspan="4" />
+							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $objarray['139339_sub_n_type_cb_int'];?>">
 															<?php
 															// Define SQL
 															$sql = "SELECT * FROM tbl_139_339_sub_c 
 																	INNER JOIN tbl_139_339_sub_c_f ON 139339_f_id = 139339_c_facility_cb_int					
-																	WHERE 139339_c_type_cb_int = '".$InspCheckList."' AND 139339_c_archived_yn = 0 AND 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 OR 139339_f_rwy_yn = 8 
+																	WHERE 139339_c_type_cb_int = '".$objarray['139339_sub_n_type_cb_int']."' AND 139339_c_archived_yn = 0 AND 139339_f_rwy_yn = 0 OR 139339_f_rwy_yn = 1 OR 139339_f_rwy_yn = 8 
 																	ORDER BY 139339_f_order, 139339_f_name, 139339_c_name";
 															
 															//echo $sql;
@@ -316,7 +241,12 @@
 																							?>
 														</tr>						
 													<tr>
-														<td height="28" class="formresults">
+														<td name="col_1_r<?php echo $tmpid;?>"
+															id="col_1_r<?php echo $tmpid;?>"
+															onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+															onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+															class="item_name_small_inactive"
+															/>
 																							&nbsp;
 																							<?php
 																							$tmpfacility = $objfields["139339_c_facility_cb_int"];
@@ -435,7 +365,12 @@
 																										break;
 																								case 1:
 																										?>
-																	<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+														<td name="col_2_r<?php echo $tmpid;?>"
+															id="col_2_r<?php echo $tmpid;?>"
+															onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+															onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+															class="item_name_small_inactive"
+															/>	
 																										<?php
 																										//echo "Records show that this surface has a value of :".$cellvalue."<br>";
 																												
@@ -519,7 +454,7 @@
 												</td>
 											</tr>
 										<tr>
-											<td height="32" colspan="12" class="formoptionsavilablebottom" valign="middle">
+											
 												<?php
 												// TAKE SURFACE ARRAY AND SERILZE IT FOR TRANSPORT (bake it)
 												//$surface_array_ser 	= urlencode(serialize($surface_array));
@@ -544,18 +479,27 @@
 												<input type="hidden" id="surfacearray_s" 	name="surfacearray_s" 	value="<?php echo $surface_array_s;?>" />
 												<input type="hidden" id="surfacearray_t" 	name="surfacearray_t" 	value="<?php echo $surface_array_t;?>" />
 												<input type="hidden" id="surfaceloops" 		name="surfaceloops" 	value="<?php echo $surface_loops;?>" />
-												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.edittable.submit()">&nbsp;
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							</form>
+												<?php
+												//	
+												// FORM FOOTER
+												//------------------------------------------------------------------------------------------\\
+														$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+															$submitbuttonname	= 'Submit Changes';											// Name of the Submit Button
+														$display_close			= 0;														// 1: Display Close Button, 	0: No
+														$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+														$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+														
+													include("includes/_template/_tp_blockform_form_footer.binc.php");
+																				} 
+																		}
+																	?>
+														</tr>
+													</table>
+													</form>
 		<?php
 									}
-							}
-					}
+						//	}
+				//	}
 				} else {
 						
 					// Form has been submitted
@@ -579,7 +523,7 @@
 					
 					$sql = $sql." WHERE 139339_sub_n_id='".$_POST['recordid']."' ";
 					
-					//echo "SQL Statement is: ".$sql."<br>";
+					//echo "<font size='4' color='#FFFFFF'> SQL Statement is: ".$sql."<br>";
 					
 					$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 					//mysql_insert_id();
@@ -687,36 +631,65 @@
 										
 					$tblname		= "NOTAM Summary Report";
 					$tblsubname		= "(summary of information)";
+
+					// FORM HEADER
+					// -----------------------------------------------------------------------------------------\\
+							$formname			= "edittable";													// HTML Name for Form
+							$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+							$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+								$formtarget		= "";															// HTML Name for the window
+								$location		= $formtarget;													// Leave the same as $formtarget
 					
-					?>
-					<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-						<input type="hidden" name="formsubmit" 		ID="formsubmit"		value="1">
-						<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$_POST['recordid'];?>">
-					<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-						<tr>
-							<td width="10" class="tableheaderleft">&nbsp;</td>
-							<td class="tableheadercenter">
-								<?php echo $tblname;?>
-								</td>
-							<td class="tableheaderright">
-								(<?php echo $tblsubname;?>)
-								</td>
-							</tr>
-						<tr>
-							<td colspan="3" class="tablesubcontent">
-								<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-									<tr>
-										<td colspan="3">
-											<?php
-											_339_b_display_report_summary($_POST['recordid'],2,0);
-											?>
-											</td>
-										</tr>		
-									</table>
-								</td>
-							</tr>
-						</table>
-										<?php
+					// FORM NAME and Sub Title
+					//------------------------------------------------------------------------------------------\\
+							$form_menu			= "Edit 339 b Inspection";										// Name of the FORM, shown to the user
+							$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+							$subtitle 			= "Summary of information you provided";						// Subt title of the FORM, shown to the user
+
+					// FORM SUMMARY information
+					//------------------------------------------------------------------------------------------\\
+							$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+								$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+								$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+								$detailtodisplay		= 0;													// See Summary Function for how to use this number
+								$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+									
+						include("includes/_template/_tp_blockform_form_header.binc.php");			
+					
+						// FORM ELEMENTS
+						//-----------------------------------------------------------------------------------------\\	
+						//
+						//				Field Name			, Field Text Name	, Field Comment											, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
+						form_new_table_b($formname);
+						form_new_control("inspector"		, "Entry By"		, "Who found and reported this discrepancy"				,"Your name has automatically been provided!"			,"(cannot be changed)"			, 3				, 0				, 0				, 'post'			,"systemusercombobox");
+						form_new_control("InspCheckList"	, "Type"			, "Select the Species contained for this report"		,"Select from the list provided!"						,""								, 3				, 0				, 4				, 'post'			,"part139339typescombobox");
+						form_new_control('frmmetar'			, 'Metar'			, 'Enter the current Metar'								,'The current metar has automatically been provided!'	, 'METAR'						, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('frmdate'			, 'Date'			, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('frmdateclosed'	, 'Date to Close'	, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('frmtimeclosed'	, 'Time to Close'	, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('139339_sub_n_wx_out', 'Wx Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0 			, 0 			, 'post'			, 0);
+						form_new_control('139339_sub_n_fbo_out', 'FBO Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control('139339_sub_n_airline_out', 'Airline Initials'	, 'Enter the Initails of Flight Service'		,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0				, 0 			, 'post'			, 0);
+						form_new_control("frmnotes"			,"Comments"			, "Provide comments about this NOTAM"					,"Do not use any special characters!"					, ""							, 2				, 0				, 4				, 'post'			, 0);
+					
+					
+						$formname = 'edittable';
+						//
+						// FORM FOOTER
+						//------------------------------------------------------------------------------------------\\
+								$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+									$submitbuttonname	= 'Start Edit of 327 Record';								// Name of the Submit Button
+								$display_close			= 0;														// 1: Display Close Button, 	0: No
+								$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+								$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+								$display_quickaccess	= 0;
+								$display_printout		= 1;
+									$printout_page		= 'part139339_b_report_display_new.php';
+									$printout_id		= $_POST['recordid'];
+									$printout_passed	= 'recordid';
+								
+							include("includes/_template/_tp_blockform_form_footer.binc.php");
 				
 				}
 		}

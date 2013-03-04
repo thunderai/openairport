@@ -59,9 +59,11 @@
 // This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
 //		Anytime a window is openned from the template browser the following should be loaded into the FORM
 //----------------------------------------------------------------------------------------------\\
-			$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
-			$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
-	
+			$bstart_date 	= $_GET['frmstartdate'];												// The 'TB' Start Date 	(nonSQL)
+			$bend_date 		= $_GET['frmenddate'];													// The 'TB' End Date 	(nonSQL)
+
+			//echo "Start Date :".$bstart_date." / End Date :".$bend_date." ";
+			
 //	Start Form Set Variables
 
 	// FORM HEADER
@@ -92,6 +94,7 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//					Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
+		form_new_table_b($formname);
 		form_new_control("frmyear"			,"Year"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(yyyy)"			,1			,10				,0				,"current"				,0);
 		form_new_control("wlhmspecies"		,"Species"					, "Select a Species"				,"Select a species from the list provided!"				,""					,3			,50				,0				,"all"					,"part139337_combobox_animalspecieswall");
 		form_new_control("wlhmactivity"		,"Activity"					, "Select an Activity"				,"Select an activity from the list provided!"			,""					,3			,35				,4				,"all"					,"part139337_combobox_animalactivitywall");
@@ -99,6 +102,49 @@
 		form_new_control("wlhmspermit"		,"State Permit"				, "Display State Permits?"			,"Check box to show state Permit results!"				,"(checked = show)"	,5			,35				,4				,""						,"");
 		form_new_control("wlhmfpermit"		,"Federal Permit"			, "Display Federal Permits?"		,"Check box to show federal Permit results!"			,"(checked = show)"	,5			,35				,4				,""						,"");
 		form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use these settings"			,"(uncheck for TB)"	,5						,50				,0				,"all"					,0);
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	// Determine if this is from POST or GET
+	
+		if (!isset($_POST["targetname"])) {
+			// There is not a menuitemid defined in the POST request
+			// Test to see if there is one in the GET request
+			if (!isset($_GET["targetname"])) {
+					// There is one NOT defined in the get request as well.
+					// Set a known default value			
+					$targetname = "";
+				}
+				else {
+					// If there is a value in the get request set it to the right value
+					$targetname = $_GET["targetname"];
+				}
+		}
+		else {
+			// There is a value in the POST request
+			$targetname = $_POST["targetname"];
+		}
+	
+		if (!isset($_POST["dhtmlname"])) {
+			// There is not a menuitemid defined in the POST request
+			// Test to see if there is one in the GET request
+			if (!isset($_GET["dhtmlname"])) {
+					// There is one NOT defined in the get request as well.
+					// Set a known default value			
+					$dhtml_name = "";
+				}
+				else {
+					// If there is a value in the get request set it to the right value
+					$dhtml_name = $_GET["dhtmlname"];
+				}
+		}
+		else {
+			// There is a value in the POST request
+			$dhtml_name = $_POST["dhtmlname"];
+		}
+		
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
 	
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\

@@ -3,12 +3,12 @@ function datediff($start_date,$end_date="now",$unit="D") {
 		$unit = strtoupper($unit);
 		$start=strtotime($start_date);
 		if ($start === -1) {
-			print("invalid start date");
+			//print("invalid start date");
 		}
 		
 		$end=strtotime($end_date);			
 		if ($end === -1) {
-			print("invalid end date");
+			//print("invalid end date");
 		}
 		
 		if ($start > $end) {
@@ -28,7 +28,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 		
 		switch($unit) {
 			case "D":
-				print(intval($diff/(24*60*60)));
+				//print(intval($diff/(24*60*60)));
 				$diff = (intval($diff/(24*60*60)));
 				break;
 			case "M":
@@ -37,7 +37,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 				} else {
 					$mdiff = (($year2-$year1)*12)+($mon2-$mon1);
 				}
-				print($mdiff);
+				//print($mdiff);
 				$diff = $mdiff;
 				break;
 			case "Y":
@@ -46,7 +46,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 				} else {
 					$ydiff = $year2-$year1;
 				}
-				print($ydiff);
+				//print($ydiff);
 				$diff = $ydiff;
 				break;
 			case "YM":
@@ -63,7 +63,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 						$ymdiff = $mon2-$mon1;
 					}
 				}
-				print($ymdiff);
+				//print($ymdiff);
 				$diff = $ymdiff;
 				break;
 			case "YD":
@@ -72,7 +72,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 				} else {
 					$yddiff = intval(($end - mktime(0, 0, 0, $mon1, $day1, $year2))/(24*60*60));
 				}
-				print($yddiff);
+				//print($yddiff);
 				break;
 			case "MD":
 				if($day1>$day2) {
@@ -80,7 +80,7 @@ function datediff($start_date,$end_date="now",$unit="D") {
 				} else {
 					$mddiff = intval(($end - mktime(0, 0, 0, $mon2, $day1, $year2))/(24*60*60));
 				}
-				print($mddiff);
+				//print($mddiff);
 				$diff = $mddiff;
 				break;
 			default:

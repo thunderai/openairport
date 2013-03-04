@@ -49,96 +49,17 @@
 ?>
 
 		<center>
-				<table cellspacing="3" cellpadding="5" width="100%">
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Metar
-							</td>
-						<td class="formanswers">
-							<?php
-							$tmpstring = readweathertxt("null");
-							?>		
-							<input class="commonfieldbox"	type="text"		name="frmmetar"	ID="frmmetar"	size="90" 	value="<?php echo $tmpstring;?>" disabled="disabled">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" 	type="text" 	name="frmdate" ID="frmdate" 	size="10"	value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Time
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" 	type="text" 	name="frmtime"	ID="frmtime"	size="10" 	value="<?echo date("H:i:s");?>">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date to Close
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" 	id="frmdateclosed" 	name="frmdateclosed" 	size="10" value="<?echo date('m/d/Y');?>" /> <input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmdateclosed','<?echo date('m/d/Y');?>');">
-							<input class="commonfieldbox" type="hidden" id="frmdateclosedo" name="frmdateclosedo" 	size="10" value="<?echo date('m/d/Y');?>" />
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the time this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.')"; onMouseout="hideddrivetip()">
-							Time to Close
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" 	id="frmtimeclosed" 	name="frmtimeclosed" 	size="10" value="<?echo date("H:i:s");?>" /> <input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmtimeclosed','<?echo date("H:i:s");?>');">
-							<input class="commonfieldbox" type="hidden" id="frmtimeclosedo" name="frmtimeclosedo" 	size="10" value="<?echo date("H:i:s");?>" />
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Wx Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_wx_out" name="139339_sub_n_wx_out" size="10">
-							</td>
-						</tr>									
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							FBO Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_fbo_out" name="139339_sub_n_fbo_out" size="10">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Airline Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_airline_out" name="139339_sub_n_airline_out" size="10">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Notes
-							</td>
-						<td class="formanswers">
-							<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60"></textarea>
-							</td>
-						</tr>
-					</table>
 				<table cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-      					<td rowspan="2" class="formheaders">
+      					<td rowspan="2" class="item_name_active">
       							Surface
 							</td>
-      					<td rowspan="2" class="formheaders">
+      					<td rowspan="2" class="item_name_active">
       							Closed ?<br>Yes?
 							</td>
 						</tr>
 					<tr>
-						<td colspan="4" class="header">
+						<td colspan="4" />
 							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
 							<?php
 							// Define SQL
@@ -173,7 +94,12 @@
 						</tr>	
 														
 					<tr>
-      					<td height="28" class="formresults">
+						<td name="col_1_r<?php echo $tmpid;?>"
+							id="col_1_r<?php echo $tmpid;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+							class="item_name_small_inactive"
+							/>
       						&nbsp;
 							<?php
 							$tmpfacility = $objfields["139339_c_facility_cb_int"];
@@ -283,7 +209,12 @@
 																	 
 																} else {
 																?>
-							<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+						<td name="col_2_r<?php echo $tmpid;?>"
+							id="col_2_r<?php echo $tmpid;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+							class="item_name_small_inactive"
+							/>																
 								<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
 																<?php
 

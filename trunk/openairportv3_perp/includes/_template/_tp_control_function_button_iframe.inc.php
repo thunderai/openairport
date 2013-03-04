@@ -1,5 +1,5 @@
 <?php
-function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',$target = '') {
+function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',$target = '',$display='show') {
 	// Variables
 	//	$action		is the action destination of the controlling form
 	//	$formname	is the name of the HTML form element
@@ -18,7 +18,15 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menutable" />
+		
+		<?php
+		if($display == 'hide') {
+			?>
+		style="display: none;"	 
+			<?php
+			}
+			?>
+		/>
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;

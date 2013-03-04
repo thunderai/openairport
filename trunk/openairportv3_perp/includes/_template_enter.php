@@ -108,6 +108,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 								
 								$fielddefaultvalue 	= $_POST[$fieldname];
 								$beenposted 		= 1;
+								//echo $fielddefaultvalue;
 							}
 					}
 					else {
@@ -281,7 +282,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													// DO Not show field, Just Show Result
 													echo $fielddefaultvalue;
 													?>
-						<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" name="<?php echo $fieldname;?>" type='hidden'>
+						<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" type='hidden' />
 													<?php
 												} else {
 													// Show field, and customize field accordingly
@@ -292,18 +293,41 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															case "Date":
 																	// Field is a Date Field Box.
 																	// is this control displaying just the current date or a set date?
-																	if($fielddefaultvalue == "current") {
+																	if($fielddefaultvalue == 'current') {
 																			// Field is displaying just the current date
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>');</script>
 																			<?php
 																		} else {
 																			// if not the current date, then a set date
+																			
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD');</script>
 																			<?php
 																		}
 																break;
+															case "Date to Close":
+																	// Field is a Date Field Box.
+																	// is this control displaying just the current date or a set date?
+																	if($fielddefaultvalue == 'current') {
+																			// Field is displaying just the current date
+																			?>
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>');</script>
+																			<input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('<?php echo $fieldname;?>','<?echo date('Y-m-d');?>');">
+																			<input class="commonfieldbox" type="hidden" id="frmdateclosedo" name="frmdateclosedo" 	size="10" value="<?echo date('Y-d-m');?>" />
+							
+																			<?php
+																		} else {
+																			// if not the current date, then a set date
+																			
+																			?>
+																			<input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('<?php echo $fieldname;?>','<?echo date('Y-m-d');?>');">
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD');</script>
+																			<?php
+																		}
+																break;	
 															case "Time":
 																	// Field is a Time Field Box
 																	?>
@@ -319,12 +343,31 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			<?php
 																		}
 																break;
+															case "Time to Close":
+																	// Field is a Time Field Box
+																	?>
+																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"
+																	<?php
+																	if($fielddefaultvalue == "current") {
+																			?>
+																			type="text" value="<?php echo date("H:i:s");?>" />
+																			<?php
+																		} else {
+																			?>
+																			type="text" value="<?php echo $fielddefaultvalue;?>" />
+																			<?php
+																		}
+																			?>
+																	<input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('<?php echo $fieldname;?>','<?echo date('Y-m-d');?>');">
+																	<?php
+																break;	
+																
 															case "Year":
 																	// Field is a Year Field Box
 																	?>
 																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"
 																	<?php
-																	if($fielddefaultvalue == "current") {
+																	if($fielddefaultvalue == 'current') {
 																			?>
 																			type="text" value="<?php echo date("Y");?>" />
 																			<?php
@@ -343,28 +386,46 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															case "Start Date":
 																	// Field is a Date Field Box.
 																	// is this control displaying just the current date or a set date?
-																	if($fielddefaultvalue == "current") {
+																	if($fielddefaultvalue == 'current') {
+																			// Field is displaying just the current date
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo date('Y-m-d');?>')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>');</script>
 																			<?php
 																		} else {
+																			// if not the current date, then a set date
+																			
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo $fielddefaultvalue;?>')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo $fielddefaultvalue;?>');</script>
 																			<?php
 																		}
 																break;
 															case "End Date":
 																	// Field is a Date Field Box.
 																	// is this control displaying just the current date or a set date?
-																	if($fielddefaultvalue == "current") {
+																	if($fielddefaultvalue == 'current') {
+																			// Field is displaying just the current date
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo date('Y-m-d');?>')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>');</script>
 																			<?php
 																		} else {
+																			// if not the current date, then a set date
+																			
 																			?>
-																			<script>DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD', '<?php echo $fielddefaultvalue;?>')</script>
+																			
+																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo $fielddefaultvalue;?>');</script>
 																			<?php
 																		}
+																break;
+															case "Metar":
+																	// Field is a Metar Field Box
+																	$tmpstring = readweathertxt("null");
+																	?>
+																	<input name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" type="hidden" value="<?php echo $tmpstring;?>" />
+																	<input class="<?php echo $style;?>" size="<?php echo $fieldsizex;?>" type="text" value="<?php echo $tmpstring;?>" width='<?php echo $fieldsizex;?>' disabled="disabled" />
+																	<?php
 																break;	
 															default:
 																	// No special rules needed
@@ -408,6 +469,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															if($fieldsizex == 0) {
 																	// DO Not show Combobox, Just Show Result
 																	$show = "hide";
+																	?>
+																	<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" type='hidden' />
+																	<?php
 																}
 																else {
 																	$show = "show";

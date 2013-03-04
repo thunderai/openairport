@@ -1,9 +1,10 @@
 <?php
-function _tp_control_function_button_div($formname,$label,$icon,$action = '',$target = '',$width,$height) {
+function _tp_control_function_button_div($formname,$label,$icon,$action = '',$target = '',$width,$height,$display = 'show') {
 	// Variables
 	//	$action		is the action destination of the controlling form
 	//	$formname	is the name of the HTML form element
-	//	$target		is the name of the target window location
+	//	$target		is this showing a dedicated div layer or a DHTML window
+	//				...if DHTML leave blank, otherwise provide name of javascript function
 	//	$label		is the name of the button displayed to the user
 	//	$icon		is the location of the image to use as an icon
 
@@ -18,7 +19,15 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menutable" />
+		class="perp_menutable" 
+		<?php
+		if($display == 'hide') {
+			?>
+			style="display: none;" 
+			<?php
+			}
+			?>
+		/>
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;
@@ -32,9 +41,21 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
-				/>
+				<?php
 				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
+				/>
+
 				</td>
 			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 				class="item_icon_inactive_form" 
@@ -48,7 +69,19 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+				<?php
+				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
 				/>
 				
 				</td>				
@@ -56,7 +89,19 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+				<?php
+				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
 				/>
 				<?php echo $label;?>
 				</td>		
@@ -64,7 +109,19 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+				<?php
+				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
 				/>
 				
 				</td>
@@ -72,7 +129,19 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+				<?php
+				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
 				/>
 				
 				</td>

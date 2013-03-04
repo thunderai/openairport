@@ -34,6 +34,7 @@
 ?>	
 		<link href="stylesheets/perpcarto.css" 								rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/perpcarto_quickaccess.css" 					rel="stylesheet" type="text/css" media="screen" />
+		<link href="stylesheets/perpcarto_printreports.css" 				rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/perpcarto_mainmenu.css" 					rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/perpcarto_mapcontrols.css" 					rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/perpcarto_dashpanel.css" 					rel="stylesheet" type="text/css" media="screen" />

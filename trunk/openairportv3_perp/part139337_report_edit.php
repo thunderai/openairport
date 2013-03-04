@@ -98,36 +98,27 @@ if (!isset($_POST['recordid'])) {
 								
 						if ($objrs) {
 								$number_of_rows = mysqli_num_rows($objrs);
-								
 								?>
 	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 		<tr>
-			<td width="10" class="tableheaderleft">&nbsp;</td>
-			<td class="tableheadercenter">
-				<?php echo $form_menu;?>
-				</td>
-			<td class="tableheaderright">
-				(<?php echo $form_subh;?>)
-				</td>
-			</tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php echo $tblname;?>
+				</td>			
+			</tr>			
 		<tr>
-			<td colspan="3" class="tablesubcontent">
-				<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php echo $tblsubname;?>
+				)
+				</td>				
+			</tr>
 								<?php
 								while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 										?>
 					<tr>
-						<td colspan="2">
-							<table cellspacing="0" width="100%">
+						<td colspan="2" class="item_name_inactive">
+							<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 								<tr>
-									<td class="formoptionsavilabletop">
-										The following options are avilable to you
-										</td>
-									</tr>
-								<tr>
-									<td class="formoptionsavilablebottom">
-										<table>
-											<tr>
 										<?php
 										// Hijack Template Functions for our own purposes
 										$settingsarray 	= array("SELECT * FROM tbl_139_337_main_a WHERE 139337_a_inspection_id = ",	"139337",	"part139337_report_display_archived.php");
@@ -157,22 +148,40 @@ if (!isset($_POST['recordid'])) {
 										// Utilize our lies
 										//include("includes/_template/_tp_blockform_workorder.binc.php");	
 										?>
-												</tr>
-											</table>
-										</td>
 									</tr>
 								</table>
 							</td>
 						</tr>
-					<tr>
-						<td colspan="2" class="formoptionsavilabletop">
-							<?php echo $subtitle;?>
-							</td>
-						</tr>	
-					<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="<?php echo $formname;?>" id="<?php echo $formname;?>">
+						<?php
+						// FORM HEADER
+						// -----------------------------------------------------------------------------------------\\
+								$formname			= "edittable";													// HTML Name for Form
+								$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+								$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+									$formtarget		= "";															// HTML Name for the window
+									$location		= $formtarget;													// Leave the same as $formtarget
+						
+						// FORM NAME and Sub Title
+						//------------------------------------------------------------------------------------------\\
+								$form_menu			= "Edit 337 Inspection";										// Name of the FORM, shown to the user
+								$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+								$subtitle 			= "Use this form to edit the inspection";						// Subt title of the FORM, shown to the user
+
+						// FORM SUMMARY information
+						//------------------------------------------------------------------------------------------\\
+								$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+									$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+									$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+									$detailtodisplay		= 0;													// See Summary Function for how to use this number
+									$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+										
+							include("includes/_template/_tp_blockform_form_header.binc.php");			
+							?>
+						
 						<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
 						<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $objarray['139337_id'];?>">
 										<?php
+										form_new_table_b($formname);
 										form_new_control("wlhmdate"		,"Date"				, "Enter the date of this report"					,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,10				,0				,$objarray['139337_date']				,0);
 										form_new_control("wlhmtime"		,"Time"				, "Enter the time of this report"					,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,10				,0				,$objarray['139337_time']				,0);
 										form_new_control("wlhmauthor"	,"Entry By"			, "Who found and reported this discrepancy"			,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,55				,0				,$objarray['139337_author_by_cb_int']	,"systemusercombobox");
@@ -189,7 +198,7 @@ if (!isset($_POST['recordid'])) {
 	//------------------------------------------------------------------------------------------\\
 			$display_submit 		= 1;														// 1: Display Submit Button,	0: No
 				$submitbuttonname	= 'Submit Changes';											// Name of the Submit Button
-			$display_close			= 1;														// 1: Display Close Button, 	0: No
+			$display_close			= 0;														// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			
@@ -207,20 +216,38 @@ if (!isset($_POST['recordid'])) {
 					}
 		}	
 		else {
-			//echo "Form has been submitted, do summary result page <br>";
-			// Load Form Header
-					$formname		= "edittable";
-					$subtitle 		= "Wildlife Hazard Management Report - Summary";
-					$form_menu		= "Summary Report of your WLHM Report";
-					$form_subh		= "Here is the information you provided";
-				
-			include("includes/_template/_tp_blockform_form_header.binc.php");
+
+						// FORM HEADER
+						// -----------------------------------------------------------------------------------------\\
+								$formname			= "edittable";													// HTML Name for Form
+								$formaction			= "";															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+								$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+									$formtarget		= "";															// HTML Name for the window
+									$location		= $formtarget;													// Leave the same as $formtarget
+						
+						// FORM NAME and Sub Title
+						//------------------------------------------------------------------------------------------\\
+								$form_menu			= "Edit 337 Inspection";										// Name of the FORM, shown to the user
+								$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
+								$subtitle 			= "Summary of information you provided";						// Subt title of the FORM, shown to the user
+
+						// FORM SUMMARY information
+						//------------------------------------------------------------------------------------------\\
+								$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+									$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+									$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+									$detailtodisplay		= 0;													// See Summary Function for how to use this number
+									$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
+										
+							include("includes/_template/_tp_blockform_form_header.binc.php");			
+
 		
 			// Load Form Elements	
 			// Place Default values from the POST Here or enter 'post'---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
 			//																																																																										|
 			//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\									|
-			//																																																																	 v									v
+			//
+			form_new_table_b($formname);
 			form_new_control("wlhmdate"		,"Date"				, "Enter the date of this report"					,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,0				,0				,'post'									,0);
 			form_new_control("wlhmtime"		,"Time"				, "Enter the time of this report"					,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,0				,0				,'post'									,0);
 			form_new_control("wlhmauthor"	,"Entry By"			, "Who found and reported this discrepancy"			,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,0				,0				,'post'									,"systemusercombobox");
@@ -232,16 +259,24 @@ if (!isset($_POST['recordid'])) {
 			form_new_control("wlhmweather"	,"Current Weather"	, "Enter a description of the weather"				,"Describe the weather at the time the action /report was taken.Do not use any special characters!"				,""							,2				,0				,4				,'post'									,0);
 			form_new_control("Mouse"		,"Location"			, "Where was the action located"					,"Click the Map It button"																						,"(open in new window)"		,4				,0				,""				,'post'									,"");
 			form_new_control("wlhmreason"	,"Edit Reason"		, "Where is the reason for editing the record"		,"Provide a reason"																								,""							,2				,0				,4				,'post'									,"");
-			//
-			// Load Footer
-					$display_submit 	= 0;
-					$display_close 		= 1;
-					$display_refresh	= 1;
-					$display_pushdown	= 0;
-					$display_text		= "Your information has been successfully Edited";	
+	
+									$formname = 'edittable';
+							//
+							// FORM FOOTER
+							//------------------------------------------------------------------------------------------\\
+									$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+										$submitbuttonname	= 'Start Edit of 327 Record';								// Name of the Submit Button
+									$display_close			= 0;														// 1: Display Close Button, 	0: No
+									$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+									$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+									$display_quickaccess	= 0;
+									$display_printout		= 1;
+										$printout_page		= 'part139337_report_display.php';
+										$printout_id		= $_POST['recordid'];
+										$printout_passed	= 'recordid';
+									
+								include("includes/_template/_tp_blockform_form_footer.binc.php");
 
-				include("includes/_template/_tp_blockform_form_footer.binc.php");		
-		
 		// NOW UPDATE THE RECORDS
 		
 		//$sqldate		= AmerDate2SqlDateTime($_POST['wlhmdate']);
