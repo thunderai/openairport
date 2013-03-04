@@ -33,6 +33,7 @@
 	
 		include("includes/_template_header.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 		include("includes/POSTs.php");															// This include pulls information from the $_POST['']; variable array for use on this page
+		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
 
@@ -98,7 +99,17 @@ if (!isset($_POST["formsubmit"])) {
 							_tp_control_function_submit('entryform');
 							?>
 							</td>
-						</tr>			
+						</tr>
+					<tr>
+						<td colspan="3">
+							<table cellspacing="0" cellpadding="0" border="0" width="100%">
+								<?php
+								form_new_control('frmdate'			, 'Date'			, 'Enter the date this record was made'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
+								form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
+								?>
+								</table>
+							</td>
+						</tr>
 					<tr>
 						<td colspan="3" id="CheckListData" class="ajax_results_area">
 							<center>

@@ -91,46 +91,44 @@ if (!isset($_POST["recordid"])) {
 						while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 								?>
 					<tr>
-						<td colspan="2" align="center" valign="middle" height="42" width="60%">
-							<font size="4"><b>
-								<?php
+						<td colspan="2" class='perp_report_bigheader' />
+							<?php
 								part139333typescombobox($objarray['139333_type_cb_int'], "all", "typeofinspection", "hide", $objarray['139333_type_cb_int']);
 								?>
-								</font></b>
 							</td>
 						</tr>								
 					<tr>
-						<td align="left" valign="middle">
-							&nbsp;&nbsp;<b>Date</b>
+						<td class='perp_report_fieldname' />
+							Date
 							</td>
-						<td>
+						<td class='perp_report_fieldcontent' />
 							<?php
 							echo $uidate = sqldate2amerdate($objarray['139333_date']);
 							?>											
 							</td>
 						</tr>
 					<tr>
-						<td align="left" valign="middle">
-							&nbsp;&nbsp;<b>Time</b>
+						<td class='perp_report_fieldname' />
+							Time
 							</td>
-						<td>
+						<td class='perp_report_fieldcontent' />
 							<?php echo $objarray['139333_time'];?>
 							</td>
 						</tr>	
 					<tr>
-						<td align="left" valign="middle">
-							&nbsp;&nbsp;<b>Inspection Completed By</b>
+						<td class='perp_report_fieldname' />
+							Inspection Completed By
 							</td>
-						<td>
+						<td class='perp_report_fieldcontent' />
 							<?php
 							systemusercombobox($_SESSION['user_id'], "all", "inspector", "hide", $_SESSION['user_id']);
 							?>
 							</td>
 					<tr>
-						<td align="left" valign="middle">
-							&nbsp;&nbsp;<b>Resulting 327 Inspection </b>
+						<td class='perp_report_fieldname' />
+							Resulting 327 Inspection
 							</td>
-						<td>
+						<td class='perp_report_fieldcontent' />
 							<?php
 							if($objarray['139333_linked_327_int'] == 0) {
 									// No linked Part 139.327 Inspection
@@ -140,10 +138,13 @@ if (!isset($_POST["recordid"])) {
 									
 								}
 								else {
-									$webroot = "http://localhost/openairportv3t/";
+									//$webroot = "http://localhost/openairportv3_perp/";
 									?>
-							Discrepancies Noted; Inspection ID <a href="<?php echo $webroot;?>part139327_report_display_new.php?recordid=<?php echo $objarray['139333_linked_327_int'];?>" target='_newreportwindowd'><?php echo $objarray['139333_linked_327_int'];?></a>
-									<?php
+							<form style='margin-bottom:0;' action='part139327_report_display_new.php' method='POST' name='reportform' id='reportform' target='PrinterRecordWindow2' onsubmit="openmapchild('','PrinterRecordWindow2');" />
+								<input type='hidden' name='recordid'	ID='recordid' 			value='<?php echo $objarray['139333_linked_327_int'];?>' />
+									<input type='submit' value='D:<?php echo $objarray['139333_linked_327_int'];?>' name='b1' ID='b1' class='makebuttonlooklikelargetext' style='width:100%;'>
+								</form>		
+							<?php
 								}
 								?>
 							</td>

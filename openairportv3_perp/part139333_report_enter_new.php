@@ -51,7 +51,7 @@
 // Build the BreadCrum trail... 
 //		which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures...
 //		Main Page Procedures and Functions	
@@ -71,8 +71,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
-			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
+			$form_menu			= getnameofmenuitemid_return_nohtml($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
+			$form_subh			= getpurposeofmenuitemid_return_nohtml($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Enter New Navaid Inspection Report";							// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
@@ -82,31 +82,47 @@ if (!isset($_POST["formsubmit"])) {
 				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
 				$detailtodisplay		= '';													// See Summary Function for how to use this number
 				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
-					
+				
 		include("includes/_template/_tp_blockform_form_header.binc.php");
 		
 	// Template Form Modification (for AJAX Compatability)
-		
 		?>
-	
-		<tr>
-			<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-				Type of Navaid Inspection
-				</td>
-			<td align="center" valign="middle" class="formoptions">
+	</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" />
+	<tr>
+		<td class="item_name_active" />
+			Type of Inspection
+			</td>
+		<td class="item_name_inactive" />
+			<?php 
+			part139333typescombobox("all", "all", "InspCheckList", "show", "");
+			?>
+			</td>
+		<td class="item_right_inactive" />
+			<?php
+			$param = $_SESSION['user_id'].','.$formname;
+			
+			_tp_control_function_button_ajax('call_server_part139333',$param,'Get Checklist');
+			_tp_control_function_submit($formname,'Save Report');
+			?>
+			</td>
+		</tr>
+	<tr>
+		<td colspan="3" >
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<?php
+				form_new_table_b($formname);
+				form_new_control("frmdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,'current'				,0);
+				form_new_control("frmtime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,"current"				,0);
+						?>
+				</table>
+			</td>
+		</tr>
+	<tr>
+		<td colspan="4" name="CheckListData" id="CheckListData" class="ajax_results_area">
+			After clicking the 'Get Checklist' button, please wait a moment while the checklist loads
 				<?
-				part139333typescombobox("all", "all", "InspCheckList", "show", "");
-				?>
-				</td>
-			<td class="formoptions" align="center">
-				<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_part139333(<?=$_SESSION['user_id'];?>);">
-				</td>
-			</tr>
-		<tr>
-			<td colspan="3" id="CheckListData" class="formoptionsavilablebottom">
-				<center>After clicking the 'Get Checklist' button, please wait a moment while the checklist loads</center>
-				<?
-				for ($i=0; $i<150; $i=$i+1) {
+				for ($i=0; $i<15; $i=$i+1) {
 						?>
 						<br>
 						<?
@@ -119,6 +135,7 @@ if (!isset($_POST["formsubmit"])) {
 			$display_close			= 0;															// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
+			$display_quickaccess	= 1;
 			
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
 	}
@@ -162,8 +179,8 @@ if (!isset($_POST["formsubmit"])) {
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= getnameofmenuitemid_return($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
-			$form_subh			= getpurposeofmenuitemid_return($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
+			$form_menu			= getnameofmenuitemid_return_nohtml($strmenuitemid		, "long"	, 4			, "#FFFFFF"	,$_SESSION['user_id']);							// Name of the FORM, shown to the user
+			$form_subh			= getpurposeofmenuitemid_return_nohtml($strmenuitemid	, 1			, "#FFFFFF"	,$_SESSION['user_id']);									// Sub Name of the FORM, shown to the user
 			$subtitle 			= "Here is a Summary of the information you entered";			// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
@@ -180,18 +197,19 @@ if (!isset($_POST["formsubmit"])) {
 		//echo "Begin the process of doing all this impossible work";
 		?>
 		</form>
-		
-					<tr>
-				<td colspan="3" align="center" valign="middle" class="formheaders">
-					Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
-					</td>
-				</tr>		
+		<tr>
+			<td colspan="3" class="item_space_inactive">
+				Part 139.333 Inspection has been sucssesfully added to the system.  You may print the report out for your own records.
+				</td>
+			</tr>		
 			<tr>
-				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport2">
-				<td class="formoptionsavilablebottom" colspan="3">
+				<form style="margin-bottom:0;" action="part139333_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport" onsubmit="open_new_report_window('','_printerfriendlyreport');" />
+				<td class="item_name_active" colspan="3">
 					<input type="hidden" name="recordid" 			value="<?php echo $lastid;?>">
 					<input type="hidden" name="InspCheckList" 			value="<?php echo $_POST['InspCheckList'];?>">
-					<input type="submit" name="b1" 					value="Display / Print Report >>>"			class="formsubmit">
+					<?php
+					_tp_control_function_submit('printform','Print Report');
+					?>
 					</td>
 					</form>
 				</tr>

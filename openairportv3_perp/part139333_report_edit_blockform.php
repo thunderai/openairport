@@ -31,7 +31,7 @@
 
 // PURPOSE:  ha...
 ?>
-<table width="100%" border="0" class="formoptionsavilabletop">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
 <?php
 //	$numberofboxes - Number to Cycle				
 
@@ -44,22 +44,29 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 
 		if($j == 0) {
 				?>
+		<tr>
+			<td colspan="5" class="perp_menuheader" />
+				<?php
+				// Collect Information about the Current Object
+				//
+				//
+				//	$runwayheading2			number
+				//	$equipmenttype			'PAPI' / 'REIL'
+				
+				echo "Runway ".$arunwayheading[1]." ".$arunwayheading[0]." Mini Inspection Form ";
+				?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="5" class="perp_menusubheader" />
+				(
+				Use this form to enter information about the selected equipment
+				)
+				</td>				
+			</tr>
 	<tr>
-		<td colspan="5" class="tableheaderleft">
-			<?php
-			// Collect Information about the Current Object
-			//
-			//
-			//	$runwayheading2			number
-			//	$equipmenttype			'PAPI' / 'REIL'
-			
-			echo "Runway ".$arunwayheading[1]." ".$arunwayheading[0]." Mini Inspection Form ";
-			?>
-			</td>
-		</tr>
-	<tr>
-		<td colspan="5" class="formoptionsavilabletop">
-			<img src="<?php echo $helperimage;?>" height="49">
+		<td colspan="5" class="item_space_active">
+			<img src="<?php echo $helperimage;?>" width='100%' />
 			</td>
 		</tr>		
 		
@@ -100,8 +107,8 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 						$counter 				= 0;
 						$previousequipmentid	= 0;
 						?>
-		<td align="left" valign="top">
-			<table border="1" width="100">
+		<td align="left" valign="top" />
+			<table border="0" width="100%" cellpadding="0" cellspacing="0" />
 						<?php
 						
 						while ($objfields3 = mysqli_fetch_array($res3, MYSQLI_ASSOC)) {
@@ -187,24 +194,24 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 										// Not equal to, end and begin a nbew table
 										?>
 					<tr>
-						<td align="center" valign="middle" colspan="5" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('<?php echo $tmpcname2;?>')"; onMouseout="hideddrivetip()">
+						<td colspan="5" class='item_space_active' />
 							<?php echo $tmpequiln2;?>
 							</td>
 						</tr>
 					<tr>
-						<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('Checklist Item')"; onMouseout="hideddrivetip()">
+						<td class="item_name_small_inactive" />
 							Fac
 							</td>
-						<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('Enter the initial measurement')"; onMouseout="hideddrivetip()">
+						<td class="item_name_small_inactive" />
 							I:
 							</td>	
-						<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('This is what the measurement should be')"; onMouseout="hideddrivetip()" >
+						<td class="item_name_small_inactive" />
 							S:
 							</td>
-						<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('The measurement can be off by this amount (+ or -) ')"; onMouseout="hideddrivetip()">
+						<td class="item_name_small_inactive" />
 							E:
 							</td>
-						<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" onMouseover="ddrivetip('Enter your adjusted measurement')"; onMouseout="hideddrivetip()">
+						<td class="item_name_small_inactive" />
 							C:
 							</td>							
 						</tr>						
@@ -215,34 +222,65 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 								if($displayrow == 1) {
 										?>
 					<tr>
-						<td class="formoptions" onMouseover="ddrivetip('<?php echo $tmpcname2;?>')"; onMouseout="hideddrivetip()">
+						<td name="col_1_r<?php echo $tmpid2;?>"
+							id="col_1_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',<?php echo $ele;?>);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',<?php echo $ele;?>);" 
+							class="item_name_small_inactive"
+							/>
 							<?php echo $tmpfacname2;?>
 							</td>
-										<?php
+<?php
 										if($tmpfacid2 == 1 OR $tmpfacid2 == 5) {
 												
 												// Need to get any proper specifications for this condition/facility mix.
 												// to do
 												
 												?>					
-						<td>
-							<input class="commonfieldbox" 	type="text" ID="<?php echo $fieldname.'i';?>" 	name="<?php echo $fieldname.'i';?>" 	size="1" value="<?php echo $resultstring[0];?>" >
+						<td name="col_2_r<?php echo $tmpid2;?>"
+							id="col_2_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+							class="item_name_small_inactive"
+							/>
+							<input type="text" ID="<?php echo $fieldname.'i';?>" 	name="<?php echo $fieldname.'i';?>" style='width:20px;' value="<?php echo $resultstring[0];?>"/> 
 							</td>
-						<td>
-							<input class="commonfieldbox" 	type="text" ID="<?php echo $fieldname.'s';?>" 	name="<?php echo $fieldname.'s';?>" 	size="1" value="<?php echo $resultstring[1];?>" >
+						<td name="col_3_r<?php echo $tmpid2;?>"
+							id="col_3_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+							class="item_name_small_inactive"
+							/>
+							<input type="text" ID="<?php echo $fieldname.'s';?>" 	name="<?php echo $fieldname.'s';?>" value="<?php echo $aspecs[0];?>" style='width:20px;' value="<?php echo $resultstring[1];?>" /> 
 							</td>
-						<td>
-							<input class="commonfieldbox" 	type="text" ID="<?php echo $fieldname.'e';?>" 	name="<?php echo $fieldname.'e';?>" 	size="1" value="<?php echo $resultstring[2];?>" 
+						<td name="col_4_r<?php echo $tmpid2;?>"
+							id="col_4_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+							class="item_name_small_inactive"
+							/>
+							<input type="text" ID="<?php echo $fieldname.'e';?>" 	name="<?php echo $fieldname.'e';?>" value="<?php echo $aspecs[1];?>" style='width:20px;' value="<?php echo $resultstring[2];?>" /> 
 							</td>
-						<td>
-							<input class="commonfieldbox" 	type="text" ID="<?php echo $fieldname.'c';?>" 	name="<?php echo $fieldname.'c';?>" 	size="1" onblur="javascript:checkcalibration('<?php echo $fieldname;?>');" value="<?php echo $resultstring[3];?>" >
+						<td name="col_5_r<?php echo $tmpid2;?>"
+							id="col_5_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+							class="item_name_small_inactive"
+							/>
+							<input type="text" ID="<?php echo $fieldname.'c';?>" 	name="<?php echo $fieldname.'c';?>" onblur="javascript:checkcalibration('<?php echo $fieldname;?>');" style='width:20px;' value="<?php echo $resultstring[3];?>" /> 
 							</td>
 												<?php
 											}
 											else {
 											?>
-						<td colspan="4">
-											<?php
+						<td colspan='4' name="col_2_r<?php echo $tmpid2;?>"
+							id="col_2_r<?php echo $tmpid2;?>"
+							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',2);" 
+							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',2);" 
+							class="item_name_small_inactive"
+							/>
+											
+												<?php
 												gs_conditions_js("all", "no", $fieldname.'cb', "show", $basicvalue,1,$fieldname.'cb');
 											}
 	// Add Discrepancy button to push this discrepancy into the discrepancy monitor system.
@@ -269,8 +307,12 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 	//  Create Discrepancy Name...								Equipment Name Facility Name
 											$discrepancyname = $tmpequiln2." ".$tmpfacname2." Requires Action";
 											$discrepancycomm = "Unit has been checked and found to be out of specification and requires maintenance";
+											
+											$target = 'adddiscrepancy';
+											$action = 'part139327_discrepancy_report_new.php?facility=5&condition=46&checklist=3&madbynavaid=1&discrepancyname='.$discrepancyname.'&discrepancycomm='.$discrepancycomm.'&location='.$screenx.','.$screeny.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+											
 											?>
-							<INPUT style="display: none;" class="formsubmit" NAME="<?php echo $fieldname.'cb_d';?>" ID="<?php echo $fieldname.'cb_d';?>" TYPE="button" VALUE="Issue Discrepancy" onClick="openchild600('part139327_discrepancy_report_new.php?facility=5&condition=46&checklist=3&madbynavaid=1&discrepancyname=<?php echo $discrepancyname;?>&discrepancycomm=<?php echo $discrepancycomm;?>&location=<?php echo $screenx;?>,<?php echo $screeny;?>','EnterNewDiscrepancy')"; onMouseover="ddrivetip('Enter a Discrepancy, Most fields are populated automatically')"; onMouseout="hideddrivetip()">
+							<INPUT style="display: none;" class="makebuttonlooklikelargetext" NAME="<?php echo $fieldname.'cb_d';?>" ID="<?php echo $fieldname.'cb_d';?>" TYPE="button" VALUE="Issue Discrepancy" onclick="<?php echo $target;?>_var=dhtmlwindow.open('<?php echo $target;?>_win', 'iframe', '<?php echo $action;?>', 'Add Record', 'top=75px,left=175px,width=500px,height=300px,resize=1,scrolling=1,center=1', 'recal');" />
 							</td>						
 						</tr>
 											<?php

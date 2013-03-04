@@ -94,6 +94,7 @@ if (!isset($_POST["formsubmit"])) {
 	//																																																													3	Combobox	,
 	//																																																													4	Map Button	,
 	//																																																													5	Check box	,									
+	form_new_table_b($formname);
 	form_new_control("wlhmdate"		,"Date"				, "Enter the date of this report"					,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,10				,0				,"current"				,0);
 	form_new_control("wlhmtime"		,"Time"				, "Enter the time of this report"					,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,10				,0				,"current"				,0);
 	form_new_control("wlhmauthor"	,"Entry By"			, "Who found and reported this discrepancy"			,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,50				,0				,$_SESSION['user_id']	,"systemusercombobox");
@@ -111,6 +112,7 @@ if (!isset($_POST["formsubmit"])) {
 			$display_close			= 0;															// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
+			$display_quickaccess	= 1;
 			
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
 	}

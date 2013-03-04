@@ -37,10 +37,11 @@ function _tp_control_exports($array_settings) {
 	
 	if ($function_calendar != '') {
 			
-			$fieldname = 'calendar';
-			$function_cal = $function_calendar;
-			$function_url = $function_cal_url;
-			$function_page = $function_cal_page;
+			$fieldname 			= 'calendar';
+			$function_cal_icon 	= 'icon_date';
+			$function_cal 		= $function_calendar;
+			$function_url 		= $function_cal_url;
+			$function_page 		= $function_cal_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -113,10 +114,11 @@ function _tp_control_exports($array_settings) {
 		}
 	
 	if ($function_yer != '') {
-			$fieldname = 'yer';
-			$function_cal = $function_yer;
-			$function_url = $function_cal_url;
-			$function_page = $function_cal_page;
+			$fieldname 			= 'yer';
+			$function_cal_icon	= 'icon_yer';
+			$function_cal 		= $function_yer;
+			$function_url 		= $function_cal_url;
+			$function_page 		= $function_cal_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -137,7 +139,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -145,7 +147,7 @@ function _tp_control_exports($array_settings) {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -153,7 +155,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>				
@@ -161,7 +163,7 @@ function _tp_control_exports($array_settings) {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<?php 
 				echo $function_yer_lang;
@@ -171,7 +173,7 @@ function _tp_control_exports($array_settings) {
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -179,7 +181,7 @@ function _tp_control_exports($array_settings) {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -190,11 +192,11 @@ function _tp_control_exports($array_settings) {
 			
 	if ($function_printout != '') {
 			
-			$fieldname = 'printout';
-			$function_cal = $function_printout;
-			$function_cal_icon = 'icon_report';
-			$function_url = $function_po_url;
-			$function_page = $function_po_page;
+			$fieldname 			= 'printout';
+			$function_cal 		= $function_printout;
+			$function_cal_icon 	= 'icon_report';
+			$function_url 		= $function_po_url;
+			$function_page 		= $function_po_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -268,10 +270,11 @@ function _tp_control_exports($array_settings) {
 
 	if ($function_dist != '') {
 			
-			$fieldname = 'distribution';
-			$function_cal = $function_dist;
-			$function_url = $function_dist_url;
-			$function_page = $function_dist_page;
+			$fieldname 			= 'distribution';
+			$function_cal_icon	= 'icon_barchart';
+			$function_cal 		= $function_dist;
+			$function_url 		= $function_dist_url;
+			$function_page		= $function_dist_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -292,7 +295,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -300,7 +303,7 @@ function _tp_control_exports($array_settings) {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -316,7 +319,7 @@ function _tp_control_exports($array_settings) {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<?php 
 				echo $function_dist_lang;
@@ -326,7 +329,7 @@ function _tp_control_exports($array_settings) {
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -334,7 +337,7 @@ function _tp_control_exports($array_settings) {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -345,10 +348,11 @@ function _tp_control_exports($array_settings) {
 
 	if ($function_linec != '') {
 		
-			$fieldname = 'linechart';
-			$function_cal = $function_linec;
-			$function_url = $function_linec_url;
-			$function_page = $function_linec_page;
+			$fieldname 			= 'linechart';
+			$function_cal_icon 	= 'icon_linechart';
+			$function_cal 		= $function_linec;
+			$function_url 		= $function_linec_url;
+			$function_page 		= $function_linec_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -369,7 +373,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -377,7 +381,7 @@ function _tp_control_exports($array_settings) {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -385,7 +389,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>				
@@ -393,7 +397,7 @@ function _tp_control_exports($array_settings) {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<?php 
 				echo $function_linec_lang;
@@ -403,7 +407,7 @@ function _tp_control_exports($array_settings) {
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -411,7 +415,7 @@ function _tp_control_exports($array_settings) {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -422,10 +426,11 @@ function _tp_control_exports($array_settings) {
 
 	if ($function_map != '') {
 			
-			$fieldname 		= 'mapit';
-			$function_cal 	= $function_map;
-			$function_url 	= $function_map_url;
-			$function_page 	= $function_map_page;
+			$fieldname 			= 'mapit';
+			$function_cal_icon 	= 'icon_mapflag';
+			$function_cal 		= $function_map;
+			$function_url 		= $function_map_url;
+			$function_page 		= $function_map_page;
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -446,7 +451,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -454,7 +459,7 @@ function _tp_control_exports($array_settings) {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -462,7 +467,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>				
@@ -470,7 +475,7 @@ function _tp_control_exports($array_settings) {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<?php 
 				echo $function_map_lang;
@@ -480,7 +485,7 @@ function _tp_control_exports($array_settings) {
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -488,7 +493,7 @@ function _tp_control_exports($array_settings) {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -499,10 +504,12 @@ function _tp_control_exports($array_settings) {
 
 	if ($function_ge != '') {
 			
-			$fieldname 		= 'googleearth';
-			$function_cal 	= $function_ge;
-			$function_url 	= $function_ge_url;
-			$function_page 	= $function_ge_page;
+			$fieldname 			= 'googleearth';
+			$function_cal_icon 	= 'icon_film';
+			$function_cal 		= $function_ge;
+			$function_url 		= $function_ge_url;
+			$function_page 		= $function_ge_page;
+			
 			
 			?>
 	<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
@@ -523,7 +530,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -531,7 +538,7 @@ function _tp_control_exports($array_settings) {
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $function_cal_icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -539,7 +546,7 @@ function _tp_control_exports($array_settings) {
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>				
@@ -547,7 +554,7 @@ function _tp_control_exports($array_settings) {
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				<?php 
 				echo $function_ge_lang;
@@ -557,7 +564,7 @@ function _tp_control_exports($array_settings) {
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -565,7 +572,7 @@ function _tp_control_exports($array_settings) {
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="openchild600('<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>','<?php echo $function_page;?>');"
+				onclick="<?php echo $fieldname;?>_var=dhtmlwindow.open('<?php echo $fieldname;?>_win', 'iframe', '<?php echo $function_cal;?>?frmurl=<?php echo $function_url;?>&targetname=<?php echo $fieldname;?>&dhtmlname=<?php echo $fieldname;?>_var', 'Year End Report', 'top=75px,left=175px,width=600px,height=350px,resize=1,scrolling=1,center=1', 'recal');" 
 				/>
 				
 				</td>

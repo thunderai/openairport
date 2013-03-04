@@ -93,26 +93,29 @@ if (!isset($inspection_id)) {
 								<?php
 								while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 										?>
-		<tr>
-			<td colspan="3" class="item_name_inactive">
-				<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
 					<tr>
-						<?php
-						// Hijack Template Functions for our own purposes
-						$settingsarray 	= array("SELECT * FROM tbl_139_327_main_a WHERE inspection_archived_inspection_id = ",	"inspection",	"part139327_report_display_archived.php");
-						$functionpage	= "part139327_report_archieved.php";														
-						_tp_control_archived($inspection_id, $settingsarray, $functionpage);
-						
-						$settingsarray 	= array("SELECT * FROM tbl_139_327_main_e WHERE inspection_error_inspection_id = ",	"inspection",	"part139327_report_display_error.php");
-						$functionpage	= "part139327_report_error.php";														
-						_tp_control_error($inspection_id, $settingsarray, $functionpage);	
-						
-						?>														
-						</tr>
-					</table>
-				</td>
-			</tr>
-		<tr>
+						<td colspan="2" class="item_name_inactive">
+							<table cellspacing="0" width="100%">
+								<tr>
+									<?php
+											// Hijack Template Functions for our own purposes
+											$settingsarray 	= array("SELECT * FROM tbl_139_327_main_a WHERE inspection_archived_inspection_id = ",	"inspection",	"part139327_report_display_archived.php");
+											$functionpage	= "part139327_report_archieved.php";														
+											_tp_control_archived($inspection_id, $settingsarray, $functionpage);
+											
+											$settingsarray 	= array("SELECT * FROM tbl_139_327_main_e WHERE inspection_error_inspection_id = ",	"inspection",	"part139327_report_display_error.php");
+											$functionpage	= "part139327_report_error.php";														
+											_tp_control_error($inspection_id, $settingsarray, $functionpage);	
+											?>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				<tr>
+					<td colspan="2" class="formoptionsavilabletop">
+						<?php echo $subtitle;?>
+						</td>
+					</tr>	
 						<?php
 						// FORM HEADER
 						// -----------------------------------------------------------------------------------------\\

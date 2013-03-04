@@ -68,6 +68,8 @@
 		global $en_commands;
 		global $en_open_commands;
 		global $en_sortingfilters;	
+		global $en_managechecklist;	
+		global $en_hideform;
 		
 	
 		date_default_timezone_set('America/Chicago');
@@ -113,5 +115,7 @@
 		$en_commands		= "Commands";
 		$en_open_commands	= "Controls";
 		$en_sortingfilters	= "Filters";
+		$en_managechecklist = 'Manage Checklist';
+		$en_hideform 		= 'Hide Mini Form';
 	
 ?>

@@ -7,6 +7,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 		//		3 - Push New Discrepancy Down
 		//		4 - Display Submit Button
 		//		5 - Display QuickAccess Button
+		//		6 - Display Print Report Form
 		// $formname
 		//		Name of the Form
 		// $otherid, Limited use
@@ -205,6 +206,46 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 			if($detail == 5) {
 					_tp_control_function_quickaccess($en_quickaccess_f	,$otherid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,'Add ',				'Remove '	,'frmfunctionqacactive');
 					}
-			}			
-
+			
+		if($detail == 6) {
+				?>
+				<table 	name="MenuItem_MSubmit" id="MenuItem_MSubmit" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_mainmenubutton" />
+					<tr>			
+						<td name="OSpace_MSubmit" id="OSpace_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MSubmit" id="Icon_MSubmit" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							<img src="images/_interface/icons/icon_report.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MSubmit" id="ISpace_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MSubmit" id="Name_MSubmit" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MSubmit.className='item_name_active';Icon_MSubmit.className='item_name_active';ISpace_MSubmit.className='item_name_active';Name_MSubmit.className='item_name_active';" 
+							onmouseout="OSpace_MSubmit.className='item_name_inactive';Icon_MSubmit.className='item_name_inactive';ISpace_MSubmit.className='item_name_inactive';Name_MSubmit.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Print Report" onclick='openmapchild(&quot;<?PHP echo $formname;?>?<?php echo $scriptfunction;?>=<?php echo $otherid;?>&quot;,&quot;SummaryWindow&quot;)'; />
+							</td>				
+						</tr>
+					</table>				
+				<?php
+				}
+				}
 	?>

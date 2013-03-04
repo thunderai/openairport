@@ -33,8 +33,8 @@
 	
 		include("includes/_template_header.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 		include("includes/POSTs.php");															// This include pulls information from the $_POST['']; variable array for use on this page
+		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
-
 
 // Load Page Specific Includes
 
@@ -51,7 +51,7 @@
 // Build the BreadCrum trail... 
 //		which shows the user their current location and how to navigate to other sections.
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures...
 //		Main Page Procedures and Functions
@@ -61,83 +61,112 @@
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
-		
 		?>
-
-						<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
-							<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
-							<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
-							<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php 
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
+		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
+		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
+		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>		
+		<tr>
+			<td colspan="3" class="tablesubcontent">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" />
+					<tr>
+						<td class="item_name_active" />
+							Type of Inspection
+							</td>
+						<td class="item_name_inactive" />
+							<?php 
+							part139339typescombobox("all", "all", "InspCheckList", "show", "");
+							?>
+							</td>
+						<td class="item_right_inactive" />
+							<?php
+							_tp_control_function_button_ajax('call_server_ficon',$_SESSION['user_id'].",'notam'",'Get Checklist');
+							_tp_control_function_submit('entryform');
+							?>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="3">
+							<table cellspacing="0" cellpadding="0" border="0" width="100%">
+								<?php
+								// FORM ELEMENTS
+								//-----------------------------------------------------------------------------------------\\	
+								//
+								//				Field Name			, Field Text Name	, Field Comment											, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
+								form_new_table_b($formname);
+								form_new_control('frmmetar'			, 'Metar'			, 'Enter the current Metar'								,'The current metar has automatically been provided!'	, 'METAR'						, 1				, 80			, 0 			, 'current'				, 0);
+								form_new_control('frmdate'			, 'Date'			, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 5				, 0 			, 'current'				, 0);
+								form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 5				, 0 			, 'current'				, 0);
+								form_new_control('frmdateclosed'	, 'Date to Close'	, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 5				, 0 			, 'current'				, 0);
+								form_new_control('frmtimeclosed'	, 'Time to Close'	, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 5				, 0 			, 'current'				, 0);
+								form_new_control('139339_sub_n_wx_out', 'Wx Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 3				, 0 			, ''					, 0);
+								form_new_control('139339_sub_n_fbo_out', 'FBO Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 3				, 0 			, ''					, 0);
+								form_new_control('139339_sub_n_airline_out', 'Airline Initials'	, 'Enter the Initails of Flight Service'		,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 3				, 0 			, ''					, 0);
+								form_new_control("frmnotes"			,"Comments"			, "Provide comments about this NOTAM"					,"Do not use any special characters!","",2,35,4,"",0);
+								?>
+								</table>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="3" id="CheckListData" class="ajax_results_area">
+							<center>
+								Click the <b>"Get Checklist"</b> button above to load the selected checklist. Once you click the button please wait a moment for the checklist to load.
+								</center>
+							<?php 
+							for ($i=0; $i<15; $i=$i+1) {
 									?>
-									</td>
-								<td class="tableheaderright">
-									(
+									<br>
 									<?php 
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-												Type of Inspection
-												</td>
-											<td align="center" valign="middle" class="formoptions">
-												<?php 
-												part139339typescombobox("all", "all", "InspCheckList", "show", "");
-												?>
-												</td>
-											<td class="formoptions" align="center">
-												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_ficon(<?php echo $_SESSION['user_id'];?>,'notam');"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" id="CheckListData" class="formoptionsavilablebottom">
-												<center>After clicking the 'Get Checklist' button, please wait a moment while the checklist loads</center>
-												<?php 
-												for ($i=0; $i<150; $i=$i+1) {
-														?>
-														<br>
-														<?php 
-													}
-												?>
-												</td>
-											</tr>
-										<tr>
-											<td colspan="4" align="right">
-												<font size="1">&nbsp;</font>
-												</td>
-											</tr>
-										<tr>
-											<td height="32" colspan="12" class="formoptionsavilablebottom" valign="middle">
-												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							</form>
+								}
+							?>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="5" class="item_space_active" />
+							<?php		
+									$formname = 'entryform';
+							//
+							// FORM FOOTER
+							//------------------------------------------------------------------------------------------\\
+									$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+										$submitbuttonname	= 'Start 339 b Record';										// Name of the Submit Button
+									$display_close			= 0;														// 1: Display Close Button, 	0: No
+									$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+									$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+									$display_quickaccess	= 1;
+									
+								include("includes/_template/_tp_blockform_form_footer.binc.php");
+								?>
+							</td>
+						</tr>	
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>	
 		<?php
 	}
 	else {
-		?>
-
-		<?php								
+							
 		// Form has been submitted
 		// There are two things that must be done initialy before we go off to the discrepancy page.
 		// Step 1). Add the Inspection Header information to the database
@@ -244,34 +273,74 @@ if (!isset($_POST["formsubmit"])) {
 		$tblname		= "NOTAM Summary Report";
 		$tblsubname		= "(summary of information)";
 		
-							?>
-		<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
-			<input type="hidden" name="formsubmit" 		ID="formsubmit"		value="1">
-			<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?=$_POST['recordid'];?>">
-		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="10" class="tableheaderleft">&nbsp;</td>
-				<td class="tableheadercenter">
-					<?php echo $tblname;?>
-					</td>
-				<td class="tableheaderright">
-					(<?php echo $tblsubname;?>)
-					</td>
-				</tr>
-			<tr>
-				<td colspan="3" class="tablesubcontent">
-					<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-						<tr>
-							<td colspan="3">
-								<?php
-								_339_b_display_report_summary($lastid,2,0);
-								?>
-								</td>
-							</tr>		
-						</table>
-					</td>
-				</tr>
-			</table>
+							?>		
+<form style="margin-top:-3px;" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="edittable" id="edittable">
+	<input type="hidden" name="formsubmit" 		ID="formsubmit"		value="1">
+	<input type="hidden" NAME="recordid" 		ID="recordid" 		value="<?php echo $last_main_id;?>">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>							
+		<tr>
+			<td colspan="3" class="item_name_inactive">
+				<?php
+				_339_b_display_report_summary($lastid,2,0);
+				?>
+				</td>
+			</tr>
+		<tr>
+			<?php
+			// FORM ELEMENTS
+			//-----------------------------------------------------------------------------------------\\	
+			//
+			//				Field Name			, Field Text Name	, Field Comment											, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
+			form_new_table_b($formname);
+			form_new_control('frmmetar'			, 'Metar'			, 'Enter the current Metar'								,'The current metar has automatically been provided!'	, 'METAR'						, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('frmdate'			, 'Date'			, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('frmdateclosed'	, 'Date to Close'	, 'Enter the time this record was made'					,'The current date has automatically been provided!'	, 'MM/DD/YYYY'					, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('frmtimeclosed'	, 'Time to Close'	, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('139339_sub_n_wx_out', 'Wx Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('139339_sub_n_fbo_out', 'FBO Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control('139339_sub_n_airline_out', 'Airline Initials'	, 'Enter the Initails of Flight Service'		,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 0				, 0 			, 'post'				, 0);
+			form_new_control("frmnotes"			,"Comments"			, "Provide comments about this NOTAM"					,"Do not use any special characters!"					, ""							, 2				, 0				, 0				, 'post'				, 0);
+			?>
+			</tr>
+			
+		<?php
+		$formname = 'edittable';
+		//
+		// FORM FOOTER
+		//------------------------------------------------------------------------------------------\\
+				$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+					$submitbuttonname	= 'Start Edit of 327 Record';								// Name of the Submit Button
+				$display_close			= 0;														// 1: Display Close Button, 	0: No
+				$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+				$display_quickaccess	= 0;
+				$display_printout		= 1;
+					$printout_page		= 'part139339_b_report_display_new.php';
+					$printout_id		= $last_main_id;
+					$printout_passed	= 'recordid';
+				
+			include("includes/_template/_tp_blockform_form_footer.binc.php");
+		?>		
+		</table>
 							<?php
 						}		
 	

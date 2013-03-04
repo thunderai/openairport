@@ -33,7 +33,7 @@
 	
 		include("includes/_template_header.php");												// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
 		include("includes/POSTs.php");															// This include pulls information from the $_POST['']; variable array for use on this page
-	
+	include("includes/_template/template.list.php");
 	// Load Page Specific Includes
 
 		include("includes/_modules/part139327/part139327.list.php");
@@ -86,15 +86,15 @@
 	         $days_in_this_month = round(($next_month[0] - $this_month[0]) / (60 * 60 * 24));
 
 	         $calendar_html = "<table width='100%'>";
-	         $calendar_html = $calendar_html."<tr>	<td class='tableheadercenter' colspan=\"7\" align=\"center\"> Month: ".$month_name." / Year: ".$year."</td>
+	         $calendar_html = $calendar_html."<tr>	<td class='perp_report_header' colspan='7' /> Month: ".$month_name." / Year: ".$year."</td>
 													</tr>";
-	         $calendar_html = $calendar_html."<tr>	<td class='formoptions'>Sunday</td>
-													<td class='formoptions'>Monday</td>
-													<td class='formoptions'>Tuesday</td>
-													<td class='formoptions'>Wednesday</td>
-													<td class='formoptions'>Thursday</td>
-													<td class='formoptions'>Friday</td>
-													<td class='formoptions'>Saterday</td>
+	         $calendar_html = $calendar_html."<tr>	<td class='perp_report_subheader'>Sunday</td>
+													<td class='perp_report_subheader'>Monday</td>
+													<td class='perp_report_subheader'>Tuesday</td>
+													<td class='perp_report_subheader'>Wednesday</td>
+													<td class='perp_report_subheader'>Thursday</td>
+													<td class='perp_report_subheader'>Friday</td>
+													<td class='perp_report_subheader'>Saterday</td>
 													</tr>
 											<tr>";
 
@@ -103,7 +103,7 @@
 			for($week_day = 0; $week_day < $first_week_day; $week_day++) {
 					$gapcounter = $gapcounter + 1;
 				}
-			$calendar_html = $calendar_html."<td class='formoptions' colspan='".$gapcounter."'></td>";	
+			$calendar_html = $calendar_html."<td class='perp_report_cell' colspan='".$gapcounter."'></td>";	
 	
 	// Draw Calendar Elements
 			// I forget!				
@@ -118,7 +118,7 @@
 						}
 
 					$datetopull = $year."/".$month."/".$day_counter;
-					$innercell = "<TABLE width='100%' style='margin-bottom:0;margin-top:0;'><tr><td class='formoptions'>Date:</td><td class='formoptions'>".$datetopull."</td></tr>";
+					$innercell = "<TABLE width='100%' ><tr><td class='perp_report_fieldname'>Date:</td><td class='perp_report_fieldcontent'>".$datetopull."</td></tr>";
 					//Now Get inspection List for this day.....
 					$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);					
 					if (mysqli_connect_errno()) {
@@ -159,7 +159,7 @@
 																				<form style='margin-bottom:0;' action='part139327_report_display_new.php' method='POST' name='reportform' id='reportform' target='DiscrepancyWindow' onsubmit='window.open('', 'DiscrepancyWindow', 'width=800,height=600,status=no,resizable=no,scrollbars=yes')'>
 																				<td colspan='2' class='formoptionsubmit'>
 																					<input type='hidden' name='recordid'	ID='recordid' 			value=".$tmpdiscrepancyid.">
-																					<input type='submit' value='D:".$tmpdiscrepancyid."' name='b1' ID='b1' class='formsubmit' size='10'>
+																					<input type='submit' value='D:".$tmpdiscrepancyid."' name='b1' ID='b1' class='makebuttonlooklikelargetext' size='10'>
 																					</td>
 																				</form>
 																				</tr>";
@@ -171,7 +171,7 @@
 					if ($counter == 0) {
 							$innercell = $innercell."Nothing Reported";
 						}
-					$calendar_html = $calendar_html."<td align=\"center\" valign='top' class='formresults'>&nbsp;".$innercell."</td>";
+					$calendar_html = $calendar_html."<td align=\"center\" valign='top' class='perp_report_activecell'>&nbsp;".$innercell."</td>";
 					$week_day++;
 					$counter = 0;
 				}

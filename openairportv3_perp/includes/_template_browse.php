@@ -397,22 +397,22 @@ if ($tbldisplaytotal==1) {
 	$array_settings[2][3] = $en_printerprint;
 	
 	$array_settings[3][0] = $function_distribution;
-	$array_settings[3][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[3][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[3][2] = 'PrinterFriendlyLoadDistFormat';
 	$array_settings[3][3] = $en_distribution;
 	
 	$array_settings[4][0] = $function_linechart;
-	$array_settings[4][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[4][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[4][2] = 'PrinterLineChartFormat';
 	$array_settings[4][3] = $en_linechart;
 
 	$array_settings[5][0] = $function_mapit;
-	$array_settings[5][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[5][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[5][2] = 'PrinterFriendlyMapIt';
 	$array_settings[5][3] = $en_mapit;
 	
 	$array_settings[6][0] = $function_googleearthit;
-	$array_settings[6][1] = "startdate=".$uifrmstartdate."&enddate=".$uifrmenddate."";
+	$array_settings[6][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[6][2] = 'PrinterFriendlyGoogleEarth';
 	$array_settings[6][3] = $en_googleearthit;
 	
@@ -470,8 +470,6 @@ if ($tbldisplaytotal==1) {
 				</div>
 			</td>
 		</tr>
-	<tr>
-		<td colspan="3" style="margin:0px;border:0px;padding:0px;"/>
 			<?php
 			// START MAIN BROWSE PROCEDURES
 			?>
@@ -490,94 +488,17 @@ if ($tbldisplaytotal==1) {
 															if ($number_of_rows==0) {
 																	////echo "no records found";
 																	?>
-			<table align="center" valign="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="50%"/>
-				<tr>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_left_bullet" /> 
-						&nbsp;
-						</td>
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_nameplate" />
-						NO RESULTS
-						</td>			
-					<td colspan="3" class="table_overlay_border_tail" width="100"  />
-						&nbsp;
-						</td>			
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_right_bullet" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" class="table_overlay_border_slim" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" />
-						<BR>
-						<br><BR>
-						<br>
-						<span class="table_browse_error_text_noresults">
-							NO RESULTS WERE FOUND FOR YOUR SEARCH.
-							</span>
-						<BR>
-						<br><BR>
-						<br>
-						<span class="table_browse_error_text_noresults_subtext">
-							It is possible results were returned but do to your filter settings they were not shown. Please adjust your settings and try again.
-							</span>	
-						<BR>
-						<br><BR>
-						<br>
-						<font size="1"><br><BR><br></font>
-						</td>
-					</tr>
-				<tr>
-					<td colspan="10" class="table_overlay_border_slim" />
-						&nbsp;
-						</td>
-					</tr>
-				<tr>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_left_bullet"  />
-						&nbsp;
-						</td>
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td colspan="3" class="table_overlay_border_tail" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_closeplate" />
-						NO RESULTS
-						</td>			
-					<td class="table_overlay_bullet_gap" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_right_bullet" />
-						&nbsp;
-						</td>
-					<td class="table_overlay_border" />
-						&nbsp;
-						</td>
-					</tr>
-				</table>
+	<tr>
+		<td COLSPAN="3" class="item_space_active" />
+			NO RECORDS FOUND OR TO DISPLAY
+			</td>
+		</tr>
 																	<?php
 																}
 																else {
 																	?>
+	<tr>
+		<td colspan='3'  />
 			<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" style="margin:0px;border:0px;padding:0px;"/>
 				<tr>
 					<td rowspan="2" align="left" valign="top" height="40" />
@@ -637,11 +558,6 @@ if ($tbldisplaytotal==1) {
 				</form>
 			</td>
 		</tr>
-
-
-		
-		
-		
 																	<?php 
 																	while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
 																	
@@ -1196,7 +1112,4 @@ if ($tbldisplaytotal==1) {
 			</td>			
 		</tr>					
 	</table>
-	<font size="1"><br><br><br><br></font>
 	</div>
-<br>
-<br>
