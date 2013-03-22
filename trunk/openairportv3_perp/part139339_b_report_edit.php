@@ -219,6 +219,8 @@
 															
 															//echo $sql;
 															
+															$i = 0;
+															
 															// Establish a Conneciton with the Database
 															$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
@@ -392,7 +394,7 @@
 																														$stauts		= 0;
 																													}
 																												?>
-																			value="1" <?php echo $checked;?> onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																			value="1" <?php echo $checked;?> />
 																												<?php
 																											} else {
 																												// SURFACE CLOSED CHECKBOX AND SURFACE NO NOT BELONG TO THIS NOTAM.
@@ -401,7 +403,7 @@
 																												if($alterclosed == 1) {
 																														// Dont even show it here
 																														?>
-																														<i>Surface is closed by NOTAM: (<?php echo $owned_notam;?> (<a href="#" onclick="openmapchild('part139339_b_report_display_new.php?recordid=<?php echo $owned_notam;?>','MapRecordWindow')"; />view</a> | <a href="part139339_b_report_edit.php?recordid=<?php echo $owned_notam;?>" onclick="openmapchild('','EditRecordWindow')"; />edit</a>)</i>
+																														<i>Surface is closed by NOTAM: (<?php echo $owned_notam;?> (<a href="#" onclick="openmapchild('part139339_b_report_display_new.php?recordid=<?php echo $owned_notam;?>','MapRecordWindow')"; />view</a> | <a href="part139339_b_report_edit.php?recordid=<?php echo $owned_notam;?>" />edit</a>)</i>
 																														<?php
 																													 
 																													} else {
@@ -420,7 +422,7 @@
 																																$stauts		= 0;
 																															}
 																															?>
-																		value="1" <?php echo $checked;?> onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
+																		value="1" <?php echo $checked;?> />
 																															<?php
 																													}
 																											}
@@ -572,7 +574,7 @@
 					for ($i=0; $i<=($surface_loops); $i=$i+1) {
 						
 							//echo "Loop Increment 	: ".$i."<br>";
-							//echo "Condition ID 		: ".$surface_array_i[$i]."<br>";
+							//echo "Condition ID 	: ".$surface_array_i[$i]."<br>";
 							//echo "Status 			: ".$surface_array_s[$i]."<br>";
 							//echo "Field Name 		: ".$surface_array_t[$i]."<br>";	
 							$sql = 1;
@@ -593,7 +595,7 @@
 									switch($status_diff) {
 										case -1:
 												// Was Closed, is now open
-												$sql = "UPDATE tbl_139_339_sub_n_cc SET 139339_cc_d_yn=0 WHERE 139339_cc_id='".$surface_array_i[$i]."' ";
+												$sql = "UPDATE tbl_139_339_sub_n_cc SET 139339_cc_d_yn = 0 WHERE 139339_cc_id='".$surface_array_i[$i]."' ";
 												break;
 										case 1:
 												// Was Open is now Closed
@@ -602,6 +604,9 @@
 
 										}
 									// Run MySQL Statement
+									
+									//echo "<font size='4' color='#FFFFFF'>".$sql."</font>";
+									
 									if($sql == 1) {
 											// Nothing to do here
 										} else {
