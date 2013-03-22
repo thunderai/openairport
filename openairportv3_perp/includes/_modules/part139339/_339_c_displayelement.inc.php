@@ -109,6 +109,7 @@
 		$ylocations		= implode(", ",$ylocations);		
 		
 		
+		
 				?>
 		<div style="position:absolute; z-index:4;" id="myCanvas_<?php echo $display_menu_item[$j][0];?>"></div>			
 			<script type="text/javascript">

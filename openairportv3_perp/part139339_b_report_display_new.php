@@ -235,7 +235,7 @@
 							$sql = "SELECT * FROM tbl_139_339_sub_n_cc  
 									INNER JOIN tbl_139_339_sub_c 	ON tbl_139_339_sub_c.139339_c_id = tbl_139_339_sub_n_cc.139339_cc_c_cb_int 
 									INNER JOIN tbl_139_339_sub_c_f 	ON tbl_139_339_sub_c_f.139339_f_id =  tbl_139_339_sub_c.139339_c_facility_cb_int  
-									WHERE 139339_cc_ficon_cb_int = '".$recordid."' 
+									WHERE 139339_cc_ficon_cb_int = '".$recordid."' AND 139339_cc_d_yn = 1 	
 									ORDER BY 139339_f_order, 139339_f_name, 139339_c_name";
 							
 							//echo $sql;

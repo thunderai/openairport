@@ -240,7 +240,7 @@
 	WHERE 139339_sub_n_archived_yn = 0 ".$sql_a." ".$sql_b." ";
 
 	//echo $sql;
-	
+	$i = 0;
 	//make connection to database
 	$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
@@ -403,7 +403,8 @@
 																if ($res4) {
 																		$number_of_rows4 = mysqli_num_rows($res4);
 																		//printf("result set has %d rows. \n", $number_of_rows);
-												
+																		
+																		
 																		while ($objfields4 = mysqli_fetch_array($res4, MYSQLI_ASSOC)) {
 														
 																				$condition_location_x2	= $objfields4['139339_cc_location_x'];
@@ -412,11 +413,15 @@
 																				$facility_is_runway2	= $facility_is_runway;
 																				$facility_name2			= $facility_name;
 														
+																				$condition_location_rx	= $objfields4['139339_cc_location_rx'];
+																				$condition_location_ry	= $objfields4['139339_cc_location_ry'];
+														
 																				//echo $facility_name2."////".$condition_location_x2."/////".$tmpid2;
-																				$display_menu_item[$i] 	= array($tmpid2,$condition_location_x2,$condition_location_y2	,$message,$facility_is_runway2,$facility_name2);
+																				//								0		, 1						, 2						, 3						, 4						, 5				, 6						, 7
+																				$display_menu_item[$i] 	= array($tmpid2	,$condition_location_x2	,$condition_location_y2	,"Closed"				,$facility_is_runway2	,$facility_name2,$condition_location_rx	,$condition_location_ry);
 												
 																				//echo "<br> test id: ".$display_menu_item[$i][0]."</br>";
-																				
+																				//echo "I :".$i."<br>";
 																				$i = $i + 1;
 																			}
 																	}
@@ -458,9 +463,10 @@
 			
 			//echo "Number of Records: ".$records." <br>";
 			
-			for ($j=0; $j<count($display_menu_item); $j=$j+1) {
+			for ($j=0; $j<=count($display_menu_item); $j=$j+1) {
 				
-				
+					//echo "test";
+					//echo "J :".$j."<br>";
 					include("includes/_modules/part139339/_339_c_displayelement.inc.php");
 												
 			}
