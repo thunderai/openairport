@@ -77,12 +77,12 @@ function sever_interaction_ficon_loadtemplate()
 					}
 				if (answer[i]==2) {
 						
+						//alert(fieldname);
+						//alert(fieldvalue);
+						
 						var fieldname 	= answer[i+1];
 						var fieldvalue 	= document.getElementById(fieldname).value;
 					
-						//alert(fieldname);
-						//alert(fieldvalue);				
-						
 						if(fieldvalue == 'CLOSED') {
 						
 							} else {

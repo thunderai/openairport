@@ -301,11 +301,20 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			<?php
 																		} else {
 																			// if not the current date, then a set date
+																			// Is there a default value provided?
+																			//	if so, use it
+																			if($fielddefaultvalue == '') {
+																					// There is nothing
+																					?>
+																					<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD');</script>
+																					<?php
+																				} else {
+																					// There is probably a default value
+																					?>
+																					<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo $fielddefaultvalue;?>');</script>
+																					<?php
+																				}
 																			
-																			?>
-																			
-																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD');</script>
-																			<?php
 																		}
 																break;
 															case "Date to Close":
