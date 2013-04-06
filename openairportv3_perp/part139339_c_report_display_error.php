@@ -90,6 +90,13 @@
 					
 		include("includes/_template/_tp_blockform_form_header.binc.php");			
 
+		$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+		
+		
+	
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\

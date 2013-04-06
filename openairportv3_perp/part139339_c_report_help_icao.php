@@ -47,6 +47,37 @@
 		$fieldname 	= $_GET['fieldname'];
 		$cellvalue 	= $_GET['cellvalue'];
 		$facilityid	= $_GET['facility'];
+		
+if (!isset($_POST["targetname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		$tmp_targetname		= $_GET['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'GET VALUE IS ['.$tmp_targetname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_targetname		= $_POST['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'POST VALUE IS ['.$tmp_targetname.'] <br>';
+	}	
+
+if (!isset($_POST["dhtmlname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		// No Record ID defined in POST, use GET record id
+		$tmp_dhtmlname		= $_GET['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;
+		//echo 'GET VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_dhtmlname		= $_POST['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;		
+		//echo 'POST VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}		
 ?>
 
 <BODY>
@@ -64,37 +95,46 @@
 	} 	
 	
 	</script>
-	<table border="0" cellpadding="1" cellspacing="1" width="100%" class="formheaders">
+	
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="formheaders">
+		<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan="3" class="perp_menuheader" />
+					Build ICAO Standard FiCON Syntax
+					</td>			
+				</tr>			
+			<tr>
+				<td colspan="3" class="perp_menusubheader" />
+					(
+					Basic Surface Information
+					)
+					</td>				
+				</tr>
 		<tr>
-			<td colspan="2" class="tableheadercenter">
-				Runway Condition Report - Data Collection Sheet
-				</td>
-			</tr>
-		<tr>
-			<td colspan="2">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+			<td colspan="3">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td class="formheaders">
+						<td class="item_name_inactive">
 							Airport
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							KATY
 							</td>
 						<td rowspan="2" class="formheaders">
 
 							</td>
-						<td class="formheaders">
+						<td class="item_name_inactive">
 							Time
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<?php echo date('H:m:s');?>
 							</td>
 						</tr>
 					<tr>
-						<td class="formheaders">
+						<td class="item_name_inactive">
 							Surface
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<?php
 							$facilityname = part139339_c_facilitycombobox($facilityid, 'all', 'notusedlikethis', 'hide', $facilityid);
 							if($facilityid == 3 OR $facilityid == 4) {
@@ -109,10 +149,10 @@
 							?>
 							<?php echo $facilityname;?>
 							</td>
-						<td class="formheaders">
+						<td class="item_name_inactive">
 							Date
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<?php echo date('Y/M/d');?>
 							</td>
 						</tr>
@@ -120,178 +160,186 @@
 					</table>
 				</td>
 			</tr>
-		<tr>
-			<td>
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
-					<tr>
-						<td colspan="3" class="formanswers" />
-							Select a Form from the Menu buttons below
-							</td>
-						</tr>
+			<tr>
+				<td colspan="3" class="perp_menuheader" />
+					Menu Options
+					</td>			
+				</tr>			
+			<tr>
+				<td colspan="3" class="perp_menusubheader" />
+					(
+					Select a Form from the Menu buttons below
+					)
+					</td>				
+				</tr>
+			<tr>
+				<td>
+					<?php
+					$formname 	= '';
+					$label 		= 'Required Items';
+					$icon  		= 'icon_flag';
+					$action		= 'toggle_339c';
+					$target		= 'ri';
+					_tp_control_function_button_toggle($formname,$label,$icon,$action,$target);
 					
-					<tr>				
-						<td align="center" class="formresults" width="80">
-							<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1" class="formsubmit">
-								<tr>
-									<td class="formoptionsubmit" onMouseover="ddrivetip('Click to Show Required Items')"; onMouseout="hideddrivetip()" onclick="javascript:toggle_339c('ri');" />
-										Required Items
-										</td>
-									</tr>
-								</table>
-							</td>
-						<td align="center" class="formresults" width="80">
-							<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1" class="formsubmit">
-								<tr>
-									<td class="formoptionsubmit" onMouseover="ddrivetip('Click to  Show Additional Items')"; onMouseout="hideddrivetip()" onclick="javascript:toggle_339c('ai');" />
-										Additional Items
-										</td>
-									</tr>
-								</table>
-							</td>				
-						<td align="center" class="formresults" width="80">
-							<table border="0" cellspacing="0" cellpadding="0" width="100%" id="table1" class="formsubmit">
-								<tr>
-									<td class="formoptionsubmit" onMouseover="ddrivetip('Click to  Show Surface Properties')"; onMouseout="hideddrivetip()" onclick="javascript:toggle_339c('si');" />
-										Surface Properties
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
+					$formname 	= '';
+					$label 		= 'Additional Items';
+					$icon  		= 'icon_flag';
+					$action		= 'toggle_339c';
+					$target		= 'ai';
+					_tp_control_function_button_toggle($formname,$label,$icon,$action,$target);	
+
+					$formname 	= '';
+					$label 		= 'Surface Properties';
+					$icon  		= 'icon_flag';
+					$action		= 'toggle_339c';
+					$target		= 'si';
+					_tp_control_function_button_toggle($formname,$label,$icon,$action,$target);				
+					?>
+					</td>
+				</tr>
 <div name="ri" id="ri" width="100%" style="position: absolute;
 							  left: 0px;
 							  top: 150px;
 							  width: 100%;"
 							 />
-	<table border="0" cellpadding="1" cellspacing="1" width="100%" class="formheaders"/>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="item_name_inactive"/>
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				Required Information
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				Select the aplicable options/buttons
+				)
+				</td>				
+			</tr>	 
 		<tr>
 			<td align="left" valign="top">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td colspan="4" class="formheaders">
+						<td colspan="4" class="item_name_active">
 							% Coverage
 							</td>
 						</tr>
 					<tr>
-						<td colspan="5" class="formresults">
+						<td colspan="5" class="item_name_inactive">
 							Required: Step One <br>
 							Click Cover %
 							</td>
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							%
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/3
 							</td>	
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							2/3
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							3/3
 							</td>										
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							10%
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group1" id="c_group1"	value="10" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group2" id="c_group2"	value="10" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group3" id="c_group3"	value="10" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							25%
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group1" id="c_group1"	value="25" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group2" id="c_group2"	value="25" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group3" id="c_group3"	value="25" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							50%
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group1" id="c_group1"	value="50" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group2" id="c_group2"	value="50" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group3" id="c_group3"	value="50" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							75%
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group1" id="c_group1"	value="75" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group2" id="c_group2"	value="75" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group3" id="c_group3"	value="75" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>								
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							100%
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group1" id="c_group1"	value="100" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group2" id="c_group2"	value="100" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="c_group3" id="c_group3"	value="100" maxlength="2"  onchange="javascript:updatemaxcover();" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Max
 							</td>
-						<td class="formresults" colspan="3">
-							<INPUT type="text" name="maxcover" id="maxcover" value="0" size="2" disabled="disabled">
+						<td class="item_name_inactive" colspan="3">
+							<INPUT type="text" name="maxcover" id="maxcover" value="0" size="2" class="makebuttonlooklikelargetext" disabled="disabled">
 							</td>
 						</tr>
 					<tr>
-						<td colspan="4" class="formheaders">
+						<td colspan="4" class="item_name_active">
 							Temperatures
 							</td>
 						</tr>	
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Temp
 							</td>
-						<td class="formoptions" colspan="3">
+						<td class="item_name_inactive" colspan="3">
 							O.A.T.
 							</td>										
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							C 
 							</td>
-						<td class="formresults" colspan="3">
+						<td class="item_name_inactive" colspan="3">
 							<?php 
 							// Calculate current temperature
 							// Get Current Weather Information string
@@ -314,395 +362,395 @@
 					</table>
 				</td>
 			<td align="left" valign="top">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td colspan="4" class="formheaders">
+						<td colspan="4" class="item_name_active">
 							Contaminant Depth
 							</td>
 						</tr>
 					<tr>
-						<td colspan="5" class="formresults">
+						<td colspan="5" class="item_name_inactive">
 							Required: Step Two <br>
 							Click the Depth
 							</td>
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Inches
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/3
 							</td>	
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							2/3
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							3/3
 							</td>										
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/8"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value=".125" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value=".125" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value=".125" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/4"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value=".250" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value=".250" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value=".250" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/2"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value=".500" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value=".500" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value=".500" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							3/4"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value=".750" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value=".750" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value=".750" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value="1" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value="1" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value="1" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							2"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value="2" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value="2" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value="2" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							3"
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value="3" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value="3" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value="3" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							4" +
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group1" id="d_group1"	value="4" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group2" id="d_group2"	value="4" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="d_group3" id="d_group3"	value="4" maxlength="2"  onchange="javascript:updatemaxdepth();" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Max
 							</td>
-						<td class="formresults" colspan="3">
-							<INPUT type="text" name="maxdepth" id="maxdepth" value="0" size="4" disabled="disabled">
+						<td class="item_name_inactive" colspan="3">
+							<INPUT type="text" name="maxdepth" id="maxdepth" value="0" size="4" class="makebuttonlooklikelargetext" disabled="disabled">
 							</td>
 						</tr>									
 					</table>
 				</td>
 			<td align="left" valign="top" rowspan="2">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td colspan="4" class="formheaders">
+						<td colspan="4" class="item_name_active">
 							Contaminant Type
 							</td>
 						</tr>
 					<tr>
-						<td colspan="5" class="formresults">
+						<td colspan="5" class="item_name_inactive">
 							Required: Step Three <br>
 							Click the Contaiment Type
 							</td>
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Type
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							1/3
 							</td>	
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							2/3
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							3/3
 							</td>										
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Dry
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="0" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="0" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="0" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Wet
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="1" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="1" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="1" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Wet (slip)
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="2" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="2" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="2" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr name="slipwhere2" id="slipwhere2" style="display:none;">
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Slip Where
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							F
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							E
 							</td>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							L
 							</td>
 						</tr>
 					<tr name="slipwhere3" id="slipwhere3" style="display:none;">
-						<td class="formoptions" align="right">
+						<td class="item_name_inactive" align="right">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frt/Lst/Etr ?
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="sl_group1" id="sl_group1"	value="FIRST" maxlength="10"  onchange="javascript:updateslippery('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="sl_group1" id="sl_group1"	value="ENTIRE" maxlength="10"  onchange="javascript:updateslippery('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="sl_group1" id="sl_group1"	value="LAST" maxlength="10"  onchange="javascript:updateslippery('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr name="slipwhere1" id="slipwhere1" style="display:none;">
-						<td class="formoptions" align="right">
+						<td class="item_name_inactive" align="right">
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dist in Ft
 								</td>
-						<td class="formresults" colspan="3">
+						<td class="item_name_inactive" colspan="3">
 							<input type="text" name="sl_long" id="sl_long"	value="0" maxlength="10"  size="10" onchange="javascript:updateslippery('<?php echo $surfacetype;?>');" style="background-color: #FFFF66;" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Water
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="3" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="3" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="3" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Slush
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="4" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="4" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="4" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Dry Snow
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="5" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="5" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="5" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Wet Snow
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="6" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="6" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="6" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>									
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Compact Snow
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="7" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="7" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="7" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Frost
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="8" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="8" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="8" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Ice
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="9" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="9" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="9" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Wet Ice Overlay
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group1" id="t_group1"	value="10" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group2" id="t_group2"	value="10" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input type="radio" name="t_group3" id="t_group3"	value="10" maxlength="2"  onchange="javascript:updatemaxtype('<?php echo $surfacetype;?>');" />
 							</td>									
 						</tr>
 					<tr>
-						<td class="formoptions">
+						<td class="item_name_inactive">
 							Max
 							</td>
-						<td class="formresults" colspan="3">
-							<INPUT type="text" name="maxtype" id="maxtype" value="0" size="13" disabled="disabled">
+						<td class="item_name_inactive" colspan="3">
+							<INPUT type="text" name="maxtype" id="maxtype" class="makebuttonlooklikelargetext" value="0" size="13" disabled="disabled">
 							</td>
 						</tr>									
 					</table>
 				</td>
 			</tr>
 		</table>
-	<table width="100%" cellpadding="1" cellspacing="1" class="formheaders"/>
+	<table width="100%" cellpadding="0" cellspacing="0" class="formheaders"/>
 		<tr>
 			<td align="left" valign="top"/>
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td class="formheaders">
+						<td class="item_name_active">
 							REMARKS
 							</td>
 						</tr>
 					<tr>
-						<td class="formoptions">
-							<TEXTAREA rows="5" COLS="60" name="remarks" id="remarks"  onblur="javascript:forceupdate();" style="color: #FFFFFF;background-color: #666666;" /></TEXTAREA>
+						<td class="item_name_inactive">
+							<TEXTAREA rows="4" COLS="60" name="remarks" id="remarks"  onblur="javascript:forceupdate();" style="color: #FFFFFF;background-color: #666666;" /></TEXTAREA>
 							</td>
 						</tr>
 					</table>
@@ -710,96 +758,96 @@
 			</tr>			
 		<tr>
 			<td colspan="2">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<td>
-							<table border="0" cellpadding="1" cellspacing="1" width="100%">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<td colspan="4" class="formheaders">
+									<td colspan="4" class="item_name_active">
 										Runway Condition Code
 										</td>
 									</tr>
 								<tr>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										1/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										2/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										3/3
 										</td>
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="rcc_1" id="rcc_1" value="0" size="1" maxlength="1"  disabled="disabled"/>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="rcc_2" id="rcc_2" value="0" size="1" maxlength="1"  disabled="disabled"/>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="rcc_3" id="rcc_3" value="0" size="1" maxlength="1"  disabled="disabled"/>
 										</td>
 									</tr>									
 								</table>
 							</td>
 						<td>
-							<table border="0" cellpadding="1" cellspacing="1" width="100%">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<td colspan="4" class="formheaders">
+									<td colspan="4" class="item_name_active">
 										Mu Values
 										</td>
 									</tr>
 								<tr>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										1/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										2/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										3/3
 										</td>
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="mu_1" id="mu_1" value="40" size="1" maxlength="2"  onblur="javascript:forceupdate();" style="background-color: #FFFF66;"/>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="mu_2" id="mu_2" value="40" size="1" maxlength="2"  onblur="javascript:forceupdate();" style="background-color: #FFFF66;"/>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="mu_3" id="mu_3" value="40" size="1" maxlength="2"  onblur="javascript:forceupdate();" style="background-color: #FFFF66;"/>
 										</td>
 									</tr>
 								</table>
 							</td>
 						<td>
-							<table border="0" cellpadding="1" cellspacing="1" width="100%">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<td colspan="4" class="formheaders">
+									<td colspan="4" class="item_name_active">
 										Downgraded Runway Code
 										</td>
 									</tr>
 								<tr>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										1/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										2/3
 										</td>
-									<td class="formoptions">
+									<td class="item_name_inactive">
 										3/3
 										</td>
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="dgc_1" id="dgc_1" value="0" size="1" maxlength="1" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="dgc_2" id="dgc_2" value="0" size="1" maxlength="1" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<INPUT type="text" name="dgc_3" id="dgc_3" value="0" size="1" maxlength="1" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
 									</tr>
@@ -810,63 +858,64 @@
 				</td>
 			</tr>
 		<tr>
-			<td colspan="2" align="left" valign="top" class="formheaders">
+			<td colspan="2" align="left" valign="top" class="item_name_active">
 				Matrix Report
 				</td>
 			</tr>
 		<tr>
-			<td colspan="2" align="left" valign="top">
-				<INPUT type="text" name="report" id="report" size="125" value="Maxtrix Report Text" disabled="disabled"/>
+			<td colspan="2" align="left" valign="top" class="item_name_inactive" />
+				<INPUT type="text" name="report" id="report" size="80" value="Maxtrix Report Text" disabled="disabled"/>
 				</td>
 			</tr>
-		<tr>
-			<td colspan="2" align="left" valign="top">
-				&nbsp;<br><br>
-				</td>
-			</tr>			
 		</table>
 	</div>
-
 <div name="ai" id="ai" width="100%" style="position: absolute;
 							  left: 0px;
-							  top: 150px;
+							  top: 145px;
 							  width: 100%;
 							  display:none;"
 							 />
-	<table border="0" cellpadding="1" cellspacing="1" width="100%" class="formheaders"/>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="item_name_inactive"/>
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				Additional Information
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				Select the aplicable options/buttons
+				)
+				</td>				
+			</tr>	
 		<tr>
 			<td align="left" valign="top">
-				<table border="0" cellpadding="1" cellspacing="1" width="100%">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<td colspan="5" class="formheaders">
-										Contaminated Surface Width and Lengths
-										</td>
-									</tr>
-								<tr>
-									<td colspan="5" class="formresults">
+									<td colspan="5" class="item_name_inactive">
 										Extra: Step Four <br>
 										Used to add more indepth detail.  See the end of the form for some examples on how to use this feature.
 										</td>
 									</tr>
 								<tr>
-									<td class="formheaders" onMouseover="ddrivetip('Select an Area to use in building this additional information.')"; onMouseout="hideddrivetip()" />
+									<td class="item_name_active" onMouseover="ddrivetip('Select an Area to use in building this additional information.')"; onMouseout="hideddrivetip()" />
 										Area
 										</td>
-									<td class="formheaders">
+									<td class="item_name_active">
 										Distance (Width or Length)
 										</td>
-									<td class="formheaders">
+									<td class="item_name_active">
 										% of Contaminate Cover
 										</td>
-									<td class="formheaders">
+									<td class="item_name_active">
 										Depth of Contaminate
 										</td>
-									<td class="formheaders">
+									<td class="item_name_active">
 										Treatment
 										</td>	
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_1_area" id="swl_1_area" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="center"		>Center</option>
@@ -877,10 +926,10 @@
 											<option value="over"		>Over</option>
 											</select>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_1_feet" id="swl_1_feet" size="2" maxlength="4" value="<?php echo $surfacewidth;?>" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_1_cover" id="swl_1_cover" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="10"	>10%</option>
 											<option value="25"	>25%</option>
@@ -889,10 +938,10 @@
 											<option value="100"	>100%</option>
 											</select>
 										</td>		
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_1_depth" id="swl_1_depth" size="2" maxlength="2" value="0" style="color: #FFFFFF;background-color: #666666;" />
 										</td>										
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_1_treatment" id="swl_1_treatment" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="cleared"		>Cleared</option>
@@ -915,7 +964,7 @@
 										</td>	
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_2_area" id="swl_2_area" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="center"		>Center</option>
@@ -926,10 +975,10 @@
 											<option value="over"		>Over</option>
 											</select>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_2_feet" id="swl_2_feet" size="2" maxlength="4" value="<?php echo $surfacewidth;?>" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_2_cover" id="swl_2_cover" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="10"	>10%</option>
 											<option value="25"	>25%</option>
@@ -938,10 +987,10 @@
 											<option value="100"	>100%</option>
 											</select>
 										</td>		
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_2_depth" id="swl_2_depth" size="2" maxlength="2" value="0" style="color: #FFFFFF;background-color: #666666;" />
 										</td>										
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_2_treatment" id="swl_2_treatment" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="cleared"		>Cleared</option>
@@ -964,7 +1013,7 @@
 										</td>	
 									</tr>									
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_3_area" id="swl_3_area" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="center"		>Center</option>
@@ -975,10 +1024,10 @@
 											<option value="over"		>Over</option>
 											</select>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_3_feet" id="swl_3_feet" size="2" maxlength="4" value="<?php echo $surfacewidth;?>" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_3_cover" id="swl_3_cover" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="10"	>10%</option>
 											<option value="25"	>25%</option>
@@ -987,10 +1036,10 @@
 											<option value="100"	>100%</option>
 											</select>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_3_depth" id="swl_3_depth" size="2" maxlength="2" value="0" style="color: #FFFFFF;background-color: #666666;" />
 										</td>										
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_3_treatment" id="swl_3_treatment" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="cleared"		>Cleared</option>
@@ -1013,7 +1062,7 @@
 										</td>	
 									</tr>
 								<tr>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_4_area" id="swl_4_area" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="center"		>Center</option>
@@ -1024,10 +1073,10 @@
 											<option value="over"		>Over</option>
 											</select>
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_4_feet" id="swl_4_feet" size="2" maxlength="4" value="<?php echo $surfacewidth;?>" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_4_cover" id="swl_4_cover" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="10"	>10%</option>
 											<option value="25"	>25%</option>
@@ -1036,10 +1085,10 @@
 											<option value="100"	>100%</option>
 											</select>
 										</td>	
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<input type="text" name="swl_4_depth" id="swl_4_depth" size="2" maxlength="2" value="0" style="color: #FFFFFF;background-color: #666666;" />
 										</td>
-									<td class="formresults">
+									<td class="item_name_inactive">
 										<select name="swl_4_treatment" id="swl_4_treatment" style="color: #FFFFFF;background-color: #666666;" />
 											<option value="select"		>Select</option>
 											<option value="cleared"		>Cleared</option>
@@ -1062,10 +1111,10 @@
 										</td>	
 									</tr>	
 								<tr>
-									<td class="formheaders" onMouseover="ddrivetip('Clicking this button will <b>ONLY</b> update the Max field below. No other pages will be affected. \n Any Lines with an Area of <i>SELECT</i> will not be used.')"; onMouseout="hideddrivetip()" />
+									<td class="formheaders" />
 										Update
 										</td>
-									<td class="formresults" colspan="4">
+									<td class="item_name_inactive" colspan="4">
 										<button name="updateadded" id="updateadded">Update Values</button>
 										</td>
 									</tr>									
@@ -1073,8 +1122,8 @@
 									<td class="formheaders">
 										Max
 										</td>
-									<td class="formresults" colspan="4">
-										<input type="text" name="swl_text" id="swl_text" value="" size="50" disabled="disabled"/>
+									<td class="item_name_inactive" colspan="4">
+										<input type="text" name="swl_text" id="swl_text" value="This Page Not Programmed to work yet" size="50" disabled="disabled"/>
 										</td>
 									</tr>
 								<tr>
@@ -1086,7 +1135,7 @@
 									<td class="formheaders">
 										01
 										</td>
-									<td class="formresults" colspan="4">
+									<td class="item_name_inactive" colspan="4">
 										Center xxxx feet Cleared
 										</td>
 									</tr>	
@@ -1094,7 +1143,7 @@
 									<td class="formheaders">
 										02
 										</td>
-									<td class="formresults" colspan="4">
+									<td class="item_name_inactive" colspan="4">
 										Edges xxxx feet 1" 25% Compact Snow
 										</td>
 									</tr>									
@@ -1102,7 +1151,7 @@
 									<td class="formheaders">
 										03
 										</td>
-									<td class="formresults" colspan="4">
+									<td class="item_name_inactive" colspan="4">
 										1" Dry Snow Over 50% Compacted Snow
 										</td>
 									</tr>									
@@ -1110,7 +1159,7 @@
 									<td class="formheaders">
 										04
 										</td>
-									<td class="formresults" colspan="4">
+									<td class="item_name_inactive" colspan="4">
 										130 Feet Wide Reaming Edges Compacted Snow
 										</td>
 									</tr>									
@@ -1152,19 +1201,19 @@
 	<script type="text/javascript">
 	
 		function updateparentfieldvalue(fieldname,fieldvalue) {
-			//opener.document.getElementById(fieldname).value = fieldvalue;
-			if (opener.document.getElementById(fieldname).value == "") {
-					opener.document.getElementById(fieldname).value = fieldvalue;
+			//parent.document.getElementById(fieldname).value = fieldvalue;
+			if (parent.document.getElementById(fieldname).value == "") {
+					parent.document.getElementById(fieldname).value = fieldvalue;
 				}
 				else {
-					opener.document.getElementById(fieldname).value = opener.document.getElementById(fieldname).value + " " + fieldvalue;
+					parent.document.getElementById(fieldname).value = parent.document.getElementById(fieldname).value + " " + fieldvalue;
 			
 				}
 			}
 		
 		function buildparentform(fieldname,fieldvalue) {
 				// Reset Field to nothing
-				opener.document.getElementById(fieldname).value = '';
+				parent.document.getElementById(fieldname).value = '';
 				// Load New information
 				var fieldvalue = document.getElementById('report').value;
 				updateparentfieldvalue(fieldname,fieldvalue);
@@ -1714,26 +1763,27 @@
 			
 			}
 		</script>
-	
-	<div style="position:fixed;bottom:-3px;left:0px;width:100%;z-index:2;">		
-		<table width="100%">
-			<tr>
-				<td id="footernavigation" colspan="4" valign="top" align="center" height="1">
-					<table border="0" cellpadding="0" cellspacing="0" class="formresults" width="100%">
-						<tr>
-							<td colspan="4" align="right" valign="top" height="1">
-								<?php
-								_tp_control_footbuttons(1,0,0,0);
-								?>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</div>
 <?php
 // Load End of page includes
 
+			// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $tmp_targetname;				// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $dhtml_name;					// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
+	//
+	// FORM FOOTER
+	//------------------------------------------------------------------------------------------\\
+			$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+				$submitbuttonname	= '';														// Name of the Submit Button
+			$display_close			= 1;														// 1: Display Close Button, 	0: No
+			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+			
+		include("includes/_template/_tp_blockform_form_footer.binc.php");			
+	
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
 ?>	
