@@ -452,7 +452,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 												}
 												else {
 													?>
-							<TEXTAREA class="<?php echo $style;?>" name="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
+							<TEXTAREA class="<?php echo $style;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
 													<?php
 												}
 										break;

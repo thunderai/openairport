@@ -32,7 +32,7 @@
 // Load Global Include Files
 	
 		include("includes/_globals.inc.php");												// Need Global Variable Information
-		
+		include("includes/_template_enter.php");
 // Load Page Specific Includes
 
 		include("includes/_template/template.list.php");
@@ -49,187 +49,80 @@
 ?>
 
 		<center>
-				<table cellspacing="3" cellpadding="5" width="100%">
+				<table cellspacing="0" cellpadding="0" width="100%">
 					<?php
 					if ($fullorshort==0){
 							// Display Full FiCON Information
 							?>
 					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
+						<td align="center" valign="middle" class="item_name_active" />
 							FiCON Template
 							</td>
-						<td align="center" valign="middle" class="formoptions">
+						<td align="center" valign="middle" class="item_name_inactive">
 							<?php
 							part139339_c_templatescombobox_ajax("all", "no", "InspTemplate", "show", "");
 							?>
 							</td>
 						</tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('This is the purpose of this template')"; onMouseout="hideddrivetip()">
+						<td align="center" valign="middle" class="item_name_active" />
 							Template Purpose
 							</td>
-						<td align="center" valign="middle" class="formoptions" id="templatepurpose" name="templatepurpose">
+						<td align="center" valign="middle" class="item_name_inactive" id="templatepurpose" name="templatepurpose">
 							</td>
 						</tr>
 							<?php
 						}
+						
+					//form_new_control("frmnotes"			, 'Comments'		, 'Provide comments about this FiCON'					,"Do not use any special characters!"					, ""							, 2				, 45			, 4				, 'Mu Values From Vericom 3000 RFM. Check Local NOTAMs'					, 0);
+								
 					?>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Metar
-							</td>
-						<td class="formanswers">
-							<?php
-							$tmpstring = readweathertxt("null");
-							?>		
-							<input class="commonfieldbox"	type="text"		name="frmmetar"	ID="frmmetar"	size="90" 	value="<?php echo $tmpstring;?>" disabled="disabled">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" 	type="text" 	name="frmdate" ID="frmdate" 	size="10"	value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Time
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" 	type="text" 	name="frmtime"	ID="frmtime"	size="10" 	value="<?echo date("H:i:s");?>">
-							</td>
-						</tr>
-						<?php
-							if ($fullorshort==0){
-									// Display Full FiCON Information
-									?>
-									<?
-								}
-								else {
-									?>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Date to Close
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="frmdateclosed" name="frmdateclosed" size="10" value="<?echo date('m/d/Y');?>" onchange="javascript:(isdate(this.form.frmstartdate.value,'mm/dd/yyyy'))">&nbsp;<input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmdateclosed');">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the time this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.')"; onMouseout="hideddrivetip()">
-							Time to Close
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="frmtimeclosed" name="frmtimeclosed" size="10" value="<?echo date("H:i:s");?>">&nbsp;<input class="commonfieldbox" type="checkbox" value="1" onclick="clearcellvalue('frmtimeclosed');">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Wx Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_wx_out" name="139339_sub_n_wx_out" size="10">
-							</td>
-						</tr>									
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							FBO Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_fbo_out" name="139339_sub_n_fbo_out" size="10">
-							</td>
-						</tr>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Please enter the date this notam will be canceled automatically. Leave blank if NOTAM will not be closed automatically.(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-							Airline Initials (issue)
-							</td>
-						<td class="formanswers">
-							<input class="commonfieldbox" type="text" id="139339_sub_n_airline_out" name="139339_sub_n_airline_out" size="10">
-							</td>
-						</tr>							
-									<?php
-								}
-							?>
-					<tr>
-						<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('24 Hour Time')"; onMouseout="hideddrivetip()">
-							Notes
-							</td>
-						<td class="formanswers">
-							<?php
-							if ($fullorshort==0){
-									// Display Full FiCON Information
-									?>
-							<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60">Mu readings taken with a Vericom 3000 RFM unit<br>Check Local NOTAMs</textarea>
-									<?php
-								}
-								else {
-									?>
-							<textarea name="frmnotes" ID="frmnotes" Rows="5" cols="60"></textarea>
-									<?php
-								}
-							?>
 							</td>
 						</tr>
 					</table>
 				<table cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-      					<td rowspan="2" class="formheaders">
-      							Surface
+						<td rowspan="2" class="item_name_inactive">
+								Surface
 							</td>
-      					<td rowspan="2" class="formheaders">
-      							Closed ?<br>Yes?
+						<td rowspan="2" class="item_name_inactive">
+								Closed ?<br>Yes?
+							</td>					
+						<td rowspan="2" class="item_name_inactive">
+								Condition
 							</td>
-						<?php
-						if ($fullorshort==0){
-								// Display Full FiCON Information
-								?>						
-						<td rowspan="2" class="formheaders">
-      							Condition
+						<td class="item_name_inactive" colspan="9">
+								Mu(s)
 							</td>
-						<td class="formheaders" colspan="9">
-      							Mu(s)
-							</td>
-							<?php
-						}
-						?>
 						</tr>
-					<?php
-					if ($fullorshort==0){
-							// Display Full FiCON Information
-							?>
 					<tr>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - T(1)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - T(2)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - T(3)
 							</td>							
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - M(1)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - M(2)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - M(3)
 							</td>								
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - R(1)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - R(2)
 							</td>
-						<td class="formheaders">
+						<td class="item_name_active">
 							Mu - R(3)
 							</td>
 						</tr>
-						<?php
-					}
-					?>
 					<tr>
 						<td colspan="4" class="header">
 							<input type="hidden" id="typeofinspection" name="typeofinspection" value="<?php echo $InspCheckList;?>">
@@ -266,7 +159,7 @@
 						</tr>	
 														
 					<tr>
-      					<td height="28" class="formresults">
+      					<td height="28" class="item_name_inactive">
       						&nbsp;
 							<?php
 							$tmpfacility = $objfields["139339_c_facility_cb_int"];
@@ -366,14 +259,14 @@
 												switch ($objfields['139339_cc_type']) {
 														case 0:
 																?>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input class="Commonfieldbox" type="text" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:30px;" size="2" maxlength="2" />
 							</td>
 																<?php
 																break;
 														case 1:
 																?>
-							<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+							<td class="item_name_inactive" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
 								<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" value="1"
 																<?php
 																
@@ -420,7 +313,7 @@
 																break;
 														case 2:
 																		?>
-						<td class="formresults">
+						<td class="item_name_inactive">
 							<input class="Commonfieldbox" type="text" id="<?php echo $tmpfieldname;?>" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" size="20" 
 								<?php
 								if ($alterclosed == 1) {
@@ -431,12 +324,20 @@
 								?>
 								 onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" >
 								
-							<INPUT TYPE="button" class="formsubmit" VALUE="Help" onClick="openchild600('part139339_c_report_help_conditions.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp','helpmeselectacondition')" />
-							<INPUT TYPE="button" class="formsubmit" VALUE="ICAO" onClick="openmapchild('part139339_c_report_help_icao.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp&facility=<?php echo $tmpfacility;?>','helpmebuildicao')" />
 							<?php
-							// INSERT ICAO FiCON Manager Here
-							// Hidden DIV Include
-							//
+							$target = 'helpmeselectacondition';
+							$action = 'part139339_c_report_help_conditions.php?fieldname='.$tmpfieldname.'&cellvalue=temp&targetname='.$target.'&dhtmlname='.$target.'_var';
+							_tp_control_function_button_iframe($target,'HELP','icon_add',$action,$target);
+							?>
+							<?php
+							$target = 'helpmebuildicao';
+							$action = 'part139339_c_report_help_icao.php?fieldname='.$tmpfieldname.'&cellvalue=temp&facility='.$tmpfacility.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+							_tp_control_function_button_iframe($target,'ICAO','icon_add',$action,$target);
+							?>
+							<?php
+							/* <INPUT TYPE="button" class="formsubmit" VALUE="Help" onClick="openchild600('part139339_c_report_help_conditions.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp','helpmeselectacondition')" />
+							<INPUT TYPE="button" class="formsubmit" VALUE="ICAO" onClick="openmapchild('part139339_c_report_help_icao.php?fieldname=<?php echo $tmpfieldname;?>&cellvalue=temp&facility=<?php echo $tmpfacility;?>','helpmebuildicao')" />
+							 */
 							?>
 							</td>
 																<?php
@@ -445,7 +346,7 @@
 																$message = "<b>Runway Condtion Direction</b> This check box controls which runway direction you tested the runway from. <u>Check the box</u> for tests conducted from a runway heading <u>less than and including 18</u>. If you conducted the measurements from a runway heading <u>greater than 18</u> leave the check box <u>unchecked</u>.";
 																
 															?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+						<td class="item_name_inactive" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
 							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
 							</td>
 																<? 
@@ -454,7 +355,7 @@
 																$message = "<b>Runway Condtion Direction</b> This check box controls which runway direction you tested the runway from. <u>Check the box</u> for tests conducted from a runway heading <u>less than and including 18</u>. If you conducted the measurements from a runway heading <u>greater than 18</u> leave the check box <u>unchecked</u>.";
 																
 																?>
-						<td class="formresults" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
+						<td class="item_name_inactive" id="<?php echo $tmpfieldname;?>_td" name="<?php echo $tmpfieldname;?>_td">
 							<input type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" value="1" style="width:20px;" size="4" onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
 							</td>
 																<? 

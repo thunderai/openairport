@@ -44,15 +44,19 @@
 		//echo "Map Scale is :".$new_mapscale." <br>";
 		
 		?>
+		
+		<!--<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="scripts/_iface/thirdparty/overscroll/jquery.overscroll.js"></script>-->
+		
 		</HEAD>
 	<BODY bgcolor="#000000" leftmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;"> 
-		<div NAME="IslandMap" ID="IslandMap" style="position:absolute; left:0px; top:0px; z-index: 0;">
+		<div NAME="IslandMap" ID="IslandMap" style="position:absolute; left:0px; top:0px; width:100%;height:100%;z-index: 100;">
 			<div id="myCanvas_airportmap" name="myCanvas_airportmap" style="position:absolute;z-index:100;"></div>
 			<img src="images/Part_139_327/<?php echo $new_map_l;?>" width="<?php echo $new_map_x;?>" height="<?php echo $new_map_y;?>" onclick="alertCoords(event)" style="cursor:crosshair;" />
 			
 			</div>
 	
-<div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:140px;left:10px;width:155px;height:200px;z-index:100;display:none;">
+<div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:0px;left:0px;width:155px;height:200px;z-index:990;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -426,6 +430,29 @@
 	</div>
 	
 	</form>
-	
+	<?php
+	// <script>
+		// $(function(o){
+			// o = $("#IslandMap").overscroll({
+				// cancelOn: '.no-drag',
+				//captureWheel: false,
+				//hoverThumbs: true,
+				//persistThumbs: true,
+				//showThumbs: false,
+				// scrollLeft: 200,
+				// scrollTop: 100
+			// }).on('overscroll:dragstart overscroll:dragend overscroll:driftstart overscroll:driftend', function(event){
+				// console.log(event.type);
+			// });
+			// $("#link").click(function(){
+				// if(!o.data("dragging")) {
+					// console.log("clicked!");
+				// } else {
+					// return false;
+				// }
+			// });
+		// });
+	// </script>
+	?>
 		</BODY>
 	</HTML>

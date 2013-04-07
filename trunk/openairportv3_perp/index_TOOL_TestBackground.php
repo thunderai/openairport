@@ -1,0 +1,1 @@
+<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap_TOOL.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="width:100%;"></iframe>
