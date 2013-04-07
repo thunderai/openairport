@@ -19,9 +19,9 @@
 //
 //	~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 //	
-//	Name of Document		:	part139327_discrepancy_report_display_mapit_loader.php
+//	Name of Document		:	part139327_report_display_distribution_loader.php
 //
-//	Purpose of Page			:	View Part 139.327 Discrepancy Location(s)
+//	Purpose of Page			:	View Part 139.337 Wildlife Reports Hotspots
 //
 //	Special Notes			:	Change the information here for your airport.
 //
@@ -40,115 +40,87 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
-// This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
-//		Anytime a window is openned from the template browser the following should be loaded into the FORM
-//----------------------------------------------------------------------------------------------\\
-			$bstart_date 	= $_GET['frmstartdate'];												// The 'TB' Start Date 	(nonSQL)
-			$bend_date 		= $_GET['frmenddate'];													// The 'TB' End Date 	(nonSQL)
-
-			//echo "Start Date :".$bstart_date." / End Date :".$bend_date." ";
+// Define Variables...
+//						for Auto Entry Function {Beginning of Page}
 		
-// Define Variables	
-		
-		$navigation_page 			= 40;							// Belongs to this Nav Item ID, see function for notes!
+		// Navigation Page ID
+		//		Enter the ID of the Navigation Module this page belongs to.
+		//		Check the AutoEntry function for more details...
+		$navigation_page 			= 40;
+		// Page Type ID
+		//		Enter the ID of the Event type for this page.
+		//		Check the AutoEntry function for more details...
 		$type_page 					= 18;							// Page is Type ID, see function for notes!
+		// Other Settings for AutoEntry
+		//		You should not need to change these values.
 		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$time_to_display_new		= date("H:i:s");
 
-// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+// Build the BreadCrum trail... 
+//		which shows the user their current location and how to navigate to other sections.
 	
 		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
-		//	Do NOT Display Breadcrum report on this page...
 	
-// Start Procedures
+// Start Procedures...
+//		Main Page Procedures and Functions
+		
+// This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
+//		Anytime a window is openned from the template browser the following should be loaded into the FORM
+//----------------------------------------------------------------------------------------------\\
+			$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
+			$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
+
+//	Start Form Set Variables
 	
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
-			$formname			= "edittable";													// HTML Name for Form
-			$formaction			= "part139339_c_discrepancy_report_display_mapit_chart.php";		// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formname			= "mapit_form";													// HTML Name for Form
+			$formaction			= "part139339_c_report_display_distribution_chart.php";		// Page Form will submit information to. Leave valued at '' for the form to point to itself.
 			$formopen			= 1;															// 1: Opens action page in new window, 0, submits to same window
-				$formtarget		= "Mapit_DiscrepancyLocationChart";								// HTML Name for the window
+				$formtarget		= "HSLocationWindow";											// HTML Name for the window
 				$location		= $formtarget;													// Leave the same as $formtarget
 	
 	// FORM NAME and Sub Title
 	//------------------------------------------------------------------------------------------\\
-			$form_menu			= "Mapit! Anomaly Location Loader";							// Name of the FORM, shown to the user
-			$form_subh			= "Please complete the form";									// Sub Name of the FORM, shown to the user
-			$subtitle 			= "Use this form to map out anomaly locations";				// Subt title of the FORM, shown to the user
+			$form_menu			= "Map Mu Surface Hot Spots Loader";							// Name of the FORM, shown to the user
+			$form_subh			= "please complete the form";									// Sub Name of the FORM, shown to the user
+			$subtitle 			= "Part 139.339 (c) - Chart HotSpots Actions";			// Subt title of the FORM, shown to the user
 
 	// FORM SUMMARY information
 	//------------------------------------------------------------------------------------------\\
 			$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
 				$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
-				$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
-				$detailtodisplay		= 0;													// See Summary Function for how to use this number
+				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
+				$detailtodisplay		= '';													// See Summary Function for how to use this number
 				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");
+		include("includes/_template/_tp_blockform_form_header.binc.php");	
+	
 	// FORM ELEMENTS
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_table_b($formname);
-	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
-	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
+	form_new_control("frmstartdate"		,"Date"						, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
+	form_new_control("frmenddate"		,"Date"						, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				,"current"				,0);
 	form_new_control("discondition"		,"Time Period"				, "Select a Condition"				,"Select a condition from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
+	form_new_control("wlhmactivity"		,"Surface"					, "Select a Surface"				,"Select a surface from the list provided!"				,""					,3			,35				,4				,"all"					,"part139339_c_facilitycombobox_limitedtomu");
 	//form_new_control("disfacility"		,"Facility"					, "Select a Facility"				,"Select a Facility from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327facilitycomboboxwall");
 	//form_new_control("disinspection"	,"From Inspection of Type"	, "Select an Inspection Type"		,"Select an inspection from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327typescomboboxwall");
-	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""					,5			,50				,0				,"all"					,0);
-	
-	// Determine if this is from POST or GET
-	
-		if (!isset($_POST["targetname"])) {
-			// There is not a menuitemid defined in the POST request
-			// Test to see if there is one in the GET request
-			if (!isset($_GET["targetname"])) {
-					// There is one NOT defined in the get request as well.
-					// Set a known default value			
-					$targetname = "";
-				}
-				else {
-					// If there is a value in the get request set it to the right value
-					$targetname = $_GET["targetname"];
-				}
-		}
-		else {
-			// There is a value in the POST request
-			$targetname = $_POST["targetname"];
-		}
-	
-		if (!isset($_POST["dhtmlname"])) {
-			// There is not a menuitemid defined in the POST request
-			// Test to see if there is one in the GET request
-			if (!isset($_GET["dhtmlname"])) {
-					// There is one NOT defined in the get request as well.
-					// Set a known default value			
-					$dhtml_name = "";
-				}
-				else {
-					// If there is a value in the get request set it to the right value
-					$dhtml_name = $_GET["dhtmlname"];
-				}
-		}
-		else {
-			// There is a value in the POST request
-			$dhtml_name = $_POST["dhtmlname"];
-		}
-		
-	form_uni_control("targetname"		,$targetname);
-	form_uni_control("dhtmlname"		,$dhtml_name);
-	
+	form_new_control("wlhmborder"		,"Display Border"			, "Checked to display border"		,"Checking this box will place a grid on the map"		,""					,5			,50				,0				,"all"					,0);
+	form_new_control("ficon_40"			,"Show 40 and Over"			, "Include 40s and Over or Not?"	,"Checking this box will include 40 Mus and Over. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
+	form_new_control("ficon_none"		,"Show Null Mu"				, "Include Null Mu?"				,"Checking this box will include Mus with no value. Inclusion may create odd averages, etc..."		,"(Will Increase Load Times)"				,5						,50				,0				,"all"					,0);
+	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""				,5			,50				,0				,"all"					,0);
 	//
 	// FORM FOOTER
 	//------------------------------------------------------------------------------------------\\
-			$display_submit 		= 1;														// 1: Display Submit Button,	0: No
-				$submitbuttonname	= 'Generate Chart';											// Name of the Submit Button
-			$display_close			= 1;														// 1: Display Close Button, 	0: No
-			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
-			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+			$display_submit 		= 1;															// 1: Display Submit Button,	0: No
+				$submitbuttonname	= 'Generate Chart';												// Name of the Submit Button
+			$display_close			= 1;															// 1: Display Close Button, 	0: No
+			$display_pushdown		= 0;															// 1: Display Push Down Button, 0: No
+			$display_refresh		= 0;															// 1: Display Refresh Button, 	0: No
 			
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
-
+							
 // Define Variables...
 //						for Auto Entry Function {End of Page}
 
@@ -168,4 +140,4 @@
 //	This page closes the HTML tag, nothing can come after it.
 
 		include("includes/_userinterface/_ui_footer.inc.php");							// Include file providing for Tool Tips			
-?>
+?>	

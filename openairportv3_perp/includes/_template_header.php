@@ -65,48 +65,20 @@
 		include("scripts/_scripts_header_iframes.inc.php");
 		include("scripts/_scripts_header_iface.inc.php");
 		include("scripts/_scripts_header_ajaxs.inc.php");		
+		
 	// Load StyleSheets (CSS)	
 		include("stylesheets/_css.inc.php");
 	
 	// Load Mobile Detect (https://github.com/serbanghita/Mobile-Detect)
-		include("thirdparty/mobile-detect/mobiledetect.php");
-		$detect = new Mobile_Detect();
+		//include("thirdparty/mobile-detect/mobiledetect.php");
+		//$detect = new Mobile_Detect();
 		
 		$width		= '100%';
 		$height		= '900px';
 		
 		$qua_e		= 99;
 		
-		if ($detect->isMobile()) {
-				// Any mobile device.
-						
-				$width		= '100%';
-				$height		= '400px';
-		
-				$qua_e		= 2;
-						
-				// Is it an iPhone?
-				if($detect->isiOS()){
-						$width		= '100%';
-						$height		= '400px';
-				
-						$qua_e		= 4;
-						
-				}
-				
-			}
-		
-		if($detect->isTablet()){
-				// Any tablet device.
-				
-				$width		= '975px';
-				$height		= '620px';
-				
-				$qua_e		= 5;
-				
-				$detect->version('Android');
-				
-			}
+
 			
 	?>
 			</head>

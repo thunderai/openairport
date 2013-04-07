@@ -94,7 +94,7 @@ if (!isset($_POST["systemuserid"])) {
 			</div>	
 			
 	<div style="position:fixed;top:65;width:100%;height:100%;z-index:90;">
-		<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%;"></iframe>
+		<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:hidden; width:100%;"></iframe>
 		</div>	
 
 	<div style="position: fixed;bottom: 0px;background-color: #FFFFFF;width:100%;z-index:100;">

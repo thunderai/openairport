@@ -40,38 +40,27 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
-// Define Variables...
-//						for Auto Entry Function {Beginning of Page}
-		
-		// Navigation Page ID
-		//		Enter the ID of the Navigation Module this page belongs to.
-		//		Check the AutoEntry function for more details...
-		$navigation_page 			= 40;
-		// Page Type ID
-		//		Enter the ID of the Event type for this page.
-		//		Check the AutoEntry function for more details...
-		$type_page 					= 18;							// Page is Type ID, see function for notes!
-		// Other Settings for AutoEntry
-		//		You should not need to change these values.
-		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
-		$time_to_display_new		= date("H:i:s");
-
-// Build the BreadCrum trail... 
-//		which shows the user their current location and how to navigate to other sections.
-	
-		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
-	
-// Start Procedures...
-//		Main Page Procedures and Functions
-
-		
 // This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
 //		Anytime a window is openned from the template browser the following should be loaded into the FORM
 //----------------------------------------------------------------------------------------------\\
-			$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
-			$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
+			$bstart_date 	= $_GET['frmstartdate'];												// The 'TB' Start Date 	(nonSQL)
+			$bend_date 		= $_GET['frmenddate'];													// The 'TB' End Date 	(nonSQL)
 
-//	Start Form Set Variables
+			//echo "Start Date :".$bstart_date." / End Date :".$bend_date." ";
+		
+// Define Variables	
+		
+		$navigation_page 			= 40;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 18;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");
+
+// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
+	
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//	Do NOT Display Breadcrum report on this page...
+	
+// Start Procedures
 	
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
@@ -100,8 +89,9 @@
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			Field Text Name				Field Comment						Field Notes												Field Format		Field Type	Field Width		Field Height	Default Value			Field Function		
-	form_new_control("frmstartdate"		,"Start Date"				, "Enter the the date to start from"		,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
-	form_new_control("frmenddate"		,"End Date"					, "Enter the the date to end at"			,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);	
+	form_new_table_b($formname);
+	form_new_control("frmstartdate"		,'Start Date'				, "Enter the the date to start from","The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bstart_date			,0);
+	form_new_control("frmenddate"		,'End Date'					, "Enter the the date to end at"	,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"		,1			,10				,0				, $bend_date			,0);
 	form_new_control("discondition"		,"Time Period"				, "Select a Time Period"			,"Select a Time Period from the list provided!"			,""					,3			,50				,0				,"all"					,"part139339typescomboboxwall");
 	form_new_control("disfacility"		,"Specific FiCON"			, "Enter Report ID"					,"Enter the record ID of a FiCON!"						,"ID #"				,1			,5				,0				,""						,0);
 	//form_new_control("disinspection"	,"From Inspection of Type"	, "Select an Inspection Type"		,"Select an inspection from the list provided!"			,""					,3			,35				,4				,"all"					,"part139327typescomboboxwall");
@@ -110,6 +100,47 @@
 	form_new_control("disuseblank"		,"Include null"				, "Include Null Mu Values??"		,"checking this box will include Mu values that have no value, unchecking the box is will include Null Mu values in calculations."		,""					,5			,50				,0				,"all"					,0);
 		
 	form_new_control("disusebrowser"	,"Use Above Settings"		, "Use Broser Settings or override"	,"Checking this box will use the dates above, unchecked will use the dates from the browser form"		,""					,5			,50				,0				,"all"					,0);
+
+	// Determine if this is from POST or GET
+	
+		if (!isset($_POST["targetname"])) {
+			// There is not a menuitemid defined in the POST request
+			// Test to see if there is one in the GET request
+			if (!isset($_GET["targetname"])) {
+					// There is one NOT defined in the get request as well.
+					// Set a known default value			
+					$targetname = "";
+				}
+				else {
+					// If there is a value in the get request set it to the right value
+					$targetname = $_GET["targetname"];
+				}
+		}
+		else {
+			// There is a value in the POST request
+			$targetname = $_POST["targetname"];
+		}
+	
+		if (!isset($_POST["dhtmlname"])) {
+			// There is not a menuitemid defined in the POST request
+			// Test to see if there is one in the GET request
+			if (!isset($_GET["dhtmlname"])) {
+					// There is one NOT defined in the get request as well.
+					// Set a known default value			
+					$dhtml_name = "";
+				}
+				else {
+					// If there is a value in the get request set it to the right value
+					$dhtml_name = $_GET["dhtmlname"];
+				}
+		}
+		else {
+			// There is a value in the POST request
+			$dhtml_name = $_POST["dhtmlname"];
+		}
+		
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
 	
 	//
 	// FORM FOOTER

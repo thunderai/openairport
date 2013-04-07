@@ -189,7 +189,9 @@ function update_element_info(stringtxt) {
 	
 	// If Not already displayed, display the Map Element 'window'
 	
-	document.getElementById("div_mapinfo").style.display = "block";
+	document.getElementById("div_mapinfo").style.display 	= "block";
+	//document.getElementById("div_mapinfo").style.top 		= display_y;
+	//document.getElementById("div_mapinfo").style.left		= display_x;
 	
 	// Move 'window' near the selected element, but offset it some
 	var offset_x = 45;

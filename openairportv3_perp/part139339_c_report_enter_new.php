@@ -33,6 +33,7 @@
 	
 		include("includes/_template_header.php");												// This include 'header.php' is the main include file which has the page layout, css, and functions all defined.
 		include("includes/POSTs.php");															// This include pulls information from the $_POST['']; variable array for use on this page
+		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
 // Load Page Specific Includes
@@ -40,25 +41,15 @@
 		include("includes/_modules/part139339/part139339.list.php");
 		
 // Define Variables...
-//						for Auto Entry Function {Beginning of Page}
-		
-		// Navigation Page ID
-		//		Enter the ID of the Navigation Module this page belongs to.
-		//		Check the AutoEntry function for more details...
+
 		$navigation_page 			= 40;
-		// Page Type ID
-		//		Enter the ID of the Event type for this page.
-		//		Check the AutoEntry function for more details...
 		$type_page 					= 16;							// Page is Type ID, see function for notes!
-		// Other Settings for AutoEntry
-		//		You should not need to change these values.
 		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$time_to_display_new		= date("H:i:s");
 
-// Build the BreadCrum trail... 
-//		which shows the user their current location and how to navigate to other sections.
+// Build the BreadCrum trail...
 	
-		buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
+		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
 	
 // Start Procedures...
 //		Main Page Procedures and Functions
@@ -66,154 +57,180 @@
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
-		
 		?>
 
-						<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
-							<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
-							<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
-							<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php 
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									</td>
-								<td class="tableheaderright">
-									(
-									<?php 
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												Please complete the form below in as much detail as possible, and please pay close attention to syntax.
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('Select from the list')"; onMouseout="hideddrivetip()">
-												Type of Inspection
-												</td>
-											<td align="center" valign="middle" class="formoptions">
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
+		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
+		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
+		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>
+		<tr>
+			<td colspan="3" class="tablesubcontent">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" />
+					<tr>
+						<td align="center" valign="middle" class="item_name_active" />
+							Type of Inspection
+							</td>
+						<td align="center" valign="middle" class="item_name_inactive" />
+							<?php 
+							part139339typescombobox("all", "all", "InspCheckList", "show", "");
+							?>
+							</td>
+						<td class="item_right_inactive" />
+							<?php
+							_tp_control_function_button_ajax('call_server_ficon',$_SESSION['user_id'],'Get Checklist');
+							_tp_control_function_submit('entryform');
+							?>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="3">
+							<table cellspacing="0" cellpadding="0" border="0" width="100%">
+								<?php
+								$tmpstring = readweathertxt("null");
+								
+								form_new_table_b($formname);
+								form_new_control('frmdate'			, 'Date'			, 'Enter the date this record was made'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
+								form_new_control('frmtime'			, 'Time'			, 'Enter the time this record was made'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
+								form_new_control('frmmetar'			, 'Metar'			, 'Enter the current Metar'								,'The current metar has automatically been provided!'	, 'no special chars'			, 1				, 80			, 0 			, $tmpstring			, 0);
+								form_new_control("frmnotes"			, 'Comments'		, 'Provide comments about this FiCON'					,"Do not use any special characters!"					, ""							, 2				, 45			, 4				, 'Mu Values From Vericom 3000 RFM. Check Local NOTAMs'					, 0);
+							
+								?>
+								</table>
+							</td>
+						</tr>						
+					<tr>
+						<td colspan="3" id="CheckListData" class="ajax_results_area">
+							<center>
+								Click the <b>"Get Checklist"</b> button above to load the selected checklist. Once you click the button please wait a moment for the checklist to load.
+								</center>
 												<?php 
-												part139339typescombobox("all", "all", "InspCheckList", "show", "");
-												?>
-												</td>
-											<td class="formoptions" align="center">
-												<input class="formsubmit" type="button" name="button" value="Get Checklist" onClick="call_server_ficon(<?php echo $_SESSION['user_id'];?>,'report');"><input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" id="CheckListData" class="formoptionsavilablebottom">
-												<center>After clicking the 'Get Checklist' button, please wait a moment while the checklist loads</center>
-												<?php 
-												for ($i=0; $i<150; $i=$i+1) {
+												for ($i=0; $i<50; $i=$i+1) {
 														?>
-														<br>
+							<br>
 														<?php 
 													}
 												?>
-												</td>
-											</tr>
-										<tr>
-											<td align="center" valign="middle" class="formoptions" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
-												Save FiCON to Templates
-												</td>
-											<td class="formanswers" colspan="2">
-												<SELECT name="frmtemplatesave" id="frmtemplatesave" onchange="call_server_ficon_template(<?php echo $_SESSION['user_id'];?>);">
-													<option value="NO" SELECTED>NO</option>
-													<option value="YES">YES</option>
-													</select>
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" id="TemplateSaveData" class="formoptionsavilablebottom">
-												<center></center>
-												<?php
-												for ($i=0; $i<10; $i=$i+1) {
-														?>
-														<br>
-														<?php
-													}
-												?>
-												</td>
-											</tr>
-										<tr>
-											<td colspan="4" height="8" align="right">
-												<font size="1">&nbsp;</font>
-												</td>
-											</tr>
-										<tr>
-											<td height="32" colspan="12" class="formoptionsavilablebottom" valign="middle">
-												<input class="formsubmit" type="button" name="button" value="submit" onclick="javascript:document.entryform.submit()">&nbsp;
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							</form>
+							</td>
+						</tr>	
+					<tr>
+						<td align="center" valign="middle" class="item_name_active" onMouseover="ddrivetip('(mm/dd/yyyy)')"; onMouseout="hideddrivetip()">
+							Save FiCON to Templates
+							</td>
+						<td class="item_name_active" colspan="2">
+							<SELECT name="frmtemplatesave" id="frmtemplatesave" onchange="call_server_ficon_template(<?php echo $_SESSION['user_id'];?>);">
+								<option value="NO" SELECTED>NO</option>
+								<option value="YES">YES</option>
+								</select>
+							</td>
+						</tr>
+					<tr>
+						<td colspan="3" id="TemplateSaveData" class="ajax_results_area">
+							<center></center>
+							<?php
+							for ($i=0; $i<10; $i=$i+1) {
+									?>
+									<br>
+									<?php
+								}
+							?>
+							</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+										<?php
+										$formname = 'entryform';
+										//	
+										// FORM FOOTER
+										//------------------------------------------------------------------------------------------\\
+												$display_submit 		= 1;														// 1: Display Submit Button,	0: No
+													$submitbuttonname	= 'Submit Report';											// Name of the Submit Button
+												$display_close			= 0;														// 1: Display Close Button, 	0: No
+												$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+												$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+												$display_quickaccess	= 1;
+												
+											include("includes/_template/_tp_blockform_form_footer.binc.php");
+											?>									
+			
+			</form>
 		<?php
 	}
 	else {
 		?>
-						<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="10" class="tableheaderleft">&nbsp;</td>
-								<td class="tableheadercenter">
-									<?php
-									getnameofmenuitemid($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									</td>
-								<td class="tableheaderright">
-									(
-									<?php
-									getpurposeofmenuitemid($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
-									?>
-									)
-									</td>
-								</tr>
-							<tr>
-								<td colspan="3" class="tablesubcontent">
-									<table border="0" width="100%" cellspacing="3" cellpadding="5" id="table2" height="10">
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												<?php
-												if ($_POST['frmtemplatesave']=="YES") {
-														//User has choosen to save their FiCON as a template
-														?>
-														FiCON Template has been saved
-														<?php
-													}
-												?>					
-												</td>
-											</tr>
-										<tr>
-											<td colspan="3" class="formoptionsavilabletop">
-												<p>
-													The Field Condition Report has been successfully added 
-													to the database.<br>
-													<br>
-													If you want to add any graphic anomalies to the report, 
-													please click the 'Add Anomalies' button below.  Each 
-													anomaly will automatically be associated with this Field 
-													Condition Report and displayed on the report.<br>
-													<br>
-													If you do not wish to add a surface anomaly to this 
-													report or once you have completed adding any anomalies 
-													you wish click the 'Print Report' button. The Field 
-													Condition Report is not officially filled until you 
-													press the 'Print Report' button.
-													</p>
-												</td>
-											</tr>
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php
+				$menuname = getnameofmenuitemid_return_nohtml($strmenuitemid, "long", 4, "#FFFFFF",$_SESSION['user_id']);
+				?>
+				<?php echo $menuname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php 
+				$menusubname = getpurposeofmenuitemid_return_nohtml($strmenuitemid, 1, "#FFFFFF",$_SESSION['user_id']);
+				echo $menusubname;
+				?>
+				)
+				</td>				
+			</tr>		
+		<tr>
+			<td colspan="3" class="item_name_inactive">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table2" height="10">
+					<?php
+					if ($_POST['frmtemplatesave']=="YES") {
+							//User has choosen to save their FiCON as a template
+							?>
+					<tr>
+						<td colspan="3" class="item_name_active">
+							FiCON Template has been saved				
+							</td>
+						</tr>
+							<?php
+						}
+						?>
+					<tr>
+						<td colspan="3" class="item_space_inactive">
+							<p>
+								The Field Condition Report has been successfully added 
+								to the database.<br>
+								<br>
+								If you want to add any graphic anomalies to the report, 
+								please click the 'Add Anomalies' button below.  Each 
+								anomaly will automatically be associated with this Field 
+								Condition Report and displayed on the report.<br>
+								<br>
+								If you do not wish to add a surface anomaly to this 
+								report or once you have completed adding any anomalies 
+								you wish click the 'Print Report' button. The Field 
+								Condition Report is not officially filled until you 
+								press the 'Print Report' button.
+								</p>
+							</td>
+						</tr>
 		<?										
 		// Form has been submitted
 		// There are two things that must be done initialy before we go off to the discrepancy page.
@@ -413,10 +430,14 @@ if (!isset($_POST["formsubmit"])) {
 									}
 			}
 			}
+												$form_name		= 'dform3';
+												$random_element = rand(1,9999);
+												$targetname 	= '_iframe-'.$form_name.'_'.$random_element;
+												$dhtml_name 	= 'dhtmlwindow_'.$form_name.'_'.$random_element;
 			?>			
 									<tr>
-											<form style="margin-bottom:0;" action="part139339_c_discrepancy_report_new.php" method="POST" name="dform" id="dform" target="AddDiscrepancy" onsubmit="openchild600('', 'AddDiscrepancy');" >
-											<td class="formresults" align="center" valign="middle">
+											<form style="margin-bottom:0;" action="part139339_c_discrepancy_report_new.php" method="POST" method="POST" name="<?php echo $form_name;?>" id="<?php echo $form_name;?>" target="<?php echo $targetname;?>" onSubmit="<?php echo $dhtml_name;?>=dhtmlwindow.open('<?php echo $form_name;?>_<?php echo $random_element;?>', 'iframe', '', 'Add Discrepancy', 'width=600px,height=300px,resize=1,scrolling=1,center=1')" />
+											<td class="item_name_active" align="center" valign="middle">
 												<?php
 												// What does the Anomaly care about?
 												// discrepancy checklist id			-- Not terribly relevent to anything actually.
@@ -427,11 +448,20 @@ if (!isset($_POST["formsubmit"])) {
 												// discrepancy by id				-- Wouldn't be known yet....
 												
 												
+												
 												?>
 												<input type="hidden" name="recordid" 			value="<?php echo $lastid;?>">
 												<input type="hidden" name="inspectiontypeid" 	value="<?php echo $_POST['InspCheckList'];?>">
 												<input type="hidden" name="golive" 				value="1">
-												<input type="submit" name="b1" 					value="Add Anomalie"			class="formsubmit">
+												<input NAME="targetname" ID="targetname"
+													value="<?php echo $targetname;?>" 
+													type="hidden" />
+												<input NAME="dhtmlname" ID="dhtmlname"
+													value="<?php echo $dhtml_name;?>" 
+													type="hidden" />
+												<?php
+												_tp_control_function_button($form_name,'Manage Anomalies','icon_add','part139339_c_discrepancy_report_new.php',$targetname);
+												?>	
 												</td>
 											</form>								
 											</tr>
@@ -439,7 +469,7 @@ if (!isset($_POST["formsubmit"])) {
 										<td colspan="3" name="addeddis" id="addeddis">
 											<center>New Anomalies will be added here as you add new ones from the "Add Anomalie' button above</center>
 											<?php 
-											for ($i=0; $i<20; $i=$i+1) {
+											for ($i=0; $i<10; $i=$i+1) {
 													?>
 													<br>
 													<?php 
@@ -449,12 +479,14 @@ if (!isset($_POST["formsubmit"])) {
 										</tr>											
 										<tr>
 											<form style="margin-bottom:0;" action="part139339_c_report_display_new.php" method="POST" name="printform" id="printform" target="PrinterFriendlyReport" onsubmit="window.open('', 'PrinterFriendlyReport', 'width=800,height=962,status=no,resizable=no,scrollbars=yes')">
-											<td class="formoptionsavilablebottom" colspan="3">
+											<td class="item_name_active" colspan="3">
 												<input type="hidden" name="conditionid" 		value="<?php echo $tmpid;?>">
 												<input type="hidden" name="recordid" 			value="<?php echo $lastid;?>">
 												<input type="hidden" name="checklistid" 		value="<?php echo $lastchkid;?>">
 												<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
-												<input type="submit" name="b1" 					value="Print Report"			class="formsubmit">
+															<?php
+												_tp_control_function_submit('printform');
+												?>
 												</td>
 											</form>
 										</table>
