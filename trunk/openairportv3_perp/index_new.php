@@ -100,11 +100,13 @@ if ($_SESSION['user_id']=="") {
 
 				};
 			</script>
-		<?php
-		include("includes/_template_dashpanel.php");	
-		?>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<?php
+		<script>
+			// Check value of Activepage inputfield on index page
+			var activepage = parent.document.getElementById("activepage").value;
+			//alert(activepage);
+			</script>
+			<?php
+			include("includes/_template_dashpanel.php");	
 
 	}
 	include("includes/_userinterface/_ui_footer.inc.php");		// include file that gets information from form POSTs for navigational purposes

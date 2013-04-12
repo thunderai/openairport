@@ -15,12 +15,13 @@
 		<?php 
 		// LOAD INCLUDES
 		
-		include("includes/gs_config.php");
+		/* include("includes/gs_config.php");
 		include("includes/_dateandtime/dateandtime.list.php");										// List of all Date and Time functions
 		include("includes/_systemusers/systemusers.list.php");										// List of all Navigation functions
 		include("includes/_userinterface/userinterface.list.php");									// List of all Navigation functions
-		include("includes/_generalsettings/generalsettings.list.php");								// List of all Navigation functions
+		include("includes/_generalsettings/generalsettings.list.php");								// List of all Navigation functions */
 		
+		include("includes/_template/template.list.php");								// List of all Navigation functions
 		
 		if (!isset($_POST["mapscale"])) {
 				// No value present, make equal to 1
@@ -52,11 +53,12 @@
 	<BODY bgcolor="#000000" leftmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;"> 
 		<div NAME="IslandMap" ID="IslandMap" style="position:absolute; left:0px; top:0px; width:100%;height:100%;z-index: 100;">
 			<div id="myCanvas_airportmap" name="myCanvas_airportmap" style="position:absolute;z-index:100;"></div>
+			<div id="MapIt_327D" name="MapIt_327D" style="position:absolute;z-index:100;"></div>
 			<img src="images/Part_139_327/<?php echo $new_map_l;?>" width="<?php echo $new_map_x;?>" height="<?php echo $new_map_y;?>" onclick="alertCoords(event)" style="cursor:crosshair;" />
 			
 			</div>
 	
-<div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:0px;left:0px;width:155px;height:200px;z-index:990;display:none;">
+<div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:0px;left:0px;width:155px;z-index:990;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -116,8 +118,8 @@
 		</table>
 	</div>
 	
-<form NAME="MapControlForm2" ID="MapControlForm2" method="post" action="_iframe_getairportmap.php" />	
-<div Name="div_mapscale" id="div_mapscale" style="position:fixed;top:75px;left:1100px;width:150px;height:300px;z-index:101;">
+<form NAME="MapControlForm2" ID="MapControlForm2" method="post" action="index.php" />	
+<div Name="div_mapscale" id="div_mapscale" style="position:fixed;top:140px;left:10px;width:150px;height:300px;z-index:101;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -207,8 +209,8 @@
 			</tr>				
 		</table>
 	</div>	
-	
-<div Name="div_maplayer" id="div_maplayer" style="position:fixed;top:275px;left:1100px;width:150px;height:300px;z-index:101;">
+
+<div Name="div_maplayer1" id="div_maplayer1" style="position:fixed;top:340px;left:10px;width:150px;height:290px;z-index:101;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -217,11 +219,9 @@
 				Map Layers
 				</td>
 			</tr>
-			</table>
-		</div>
-	
-<div Name="div_maplayer2" id="div_maplayer2" style="position:fixed;top:295px;left:1100px;width:150px;height:290px;z-index:101;overflow:auto;">
-	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+		</table>
+	<div Name="div_maplayer2" id="div_maplayer2" style="width:150px;height:290px;z-index:101;overflow:auto;">
+		<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 			<?php 
 			// Open Connection to Databse and Get List of Surfaces
 			$layer1menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -259,7 +259,9 @@
 												$field_fid	= '139339_c_facility_cb_int';
 												$field_lat	= '139339_cc_location_x';
 												$field_long	= '139339_cc_location_y';
-
+												$field_icon = '';
+												$field_join = 1;
+												
 												break;									
 											case 5:
 												$filtername = 'equipment_sub_type_name';
@@ -270,6 +272,8 @@
 												$field_fid	= 'equipment_type_cb_int';
 												$field_lat	= 'equipment_lat';
 												$field_long	= 'equipment_long';
+												$field_icon = 'equipment_sub_type_icon';
+												$field_join = 1;
 												
 												break;
 											
@@ -302,17 +306,10 @@
 										}
 									?>
 		<tr>
-			<td name="Checkbox_<?php echo $tmpid;?>" id="Checkbox_<?php echo $tmpid;?>" 
-				onmouseover="Checkbox_<?php echo $tmpid;?>.className='perp_systemactivity_box_active';SurfaceName_<?php echo $tmpid;?>.className='perp_systemactivity_box_active'" 
-				onmouseout="Checkbox_<?php echo $tmpid;?>.className='maptoolsfields_on';SurfaceName_<?php echo $tmpid;?>.className='maptoolsfields_on'" 
-				class="maptoolsfields_on" />
-				<input name="<?php echo $inputname;?>" name="<?php echo $inputname;?>" type="checkbox" value="1" <?php echo $isitchecked;?> />
-				</td>
-			<td name="SurfaceName_<?php echo $tmpid;?>" id="SurfaceName_<?php echo $tmpid;?>" 
-				onmouseover="Checkbox_<?php echo $tmpid;?>.className='perp_systemactivity_box_active';SurfaceName_<?php echo $tmpid;?>.className='perp_systemactivity_box_active'" 
-				onmouseout="Checkbox_<?php echo $tmpid;?>.className='maptoolsfields_on';SurfaceName_<?php echo $tmpid;?>.className='maptoolsfields_on'" 
-				class="maptoolsfields_on" />
-				<?php echo $tmpname;?>
+			<td>
+				<?php
+				_tp_control_function_button_checkbox($inputname,$tmpname,$icon,$isitchecked);
+				?>
 				</td>
 			</tr>
 									<?php
@@ -373,19 +370,12 @@
 															
 															?>
 		<tr>
-			<td name="ID<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>" id="ID<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>" 
-				onmouseover="<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>.className='perp_systemactivity_box_active';ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>.className='perp_systemactivity_box_active'" 
-				onmouseout="<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>.className='perp_systemactivity_box';ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>.className='perp_systemactivity_box'" 
-				class="perp_systemactivity_box" />
-				<input name="<?php echo $inputname2;?>" name="<?php echo $inputname2;?>" type="checkbox" value="1" <?php echo $isitchecked2;?> />
+			<td>
+				<?php
+				_tp_control_function_button_checkbox($inputname2,$tmp_name,$icon2,$isitchecked2,'sub');
+				?>
 				</td>
-			<td name="ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>" id="ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>" 
-				onmouseover="ID<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>.className='perp_systemactivity_box_active';ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>.className='perp_systemactivity_box_active'" 
-				onmouseout="ID<?php echo $tmpid;?>_Checkbox_<?php echo $tmp_id;?>.className='perp_systemactivity_box';ID<?php echo $tmpid;?>_SurfaceName_<?php echo $tmp_id;?>.className='perp_systemactivity_box'" 
-				class="perp_systemactivity_box" />
-				<?php echo $tmp_name;?>
-				</td>
-			</tr>											<?php
+			</tr>										<?php
 															
 														}
 												}
@@ -410,25 +400,25 @@
 						}
 				}
 				?>
-		</table>
+			</table>
+		</div>
+	<div Name="div_mapSubmit" id="div_mapSubmit" style="width:150px;height:100px;z-index:101;">
+		<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+			<tr>
+				<td name="MapLayers" id="MapLayers" 
+					class="maptoolsfields_on" 
+					colspan="2" />
+					Refresh Map
+					</td>
+				</tr>
+			<tr>
+				<td colspan="2" class="item_name_inactive">
+					<input type="submit" name="submitmaprefresh" id="submitmaprefresh" value="Refresh" /></td>
+				</tr>
+			</table>
+		</div>		
+		
 	</div>
-
-<div Name="div_mapSubmit" id="div_mapSubmit" style="position:fixed;top:597px;left:1100px;width:150px;height:100px;z-index:101;">
-	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
-		<tr>
-			<td name="MapLayers" id="MapLayers" 
-				class="maptoolsfields_on" 
-				colspan="2" />
-				Refresh Map
-				</td>
-			</tr>
-		<tr>
-			<td colspan="2" class="item_name_inactive">
-				<input type="submit" name="submitmaprefresh" id="submitmaprefresh" value="Refresh" /></td>
-			</tr>
-		</table>
-	</div>
-	
 	</form>
 	<?php
 	// <script>
@@ -454,5 +444,6 @@
 		// });
 	// </script>
 	?>
+
 		</BODY>
 	</HTML>

@@ -110,10 +110,10 @@ var getX = function(evt){
 
 
 		if (IE) { // grab the x-y pos.s if browser is IE
-				return evt.x + document.documentElement.scrollLeft; 
+				return evt.x + document.getElementById("indexmap").scrollLeft; 
 			}
 			else {  // grab the x-y pos.s if browser is NS
-				return evt.pageX + document.getElementById("IslandMap").scrollLeft;
+				return evt.pageX + document.getElementById("indexmap").scrollLeft;
 			}  		
 		
 		
@@ -135,17 +135,17 @@ var getY = function(evt){
 
 		if (IE) { // grab the x-y pos.s if browser is IE
 		
-				if(evt.y + document.documentElement.scrollTop){ 
+				if(evt.y + document.getElementById("indexmap").scrollTop){ 
 				
-						return evt.y + document.documentElement.scrollTop;
+						return evt.y + document.getElementById("indexmap").scrollTop;
 						}
 						//return evt.y + document.documentElement.scrollTop;
 			}
 			else {  // grab the x-y pos.s if browser is NS
 			
-				if(evt.pageY + document.getElementById("IslandMap").scrollTop ){ 
+				if(evt.pageY + document.getElementById("indexmap").scrollTop ){ 
 				
-						return evt.pageY + document.getElementById("IslandMap").scrollTop; 
+						return evt.pageY + document.getElementById("indexmap").scrollTop; 
 
 						//return evt.pageX + document.getElementById("IslandMap").scrollTop;
 					}
@@ -175,28 +175,36 @@ var alertCoords = function(evt){
 	
 function update_element_info(stringtxt) {
 
-	// Seperate String
-	var n=stringtxt.split(';');
+	// SEPERATE STRING
+		// Break the string into an array for latter use
+		var n=stringtxt.split(';');
 	
-	var recordid 		= n[0];
-	var recordname 		= n[1];
-	var display_x 		= n[2];		// Probably overwritten below
-	var display_y 		= n[3];		// Probably overwritten below
-	var cordtype 		= n[4];
-	var mapscale 		= n[5];
-	var recordsource 	= n[6];
-	var recordidfield	= n[7];
+	// SET VARIABLES
+		// Take broken string array and store into seperate english variables. 
+		var recordid 		= n[0];
+		var recordname 		= n[1];
+		var display_x 		= n[2];		// Probably overwritten below
+		var display_y 		= n[3];		// Probably overwritten below
+		var cordtype 		= n[4];
+		var mapscale 		= n[5];
+		var recordsource 	= n[6];
+		var recordidfield	= n[7];
 	
-	// If Not already displayed, display the Map Element 'window'
+	// DISPLAY OFFSETS
+		// Display Element box offset from the icon by this much...
+		var offset_x = 45;
+		var offset_y = -45;
 	
-	document.getElementById("div_mapinfo").style.display 	= "block";
-	//document.getElementById("div_mapinfo").style.top 		= display_y;
-	//document.getElementById("div_mapinfo").style.left		= display_x;
-	
-	// Move 'window' near the selected element, but offset it some
-	var offset_x = 45;
-	var offset_y = -45;
-	
+	// HOW FAR HAS THE MAP DIV BEEN MOVED?
+		// If the user has moved the Map Div the offset will be in these variables
+		var div_left 	= document.getElementById("indexmap").scrollLeft;
+		var div_top		= document.getElementById("indexmap").scrollTop;
+
+	// CORRECT FOR DIV MOVEMENT
+		// Subtract the movement of the div from the offset variable
+		offset_x = (offset_x - div_left);
+		offset_y = (offset_y - div_top);
+		
 	if(cordtype == 'point') {
 	
 			var window_loc_x = (n[2] * 1) + offset_x;
@@ -246,8 +254,9 @@ function update_element_info(stringtxt) {
 	document.getElementById("ElementInfo_LocY").innerHTML = 'Y:' + display_y;
 	document.getElementById("elementrecordsource").value = n[6];
 	
-	document.getElementById("div_mapinfo").style.position = "absolute";
-	document.getElementById("div_mapinfo").style.top = window_loc_y;
-	document.getElementById("div_mapinfo").style.left = window_loc_x;
+	document.getElementById("div_mapinfo").style.display 	= "block";
+	document.getElementById("div_mapinfo").style.position 	= "fixed";
+	document.getElementById("div_mapinfo").style.top 		= window_loc_y + 'px';
+	document.getElementById("div_mapinfo").style.left 		= window_loc_x + 'px';
 	
 }

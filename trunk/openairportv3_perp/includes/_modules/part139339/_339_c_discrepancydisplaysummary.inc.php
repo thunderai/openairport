@@ -29,7 +29,6 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 			}			
 		if($detail_level == 2) {
 				$display_basic 		= 1;
-				$display_basic 		= 1;
 				$display_extended 	= 1;
 				$display_repaired 	= 1;
 				$display_bounced 	= 1;
@@ -58,7 +57,7 @@ function display_anomaly_summary($discrepancyid = 0,$detail_level = 0,$returnhtm
 			}
 			else {
 				// Use the specific entry
-				$sql = $sql."WHERE Discrepancy_id = '".$discrepancyid."' ";
+				$sql = $sql."WHERE tbl_139_339_sub_d.Discrepancy_id = ".$discrepancyid." LIMIT 1";
 			}
 		
 		//echo $sql;

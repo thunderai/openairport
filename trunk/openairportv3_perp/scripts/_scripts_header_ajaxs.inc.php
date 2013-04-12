@@ -51,3 +51,5 @@
 		<script type="text/javascript" src="scripts/_ajax/ajax_blockform.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_quickacces.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_controls.js"></script>
+		
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy.js"></script>

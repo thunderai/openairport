@@ -4,16 +4,26 @@
 	
 	$sql =" SELECT * FROM ".$tmplist." ";
 	
+	if($field_join == '') {
+			// Join nothing
+			$sqli = '';
+			$sql3 = "".$filter_h." = 0 AND ".$field_lat." IS NOT NULL AND ".$field_lat." NOT LIKE \"\" ORDER BY ".$field_name." ";
+		} else {
+			// Join the record table with the filter table
+			$sqli = "INNER JOIN ".$tmpfilter." ON ".$tmpfilter.".".$filterid." = ".$tmplist.".".$field_fid." ";
+			$sql3 = "".$tmpfilter.".".$filter_h." = 0 AND ".$field_lat." IS NOT NULL AND ".$field_lat." NOT LIKE \"\" ORDER BY ".$field_name." ";
+		}
+		
 	if($filter == 'all') {
 			// Do not add any filter information and get all results
+			$sql2 = 'WHERE ';
 		} else {
-			$sql2 = "WHERE ".$field_fid." = '".$filter."' ";
-			$sql = $sql.$sql2;
+			$sql2 = "WHERE ".$field_fid." = '".$filter."' AND ";
 			}
 	
-	$sql3 = "WHERE ".$filter_h." = 0 ORDER BY ".$field_name." ";
+	$sql = $sql.$sqli.$sql2.$sql3;
 	
-		//echo "Connect to database usining this SQL statement ".$sql." <br>";				
+		//cho "Connect to database usining this SQL statement ".$sql." <br>";				
 		$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 		if (mysqli_connect_errno()) {
@@ -32,6 +42,7 @@
 								$record_name 	= $objarray[$field_name];
 								$record_lat 	= $objarray[$field_lat];
 								$record_long 	= $objarray[$field_long];
+								$record_icon	= $objarray[$field_icon];
 								
 								// Test to see if this is a series of points (polygon), a point, or actual GPS cordinates
 								switch($field_loct) {
@@ -78,7 +89,7 @@
 										
 											jg.setColor("#000000"); // red
 											jg.setStroke('4'); 
-											jg.drawPolyline(xpoints, ypoints);	
+											jg.fillPolygon(xpoints, ypoints,"onclick='update_element_info(stringtodisplayp_<?php echo $record_id;?>)'");	
 											
 											jg.drawImage(icon,mainiconx,mainicony,icon_width,icon_height,"onclick='update_element_info(stringtodisplayp_<?php echo $record_id;?>)'"); 
 											jg.setPrintable(false);
@@ -94,6 +105,9 @@
 											
 											$screen_y = round(($screen_y * $new_mapscale),0);
 											$screen_x = round(($screen_x * $new_mapscale),0);
+											
+											//echo "Point x:".$screen_x." Y:".$screen_y." ID:".$record_id."<br>";
+											
 											?>
 											<script type='text/javascript'>
 											var recordsource		= '<?php echo $tmplist;?>';
@@ -106,7 +120,7 @@
 											px = px * 1;
 											py = py * 1;
 											
-											var icon 				= 'images/_interface/icons/icons_light.png';
+											var icon 				= 'images/_interface/icons/<?php echo $record_icon;?>.png';
 											var label				= ' <?php echo $record_name;?> ';
 											var label_background 	= '#7d388e'; 	// Dark Purple
 											var label_color			= '#FFFFFF';	// White

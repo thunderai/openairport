@@ -57,6 +57,7 @@
 			include("_tp_control_function_button_iframe.inc.php");
 			include("_tp_control_function_button_div.inc.php");
 			include("_tp_control_function_button.inc.php");
+			include("_tp_control_function_button_checkbox.inc.php");
 			include("_tp_control_function_button_toggle.inc.php");
 			
 			include("_tp_files_read_weather.inc.php");

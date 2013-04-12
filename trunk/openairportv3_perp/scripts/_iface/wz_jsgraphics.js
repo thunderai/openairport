@@ -98,9 +98,22 @@ function pntCnv()
 }
 
 
-function mkDiv(x, y, w, h)
+function mkDiv(x, y, w, h, a)
 {
-	this.htm += '<div style="position:absolute;'+
+	this.htm += '<div ' + a + ' style="opacity:0.4;position:absolute;'+
+		'left:' + x + 'px;'+
+		'top:' + y + 'px;'+
+		'width:' + w + 'px;'+
+		'height:' + h + 'px;'+
+		'clip:rect(0,'+w+'px,'+h+'px,0);'+
+		'background-color:' + this.color +
+		(!jg_moz? ';overflow:hidden' : '')+ 
+		';"><\/div>';
+}
+
+function mkDiv_a(x, y, w, h)
+{
+	this.htm += '<div style="opacity:0.4;position:absolute;'+
 		'left:' + x + 'px;'+
 		'top:' + y + 'px;'+
 		'width:' + w + 'px;'+
@@ -111,7 +124,6 @@ function mkDiv(x, y, w, h)
 		';"><\/div>';
 }
 
-
 function mkDivIe(x, y, w, h)
 {
 	this.htm += '%%'+this.color+';'+x+';'+y+';'+w+';'+h+';';
@@ -120,7 +132,7 @@ function mkDivIe(x, y, w, h)
 
 function mkDivPrt(x, y, w, h)
 {
-	this.htm += '<div style="position:absolute;'+
+	this.htm += '<div style="opacity:0.4;position:absolute;'+
 		'border-left:' + w + 'px solid ' + this.color + ';'+
 		'left:' + x + 'px;'+
 		'top:' + y + 'px;'+
@@ -785,7 +797,7 @@ The intersection finding technique of this code could be improved
 by remembering the previous intertersection, and by using the slope.
 That could help to adjust intersections to produce a nice
 interior_extrema. */
-	this.fillPolygon = function(array_x, array_y)
+	this.fillPolygon = function(array_x, array_y, a)
 	{
 		var i;
 		var y;
@@ -851,7 +863,7 @@ interior_extrema. */
 			}
 			polyInts.sort(integer_compare);
 			for (i = 0; i < ints; i+=2)
-				this.mkDiv(polyInts[i], y, polyInts[i+1]-polyInts[i]+1, 1);
+				this.mkDiv(polyInts[i], y, polyInts[i+1]-polyInts[i]+1, 1, a);
 		}
 	};
 
