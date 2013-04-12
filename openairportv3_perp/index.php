@@ -93,8 +93,11 @@ if (!isset($_POST["systemuserid"])) {
 				</table>
 			</div>	
 			
-	<div style="position:fixed;top:65;width:100%;height:100%;z-index:90;">
-		<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:hidden; width:100%;"></iframe>
+	<div name="indexmap" id="indexmap" style="position:fixed;top:65px;width:100%;height:100%;z-index:90;overflow : auto;">
+		<?php
+		include('_iframe_getairportmap.php');
+		//<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:hidden; width:100%;"></iframe>
+		?>
 		</div>	
 
 	<div style="position: fixed;bottom: 0px;background-color: #FFFFFF;width:100%;z-index:100;">
@@ -122,13 +125,9 @@ if (!isset($_POST["systemuserid"])) {
 				class="item_space_inactive" 
 				onmouseover="MapitButton.className='item_space_active';" 
 				onmouseout="MapitButton.className='item_space_inactive';" 
-				onClick="contentpanel_win.close();
-						quickaccessmenu_win.close(); 
-						airportmap.div_mapSubmit.style.display='block';
-						airportmap.div_maplayer.style.display='block';
-						airportmap.div_maplayer2.style.display='block';
-						airportmap.div_mapscale.style.display='block';"
-						/>
+				onClick="displaymode('Map');" 
+				
+				/>
 				Mapit!
 				</td>						
 			</tr>					
@@ -142,12 +141,9 @@ if (!isset($_POST["systemuserid"])) {
 				class="item_space_inactive" 
 				onmouseover="DashButton.className='item_space_active';" 
 				onmouseout="DashButton.className='item_space_inactive';" 
-				onClick="airportmap.div_mapSubmit.style.display='none';
-						airportmap.div_maplayer.style.display='none';
-						airportmap.div_maplayer2.style.display='none';
-						airportmap.div_mapscale.style.display='none';
-						airportmap.div_mapinfo.style.display='none';
-						contentpanel_win=dhtmlwindow.open('layouttableiframecontent', 'iframe', 'index_new.php', 'Dash Panel', 'top=75px,left=175px,width=910px,height=525px,resize=1,scrolling=1,center=0', 'recal');quickaccessmenu_win=dhtmlwindow.open('qam_div', 'div', 'quickaccessmenu', 'Quick Access', 'top=140px,left=10px,width=150px,height=310px,resize=1,scrolling=1,center=0', 'recal')" />
+				onClick="displaymode('Dash');" 
+				
+				/>
 				Dash Panel
 				</td>
 			</tr>
@@ -237,6 +233,7 @@ if (!isset($_POST["systemuserid"])) {
 		<tr>
 			<td colspan="2" class="perp_systemactivity_box" />
 				&nbsp;
+				<input type="hidden" name="activepage" id="activepage" value="NOTHING" />
 				</td>
 			</tr>
 		<tr>

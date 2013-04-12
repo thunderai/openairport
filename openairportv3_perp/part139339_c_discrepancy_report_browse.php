@@ -135,10 +135,10 @@
 		// $functioneditpage 		= "edit_record_general.php";
 		// $functionsummarypage 	= "summary_report_general.php";
 		// $functionprinterpage 	= "printer_report_general.php";		
-		$functioneditpage 			= "";						// Name of page used to edit the record
+		$functioneditpage 			= "";																// Name of page used to edit the record
 		$functionsummarypage 		= "part139339_c_discrepancy_report_summary.php";					// Name of page used to display a summary of the record
 		$functionprinterpage 		= "part139339_c_discrepancy_report_display.php";					// Name of page used to display a printer friendly report		
-		$function_calendar			= '';					// The URL of the webpage to load to display the Calendar.
+		$function_calendar			= '';																// The URL of the webpage to load to display the Calendar.
 		$function_printout			= '_general_printouts_get.php';									// The URL of the webpage to load to display the Printout.
 		$function_distribution		= 'part139339_c_discrepancy_display_distribution_loader.php';		// The URL of the webpage to load to display the Distribition Chart.
 		$function_linechart			= '';															// The URL of the webpage to load to display the Line Chart.

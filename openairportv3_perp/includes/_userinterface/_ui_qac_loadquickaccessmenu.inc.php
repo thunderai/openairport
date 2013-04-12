@@ -67,28 +67,28 @@ function loadquickaccessmenu($user) {
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
 							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
-							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();updateactivepage('<?php echo $tmpmenuurl;?>');" />
 							&nbsp;
 							</td>
 						<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 							class="item_icon_inactive" 
 							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
 							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
-							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();updateactivepage('<?php echo $tmpmenuurl;?>');" />
 							<img src="images/_interface/icons/<?php echo $tmpmenuicon;?>" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
 							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
-							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();updateactivepage('<?php echo $tmpmenuurl;?>');" />
 							&nbsp;
 							</td>				
 						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
 							class="item_name_inactive" 
 							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
 							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
-							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();" />
+							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();updateactivepage('<?php echo $tmpmenuurl;?>');" />
 							<?php echo $tmpmenusshortnl;?>
 							</td>				
 						</tr>

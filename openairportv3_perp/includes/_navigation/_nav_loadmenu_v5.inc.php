@@ -280,28 +280,28 @@ function loadnavmenu_5($whoareyou,$depth) {
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
+							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							&nbsp;
 							</td>
 						<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 							class="item_icon_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
+							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							<img src="images/_interface/icons/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
+							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							&nbsp;
 							</td>				
 						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
+							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							<?php echo $tmpmenusshortnl1;?>
 							</td>				
 						</tr>
@@ -330,28 +330,28 @@ function loadnavmenu_5($whoareyou,$depth) {
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();" />
+							onClick="javascript:document.MI<?php echo $tmpmenuitemidl1;?>.submit();updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							&nbsp;
 							</td>
 						<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" />
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							<img src="images/_interface/icons/<?php echo $menu_item_icon;?>" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" />
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							&nbsp;
 							</td>				
 						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
 							class="item_space_inactive" 
 							onmouseover="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','on');" 
 							onmouseout="togglebutton_M('<?php echo $tmpmenuitemidl1;?>','off');" 
-							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');" />
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','<?php echo $tmpmenuitemidl1;?>');updateactivepage('<?php echo $tmpmenuitemlocl1;?>');" />
 							<?php echo $tmpmenusshortnl1;?>
 							</td>				
 						</tr>

@@ -702,7 +702,17 @@ if ($tbldisplaytotal==1) {
 						<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 						<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 						<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
+						<?php
+						if($functioneditpage == '') {
+								?>
+								<input class="table_row_function_button"	disabled type="submit" name="b1" 				id="b1" 				value="-">
+								<?php
+							} else {
+								?>
 						<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="E">
+								<?php
+							}
+							?>
 						</td>
 					</form>
 					<td class="table_browse_row_functions_spaces" />

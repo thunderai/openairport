@@ -1,3 +1,40 @@
+function displaymode(mode) {
+		// Take the variable mode and display or hide applicable divs
+		if (mode == "Map") {
+			
+			// Hide Windows ONLY used by the Dash
+
+			document.getElementById("layouttableiframecontent").style.display='none';
+			document.getElementById("systemtext_div").style.display='none';
+			document.getElementById("qam_div").style.display='none';
+			
+			// SHOW WINDOWS
+			
+			document.getElementById("div_maplayer1").style.display='block';
+			document.getElementById("div_mapscale").style.display='block';
+						
+		
+			}
+		if (mode == "Dash") {
+		
+			// SHOW DASH WINDOWS
+			
+			document.getElementById("layouttableiframecontent").style.display='block';
+			document.getElementById("systemtext_div").style.display='block';
+			document.getElementById("qam_div").style.display='block';
+			
+			// HIDE WINDOWS
+		
+			document.getElementById("div_maplayer1").style.display='none';
+			document.getElementById("div_mapscale").style.display='none';			
+			}
+	}
+
+
+function updateactivepage(activepage) {
+	// Take the input activepage and make the activepage input field equal to it
+	document.getElementById("activepage").value = activepage;
+	}
 
 function showValue(newValue) {
 	// We update both to send the scale value with the proper form cause Browsers suck
@@ -7,6 +44,33 @@ function showValue(newValue) {
 	
 }
 
+function togglecheckbox(inputname,fieldname) {
+			
+		var IconName 	= 'Icon_MM' + escape(fieldname);
+		var NameName 	= 'Name_MM' + escape(fieldname);
+		var FieldName	= 'Field_MM' + escape(fieldname);
+		var FormatName	= 'Format_MM' + escape(fieldname);
+
+		//alert(IconName);
+		
+	if (document.getElementById(inputname).checked == false) {
+		document.getElementById(inputname).checked = true;
+		
+		document.getElementById(IconName).className = 'item_icon_active_form';
+		document.getElementById(NameName).className = 'item_name_active_form';
+		document.getElementById(FieldName).className = 'item_field_active_form';
+		document.getElementById(FormatName).className = 'item_format_active_form';
+		}
+	else {
+		document.getElementById(inputname).checked = false;
+			
+		document.getElementById(IconName).className = 'item_icon_inactive_form';
+		document.getElementById(NameName).className = 'item_name_inactive_form';
+		document.getElementById(FieldName).className = 'item_field_inactive_form';
+		document.getElementById(FormatName).className = 'item_format_inactive_form';		
+		
+		}
+}
 
 function setMainMenuItem(MainControl)
 	{
