@@ -1131,6 +1131,7 @@ if ($tbldisplaytotal==1) {
 	<tr>
 		<td colspan="2" align="right" class="perp_mainmenutable" />
 			<?php
+			
 			_tp_control_function_mapit($function_mapit_push,$encoded_notlimited);
 			_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
 			_tp_control_function_filters('sorting_controls','toggle','Filters');

@@ -132,5 +132,34 @@
 			return $smallscale_y;
 		
 		}
+
+// FUNCTIONS TO CONVERT Small SCALE X,Y INTO Large SCALE X,Y FOR REPORTS
+//
+
+	function convertfromsmallscale_to_largescale_x($location_x,$maparray) {
+		
+			// $maparray[1][1] is smallmap_x
+			// $maparray[0][1] is largemap x
+		
+			// D				A				B					C
+			//$smallscale_x = ($maparray[1][1] 	/ $maparray[0][1]) 	* $location_x;
+			// Calculated	= (733 				/ 2000) 			* Varries
+			
+			$largescale_x	= ($maparray[0][1]*$location_x) / $maparray[1][1];
+			//$largescale_x	= $location_x - ($maparray[1][1] / $maparray[0][1]);
 	
+			return $largescale_x;
+		
+		}
+		
+	function convertfromsmallscale_to_largescale_y($location_y,$maparray) {
+	
+			//$smallscale_y = ($maparray[1][2] / $maparray[0][2]) * $location_y;
+			//$largescale_y	= $location_y - ($maparray[1][2] / $maparray[0][2]);
+			
+			$largescale_y	= ($maparray[0][2]*$location_y) / $maparray[1][2];
+	
+			return $largescale_y;
+		
+		}		
 ?>

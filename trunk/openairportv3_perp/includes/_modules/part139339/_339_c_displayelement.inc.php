@@ -15,8 +15,25 @@
 		//	[5] Facility Name
 		
 		// Placement Maps
-		$offset_x		= 58;
-		$offset_y		= 61;	
+		
+		if($large_or_small == 'large') {
+		
+				$offset_x		= 58;
+				$offset_y		= 61;
+				
+				$offset_x2		= 59;
+				$offset_y2		= -62;
+				
+			} else {
+				$offset_x		= 58;
+				$offset_y		= 61;
+				
+				$offset_x2		= 21;
+				$offset_y2		= 60;
+			
+			}
+		
+		
 		
 		$js_array_x		= "";
 		$js_array_y		= "";
@@ -45,6 +62,18 @@
 				
 			}
 		
+		if($large_or_small == 'large') {
+				// Convert small scale location Text to a Large Scale Location
+				//echo "Text Location Was :".$rxlocations." ";
+				$rxlocations = convertfromsmallscale_to_largescale_x($rxlocations,$maparray) + 0;
+				//echo "And is Now :".$rxlocations." <br>";
+				$rylocations = convertfromsmallscale_to_largescale_y($rylocations,$maparray) - 200;
+			} else {
+				// Do not change the values
+				$rxlocations = $rxlocations;
+				$rylocations = $rylocations;
+			}
+
 		//echo $rxlocations;
 		
 		$size_of_array 	= count($xlocations);
@@ -97,10 +126,21 @@
 					// Loop through array and replace values as they comeup
 					//echo "X Locations: ".$xlocations[$k]." <br>";
 					$tmp_x 			= $xlocations[$k] + $offset_x;
-					$tmp_x			= convertfromlargescale_to_smallscale_x($tmp_x,$maparray);
+					//echo "Large or SMall :".$large_or_small."<br>";
+					if($large_or_small == 'large') {
+							// Defined Large Coords
+							$tmp_x 	= $tmp_x;
+						} else {
+							$tmp_x	= convertfromlargescale_to_smallscale_x($tmp_x,$maparray);
+						}
 					$xlocations[$k]	= $tmp_x;
 					$tmp_y			= $ylocations[$k] + $offset_y;
-					$tmp_y			= convertfromlargescale_to_smallscale_y($tmp_y,$maparray);
+					if($large_or_small == 'large') {
+							// Defined Large Coords
+							$tmp_y	= $tmp_y;
+						} else {
+							$tmp_y			= convertfromlargescale_to_smallscale_y($tmp_y,$maparray);
+						}
 					$ylocations[$k]	= $tmp_y;				
 				
 			}
@@ -108,11 +148,28 @@
 		$xlocations		= implode(", ",$xlocations);
 		$ylocations		= implode(", ",$ylocations);		
 		
+		if($large_or_small == 'large') {
+				// Define Canvas Name
+				if($filter == 'skipincludes') {
+					
+						$canvasname = 'MapIt_339B';
+					} else {
+					
+						$canvasname = 'MapIt_339B_2';
+					
+					}
+			} else {
+				$canvasname = 'myCanvas_'.$display_menu_item[$j][0].'';
+				
+			}
 		
-		
-				?>
-		<div style="position:absolute; z-index:4;" id="myCanvas_<?php echo $display_menu_item[$j][0];?>"></div>			
+			//echo "Canvas Name :".$canvasname." <br>";
+				?>	
+			
+			<div style="position:absolute; z-index:4;" id="myCanvas_<?php echo $display_menu_item[$j][0];?>" /></div>
+			<div style="position:absolute; z-index:4;" id="<?php echo $canvasname;?>" /></div>
 			<script type="text/javascript">
+				//alert('test');
 				<!--
 				function myDrawFunction() {
 					// Get The current Numbers from the Edit Table, and set them to the variable.
@@ -133,12 +190,12 @@
 
 					// In each array take the string and convert it into a number adjusting for mouse pointer error
 					for (i=0; i<xpoints.length; ++i) {
-					  xpoints[i] = xpoints[i] * 1 - 21;
+					  xpoints[i] = xpoints[i] * 1 - <?php echo $offset_x2;?>;
 					  xtotal = xtotal + xpoints[i];
 					  } // for
 					  xaverage = (xtotal/xpoints.length);
 					for (i=0; i<ypoints.length; ++i) {
-					  ypoints[i] = ypoints[i] * 1 + 60;  
+					  ypoints[i] = ypoints[i] * 1 + <?php echo $offset_y2;?>; 
 					  ytotal = ytotal + ypoints[i];
 					  } // for
 					  yaverage = (ytotal/ypoints.length);
@@ -266,7 +323,7 @@
 					jg.paint();
 				}													
 
-				var jg = new jsGraphics("myCanvas_<?php echo $display_menu_item[$j][0];?>");
+				var jg = new jsGraphics("<?php echo $canvasname;?>");
 
 				myDrawFunction();													
 				//-->

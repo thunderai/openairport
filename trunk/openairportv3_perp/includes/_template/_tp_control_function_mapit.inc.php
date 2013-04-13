@@ -9,7 +9,11 @@ function _tp_control_function_mapit($function_name,$function_encodeing) {
 	$icons_height		= 25;
 	$fieldname			= 'mapitfunction';
 	$td_input_name		= 'mapit';
-	?>
+	
+	if($function_name == '') {
+			// Equal to Nothing, Skip
+		} else {
+			?>
 <table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
 		border="0" 
 		cellpadding="0" 
@@ -74,6 +78,7 @@ function _tp_control_function_mapit($function_name,$function_encodeing) {
 				</td>
 			</tr>	
 		</table>
-<?php
-}
+			<?php
+			}
+	}
 ?>

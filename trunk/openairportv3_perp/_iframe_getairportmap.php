@@ -52,12 +52,21 @@
 		</HEAD>
 	<BODY bgcolor="#000000" leftmargin="0px" topmargin="0px" marginwidth="0px" marginheight="0px" style="margin: 0px; margin-bottom:0px; margin-top:0px;"> 
 		<div NAME="IslandMap" ID="IslandMap" style="position:absolute; left:0px; top:0px; width:100%;height:100%;z-index: 100;">
+			<?php
+			// Setup Overlay DIVs
+			// vvvvvvvvvvvvvvvvvv
+			?>
 			<div id="myCanvas_airportmap" name="myCanvas_airportmap" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_327D" name="MapIt_327D" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_337M" name="MapIt_337M" style="position:absolute;z-index:100;"></div>
+			<div id="MapIt_339B" name="MapIt_339B" style="position:absolute;z-index:100;"></div>
+			<div id="MapIt_339C" name="MapIt_339C" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_339D" name="MapIt_339D" style="position:absolute;z-index:100;"></div>
 			<img src="images/Part_139_327/<?php echo $new_map_l;?>" width="<?php echo $new_map_x;?>" height="<?php echo $new_map_y;?>" onclick="alertCoords(event)" style="cursor:crosshair;" />
-			
+			<?php
+			// ^^^^^^^^^^^^^^^^^^
+			// Setup Overlay DIVs
+			?>
 			</div>
 	
 <div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:0px;left:0px;width:155px;z-index:990;display:none;">
@@ -263,6 +272,7 @@
 												$field_long	= '139339_cc_location_y';
 												$field_icon = '';
 												$field_join = 1;
+												$include	= '_iframe_getairportmap_displayelement.php';
 												
 												break;									
 											case 5:
@@ -276,8 +286,14 @@
 												$field_long	= 'equipment_long';
 												$field_icon = 'equipment_sub_type_icon';
 												$field_join = 1;
+												$include	= '_iframe_getairportmap_displayelement.php';
 												
 												break;
+											case 7:
+											
+												$include	= '_iframe_getairportmap_displayelement_339B.php';
+												
+												break;	
 											
 										}
 									
@@ -295,15 +311,22 @@
 													case 4:
 														$field_loct = 'polyxy';
 														$filter 	= 'all';
-														include("_iframe_getairportmap_displayelement.php");	
+														include($include);	
 														
 														break;									
 													case 5:
 														$field_loct = 'pointgps';
 														$filter 	= 'all';
-														include("_iframe_getairportmap_displayelement.php");							// List of all Navigation functions
+														include($include);							// List of all Navigation functions
 														
 														break;
+													case 7:
+														$field_loct = 'pointgps';
+														$filter 	= 'skipincludes';
+														//echo "Include File is :".$include."<br>";
+														include($include);							// List of all Navigation functions
+														
+														break;	
 												}
 										}
 									?>

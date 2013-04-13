@@ -1,12 +1,12 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-var request = creat_Object_MapIt_339D_t();
+var request = creat_Object_MapIt_339C_t();
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-function creat_Object_MapIt_339D_t()
+function creat_Object_MapIt_339C_t()
 {
 
 var xmlhttp;
@@ -31,13 +31,13 @@ var xmlhttp;
   return xmlhttp;
 }
 
-function sever_interaction_MapIt_339D_t()
+function sever_interaction_MapIt_339C_t()
 	{
 	if(request.readyState == 4)
 		{
 		var answer = request.responseText.split("|");
 		//alert(answer);
-		top.document.getElementById("MapIt_339D").innerHTML = answer;
+		top.document.getElementById("MapIt_339C").innerHTML = answer;
 		
 		var iframeids=["layouttableiframecontent"]		
 		if (window.addEventListener)
@@ -49,14 +49,14 @@ function sever_interaction_MapIt_339D_t()
 
 		}
 	}
-function call_server_MapIt_339D_t(idstring,howtodisplay,whatdoido)
+function call_server_MapIt_339C_t(idstring,howtodisplay,whatdoido)
 		{
 			//var InspCheckList = document.getElementById("InspCheckList").value;
 			//alert(id);
-			var url = "_iframe_getairportmap_elementinfo_MapIt_339B.php?idstring=" + escape(idstring) + "&whatdoido=" + escape(whatdoido);
+			var url = "_iframe_getairportmap_displayelement_339C.php?idstring=" + escape(idstring) + "&whatdoido=" + escape(whatdoido);
 			//alert(url);
 			request.open("GET", url); 
-			request.onreadystatechange = sever_interaction_MapIt_339D_t;
+			request.onreadystatechange = sever_interaction_MapIt_339C_t;
 			request.send('');
 		}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
