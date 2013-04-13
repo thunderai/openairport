@@ -34,6 +34,7 @@ var whereaminow = function whereami() {
 		var px 					= document.getElementById("MouseX").value;
 		var py 					= document.getElementById("MouseY").value;
 		
+		//alert(py);
 		//alert(px);
 		
 		px = px * 1;
@@ -46,16 +47,16 @@ var whereaminow = function whereami() {
 		var icon_width 			= 50;	// Manual adjustment to override image size, and/or for programming purposes
 		var icon_height			= 50;	// Manual adjustment to override image size, and/or for programming purposes	
 		var mainiconx			= ( px - parseInt( icon_width / 2 ) );
-		var mainicony			= ( py - parseInt( icon_height / 2 ) );
+		var mainicony			= ( py - parseInt( icon_height / 2 ) ) - 66;
 		var label_off_x			= ( px + icon_width );
-		var label_off_y			= ( py - icon_height );
+		var label_off_y			= ( py - icon_height ) - 66;
 
 		var jg = new jsGraphics("myCanvas_airportmap");
 		
 		jg.clear();
 		
 		jg.setColor(label_color);
-		jg.drawLine(px, py, label_off_x, (label_off_y+10) ); 
+		jg.drawLine(px, py-66, label_off_x, (label_off_y+10) ); 
 		
 		jg.setColor(label_background);
 		jg.fillRect(label_off_x, label_off_y, 100, 20); 

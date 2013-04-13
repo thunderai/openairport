@@ -52,6 +52,7 @@
 			include("_tp_control_function_quickaccess.inc.php");
 			include("_tp_control_function_utilities.inc.php");
 			include("_tp_control_function_filters.inc.php");
+			include("_tp_control_function_mapit.inc.php");
 			include("_tp_control_function_submit.inc.php");
 			include("_tp_control_function_button_ajax.inc.php");
 			include("_tp_control_function_button_iframe.inc.php");

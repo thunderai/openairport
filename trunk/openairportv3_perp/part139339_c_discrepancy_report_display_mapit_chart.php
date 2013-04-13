@@ -152,6 +152,7 @@
 				$use_end_date 	= $tmpsqlenddate2;			
 			}
 
+			echo "Start date:".$use_start_date;
 		//					Filed Name / Variable				b	f	h	j		w		x		y	z
 		//displaytxtonreport($objarray['Discrepancy_id'], 		1, 1, 30, "right", 	30, 	690, 	0, 	3); <-- Don't need this
 		displaytxtonreport("Anomaly Locations", 				1, 5, 30, "center", 713, 	0, 		0, 	11);	

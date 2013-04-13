@@ -52,4 +52,9 @@
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_quickacces.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_controls.js"></script>
 		
-		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy_top.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy_parent.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_337_gis_mapit_discrepancy_top.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_337_gis_mapit_discrepancy_parent.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_339_gis_mapit_discrepancy_top.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_339_gis_mapit_discrepancy_parent.js"></script>

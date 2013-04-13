@@ -94,10 +94,7 @@
 		$sadataselect			= serialize($adataselect);												
 		$sadataselect			= str_replace("\"","|",$sadataselect);									
 	
-
-
 		//echo $sql;
-
 
 	// When dedugging you can uncomment this echo and see the sql statement
 		
