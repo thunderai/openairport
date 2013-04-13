@@ -122,8 +122,6 @@
 		$function_mapit				= 'part139339_b_report_display_mapit_loader.php';		// The URL of the webpage to load to display the Mapit.		
 		$function_googleearthit		= 'part139339_b_report_export_makekml_loader.php';		// The URL of he webpage used to generate this information.	
 	
-
-		
 		$functioneditpage 			= "part139339_b_report_edit.php";						// Name of page used to edit the record
 		$functionsummarypage 		= "part139339_b_report_summary.php";					// Name of page used to display a summary of the record
 		$functionprinterpage 		= "part139339_b_report_display_new.php";				// Name of page used to display a printer friendly report
