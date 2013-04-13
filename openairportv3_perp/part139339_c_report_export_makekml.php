@@ -22,7 +22,7 @@
 		//		SHOULD BE APPLICABLE TO WHAT YOU WOULD EXPECT FROM A NETWORK KML FILE
 		
 		// TEST TO SEE IF THIS IS FROM THE LOADER OR A NETWORK LINK....
-		if (!isset($_POST["$tmpenddate"])) {
+		if (!isset($_POST["frmenddate"])) {
 				// FORM END DATE IS NOT DEFINED, THIS IS PROBABLY A NETWORK KML FILE, SET DEFAULTS
 				
 				$current_year	= date('Y');
@@ -44,6 +44,9 @@
 		
 				$tmpstartdate 	= $_POST['frmstartdate'];
 				$tmpenddate 	= $_POST['frmenddate'];
+				
+				//echo "Start Date:".$tmpstartdate."<br>";
+				
 				$tmpstartdate2 	= $_POST['frmstartdateo'];
 				$tmpenddate2	= $_POST['frmenddateo'];	
 
@@ -121,7 +124,7 @@
 			
 // Creates the Document.
 $dom	= new DOMDocument('1.0', 'UTF-8');
-$nKml	= $dom->appendChild($dom->createElementNS('http://earth.google.com/kml/2.1', 'kml'));
+$nKml	= $dom->appendChild($dom->createElementNS('http://www.opengis.net/kml/2.2', 'kml'));
 $nDoc	= $nKml->appendChild($dom->createElement('Document'));
 
 // 0 to 20

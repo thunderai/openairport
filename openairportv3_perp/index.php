@@ -91,9 +91,9 @@ if (!isset($_POST["systemuserid"])) {
 						</td>
 					</tr>
 				</table>
-			</div>	
+			</div>			
 			
-	<div name="indexmap" id="indexmap" style="position:fixed;top:65px;width:100%;height:100%;z-index:90;overflow : auto;">
+	<div name="indexmap" id="indexmap" style="position:fixed;top:65px;width:100%;height:100%;z-index:90;overflow:auto;" />
 		<?php
 		include('_iframe_getairportmap.php');
 		//<iframe id="airportmap" name="airportmap" SRC="_iframe_getairportmap.php" width="100%" height="100%" scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:hidden; width:100%;"></iframe>

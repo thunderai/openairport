@@ -35,6 +35,8 @@
 			include("_337_combobox_species.inc.php");
 			include("_337_combobox_activity.inc.php");	
 			include("_337_combobox_actiontaken.inc.php");
+			
+			include("_337_return_species.inc.php");
 
 			include("_337_combobox_specieswall.inc.php");
 			include("_337_combobox_activitywall.inc.php");	

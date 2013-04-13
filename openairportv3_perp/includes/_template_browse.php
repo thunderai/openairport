@@ -42,7 +42,8 @@
 		$div_counter 			= 0;
 		$load_control_string	= '';
 		
-		$sql = "SELECT ".$tblkeyfield.",";														// Start SQL adding on the id field first						
+		$sql 				= "SELECT ".$tblkeyfield.",";														// Start SQL adding on the id field first
+		$sql_notlimited		= "SELECT * ";
 		
 		for ($i=0; $i<count($adatafield); $i=$i+1) {											// Loop through any of the arrays 0 to array length - 1
 				$nsql = " ".$adatafield[$i]."";													// add each new value in the array to a temporary sql string
@@ -59,7 +60,9 @@
 		$sql 	= $sql.$nsql;																	// field index values have all been added to the sql string (this line is reduntent, but there for space)
 		$nsql 	= " FROM ".$tbldatesorttable." ";												// with all field index values added, add the FROM syntax and the applicable table in the DB
 		$sql 	= $sql.$nsql;																	// make it all one nice sql string for use
-
+		$sql_notlimited = $sql_notlimited.$nsql;
+		//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
+		
 	// For debugging purposes print out the SQL Statement
 	
 		errorreport("The Initial SQL Statement is <font size='1'>".$sql." </font>",$displayerrors);				// When dedugging you can uncomment this ////echo and see the sql statement
@@ -214,8 +217,10 @@ for ($i=0; $i<count($aheadername); $i++) {
 
 // add where statement to sql statement
 if ($tbldatesort==1) {
-		$nsql = " WHERE ".$tbldatesorttable.".".$tbldatesortfield." >= '".$sqlfrmstartdate."' AND ".$tbldatesorttable.".".$tbldatesortfield." <= '".$sqlfrmenddate."'";
-		$sql = $sql.$nsql;
+		$nsql 			= " WHERE ".$tbldatesorttable.".".$tbldatesortfield." >= '".$sqlfrmstartdate."' AND ".$tbldatesorttable.".".$tbldatesortfield." <= '".$sqlfrmenddate."'";
+		$sql 			= $sql.$nsql;
+		$sql_notlimited = $sql_notlimited.$nsql;
+		//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
 		$intsqlwhereaddon = 1;
 		
 		?>
@@ -224,13 +229,17 @@ if ($tbldatesort==1) {
 	}
 if ($tbltextsort==1) {
 		if ($tbldatesort==1) {
-				$nsql = " AND ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
-				$sql = $sql.$nsql;
+				$nsql 			= " AND ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
+				$sql 			= $sql.$nsql;
+				$sql_notlimited = $sql_notlimited.$nsql;
+				//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
 				$intsqlwhereaddon = 1;
 				}
 			else {
-				$nsql = " WHERE ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
-				$sql = $sql.$nsql;	
+				$nsql 			= " WHERE ".$tbltextsorttable.".".$tbltextsortfield." like '%".$frmtextlike."%' ";
+				$sql			= $sql.$nsql;	
+				$sql_notlimited = $sql_notlimited.$nsql;
+				//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
 				$intsqlwhereaddon = 1;
 				}
 	}
@@ -256,7 +265,9 @@ if ($strsqlwhereaddon=="none") {
 			
 			
 				// user has enabled column joining, so do it
-				$sql = $sql.$strsqlwhereaddon;
+				$sql 			= $sql.$strsqlwhereaddon;
+				$sql_notlimited = $sql_notlimited.$strsqlwhereaddon;
+				//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
 			}
 	}
 
@@ -270,8 +281,11 @@ if ($tblheadersort==1) {
 					if ($tblheadersortfirstselected=="yes") {
 							//this is the first time a header has been selected
 							$tblheadersortfirstselected="no"; //set selected to no
-							$nsql=" ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." ";
-							$sql = $sql.$nsql;
+							$nsql			= " ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." ";
+							$sql_notlimited = $sql_notlimited.$nsql;
+							//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
+							$sql 			= $sql.$nsql;
+							
 						}
 						else {
 							$sql = $sql.", ".$adatafieldtable[$i].".".$adatafield[$i]." ";
@@ -281,11 +295,15 @@ if ($tblheadersort==1) {
 					if ($tblheadersortfirstselected=="yes") {
 							//this is the first time a header has been selected
 							$tblheadersortfirstselected="no"; //set selected to no
-							$nsql=" ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
-							$sql = $sql.$nsql;
+							$nsql				=" ORDER BY ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
+							$sql_notlimited 	= $sql_notlimited.$nsql;
+							//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
+							$sql 				= $sql.$nsql;
 						}
 						else {
-							$sql = $sql.", ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
+							$sql_notlimited = $sql_notlimited.", ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
+							//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
+							$sql 			= $sql.", ".$adatafieldtable[$i].".".$adatafield[$i]." desc ";
 						} 
 				} 
 		}
@@ -303,13 +321,14 @@ if ($tblheadersort==1) {
 			// the field does exist, what is its current value
 			$form_pagetodisplay	= $_POST["formoptionpageation"];
 			$form_startcountat	= ($form_pagetodisplay * $tblpagationgroup);	
-			
+
 			$sql = $sql." LIMIT ".$form_startcountat.",".$tblpagationgroup."";
 		}
 
-	$sql 		= str_replace("%3D","=",$sql);
+	$sql 			= str_replace("%3D","=",$sql);
+	$sql_notlimited = str_replace("%3D","=",$sql_notlimited);
 	
-	//ECHO "The Completed SQL Statement is <font size='1'> ".$sql."</font>";	
+	//ECHO "The Completed SQL Statement is <font size='1'> ".$sql_notlimited."</font>";	
 	
 if (!isset($_POST["frmarchives"])) {
 		$tblarchivedsort	= $tblarchivedsort;
@@ -380,7 +399,9 @@ if ($tbldisplaytotal==1) {
 		<tr>
 			<td>
 	<?php
-	$encoded 			  = urlencode($sql);		
+	$encoded 			  = urlencode($sql);
+	$encoded_notlimited	  = urlencode($sql_notlimited);
+	
 	$array_settings[0][0] = $function_calendar;
 	$array_settings[0][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[0][2] = 'PrinterFriendlyCalenderFormat';
@@ -415,6 +436,11 @@ if ($tbldisplaytotal==1) {
 	$array_settings[6][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
 	$array_settings[6][2] = 'PrinterFriendlyGoogleEarth';
 	$array_settings[6][3] = $en_googleearthit;
+	
+	$array_settings[7][0] = $function_mapit_push;
+	$array_settings[7][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
+	$array_settings[7][2] = 'PrinterFriendlyMapItPush';
+	$array_settings[7][3] = 'Push to Map';
 	
 	_tp_control_exports($array_settings);
 	?>		
@@ -1105,6 +1131,7 @@ if ($tbldisplaytotal==1) {
 	<tr>
 		<td colspan="2" align="right" class="perp_mainmenutable" />
 			<?php
+			_tp_control_function_mapit($function_mapit_push,$encoded_notlimited);
 			_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
 			_tp_control_function_filters('sorting_controls','toggle','Filters');
 			

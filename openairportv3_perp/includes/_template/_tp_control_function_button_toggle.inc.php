@@ -1,5 +1,5 @@
 <?php
-function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',$target = '') {
+function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',$target = '',$attribute1 = '',$attribute2 = '') {
 	// Variables
 	//	$action		is the action destination of the controlling form
 	//	$formname	is the name of the HTML form element
@@ -17,7 +17,7 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menubutton" />
+		class="perp_menubutton" style="float:left;width:100px;" />
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;
@@ -31,7 +31,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				
 				</td>
@@ -39,7 +56,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -47,7 +81,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				
 				</td>				
@@ -55,7 +106,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				<input type="text" value="<?php echo $label;?>" width="10" class="makebuttonlooklikelargetext">
 				</td>		
@@ -63,7 +131,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				
 				</td>
@@ -71,7 +156,24 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>');"
+				onclick="javascript:<?php echo $action;?>('<?php echo $target;?>'
+				<?php
+				if($attribute1 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute1;?>'
+						<?php
+					}
+				if($attribute2 == '') {
+						// Nothing
+					} else {
+						?>
+																				,'<?php echo $attribute2;?>'
+						<?php
+					}				
+				?>
+				);"
 				/>
 				
 				</td>

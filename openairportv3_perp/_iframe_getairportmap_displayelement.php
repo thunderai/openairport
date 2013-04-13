@@ -137,7 +137,7 @@
 											
 											var stringtodisplay_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + recordsource + ';' + recordidfield;
 										
-											jg.drawImage(icon,mainiconx,mainicony,icon_width,icon_height,"onclick='update_element_info(stringtodisplay_<?php echo $record_id;?>)'"); 
+											jg.drawImage(icon,mainiconx,mainicony,icon_width,icon_height,"border='1' onMouseOver='this.style.zIndex = 999' onMouseOut='this.style.zIndex = 100' onclick='update_element_info(stringtodisplay_<?php echo $record_id;?>)'"); 
 											jg.setPrintable(false);
 											jg.paint();	
 											</script>

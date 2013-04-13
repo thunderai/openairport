@@ -54,6 +54,8 @@
 		<div NAME="IslandMap" ID="IslandMap" style="position:absolute; left:0px; top:0px; width:100%;height:100%;z-index: 100;">
 			<div id="myCanvas_airportmap" name="myCanvas_airportmap" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_327D" name="MapIt_327D" style="position:absolute;z-index:100;"></div>
+			<div id="MapIt_337M" name="MapIt_337M" style="position:absolute;z-index:100;"></div>
+			<div id="MapIt_339D" name="MapIt_339D" style="position:absolute;z-index:100;"></div>
 			<img src="images/Part_139_327/<?php echo $new_map_l;?>" width="<?php echo $new_map_x;?>" height="<?php echo $new_map_y;?>" onclick="alertCoords(event)" style="cursor:crosshair;" />
 			
 			</div>
@@ -105,7 +107,7 @@
 				<input type="submit" 
 						name="MoreInformationaboutelement" 
 						value="More Info" 
-						onClick="elementinfo_win=dhtmlwindow.open('moreelementinfo', 'iframe', '', 'Element Information', 'top=140px,left=10px,width=300px,height=310px,resize=1,scrolling=1,center=0', 'recal');javascript:document.forms['getmoreelementinfo'].submit();"
+						onClick="elementinfo_win=dhtmlwindow.open('moreelementinfo', 'iframe', '', 'Element Information', 'top=75px,left=180px,width=490px,height=350px,resize=1,scrolling=1,center=0', 'recal');javascript:document.forms['getmoreelementinfo'].submit();"
 						/>
 				<input type="button" 
 						name="HideMapTools" id="HideMapTools"
