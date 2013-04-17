@@ -1,5 +1,5 @@
 <?php
-function _tp_control_function_button_div($formname,$label,$icon,$action = '',$target = '',$width,$height,$display = 'show') {
+function _tp_control_function_button_div($formname,$label,$icon,$action = '',$target = '',$width = 25,$height = 25,$display = 'show') {
 	// Variables
 	//	$action		is the action destination of the controlling form
 	//	$formname	is the name of the HTML form element
@@ -14,12 +14,14 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 	$random_number_2	= rand(1,9999);
 	$fieldname			= 'button'.$random_number_1.'_'.$random_number_2;
 
+	//echo $target;
+	
 	?>
 <table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menutable" 
+		class="perp_menutable" width="100%"
 		<?php
 		if($display == 'hide') {
 			?>
@@ -46,7 +48,7 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				if ($target != '') {
 					// Display DHTML
 					?>
-				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
 					<?php
 					} else {
 					?>
@@ -61,7 +63,19 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+				<?php
+				
+				if ($target != '') {
+					// Display DHTML
+					?>
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
+					<?php
+					} else {
+					?>
+				 onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'div', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=<?php echo $width;?>px,height=<?php echo $height;?>px,resize=1,scrolling=1,center=1', 'recal');" 
+					<?php
+					}
+					?>
 				/>
 				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -74,7 +88,7 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				if ($target != '') {
 					// Display DHTML
 					?>
-				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
 					<?php
 					} else {
 					?>
@@ -94,7 +108,7 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				if ($target != '') {
 					// Display DHTML
 					?>
-				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
 					<?php
 					} else {
 					?>
@@ -114,7 +128,7 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				if ($target != '') {
 					// Display DHTML
 					?>
-				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
 					<?php
 					} else {
 					?>
@@ -134,7 +148,7 @@ function _tp_control_function_button_div($formname,$label,$icon,$action = '',$ta
 				if ($target != '') {
 					// Display DHTML
 					?>
-				onclick="javascript:<?php echo $target;?>('<?php echo $formname;?>_win');"
+				onclick="<?php echo $target;?>('<?php echo $formname;?>_win');"
 					<?php
 					} else {
 					?>

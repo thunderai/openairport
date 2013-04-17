@@ -446,6 +446,46 @@ if ($tbldisplaytotal==1) {
 	?>		
 				</td>
 			</tr>
+		<tr>
+			<td class="item_name_active" height="32" />
+				<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_mainmenubutton" />
+					<tr>			
+						<td name="OSpace_MClose<?php echo $disid;?>" id="OSpace_MClose<?php echo $disid;?>" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+							onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MClose<?php echo $disid;?>" id="Icon_MClose<?php echo $disid;?>" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+							onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MClose<?php echo $disid;?>" id="ISpace_MClose<?php echo $disid;?>" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+							onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MClose<?php echo $disid;?>" id="Name_MClose<?php echo $disid;?>" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+							onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="divwin_exportdisplaypanel.close(); return false" />
+							</td>				
+						</tr>
+					</table>
+				</td>
+			</tr>
 		</table>
 	</div>	
 	
@@ -473,7 +513,7 @@ if ($tbldisplaytotal==1) {
 			<?php
 			echo $purpose;
 			?>
-			<div style="display:block;left:500px;top:300px;position:fixed;z-index:50;width:250px;height:150px;" name="sorting_controls" id="sorting_controls" />
+			<div style="display:none;left:500px;top:300px;position:fixed;z-index:50;width:250px;height:150px;" name="sorting_controls_win" id="sorting_controls_win" />
 				<table width="100%" class="perp_mainmenutable" />
 					<tr>
 						<td>
@@ -572,7 +612,10 @@ if ($tbldisplaytotal==1) {
 				<tr>
 					<td align="right" valign="top" height="20"/>
 						<?php
-							_tp_control_header_button('icon_filter',$en_sortingfilters,4);
+							//_tp_control_function_button_div(	$formname			,$label					,$icon			,$action = ''		,$target = ''	,$width	,$height	,$display = 'show')
+							//	_tp_control_function_button_div('sorting_controls'	,$en_sortingfilters		,'icon_window'	,''	,'toggle_new'		,'200'	,'200');
+							//_tp_control_header_button($icon_name	,$labelname			,$type	,$js_gfunction = ''	,$js_ufunction = ''	,$datafield = '',$headersort = '',$headername = '')
+							_tp_control_header_button('icon_filter'	,$en_sortingfilters	,5		,'toggle_new'		,''					,'sorting_controls');
 							?>	
 						</td>
 					</tr>
@@ -1006,7 +1049,48 @@ if ($tbldisplaytotal==1) {
 				_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
 				
 				include("includes/_template/_tp_blockform_workorder_browser.binc.php");
+				$disid = $div_counter;
 				?>			</td>
+						</tr>
+					<tr>
+						<td class="item_name_active" height="32" />
+							<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+									border="0" 
+									cellpadding="0" 
+									cellspacing="0" 
+									class="perp_mainmenubutton" />
+								<tr>			
+									<td name="OSpace_MClose<?php echo $disid;?>" id="OSpace_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										&nbsp;
+										</td>
+									<td name="Icon_MClose<?php echo $disid;?>" id="Icon_MClose<?php echo $disid;?>" 
+										class="item_icon_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+										<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+										</td>
+									<td name="ISpace_MClose<?php echo $disid;?>" id="ISpace_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										&nbsp;
+										</td>				
+									<td name="Name_MClose<?php echo $disid;?>" id="Name_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="divform_<?php echo $div_counter;?>_var.close(); return false" />
+										</td>				
+									</tr>
+								</table>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -1050,7 +1134,7 @@ if ($tbldisplaytotal==1) {
 																			?>
 			<tr>
 				<td colspan="2" align="center" valign="middle" class="perp_row_left">
-					Total
+					T
 					</td>
 																			<?php 
 																			for ($i=0; $i<count($aheadername); $i=$i+1) {
@@ -1072,7 +1156,7 @@ if ($tbldisplaytotal==1) {
 					</tr>
 				<tr>
 					<td colspan="2" align="center" valign="middle" class="perp_row_left">
-						Average
+						A
 						</td>									
 																			<?php 
 																			for ($i=0; $i<count($aheadername); $i=$i+1) {
@@ -1133,8 +1217,8 @@ if ($tbldisplaytotal==1) {
 			<?php
 			
 			_tp_control_function_mapit($function_mapit_push,$encoded_notlimited);
-			_tp_control_function_utilities('exportdisplaypanel','toggle',$en_form_exports);
-			_tp_control_function_filters('sorting_controls','toggle','Filters');
+			_tp_control_function_utilities('exportdisplaypanel','toggle_new',$en_form_exports);
+			_tp_control_function_filters('sorting_controls','toggle_new','Filters');
 			
 			// Display Variables for Quick Access Option
 			//echo "Element 1: | ".$en_quickaccess_f." |<br>";

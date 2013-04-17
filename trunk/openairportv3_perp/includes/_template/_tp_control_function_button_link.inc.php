@@ -1,15 +1,32 @@
 <?php
-function _tp_control_function_filters($displaypanel,$javascript_function,$language_exports) {
+function _tp_control_function_button_link($formname,$label,$icon,$action = '',$target = '') {
+	// Variables
+	//	$action		is the action destination of the controlling form
+	//	$formname	is the name of the HTML form element
+	//	$target		is the name of the target window location
+	//	$label		is the name of the button displayed to the user
+	//	$icon		is the location of the image to use as an icon
 
 	$icons_width		= 25;
 	$icons_height		= 25;
-	$fieldname			= 'filters';
+	$random_number_1	= rand(1,9999);
+	$random_number_2	= rand(1,9999);
+	$fieldname			= 'button'.$random_number_1.'_'.$random_number_2;
 	?>
+<a href="<?php echo $action;?>" style="margin-bottom:0;float:right;">	
 <table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menutable" />
+		style="float:left;" 
+		<?php
+		if($display == 'hide') {
+			?>
+		style="display: none;float:left;"	 
+			<?php
+			}
+			?>
+		/>
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;
@@ -23,7 +40,7 @@ function _tp_control_function_filters($displaypanel,$javascript_function,$langua
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+	
 				/>
 				
 				</td>
@@ -31,15 +48,15 @@ function _tp_control_function_filters($displaypanel,$javascript_function,$langua
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+				
 				/>
-				<img src="images/_interface/icons/icon_filter.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
 			<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+
 				/>
 				
 				</td>				
@@ -47,29 +64,28 @@ function _tp_control_function_filters($displaypanel,$javascript_function,$langua
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+				
 				/>
-				<?php
-				echo $language_exports;
-				?>
+				<input type="submit" value="<?php echo $label;?>" width="10" class="makebuttonlooklikelargetext">
 				</td>		
 			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+				
 				/>
-				<?php echo $en_form_exports;?>
+				
 				</td>
 			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
+				
 				/>
 				
 				</td>
 			</tr>	
 		</table>
+		</a>
 	<?php
 }

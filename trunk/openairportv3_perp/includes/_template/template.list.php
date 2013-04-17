@@ -55,6 +55,8 @@
 			include("_tp_control_function_mapit.inc.php");
 			include("_tp_control_function_submit.inc.php");
 			include("_tp_control_function_button_ajax.inc.php");
+			include("_tp_control_function_button_mode.inc.php");
+			include("_tp_control_function_button_link.inc.php");
 			include("_tp_control_function_button_iframe.inc.php");
 			include("_tp_control_function_button_div.inc.php");
 			include("_tp_control_function_button.inc.php");

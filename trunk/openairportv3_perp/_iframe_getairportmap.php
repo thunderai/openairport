@@ -21,7 +21,7 @@
 		include("includes/_userinterface/userinterface.list.php");									// List of all Navigation functions
 		include("includes/_generalsettings/generalsettings.list.php");								// List of all Navigation functions */
 		
-		include("includes/_template/template.list.php");								// List of all Navigation functions
+		//include("includes/_template/template.list.php");								// List of all Navigation functions
 		
 		if (!isset($_POST["mapscale"])) {
 				// No value present, make equal to 1
@@ -62,6 +62,7 @@
 			<div id="MapIt_339B" name="MapIt_339B" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_339C" name="MapIt_339C" style="position:absolute;z-index:100;"></div>
 			<div id="MapIt_339D" name="MapIt_339D" style="position:absolute;z-index:100;"></div>
+			<div id="MovingMap_Vx" name="MovingMap_Vx" style="position:absolute;z-index:100;"></div>
 			<img src="images/Part_139_327/<?php echo $new_map_l;?>" width="<?php echo $new_map_x;?>" height="<?php echo $new_map_y;?>" onclick="alertCoords(event)" style="cursor:crosshair;" />
 			<?php
 			// ^^^^^^^^^^^^^^^^^^
@@ -69,7 +70,7 @@
 			?>
 			</div>
 	
-<div Name="div_mapinfo" id="div_mapinfo" style="position:fixed;top:0px;left:0px;width:155px;z-index:990;display:none;">
+<div Name="div_mapinfo_win" id="div_mapinfo_win" style="position:fixed;top:0px;left:0px;width:155px;z-index:990;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -121,76 +122,49 @@
 				<input type="button" 
 						name="HideMapTools" id="HideMapTools"
 						value="Close" 
-						onClick="toggle('div_mapinfo');"
+						onClick="toggle_new('div_mapinfo_win');"
 						/>						
 				</form>
 				</td>
 			</tr>			
 		</table>
 	</div>
-	
+<?php
+//	Map Conrols Location Array
+//	Set variables
+//	array_qam = array($top,$left,$width,$height,$zindex);
+	$width_swath		= 4;																		// How much more width does a DHTML widget add to a nominal width.
+	$maptools_top 		= $array_mode[0] + $array_mode[3] + 10;										// Mode Top + Mode Height + 10
+	$maptools_left		= 10;
+	$maptools_width		= 160;																	// Standard width minus the swath
+	$maptools_height	= 130;
+	//echo "Height :".$qam_height."<br>";
+	//$qam_height		= 40;
+	$maptools_zindex	= 100;																		
+	$array_maptools		= array($maptools_top,$maptools_left,$maptools_width,$maptools_height,$maptools_zindex);
+?>
 <form NAME="MapControlForm2" ID="MapControlForm2" method="post" action="index.php" />	
-<div Name="div_mapscale" id="div_mapscale" style="position:fixed;top:140px;left:10px;width:150px;height:300px;z-index:101;display:none;">
-	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+<div Name="div_mapscale" id="div_mapscale" style="position:fixed;top:<?php echo $array_maptools[0];?>px;left:<?php echo $array_maptools[1];?>px;width:<?php echo $array_maptools[2];?>px;height:<?php echo $array_maptools[3];?>px;z-index:<?php echo $array_maptools[4];?>;display:none;">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
-			<td name="MapLayers" id="MapLayers" 
-				class="maptoolsfields_on" 
-				colspan="2" />
-				Map Controls
-				</td>
-			</tr>
+			<td colspan="2" class="item_name_active">Map Cords</td>
+			</tr>			
 		<tr>
-			<td colspan="2" class="item_name_inactive">Map Cords</td>
-			</tr>
-		<tr>
-			<td name="MouseXRow" id="MouseXRow" 
+			<td colspan="2" name="MouseXRow" id="MouseXRow" 
 				class="maptoolsfields_off" 
-				onmouseover="MouseXRowField.className='maptoolsfields_on';MouseXRow.className='item_name_active';" 
-				onmouseout="MouseXRowField.className='maptoolsfields_off';MouseXRow.className='item_name_inactive';" />
-				&nbsp;X&nbsp;
-				</td>
-			<td name="MouseXRowField" id="MouseXRowField" 
-				class="maptoolsfields_off" 
-				onmouseover="MouseXRowField.className='maptoolsfields_on';MouseXRow.className='item_name_active';" 
-				onmouseout="MouseXRowField.className='maptoolsfields_off';MouseXRow.className='item_name_inactive';" />
-				<input type="text" ID="MouseX" NAME="MouseX" size="4">
+				onmouseover="MouseXRow.className='maptoolsfields_on';MouseXRow.className='item_name_active';" 
+				onmouseout="MouseXRow.className='maptoolsfields_off';MouseXRow.className='item_name_inactive';" />
+				X
+				<input type="text" ID="MouseX" NAME="MouseX" size="2" class="makebuttonlooklikelargetext" />
 				<input type="hidden" ID="mappoint_x" NAME="mappoint_x" size="4">
-				</td>
-			</tr>
-		<tr>
-			<td name="MouseYRow" id="MouseYRow" 
-				class="maptoolsfields_off" 
-				onmouseover="MouseYRowField.className='maptoolsfields_on';MouseYRow.className='item_name_active';" 
-				onmouseout="MouseYRowField.className='maptoolsfields_off';MouseYRow.className='item_name_inactive';" />
-				&nbsp;Y&nbsp;
-				</td>
-			<td name="MouseYRowField" id="MouseYRowField" 
-				class="maptoolsfields_off" 
-				onmouseover="MouseYRowField.className='maptoolsfields_on';MouseYRow.className='item_name_active';" 
-				onmouseout="MouseYRowField.className='maptoolsfields_off';MouseYRow.className='item_name_inactive';" />
-				<input type="text" ID="MouseY" NAME="MouseY" size="4">
+				Y
+				<input type="text" ID="MouseY" NAME="MouseY" size="2" class="makebuttonlooklikelargetext" />
 				<input type="hidden" ID="mappoint_y" NAME="mappoint_y" size="4">
 				</td>
 				</form>
-			</tr>		
-		<tr>
-			<td name="BeamtoIntro" id="BeamtoIntro" 
-				class="maptoolsfields_off" 
-				onmouseover="BeamtoIntro.className='maptoolsfields_on';BeamtoButton.className='maptoolsfields_on'" 
-				onmouseout="BeamtoIntro.className='maptoolsfields_off';BeamtoButton.className='maptoolsfields_off'"
-				onclick="whereaminow();" />
-				&nbsp;
-				</td>
-			<td name="BeamtoButton" id="BeamtoButton" 
-				class="maptoolsfields_off" 
-				onmouseover="BeamtoIntro.className='maptoolsfields_on';BeamtoButton.className='maptoolsfields_on'" 
-				onmouseout="BeamtoIntro.className='maptoolsfields_off';BeamtoButton.className='maptoolsfields_off'"
-				onclick="whereaminow();" />
-				Beam to!
-				</td>
 			</tr>
 		<tr>
-			<td colspan="2" class="item_name_inactive">Map Scale</td>
+			<td colspan="2" class="item_name_active">Map Scale</td>
 			</tr>
 		<tr>
 			<td name="MapScaleSlider" id="MapScaleSlider" 
@@ -209,19 +183,30 @@
 				</td>
 			</tr>
 		<tr>
-			<td name="MapControlTools" id="MapControlTools" 
-				class="item_name_inactive" 
-				onmouseover="className='maptoolsfields_on';" 
-				onmouseout="className='maptoolsfields_off';"
-				onclick="toggle('div_mapinfo');"  
-				colspan="2" />
-				Map Tools
+			<td colspan="2" />
+				<?php
+				_tp_control_function_button_div('div_mapinfo','Element Info','icon_world','','toggle_new');
+				?>
 				</td>
 			</tr>				
 		</table>
 	</div>	
-
-<div Name="div_maplayer1" id="div_maplayer1" style="position:fixed;top:340px;left:10px;width:150px;height:290px;z-index:101;display:none;">
+<?php
+//	Map Conrols Location Array
+//	Set variables
+//	array_qam = array($top,$left,$width,$height,$zindex);
+	$width_swath		= 4;																	// How much more width does a DHTML widget add to a nominal width.
+	$maplayers_top 		= $array_maptools[0] + $array_maptools[3] + 10;							// Mode Top + Mode Height + 10
+	//echo "top:".$maplayers_top;
+	$maplayers_left		= 10;
+	$maplayers_width	= 160;																	// Standard width minus the swath
+	$maplayers_height	= $screen_y - $maplayers_top - $footer_height - $taskbar_height - 200;
+	echo "Height:".$qam_height."<br>";
+	//$qam_height		= 40;
+	$maplayers_zindex	= 100;																		
+	$array_maplayers	= array($maplayers_top,$maplayers_left,$maplayers_width,$maplayers_height,$maplayers_zindex);
+?>
+<div Name="div_maplayer1" id="div_maplayer1" style="position:fixed;top:<?php echo $array_maplayers[0];?>px;left:<?php echo $array_maplayers[1];?>px;width:<?php echo $array_maplayers[2];?>px;height:<?php echo $array_maplayers[3];?>px;z-index:<?php echo $array_maplayers[4];?>;display:none;">
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td name="MapLayers" id="MapLayers" 
@@ -231,7 +216,7 @@
 				</td>
 			</tr>
 		</table>
-	<div Name="div_maplayer2" id="div_maplayer2" style="width:150px;height:290px;z-index:101;overflow:auto;">
+	<div Name="div_maplayer2" id="div_maplayer2" style="width:<?php echo $array_maplayers[2];?>px;height:<?php echo $array_maplayers[3];?>px;z-index:<?php echo $array_maplayers[4];?>;overflow:auto;">
 		<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 			<?php 
 			// Open Connection to Databse and Get List of Surfaces
@@ -427,7 +412,7 @@
 				?>
 			</table>
 		</div>
-	<div Name="div_mapSubmit" id="div_mapSubmit" style="width:150px;height:100px;z-index:101;">
+	<div Name="div_mapSubmit" id="div_mapSubmit" style="width:<?php echo $array_maplayers[2];?>px;height:50px;z-index:<?php echo $array_maplayers[4];?>;">
 		<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 			<tr>
 				<td name="MapLayers" id="MapLayers" 
@@ -438,13 +423,22 @@
 				</tr>
 			<tr>
 				<td colspan="2" class="item_name_inactive">
-					<input type="submit" name="submitmaprefresh" id="submitmaprefresh" value="Refresh" /></td>
+					<?php
+					_tp_control_function_submit('MapControlForm2',$name = 'Refresh');
+					?>
+					</td>
 				</tr>
 			</table>
 		</div>		
 		
 	</div>
 	</form>
+	
+<div style="position:fixed;top:300px;left:300px;width:155px;height:300px;z-index:990;overflow:auto;">
+	<?php
+	include('test.html');
+	?>
+	</div>	
 	<?php
 	// <script>
 		// $(function(o){

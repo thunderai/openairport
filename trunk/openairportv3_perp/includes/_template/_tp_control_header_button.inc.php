@@ -260,7 +260,46 @@ function _tp_control_header_button($icon_name,$labelname,$type,$js_gfunction = '
 			</tr>
 		</table>
 			<?php
-		}	
+		}
+	if($type == 5) {
+			?>
+	<table 	name="<?php echo $str_labelname;?>_table" id="<?php echo $str_labelname;?>_table" 
+			border="0" 
+			cellpadding="0" 
+			cellspacing="0" 
+			class="perp_header_button_float" height="10" />
+		<tr>			
+			<td name="OSpace_<?php echo $str_labelname;?>" id="OSpace_<?php echo $str_labelname;?>"
+				class="item_space_inactive" 
+				onmouseover="OSpace_<?php echo $str_labelname;?>.className='item_name_active';Icon_<?php echo $str_labelname;?>.className='item_name_active';ISpace_<?php echo $str_labelname;?>.className='item_name_active';Name_<?php echo $str_labelname;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $str_labelname;?>.className='item_name_inactive';Icon_<?php echo $str_labelname;?>.className='item_name_inactive';ISpace_<?php echo $str_labelname;?>.className='item_name_inactive';Name_<?php echo $str_labelname;?>.className='item_name_inactive';" 
+				onclick="<?php echo $js_gfunction;?>('<?php echo $datafield;?>_win');" />&nbsp;
+				</td>
+			<td name="Icon_<?php echo $str_labelname;?>" id="Icon_<?php echo $str_labelname;?>" 
+				class="item_icon_inactive" 
+				onmouseover="OSpace_<?php echo $str_labelname;?>.className='item_name_active';Icon_<?php echo $str_labelname;?>.className='item_name_active';ISpace_<?php echo $str_labelname;?>.className='item_name_active';Name_<?php echo $str_labelname;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $str_labelname;?>.className='item_name_inactive';Icon_<?php echo $str_labelname;?>.className='item_name_inactive';ISpace_<?php echo $str_labelname;?>.className='item_name_inactive';Name_<?php echo $str_labelname;?>.className='item_name_inactive';" 
+				onclick="<?php echo $js_gfunction;?>('<?php echo $datafield;?>_win');"/>
+				<img src="images/_interface/icons/<?php echo $icon_name;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+				</td>
+			<td name="ISpace_<?php echo $str_labelname;?>" id="ISpace_<?php echo $str_labelname;?>" 
+				class="item_space_inactive" 
+				onmouseover="OSpace_<?php echo $str_labelname;?>.className='item_name_active';Icon_<?php echo $str_labelname;?>.className='item_name_active';ISpace_<?php echo $str_labelname;?>.className='item_name_active';Name_<?php echo $str_labelname;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $str_labelname;?>.className='item_name_inactive';Icon_<?php echo $str_labelname;?>.className='item_name_inactive';ISpace_<?php echo $str_labelname;?>.className='item_name_inactive';Name_<?php echo $str_labelname;?>.className='item_name_inactive';" 
+				onclick="<?php echo $js_gfunction;?>('<?php echo $datafield;?>_win');" />
+				</td>				
+			<td name="Name_<?php echo $str_labelname;?>" id="Name_<?php echo $str_labelname;?>" 
+				class="item_name_inactive" 
+				onmouseover="OSpace_<?php echo $str_labelname;?>.className='item_name_active';Icon_<?php echo $str_labelname;?>.className='item_name_active';ISpace_<?php echo $str_labelname;?>.className='item_name_active';Name_<?php echo $str_labelname;?>.className='item_name_active';" 
+				onmouseout="OSpace_<?php echo $str_labelname;?>.className='item_name_inactive';Icon_<?php echo $str_labelname;?>.className='item_name_inactive';ISpace_<?php echo $str_labelname;?>.className='item_name_inactive';Name_<?php echo $str_labelname;?>.className='item_name_inactive';" 
+				class="item_name_inactive_button" 
+				onclick="<?php echo $js_gfunction;?>('<?php echo $datafield;?>_win');"/>
+				<span > <?php echo $labelname;?> </span>
+				</td>				
+			</tr>
+		</table>
+			<?php
+		}			
 		
 	}
 	?>
