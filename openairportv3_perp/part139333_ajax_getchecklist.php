@@ -214,7 +214,7 @@
 										?>
 		<tr>
 			<td colspan="2">
-				<div style="display: none"; name="divform_<?php echo $runwayheading ;?>_win" id="divform_<?php echo $runwayheading ;?>_win" >
+				<div style="display: none;z-index:999;"; name="divform_<?php echo $runwayheading ;?>_win" id="divform_<?php echo $runwayheading ;?>_win" >
 				
 
 										<?php

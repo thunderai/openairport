@@ -1,3 +1,64 @@
+function toggle_new(passeddiv) {
+
+	//alert(passeddiv);
+	
+	var passeddiv_obj = document.getElementById(passeddiv);
+	var passeddiv_obj_display = passeddiv_obj.style.display;
+	
+	if(passeddiv_obj_display == 'none') {
+			// Not displayed, display it
+			document.getElementById(passeddiv).style.display = 'block';
+		} else {
+			document.getElementById(passeddiv).style.display = 'none';
+		}
+	
+	//alert(passeddiv_obj.style.display);
+
+}
+
+function modeselectionswitch() {
+	// Get mode from input field
+		var current_mode = document.getElementById("modeswtich").value;
+		
+		if(current_mode == 'map') {
+				// Hide Windows ONLY used by the Dash
+
+				document.getElementById("layouttableiframecontent").style.display='none';
+				document.getElementById("systemtext_div").style.display='none';
+				document.getElementById("qam_div").style.display='none';
+				
+				// SHOW WINDOWS
+				
+				document.getElementById("div_maplayer1").style.display='block';
+				document.getElementById("div_mapscale").style.display='block';
+				
+				// Rename Mode Switch
+				
+				document.getElementById("modeswitch_label").value = 'Dash Panel';
+				document.getElementById("modeswtich").value = 'dash';
+				
+			}
+		if(current_mode == 'dash') {
+				// SHOW DASH WINDOWS
+				
+				document.getElementById("layouttableiframecontent").style.display='block';
+				document.getElementById("systemtext_div").style.display='block';
+				document.getElementById("qam_div").style.display='block';
+				
+				// HIDE WINDOWS
+			
+				document.getElementById("div_maplayer1").style.display='none';
+				document.getElementById("div_mapscale").style.display='none';
+				
+				// Rename Mode Switch
+				
+				document.getElementById("modeswitch_label").value = 'Map It!';
+				document.getElementById("modeswtich").value = 'map';
+		
+			}
+
+	}
+
 function displaymode(mode) {
 		// Take the variable mode and display or hide applicable divs
 		if (mode == "Map") {
@@ -29,7 +90,6 @@ function displaymode(mode) {
 			document.getElementById("div_mapscale").style.display='none';			
 			}
 	}
-
 
 function updateactivepage(activepage) {
 	// Take the input activepage and make the activepage input field equal to it
@@ -110,19 +170,6 @@ hza.style.display = state;
 } 
 } 
 //--> 
-
-function toggle(DivName) {
-	var ele = document.getElementById(DivName);
-	//var text = document.getElementById(DivName);
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-		text.innerHTML = "show";
-  	}
-	else {
-		ele.style.display = "block";
-		text.innerHTML = "hide";
-	}
-} 
 
 function updatemap(IslandID) {
 //loadintoIframe('layouttableiframecontent', '_suc_usersettings.php')

@@ -4,6 +4,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 		//  	logged into the OpenAirport system. If no user is currently logged in, the system will
 		//		redirect the user to the login page.  Otherwise the user will be shown the 
 		//		navigational menu
+
 		
 	if($depth == 'root') {
 		
@@ -485,7 +486,52 @@ function loadnavmenu_5($whoareyou,$depth) {
 			</td>
 		</tr>
 	</table>
-				<?php
+		<?php
 		}
+		?>
+<table width="100%" cellpadding="0" cellspacing="0" />
+	<tr>
+		<td class="item_name_active" />
+			<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+					border="0" 
+					cellpadding="0" 
+					cellspacing="0" 
+					class="perp_mainmenubutton" />
+				<tr>			
+					<td name="OSpace_MClose" id="OSpace_MClose" 
+						class="item_space_inactive" 
+						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+						/>
+						&nbsp;
+						</td>
+					<td name="Icon_MClose" id="Icon_MClose" 
+						class="item_icon_inactive" 
+						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+						onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+						<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+						</td>
+					<td name="ISpace_MClose" id="ISpace_MClose" 
+						class="item_space_inactive" 
+						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+						/>
+						&nbsp;
+						</td>				
+					<td name="Name_MClose" id="Name_MClose" 
+						class="item_space_inactive" 
+						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+						/>
+						<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="parent.navigationdisplaypanel_div.close(); return false" />
+						</td>				
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<?php
+
 	}
 ?>

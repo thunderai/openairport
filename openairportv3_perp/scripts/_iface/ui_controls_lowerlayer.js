@@ -11,19 +11,6 @@ function showValue(newValue) {
 	document.getElementById("map_scale_txt").value=newValue;
 	
 }
-
-function toggle(DivName) {
-	var ele = document.getElementById(DivName);
-	//var text = document.getElementById(DivName);
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-		text.innerHTML = "show";
-  	}
-	else {
-		ele.style.display = "block";
-		text.innerHTML = "hide";
-	}
-} 
 		
 var whereaminow = function whereami() {
 		// Function to display where your currently located on the map
@@ -255,9 +242,9 @@ function update_element_info(stringtxt) {
 	document.getElementById("ElementInfo_LocY").innerHTML = 'Y:' + display_y;
 	document.getElementById("elementrecordsource").value = n[6];
 	
-	document.getElementById("div_mapinfo").style.display 	= "block";
-	document.getElementById("div_mapinfo").style.position 	= "fixed";
-	document.getElementById("div_mapinfo").style.top 		= window_loc_y + 'px';
-	document.getElementById("div_mapinfo").style.left 		= window_loc_x + 'px';
+	document.getElementById("div_mapinfo_win").style.display 	= "block";
+	document.getElementById("div_mapinfo_win").style.position 	= "fixed";
+	document.getElementById("div_mapinfo_win").style.top 		= window_loc_y + 'px';
+	document.getElementById("div_mapinfo_win").style.left 		= window_loc_x + 'px';
 	
 }

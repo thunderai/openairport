@@ -59,26 +59,54 @@
 	?>
 		<head>		
 			<title>www.OpenAirport.org - The OpenSource Advanced Airport Record Keeping Solution</title>
-			
+			 <script type="text/javascript" src="scripts/_iface/thirdparty/prototype/prototype.js"></script>
 	<?php
 	// Load Javascript Script files
 		include("scripts/_scripts_header_iframes.inc.php");
 		include("scripts/_scripts_header_iface.inc.php");
-		include("scripts/_scripts_header_ajaxs.inc.php");		
+		include("scripts/_scripts_header_ajaxs.inc.php");
 		
 	// Load StyleSheets (CSS)	
 		include("stylesheets/_css.inc.php");
 	
 	// Load Mobile Detect (https://github.com/serbanghita/Mobile-Detect)
-		//include("thirdparty/mobile-detect/mobiledetect.php");
-		//$detect = new Mobile_Detect();
-		
-		$width		= '100%';
-		$height		= '900px';
-		
-		$qua_e		= 99;
-		
+		include("thirdparty/mobile-detect/mobiledetect.php");
+		$detect = new Mobile_Detect();
+		/*
+		if(!isset($_GET['r']))     
+			{     
+			echo "<script language=\"JavaScript\">     
+			<!--      
+			document.location=\"$PHP_SELF?r=1&width=\"+screen.width+\"&Height=\"+screen.height;     
+			//-->     
+			</script>";     
+			}     
+			else {         
 
+			// Code to be displayed if resolutoin is detected     
+				 if(isset($_GET['width']) && isset($_GET['Height'])) {     
+						  $screen_x		= $_GET['width'];
+						  $screen_y		= $_GET['Height'];
+						  //echo "Height :".$_GET['Height']."<bR>";
+						  //echo "Width :".$_GET['width']."<bR>";
+				 }     
+				 else {     
+						   // Resolution not detected     
+				 }     
+			}      */
+
+
+		// What is the screen size?
+		//		width	?
+		//		height 	?
+		
+		//$width		= '100%';
+		//$height		= '900px';
+		
+		//$qua_e		= 99;
+		
+		$screen_x		= 1280;
+		$screen_y		= 960;
 			
 	?>
 			</head>

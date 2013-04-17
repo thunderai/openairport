@@ -141,6 +141,46 @@ function _dp_327_discrepancies($dasharray) {
 							?>
 							</td>
 						</tr>
+					<tr>
+						<td class="item_name_active" />
+							<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+									border="0" 
+									cellpadding="0" 
+									cellspacing="0" 
+									class="perp_mainmenubutton" />
+								<tr>			
+									<td name="OSpace_MClose<?php echo $disid;?>" id="OSpace_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										&nbsp;
+										</td>
+									<td name="Icon_MClose<?php echo $disid;?>" id="Icon_MClose<?php echo $disid;?>" 
+										class="item_icon_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+										<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+										</td>
+									<td name="ISpace_MClose<?php echo $disid;?>" id="ISpace_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										&nbsp;
+										</td>				
+									<td name="Name_MClose<?php echo $disid;?>" id="Name_MClose<?php echo $disid;?>" 
+										class="item_space_inactive" 
+										onmouseover="OSpace_MClose<?php echo $disid;?>.className='item_name_active';Icon_MClose<?php echo $disid;?>.className='item_name_active';ISpace_MClose<?php echo $disid;?>.className='item_name_active';Name_MClose<?php echo $disid;?>.className='item_name_active';" 
+										onmouseout="OSpace_MClose<?php echo $disid;?>.className='item_name_inactive';Icon_MClose<?php echo $disid;?>.className='item_name_inactive';ISpace_MClose<?php echo $disid;?>.className='item_name_inactive';Name_MClose<?php echo $disid;?>.className='item_name_inactive';" 
+										/>
+										<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="divwin.close(); return false" />
+										</td>				
+									</tr>
+								</table>
+							</td>
+						</tr>
 					</table>
 				</div>
 			</td>
