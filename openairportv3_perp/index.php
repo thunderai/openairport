@@ -138,6 +138,7 @@ if (!isset($_POST["systemuserid"])) {
 				<?php
 				// Display Navigtional Menu System					
 				$whoareyou = $_SESSION["user_id"];	
+				//echo "Who Are You ?".$whoareyou."<br>";
 				//loadnavmenu_3($whoareyou);				
 				loadnavmenu_5($whoareyou,'root');
 				?>
@@ -153,7 +154,7 @@ if (!isset($_POST["systemuserid"])) {
 				class="item_name_inactive" 
 				onmouseover="MainMenuButton.className='item_name_active';" 
 				onmouseout="MainMenuButton.className='item_name_inactive';" 
-				onClick="divwin=dhtmlwindow.open('navigationdisplaypanel_div', 'div', 'navigationdisplaypanel', 'Menu Navigation', 'width=350px,height=225px,left=200px,top=150px,resize=0,scrolling=0,center=1'); return false;" />
+				onClick="divwin=dhtmlwindow.open('navigationdisplaypanel_div', 'div', 'navigationdisplaypanel', 'Menu Navigation', 'width=350px,height=225px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
 				Main Menu
 				</td>
 			</tr>

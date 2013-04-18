@@ -125,6 +125,14 @@ function loadnavmenu_5($whoareyou,$depth) {
 							onmouseover="OSpace_MRoot.className='item_name_active';Icon_MRoot.className='item_name_active';ISpace_MRoot.className='item_name_active';Name_MRoot.className='item_name_active';" 
 							onmouseout="OSpace_MRoot.className='item_name_inactive';Icon_MRoot.className='item_name_inactive';ISpace_MRoot.className='item_name_inactive';Name_MRoot.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<?php
+							if (!isset($nor)) {
+									// Not set
+									$nor = '-';
+								} else {
+									$nor = $nor;
+								}
+							?>
 							Root ( <?php echo $nor;?> )
 							</td>				
 						</tr>
@@ -203,6 +211,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 											tbl_navigational_control.menu_item_location, 
 											tbl_navigational_control.menu_item_slaved_to_id, 
 											tbl_navigational_control.menu_item_name_long, 
+											tbl_navigational_control.menu_item_purpose,
 											tbl_navigational_control.menu_item_name_short, 
 											tbl_navigational_control.menu_item_archived_yn, 
 											tbl_navigational_control_g.navigational_groups_id, 

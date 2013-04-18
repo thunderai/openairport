@@ -203,7 +203,7 @@
 				/>
 				<?php
 				// Display Open DIV button
-				_tp_control_function_button_div('divform_'.$runwayheading,$en_managechecklist,'icon_window','divform_'.$runwayheading,'toggle','200','200');
+				_tp_control_function_button_div('divform_'.$runwayheading,$en_managechecklist,'icon_window','divform_'.$runwayheading,'toggle_new','200','200');
 				?>
 				</td>
 			</tr>

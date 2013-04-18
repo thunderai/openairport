@@ -60,9 +60,13 @@
 				if($display_quickaccess == 1) {
 						_tp_control_footbuttons(5,$formname,$strmenuitemid);
 					}	
-				if($display_printout == 1) {
-						_tp_control_footbuttons(6,$printout_page,$printout_id,$printout_passed);
-					}	
+				if (!isset($display_printout)) {	
+						// Not set
+					} else {
+						if($display_printout == 1) {
+								_tp_control_footbuttons(6,$printout_page,$printout_id,$printout_passed);
+							}
+					}
 				?>
 							</td>
 						</tr>

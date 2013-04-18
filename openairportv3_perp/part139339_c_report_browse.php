@@ -220,17 +220,17 @@
 // Define Variables...
 //						for Auto Entry Function {End of Page}
 
-		// Last Main ID
-		//		This is the ID of the main record of this page, not a sub routine.
-		//		If no ID is used or possible to obtain such a browse page or a form loader enter '-'
-		$last_main_id	= "-";
-		
-		//	AutoEntry Function Array
-		//		This array controls the values sent to the auto entry function.
-		//		No changes should be needed to it.
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
+				
+		$last_main_id	= "-";	// NO Useable ID
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 
-		ae_completepackage($auto_array);	
+		ae_completepackage($auto_array);		
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

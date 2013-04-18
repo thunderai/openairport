@@ -41,11 +41,13 @@
 	
 // Define Variables	
 	
-		$aInspection	= "";
-		$i				= 1;
-		$fullorshort	= 0;
-		$InspCheckList 	= $_GET["InspCheckList"];
-		$IntInspector 	= $_GET["Employee"];
+		$aInspection		= "";
+		$i					= 1;
+		$fullorshort		= 0;
+		$InspCheckList 		= $_GET["InspCheckList"];
+		$IntInspector 		= $_GET["Employee"];
+		
+		$previous_facility	= 0;
 ?>
 
 		<center>
@@ -218,16 +220,16 @@
 								<input class="Commonfieldbox" type="checkbox" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" style="width:20px;" size="4" 
 																<?php
 
-																		if($objfields['139339_cc_d_yn'] == 1) {
+																		if($objfields_sub['139339_cc_d_yn'] == 1) {
 																				?>
-							value="1" CHECKED onMouseover="ddrivetip('Surface is <b>CLOSED</b><br>If you open it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+							value="1" CHECKED />
 																				<?php
 																		
 																			}
 																			else {
 																	
 																				?>																	
-							value="1" onMouseover="ddrivetip('Surface is <b>OPEN</b><br>If you close it, Do the paperwork!')"; onMouseout="hideddrivetip()" />
+							value="1" />
 																				<?php
 																		
 																			}

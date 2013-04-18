@@ -204,7 +204,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 				<?php
 				}
 			if($detail == 5) {
-					_tp_control_function_quickaccess($en_quickaccess_f	,$otherid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,'Add ',				'Remove '	,'frmfunctionqacactive');
+					_tp_control_function_quickaccess('Quick Access'	,$otherid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,'Add ',				'Remove '	,'frmfunctionqacactive');
 					}
 			
 		if($detail == 6) {

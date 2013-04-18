@@ -59,7 +59,7 @@ function _tp_control_function_filters($displaypanel,$javascript_function,$langua
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 				onclick="<?php echo $javascript_function;?>('<?php echo $displaypanel;?>_win');"
 				/>
-				<?php echo $en_form_exports;?>
+				
 				</td>
 			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
 				class="item_format_inactive_form" 

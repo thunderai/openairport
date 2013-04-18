@@ -12,7 +12,9 @@ function _tp_control_sortby_archieved($tbl_show_datesort,$tbldatesort,$language_
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" 
+						style="float:left;"
+						/>
 					<tr>
 						<?php 
 						$OSpace_name 	= 'OSpace_MM'.$fieldname;

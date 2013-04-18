@@ -87,7 +87,7 @@ function _tp_control_sortby_page($sql,$sql_failsafe,$language_on,$tblpagationgro
 											$from 	= ( ( ( $j ) * $tblpagationgroup ) + 1 );
 											$to		= ( ( ( $from ) + $tblpagationgroup ) - 1 );
 											?>							
-							><?php echo $en_pageation;?> <?php echo $j;?> R:(<?php echo $from;?>-<?php echo $to;?>)</option>
+							><?php echo $language_on;?> <?php echo $j;?> R:(<?php echo $from;?>-<?php echo $to;?>)</option>
 											<?php 
 										}
 										?>
