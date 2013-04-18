@@ -214,10 +214,17 @@
 	
 // Establish Page Variables
 
-		$last_main_id	= "-";	// No Useable ID
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
+				
+		$last_main_id	= "-";	// NO Useable ID
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 
-		ae_completepackage($auto_array);	
+		ae_completepackage($auto_array);		
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

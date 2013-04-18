@@ -1,7 +1,7 @@
 <?php
 Session_Start();
-				Session_Register("user_id");
-				Session_Register("process_login");
+$_SESSION['user_id'] = '';
+$_SESSION['process_login'] = '';
 				
 		include("includes/_template/template.list.php");				
 				?>
@@ -149,8 +149,14 @@ div.rounded div.bottom div.right {
 					$tmp_showads	= "1";
 		
 			// Check to see if the form has been submitted
-			
-				$tmp_formsubmitted	= $_POST['formsubmited'];		
+				
+				if (!isset($_POST["formsubmited"])) {
+						// There is no POST information....It does not exist!
+						$tmp_formsubmitted = 0;
+					} else {
+						$tmp_formsubmitted	= $_POST['formsubmited'];
+					}
+					
 				//echo "form submitted |".$tmp_formsubmitted."|";
 				
 				if ($tmp_formsubmitted=="1") {
@@ -188,7 +194,7 @@ div.rounded div.bottom div.right {
 																$tmppassnotf = "1";
 																// both username and password match found record
 																$_SESSION["user_id"] = $tmpuserid;
-																//echo $_SESSION["user_id"];
+																echo "Session ID: ".$_SESSION["user_id"]."<br>";
 																//Tell the system that you have logged in.
 																$tmpsqldate			= AmerDate2SqlDateTime(date('m/d/Y'));
 																$tmpsqltime			= date("H:i:s");
@@ -202,7 +208,7 @@ div.rounded div.bottom div.right {
 																?>
 																<form name="redirect" action="index.php" method="POST">
 																<input class="combobox" type="hidden" size="1" name="redirect2">
-																<input class="combobox" type="hidden" size="1" name="systemuserid" value="<?=$tmpuserid;?>">
+																<input class="combobox" type="hidden" size="1" name="systemuserid" value="<?php echo $tmpuserid;?>">
 																<script>
 																	<!--
 																		var targetURL="index.php"

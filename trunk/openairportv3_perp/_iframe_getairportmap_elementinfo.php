@@ -49,7 +49,7 @@ if (mysqli_connect_errno()) {
 				$header='';
 				$rows='';
 				?>
-				<table width="470" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+				<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 	
 					<tr>
 						<td width="200" class="maptoolsfields_on" />
@@ -204,7 +204,7 @@ if (mysqli_connect_errno()) {
 					?>
 					<tr>
 						<td colspan="3">
-							<table width="470" cellpadding="0" cellspacing="0" border="0" />
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" />
 								<tr>
 									<td colspan="3" class="maptoolsfields_on" />
 										Looking for Proximity Information
@@ -219,7 +219,7 @@ if (mysqli_connect_errno()) {
 									<td width="25" class="maptoolsfields_off" />
 										ID
 										</td>
-									<td width="295" class="maptoolsfields_off" />
+									<td width="*" class="maptoolsfields_off" />
 										NAME
 										</td>	
 									<td width="150" class="maptoolsfields_off" />
@@ -319,8 +319,16 @@ if (mysqli_connect_errno()) {
 																	// x, y is your target point and x1, y1 to x2, y2 is your line segment.
 																	$x1 = $b_exploded[$i];
 																	$y1 = $a_exploded[$i];
-																	$x2 = $b_exploded[$i+1];
-																	$y2 = $a_exploded[$i+1];
+																	if($i == count($a_exploded)-1 ) {
+																			// There are no more elements in the array
+																			$x2 = $b_exploded[0];
+																			$y2 = $a_exploded[0];
+																		} else {
+																			//echo "i is equal to [".$i."] <br>";
+																			//echo "count of array is [".count($a_exploded)."] <bR>";
+																			$x2 = $b_exploded[$i+1];
+																			$y2 = $a_exploded[$i+1];
+																		}
 																	
 																	
 																	//function pDistance2(x1,y1, x2,y2, x3,y3): # x3,y3 is the point
@@ -354,7 +362,7 @@ if (mysqli_connect_errno()) {
 										$id_array[$internal_counter] = $id;
 										?>
 										</td>
-									<td width="295" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
+									<td width="*" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
 										class="item_field_inactive_form" 
 										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
 										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"
@@ -418,7 +426,7 @@ if (mysqli_connect_errno()) {
 									<td width="25" class="maptoolsfields_off" />
 										ID
 										</td>
-									<td width="295" class="maptoolsfields_off" />
+									<td width="*" class="maptoolsfields_off" />
 										NAME
 										</td>	
 									<td width="150" class="maptoolsfields_off" />
@@ -518,10 +526,16 @@ if (mysqli_connect_errno()) {
 															for ($i=0;$i<count($a_exploded);$i++) {
 																	//function pDistance($x, $y, $x1, $y1, $x2, $y2) {
 																	// x, y is your target point and x1, y1 to x2, y2 is your line segment.
-																	$x1 = $b_exploded[$i];
-																	$y1 = $a_exploded[$i];
-																	$x2 = $b_exploded[$i+1];
-																	$y2 = $a_exploded[$i+1];
+																	if($i == count($a_exploded)-1 ) {
+																			// There are no more elements in the array
+																			$x2 = $b_exploded[0];
+																			$y2 = $a_exploded[0];
+																		} else {
+																			//echo "i is equal to [".$i."] <br>";
+																			//echo "count of array is [".count($a_exploded)."] <bR>";
+																			$x2 = $b_exploded[$i+1];
+																			$y2 = $a_exploded[$i+1];
+																		}
 																	
 																	
 																	//function pDistance2(x1,y1, x2,y2, x3,y3): # x3,y3 is the point
@@ -555,7 +569,7 @@ if (mysqli_connect_errno()) {
 										$id_array[$internal_counter] = $id;
 										?>
 										</td>
-									<td width="295" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
+									<td width="*" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
 										class="item_field_inactive_form" 
 										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
 										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"
@@ -617,7 +631,7 @@ if (mysqli_connect_errno()) {
 									<td width="25" class="maptoolsfields_off" />
 										ID
 										</td>
-									<td width="295" class="maptoolsfields_off" />
+									<td width="*" class="maptoolsfields_off" />
 										NAME
 										</td>	
 									<td width="150" class="maptoolsfields_off" />
@@ -714,10 +728,16 @@ if (mysqli_connect_errno()) {
 															for ($i=0;$i<count($a_exploded);$i++) {
 																	//function pDistance($x, $y, $x1, $y1, $x2, $y2) {
 																	// x, y is your target point and x1, y1 to x2, y2 is your line segment.
-																	$x1 = $b_exploded[$i];
-																	$y1 = $a_exploded[$i];
-																	$x2 = $b_exploded[$i+1];
-																	$y2 = $a_exploded[$i+1];
+																	if($i == count($a_exploded)-1 ) {
+																			// There are no more elements in the array
+																			$x2 = $b_exploded[0];
+																			$y2 = $a_exploded[0];
+																		} else {
+																			//echo "i is equal to [".$i."] <br>";
+																			//echo "count of array is [".count($a_exploded)."] <bR>";
+																			$x2 = $b_exploded[$i+1];
+																			$y2 = $a_exploded[$i+1];
+																		}
 																	
 																	
 																	//function pDistance2(x1,y1, x2,y2, x3,y3): # x3,y3 is the point
@@ -751,7 +771,7 @@ if (mysqli_connect_errno()) {
 										$id_array[$internal_counter] = $id;
 										?>
 										</td>
-									<td width="295" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
+									<td width="*" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
 										class="item_field_inactive_form" 
 										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
 										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"

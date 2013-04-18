@@ -27,33 +27,37 @@ if($functionworkorderpage == '') {
 		else {
 			// To do this efficiently, run the discrepancy stage function and get the current status of the active discrepancy
 			// 0 - Work Order, can be repaired, 1 - Repaired, can be bounced, 2 - Bounced, can be repaired.
-			if($imclearlyahijacker == 1) {
-					// For other pages than the template browse hijacking into the blockform
-					//$disid 			= $disid;												<- The pimary Page would know this already
-					//$status 			= part139327discrepancy_getstage($disid, 0, 0, 0, 1);	<- The primary page should have run this already
-					if($grid_or_row == '') {
-							$grid_or_row = 'row';
-						} else {
-							$grid_or_row = 'grid';
+			if (!isset($imclearlyahijacker)) {
+					// Not set
+				} else {
+					if($imclearlyahijacker == 1) {
+							// For other pages than the template browse hijacking into the blockform
+							//$disid 			= $disid;												<- The pimary Page would know this already
+							//$status 			= part139327discrepancy_getstage($disid, 0, 0, 0, 1);	<- The primary page should have run this already
+							if($grid_or_row == '') {
+									$grid_or_row = 'row';
+								} else {
+									$grid_or_row = 'grid';
+								}
 						}
-				}
-				else {
-					$disid 				= $objarray[$tblkeyfield];
-					$array_workorder 	= array($array_bouncedcontrol,$array_repairedcontrol);
-					$status 			= part139327discrepancy_getstage($disid, 0, 0, $array_workorder,0);
-				
-					//$has_been_archieved = preflights_tbl_139_327_main_sub_d_a_yn($disid,0);
-					$has_been_bounced 	= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
-					$has_been_closed 	= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
-					//$has_been_duplicate = preflights_tbl_139_327_main_sub_d_d_yn($disid,0);
-					$has_been_repaired 	= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
-				
-					//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
-					//echo "Been Closed 	: ".$has_been_closed." 		<br>";
-					//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
-					
-					$grid_or_row		= 'grid';
-				
+						else {
+							$disid 				= $objarray[$tblkeyfield];
+							$array_workorder 	= array($array_bouncedcontrol,$array_repairedcontrol);
+							$status 			= part139327discrepancy_getstage($disid, 0, 0, $array_workorder,0);
+						
+							//$has_been_archieved = preflights_tbl_139_327_main_sub_d_a_yn($disid,0);
+							$has_been_bounced 	= preflights_tbl_139_327_main_sub_d_b_yn($disid,1);
+							$has_been_closed 	= preflights_tbl_139_327_main_sub_d_c_yn($disid,1);
+							//$has_been_duplicate = preflights_tbl_139_327_main_sub_d_d_yn($disid,0);
+							$has_been_repaired 	= preflights_tbl_139_327_main_sub_d_r_yn($disid,1);
+						
+							//echo "Been Bounced 	: ".$has_been_bounced." 	<br>";
+							//echo "Been Closed 	: ".$has_been_closed." 		<br>";
+							//echo "Been Repaired 	: ".$has_been_repaired." 	<br>";
+							
+							$grid_or_row		= 'grid';
+						
+						}
 				}
 				
 			//echo "Status is :".$status;
@@ -79,7 +83,14 @@ if($functionworkorderpage == '') {
 		//open_new_littleform_window
 $icons_width = '25';
 $icons_height = '25';
-		
+
+if (!isset($form_name)) {
+		// Not set
+		$form_name = '';
+	} else {
+		$form_name = $form_name;
+	}
+
 $button_name 	= 'WorkOrder';
 $random_element = rand(0,10000);
 $window_name	= preg_replace('/\s+/', '', $button_name);
@@ -127,6 +138,15 @@ $window_command	= 'open_new_report_window';
 		</form>	
 
 <?php
+
+if (!isset($status)) {
+		// Not set
+		$status = '';
+	} else {
+		$status = $status;
+	}
+
+
 		if($status == 0 || $status == 1) {
 			
 				$active = 1;

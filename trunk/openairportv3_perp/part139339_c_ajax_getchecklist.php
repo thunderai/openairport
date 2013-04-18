@@ -41,11 +41,12 @@
 	
 // Define Variables	
 	
-		$aInspection	= "";
-		$i				= 1;
-		$fullorshort	= 0;
-		$InspCheckList 	= $_GET["InspCheckList"];
-		$IntInspector 	= $_GET["Employee"];
+		$aInspection		= "";
+		$i					= 1;
+		$fullorshort		= 0;
+		$InspCheckList 		= $_GET["InspCheckList"];
+		$IntInspector 		= $_GET["Employee"];
+		$previous_facility 	= '';
 ?>
 
 		<center>

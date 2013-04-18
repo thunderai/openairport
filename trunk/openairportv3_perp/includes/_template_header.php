@@ -35,10 +35,10 @@
 
 	// Start Session Variables	
 		Session_Start();
-		Session_Register("user_id");
-		Session_Register("process_login");
-		Session_Register("last_activity");
-		Session_Register("page_time");
+		//$_SESSION['user_id'] = '';
+		$_SESSION['process_login'] = '';
+		$_SESSION['last_activity'] = '';
+		$_SESSION['page_time'] = '';
 
 		$time_initiated = microtime();
 		//echo "Session Last Activity [".$_SESSION['last_activity']."] <br>";

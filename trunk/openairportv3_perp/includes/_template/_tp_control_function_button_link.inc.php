@@ -18,14 +18,7 @@ function _tp_control_function_button_link($formname,$label,$icon,$action = '',$t
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		style="float:left;" 
-		<?php
-		if($display == 'hide') {
-			?>
-		style="display: none;float:left;"	 
-			<?php
-			}
-			?>
+		style="float:left;"
 		/>
 		<tr>
 			<?php 

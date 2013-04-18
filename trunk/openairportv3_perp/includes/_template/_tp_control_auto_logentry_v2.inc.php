@@ -16,7 +16,14 @@ function ae_completepackage($settingsarray) {
 		$time_to_display_new 		= $settingsarray[4];
 		$page_type					= $settingsarray[5];
 		$main_id					= $settingsarray[6];
-		$force_message				= $settingsarray[7];
+		
+		//echo "Setting Array Elements"
+		if(count($settingsarray) < 8) {
+				// Less than seven.
+				$force_message		= '';
+			} else {
+				$force_message		= $settingsarray[7];
+			}
 
 //		... Navigational Page ($navigation_page)
 //				
@@ -95,7 +102,7 @@ function ae_completepackage($settingsarray) {
 		
 						$username 		= systemusertextfield($user_id, 'all', 'notused', 'hide', $user_id);
 						$page_module	= getnameofmenuitemid_return_nohtml($navigation_page, 'long', 'notused', 'hide', $navigation_page);
-						$page_event_n	= gs_eventtypes_silent($page_type, 'all', 'notused', 'hide', $tmp_evt_id_int);
+						$page_event_n	= gs_eventtypes_silent($page_type, 'all', 'notused', 'hide', $page_type);
 						
 						$message_to_display_new 	= $username." has opened a new ".$page_module." - ".$page_event_n." form";
 						$message_to_display_submit	= $username." has saved a ".$page_module." - ".$page_event_n." form ID ([id])";

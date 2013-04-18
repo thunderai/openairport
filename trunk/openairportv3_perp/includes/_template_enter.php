@@ -487,12 +487,16 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																}
 																
 															//echo $fielddefaultvalue." / ".$beenposted." <br>";
-															
-															if ($beenposted == 1) {			
-																	$fieldfunction($fielddefaultvalue, "all", $fieldname, $show,$fielddefaultvalue);
-																}
-																else {
+															if (!isset($beenposted)) {
+																	// Variable not even set
 																	$fieldfunction("all", "all", $fieldname, $show,$fielddefaultvalue);
+																} else {
+																	if ($beenposted == 1) {			
+																			$fieldfunction($fielddefaultvalue, "all", $fieldname, $show,$fielddefaultvalue);
+																		}
+																		else {
+																			$fieldfunction("all", "all", $fieldname, $show,$fielddefaultvalue);
+																		}
 																}
 																
 															if($ajaxpush=="1") {

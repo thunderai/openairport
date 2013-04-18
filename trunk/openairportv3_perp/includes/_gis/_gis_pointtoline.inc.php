@@ -39,9 +39,14 @@ function pDistance2($x1,$y1, $x2,$y2, $x3,$y3) {
     $px = $x2-$x1;
     $py = $y2-$y1;
 
-   $something = $px*$px + $py*$py;
+   $something = $px * $px + $py * $py;
 
-    $u =  (($x3 - $x1) * $px + ($y3 - $y1) * $py) / $something;
+	if($something <= 0 ) {
+			// For some reason something is less than or equal to zero
+			$u = 0;
+		} else {
+			$u =  (($x3 - $x1) * $px + ($y3 - $y1) * $py) / $something;
+		}
 
     if($u > 1) {
 			$u = 1;

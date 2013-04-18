@@ -35,7 +35,7 @@
 
 	include("includes/_template_header.php");																// include file that gets information from form posts for navigational purposes
 
-if ($_SESSION['user_id']=="") {
+if ($_SESSION['user_id'] == '') {
 		?>
 		<table border="0" width="100%" cellspacing="5" cellpadding="2">
 			<tr>

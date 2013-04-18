@@ -42,7 +42,12 @@
 								$record_name 	= $objarray[$field_name];
 								$record_lat 	= $objarray[$field_lat];
 								$record_long 	= $objarray[$field_long];
-								$record_icon	= $objarray[$field_icon];
+								if($field_icon == '' ) {
+										// No defined Icon, set the default one!
+										$record_icon = 'icons_warning';
+									} else {
+										$record_icon	= $objarray[$field_icon];
+									}
 								
 								// Test to see if this is a series of points (polygon), a point, or actual GPS cordinates
 								switch($field_loct) {
@@ -77,7 +82,7 @@
 											  } // for
 											  yaverage = (ytotal/ypoints.length);
 											
-											var icon 				= 'images/_interface/icons/icons_light.png';
+											var icon 				= 'images/_interface/icons/<?php echo $record_icon;?>.png';
 											var icon_width 			= 25;	// Manual adjustment to override image size, and/or for programming purposes
 											var icon_height			= 25;	// Manual adjustment to override image size, and/or for programming purposes
 											var mainiconx			= ( xaverage - parseInt( icon_width / 2 ) );

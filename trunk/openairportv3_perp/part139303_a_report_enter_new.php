@@ -86,12 +86,8 @@
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 
 	
-			errorreport("[1]. Load Template Form Header",$debug);
-			
 			include("includes/_template/_tp_blockform_form_header.binc.php");
 	
-			errorreport("[3]. In While Loop Show Form Elements",$debug);
-			
 			// FORM ELEMENTS
 			//-----------------------------------------------------------------------------------------\\	
 			// Load Form Elements
@@ -137,8 +133,6 @@
 							WHERE dash_hidden_yn = 0";									
 			$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			
-			errorreport("[4]. Connect to Database with the Following SQL Statement :".$sql2." ",$debug);
-									
 			if (mysqli_connect_errno()) {
 					// there was an error trying to connect to the mysql database
 					printf("connect failed: %s\n", mysqli_connect_error());
@@ -524,9 +518,20 @@
 
 // Establish Page Variables
 
-		$last_main_id	= $person_id;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
-
+		if (!isset($last_main_id)) {
+				$last_main_id	= "-";	// NO Useable ID
+			} else {
+				$last_main_id	= $person_id;													//  THe ID to display!!!
+			}
+		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
+				
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

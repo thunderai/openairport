@@ -59,7 +59,7 @@ function _tp_control_function_utilities($displaypanel,$javascript_function,$lang
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 				onClick="divwin_<?php echo $displaypanel;?>=dhtmlwindow.open('<?php echo $displaypanel;?>_div', 'div', '<?php echo $displaypanel;?>', 'Export Utilities', 'width=250px,height=175px,left=200px,top=150px,resize=1,scrolling=1'); return false"
 				/>
-				<?php echo $en_form_exports;?>
+				
 				</td>
 			<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
 				class="item_format_inactive_form" 

@@ -56,13 +56,14 @@
 // Start Procedures...
 //		Main Page Procedures and Functions
 
+		$formname = 'entryform';
 // Start Procedures
 
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
 		?>
-	<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" name="entryform">
+	<form action="<?php echo $_SERVER["PHP_SELF"];?>" name="<?php echo $formname;?>" id="<?php echo $formname;?>" method="post" name="entryform">
 		<input type="hidden" name="formsubmit"		id="formsubmit"			value="1">
 		<input type="hidden" name="menuitemid" 		ID="menuitemid"			value="<?php echo $_POST['menuitemid'];?>">
 		<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
@@ -349,9 +350,20 @@ if (!isset($_POST["formsubmit"])) {
 // Define Variables...
 //						for Auto Entry Function {End of Page}
 
-		//$last_main_id	= $lastid;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($last_main_id)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $last_main_id;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

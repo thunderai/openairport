@@ -63,10 +63,6 @@
 		$sql_notlimited = $sql_notlimited.$nsql;
 		//echo "NOT LIMITED ".$sql_notlimited."<br><br>";
 		
-	// For debugging purposes print out the SQL Statement
-	
-		errorreport("The Initial SQL Statement is <font size='1'>".$sql." </font>",$displayerrors);				// When dedugging you can uncomment this ////echo and see the sql statement
-
 	// Start the Real Fun	
 
 		$i 								= 0;	
@@ -99,12 +95,38 @@
 		$stradataselect			= urlencode(serialize($adataselect));			// dont touch
 		$strainputcomment		= urlencode(serialize($ainputcomment));			// dont touch
 		
-		$straarchivedcontrol	= urlencode(serialize($array_archivedcontrol));	// dont touch
-		$strabouncedcontrol		= urlencode(serialize($array_bouncedcontrol));	// dont touch
-		$straclosedcontrol		= urlencode(serialize($array_closedcontrol));	// dont touch			
-		$straduplicatecontrol	= urlencode(serialize($array_duplicatecontrol));// dont touch
-		$straerrorcontrol		= urlencode(serialize($array_errorcontrol));	// dont touch
-		$strarepairedcontrol	= urlencode(serialize($array_repairedcontrol));	// dont touch		
+	// Seralize set arrays
+		if (!isset($array_archivedcontrol)) {
+				// archived control is not set, skip it!
+			} else {
+				$straarchivedcontrol	= urlencode(serialize($array_archivedcontrol));			// dont touch
+			}
+		if (!isset($array_bouncedcontrol)) {
+				// bounced control is not set, skip it!
+			} else {
+				$strabouncedcontrol	= urlencode(serialize($array_bouncedcontrol));				// dont touch
+			}			
+		if (!isset($array_closedcontrol)) {
+				// closed control is not set, skip it!
+			} else {
+				$straclosedcontrol	= urlencode(serialize($array_closedcontrol));				// dont touch
+			}	
+		if (!isset($array_duplicatecontrol)) {
+				// duplicate control is not set, skip it!
+			} else {
+				$straduplicatecontrol	= urlencode(serialize($array_duplicatecontrol));		// dont touch
+			}				
+		if (!isset($array_errorcontrol)) {
+				// Error control is not set, skip it!
+			} else {
+				$straerrorcontrol	= urlencode(serialize($array_errorcontrol));				// dont touch
+			}			
+		if (!isset($array_repairedcontrol)) {
+				// Repaired control is not set, skip it!
+			} else {
+				$strarepairedcontrol	= urlencode(serialize($array_repairedcontrol));			// dont touch
+			}
+	
 		
 	// store this array into a serialized array
 		$sadatafield 			= (serialize($adatafield));						// dont touch
@@ -125,31 +147,20 @@
 		$sadataselect 			= str_replace("\"","|",$sadataselect);
 		$sainputcomment			= str_replace("\"","|",$sainputcomment);
 
-
-		errorreport("All Initial Settings have been completed",$displayerrors);		
-		
 if (!isset($_POST["frmjoined"])) {
 
-		errorreport("Form has not been submitted, Display New Form",$displayerrors);	
-		
 		$intfrmjoined	 	= 0;
 		$intsqlwhereaddon 	= 0;
 		$strsqlwhereaddon 	= "";				
 		$togfrmjoined 		= 1;
 		
-		errorreport("Checking to see if there is a value in <i>intfrmjoined</i>",$displayerrors);	
-		
 		if (!isset($_POST["intfrmjoined"])) {
 		
-				errorreport("There is no value in <i>intfrmjoined</i>",$displayerrors);	
-				
 				$frmjoined 		= 0; //set value to zero (this causes the checkbox to not be checked)
 				$intfrmjoined 	= 0; //set value to zero (this causes the checkbox to not be checked)
 				}
 			else {
 			
-				errorreport("Form JOINED (initial) value is ".$intfrmjoined." in <i>intfrmjoined</i>",$displayerrors);	
-				
 				if ($intfrmjoined==0) {
 						//echo "<br>-- -- --> The Checkbox has NO value <br>";
 						$frmjoined		= "0";
@@ -331,7 +342,7 @@ if ($tblheadersort==1) {
 	//ECHO "The Completed SQL Statement is <font size='1'> ".$sql_notlimited."</font>";	
 	
 if (!isset($_POST["frmarchives"])) {
-		$tblarchivedsort	= $tblarchivedsort;
+		$tblarchivedsort	= '';
 	}
 	else {
 		// the field does exist, what is its current value
@@ -339,37 +350,50 @@ if (!isset($_POST["frmarchives"])) {
 	}
 
 if (!isset($_POST["frmclosed"])) {
-		$tblclosedsort		= $tblclosedsort;
+		$tblclosedsort		= '';
 	}
 	else {
 		// the field does exist, what is its current value
 		$tblclosedsort		= $_POST["frmclosed"];
 	}	
+	
+if (!isset($_POST["frmduplicate"])) {
+		$tblduplicatesort	= '';
+	}
+	else {
+		// the field does exist, what is its current value
+		$tblduplicatesort	= $_POST["frmduplicate"];
+	}
+	
 	////echo "frmstartdate >".$uifrstartdate."< <br>";
 
 if (!isset($_POST["frmoptions_calendar"])) {
-		$tblfrmoptions_calendar	= $tblfrmoptions_calendar;
+		//$tblfrmoptions_calendar	= $tblfrmoptions_calendar;
+		$tblfrmoptions_calendar	= '';
 	}
 	else {
 		// the field does exist, what is its current value
 		$tblfrmoptions_calendar	= $_POST["frmoptions_calendar"];
 	}	
 if (!isset($_POST["frmoptions_printout"])) {
-		$tblfrmoptions_printout	= $tblfrmoptions_printout;
+		//$tblfrmoptions_printout	= $tblfrmoptions_printout;
+		$tblfrmoptions_printout	= '';
 	}
 	else {
 		// the field does exist, what is its current value
 		$tblfrmoptions_printout	= $_POST["frmoptions_printout"];
 	}	
 if (!isset($_POST["frmoptions_distribution"])) {
-		$tblfrmoptions_distribution	= $tblfrmoptions_distribution;
+		//$tblfrmoptions_distribution	= $tblfrmoptions_distribution;
+		$tblfrmoptions_distribution	= '';
 	}
 	else {
 		// the field does exist, what is its current value
 		$tblfrmoptions_distribution	= $_POST["frmoptions_distribution"];
 	}		
 if (!isset($_POST["frmoptions_linechart"])) {
-		$tblfrmoptions_linechart	= $tblfrmoptions_linechart;
+		//$tblfrmoptions_linechart	= $tblfrmoptions_linechart;
+		$tblfrmoptions_linechart	= '';
 	}
 	else {
 		// the field does exist, what is its current value
@@ -395,52 +419,126 @@ if ($tbldisplaytotal==1) {
 	?>
 	
 <div class="exportscreen" style="display: none; z-index:11;" name="exportdisplaypanel" id="exportdisplaypanel">
-	<table width="100%" class="perp_mainmenutable" />
+	<table width="100%" class="perp_mainmenutable" cellpadding="0" cellspacing="0"/>
+		<tr>
+			<td class="perp_menuheader" height="12" />
+				Export Utilities
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				Additional Options
+				</td>				
+			</tr>
 		<tr>
 			<td>
 	<?php
 	$encoded 			  = urlencode($sql);
 	$encoded_notlimited	  = urlencode($sql_notlimited);
 	
-	$array_settings[0][0] = $function_calendar;
-	$array_settings[0][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[0][2] = 'PrinterFriendlyCalenderFormat';
-	$array_settings[0][3] = $en_calendarprint;
+	if (!isset($function_calendar)) {
+			// Not set, don't use anything
+			$array_settings[0][0] = '';
+			$array_settings[0][1] = '';
+			$array_settings[0][2] = '';
+			$array_settings[0][3] = '';
+		} else {
+			$array_settings[0][0] = $function_calendar;
+			$array_settings[0][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[0][2] = 'PrinterFriendlyCalenderFormat';
+			$array_settings[0][3] = $en_calendarprint;
+		}	
 	
-	$array_settings[1][0] = $function_yearendreport;
-	$array_settings[1][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[1][2] = 'PrinterFriendlyYearEndFormat';
-	$array_settings[1][3] = $en_yearendreport;
+	if (!isset($function_yearendreport)) {
+			// Not set, don't use anything
+			$array_settings[1][0] = '';
+			$array_settings[1][1] = '';
+			$array_settings[1][2] = '';
+			$array_settings[1][3] = '';
+		} else {
+			$array_settings[1][0] = $function_yearendreport;
+			$array_settings[1][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[1][2] = 'PrinterFriendlyYearEndFormat';
+			$array_settings[1][3] = $en_yearendreport;
+		}
 	
-	$array_settings[2][0] = $function_printout;
-	$array_settings[2][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
-	$array_settings[2][2] = 'PrinterFriendlyPrintoutFormat';
-	$array_settings[2][3] = $en_printerprint;
+	if (!isset($function_printout)) {
+			// Not set, don't use anything
+			$array_settings[2][0] = '';
+			$array_settings[2][1] = '';
+			$array_settings[2][2] = '';
+			$array_settings[2][3] = '';
+		} else {
+			$array_settings[2][0] = $function_printout;
+			$array_settings[2][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
+			$array_settings[2][2] = 'PrinterFriendlyPrintoutFormat';
+			$array_settings[2][3] = $en_printerprint;
+		}	
 	
-	$array_settings[3][0] = $function_distribution;
-	$array_settings[3][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[3][2] = 'PrinterFriendlyLoadDistFormat';
-	$array_settings[3][3] = $en_distribution;
+	if (!isset($function_distribution)) {
+			// Not set, don't use anything
+			$array_settings[3][0] = '';
+			$array_settings[3][1] = '';
+			$array_settings[3][2] = '';
+			$array_settings[3][3] = '';
+		} else {
+			$array_settings[3][0] = $function_distribution;
+			$array_settings[3][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[3][2] = 'PrinterFriendlyLoadDistFormat';
+			$array_settings[3][3] = $en_distribution;
+		}
 	
-	$array_settings[4][0] = $function_linechart;
-	$array_settings[4][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[4][2] = 'PrinterLineChartFormat';
-	$array_settings[4][3] = $en_linechart;
-
-	$array_settings[5][0] = $function_mapit;
-	$array_settings[5][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[5][2] = 'PrinterFriendlyMapIt';
-	$array_settings[5][3] = $en_mapit;
+	if (!isset($function_linechart)) {
+			// Not set, don't use anything
+			$array_settings[4][0] = '';
+			$array_settings[4][1] = '';
+			$array_settings[4][2] = '';
+			$array_settings[4][3] = '';
+		} else {
+			$array_settings[4][0] = $function_linechart;
+			$array_settings[4][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[4][2] = 'PrinterLineChartFormat';
+			$array_settings[4][3] = $en_linechart;
+		}	
 	
-	$array_settings[6][0] = $function_googleearthit;
-	$array_settings[6][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
-	$array_settings[6][2] = 'PrinterFriendlyGoogleEarth';
-	$array_settings[6][3] = $en_googleearthit;
+	if (!isset($function_mapit)) {
+			// Not set, don't use anything
+			$array_settings[5][0] = '';
+			$array_settings[5][1] = '';
+			$array_settings[5][2] = '';
+			$array_settings[5][3] = '';
+		} else {
+			$array_settings[5][0] = $function_mapit;
+			$array_settings[5][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[5][2] = 'PrinterFriendlyMapIt';
+			$array_settings[5][3] = $en_mapit;
+		}	
 	
-	$array_settings[7][0] = $function_mapit_push;
-	$array_settings[7][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
-	$array_settings[7][2] = 'PrinterFriendlyMapItPush';
-	$array_settings[7][3] = 'Push to Map';
+	if (!isset($function_googleearthit)) {
+			// Not set, don't use anything
+			$array_settings[6][0] = '';
+			$array_settings[6][1] = '';
+			$array_settings[6][2] = '';
+			$array_settings[6][3] = '';
+		} else {
+			$array_settings[6][0] = $function_googleearthit;
+			$array_settings[6][1] = "".$encoded."&frmstartdate=".$uifrmstartdate."&frmenddate=".$uifrmenddate."";
+			$array_settings[6][2] = 'PrinterFriendlyGoogleEarth';
+			$array_settings[6][3] = $en_googleearthit;
+		}
+	
+	if (!isset($function_mapit_push)) {
+			// Not set, don't use anything
+			$array_settings[7][0] = '';
+			$array_settings[7][1] = '';
+			$array_settings[7][2] = '';
+			$array_settings[7][3] = '';
+		} else {
+			$array_settings[7][0] = $function_mapit_push;
+			$array_settings[7][1] = "".$encoded."&menuitemid=".$strmenuitemid."&aheadername=".$straheadername."&adatafield=".$stradatafield."&tblkeyfield=".$tblkeyfield."&tbldatesortfield=".$tbldatesortfield."&tbldatesorttable=".$tbldatesorttable."&tbltextsortfield=".$tbltextsortfield."&tbltextsorttable=".$tbltextsorttable."&adatafieldtable=".$stradatafieldtable."&adatafieldid=".$stradatafieldid."&adataspecial=".$stradataspecial."&ainputtype=".$strainputtype."&adataselect=".$stradataselect."&tblarchivedfield=".$tblarchivedfield." ";
+			$array_settings[7][2] = 'PrinterFriendlyMapItPush';
+			$array_settings[7][3] = 'Push to Map';
+		}
 	
 	_tp_control_exports($array_settings);
 	?>		
@@ -514,20 +612,30 @@ if ($tbldisplaytotal==1) {
 			echo $purpose;
 			?>
 			<div style="display:none;left:500px;top:300px;position:fixed;z-index:50;width:250px;height:150px;" name="sorting_controls_win" id="sorting_controls_win" />
-				<table width="100%" class="perp_mainmenutable" />
+				<table width="100%" class="perp_mainmenutable" cellspacing="0" cellpadding="0" />
+					<tr>
+						<td class="perp_menuheader" height="12" />
+							Record Filter
+							</td>			
+						</tr>			
+					<tr>
+						<td class="perp_menusubheader" />
+							Use these controls to filter records
+							</td>				
+						</tr>				
 					<tr>
 						<td>
 						<?php
 						// Load Control Buttons
 						_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
-						_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$_POST['frmarchives']);
-						_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$_POST['frmclosed']);
-						_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$_POST['frmduplicate']);
+						_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$tblarchivedsort);
+						_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$tblclosedsort);
+						_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$tblduplicatesort);
 						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_start_date	,$en_turned_off									,'frmstartdate'								,$uifrmstartdate,'Calendar1');
 						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_end_date	,$en_turned_off									,'frmenddate'								,$uifrmenddate	,'Calendar2');
 						
 						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
-						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$_POST['formoptionpageation']);
+						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$form_pagetodisplay);
 						_tp_control_function_submit();
 						?>
 						</td>
@@ -629,6 +737,7 @@ if ($tbldisplaytotal==1) {
 		</tr>
 																	<?php 
 																	while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
+																			$tmp_current_value = '';
 																	
 																			if ($runpreflights == 1) {
 																		
@@ -643,35 +752,51 @@ if ($tbldisplaytotal==1) {
 																					if ($function_archivedsort=='') {
 																							// echo "User has not defined a function for this preflight [archived]";
 																							// Skip this function
+																							$dontdisplay_archived	= 0;
 																						}
 																						else {
-																							if ($_POST['frmarchives'] == 0) {
-																									////echo "Is user sorting archived rows :".$tblarchivedsort." ";
-																									$displayrow			= 	$function_archivedsort($objarray[$tblkeyfield],$tblarchivedsort);	// returns 1 if row is archived
-																									////echo "Should this row be displayed? :".$displayrow."<br><br>";
-																									if ($displayrow == 0) {
-																											$dontdisplay_archived = 1;
-																										}
-																										else {
-																											$dontdisplay_archived = 0;
+																							if (!isset($_POST["frmarchives"])) {
+																									// The FORM POST has not been set yet.
+																									// DO NOTHING
+																									$dontdisplay_archived	= 0;
+																									
+																								} else {
+																									if ($_POST['frmarchives'] == 0) {
+																											////echo "Is user sorting archived rows :".$tblarchivedsort." ";
+																											$displayrow			= 	$function_archivedsort($objarray[$tblkeyfield],$tblarchivedsort);	// returns 1 if row is archived
+																											////echo "Should this row be displayed? :".$displayrow."<br><br>";
+																											if ($displayrow == 0) {
+																													$dontdisplay_archived = 1;
+																												}
+																												else {
+																													$dontdisplay_archived = 0;
+																												}
 																										}
 																								}
 																						}
 																
 																					if ($function_duplicatesort == '') {
 																							// echo "User has not defined a function for this preflight [duplicate]";
-																							// Skip this function																
+																							// Skip this function	
+																							$dontdisplay_duplicate	= 0;																							
 																						}
-																						else {															
-																							if ($_POST['frmduplicate'] == 0) {														
-																									////echo "Is user sorting closed rows :".$tblclosedsort." ";
-																									$displayrow 		= 	$function_duplicatesort($objarray[$tblkeyfield],$_POST['frmduplicate']);		// returns 1 if row is closed
-																									//echo "Should this row be displayed? :".$displayclosed."<br><br>";
-																									if ($displayrow == 0) {
-																											$dontdisplay_duplicate = 1;
-																										}
-																										else {
-																											$dontdisplay_duplicate = 0;
+																						else {	
+																							if (!isset($_POST["frmduplicate"])) {
+																									// The FORM POST has not been set yet.
+																									// DO NOTHING
+																									$dontdisplay_duplicate	= 0;
+																									
+																								} else {
+																									if ($_POST['frmduplicate'] == 0) {														
+																											////echo "Is user sorting closed rows :".$tblclosedsort." ";
+																											$displayrow 		= 	$function_duplicatesort($objarray[$tblkeyfield],$_POST['frmduplicate']);		// returns 1 if row is closed
+																											//echo "Should this row be displayed? :".$displayclosed."<br><br>";
+																											if ($displayrow == 0) {
+																													$dontdisplay_duplicate = 1;
+																												}
+																												else {
+																													$dontdisplay_duplicate = 0;
+																												}
 																										}
 																								}
 																						}
@@ -679,6 +804,7 @@ if ($tbldisplaytotal==1) {
 																					if ($function_closedsort=='') {
 																							// echo "User has not defined a function for this preflight [closed]";
 																							// Skip this function
+																							$dontdisplay_closed = 0;
 																						}
 																						else {															
 																							if ($tblclosedsort == 0) {														
@@ -916,7 +1042,9 @@ if ($tbldisplaytotal==1) {
 																															<?php 
 																													break;
 																												default:
+																														$tmp = '';					// is this needed?  
 																														$tmp_previous_value	= ($tmp_current_value);
+																														//echo "temp [".$tmp."] <br>";
 																														$load_control_string = $load_control_string." ".$aheadername[$i]." :".$tmp."";
 																														////echo "Previous Value is ".$tmp_previous_value."";
 																														?>
@@ -951,6 +1079,7 @@ if ($tbldisplaytotal==1) {
 																								default:											
 																										$tmpsqlwhereaddon=$objarray[$adatafieldid[$i]];
 																										////echo $tmpsqlwhereaddon;
+																										//echo "Temp Current Value :".$tmp_current_value."<bR>";
 																										$tmp_previous_value	= ($tmp_current_value);
 																										////echo "Previous Value is ".$tmp_previous_value."<br>";
 																										switch ($aheadername[$i]) {
@@ -1039,15 +1168,37 @@ if ($tbldisplaytotal==1) {
 																							?>
 		<td  class="perp_row_commands" />
 			<div style="display:none;" name="divform_<?php echo $div_counter;?>" id="divform_<?php echo $div_counter?>" />
-				<table width="100%" class="perp_mainmenutable" />
+				<table width="100%" class="perp_mainmenutable" cellpadding="0" cellspacing="0" />
+					<tr>
+						<td class="perp_menuheader" height="12" />
+							Record Controls
+							</td>			
+						</tr>			
+					<tr>
+						<td class="perp_menusubheader" />
+							Additional Options
+							</td>				
+						</tr>
 					<tr>
 						<td>
 							<?php
 				$tblkeyvalue = $objarray[$tblkeyfield];
-				_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
-				_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
-				_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
-				
+				if (!isset($array_duplicatecontrol)) {
+						// Not set
+					} else {
+						_tp_control_duplicate($tblkeyvalue, $array_duplicatecontrol, $functionduplicatepage);
+					}
+				if (!isset($array_archivedcontrol)) {
+						// Not set
+					} else {
+						_tp_control_archived($tblkeyvalue, $array_archivedcontrol, $functionarchievedepage);
+					}					
+				if (!isset($array_errorcontrol)) {
+						// Not set
+					} else {
+						_tp_control_error($tblkeyvalue, $array_errorcontrol, $functionerrorpage);
+					}
+					
 				include("includes/_template/_tp_blockform_workorder_browser.binc.php");
 				$disid = $div_counter;
 				?>			</td>
@@ -1215,8 +1366,12 @@ if ($tbldisplaytotal==1) {
 	<tr>
 		<td colspan="2" align="right" class="perp_mainmenutable" />
 			<?php
-			
-			_tp_control_function_mapit($function_mapit_push,$encoded_notlimited);
+			//echo "Function Mapit Push [".$function_mapit_push."] <br>";
+			if (!isset($function_mapit_push)) {
+					// There is nothing defined, do not display the function
+				} else {
+					_tp_control_function_mapit($function_mapit_push,$encoded_notlimited);
+				}
 			_tp_control_function_utilities('exportdisplaypanel','toggle_new',$en_form_exports);
 			_tp_control_function_filters('sorting_controls','toggle_new','Filters');
 			

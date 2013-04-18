@@ -255,7 +255,7 @@
 												$field_fid	= '139339_c_facility_cb_int';
 												$field_lat	= '139339_cc_location_x';
 												$field_long	= '139339_cc_location_y';
-												$field_icon = '';
+												$field_icon = '';								// Define, but not used.
 												$field_join = 1;
 												$include	= '_iframe_getairportmap_displayelement.php';
 												
@@ -275,10 +275,15 @@
 												
 												break;
 											case 7:
-											
+												$field_icon = '';								// Define, but not used.
 												$include	= '_iframe_getairportmap_displayelement_339B.php';
 												
-												break;	
+												break;
+											default:
+												$filter_h	= '';								// Define, but not used.
+												$filtername	= '';								// Define, but not used.
+												$field_icon = 'icons_warning';					// Define, but not used.
+												break;
 											
 										}
 									
@@ -318,7 +323,7 @@
 		<tr>
 			<td>
 				<?php
-				_tp_control_function_button_checkbox($inputname,$tmpname,$icon,$isitchecked);
+				_tp_control_function_button_checkbox($inputname,$tmpname,'icons_warning',$isitchecked);
 				?>
 				</td>
 			</tr>
@@ -382,7 +387,7 @@
 		<tr>
 			<td>
 				<?php
-				_tp_control_function_button_checkbox($inputname2,$tmp_name,$icon2,$isitchecked2,'sub');
+				_tp_control_function_button_checkbox($inputname2,$tmp_name,'icons_warning',$isitchecked2,'sub');
 				?>
 				</td>
 			</tr>										<?php
