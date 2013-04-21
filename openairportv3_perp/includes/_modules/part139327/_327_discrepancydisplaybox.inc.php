@@ -139,10 +139,10 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>; top:<?php echo $tempY;?>; align="left">
 			<table border="1" cellpadding="0" cellspacing="0" id="AutoNumber1">
   				<tr>
-					<form style="margin-bottom:0;" action="part139327_discrepancy_report_display.php" method="POST" name="dislookform<?php echo $disid;?>" id="dislookform<?php echo $disid;?>" target="ViewWorkOrder" onsubmit="openmapchild('','ViewWorkOrder')";>
+					<form style="margin-bottom:0;" action="part139327_discrepancy_report_display.php" method="POST" name="dislookform<?php echo $disid;?>" id="dislookform<?php echo $disid;?>" target="ViewWorkOrder" />
 						<input class="formsubmit"	type="hidden" name="recordid" 			id="recordid"			value="<?php echo $disid;?>">
-					<td rowspan="2" width="31" height="31" align="left" valign="top" class="" onMouseover="ddrivetip('<?php echo $disid;?> : <?php echo $disremarks;?>')"; onMouseout="hideddrivetip()" onclick="javascript:document.dislookform<?php echo $disid;?>.submit()">
-						 <img border="0" src="images/part_139_327/discrepancywork3.gif" s="31" height="31" border="0">
+					<td rowspan="2" width="31" height="31" align="left" valign="top" class="" onMouseover="ddrivetip('<?php echo $disid;?> : <?php echo $disremarks;?>')"; onMouseout="hideddrivetip()" onclick="javascript:open_new_report_window('','ViewWorkOrder');javascript:document.dislookform<?php echo $disid;?>.submit()">
+						 <img border="0" src="images/part_139_327/discrepancywork3.gif" s="31" height="31" border="0" />
 						</td>
 						</form>
 					</tr>

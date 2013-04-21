@@ -79,7 +79,8 @@ if (!isset($_POST["formsubmit"])) {
 					$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
-						
+				$display_quickaccess		= 0;
+				
 			include("includes/_template/_tp_blockform_form_header.binc.php");
 
 		?>
@@ -290,9 +291,20 @@ if (!isset($_POST["formsubmit"])) {
 
 // Establish Page Variables
 		
-		$last_main_id	= $_POST['recordid'];
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($last_main_id)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $last_main_id;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

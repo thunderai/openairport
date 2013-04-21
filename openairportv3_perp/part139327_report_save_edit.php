@@ -46,6 +46,8 @@
 		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$time_to_display_new		= date("H:i:s");
 
+		$deletedidarray				= array();
+		$deletedridarray			= array();
 // Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
 	
 		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
@@ -466,7 +468,7 @@
 	
 	$strmenuitemid	= $_POST["strmenuitemid"];
 	$frmstartdate	= $_POST["frmstartdate"];
-	$frmenddate		= $_POST["$frmenddate"];
+	$frmenddate		= $_POST["frmenddate"];
 	
 	//echo "Menu Item ID :".$strmenuitemid;
 	
@@ -507,9 +509,20 @@
 
 // Establish Page Variables
 
-		//$last_main_id	= $last_main_id;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($lastid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $lastid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

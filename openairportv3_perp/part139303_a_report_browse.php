@@ -82,8 +82,8 @@
 		$tblclosedsort				= 0;												// 1: Default to Use CLOSED Records; 			0: Default to NOT show CLOSED Recrords
 		$tbljoinedsort				= 0;												// 1: Default to Use JOINED Records; 			0: Default to NOT show JOINED Recrords		
 		
-		$tblpagation				= 1;
-		$tblpagationgroup			= 7;
+		$tblpagation				= 0;
+		$tblpagationgroup			= 18;
 		
 	// Preflight Settings	
 		//	Proivides the recordset with additional controls not part of the database record
@@ -102,7 +102,7 @@
 		
 		$array_archivedcontrol		= array("SELECT * FROM tbl_139_303_a_main_a WHERE 139303_a_a_inspection_id = ",	"139303_a",	"part139303_a_report_display_archived.php");
 		//$array_duplicatecontrol		= array("SELECT * FROM tbl_139_327_sub_d_d WHERE discrepancy_duplicate_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_duplicate.php");
-		//$array_errorcontrol			= array("SELECT * FROM tbl_139_337_main_e WHERE 139337_e_inspection_id = ",	"139337",	"part139337_report_display_error.php");
+		$array_errorcontrol			= array("SELECT * FROM tbl_139_303_a_main_e WHERE 139303_a_e_inspection_id = ",	"139303_e",	"part139303_a_report_display_error.php");
 
 		//$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		//$array_repairedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_r WHERE discrepancy_repaired_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_repaired.php");
@@ -112,7 +112,7 @@
 		$functionrepairpage			= "";
 		$functionduplicatepage		= "";
 		$functionarchievedepage		= "part139303_a_report_archieved.php";
-		$functionerrorpage			= "";
+		$functionerrorpage			= "part139303_a_report_error.php";
 		
 	// What php pages are used to control the summary, printer reports, and edit functions?
 		// by default these pages should be the following

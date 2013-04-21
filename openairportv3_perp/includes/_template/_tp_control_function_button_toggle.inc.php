@@ -17,7 +17,7 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 		border="0" 
 		cellpadding="0" 
 		cellspacing="0" 
-		class="perp_menubutton" style="float:left;width:100px;" />
+		class="perp_menubutton" />
 		<tr>
 			<?php 
 			$OSpace_name 	= 'OSpace_MM'.$fieldname;
@@ -125,7 +125,7 @@ function _tp_control_function_button_toggle($formname,$label,$icon,$action = '',
 				?>
 				);"
 				/>
-				<input type="text" value="<?php echo $label;?>" width="10" class="makebuttonlooklikelargetext">
+				<input type="text" value="<?php echo $label;?>" size="10" class="makebuttonlooklikelargetext">
 				</td>		
 			<td name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
 				class="item_field_inactive_form" 

@@ -50,16 +50,60 @@
 		$tbldatesortfield		= $_GET['tbldatesortfield'];											
 		$tbldatesorttable		= $_GET['tbldatesorttable'];											
 		$tbltextsortfield		= $_GET['tbltextsortfield'];											
-		$tbltextsorttable		= $_GET['tbltextsorttable'];											
-		$functioneditpage		= $_GET['editpage'];													
-		$functionsummarypage	= $_GET['summarypage'];												
-		$functionprinterpage	= $_GET['printerpage'];												
+		$tbltextsorttable		= $_GET['tbltextsorttable'];
+
+		if (!isset($_GET["editpage"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$functioneditpage		= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$functioneditpage		= $_GET['editpage'];
+			}
+			
+		if (!isset($_GET["summarypage"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$functionsummarypage		= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$functionsummarypage		= $_GET['summarypage'];
+			}			
+			
+		if (!isset($_GET["printerpage"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$functionprinterpage		= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$functionprinterpage		= $_GET['printerpage'];
+			}	
+
+		if (!isset($_GET["tblname"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$tblname					= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$tblname					= $_GET['tblname'];
+			}			
+				
+		if (!isset($_GET["tblsubname"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$tblsubname					= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$tblsubname					= $_GET['tblsubname'];
+			}
+				
 		$sql 					= $_GET['frmurl'];	
-			//echo $sql;
-		$menuitemid 			= $_GET['menuitemid'];				
-			//echo $menuitemid."<<<<";
-		$tblname				= $_GET['tblname'];													
-		$tblsubname				= $_GET['tblsubname'];													
+		$menuitemid 			= $_GET['menuitemid'];		
 
 	// Take the seralized array which was submited with the Form and build the a new array which can be used by this page for performing actions
 	// There are two phases, (1). Get the information from the POST and replace | with ", this is needed due to how the information is sent via the POST process.
@@ -70,9 +114,20 @@
 		$adatafieldid 			= unserialize(str_replace("|","\"",$_GET['adatafieldid']));				
 		$adataspecial			= unserialize(str_replace("|","\"",$_GET['adataspecial']));			
 		$aheadername			= unserialize(str_replace("|","\"",$_GET['aheadername']));				
-		$ainputtype				= unserialize(str_replace("|","\"",$_GET['ainputtype']));				
-		$ainputcomment			= unserialize(str_replace("|","\"",$_GET['ainputcomment']));			
+		$ainputtype				= unserialize(str_replace("|","\"",$_GET['ainputtype']));			
 		$adataselect			= unserialize(str_replace("|","\"",$_GET['adataselect']));				
+	
+	
+		if (!isset($_GET["ainputcomment"])) {
+				// echo "Does the Page Exist <br>";
+				// echo "if not, set the variable to blank <br>";
+				$ainputcomment					= '';
+			} else {
+				// echo "The Page Exist <br>";
+				// echo "set the variable to Get <br>";				
+				$ainputcomment					= unserialize(str_replace("|","\"",$_GET['ainputcomment']));	
+			}	
+	
 	
 	// Take the unserialized array and make serialized arrays for use in the FORMS on this page.
 	// This is just the reverse of the previouse step, and although may not be required keeps all of the pages uniform in function and appereance.
@@ -120,7 +175,7 @@
 					<td width="96%" style="border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-style: solid; border-bottom-width: 1px" height="29">
 						<font face="Arial Narrow" size="5">
 							<?php
-							getnameofmenuitemid($menuitemid, "long", 5, "#000000",$_SESSION['uder_id']);
+							getnameofmenuitemid($menuitemid, "long", 5, "#000000",$_SESSION['user_id']);
 							?>
 							</font>
 						</td>
@@ -265,12 +320,27 @@
 		</table>
 						<?php
 						}
-			$tmpsqldate		= AmerDate2SqlDateTime(date('m/d/Y'));
-			$tmpsqltime		= date("H:i:s");
-			$tmpsqlauthor	= $_SESSION["user_id"];
-			$dutylogevent	= "Printed record id:".$_GET["recordid"]." in table ".$_GET['tbltextsorttable']."";
-		
-			autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);					
+						
+		if (!isset($lastid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $lastid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
+
+		$navigation_page 			= 36;							// Belongs to this Nav Item ID, see function for notes!
+		$type_page 					= 1;							// Page is Type ID, see function for notes!
+		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
+		$time_to_display_new		= date("H:i:s");			
+			
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		ae_completepackage($auto_array);			
 			
 // END OF FILE
 ?>

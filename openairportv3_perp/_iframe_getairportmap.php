@@ -144,6 +144,7 @@
 	$array_maptools		= array($maptools_top,$maptools_left,$maptools_width,$maptools_height,$maptools_zindex);
 ?>
 <form NAME="MapControlForm2" ID="MapControlForm2" method="post" action="index.php" />	
+	<input type="hidden" value="1" name="bypassdash" id="bypassdash" />
 <div Name="div_mapscale" id="div_mapscale" style="position:fixed;top:<?php echo $array_maptools[0];?>px;left:<?php echo $array_maptools[1];?>px;width:<?php echo $array_maptools[2];?>px;height:<?php echo $array_maptools[3];?>px;z-index:<?php echo $array_maptools[4];?>;display:none;">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>

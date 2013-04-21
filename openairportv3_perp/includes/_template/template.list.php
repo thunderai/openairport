@@ -54,6 +54,7 @@
 			include("_tp_control_function_filters.inc.php");
 			include("_tp_control_function_mapit.inc.php");
 			include("_tp_control_function_submit.inc.php");
+			include("_tp_control_function_submit_color.inc.php");
 			include("_tp_control_function_button_ajax.inc.php");
 			include("_tp_control_function_button_mode.inc.php");
 			include("_tp_control_function_button_link.inc.php");

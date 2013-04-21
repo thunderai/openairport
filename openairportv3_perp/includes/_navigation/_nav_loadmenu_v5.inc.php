@@ -57,12 +57,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 			$icons_height 		= 35;
 			$icons_across		= 7;
 			?>
-<table 	name="navigationajaxtablesub" id="navigationajaxtablesub" 
-		border="0" 
-		cellspacing="0" 
-		cellpadding="0" 
-		width="100%" 
-		class="perp_mainmenutable" />
+<table 	height="100%" border="0" name="navigationajaxtablesub" id="navigationajaxtablesub" class="perp_mainmenutable" cellpadding="0" cellspacing="0" width="100%" />
 	<?php
 	if($depth == 'root') {
 			$name		= "Main Menu";
@@ -73,17 +68,17 @@ function loadnavmenu_5($whoareyou,$depth) {
 		}	
 		?>
 	<tr>
-		<td class="perp_menuheader" />
+		<td height="12" class="perp_menuheader" />
 			<?php echo $name;?>
 			</td>
 		</tr>
 	<tr>
-		<td class="perp_menusubheader" />
+		<td height="35" class="perp_menusubheader" />
 			<?php echo $purpose;?>
 			</td>
 		</tr>
 	<tr>
-		<td />
+		<td class="item_name_inactive" align="left" valign="top" />
 	<?php
 	if($displayrootitems == 1) {
 			?>				
@@ -97,7 +92,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;" />
 					<tr>			
 						<td name="OSpace_MRoot" id="OSpace_MRoot" 
 							class="item_space_inactive" 
@@ -145,7 +140,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>			
 						<td name="OSpace_MBack" id="OSpace_MBack" 
 							class="item_space_inactive" 
@@ -278,7 +273,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>
 						<?php 
 						$OSpace_name 	= 'OSpace_MM'.$tmpmenuitemidl1;
@@ -328,7 +323,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>
 						<?php 
 						$OSpace_name 	= 'OSpace_MM'.$tmpmenuitemidl1;
@@ -379,7 +374,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>			
 						<td name="OSpace_MHome" id="OSpace_MHome" 
 							class="item_space_inactive" 
@@ -419,7 +414,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>			
 						<td name="OSpace_MTools" id="OSpace_MTools" 
 							class="item_space_inactive" 
@@ -459,7 +454,7 @@ function loadnavmenu_5($whoareyou,$depth) {
 						border="0" 
 						cellpadding="0" 
 						cellspacing="0" 
-						class="perp_menutable" />
+						class="perp_menutable" style="float:left;"/>
 					<tr>			
 						<td name="OSpace_MExt" id="OSpace_MExt" 
 							class="item_space_inactive" 
@@ -494,52 +489,49 @@ function loadnavmenu_5($whoareyou,$depth) {
 				</form>	
 			</td>
 		</tr>
-	</table>
 		<?php
 		}
 		?>
-<table width="100%" cellpadding="0" cellspacing="0" />
-	<tr>
-		<td class="item_name_active" />
-			<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
-					border="0" 
-					cellpadding="0" 
-					cellspacing="0" 
-					class="perp_mainmenubutton" />
-				<tr>			
-					<td name="OSpace_MClose" id="OSpace_MClose" 
-						class="item_space_inactive" 
-						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
-						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
-						/>
-						&nbsp;
-						</td>
-					<td name="Icon_MClose" id="Icon_MClose" 
-						class="item_icon_inactive" 
-						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
-						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
-						onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-						<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
-						</td>
-					<td name="ISpace_MClose" id="ISpace_MClose" 
-						class="item_space_inactive" 
-						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
-						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
-						/>
-						&nbsp;
-						</td>				
-					<td name="Name_MClose" id="Name_MClose" 
-						class="item_space_inactive" 
-						onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
-						onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
-						/>
-						<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="parent.navigationdisplaypanel_div.close(); return false" />
-						</td>				
-					</tr>
-				</table>
-			</td>
-		</tr>
-	</table>
+<tr>
+			<td class="item_name_active" height="32" />
+				<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
+						border="0" 
+						cellpadding="0" 
+						cellspacing="0" 
+						class="perp_mainmenubutton" style="float:left;"/>
+					<tr>			
+						<td name="OSpace_MClose" id="OSpace_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>
+						<td name="Icon_MClose" id="Icon_MClose" 
+							class="item_icon_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
+							<img src="images/_interface/icons/icon_close.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							</td>
+						<td name="ISpace_MClose" id="ISpace_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							&nbsp;
+							</td>				
+						<td name="Name_MClose" id="Name_MClose" 
+							class="item_space_inactive" 
+							onmouseover="OSpace_MClose.className='item_name_active';Icon_MClose.className='item_name_active';ISpace_MClose.className='item_name_active';Name_MClose.className='item_name_active';" 
+							onmouseout="OSpace_MClose.className='item_name_inactive';Icon_MClose.className='item_name_inactive';ISpace_MClose.className='item_name_inactive';Name_MClose.className='item_name_inactive';" 
+							/>
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Close Window" onclick="parent.navigationdisplaypanel_div.close(); return false" />
+							</td>				
+						</tr>
+					</table>
+				</td>
+			</tr>
 	<?php
 
 	}

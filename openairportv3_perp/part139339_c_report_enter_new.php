@@ -116,9 +116,36 @@ if (!isset($_POST["formsubmit"])) {
 								form_new_control("frmnotes"			, 'Comments'		, 'Provide comments about this FiCON'					,"Do not use any special characters!"					, ""							, 2				, 45			, 4				, 'Mu Values From Vericom 3000 RFM. Check Local NOTAMs'					, 0);
 							
 								?>
+								<tr>
+									<td rowspan="2" colspan="4" align="center" valign="middle" class="item_name_inactive" name="templateselect" id="templateselect" 
+									onmouseover="templateselect.className='item_name_active';templateselect2.className='item_name_active';" 
+									onmouseout="templateselect.className='item_name_inactive';templateselect2.className='item_name_inactive';"
+									
+									/>
+										FiCON Template
+										</td>
+									<td colspan="2" align="center" valign="middle" class="item_name_inactive" name="templateselect2" id="templateselect2"
+									onmouseover="templateselect.className='item_name_active';templateselect2.className='item_name_active';" 
+									onmouseout="templateselect.className='item_name_inactive';templateselect2.className='item_name_inactive';"
+									
+									/>
+										
+										<?php
+										part139339_c_templatescombobox_ajax("all", "no", "InspTemplate", "show", "");
+										?>
+										</td>
+									</tr>
+								<tr>
+									<td colspan="2" align="center" valign="middle" class="item_name_inactive" />
+										<p>
+											<span id="templatepurpose" name="templatepurpose" /> Purpose of Template </span>
+											</p>
+										</td>
+									</tr>								
 								</table>
 							</td>
-						</tr>						
+						</tr>
+						
 					<tr>
 						<td colspan="3" id="CheckListData" class="ajax_results_area">
 							<center>

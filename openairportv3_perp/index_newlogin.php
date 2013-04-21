@@ -1,152 +1,55 @@
 <?php
 Session_Start();
-$_SESSION['user_id'] = '';
-$_SESSION['process_login'] = '';
-				
-		include("includes/_template/template.list.php");				
-				?>
+$_SESSION['user_id'] 		= '';
+$_SESSION['process_login'] 	= '';
+$errorfound					= 0;
+			
+include('includes/_template/template.list.php');				
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML>
 	<HEAD>
 		<TITLE>
-			</TITLE>			
-		<STYLE>
-			#wrapper { 
-				width:500px; 
-				position:absolute; 
-				left:50%; 
-				maring-left:-250px; 
-				}
-div.rounded {
-    clear:both;
-    max-width:2400px;
-    margin:5px auto;
-    width:95%;
-}
-
-div.rounded div.top {
-    background:url(images/tl.png) no-repeat bottom left;
-    padding:0px;
-    width:100%;
-}
-
-div.rounded div.top div.right {
-    background:url(images/tr.png) no-repeat bottom right;
-    height:12px;
-    margin-left:12px;
-}
-
-div.rounded div.middle {
-    background:url(images/l.png) repeat-y left;
-    clear:both;
-    width:100%;
-}
-
-div.rounded div.middle div.right {
-    background:url(images/r.png) repeat-y right;
-    margin-left:5px;
-}
-
-div.rounded div.middle div.right div.content {
-    background:url(images/bg.png) repeat top left;
-    color:#fff;
-    font-family:"Trebuchet MS", Calibri, Tahoma, sans-serif;
-    font-size:1.0em;
-    line-height:1.3em;
-    margin-right:5px;
-    padding:0px 7px;
-    text-align:justify;
-}
-
-div.rounded div.middle div.right div.content p {
-    margin:0px;
-    padding-top:15px;
-}
-
-div.rounded div.middle div.right div.content h2 {
-    color:#0f2;
-    font-size:1.75em;
-    font-weight:bold;
-    margin:0px;
-    padding:7px 0px;
-}
-
-div.rounded div.bottom {
-    background:url(images/bl.png) no-repeat top left;
-    clear:both;
-    padding:0px;
-    width:100%;
-}
-
-div.rounded div.bottom div.right {
-    background:url(images/br.png) no-repeat top right;
-    height:12px;
-    margin-left:12px;
-}
-			</STYLE>				
+			OpenAirport: User Login
+			</TITLE>
+		<?php
+		include('stylesheets/_css.inc.php');
+		include('includes/gs_config.php');
+		?>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		</HEAD>
-	<BODY>
+	<BODY style="margin:0px;" />
 		<?
-			// Add Required Includes for Login
+		// Add Required Includes for Login
+	
+			include('includes/_globals.inc.php');
 		
-				include("includes/_globals.inc.php");
-				
-			// Test to see if this is a cencelled connection from a previouse login
-			
-				//echo "Default userstate".$_SESSION["user_id"];
-			
-				if ($_SESSION["user_id"] <> '') {
-						// This is not the initial load of this document
-						?>
-						<table width="80%" align="center" cellpadding="4" cellspacing="4">
-							<tr>
-								<td align="center" valign="middle">
-									<div class="rounded">
-										<div class="top">
-											<div class="right">
-												</div>
-											</div>
-										<div class="middle">
-											<div class="right">
-												<div class="content" align="center">						
-													<font size="4" color="#FFFFFF" face="arial">
-														<p align="center">
-														<?
-														$tmpsqldate			= AmerDate2SqlDateTime(date('m/d/Y'));
-														$tmpsqltime			= date("H:i:s");
-														$tmpsqlauthor		= $_SESSION['user_id'];
-														$tmpvalue			= systemusercombobox($tmpsqlauthor, "all", "NA", "hide", "no");
-														$dutylogevent		= $tmpvalue." logged OUT of the Openairport system";
+			if ($_SESSION["user_id"] <> '') {
+					// echo "This is not the initial load of this document <br>";
+					// echo "Destroy the session variables and log the user out <bR>";
+					$tmpsqldate			= AmerDate2SqlDateTime(date('m/d/Y'));
+					$tmpsqltime			= date("H:i:s");
+					$tmpsqlauthor		= $_SESSION['user_id'];
+					$tmpvalue			= systemusercombobox($tmpsqlauthor, "all", "NA", "hide", "no");
+					$dutylogevent		= $tmpvalue." logged OUT of the Openairport system";
 
-														autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
-														Session_destroy();
-														?>
-														You have been logged out of the OpenAirport System
-														</font>
-														</p>
-													</div>
-												</div>
-											</div>
-										<div class="bottom">
-											<div class="right">
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</table>
-							<br><br>
-						<?
-					}
+					autodutylogentry($tmpsqldate,$tmpsqltime,$tmpsqlauthor,$dutylogevent);
+					Session_destroy();
+					
+					$errorfound = 1;
+					$message 	= $dutylogevent;
+					include('includes/_userinterface/_ui_bloginscreen.binc.php');
+				}
 		
 			// Clear Values
 	
-					$displayform 	= "";
-					$tmpusername 	= "";
-					$tmppassword 	= "";
-					$tmpuserid	 	= "";
-					$tmpusernotf 	= "";
-					$tmppassnotf 	= "";
-					$tmp_showads	= "1";
+					$displayform 	= '';
+					$tmpusername 	= '';
+					$tmppassword 	= '';
+					$tmpuserid	 	= '';
+					$tmpusernotf 	= '';
+					$tmppassnotf 	= '';
+					$tmp_showads	= '1';
 		
 			// Check to see if the form has been submitted
 				
@@ -241,226 +144,20 @@ div.rounded div.bottom div.right {
 											}	//	End of active connection object
 									}	//	End of Connection Established									
 								if ($errorfound==1) {
-										// Display error found information
-										?>	
-		<table border="0" width="80%" id="table1" cellpadding="0" cellspacing="0" align="center" valign="middle">
-			<tr>
-				<td bgcolor="#00295A" height="40">
-					</td>
-				<td bgcolor="#00295A" height="40" align="right" valign="middle">
-					<font size="3" color="#FFFFFF" face="arial">
-						Help
-						</font>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					</td>
-				</tr>
-			<tr>
-				<td bgcolor="#316BAD" height="32" colspan="2" align="left" valign="middle">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<font size="3" color="#FFFFFF" face="arial">
-						<b>
-							Welcome to OpenAirport.org (Watertown Regional Airport)
-							</b>
-						</font>
-					</td>
-				</tr>
-			<tr>
-				<td colspan="2" align="center" valign="middle">
-					<br>
-					<br>
-					<form action="index_newlogin.php" method="post" name="edittable">
-					<input type="hidden" name="formsubmited" value="1">
-					<table width="80%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td bgcolor="#EFEFF7" height="32" colspan="2" align="left" valign="middle">
-								<font size="4" color="#00295A" face="arial">
-									&nbsp;&nbsp;Login
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="left" valign="middle">
-								&nbsp;
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF">
-								<font size="3" color="#000000" face="arial">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username
-									</font>
-								</td>
-							<td bgcolor="#F7F7FF">
-								<font size="3"color="#FF0000" face="arial">
-									* <input class="commonfieldbox" type="text" 		size="20"	name="username">
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="right" valign="middle">
-								<font size="3"color="#FF0000" face="arial">
-									Your username or password was entered incorrectly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF">
-								<font size="3" color="#000000" face="arial">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password
-									</font>
-							<td bgcolor="#F7F7FF">
-								<font size="3"color="#FF0000" face="arial">
-									* <input class="commonfieldbox" type="password"	size="20"	name="password">
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="right" valign="middle">
-								<font size="3"color="#FF0000" face="arial">
-									Your username or password was entered incorrectly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#EFEFF7" height="32" colspan="2" align="right" valign="middle">
-								<input type="submit" class="formsubmit" value="Login >>">
-								</td>
-							</tr>
-						</table>
-						</form>
-					<br>
-					<br>
-					</td>
-				</tr>
-			<tr>
-				<td bgcolor="#00295A" height="40" colspan="1">
-					<font size="3" color="#94ADC6" face="arial">
-						&nbsp;&nbsp;&nbsp;Powered by the OpenAirport.org system - Erick Alan Dahl, Version 2.0
-						</font>
-					</td>
-				<td bgcolor="#00295A" height="40" colspan="1">
-					<font size="3" color="#94ADC6" face="arial">
-						Contact
-						</font>
-					</td>
-				</tr>
-			</table>
-										<?
+										// echo "There were errors found in the user's name or password <br>";
+										// echo "Notify the user there were errors and ask for login information again <br>";
+										$message = 'There was an error with the information you provided for your username or password <br>
+													Please check your information and login. If you continue to have problems please contact the system administrator';
+										include('includes/_userinterface/_ui_bloginscreen.binc.php');
+
 									}	
 					}	// End of Form Submitted Test		
 			else {
-				// There has been no attempt to submit the login form
-				// Allow the user to see the login box as well as the other important information as allowed.
-				?>
-		<table border="0" width="80%" id="table1" cellpadding="0" cellspacing="0" align="center" valign="middle">
-			<tr>
-				<td bgcolor="#00295A" height="40" background="images/header_roller.gif">
-					</td>
-				<td bgcolor="#00295A" height="40" align="right" valign="middle" background="images/header_roller.gif">
-					<a href="help.php">
-						<font size="3" color="#94ADC6" face="arial">
-							Help
-							</font>
-						</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					</td>
-				</tr>
-			<tr>
-				<td bgcolor="#316BAD" height="32" colspan="2" align="left" valign="middle">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<font size="3" color="#FFFFFF" face="arial">
-						<b>
-							Welcome to OpenAirport.org (Watertown Regional Airport)
-							</b>
-						</font>
-					</td>
-				</tr>
-			<tr>
-				<td colspan="2" align="center" valign="middle">
-					<br>
-					<br>
-					<form action="index_newlogin.php" method="post" name="edittable">
-					<input type="hidden" name="formsubmited" value="1">
-					<table width="80%" border="0" cellspacing="0" cellpadding="0">
-						<tr>
-							<td bgcolor="#EFEFF7" height="32" colspan="2" align="left" valign="middle" style="border-width: thin;border-top-style: solid; border-top-color: #B5CEE7;border-bottom-style: solid; border-bottom-color: #B5CEE7">
-								<font size="4" color="#00295A" face="arial">
-									&nbsp;&nbsp;Login
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="left" valign="middle">
-								&nbsp;
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF">
-								<font size="3" color="#000000" face="arial">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username
-									</font>
-								</td>
-							<td bgcolor="#F7F7FF">
-								<font size="3"color="#FF0000" face="arial">
-									* <input class="commonfieldbox" type="text" 		size="20"	name="username">
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="left" valign="middle">
-								<font size="3"color="#FF0000" face="arial">
-									&nbsp;
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF">
-								<font size="3" color="#000000" face="arial">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password
-									</font>
-							<td bgcolor="#F7F7FF">
-								<font size="3"color="#FF0000" face="arial">
-									* <input class="commonfieldbox" type="password"	size="20"	name="password">
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#F7F7FF" height="32" colspan="2" align="left" valign="middle">
-								<font size="3"color="#FF0000" face="arial">
-									&nbsp;
-									</font>
-								</td>
-							</tr>
-						<tr>
-							<td bgcolor="#EFEFF7" height="40" colspan="2" align="right" valign="middle" style="border-width: thin;border-top-style: solid; border-top-color: #B5CEE7;border-bottom-style: solid; border-bottom-color: #B5CEE7">
-								<input type="submit" class="formsubmit" value="Login >>">
-								</td>
-							</tr>
-						</table>
-						</form>
-					<br>
-					<br>
-					</td>
-				</tr>
-			<tr>
-				<td bgcolor="#00295A" height="40" colspan="1" background="images/header_roller.gif">
-					<font size="3" color="#94ADC6" face="arial">
-						&nbsp;&nbsp;&nbsp;Powered by the OpenAirport.org system - Erick Alan Dahl, Version 2.0
-						</font>
-					</td>
-				<td bgcolor="#00295A" height="40" colspan="1" align="right" valign="middle" background="images/header_roller.gif">
-					<a href="mailto:erick_dahl@hotmail.com">
-						<font size="3" color="#94ADC6" face="arial">
-							Contact
-							</font>
-						</a>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					</td>
-				</tr>
-			</table>
-			<?
+				// echo "There has been no attempt to submit the login form <br>";
+				// echo "Allow the user to see the login box as well as the other important information as allowed.<br>";
+				$message = '';
+				include('includes/_userinterface/_ui_bloginscreen.binc.php');
 			}
 			?>
-				
-				
 		</body>
 	</HTML>

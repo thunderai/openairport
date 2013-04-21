@@ -4,6 +4,10 @@ function _327_a_4_301_summaryfunction($systemuser = 0) {
 	// Function will find all Personnel Records done by the defined System User!
 	//		>>>>  Achieved reports and edit reports are returned by different functions if even defined at all.
 	
+	$effectivetotal	= 0;
+	$record_date	= 0;
+	$record_time	= 0;
+	
 	$sql =" SELECT * FROM tbl_139_327_sub_d WHERE Discrepancy_by_cb_int = ".$systemuser." ORDER BY Discrepancy_date DESC, Discrepancy_time DESC";
 	
 		//echo "Connect to database usining this SQL statement ".$sql." <br>";				

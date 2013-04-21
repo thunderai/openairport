@@ -4,6 +4,9 @@ function _303_a_301_summaryfunction($systemuser = 0) {
 	// Function will find all Personnel Records done by the defined System User!
 	//		>>>>  Achieved reports and edit reports are returned by different functions if even defined at all.
 	
+	$record_date	= 0;
+	$record_time	= 0;
+	
 	$sql =" SELECT * FROM tbl_systemusers WHERE emp_added_by_int = ".$systemuser." ORDER BY emp_addedon_date DESC, emp_addon_time DESC";
 	
 		//echo "Connect to database usining this SQL statement ".$sql." <br>";				

@@ -58,7 +58,21 @@
 		background-color:transparent;
 	}	
 	
-	
+.makebuttonlooklikelargetext_black {
+		font-size:		14px;
+		font-family:	Agency FB;
+		color: 			#000000; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:			pointer;
+		height: 		18px;
+		border-collapse:collapse;
+		border: 		0px solid black;
+		padding:		0px;
+		border-spacing: 0px;
+		background-color:transparent;
+	}	
 .table_dashpanel_container_noresults {
 		width:			100%;
 		font-size:		11px;
@@ -90,8 +104,7 @@
 	}	
 	
 .table_dashpanel_container_summary_green {
-		width:			100%;
-		font-size:		10px;
+		font-size:		12px;
 		font-family:	Agency FB;
 		color: 			#FFFFFF; 
 		letter-spacing:	2px;
@@ -101,15 +114,13 @@
 		padding:		0px;
 		border-spacing: 0px;
 		text-align:		left;
-		opacity:		0.6;
 		background-color:#669933;
 	}		
 
 .table_dashpanel_container_summary_yellow {
-		width:			100%;
-		font-size:		10px;
+		font-size:		12px;
 		font-family:	Agency FB;
-		color: 			#FFFFFF; 
+		color: 			#000000; 
 		letter-spacing:	2px;
 		height: 		18px;
 		border-collapse:collapse;
@@ -117,13 +128,11 @@
 		padding:		0px;
 		border-spacing: 0px;
 		text-align:		left;
-		opacity:		0.6;
 		background-color:#FFFF33;
 	}	
 	
 .table_dashpanel_container_summary_red {
-		width:			100%;
-		font-size:		10px;
+		font-size:		12px;
 		font-family:	Agency FB;
 		color: 			#FFFFFF; 
 		letter-spacing:	2px;
@@ -133,8 +142,21 @@
 		padding:		0px;
 		border-spacing: 0px;
 		text-align:		left;
-		opacity:		0.6;
 		background-color:#FF0033;
+	}	
+
+.table_dashpanel_container_summary_blue {
+		font-size:		12px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		letter-spacing:	2px;
+		height: 		18px;
+		border-collapse:collapse;
+		border: 		0px solid black;
+		padding:		0px;
+		border-spacing: 0px;
+		text-align:		left;
+		background-color:#0000FF;
 	}		
 	
 .table_dashpanel_container_footer {

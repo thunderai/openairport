@@ -116,7 +116,7 @@ if (!isset($_POST["formsubmit"])) {
 								Click the <b>"Get Checklist"</b> button above to load the selected checklist. Once you click the button please wait a moment for the checklist to load.
 								</center>
 												<?php 
-												for ($i=0; $i<50; $i=$i+1) {
+												for ($i=0; $i<10; $i=$i+1) {
 														?>
 							<br>
 														<?php 
@@ -483,7 +483,7 @@ if (!isset($_POST["formsubmit"])) {
 									<input type="hidden" name="inspector"			value="<?php echo $_POST['inspector'];?>" />
 									<input type="hidden" name="recordid" 			value="<?php echo $inspectiontmpid;?>" />
 									<?php
-									_tp_control_function_submit('printform');
+									_tp_control_function_submit('printform','Continue Report');
 									?>
 									</td>
 								</tr>

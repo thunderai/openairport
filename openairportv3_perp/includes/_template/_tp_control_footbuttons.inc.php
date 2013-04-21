@@ -92,7 +92,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
 							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-							<img src="images/_interface/icons/icons_reload.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icons_warning.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MReload" id="ISpace_MReload" 
 							class="item_space_inactive" 
@@ -106,7 +106,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MReload.className='item_name_active';Icon_MReload.className='item_name_active';ISpace_MReload.className='item_name_active';Name_MReload.className='item_name_active';" 
 							onmouseout="OSpace_MReload.className='item_name_inactive';Icon_MReload.className='item_name_inactive';ISpace_MReload.className='item_name_inactive';Name_MReload.className='item_name_inactive';" 
 							/>
-							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:opener.sorttable.submit()">
+							<input class="makebuttonlooklikelargetext" type="button" name="button" value="Reload Browse Table" 	onclick="javascript:parent.sorttable.submit();">
 							</td>				
 						</tr>
 					</table>
