@@ -121,9 +121,19 @@ function _dp_327_discrepancies($dasharray) {
 				
 			// Utilize our lies
 			?>
-				<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="table_dashpanel_divwindow" />
+				<table width="100%" class="perp_mainmenutable" cellpadding="0" cellspacing="0"/>
 					<tr>
-						<td />
+						<td class="perp_menuheader" height="12" />
+							Discrepancy Controls
+							</td>			
+						</tr>			
+					<tr>
+						<td class="perp_menusubheader" />
+							Additional Options
+							</td>				
+						</tr>
+					<tr>
+						<td align="left" valign="top" />
 							<?php
 							include("includes/_template/_tp_blockform_workorder_browser.binc.php");	
 							?>
@@ -142,7 +152,7 @@ function _dp_327_discrepancies($dasharray) {
 							</td>
 						</tr>
 					<tr>
-						<td class="item_name_active" />
+						<td class="item_name_active" height="32" />
 							<table 	name="MenuItem_MClose" id="MenuItem_MClose" 
 									border="0" 
 									cellpadding="0" 
@@ -189,7 +199,7 @@ function _dp_327_discrepancies($dasharray) {
 				class="item_name_inactive" 
 				onmouseover="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_active';" 
 				onmouseout="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_inactive';" 
-				onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=150px,left=200px,top=150px,resize=0,scrolling=0,center=1'); return false;" />
+				onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=200px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
 				Commands
 				</td>
 			</tr>

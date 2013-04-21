@@ -40,25 +40,20 @@
 		include("includes/_template_enter.php");
 		include("includes/_template/template.list.php");
 
-// Define Variables	
+// Define Navigation Variables	
 		
 		$navigation_page 			= 36;							// Belongs to this Nav Item ID, see function for notes!
 		$type_page 					= 4;							// Page is Type ID, see function for notes!
 		$date_to_display_new		= AmerDate2SqlDateTime(date('m/d/Y'));
 		$time_to_display_new		= date("H:i:s");
 
-// Build the BreadCrum trail which shows the user their current location and how to navigate to other sections.
-	
-		//buildbreadcrumtrail($strmenuitemid,$frmstartdate,$frmenddate);
-		//	DO NOT DISPLAY BREADCRUM ON THIS PAGE...	
-		
 if (!isset($_POST["formsubmit"])) {
 
 // This is a FUNCTION LOADED FROM THE TEMPLATE BROWSER
 //		Anytime a window is openned from the template browser the following should be loaded into the FORM
 //----------------------------------------------------------------------------------------------\\
-			$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
-			$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
+		//	$bstart_date 	= $_GET['startdate'];												// The 'TB' Start Date 	(nonSQL)
+		//	$bend_date 		= $_GET['enddate'];													// The 'TB' End Date 	(nonSQL)
 
 //	Start Form Set Variables
 	
@@ -113,11 +108,11 @@ if (!isset($_POST["formsubmit"])) {
 			$display_close			= 1;														// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+			$display_quickaccess	= 0;
 			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");
+			include("includes/_template/_tp_blockform_form_footer.binc.php");
 	
-		}
-	else {
+	} else {
 		
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
@@ -141,7 +136,7 @@ if (!isset($_POST["formsubmit"])) {
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");				
+			include("includes/_template/_tp_blockform_form_header.binc.php");				
 		
 	// Load Form Elements	
 	// Place Default values from the POST Here or enter 'post'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
@@ -171,8 +166,9 @@ if (!isset($_POST["formsubmit"])) {
 			$display_close			= 1;														// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 1;														// 1: Display Refresh Button, 	0: No
+			$display_quickaccess	= 0;
 			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");	
+			include("includes/_template/_tp_blockform_form_footer.binc.php");	
 	
 	// DO SQL Work				
 		
@@ -200,10 +196,21 @@ if (!isset($_POST["formsubmit"])) {
 	
 // Establish Page Variables
 		
-		$last_main_id	= $lastid;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($lastid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $lastid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
-		ae_completepackage($auto_array);	
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		ae_completepackage($auto_array);
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

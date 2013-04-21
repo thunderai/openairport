@@ -189,7 +189,7 @@
 				<td class="item_name_active" colspan="3">
 					<input type="hidden" name="recordid" 			value="<?php echo $_POST['recordid'];?>">
 					<?php
-					_tp_control_function_submit('printform');
+					_tp_control_function_submit('printform','Print Form');
 					?>
 					</td>
 					</form>
@@ -199,10 +199,21 @@
 
 // Establish Page Variables
 		
-		$last_main_id	= $lastid;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($newdiscrepancyid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $newdiscrepancyid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
-		ae_completepackage($auto_array);	
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		ae_completepackage($auto_array);
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

@@ -281,13 +281,13 @@
 										// Elemement is a Checkbox					
 										if ($tmpvalue!=1) {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input value='1' onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' />";												
+												$tmpnewstring 	= "<input value='1' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name='".$tmpcondnamestr."' ID='".$tmpcondnamestr."' />";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}
 											else {
 												$tmpstring		= ($tmpstring."1|".$tmpcondnamestr."_td|");												
-												$tmpnewstring 	= "<input value='1' onMouseover='ddrivetip(&quot;".$message."&quot;)'; onMouseout='hideddrivetip()' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." CHECKED />";												
+												$tmpnewstring 	= "<input value='1' class='Commonfieldbox' style='width:20px;' size='4' onclick='javascript:".$function."(&quot;".$rootname."&quot;,&quot;".$tmpcondnamestr."&quot;);' type='checkbox' name=".$tmpcondnamestr." ID=".$tmpcondnamestr." CHECKED />";												
 												$tmpstring 		= $tmpstring.$tmpnewstring;												
 												$tmpstring 		= $tmpstring."|";
 											}

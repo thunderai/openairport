@@ -96,14 +96,26 @@
 			$display_close			= 1;														// 1: Display Close Button, 	0: No
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+			$display_quickaccess	= 0;
 			
 		include("includes/_template/_tp_blockform_form_footer.binc.php");
 			
 // Establish Page Variables
 		
-		$last_main_id	= $_POST['recordid'];
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($idtosearch)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $idtosearch;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

@@ -43,7 +43,7 @@ function _tp_control_sortby_page($sql,$sql_failsafe,$language_on,$tblpagationgro
 							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 							/>
 							
-							<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icon_sortbypage.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive_form" 

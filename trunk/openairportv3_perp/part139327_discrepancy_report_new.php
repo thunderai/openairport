@@ -95,7 +95,12 @@ if (!isset($_POST["conditionid"])) {
 	
 if (!isset($_POST["conditionname"])) {
 		// No Record ID defined in POST, use GET record id
-		$tmp_conditionname		= $_GET['conditionname'];
+		if (!isset($_GET["conditionname"])) {
+				// Get not set either...
+				$tmp_conditionname = '';
+			} else {		
+				$tmp_conditionname		= $_GET['conditionname'];
+			}
 	}
 	else {
 		$tmp_conditionname		= $_POST['conditionname'];
@@ -103,7 +108,12 @@ if (!isset($_POST["conditionname"])) {
 	
 if (!isset($_POST["inspectiontypeid"])) {
 		// No Record ID defined in POST, use GET record id
-		$tmp_inspectiontypeid	= $_GET['inspectiontypeid'];
+		if (!isset($_GET["inspectiontypeid"])) {
+				// Get not set either...
+				$tmp_inspectiontypeid 		= '';
+			} else {		
+				$tmp_inspectiontypeid		= $_GET['inspectiontypeid'];
+			}
 	}
 	else {
 		$tmp_inspectiontypeid	= $_POST['inspectiontypeid'];
@@ -111,7 +121,12 @@ if (!isset($_POST["inspectiontypeid"])) {
 
 if (!isset($_POST["madbynavaid"])) {
 		// No Record ID defined in POST, use GET record id
-		$tmp_madbynavaid	= $_GET['madbynavaid'];
+		if (!isset($_GET["madbynavaid"])) {
+				// Get not set either...
+				$tmp_madbynavaid 		= 0;
+			} else {		
+				$tmp_madbynavaid		= $_GET['madbynavaid'];
+			}
 	}
 	else {
 		$tmp_madbynavaid	= $_POST['madbynavaid'];
@@ -135,8 +150,9 @@ if (!isset($_GET["discrepancycomm"])) {
 
 if (!isset($_GET["location"])) {
 		// No Record ID defined in POST, use GET record id
-		$tmp_locationx = 0;
-		$tmp_locationy = 0;
+		$tmp_locationx 	= 0;
+		$tmp_locationy 	= 0;
+		$location_s		= '';
 	}
 	else {
 		$location_s		= $_GET["location"];
@@ -211,7 +227,7 @@ if (!isset($_POST["formsubmit"])) {
 		//------------------------------------------------------------------------------------------\\
 				$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
 					$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
-					$idtosearch				= $_POST['recordid'];									// ID to look for in the summary function, this is typically $_POST['recordid'].
+					$idtosearch				= $tmp_recordid;									// ID to look for in the summary function, this is typically $_POST['recordid'].
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
@@ -253,6 +269,7 @@ if (!isset($_POST["formsubmit"])) {
 					$display_close			= 1;														// 1: Display Close Button, 	0: No
 					$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+					$display_quickaccess	= 0;
 					
 				include("includes/_template/_tp_blockform_form_footer.binc.php");	
 	} else {
@@ -393,7 +410,7 @@ if (!isset($_POST["formsubmit"])) {
 						$pushdown_frmname	= "addeddis";
 						$pushdown_otherid	= $_POST['recordid'];
 					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
-					
+					$display_quickaccess	= 0;
 					
 				include("includes/_template/_tp_blockform_form_footer.binc.php");													
 
@@ -401,9 +418,20 @@ if (!isset($_POST["formsubmit"])) {
 
 // Establish Page Variables
 
-		$last_main_id	= $_POST['recordid'];
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_d); 
+		if (!isset($lastid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $lastid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

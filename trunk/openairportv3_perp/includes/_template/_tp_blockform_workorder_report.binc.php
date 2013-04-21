@@ -1,7 +1,8 @@
 <?php
 //	 DISCREPANCY WORKORDER BLOCK FORM CONTROLS
 //		Utilize $stage information to display control buttons
-
+$has_been_repaired 	= '';
+$has_been_bounced 	= '';
 
 // Short code to make the temlate browse file shorter and more manageble.
 if($functionworkorderpage == '') {

@@ -40,7 +40,7 @@
 <?php
 // Load global include files
 	
-		//include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
+		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
 		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
 	
 // Load Page Specific Includes
@@ -581,10 +581,21 @@ if (!isset($_POST["recordid"])) {
 						
 // Establish Page Variables
 
-		//$last_main_id	= $last_main_id;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($last_main_id)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $last_main_id;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
-		ae_completepackage($auto_array);	
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		ae_completepackage($auto_array);
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

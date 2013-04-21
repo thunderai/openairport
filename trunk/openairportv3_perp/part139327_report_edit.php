@@ -51,9 +51,19 @@
 // Collect POST Information
 		
 		$inspection_id			= $_POST['recordid'];
-		$menuitemid 			= $_POST['menuitemid'];													
-		$tblname				= $_POST['tblname'];													
+		$menuitemid 			= $_POST['menuitemid'];
+
+if (!isset($_POST["tblname"])) {
+		$tblname = $tblname;
+	} else {
+		$tblname				= $_POST['tblname'];
+	}
+	
+if (!isset($_POST["tblsubname"])) {
+		$tblsubname = $tblsubname;
+	} else {
 		$tblsubname				= $_POST['tblsubname'];
+	}
 		
 if (!isset($inspection_id)) {
 		// No Record ID Supplied, Crash Out
@@ -109,11 +119,6 @@ if (!isset($inspection_id)) {
 											?>
 								</tr>
 							</table>
-						</td>
-					</tr>
-				<tr>
-					<td colspan="2" class="formoptionsavilabletop">
-						<?php echo $subtitle;?>
 						</td>
 					</tr>	
 						<?php
@@ -250,7 +255,7 @@ if (!isset($inspection_id)) {
 			/>
 			<?php
 			$target = 'adddiscrepancy';
-			$action = 'part139327_discrepancy_report_new.php?recordid='.$inspection_id.'&golive=1&facility='.$tmpfacilitytype.'&condition='.$tmpconditionid.'&checklist='.$tmpconditiontype.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+			$action = 'part139327_discrepancy_report_new.php?recordid='.$inspection_id.'&golive=1&facility='.$tmpfacilitytype.'&condition='.$tmpconditionid.'&checklist='.$tmpconditiontype.'&checklist='.$objarray['type_of_inspection_cb_int'].'&targetname='.$target.'&dhtmlname='.$target.'_var';
 			_tp_control_function_button_iframe($target,'ADD','icon_add',$action,$target);
 			?>
 			</td>
@@ -521,6 +526,7 @@ if (!isset($inspection_id)) {
 			/>
 			<input type="hidden" name="conditionid" 		value="<?php echo $tmpcond_record_id;?>" />
 			<input type="hidden" name="recordid" 			value="<?php echo $inspection_id;?>" />
+			<input type="hidden" name="golive" 				value="0" />
 			<input type="hidden" name="checklistid" 		value="<?php echo $tmpcond_record_id;?>" />
 			<input type="hidden" name="facilityid" 			value="<?php echo $tmpfacilityid;?>">
 			<input type="hidden" name="conditionname" 		value="<?php echo $tmpcondname;?>">
@@ -684,7 +690,7 @@ if (!isset($inspection_id)) {
 		// Populate an error report
 		
 		$sql = "INSERT INTO tbl_139_327_main_e (inspection_error_inspection_id, inspection_error_by_cb_int, inspection_error_reason, inspection_error_date, inspection_error_time, inspection_error_yn)
-		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['diseditwhy']."', '".$sqldate."', '".$_POST['distime']."', '1' )";
+		VALUES ( '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['diseditwhy']."', '".$tmpsqldate."', '".$_POST['distime']."', '1' )";
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 			//mysql_insert_id();
 				

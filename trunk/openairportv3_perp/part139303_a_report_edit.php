@@ -43,10 +43,21 @@
 // Collect POST Information
 		
 		$inspection_id			= $_POST['recordid'];
-		$menuitemid 			= $_POST['menuitemid'];													
-		$tblname				= $_POST['tblname'];													
+		$menuitemid 			= $_POST['menuitemid'];		
+
+if (!isset($_POST["tblname"])) {	
+		// echo "Table Name POST is not set.  Probably not used, set to default <br>";
+		$tblname	= '';
+	} else {
+		$tblname				= $_POST['tblname'];
+	}
+if (!isset($_POST["tblsubname"])) {	
+		// echo "Table Sub Name POST is not set.  Probably not used, set to default <br>";
+		$tblsubname	= '';
+	} else {
 		$tblsubname				= $_POST['tblsubname'];
-		
+	}	
+
 		$debug = 0;
 
 // Define Variables	
@@ -66,7 +77,60 @@
 		if (!isset($_POST["formsubmit"])) {
 		
 //	Start Form Set Variables
-	
+			$sql 		= "SELECT * FROM tbl_systemusers 
+							INNER JOIN tbl_systemusers_ncga ON tbl_systemusers_ncga.navigational_user_id_cb_int = tbl_systemusers.emp_record_id 
+							INNER JOIN tbl_navigational_control_g ON tbl_navigational_control_g.navigational_groups_id = tbl_systemusers_ncga.navigational_group_id_cb_int 
+							INNER JOIN tbl_organization_main ON tbl_organization_main.Organizations_id = tbl_systemusers.emp_organiation_cb_int 
+							WHERE emp_record_id = '".$inspection_id."' ";
+							
+			$objconn 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+			
+			if (mysqli_connect_errno()) {
+					// there was an error trying to connect to the mysql database
+					printf("connect failed: %s\n", mysqli_connect_error());
+					exit();
+				}
+				else {
+					$objrs = mysqli_query($objconn, $sql);
+							
+					if ($objrs) {
+							$number_of_rows = mysqli_num_rows($objrs);
+						?>
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td colspan="3" class="perp_menuheader" />
+				<?php echo $tblname;?>
+				</td>			
+			</tr>			
+		<tr>
+			<td colspan="3" class="perp_menusubheader" />
+				(
+				<?php echo $tblsubname;?>
+				)
+				</td>				
+			</tr>
+						<?php
+							while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
+									?>
+					<tr>
+						<td colspan="2" class="item_name_inactive">
+							<table cellspacing="0" width="100%">
+								<tr>
+									<?php
+											// Hijack Template Functions for our own purposes
+											$settingsarray 	= array("SELECT * FROM tbl_139_303_a_main_a WHERE 139303_a_a_inspection_id = ",	"inspection",	"part139303_a_report_display_archived.php");
+											$functionpage	= "part139303_a_report_archieved.php";														
+											_tp_control_archived($inspection_id, $settingsarray, $functionpage);
+											
+											$settingsarray 	= array("SELECT * FROM tbl_139_303_a_main_e WHERE 139303_a_e_inspection_id = ",	"inspection",	"part139303_a_report_display_error.php");
+											$functionpage	= "part139303_a_report_error.php";														
+											_tp_control_error($inspection_id, $settingsarray, $functionpage);	
+											?>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<?php
 	// FORM HEADER
 	// -----------------------------------------------------------------------------------------\\
 			$formname			= "edittable";													// HTML Name for Form
@@ -89,57 +153,31 @@
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 
-	
-			errorreport("[1]. Load Template Form Header",$debug);
-			
 			include("includes/_template/_tp_blockform_form_header.binc.php");
-	
-	
-	
-			$sql 		= "SELECT * FROM tbl_systemusers 
-							INNER JOIN tbl_systemusers_ncga ON tbl_systemusers_ncga.navigational_user_id_cb_int = tbl_systemusers.emp_record_id 
-							INNER JOIN tbl_navigational_control_g ON tbl_navigational_control_g.navigational_groups_id = tbl_systemusers_ncga.navigational_group_id_cb_int 
-							INNER JOIN tbl_organization_main ON tbl_organization_main.Organizations_id = tbl_systemusers.emp_organiation_cb_int 
-							WHERE emp_record_id = '".$inspection_id."' ";
-							
-			$objconn 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-			
-			errorreport("[2]. Connect to Database with the Following SQL Statement :".$sql." ",$debug);
-			
-			if (mysqli_connect_errno()) {
-					// there was an error trying to connect to the mysql database
-					printf("connect failed: %s\n", mysqli_connect_error());
-					exit();
-				}
-				else {
-					$objrs = mysqli_query($objconn, $sql);
-							
-					if ($objrs) {
-							$number_of_rows = mysqli_num_rows($objrs);
-
-							while ($objarray = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
-							
-									errorreport("[3]. In While Loop Show Form Elements",$debug);
-									
-									// FORM ELEMENTS
-									//-----------------------------------------------------------------------------------------\\	
-									// Load Form Elements
-									//				POST Name		,Form Text			,Description of Field								,More Information about the Field																				,Syntax Information			,Type			,Field Width	,Field Height	,Default Value							,Function Name
-									//																																																													1	Text Box	,in pixels		,in pixels		,										,
-									//																																																													2	Text Area	,				,				,										,
-									//																																																													3	Combobox	,
-									//																																																													4	Map Button	,
-									//																																																													5	Check box	,									
-									form_new_table_b($formname);
-									form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_firstname']				,0);
-									form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_lastname']				,0);
-									form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_initials']				,0);
-									form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,35				,0				,$objarray['emp_username']				,0);
-									form_new_control("303password"	,"Password"			, "Enter your Password"								,"Your password can be edited"																					,""							,1				,35				,0				,$objarray['emp_password']				,0);
-									form_new_control("303password2"	,"Password"			, "Confirm your Password"							,"Your passwords must be the same"																				,""							,1				,35				,0				,$objarray['emp_password']				,0);
-									form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,$objarray['emp_organiation_cb_int']	,"organizationcombobox");
-									form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,$objarray['navigational_groups_id']	,"_ac_accessleveltypecombobox");
-									?>
+			?>								
+			<input type="hidden" name="formsubmit"	ID="formsubmit"	value="1">
+			<input type="hidden" name="recordid"	ID="recordid" 	value="<?php echo $inspection_id;?>">
+			<input type="hidden" name="inspector" 		id="inspector"		 	value="<?php echo $_SESSION['user_id'];?>">
+			<?php
+			// FORM ELEMENTS
+			//-----------------------------------------------------------------------------------------\\	
+			// Load Form Elements
+			//				POST Name		,Form Text			,Description of Field								,More Information about the Field																				,Syntax Information			,Type			,Field Width	,Field Height	,Default Value							,Function Name
+			//																																																													1	Text Box	,in pixels		,in pixels		,										,
+			//																																																													2	Text Area	,				,				,										,
+			//																																																													3	Combobox	,
+			//																																																													4	Map Button	,
+			//																																																													5	Check box	,									
+			form_new_table_b($formname);
+			form_new_control("303firstname"	,"First Name"		, "Enter your First Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_firstname']				,0);
+			form_new_control("303lastname"	,"Last Name"		, "Enter your Last Name"							,"You may not change your name, sorry"																			,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_lastname']				,0);
+			form_new_control("303initials"	,"Initials"			, "Enter your initials"								,"You may not change this, sorry"																				,"(cannot be changed)"		,1				,0				,0				,$objarray['emp_initials']				,0);
+			form_new_control("303username"	,"User Name"		, "Enter your User Name"							,"Your username can be edited"																					,""							,1				,35				,0				,$objarray['emp_username']				,0);
+			form_new_control("303password"	,"Password"			, "Enter your Password"								,"Your password can be edited"																					,""							,1				,35				,0				,$objarray['emp_password']				,0);
+			form_new_control("303password2"	,"Password"			, "Confirm your Password"							,"Your passwords must be the same"																				,""							,1				,35				,0				,$objarray['emp_password']				,0);
+			form_new_control("303org"		,"Organization"		, "Select your Organization"						,"You may not change your organization"																			,"(cannot be changed)"		,3				,0				,0				,$objarray['emp_organiation_cb_int']	,"organizationcombobox");
+			form_new_control("303acesslevel","Access Level"		, "Select your Access Level"						,"You may not change your access rights"																		,"(cannot be changed)"		,3				,0				,0				,$objarray['navigational_groups_id']	,"_ac_accessleveltypecombobox");
+			?>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" />
 						<tr>
 							<td class="item_name_active" colspan="4">
@@ -176,8 +214,6 @@
 													WHERE dash_hidden_yn = 0";									
 									$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 									
-									errorreport("[4]. Connect to Database with the Following SQL Statement :".$sql2." ",$debug);
-									
 									if (mysqli_connect_errno()) {
 											// there was an error trying to connect to the mysql database
 											printf("connect failed: %s\n", mysqli_connect_error());
@@ -208,8 +244,6 @@
 																			WHERE navigational_user_id_cb_int = '".$inspection_id."' AND navigational_group_id_cb_int = '".$dash_id."' ";								
 															$objconn3 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 															
-															errorreport("[5]. Connect to Database with the Following SQL Statement :".$sql3." ",$debug);
-															
 															if (mysqli_connect_errno()) {
 																	// there was an error trying to connect to the mysql database
 																	printf("connect failed: %s\n", mysqli_connect_error());
@@ -226,8 +260,6 @@
 																					$dash_s_id	= $objarray3['navigational_access_id'];
 																					$dash_s_dsp	= $objarray3['navigational_groups_display_yn'];
 																					$dash_s_pri	= $objarray3['navigational_groups_priority'];
-															
-																					errorreport("[6]. Connect to Database with the Following SQL Statement :".$dash_s_id." ",$debug);
 															
 																					if($number_of_rows3 == 0) {
 																							// Nothing displayed
@@ -291,7 +323,7 @@
 											$default = '';
 										}
 									?>
-							<option value=<?php echo $i;?>" <?php echo $default;?>/><?php echo $i;?></option>
+							<option value=<?php echo $i;?> <?php echo $default;?>/><?php echo $i;?></option>
 									<?php
 								}
 								?>
@@ -323,9 +355,10 @@
 //------------------------------------------------------------------------------------------\\
 		$display_submit 		= 1;														// 1: Display Submit Button,	0: No
 			$submitbuttonname	= 'Submit Changes';											// Name of the Submit Button
-		$display_close			= 1;														// 1: Display Close Button, 	0: No
+		$display_close			= 0;														// 1: Display Close Button, 	0: No
 		$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 		$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+		$display_quickaccess	= 0;
 		
 	include("includes/_template/_tp_blockform_form_footer.binc.php");
 
@@ -341,12 +374,27 @@
 	}	
 	else {
 	
-		//echo "Form has been submitted, do summary result page <br>";
-		// Load Form Header
-				$formname		= "edittable";
-				$subtitle 		= "Your Information - Summary Report";
-				$form_menu		= "Summary Report of your information";
-				$form_subh		= "Here is the information you provided";
+	// FORM HEADER
+	// -----------------------------------------------------------------------------------------\\
+			$formname			= "edittable";													// HTML Name for Form
+			$formaction			= '';															// Page Form will submit information to. Leave valued at '' for the form to point to itself.
+			$formopen			= 0;															// 1: Opens action page in new window, 0, submits to same window
+				$formtarget		= '';															// HTML Name for the window
+				$location		= $formtarget;													// Leave the same as $formtarget
+	
+	// FORM NAME and Sub Title
+	//------------------------------------------------------------------------------------------\\
+			$form_menu			= "Your Information - Summary Report";								// Name of the FORM, shown to the user
+			$form_subh			= "Summary Report of your information";									// Sub Name of the FORM, shown to the user
+			$subtitle 			= "Here is the information you provided";		// Subt title of the FORM, shown to the user
+
+	// FORM SUMMARY information
+	//------------------------------------------------------------------------------------------\\
+			$displaysummaryfunction 	= 0;													// 1: Display Summary of Record, 0: Do not show summary
+				$summaryfunctionname 	= '';													// Function to display the summary, leave as '' if not using the summary function
+				$idtosearch				= '';													// ID to look for in the summary function, this is typically $_POST['recordid'].
+				$detailtodisplay		= 0;													// See Summary Function for how to use this number
+				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 			
 		include("includes/_template/_tp_blockform_form_header.binc.php");
 
@@ -421,7 +469,7 @@
 													WHERE dash_hidden_yn = 0";									
 									$objconn2 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 									
-									errorreport("[4]. Connect to Database with the Following SQL Statement :".$sql2." ",$debug);
+									//echo "DashPanel SQL :".$sql2." <br>";
 									
 									if (mysqli_connect_errno()) {
 											// there was an error trying to connect to the mysql database
@@ -470,8 +518,6 @@
 																			WHERE navigational_user_id_cb_int = '".$_POST['recordid']."' AND navigational_group_id_cb_int = '".$dash_id."' ";								
 															$objconn3 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 															
-															errorreport("[5]. Connect to Database with the Following SQL Statement :".$sql3." ",$debug);
-															
 															if (mysqli_connect_errno()) {
 																	// there was an error trying to connect to the mysql database
 																	printf("connect failed: %s\n", mysqli_connect_error());
@@ -491,9 +537,7 @@
 																					$dash_s_dsp	= $objarray3['navigational_groups_display_yn'];
 																					$dash_s_pri	= $objarray3['navigational_groups_priority'];
 																					
-																					
-																					errorreport("[6]. Connect to Database with the Following SQL Statement :".$dash_s_id." ",$debug);
-															
+																					//echo "FormValueP [ ".$formvaluep." ] <br>";
 																					$array_sql[$counter] = "UPDATE tbl_dashpanel_sub_s SET navigational_groups_display_yn='".$formvalued."', navigational_groups_priority='".$formvaluep."' WHERE navigational_access_id = '".$dash_s_id."' ";
 															
 																					//echo $array_sql[$counter]." <br>";
@@ -611,26 +655,54 @@
 	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
 	form_uni_control("targetname"		,$targetname);
 	form_uni_control("dhtmlname"		,$dhtml_name);
-										
+		
+	?>
+
+	<?php
 		//
 		// Load Footer
 				$display_submit 	= 0;
-				$display_close 		= 1;
+				$display_close 		= 0;
 				$display_refresh	= 0;
 				$display_pushdown	= 0;
 				$display_text		= "Your information has been successfully Edited";	
-
+				$display_quickaccess = 0;
+				
 			include("includes/_template/_tp_blockform_form_footer.binc.php");		
+	?>
+	</form>
 	
-	
-
+	<form style="margin-bottom:0;" action="part139303_a_report_display.php" method="POST" name="printform" id="printform" target="_printerfriendlyreport" onsubmit="open_new_report_window('','_printerfriendlyreport');">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0" id="table3" align="left" valign="top" class="item_name_active" />
+		<tr>
+			<td class="item_name_active" colspan="5">
+				<input type="hidden" name="recordid" 			value="<?php echo $_POST['recordid'];?>" />
+				<?php
+				_tp_control_function_submit('printform','Summary Report');
+				?>
+				</td>
+			</tr>
+		</table>
+		</form>		
+<?php
 		}
 
 // Establish Page Variables
 		
-		$last_main_id	= $inspection_id;
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($lastid)) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $lastid;
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
 		ae_completepackage($auto_array);	
 	
 // Load End of page includes

@@ -41,3 +41,4 @@
 		<link href="stylesheets/perpcarto_templatenter.css" 				rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/perpcarto_templatebrowse.css" 				rel="stylesheet" type="text/css" media="screen" />
 		<link href="stylesheets/dhtmlwindow.css" 							rel="stylesheet" type="text/css" media="screen" />
+		<link href="stylesheets/login-box.css" 								rel="stylesheet" type="text/css" media="screen" />

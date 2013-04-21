@@ -50,37 +50,7 @@
 ?>
 
 		<center>
-				<table cellspacing="0" cellpadding="0" width="100%">
-					<?php
-					if ($fullorshort==0){
-							// Display Full FiCON Information
-							?>
-					<tr>
-						<td align="center" valign="middle" class="item_name_active" />
-							FiCON Template
-							</td>
-						<td align="center" valign="middle" class="item_name_inactive">
-							<?php
-							part139339_c_templatescombobox_ajax("all", "no", "InspTemplate", "show", "");
-							?>
-							</td>
-						</tr>
-						<td align="center" valign="middle" class="item_name_active" />
-							Template Purpose
-							</td>
-						<td align="center" valign="middle" class="item_name_inactive" id="templatepurpose" name="templatepurpose">
-							</td>
-						</tr>
-							<?php
-						}
-						
-					//form_new_control("frmnotes"			, 'Comments'		, 'Provide comments about this FiCON'					,"Do not use any special characters!"					, ""							, 2				, 45			, 4				, 'Mu Values From Vericom 3000 RFM. Check Local NOTAMs'					, 0);
-								
-					?>
-							</td>
-						</tr>
-					</table>
-				<table cellspacing="0" cellpadding="0" width="100%">
+				<table cellspacing="0" cellpadding="0" width="100%" />
 					<tr>
 						<td rowspan="2" class="item_name_inactive">
 								Surface

@@ -5,6 +5,7 @@
 //	 DISCREPANCY WORKORDER BLOCK FORM CONTROLS
 //		Utilize $stage information to display control buttons
 
+//echo $status.'<br>';
 
 // Short code to make the temlate browse file shorter and more manageble.
 if($functionworkorderpage == '') {
@@ -146,7 +147,9 @@ if (!isset($status)) {
 		$status = $status;
 	}
 
-
+//echo "Status :".$status."<br>";
+	
+	
 		if($status == 0 || $status == 1) {
 			
 				$active = 1;
@@ -223,7 +226,7 @@ if (!isset($status)) {
 					$button_name	= '';
 				}
 
-			if($status == 2 || $status == 3) {
+			if($status == 2 ) {
 				
 					$active = 1;
 					$value	= 'Bounce It';

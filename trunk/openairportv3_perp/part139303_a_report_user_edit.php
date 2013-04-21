@@ -263,12 +263,20 @@
 						class="item_space_inactive" />
 						<INPUT TYPE="checkbox" NAME="dashdsp_<?php echo $dash_id;?>" ID="dashdsp_<?php echo $dash_id;?>" VALUE="1" 
 								<?php
-								if($array_values[$dash_id][0] == 1) {
+								if (!isset($array_values[$dash_id][0])) {
+										// Not set, does not exist
 										?>
-																																		 CHECKED
+							
 										<?php
+									} else {
+										// Does exist what is the status of it?
+										if($array_values[$dash_id][0] == 1) {
+												?>
+																																				 CHECKED
+												<?php
+											}
 									}
-									?>																									
+											?>																									
 								>
 						</td>
 					<td name="dashorder<?php echo $dash_id;?>" 
@@ -417,20 +425,29 @@
 	// FORM UNIVERSAL CONTROL LOADING
 	//------------------------------------------------------------------------------------------\\
 	
-	$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
-	$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
-	form_uni_control("targetname"		,$targetname);
-	form_uni_control("dhtmlname"		,$dhtml_name);
-		
+			if (!isset($_POST["targetname"])) {
+					// Not set
+					$targetname		= 'edityouraccount_var';			// From the Button Loader; Name of the window this form was loaded into.
+					$dhtml_name		= 'edityouraccount_var';			// From the Button Loader; Name of the DHTML window function to call to change this window.
+					form_uni_control("targetname"		,$targetname);
+					form_uni_control("dhtmlname"		,$dhtml_name);					
+				} else {
+					$targetname		= $_POST['targetname'];			// From the Button Loader; Name of the window this form was loaded into.
+					$dhtml_name		= $_POST['dhtmlname'];			// From the Button Loader; Name of the DHTML window function to call to change this window.
+					form_uni_control("targetname"		,$targetname);
+					form_uni_control("dhtmlname"		,$dhtml_name);
+				}
+				
 //
 // FORM FOOTER
 //------------------------------------------------------------------------------------------\\
 		$display_submit 		= 1;														// 1: Display Submit Button,	0: No
 			$submitbuttonname	= 'Submit Changes';											// Name of the Submit Button
-		$display_close			= 0;														// 1: Display Close Button, 	0: No
+		$display_close			= 1;														// 1: Display Close Button, 	0: No
 		$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 		$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
-		
+		$display_quickaccess 	= 0;
+	
 	include("includes/_template/_tp_blockform_form_footer.binc.php");
 
 
@@ -449,6 +466,9 @@
 		//echo "Form has been submitted, do summary result page <br>";
 		// Load Form Header
 				$formname		= "edittable";
+				$formaction		= '';
+				$formopen		= '';
+				$displaysummaryfunction = '';
 				$subtitle 		= "Your Information - Summary Report";
 				$form_menu		= "Summary Report of your information";
 				$form_subh		= "Here is the information you provided";
@@ -916,7 +936,8 @@
 				$display_refresh	= 0;
 				$display_pushdown	= 0;
 				$display_text		= "Your information has been successfully Edited";	
-
+				$display_quickaccess = 0;
+				
 			include("includes/_template/_tp_blockform_form_footer.binc.php");		
 	
 	}
@@ -924,10 +945,21 @@
 	
 // Establish Page Variables
 		
-		$last_main_id	= $_SESSION['user_id'];
-		$auto_array		= array($navigation_page, $_SESSION["user_id"], $_POST["formsubmit"], $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		if (!isset($_SESSION["user_id"])) {
+				// Not defined, set to zero
+				$last_main_id = 0;
+			} else {
+				$last_main_id = $_SESSION["user_id"];
+			}		
+		if (!isset($_POST["formsubmit"])) {
+				// Not defined, set to zero
+				$submit = 0;
+			} else {
+				$submit = $_POST["formsubmit"];
+			}
 
-		ae_completepackage($auto_array);	
+		$auto_array		= array($navigation_page, $_SESSION["user_id"], $submit, $date_to_display_new, $time_to_display_new, $type_page,$last_main_id); 
+		ae_completepackage($auto_array);
 	
 // Load End of page includes
 //	This page closes the HTML tag, nothing can come after it.

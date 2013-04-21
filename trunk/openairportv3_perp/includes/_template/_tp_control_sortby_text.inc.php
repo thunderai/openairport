@@ -36,7 +36,7 @@ function _tp_control_sortby_text($tbl_show_datesort,$tbldatesort,$language_on,$l
 							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 							style="cursor:hand;"/>
 							
-							<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icon_sortbytext.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
 							class="item_space_inactive_form" 

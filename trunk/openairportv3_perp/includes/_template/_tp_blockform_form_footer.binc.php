@@ -45,9 +45,6 @@
 					<tr>
 						<td>
 				<?php
-				if($display_close == 1) {
-						_tp_control_footbuttons(1,$formname,$dhtml_name);
-					}
 				if($display_refresh == 1) {
 						_tp_control_footbuttons(2,"sorttable");
 					}	
@@ -67,6 +64,9 @@
 								_tp_control_footbuttons(6,$printout_page,$printout_id,$printout_passed);
 							}
 					}
+				if($display_close == 1) {
+						_tp_control_footbuttons(1,$formname,$dhtml_name);
+					}	
 				?>
 							</td>
 						</tr>

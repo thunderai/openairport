@@ -119,7 +119,7 @@
 		// $functioneditpage 		= "edit_record_general.php";
 		// $functionsummarypage 	= "summary_report_general.php";
 		// $functionprinterpage 	= "printer_report_general.php";		
-		$functioneditpage 			= "part139303_c_report_edit.php";								// Name of page used to edit the record
+		$functioneditpage 			= '';								// Name of page used to edit the record
 		$functionsummarypage 		= "part139303_c_report_summary.php";							// Name of page used to display a summary of the record
 		$functionprinterpage 		= "part139303_c_report_display.php";							// Name of page used to display a printer friendly report		
 		$function_calendar			= '';															// The URL of the webpage to load to display the Calendar.

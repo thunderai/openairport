@@ -16,33 +16,53 @@ function toggle_new(passeddiv) {
 
 }
 
-function modeselectionswitch() {
+function modeselectionswitch(selected_mode,buildarray) {
 	// Get mode from input field
-		var current_mode = document.getElementById("modeswtich").value;
+	
+		if (typeof selected_mode === 'undefined') {
+				// variable is undefined
+				var current_mode = document.getElementById("modeswtich").value;
+			} else {
+				var current_mode = selected_mode;
+			}
+		
+		if (typeof buildarray === 'undefined') {
+				// Not defined
+			} else {
+				// Split build array into parts
+				var array_build = buildarray.split('|');
+			}
+		
+		//alert(current_mode);
 		
 		if(current_mode == 'map') {
+				
 				// Hide Windows ONLY used by the Dash
 
-				document.getElementById("layouttableiframecontent").style.display='none';
-				document.getElementById("systemtext_div").style.display='none';
-				document.getElementById("qam_div").style.display='none';
+				//alert(document.getElementById("layouttableiframecontent"));
+				document.getElementById("layouttableiframecontent").style.display	='none';
+				//document.getElementById("systemtext_div").style.display				='none';
+				document.getElementById("qam_div").style.display					='none';
+				
+				//contentpanel_win.hide();
 				
 				// SHOW WINDOWS
 				
-				document.getElementById("div_maplayer1").style.display='block';
-				document.getElementById("div_mapscale").style.display='block';
+				document.getElementById("div_maplayer1").style.display				='block';
+				document.getElementById("div_mapscale").style.display				='block';
 				
 				// Rename Mode Switch
 				
-				document.getElementById("modeswitch_label").value = 'Dash Panel';
-				document.getElementById("modeswtich").value = 'dash';
+				document.getElementById("modeswitch_label").value 					= 'Dash Panel';
+				document.getElementById("modeswtich").value 						= 'dash';
 				
 			}
 		if(current_mode == 'dash') {
-				// SHOW DASH WINDOWS
+		
+				//alert(document.getElementById("layouttableiframecontent"));
 				
 				document.getElementById("layouttableiframecontent").style.display='block';
-				document.getElementById("systemtext_div").style.display='block';
+				//document.getElementById("systemtext_div").style.display='block';
 				document.getElementById("qam_div").style.display='block';
 				
 				// HIDE WINDOWS
@@ -377,6 +397,43 @@ function togglebutton_M_C(ButtonName,ButtonStatus,maxcol) {
 				document.getElementById(td_name).className = 'item_name_small_active';	
 			}
 			
+		}
+
+}
+
+function togglebutton_M_F_color(ButtonName,ButtonStatus,on,off) {
+	// Takes the given variables and colors a button accordingly
+	// Each button has four parts:
+	//		Outer SPace
+	//		Icon
+	//		Inner Space
+	//		Name
+	
+	// ButtonName will be a portion of the name of the button, the applicable four used names are:
+	
+	var OSpaceName = 'OSpace_MMC' + escape(ButtonName);
+	var ISpaceName = 'ISpace_MMC' + escape(ButtonName);
+	var IconName = 'Icon_MMC' + escape(ButtonName);
+	var NameName = 'Name_MMC' + escape(ButtonName);
+	var FieldName = 'Field_MMC' + escape(ButtonName);
+	var FormatName = 'Format_MMC' + escape(ButtonName);
+
+	if(ButtonStatus == 'off') {
+			// Turn the button off
+			document.getElementById(OSpaceName).className = off;
+			document.getElementById(ISpaceName).className = off;
+			document.getElementById(IconName).className = off;
+			document.getElementById(NameName).className = off;
+			document.getElementById(FieldName).className = off;
+			document.getElementById(FormatName).className = off;			
+		} else {
+			// If Not OFF Turn the button ON
+			document.getElementById(OSpaceName).className = on;
+			document.getElementById(ISpaceName).className = on;
+			document.getElementById(IconName).className = on;
+			document.getElementById(NameName).className = on;
+			document.getElementById(FieldName).className = on;
+			document.getElementById(FormatName).className = on;			
 		}
 
 }

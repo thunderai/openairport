@@ -323,7 +323,7 @@ if ($tblheadersort==1) {
 	$sql_failsafe 		= str_replace("%3D","=",$sql);
 	
 	if (!isset($_POST["formoptionpageation"])) {
-			$form_pagetodisplay	= 1;
+			$form_pagetodisplay	= 0;
 			$form_startcountat	= 0;			
 			
 			$sql = $sql." LIMIT ".$form_startcountat.",".$tblpagationgroup."";
@@ -342,7 +342,7 @@ if ($tblheadersort==1) {
 	//ECHO "The Completed SQL Statement is <font size='1'> ".$sql_notlimited."</font>";	
 	
 if (!isset($_POST["frmarchives"])) {
-		$tblarchivedsort	= '';
+		$tblarchivedsort	= 0;
 	}
 	else {
 		// the field does exist, what is its current value
@@ -350,7 +350,7 @@ if (!isset($_POST["frmarchives"])) {
 	}
 
 if (!isset($_POST["frmclosed"])) {
-		$tblclosedsort		= '';
+		$tblclosedsort		= 0;
 	}
 	else {
 		// the field does exist, what is its current value
@@ -358,7 +358,7 @@ if (!isset($_POST["frmclosed"])) {
 	}	
 	
 if (!isset($_POST["frmduplicate"])) {
-		$tblduplicatesort	= '';
+		$tblduplicatesort	= 0;
 	}
 	else {
 		// the field does exist, what is its current value
@@ -431,7 +431,7 @@ if ($tbldisplaytotal==1) {
 				</td>				
 			</tr>
 		<tr>
-			<td>
+			<td align="left" valign="top" />
 	<?php
 	$encoded 			  = urlencode($sql);
 	$encoded_notlimited	  = urlencode($sql_notlimited);
@@ -624,7 +624,7 @@ if ($tbldisplaytotal==1) {
 							</td>				
 						</tr>				
 					<tr>
-						<td>
+						<td align="left" valign="top" />
 						<?php
 						// Load Control Buttons
 						_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
@@ -637,6 +637,7 @@ if ($tbldisplaytotal==1) {
 						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
 						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$form_pagetodisplay);
 						_tp_control_function_submit();
+						_tp_control_function_button_toggle('notused','Close','icon_close','toggle_new','sorting_controls_win');
 						?>
 						</td>
 					</tr>
@@ -758,7 +759,14 @@ if ($tbldisplaytotal==1) {
 																							if (!isset($_POST["frmarchives"])) {
 																									// The FORM POST has not been set yet.
 																									// DO NOTHING
-																									$dontdisplay_archived	= 0;
+																									$displayrow			= 	$function_archivedsort($objarray[$tblkeyfield],$tblarchivedsort);	// returns 1 if row is archived
+																									////echo "Should this row be displayed? :".$displayrow."<br><br>";
+																									if ($displayrow == 0) {
+																											$dontdisplay_archived = 1;
+																										}
+																										else {
+																											$dontdisplay_archived = 0;
+																										}
 																									
 																								} else {
 																									if ($_POST['frmarchives'] == 0) {
@@ -771,6 +779,8 @@ if ($tbldisplaytotal==1) {
 																												else {
 																													$dontdisplay_archived = 0;
 																												}
+																										} else {
+																											$dontdisplay_archived = 0;
 																										}
 																								}
 																						}
@@ -1180,7 +1190,7 @@ if ($tbldisplaytotal==1) {
 							</td>				
 						</tr>
 					<tr>
-						<td>
+						<td align="left" valign="top" />
 							<?php
 				$tblkeyvalue = $objarray[$tblkeyfield];
 				if (!isset($array_duplicatecontrol)) {
@@ -1364,7 +1374,7 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 	<tr>
-		<td colspan="2" align="right" class="perp_mainmenutable" />
+		<td colspan="2" class="perp_mainmenutable" align="left" valign="top" />
 			<?php
 			//echo "Function Mapit Push [".$function_mapit_push."] <br>";
 			if (!isset($function_mapit_push)) {

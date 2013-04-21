@@ -132,9 +132,9 @@ if (!isset($_POST["systemuserid"])) {
 //		They are not loaded here, they are just defined
 ?>
 <div class="fullscreen" name="navigationdisplaypanel" id="navigationdisplaypanel" style="display: none;" />
-	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:0px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+	<table width="100%" height="100%" cellpadding="0" cellspacing="0" />
 		<tr>
-			<td id='navigationajaxcenter' />
+			<td id='navigationajaxcenter' align="left" valign="top" />
 				<?php
 				// Display Navigtional Menu System					
 				$whoareyou = $_SESSION["user_id"];	
@@ -154,7 +154,7 @@ if (!isset($_POST["systemuserid"])) {
 				class="item_name_inactive" 
 				onmouseover="MainMenuButton.className='item_name_active';" 
 				onmouseout="MainMenuButton.className='item_name_inactive';" 
-				onClick="divwin=dhtmlwindow.open('navigationdisplaypanel_div', 'div', 'navigationdisplaypanel', 'Menu Navigation', 'width=350px,height=225px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
+				onClick="divwin=dhtmlwindow.open('navigationdisplaypanel_div', 'div', 'navigationdisplaypanel', 'Menu Navigation', 'width=350px,height=250px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
 				Main Menu
 				</td>
 			</tr>
@@ -168,7 +168,7 @@ if (!isset($_POST["systemuserid"])) {
 		</table>
 	</div>	
 
-<div id="systemactivity_win" name="systemactivity_win" style="display: none;" />
+<div id="systemactivity_win" name="systemactivity_win" style="width:0px;height:0px;display: none;" />
 	<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:0px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
 		<tr>
 			<td class="perp_systemactivity_box" />
@@ -241,11 +241,11 @@ if (!isset($_POST["systemuserid"])) {
 <script type='text/javascript'>
 	var quickaccessmenu_win=dhtmlwindow.open('qam_div', 'div', 'quickaccessmenu', 'Quick Access', 'top=<?php echo $array_qam[0];?>px,left=<?php echo $array_qam[1];?>px,width=<?php echo $array_qam[2];?>px,height=<?php echo $array_qam[3];?>px,resize=1,scrolling=1,center=0', 'recal')
 	</script>
-
-<script type='text/javascript'>
-	var systemactivitypanel_win=dhtmlwindow.open('systemtext_div', 'div', 'systemactivity_win', 'System Activity', 'top=0px,left=0px,width=0px,height=0px,resize=0,scrolling=0,center=0', 'recal')
-	</script>
 <?php
+/* <script type='text/javascript'>
+	var systemactivitypanel_win=dhtmlwindow.open('systemtext_div', 'div', 'systemactivity_win', 'System Activity', 'top=0px,left=0px,width=0px,height=0px,resize=0,scrolling=0,center=0', 'recal')
+	</script> */
+
 // LOAD DHTML WINDOWS on PAGE LOAD...
 //
 //	Set variables
@@ -259,10 +259,27 @@ if (!isset($_POST["systemuserid"])) {
 	//$qam_height		= 40;
 	$dash_zindex		= 100;																		// Not Used
 	$array_dash		= array($dash_top,$dash_left,$dash_width,$dash_height,$dash_zindex);
-?>
+	
+	echo "POST SETTINGS :".$_POST["bypassdash"]." <br>";
+	
+	if (!isset($_POST["bypassdash"])) {
+			// Not set display it
+			$displaydash = 1;
+		} else {	
+			if($_POST['bypassdash'] == 1) {
+					// Bypass dash is one.  DO not display the dash
+					$displaydash = 0;
+				} else {
+					$displaydash = 1;
+				}
+		}
+	?>
 <script type='text/javascript'>
-	var contentpanel_win=dhtmlwindow.open('layouttableiframecontent', 'iframe', 'index_new.php', 'Dash Panel', 'top=<?php echo $array_dash[0];?>px,left=<?php echo $array_dash[1];?>px,width=<?php echo $array_dash[2];?>px,height=<?php echo $array_dash[3];?>px,resize=1,scrolling=1,center=0', 'recal')
-	</script>	
+	var contentpanel_win=dhtmlwindow.open('layouttableiframecontent', 'iframe', 'index_new.php', 'Dash Panel', 'top=<?php echo $array_dash[0];?>px,left=<?php echo $array_dash[1];?>px,width=<?php echo $array_dash[2];?>px,height=<?php echo $array_dash[3];?>px,resize=1,scrolling=1,center=0', 'recal');
+	</script>		
+
+	
+	
 <div name="indexmap" id="indexmap" style="position:fixed;top:0px;width:100%;height:100%;z-index:90;overflow:auto;" />
 	<?php
 	include('_iframe_getairportmap.php');

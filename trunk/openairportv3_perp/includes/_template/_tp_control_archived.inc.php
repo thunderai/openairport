@@ -50,7 +50,7 @@ $icons_height = '25';
 									else {
 										// There are records to display, display control.
 										while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
-												$tmpid = $objarray2[$settingsarray[1]."_archeived_id"];
+												$tmpid 			= $objarray2[$settingsarray[1]."_archeived_id"];
 												$button_name 	= 'Archived History';	
 												$image_name		= 'icon_archhistory';
 												$form_name		= 'ArchivedHistoryReportForm';

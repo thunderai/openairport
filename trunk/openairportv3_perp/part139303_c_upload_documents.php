@@ -64,6 +64,7 @@ if (!isset($_POST["formsubmit"])) {
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
+			
 			include("includes/_template/_tp_blockform_form_header.binc.php");
 
 		?>
@@ -94,6 +95,7 @@ if (!isset($_POST["formsubmit"])) {
 				$display_close			= 1;														// 1: Display Close Button, 	0: No
 				$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
+				$display_quickaccess		= 0;
 				
 			include("includes/_template/_tp_blockform_form_footer.binc.php");
 	

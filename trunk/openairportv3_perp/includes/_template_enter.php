@@ -586,7 +586,13 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 	if($tmp_default == 'post') {
 
 			// STRIP INPUT AND PREP FOR SQL INJECTION
-			$tmp_value			= $_POST[$fieldname];
+			
+			if (!isset($_POST[$fieldname])) {
+					// Not set?
+					$tmp_value	= 0;
+				} else {
+					$tmp_value			= $_POST[$fieldname];
+				}
 			//echo "Origional Value: ] ".$tmp_value." [<br>";
 			
 			$tmp_value			= strip_input($tmp_value);

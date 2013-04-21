@@ -12,6 +12,13 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 		$display_extended 	= 0;
 		$display_archived	= 0;
 		$display_error		= 0;
+		
+		$basicHTML			= '';
+		$extendedHTML		= '';
+		$archievedHTML_i	= '';
+		$archivedHTML		= '';
+		$errorHTML_i		= '';
+		$errorHTML			= '';
 
 		$webroot			= "http://localhost/openairportv3_lcars/";
 		
@@ -288,7 +295,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 
 										// Display all Bounced Information
 										$sql2 = "SELECT * FROM tbl_139_303_a_main_e 
-										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_303_a_main_a.139303_a_e_by_cb_int  
+										INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_303_a_main_e.139303_a_e_by_cb_int  
 										WHERE 139303_a_e_inspection_id = '".$discrepancyid."' 
 										ORDER BY 139303_a_e_date,1393903_a_e_time";
 										
@@ -307,7 +314,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='table_dashpanel_container_summary_header'>
-																						Archived Information
+																						Error Information
 																						</td>
 																					</tr>
 																				";
@@ -325,7 +332,7 @@ function _303_a_display_report_summary($discrepancyid = 0,$detail_level = 0,$ret
 																$errorHTML_i = "
 																				<tr>
 																					<td colspan='2' class='table_dashpanel_container_summary_header'>
-																						Archived Information
+																						Error Information
 																						</td>
 																					</tr>
 																				<tr>
