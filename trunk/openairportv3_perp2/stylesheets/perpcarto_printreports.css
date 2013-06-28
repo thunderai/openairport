@@ -1,0 +1,66 @@
+.perp_report_header {
+		font-size:			14px;
+		font-family:		Agency FB;
+		color: 				#FFFFFF; 
+		text-align:			center;
+		letter-spacing:		2px;
+		background-color: 	#000000;
+		}
+		
+.perp_report_bigheader {
+		font-size:			16px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			center;
+		letter-spacing:		2px;
+		background-color: 	#FFFFFF;
+		}		
+		
+.perp_report_subheader {
+		font-size:			12px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			center;
+		letter-spacing:		2px;
+		background-color: 	#848484;
+		}		
+		
+.perp_report_cell {
+		font-size:			12px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			center;
+		vertical-align:		text-top;
+		letter-spacing:		2px;
+		background-color: 	#D8D8D8;
+		}		
+		
+.perp_report_activecell {
+		font-size:			12px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			center;
+		vertical-align:		text-top;
+		letter-spacing:		2px;
+		background-color: 	#D8D8D8;
+		}	
+		
+.perp_report_fieldname {
+		font-size:			12px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			left;
+		vertical-align:		text-top;
+		letter-spacing:		2px;
+		background-color: 	#A4A4A4;
+		}
+		
+.perp_report_fieldcontent {
+		font-size:			12px;
+		font-family:		Agency FB;
+		color: 				#000000; 
+		text-align:			left;
+		vertical-align:		text-top;
+		letter-spacing:		2px;
+		background-color: 	#D8D8D8;
+		}		

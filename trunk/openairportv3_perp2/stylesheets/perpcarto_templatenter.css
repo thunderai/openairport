@@ -1,0 +1,122 @@
+.item_name_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+		
+.item_field_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}	
+
+.item_format_inactive_form {
+		font-size:		10px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}			
+		
+.item_name_inactive_button_form {
+		font-size:			11px;
+		font-family:		Agency FB;
+		color: 				#FFFFFF; 
+		text-align:			left;
+		letter-spacing:		2px;
+		
+		cursor:				help;
+		background-color: 	CoCoCo;
+		opacity:			0.6;
+		}		
+		
+.item_space_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+
+.item_icon_inactive_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginbackground.png');
+		}
+		
+		
+.item_name_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+	
+.item_field_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+
+.item_format_active_form {
+		font-size:		10px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+		
+.item_space_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		center;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
+
+.item_icon_active_form {
+		font-size:		11px;
+		font-family:	Agency FB;
+		color: 			#FFFFFF; 
+		text-align:		left;
+		letter-spacing:	2px;
+		
+		cursor:pointer;
+		background-image:url('_cssimages/loginfields.png');
+		}
