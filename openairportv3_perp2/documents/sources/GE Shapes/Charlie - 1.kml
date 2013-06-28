@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Charlie - 1.kml</name>
+	<Style id="style_Mu29">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="style_Mu290">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style_Mu291</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style_Mu29</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="style_Mu291">
+		<IconStyle id="icon_Mu29">
+			<color>ff0000ff</color>
+			<Icon>
+				<href>http://cross-hairs.png</href>
+			</Icon>
+		</IconStyle>
+		<LineStyle id="line_Mu29">
+			<color>ff000000</color>
+			<width>5</width>
+		</LineStyle>
+		<PolyStyle id="poly_Mu29">
+			<color>ff1659ff</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>Charlie - 1</name>
+		<styleUrl>#style_Mu290</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-97.15136605117203,44.90165772815503,0 -97.15136478874885,44.90220647317848,0 -97.15144654746851,44.90208771878099,0 -97.15152577173825,44.90200871614178,0 -97.15161776048633,44.90195433582275,0 -97.15171217495968,44.90191892023377,0 -97.15176719920545,44.90189089781681,0 -97.15185987989655,44.90187767223206,0 -97.15192491845585,44.90187131706706,0 -97.15230858330412,44.90187569094748,0 -97.15235406485775,44.90187528536422,0 -97.15239756552907,44.90188014073328,0 -97.15243707839974,44.90188814804842,0 -97.15247290425343,44.9019027007643,0 -97.15249444566261,44.90191687277276,0 -97.15251864056634,44.90193636365068,0 -97.15253245875471,44.90195404610704,0 -97.15255389930005,44.90198476580224,0 -97.15255947928691,44.90200115099881,0 -97.15261179954783,44.90240485115483,0 -97.15280311804447,44.90242683496836,0 -97.15280288801338,44.90193646760601,0 -97.15278492219935,44.90186240571979,0 -97.15273896865386,44.90180516588332,0 -97.15269322813802,44.90176216676209,0 -97.15261840834901,44.90171545199165,0 -97.15252510910905,44.90168045201997,0 -97.15242381234538,44.90166700154902,0 -97.15215896702988,44.90166294770371,0 -97.15136605117203,44.90165772815503,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>
