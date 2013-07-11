@@ -34,19 +34,19 @@
 																	case 0:
 																			?>
 	<div style="position:absolute; z-index:13; left:<?php echo $objfields['139339_f_locx'];?>; top:<?php echo $objfields['139339_f_locy'];?>; width:450; align="center" />
-		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
+		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000" />
 																	
 			<tr>
-					<td height="37" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td height="37" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
-					<td align="center" valign="middle" width="50" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>CLD ?
 						</td>
-					<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td  align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td  align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>																		
@@ -57,7 +57,7 @@
 		<div style="position:absolute; z-index:13; left:<?php echo $objfields['139339_f_locx'];?>; top:<?php echo $objfields['139339_f_locy'];?>; width:270; align="center" />
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 			<tr>
-				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="2"><B>Mu test conducted from</b></font>
 					</td>
 				</tr>														<?php
@@ -67,7 +67,7 @@
 		<div style="position:absolute; z-index:13; left:<?php echo $objfields['139339_f_locx'];?>; top:<?php echo $objfields['139339_f_locy'];?>; width:270; align="center" />
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 			<tr>
-				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="2"><B>Operational Notices</b></font>
 					</td>
 				</tr>																	
@@ -79,16 +79,16 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 																	
 			<tr>
-					<td height="37" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td height="37" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
-					<td align="center" valign="middle" width="50" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>CLD ?
 						</td>
-					<td align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td  align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td  align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>																		
@@ -100,27 +100,27 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 																	
 			<tr>
-					<td height="37" rowspan="2" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td height="37" rowspan="2" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
-					<td rowspan="2" align="center" valign="middle" width="50" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td rowspan="2" align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>CLD ?
 						</td>
-					<td rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td rowspan="2" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td colspan="3" align="center" valign="middle" width="60" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>
 				<tr>
-					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#C8C8C8" style="opacity:.7;" />
 						<font size="2">T
 						</td>
-					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#C8C8C8" style="opacity:.7;" />
 						<font size="2">M
 						</td>
-					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#FFFFFF" background="images/part_139_327/cellbackground.png" />
+					<td colspan="1" align="middle" valign="center" width="30" bgcolor="#C8C8C8" style="opacity:.7;" />
 						<font size="2">R
 						</td>
 					</tr>																			<?php
@@ -168,7 +168,7 @@
 															// Display Facility Name
 															?>
 					<tr>
-      					<td align="left" valign="middle" name="<?=($objfields["139339_c_facility_cb_int"]);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
+      					<td align="left" valign="middle" name="<?=($objfields["139339_c_facility_cb_int"]);?>" height="15" bgcolor="#FFFFFF" style="opacity:.7;" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
       						&nbsp;
 							<font size="3">
 								<? 
@@ -248,7 +248,7 @@
 																					$tmpaverage		= round($tmpaverage);
 																				//Display Average
 																					?>
-						<td align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
+						<td align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" bgcolor="#FFFFFF" style="opacity:.7;" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
       						<font size="3">
 								<?
 								if ($tmpaverage==0) {
@@ -279,7 +279,7 @@
 																		}
 																		else {
 																			?>
-      					<td align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
+      					<td align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" bgcolor="#FFFFFF" style="opacity:.7;" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
       						<font size="3">
 							<?
 							switch ($objfields['139339_cc_type']) {
@@ -319,7 +319,7 @@
 																						break;
 																			}
 																?>
-      					<td colspan="<?=($tmpcolspan);?>" align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
+      					<td colspan="<?=($tmpcolspan);?>" align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" bgcolor="#FFFFFF" style="opacity:.7;" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
       						<font size="3">
 							<?
 							switch ($objfields['139339_cc_type']) {

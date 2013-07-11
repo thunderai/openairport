@@ -18,15 +18,17 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>; align="center">
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />				
 				<tr>
-					<td width="12" rowspan="8" class="item_space_small_active" />
-						<?php echo $disid;?>
-						<?php
-						// Count char in the ID and add to total chars for this record
-						$charcount_tmp 	= strlen($disid);
-						$charcount		= ($charcount + $charcount_tmp);
-						?>
+					<td width="12" rowspan="8" bgcolor="#FFFFFF" style="opacity:.7;" />
+						<font size="2" color="#000000" />
+							<?php echo $disid;?>
+							<?php
+							// Count char in the ID and add to total chars for this record
+							$charcount_tmp 	= strlen($disid);
+							$charcount		= ($charcount + $charcount_tmp);
+							?>
 						</td>
-					<td class="item_name_small_inactive" />
+					<td bgcolor="#FFFFFF" style="opacity:.7;" />
+						<font size="2" color="#000000" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 15;
@@ -44,7 +46,8 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 						?>
 						<?php echo $display_name;?>
 						</td>
-					<td class="item_name_small_inactive" />
+					<td bgcolor="#FFFFFF" style="opacity:.7;" />
+						<font size="2" color="#000000" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 30;
@@ -64,7 +67,8 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 						</td>
 					</tr>
 				<tr>
-					<td colspan="3" class="item_name_small_inactive" />				
+					<td colspan="3" bgcolor="#FFFFFF" style="opacity:.7;" />
+						<font size="2" color="#000000" />				
 				<?php
 					if ($distools == 1) {
 							// Display all functions and buttons for this Discrepancy
@@ -122,7 +126,7 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 						// Round the total_pixels number to zero places
 						$total_pixels = round($total_pixels,0);
 						
-						$disheight 	= ($total_pixels + 15);
+						$disheight 	= ($total_pixels + 25);
 						?>
 						</td>
 					</tr>

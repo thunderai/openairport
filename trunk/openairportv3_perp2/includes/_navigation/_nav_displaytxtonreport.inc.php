@@ -12,7 +12,7 @@ function displaytxtonreport($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpost, 
 	//	zpost:			Where is the div layer to the screen?	given in HTML units, 1 is LOWER 100 is higher.
 
 	?>
-	<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>; top:<?php echo ($ypost);?>; z-index:<?php echo ($zpost);?>; align="center">
+	<div style="position:absolute; width:<?php echo ($wpost);?>px; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>;" align="center">
 		<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#000000" width="<?php echo ($wpost);?>" height="<?php echo ($hsize);?>">
 			<tr>
 				<td align="<?php echo ($jsize)?>">

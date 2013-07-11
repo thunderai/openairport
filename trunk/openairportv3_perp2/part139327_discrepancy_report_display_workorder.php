@@ -126,23 +126,23 @@ if (!isset($_POST["recordid"])) {
 	<div style="position:absolute; z-index:13; left:11; top:385; width:300; align="center" />
 		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" width="100%" id="AutoNumber1" />
 			<tr>
-				<td colspan="2" align="center" valign="middle" class="item_space_active" />
+				<td colspan="2" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 					Discrepancy Information
 					</td>
 				</tr>				
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="42" width="125" />
 					&nbsp; Name
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					<?php echo $objarray['Discrepancy_name'];?>
 					</td>					
 				</tr>
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="42" width="125" />
 					&nbsp; Comments
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					<?php echo $objarray['discrepancy_remarks'];?>
 					</td>					
 				</tr>
@@ -169,21 +169,21 @@ if (!isset($_POST["recordid"])) {
 											if ($number_of_rows >= 1) {
 											?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" class="item_name_active" />
+							<td colspan="4" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Repair History
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Date
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Time
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								By
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Comments
 								</td>
 							</tr>							
@@ -192,7 +192,7 @@ if (!isset($_POST["recordid"])) {
 												else {
 													?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" align="center" valign="middle" class="item_name_active" />
+							<td colspan="4" align="center" valign="middle" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								No Repair History
 								</td>
 							</tr>													
@@ -201,16 +201,16 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_repaired_date'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_repaired_time'];?>
 								</td>	
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_repaired_comments'];?>
 								</td>									
 							</tr>													
@@ -245,21 +245,21 @@ if (!isset($_POST["recordid"])) {
 											if ($number_of_rows >= 1) {
 											?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" class="item_name_active" />
+							<td colspan="4" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Bounced History
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Date
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Time
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								By
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Comments
 								</td>
 							</tr>														
@@ -272,16 +272,16 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_bounced_date'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_bounced_time'];?>
 								</td>	
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_bounced_comments'];?>
 								</td>									
 							</tr>													
@@ -316,21 +316,21 @@ if (!isset($_POST["recordid"])) {
 											if ($number_of_rows >= 1) {
 											?>
 						<tr>
-							<td colspan="4" align="center" valign="middle" class="item_name_active" />
+							<td colspan="4" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Closed History
 								</td>
 							</tr>
 						<tr>
-							<td align="center" valign="middle" align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Date
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Time
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								By
 								</td>
-							<td align="center" valign="middle" class="item_space_active" />
+							<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 								Comments
 								</td>
 							</tr>															
@@ -343,16 +343,16 @@ if (!isset($_POST["recordid"])) {
 											while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {	
 													?>
 						<tr>
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_closed_date'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_closed_time'];?>
 								</td>	
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['emp_initials'];?>
 								</td>		
-							<td align="right" valign="middle" class="item_name_small_inactive" />
+							<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<?php echo $objarray2['discrepancy_closed_reason'];?>
 								</td>									
 							</tr>														
@@ -365,39 +365,39 @@ if (!isset($_POST["recordid"])) {
 					</td>
 				</tr>				
 			<tr>
-				<td colspan="2" align="center" valign="middle" class="item_space_active" />
+				<td colspan="2" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 					Work Order Form
 					</td>
 				</tr>
 			<tr>
-				<td align="center" valign="middle" class="item_name_small_active" height="45"/>
+				<td align="center" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="45"/>
 					Date Completed
 					</td>	
-				<td align="center" valign="middle" class="item_name_small_inactive" height="45"/>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" height="45"/>
 					&nbsp;
 					</td>					
 				</tr>				
 			<tr>
-				<td align="center" valign="middle" class="item_name_small_active" height="45"/>
+				<td align="center" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="45"/>
 					Time Completed
 					</td>	
-				<td align="center" valign="middle" class="item_name_small_inactive" height="45"/>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" height="45"/>
 					&nbsp;
 					</td>						
 				</tr>					
 			<tr>
-				<td align="center" valign="middle" class="item_name_small_active" height="45"/>
+				<td align="center" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="45"/>
 					Completed By
 					</td>	
-				<td align="center" valign="middle" class="item_name_small_inactive" height="45"/>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" height="45"/>
 					&nbsp;
 					</td>						
 				</tr>					
 			<tr>
-				<td align="center" valign="middle" class="item_name_small_active" height="45"/>
+				<td align="center" valign="middle" bgcolor="#C8C8C8" style="opacity:.7;" height="45"/>
 					Remarks
 					</td>	
-				<td align="center" valign="middle" class="item_name_small_inactive" height="45"/>
+				<td align="center" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" height="45"/>
 					&nbsp;
 					</td>					
 				</tr>				

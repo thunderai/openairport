@@ -49,25 +49,35 @@
 		<form name="entryform">
 		<input id="<?=$fieldname;?>" name="<?=$fieldname;?>" type="hidden">
 			</form>
-		<table border="0" width="550" class="formoptions" cellspacing="5" cellpadding="5">
-			<tr>
-				<td colspan="4" class="tableheaderleft" >
-					Species Help Chart
-					</td>
-				</tr>
-			<tr>
-				<td colspan="4" class="formoptions" align="center">
-					<p>
-						You may use this form to help determine which animal you are seeing out in the field. 
-						Each image shows an example of a different type of animal that could be seen at the airport.
-						</p>
-					<p>
-						- Click on the name of the animal to open a new window with a larger view of the animal.<br>
-						- Click on the picture of the animal to automatically select that animal in the Wildlife Hazard Management Form.<br>
-						- Cliking on the classification of the animal will do a Google Search for that animal.
-						</p>
-					</td>
-				</tr>
+	<table border="0" width="100%" id="tblbrowseformtable" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="perp_menuheader" />
+				Species Help Chart
+				</td>			
+			</tr>			
+		<tr>
+			<td class="perp_menusubheader" />
+				(
+				Click on the picture of an animal to select it
+				)
+				</td>				
+			</tr>	
+		<tr>
+			<td class="item_name_small_inactive" />
+				<p>
+					You may use this form to help determine which animal you are seeing out in the field. 
+					Each image shows an example of a different type of animal that could be seen at the airport.
+					</p><br>
+				<p>
+					- Click on the name of the animal to open a new window with a larger view of the animal.<br>
+					- Click on the picture of the animal to automatically select that animal in the Wildlife Hazard Management Form.<br>
+					- Cliking on the classification of the animal will do a Google Search for that animal.
+					</p>
+				</td>
+			</tr>
+		<tr>
+			<td class="item_name_small_inactive" />
+				<table width="100%" cellpadding="0" cellspacing="0" />
 		<?php
 		// To display the species for the user, sort the species records, by name resetting the row every four animals
 		
@@ -102,12 +112,12 @@
 										// This is the first row or the next full row
 										// Start a new table row
 										?>
-			<tr>
+			
 										<?php
 									}
 									?>
-				<td align="left" valign="top">
-					<table cellpadding="0" cellspacing="3" border="1" class="formheaders">
+				
+					<table width="125" height="200" cellpadding="0" cellspacing="3" border="1" class="formheaders" style="float:left;" />
 						<?php
 						// Take name of species, cut out all spaces, and that is our image name
 						$speciesimage = str_replace(" ","",$objfields['139337_sub_s_name']);
@@ -176,8 +186,7 @@
 								if($rowcounter == 4) {
 										// End this row and reset the variable
 										?>
-					</td>
-				</tr>
+					
 										<?php
 										$rowcounter = 0;
 									}

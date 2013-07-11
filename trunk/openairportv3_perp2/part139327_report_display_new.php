@@ -310,7 +310,7 @@ if (!isset($_POST["recordid"])) {
 										//echo "[in j]: Display Facility Header	<br>";
 										?>
 			<tr>
-				<td colspan="2" width="*" class="item_space_small_active" />
+				<td colspan="2" width="*" bgcolor="#C0C0C0" style="opacity:.9;" />
 					<?php echo $checklistcontent[$j][1];?>
 					</td>
 				</tr>
@@ -318,10 +318,13 @@ if (!isset($_POST["recordid"])) {
 									}
 									?>
 			<tr>
-				<td width="*" class="item_space_small_inactive" />
-					<?php echo $checklistcontent[$j][2];?>
+				<td width="*" bgcolor="#FFFFFF" style="opacity:.7;" />
+					<font size="2" color="#000000" />
+						<?php echo $checklistcontent[$j][2];?>
+						</font>
 					</td>	
-				<td width="20" class="item_space_small_inactive" />
+				<td width="20" bgcolor="#FFFFFF" style="opacity:.7;" />
+					<font size="2" color="#000000" />
 					<?php
 					if ($checklistcontent[$j][3] == 0) {
 							//Display Clean X
@@ -362,18 +365,22 @@ if (!isset($_POST["recordid"])) {
 <div style="position:absolute; width:160px; left:570px; top:175px; z-index:20;" align="left" />
 	<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />
 		<tr>
-			<td colspan="3" class="item_space_small_active" />
-				Issued Discrepancies
+			<td colspan="3" bgcolor="#C0C0C0" style="opacity:.7;" />
+				<font size="2" color="#000000" />
+					Issued Discrepancies
 				</td>			
 			</tr>	
 		<tr>
-			<td class="item_space_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				ID
 				</td>
-			<td class="item_name_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				Name
 				</td>
-			<td class="item_name_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				Remarks
 				</td>			
 			</tr>
@@ -476,7 +483,8 @@ if (!isset($_POST["recordid"])) {
 									if($internal_counter == 0) {
 											?>
 		<tr>
-			<td colspan="3" class="item_space_small_inactive" />
+			<td colspan="3" bgcolor="#FFFFFF" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				None Issued
 				</td>			
 			</tr>
@@ -521,27 +529,31 @@ if (!isset($_POST["recordid"])) {
 <div style="position:absolute; width:160px; left:<?php echo $tempX;?>px; top:<?php echo $tempY;?>px; z-index:20;" />					
 	<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />					
 		<tr>
-			<td colspan="3" class="item_space_small_active" />
+			<td colspan="3" bgcolor="#C0C0C0" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				Also Owned
 				</td>			
 			</tr>					
 		<tr>
-			<td class="item_space_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				ID
 				</td>
-			<td class="item_name_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				Name
 				</td>
-			<td class="item_name_small_active" />
+			<td bgcolor="#C8C8C8" style="opacity:.7;" />
+				<font size="2" color="#000000" />
 				Remarks
-				</td>			
+				</td>		
 			</tr>
 		</table>
 	</div>									
 											<?php
 											
 										}
-									$tempY			= $tempY + 55;	
+									$tempY			= $tempY + 60;	
 									while ($objarray1 = mysqli_fetch_array($objrs1, MYSQLI_ASSOC)) {	
 	
 	//				Connduct tests to see if Discrepancy should even be displayed.

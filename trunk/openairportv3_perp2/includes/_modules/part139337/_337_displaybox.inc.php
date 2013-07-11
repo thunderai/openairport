@@ -15,7 +15,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 		//
 		?>
 		
-		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>; top:<?php echo ($ypost);?>; z-index:<?php echo ($zpost);?>; align="center">
+		<div style="position:absolute; width:<?php echo ($wpost);?>px; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>; align="center">
 			<table border="1" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" />
 				<tr>
 					<td class="item_name_small_active" />
@@ -127,7 +127,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 		//
 		?>
 		
-		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>; top:<?php echo $tempY;?>; align="left">
+		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>px; top:<?php echo $tempY;?>px;" align="left">
 			<table border="0" cellpadding="0" cellspacing="0" id="AutoNumber1">
   				<tr>
 					<form style="margin-bottom:0;" action="part139337_report_display.php" method="POST" name="dislookform<?php echo $disid;?>" id="dislookform<?php echo $disid;?>" target="dislookformwindow<?php echo $disid;?>" onsubmit="window.open('', 'dislookformwindow<?php echo $disid;?>', 'width=768,height=550,status=no,resizable=no,scrollbars=yes')">

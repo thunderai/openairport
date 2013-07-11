@@ -40,17 +40,17 @@
 <?php
 // Load global include files
 	
-		//include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
+		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
 		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
 	
 // Load Page Specific Includes
-		include("includes/_dateandtime/dateandtime.list.php");
+		//include("includes/_dateandtime/dateandtime.list.php");
 		include("scripts/_scripts_header_iface.inc.php");
-		include("includes/_systemusers/systemusers.list.php");
+		//include("includes/_systemusers/systemusers.list.php");
 		include("includes/_modules/part139339/part139339.list.php");
-		include("includes/_navigation/navigation.list.php");
+		//include("includes/_navigation/navigation.list.php");
 		include("includes/_template/template.list.php");
-		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
+		//include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
 	
 // Define Variables...
 //						for Auto Entry Function {Beginning of Page}
@@ -137,7 +137,7 @@
 							//echo "image name".$name_of_image_background;
 							?>
 	<div style="position:absolute; z-index:1; left:3; top:84; width:<?php echo $maparray[1][1];?>;" align="left" />
-		<img src="images/part_139_327/<?php echo $maparray[1][0];?>" width="<?php echo $maparray[1][1];?>" height="<?php echo $maparray[1][2];?>" />
+		<img src="images/part_139_327/<?php echo $maparray[3][0];?>" width="<?php echo $maparray[1][1];?>" height="<?php echo $maparray[1][2];?>" />
 		</div>
 	<div style="position:absolute; z-index:2; left:0; top:30; width:<?php echo $maparray[2][1];?>;" align="left" />
 		<img src="images/part_139_327/<?php echo $maparray[2][0];?>" width="<?php echo $maparray[2][1];?>" height="<?php echo $maparray[2][2];?>" />
@@ -198,19 +198,19 @@
 	
 	//Display Hard Text
 	//					Filed Name / Variable				b	f	h	j		w		x		y	z
-	displaytxtonreport ("Watertown Regional Airport (KATY)"	, 1	, 2	, 13	, "Left"	, 300	, 10	,  85	,  3);
+	//displaytxtonreport ("Watertown Regional Airport (KATY)"	, 1	, 2	, 13	, "Left"	, 300	, 10	,  85	,  3);
 	displaytxtonreport($objarray['139339_main_id']			, 1	, 1	, 13	, "Right"	,  30	, 690	,   0	,  3);
 	displaytxtonreport("NOTAM Report"						, 1	, 5	, 13	, "Center"	, 713	,   0	,   3	,  3);
 	displaytxtonreport("DATE"								, 1	, 2	, 13	, "Left"	, 190	,   5	,  32	,  3);
 	displaytxtonreport($tmpdate								, 1	, 2	, 13	, "Center"	, 190	,  95	,  32	,  3);
 	displaytxtonreport("DAY"								, 1	, 2	, 13	, "Left"	, 190	, 290	,  32	,  3);
 	displaytxtonreport("TIME"								, 1	, 2	, 13	, "Left"	, 190	,   5	,  52	,  3);
-	displaytxtonreport($main_time							, 1	, 2	, 13	, "Center"	, 190	,  95	,  52	,  3);
+	displaytxtonreport($tmptime								, 1	, 2	, 13	, "Center"	, 190	,  95	,  52	,  3);
 	displaytxtonreport("INSPECTED BY"						, 1	, 2	, 13	, "Left"	, 190	, 290	,  52	,  3);
 	displaytxtonreport($tmpinspector						, 1	, 3	, 13	, "left"	, 190	, 395	, 52	, 12);	
-	displaytxtonreport("Here is the FiCON you requested"	, 1	, 1	, 50	, "right"	, 132	, 611	, 33	, 12);
-	displaytxtonreport($objarray['139339_sub_n_notes']		, 1	, 2	, 13	, "Left"	, 415	,   5	,  865	,  3);
-	displaytxtonreport($objarray['139339_sub_n_metar']		, 1	, 1	, 13	, "Center"	, 415	,   5	,  910	,  3);			
+	displaytxtonreport("Here is the NOTAM you requested"	, 1	, 1	, 50	, "right"	, 132	, 611	, 33	, 12);
+	//displaytxtonreport($objarray['139339_sub_n_notes']		, 1	, 2	, 13	, "Left"	, 415	,   5	,  865	,  3);
+	//displaytxtonreport($objarray['139339_sub_n_metar']		, 1	, 1	, 13	, "Center"	, 415	,   5	,  910	,  3);			
 	displaytxtonreport($intstartday							, 1	, 2	, 13	, "Center"	, 185	, 392	,  32	,  3);
 	
 	// Placement Maps
@@ -218,14 +218,94 @@
 		$offset_y						= 90;						
 		$i = 0;
 ?>
-		<div style="position:absolute; z-index:13; left:7; top:440; width:420; align="center" />
+		<div style="position:absolute; z-index:13; left:3; top:440; width:420; align="center" />
 			<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 					<tr>
-      					<td rowspan="2" class="formheaders">
-      							Surface
+      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
+							<font size="2" color="#FFFFFF" />
+								NOTES
+								</font>
 							</td>
-      					<td rowspan="2" class="formheaders">
-      							Closed ?<br>Yes?
+						</tr>					
+					<tr>
+      					<td colspan="3" bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php
+								$notelength = strlen($objarray['139339_sub_n_notes']);
+								if($notelength == 0) {
+										?>
+								No Notes Provided
+										<?php
+									} else {
+										?>
+								&nbsp;<?php echo $objarray['139339_sub_n_notes'];?>
+										<?php
+									}
+									?>
+								</font>
+							</td>							
+						</tr>
+
+					<tr>
+      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
+							<font size="2" color="#FFFFFF" />
+								Contacted on Issue
+								</font>
+							</td>
+						</tr>					
+					<tr>
+      					<td bgcolor="#808080" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								WX
+								</font>
+							</td>
+      					<td bgcolor="#808080" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								Airline
+								</font>
+							</td>
+      					<td bgcolor="#808080" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								FBO
+								</font>
+							</td>							
+						</tr>						
+					<tr>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray['139339_sub_n_wx_in'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray['139339_sub_n_airline_in'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray['139339_sub_n_fbo_in'];?>
+								</font>
+							</td>							
+						</tr>					
+					
+					
+					<tr>
+      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
+      							<font size="2" color="#FFFFFF" />
+									Surface Closures
+									</font>
+								</td>
+						</tr>
+					<tr>
+      					<td colspan="2" bgcolor="#808080" align="center" valign="center" />
+      							<font size="1" color="#000000" />
+									Surface Name
+									</font>
+							</td>
+      					<td bgcolor="#808080" align="center" valign="center" />
+      							<font size="1" color="#000000" />
+									Closed ?
+									</font>
 							</td>
 						</tr>
 					<tr>
@@ -252,7 +332,18 @@
 									if ($res) {
 											$number_of_rows = mysqli_num_rows($res);
 											//printf("result set has %d rows. \n", $number_of_rows);
-					
+											if($number_of_rows == 0) {
+													// No records to display
+											?>
+					<tr>
+      					<td colspan="3" bgcolor="#808080" align="center" valign="center" />
+      							<font size="2" color="#000000" />
+									NO SURFACES CLOSED AS PART OF THIS NOTAM
+									</font>
+							</td>
+						</tr>											
+											<?php
+												}
 											while ($objfields = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
 																										
 													$tmpid 					= $objfields['139339_c_id'];
@@ -291,9 +382,8 @@
 															// Display Facility Name
 															?>
 					<tr>
-      					<td align="left" valign="middle" name="<?=($objfields["139339_c_facility_cb_int"]);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
-      						&nbsp;
-							<font size="2">
+      					<td colspan="2" bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
 								<? 
 								$tmpfacility = $objfields["139339_c_facility_cb_int"];
 								part139339_c_facilitycombobox($tmpfacility, "all", "notused", "hide", "all");
@@ -304,9 +394,9 @@
 															}
 
 															?>
-      					<td colspan="<?=($tmpcolspan);?>" align="center" valign="middle" name="<?=($tmpcondnamestr);?>" height="15" background="images/part_139_327/cellbackground.png" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;" />
-      						<font size="2">
-							<?
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?
 							switch ($objfields['139339_cc_type']) {
 									case 0:
 											echo $objfields["139339_cc_d_yn"];
@@ -349,9 +439,10 @@
 												}
 											break;
 								}
-								?>								
+								?>
 								</font>
-							</td>																		
+							</td>															
+																					
 								<?
 															
 												// IS THIS SURFACE A RUNWAY OR A TAXIWAY?
@@ -424,6 +515,151 @@
 										}	// end of Res Record Object						
 								}
 								?>
+					<tr>
+      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
+							<font size="2" color="#FFFFFF" />
+								METAR
+								</font>
+							</td>
+						</tr>					
+					<tr>
+      					<td colspan="3" bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php
+								$notelength = strlen($objarray['139339_sub_n_metar']);
+								if($notelength == 0) {
+										?>
+								No Metar Provided
+										<?php
+									} else {
+										?>
+								&nbsp;<?php echo $objarray['139339_sub_n_metar'];?>
+										<?php
+									}
+									?>
+								</font>
+							</td>							
+						</tr>	
+					<tr>
+      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
+							<font size="2" color="#FFFFFF" />
+								Cloure Information
+								</font>
+							</td>
+						</tr>
+						
+						<?php
+						$sql2 			= "SELECT * FROM tbl_139_339_sub_n_r 
+												INNER JOIN tbl_139_339_sub_n ON tbl_139_339_sub_n.139339_sub_n_id = tbl_139_339_sub_n_r.139339_sub_n_r_cancelled_id_int 
+												INNER JOIN tbl_systemusers ON tbl_systemusers.emp_record_id = tbl_139_339_sub_n_r.139339_sub_n_r_by_cb_int 
+												WHERE tbl_139_339_sub_n.139339_sub_n_id = '".$objarray['139339_sub_n_id']."' 
+												ORDER BY tbl_139_339_sub_n.139339_sub_n_date";
+												
+							$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+									
+							if (mysqli_connect_errno()) {															// if there is an error making the connection inform the user
+									// there was an error trying to connect to the mysql database
+									printf("connect failed: %s\n", mysqli_connect_error());							// tell the user the error message
+									exit();
+								}
+								else {																				// without any errors...
+									$objrs2 = mysqli_query($objconn2, $sql2);											// create the query recordsource
+											
+									if ($objrs2) {																	// if the recordsource is created without error do...
+											$number_of_rows2 = mysqli_num_rows($objrs2);								// How many rows did the sql statement find
+											if($number_of_rows2 == 0) {
+													?>
+						<tr>
+							<td colspan="3" bgcolor="#FFFFFF" align="left" valign="middile" />
+								<font size="1">
+									NOT CLOSED
+									</font>
+								</td>
+							</tr>
+													<?php
+												}
+												while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
+														?>
+					<tr>
+      					<td colspan="3" bgcolor="#808080" align="center" valign="center" />
+							<font size="2" color="#000000" />
+								Contacted on Issue
+								</font>
+							</td>
+						</tr>					
+					<tr>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								WX
+								</font>
+							</td>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								Airline
+								</font>
+							</td>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								FBO
+								</font>
+							</td>							
+						</tr>						
+					<tr>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray2['139339_sub_n_r_wx_in'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray2['139339_sub_n_r_airline_in'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray2['139339_sub_n_r_fbo_in'];?>
+								</font>
+							</td>							
+						</tr>													
+					<tr>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								Date
+								</font>
+							</td>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								Time
+								</font>
+							</td>
+      					<td bgcolor="#cococo" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								
+								</font>
+							</td>							
+						</tr>													
+					<tr>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray2['139339_sub_n_r_date'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								<?php echo $objarray2['139339_sub_n_r_time'];?>
+								</font>
+							</td>
+      					<td bgcolor="#FFFFFF" align="center" valign="center" />
+							<font size="1" color="#000000" />
+								
+								</font>
+							</td>							
+						</tr>														
+														<?php
+													}
+											}
+									}
+?>
 					</table>
 				</div>
 					<?
