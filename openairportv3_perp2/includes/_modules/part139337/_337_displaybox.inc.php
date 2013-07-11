@@ -18,7 +18,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 		<div style="position:absolute; width:<?php echo ($wpost);?>px; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>; align="center">
 			<table border="1" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" />
 				<tr>
-					<td class="item_name_small_active" />
+					<td bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="<?php echo $fsize;?>">Name:</font>
 						<?php
 						$disheight = ($disheight + 22);
@@ -26,7 +26,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 						</td>
 					</tr>
 				<tr>
-					<td class="item_name_small_inactive" />
+					<td bgcolor="#FFFFFF" style="opacity:.7;" />
 						<font size="<?php echo $fsize;?>"><b><?php echo $disname;?></b></font>
 						<?php
 						// Get length of description field to calculate the offset required for display on the report	
@@ -42,7 +42,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 						</td>
 					</tr>
 				<tr>
-					<td class="item_name_small_active" />
+					<td bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="<?php echo $fsize;?>">Description:</font>
 						<?php
 						$disheight = ($disheight + 22);
@@ -50,7 +50,7 @@ function part139337_displaybox($txtdisplay, $bsize, $fsize,$hsize, $jsize, $wpos
 						</td>
 					</tr>
 				<tr>
-					<td class="item_name_small_inactive" />
+					<td bgcolor="#FFFFFF" style="opacity:.7;" />
 						<font size="<?php echo $fsize;?>"><b><?php echo $disremarks;?></b></font>
 						<?php
 						// Get length of description field to calculate the offset required for display on the report
