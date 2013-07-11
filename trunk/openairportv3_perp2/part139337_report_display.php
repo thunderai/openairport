@@ -129,55 +129,55 @@ if (!isset($_POST["recordid"])) {
 	<div style="position:absolute; z-index:13; left:11px; top:500px; width:400px;" align="center" />
 		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" width="100%" id="AutoNumber1" />
 			<tr>
-				<td colspan="2" align="center" valign="middle" align="center" class="item_space_active" />
+				<td colspan="2" align="center" valign="middle" align="center" bgcolor="#C0C0C0" style="opacity:.7;" />
 					Wildlife Report
 					</td>
 				</tr>				
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; Name
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $fieldname;;?>
 					</td>					
 				</tr>
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; Animal Activity
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $objarray['139337_sub_ay_name'];?>
 					</td>					
 				</tr>
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; Action Taken
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $objarray['139337_sub_an_name'];?>
 					</td>					
 				</tr>
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; Results of Action
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $objarray['139337_resultsofaction'];?>
 					</td>					
 				</tr>
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; Weather
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $objarray['139337_weather'];?>
 					</td>					
 				</tr>								
 			<tr>
-				<td align="left" valign="middle" class="item_name_small_active" height="42" width="125" />
+				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
 					&nbsp; METAR
 					</td>	
-				<td align="right" valign="middle" class="item_name_small_inactive" />
+				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $objarray['139337_metar'];?>
 					</td>					
 				</tr>								
