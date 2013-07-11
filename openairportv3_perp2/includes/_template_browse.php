@@ -649,6 +649,11 @@ if ($tbldisplaytotal==1) {
 						
 						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
 						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$form_pagetodisplay);
+						?>
+						</td>
+					<tr>
+						<td class="item_name_active" height="25" />
+						<?php
 						_tp_control_function_submit();
 						_tp_control_function_button_toggle('notused','Close','icon_close','toggle_new','sorting_controls_win');
 						?>

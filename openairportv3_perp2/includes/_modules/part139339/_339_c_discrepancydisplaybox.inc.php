@@ -6,7 +6,7 @@ function part139339_c_discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, 
 		$addedoffset	= 0;
 		$OffSetX 		= -15;
 		$OffSetY 		= 65;
-		$disheight		= 0;
+		$disheight		= 50;
 		$tempX 			= ($disx + $OffSetX );
 		$tempY 			= ($disy + $OffSetY );
 		
@@ -16,17 +16,17 @@ function part139339_c_discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, 
 		?>
 		
 		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>; top:<?php echo ($ypost);?>; z-index:<?php echo ($zpost);?>; align="center">
-			<table border="0" width="100%" cellpadding="0" cellspacing="1" BACKGROUND="images/Part_139_327/disback.gif" style="border:1px #000000 solid">
+			<table border="0" width="100%" cellpadding="0" cellspacing="1" style="border:1px #000000 solid" />
 				<tr>
-					<td>
+					<td bgcolor="#C0C0C0" style="opacity:.7;">
 						<font size="<?php echo $fsize;?>">Name:</font>
 						<?php
-						$disheight = ($disheight + 22);
+						$disheight = ($disheight + 20);
 						?>
 						</td>
 					</tr>
 				<tr>
-					<td>
+					<td bgcolor="#FFFFFF" style="opacity:.7;">
 						<font size="<?php echo $fsize;?>"><b><?php echo $disname;?></b></font>
 						<?php
 						// Get length of description field to calculate the offset required for display on the report	
@@ -42,7 +42,7 @@ function part139339_c_discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, 
 						</td>
 					</tr>
 				<tr>
-					<td>
+					<td bgcolor="#C0C0C0" style="opacity:.7;">
 						<font size="<?php echo $fsize;?>">Description:</font>
 						<?php
 						$disheight = ($disheight + 22);
@@ -50,7 +50,7 @@ function part139339_c_discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, 
 						</td>
 					</tr>
 				<tr>
-					<td>
+					<td bgcolor="#FFFFFF" style="opacity:.7;">
 						<font size="<?php echo $fsize;?>"><b><?php echo $disremarks;?></b></font>
 						<?php
 						// Get length of description field to calculate the offset required for display on the report

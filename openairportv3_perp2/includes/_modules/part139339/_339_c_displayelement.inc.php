@@ -80,7 +80,11 @@
 		$value_of_mu	= $display_menu_item[$j][3];
 		
 		// Determine Color of Lines and things:
-		if($value_of_mu >= 0 AND $value_of_mu <=20 ) {
+		if($value_of_mu == 0 ) {
+				$linecolor = "#FFFFFF";
+		}		
+		
+		if($value_of_mu > 0 AND $value_of_mu <=20 ) {
 				$linecolor = "#4F0000";
 		}
 		if($value_of_mu >= 21 AND $value_of_mu <= 25 ) {
@@ -309,11 +313,11 @@
 						jg.setColor("<?php echo $linecolor;?>");
 						jg.fillEllipse(label_x-3,label_y-3, 6, 6);
 						
-						jg.setColor("#000000");
+						jg.setColor("#FFFFFF");
 						jg.setFont("arial","12px",Font.ITALIC_BOLD);
 						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label2x+2, label2y+2);
 						
-						jg.setColor("#FFFFFF");
+						jg.setColor("#000000");
 						jg.setFont("arial","12px",Font.ITALIC_BOLD);
 						jg.drawString("Mu: <?php echo $display_menu_item[$j][3];?>", label2x, label2y);
 						

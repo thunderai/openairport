@@ -28,14 +28,7 @@
 //==============================================================================================
 //2345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8	
-?>
-<HTML>
-	<HEAD>
-		<TITLE>
-			Open Airport - Airport Safety Self-Inspection Report (Printer Friendly)
-			</TITLE>
 
-<?php 
 // Load global include files
 	
 		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
@@ -69,16 +62,13 @@
 ?>
 <HTML>
 	<HEAD>
-		<TITLE>
-			Open Airport - Airport Safety Self-Inspection Report (Printer Friendly)
-			</TITLE>
 		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">
 		</HEAD>
 		
-	<div style="position:absolute; z-index:1; left:3; top:84; width:<?php echo $maparray[1][1];?>;" align="left" />
+	<div style="position:absolute; z-index:1; left:3px; top:84px; width:<?php echo $maparray[1][1];?>px;" align="left" />
 		<img src="images/part_139_327/<?php echo $maparray[3][0];?>" width="<?php echo $maparray[1][1];?>" height="<?php echo $maparray[1][2];?>" />
 		</div>
-	<div style="position:absolute; z-index:2; left:0; top:30; width:<?php echo $maparray[2][1];?>;" align="left" />
+	<div style="position:absolute; z-index:2; left:0px; top:30px; width:<?php echo $maparray[2][1];?>px;" align="left" />
 		<img src="images/part_139_327/<?php echo $maparray[2][0];?>" width="<?php echo $maparray[2][1];?>" height="<?php echo $maparray[2][2];?>" />
 		</div>
 
@@ -136,7 +126,7 @@ if (!isset($_POST["recordid"])) {
 							displaytxtonreport("Computer Print-Out",				1, 1, 50, "right", 	132, 	611, 	33, 12);
 		
 							?>
-	<div style="position:absolute; z-index:13; left:11; top:500; width:400; align="center" />
+	<div style="position:absolute; z-index:13; left:11px; top:500px; width:400px;" align="center" />
 		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" width="100%" id="AutoNumber1" />
 			<tr>
 				<td colspan="2" align="center" valign="middle" align="center" class="item_space_active" />

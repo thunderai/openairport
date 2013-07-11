@@ -17,13 +17,13 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		<div style="position:absolute; width:<?php echo ($wpost);?>; left:<?php echo ($xpost);?>px; top:<?php echo ($ypost);?>px; z-index:<?php echo ($zpost);?>; align="center">
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />
 				<tr>
-					<td width="12" rowspan="8" class="item_name_small_active" />
+					<td width="12" rowspan="8" bgcolor="#C0C0C0" style="opacity:.7;" />
 						D
 						</td>
-					<td class="item_name_small_active" />
+					<td bgcolor="#C8C8C8" style="opacity:.7;" />
 						ID
 						</td>
-					<td class="item_name_small_inactive" />
+					<td bgcolor="#FFFFFF" style="opacity:.7;" />
 						<?php echo $disid;?>
 						<?php
 						$disheight 	= ($disheight + 12);
@@ -31,12 +31,12 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 						</td>
 					</tr>					
 				<tr>
-					<td colspan="2" class="item_name_small_active" />
+					<td colspan="2" bgcolor="#C8C8C8" style="opacity:.7;" />
 						Name 
 						</td>
 					</tr>
 				<tr>
-					<td colspan="2" class="item_name_small_inactive" />
+					<td colspan="2" bgcolor="#FFFFFF" style="opacity:.7;" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 15;
@@ -53,12 +53,12 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 						</td>
 					</tr>					
 				<tr>
-					<td colspan="2" class="item_name_small_active" />
+					<td colspan="2" bgcolor="#C8C8C8" style="opacity:.7;" />
 						Description
 						</td>
 					</tr>
 				<tr>
-					<td colspan="2" class="item_name_small_inactive" />
+					<td colspan="2" bgcolor="#FFFFFF" style="opacity:.7;" />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 30;
@@ -75,12 +75,12 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 						</td>
 					</tr>
 				<tr>
-					<td colspan="2" class="item_name_small_active" />
+					<td colspan="2" bgcolor="#C8C8C8" style="opacity:.7;" />
 						Flags
 						</td>
 					</tr>
 				<tr>
-					<td colspan="2"  class="item_name_small_inactive" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;"/>				
+					<td colspan="2" bgcolor="#FFFFFF" style="opacity:.7;" style="border-width: 0px;padding: 1px;border-style: none;border-color: gray;-moz-border-radius: ;"/>				
 				<?php
 					if ($distools == 1) {
 							// Display all functions and buttons for this Discrepancy
