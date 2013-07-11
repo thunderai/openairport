@@ -221,15 +221,15 @@
 		<div style="position:absolute; z-index:13; left:3; top:440; width:420; align="center" />
 			<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 					<tr>
-      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
-							<font size="2" color="#FFFFFF" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								NOTES
 								</font>
 							</td>
 						</tr>					
 					<tr>
-      					<td colspan="3" bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php
 								$notelength = strlen($objarray['139339_sub_n_notes']);
 								if($notelength == 0) {
@@ -247,42 +247,42 @@
 						</tr>
 
 					<tr>
-      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
-							<font size="2" color="#FFFFFF" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Contacted on Issue
 								</font>
 							</td>
 						</tr>					
 					<tr>
-      					<td bgcolor="#808080" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								WX
 								</font>
 							</td>
-      					<td bgcolor="#808080" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Airline
 								</font>
 							</td>
-      					<td bgcolor="#808080" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								FBO
 								</font>
 							</td>							
 						</tr>						
 					<tr>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray['139339_sub_n_wx_in'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray['139339_sub_n_airline_in'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray['139339_sub_n_fbo_in'];?>
 								</font>
 							</td>							
@@ -290,19 +290,19 @@
 					
 					
 					<tr>
-      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
-      							<font size="2" color="#FFFFFF" />
-									Surface Closures
-									</font>
-								</td>
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+      						<font size="2" color="#000000" />
+								Surface Closures
+								</font>
+							</td>
 						</tr>
 					<tr>
-      					<td colspan="2" bgcolor="#808080" align="center" valign="center" />
+      					<td colspan="2" align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
       							<font size="1" color="#000000" />
 									Surface Name
 									</font>
 							</td>
-      					<td bgcolor="#808080" align="center" valign="center" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
       							<font size="1" color="#000000" />
 									Closed ?
 									</font>
@@ -336,7 +336,7 @@
 													// No records to display
 											?>
 					<tr>
-      					<td colspan="3" bgcolor="#808080" align="center" valign="center" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#FFFFFF" style="opacity:.7;" />
       							<font size="2" color="#000000" />
 									NO SURFACES CLOSED AS PART OF THIS NOTAM
 									</font>
@@ -516,15 +516,15 @@
 								}
 								?>
 					<tr>
-      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
-							<font size="2" color="#FFFFFF" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								METAR
 								</font>
 							</td>
 						</tr>					
 					<tr>
-      					<td colspan="3" bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php
 								$notelength = strlen($objarray['139339_sub_n_metar']);
 								if($notelength == 0) {
@@ -541,8 +541,8 @@
 							</td>							
 						</tr>	
 					<tr>
-      					<td colspan="3" bgcolor="#000000" align="center" valign="center" />
-							<font size="2" color="#FFFFFF" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Cloure Information
 								</font>
 							</td>
@@ -570,7 +570,7 @@
 											if($number_of_rows2 == 0) {
 													?>
 						<tr>
-							<td colspan="3" bgcolor="#FFFFFF" align="left" valign="middile" />
+							<td colspan="3" align="left" valign="middile" bgcolor="#FFFFFF" style="opacity:.7;" />
 								<font size="1">
 									NOT CLOSED
 									</font>
@@ -581,76 +581,76 @@
 												while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 														?>
 					<tr>
-      					<td colspan="3" bgcolor="#808080" align="center" valign="center" />
+      					<td colspan="3" align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
 							<font size="2" color="#000000" />
 								Contacted on Issue
 								</font>
 							</td>
 						</tr>					
 					<tr>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								WX
 								</font>
 							</td>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Airline
 								</font>
 							</td>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								FBO
 								</font>
 							</td>							
-						</tr>						
+						</tr>					
 					<tr>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray2['139339_sub_n_r_wx_in'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray2['139339_sub_n_r_airline_in'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray2['139339_sub_n_r_fbo_in'];?>
 								</font>
 							</td>							
 						</tr>													
 					<tr>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Date
 								</font>
 							</td>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Time
 								</font>
 							</td>
-      					<td bgcolor="#cococo" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								
 								</font>
 							</td>							
 						</tr>													
 					<tr>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray2['139339_sub_n_r_date'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								<?php echo $objarray2['139339_sub_n_r_time'];?>
 								</font>
 							</td>
-      					<td bgcolor="#FFFFFF" align="center" valign="center" />
-							<font size="1" color="#000000" />
+      					<td align="center" valign="center"  bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								
 								</font>
 							</td>							
