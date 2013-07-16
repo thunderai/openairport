@@ -216,9 +216,9 @@
 	displaytxtonreport("INSPECTED BY"						, 1	, 2	, 13	, "Left"	, 190	, 290	,  52	,  3);
 	displaytxtonreport($tmpinspector						, 1	, 3	, 13	, "left"	, 190	, 395	, 52	, 12);	
 	displaytxtonreport("Here is the FiCON you requested"	, 1	, 1	, 50	, "right"	, 132	, 611	, 30	, 12);
-	displaytxtonreport($objarray['139339_notes']			, 1	, 2	, 13	, "Left"	, 415	,   5	,  865	,  3);
-	displaytxtonreport($objarray['139339_met+ar']			, 1	, 1	, 13	, "Center"	, 415	,   5	,  910	,  3);			
-	displaytxtonreport($intstartday							, 1	, 2	, 13	, "Center"	, 185	, 392	,  32	,  3);
+	displaytxtonreport($objarray['139339_notes']			, 1	, 2	, 13	, "Right"	, 255	, 475	,  830	,  3);
+	displaytxtonreport($objarray['139339_metar']			, 1	, 1	, 13	, "Right"	, 255	, 475	,  890	,  3);			
+	displaytxtonreport($intstartday							, 1	, 2	, 13	, "Leftt"	, 185	, 392	,  32	,  3);
 	
 	// Placement Maps
 		$offset_x						= 1;

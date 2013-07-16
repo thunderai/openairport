@@ -34,7 +34,7 @@ function _tp_control_function_mapit($function_name,$function_encodeing) {
 				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 				onclick="javascript:<?php echo $function_name;?>('<?php echo $function_encodeing;?>','parent','sql')"
 				/>
-				
+				<span name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>"/></span>
 				</td>
 			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 				class="item_icon_inactive_form" 

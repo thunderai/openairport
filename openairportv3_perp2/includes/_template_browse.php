@@ -623,6 +623,7 @@ if ($tbldisplaytotal==1) {
 		<td colspan="3" rowspan="1" class="perp_menusubheader ">
 			<?php
 			echo $purpose;
+			$start2 = microtime(TRUE);
 			?>
 			<div style="display:none;left:500px;top:300px;position:fixed;z-index:50;width:250px;height:150px;" name="sorting_controls_win" id="sorting_controls_win" />
 				<table width="100%" class="perp_mainmenutable" cellspacing="0" cellpadding="0" />
@@ -640,20 +641,63 @@ if ($tbldisplaytotal==1) {
 						<td align="left" valign="top" />
 						<?php
 						// Load Control Buttons
+						$start = microtime(TRUE);
+						
 						_tp_control_sortby_joined($tbl_show_joinedsort		,1				,$en_joined		,$en_turned_off	,$en_active		,$en_notactive	,'frmjoined'		,'frmjoinedactive'		,'notused'		,$frmjoined);
+						
+						$t1 = microtime(TRUE);
+						$t1 = $t1 - $start;
+						
 						_tp_control_sortby_archieved($tbl_show_archivedsort	,1				,$en_archived	,$en_turned_off	,$en_active		,$en_notactive	,'frmarchives'		,'frmarchivesactive'	,'notused'		,$tblarchivedsort);
+						
+						$t2 = microtime(TRUE);
+						$t2 = $t2 - $t1;
+						
 						_tp_control_sortby_closed($tbl_show_closedsort		,1				,$en_closed		,$en_turned_off	,$en_active		,$en_notactive	,'frmclosed'		,'frmclosedactive'		,'notused'		,$tblclosedsort);
+						
+						$t3 = microtime(TRUE);
+						$t3 = $t3 - $t2;
+						
 						_tp_control_sortby_duplicate($tbl_show_duplicatesort,1				,$en_duplicate	,$en_turned_off	,$en_active		,$en_notactive	,'frmduplicate'		,'frmduplicateactive'	,'notused'		,$tblduplicatesort);
+						
+						$t4 = microtime(TRUE);
+						$t4 = $t4 - $t3;
+						
 						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_start_date	,$en_turned_off									,'frmstartdate'								,$uifrmstartdate,'Calendar1');
+						
+						$t5 = microtime(TRUE);
+						$t5 = $t5 - $t4;
+						
 						_tp_control_sortby_date($tbl_show_datesort			,$tbldatesort	,$en_end_date	,$en_turned_off									,'frmenddate'								,$uifrmenddate	,'Calendar2');
 						
+						$t6 = microtime(TRUE);
+						$t6 = $t6 - $t5;
+						
 						_tp_control_sortby_text($tbl_show_textsort			,$tbltextsort	,$en_textlike	,$en_turned_off									,'frmtextlike'								,$frmtextlike	,'not used');
+						
+						$t7 = microtime(TRUE);
+						$t7 = $t7 - $t6;
+						
 						_tp_control_sortby_page($sql						,$sql_failsafe	,$en_select_page		,$tblpagationgroup	,'pageation'		,'formoptionpageation'	,$form_pagetodisplay);
+						
+						$t8 = microtime(TRUE);
+						$t8 = $t8 - $t7;
+						
+						
+/* 						Joined  	[<?php echo $t1;?>] <br>
+						Archived 	[<?php echo $t2;?>] <br>
+						Closed   	[<?php echo $t3;?>] <br>
+						Duplicate 	[<?php echo $t4;?>] <br>
+						Date 		[<?php echo $t5;?>] <br>
+						Date 2		[<?php echo $t6;?>] <br>
+						Text 		[<?php echo $t7;?>] <br>
+						Page		[<?php echo $t8;?>] <br> */
 						?>
 						</td>
 					<tr>
 						<td class="item_name_active" height="25" />
 						<?php
+						//$randomit = rand(0,100);
 						_tp_control_function_submit();
 						_tp_control_function_button_toggle('notused','Close','icon_close','toggle_new','sorting_controls_win');
 						?>
@@ -664,7 +708,10 @@ if ($tbldisplaytotal==1) {
 			</td>
 		</tr>
 			<?php
+			$end2 = microtime(TRUE);
 			// START MAIN BROWSE PROCEDURES
+			$timetaken = $end2 - $start2;
+			//echo "Filter Time Taken [".$timetaken."] <br>";
 			?>
 			<?php 
 							$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -1425,6 +1472,7 @@ if ($tbldisplaytotal==1) {
 			
 			_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
 			
+			//$randomit = rand(0,100);
 			_tp_control_function_submit();
 			?>
 			</td>			
