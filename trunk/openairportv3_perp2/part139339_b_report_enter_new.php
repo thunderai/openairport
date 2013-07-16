@@ -141,8 +141,7 @@ if (!isset($_POST["formsubmit"])) {
 							?>
 							</td>
 						</tr>
-					<tr>
-						<td colspan="5" class="item_space_active" />
+						</table>
 							<?php		
 									$formname = 'entryform';
 							//
@@ -157,8 +156,6 @@ if (!isset($_POST["formsubmit"])) {
 									
 								include("includes/_template/_tp_blockform_form_footer.binc.php");
 								?>
-							</td>
-						</tr>	
 					</table>
 				</td>
 			</tr>

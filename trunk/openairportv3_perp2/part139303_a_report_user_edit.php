@@ -294,7 +294,7 @@
 											$default = '';
 										}
 									?>
-							<option value=<?php echo $i;?>" <?php echo $default;?>/><?php echo $i;?></option>
+							<option value="<?php echo $i;?>" <?php echo $default;?>><?php echo $i;?></option>
 									<?php
 								}
 								?>
@@ -605,7 +605,9 @@
 																			WHERE navigational_user_id_cb_int = '".$_SESSION['user_id']."' AND navigational_group_id_cb_int = '".$dash_id."' ";								
 															$objconn3 	= mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 															
-															errorreport("[5]. Connect to Database with the Following SQL Statement :".$sql3." ",$debug);
+															//echo "SQL 3 is : ".$sql3 ." <br>";
+															
+															//errorreport("[5]. Connect to Database with the Following SQL Statement :".$sql3." ",$debug);
 															
 															if (mysqli_connect_errno()) {
 																	// there was an error trying to connect to the mysql database
@@ -645,6 +647,8 @@
 																					VALUES ( '".$_SESSION['user_id']."', '".$dash_id."', '".$formvalued."', '".$formvaluep."' )";
 																
 																	//echo $sql_support." <br>";
+																	//echo "SQL s is : ".$sql_support ." <br>";
+																	
 																	
 																	$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 																	//mysql_insert_id();

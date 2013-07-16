@@ -41,13 +41,14 @@ function _tp_control_function_quickaccess($language_on,$menuitemid,$whoareyou,$t
 			$Field_name		= 'Field_MM'.$fieldname;
 			$Format_name	= 'Format_MM'.$fieldname;
 			?>
+			
 			<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
 				class="item_space_inactive_form" 
 				onmouseover="<?php echo $td_input_name;?>.className='item_name_active_form';togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="<?php echo $td_input_name;?>.className='item_name_inactive_form';togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 				onclick="javascript:call_server_blockform('<?php echo $menuitemid;?>','<?php echo $whoareyou;?>','<?php echo $javascript_func;?>')"
 				/>
-				
+				<span name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>"/></span>
 				</td>
 			<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
 				class="item_icon_inactive_form" 

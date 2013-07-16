@@ -37,7 +37,7 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000" />
 																	
 			<tr>
-					<td height="37" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td height="37" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
 					<td align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
@@ -46,7 +46,7 @@
 					<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td  align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td  align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>																		
@@ -57,7 +57,7 @@
 		<div style="position:absolute; z-index:13; left:<?php echo $objfields['139339_f_locx'];?>; top:<?php echo $objfields['139339_f_locy'];?>; width:270; align="center" />
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 			<tr>
-				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="2"><B>Mu test conducted from</b></font>
 					</td>
 				</tr>														<?php
@@ -67,7 +67,7 @@
 		<div style="position:absolute; z-index:13; left:<?php echo $objfields['139339_f_locx'];?>; top:<?php echo $objfields['139339_f_locy'];?>; width:270; align="center" />
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 			<tr>
-				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+				<td height="37" rowspan="1" colspan="3" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 						<font size="2"><B>Operational Notices</b></font>
 					</td>
 				</tr>																	
@@ -79,7 +79,7 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 																	
 			<tr>
-					<td height="37" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td height="37" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
 					<td align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
@@ -88,7 +88,7 @@
 					<td align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td  align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td  align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>																		
@@ -100,7 +100,7 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%" style="border-collapse: collapse" border="1" bordercolor="#000000">
 																	
 			<tr>
-					<td height="37" rowspan="2" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td height="37" rowspan="2" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Surface
 						</td>
 					<td rowspan="2" align="center" valign="middle" width="50" bgcolor="#C0C0C0" style="opacity:.7;" />
@@ -109,7 +109,7 @@
 					<td rowspan="2" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Condition
 						</td>												
-					<td colspan="3" align="center" valign="middle" width="60" bgcolor="#C0C0C0" style="opacity:.7;" />
+					<td colspan="3" align="center" valign="middle" width="100" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2"><B>Mu(s)
 						</td>
 					</tr>
