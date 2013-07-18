@@ -58,7 +58,7 @@
 ?>
 <table width="100%" cellpadding="0" cellspacing="0" border="1" />
 	<tr>
-		<td colspan="19" bgcolor="#000000" align="center" valign="middile" />
+		<td colspan="20" bgcolor="#000000" align="center" valign="middile" />
 			<font color="#FFFFFF" size="4">
 				NOTAM FULL SUMMARY
 				</font>
@@ -74,7 +74,7 @@
 		<td colspan="5" bgcolor="#808080" align="left" valign="middile" /> 
 			End Date
 			</td>		
-		<td colspan="4" bgcolor="#808080" align="left" valign="middile" /> 
+		<td colspan="5" bgcolor="#808080" align="left" valign="middile" /> 
 			<?php echo $frmenddate;?>
 			</td>
 		</tr>
@@ -90,6 +90,9 @@
 			</td>
 		<td rowspan="2" bgcolor="#C0C0C0" align="center" valign="middile" /> 
 			<font size="2">NOTES
+			</td>	
+		<td rowspan="2" bgcolor="#C0C0C0" align="center" valign="middile" /> 
+			<font size="2">Discrepancies
 			</td>			
 		<td rowspan="2" bgcolor="#C0C0C0" align="center" valign="middile" /> 
 			<font size="2">SURFACES
@@ -201,7 +204,44 @@
 			<font size="1">
 				<?php echo $objarray['139339_sub_n_notes'];?>
 				</font>
-			</td>			
+			</td>	
+		<td bgcolor="#FFFFFF" align="left" valign="middile" /> 
+			<?php
+			$sql3 			= "SELECT * FROM tbl_139_339_sub_n_dlink 
+								INNER JOIN tbl_139_327_sub_d ON tbl_139_327_sub_d.Discrepancy_id = tbl_139_339_sub_n_dlink.139_339_n_dlink_discrepancy_id 
+								WHERE tbl_139_339_sub_n_dlink.139_339_n_dlink_notam_id = '".$objarray['139339_sub_n_id']."' ";
+								
+			$objconn3 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+									
+							if (mysqli_connect_errno()) {															// if there is an error making the connection inform the user
+									// there was an error trying to connect to the mysql database
+									printf("connect failed: %s\n", mysqli_connect_error());							// tell the user the error message
+									exit();
+								}
+								else {																				// without any errors...
+									$objrs3 = mysqli_query($objconn3, $sql3);											// create the query recordsource
+											
+									if ($objrs3) {																	// if the recordsource is created without error do...
+											$number_of_rows3 = mysqli_num_rows($objrs3);								// How many rows did the sql statement find
+											if($number_of_rows3 == 0) {
+													?>
+								<font size="1">
+									No Discrepancies
+									</font>
+													<?php
+												}
+												while ($objarray3 = mysqli_fetch_array($objrs3, MYSQLI_ASSOC)) {
+														?>
+													<font size="1"><?php echo $objarray3['Discrepancy_name'];?>&nbsp;<i>(<?php echo $objarray3['discrepancy_remarks'];?>)</i>, 
+													
+													
+													<?php
+													}
+											}
+									
+									}
+									?>
+			</td>				
 		<td bgcolor="#FFFFFF" align="left" valign="middile" /> 
 			<?php
 			// PULL ALL SURFACE RECORDS
@@ -317,7 +357,7 @@
 				}
 		?>
 	<tr>
-		<td colspan="19" bgcolor="#000000" align="center" valign="middile" />
+		<td colspan="20" bgcolor="#000000" align="center" valign="middile" />
 			<font color="#FFFFFF" size="2">
 				End of Report
 				</font>

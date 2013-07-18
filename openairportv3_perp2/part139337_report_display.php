@@ -129,7 +129,7 @@ if (!isset($_POST["recordid"])) {
 	<div style="position:absolute; z-index:13; left:11px; top:500px; width:400px;" align="center" />
 		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse" borderCOLOR="#000000" width="100%" id="AutoNumber1" />
 			<tr>
-				<td colspan="2" align="center" valign="middle" align="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+				<td colspan="2" align="center" valign="middle" bgcolor="#C0C0C0" style="opacity:.7;" />
 					Wildlife Report
 					</td>
 				</tr>				

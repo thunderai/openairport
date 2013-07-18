@@ -543,6 +543,86 @@
 					<tr>
       					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
 							<font size="2" color="#000000" />
+								Associated Discrepancies
+								</font>
+							</td>
+						</tr>					
+<?php
+$sql3 			= "SELECT * FROM tbl_139_339_sub_n_dlink 
+								INNER JOIN tbl_139_327_sub_d ON tbl_139_327_sub_d.Discrepancy_id = tbl_139_339_sub_n_dlink.139_339_n_dlink_discrepancy_id 
+								WHERE tbl_139_339_sub_n_dlink.139_339_n_dlink_notam_id = '".$objarray['139339_sub_n_id']."' ";
+								
+			$objconn3 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+									
+							if (mysqli_connect_errno()) {															// if there is an error making the connection inform the user
+									// there was an error trying to connect to the mysql database
+									printf("connect failed: %s\n", mysqli_connect_error());							// tell the user the error message
+									exit();
+								}
+								else {																				// without any errors...
+									$objrs3 = mysqli_query($objconn3, $sql3);											// create the query recordsource
+											
+									if ($objrs3) {																	// if the recordsource is created without error do...
+											$number_of_rows3 = mysqli_num_rows($objrs3);								// How many rows did the sql statement find
+											if($number_of_rows3 == 0) {
+													?>
+					<tr>
+      					<td colspan="3" align="center" valign="center" bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />										
+								No Discrepancies
+								</font>
+							</td>
+						</tr>
+													<?php
+												} else {
+													?>
+					<tr>
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								ID
+								</font>
+							</td>
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								Name
+								</font>
+							</td>
+      					<td align="center" valign="center" bgcolor="#808080" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								Comment
+								</font>
+							</td>							
+						</tr>
+												<?php
+												}
+												while ($objarray3 = mysqli_fetch_array($objrs3, MYSQLI_ASSOC)) {
+														?>
+					<tr>
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								<?php echo $objarray3['Discrepancy_id'];?>
+								</font>
+							</td>
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								<?php echo $objarray3['Discrepancy_name'];?>
+								</font>
+							</td>
+      					<td align="center" valign="center" /bgcolor="#FFFFFF" style="opacity:.7;" />
+							<font size="2" color="#000000" />
+								<?php echo $objarray3['discrepancy_remarks'];?>
+								</font>
+							</td>							
+						</tr>
+													<?php
+													}
+											}
+									
+									}
+									?>
+					<tr>
+      					<td colspan="3" align="center" valign="center" bgcolor="#C0C0C0" style="opacity:.7;" />
+							<font size="2" color="#000000" />
 								Cloure Information
 								</font>
 							</td>
