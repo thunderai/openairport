@@ -123,10 +123,67 @@ if (!isset($_POST["formsubmit"])) {
 								form_new_control('139339_sub_n_fbo_out', 'FBO Initials'	, 'Enter the Initails of Flight Service'				,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 3				, 0 			, ''					, 0);
 								form_new_control('139339_sub_n_airline_out', 'Airline Initials'	, 'Enter the Initails of Flight Service'		,'The current metar has automatically been provided!'	, 'Initials'					, 1				, 3				, 0 			, ''					, 0);
 								form_new_control("frmnotes"			,"Comments"			, "Provide comments about this NOTAM"					,"Do not use any special characters!","",2,35,4,"",0);
+								
 								?>
+								<input type="hidden" name="dlinkhash" id="dlinkhash" value="" />
+								<?php
+								
+								// Create Random Hash
+								$discrepancylinkhash = uniqid('dlink_');
+								?>
+								<script>
+									 document.getElementById("dlinkhash").value = "<?php echo $discrepancylinkhash;?>";
+									 </script>
 								</table>
 							</td>
 						</tr>
+					<tr>
+						<td colspan="3" class="perp_menuheader" />
+							Link Discrepancies to NOTAM - Additional Options
+							</td>			
+						</tr>			
+					<tr>
+						<td colspan="3" class="perp_menusubheader" />
+							(
+							Provide additional Informaiton as Needed
+							)
+							</td>				
+						</tr>
+					<tr>
+						<td colspan="3" class="item_name_inactive">
+							<?php 
+							$target = 'adddiscrepancy';
+							$action = 'part139339_b_report_dlink_new.php?facility='.$discrepancylinkhash.'&condition='.$tmpid.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
+							_tp_control_function_button_iframe($target,'Associate Discrepancy','icon_add',$action,$target);
+							?>	
+							</td>
+						</tr>						
+					<tr class="formresults">
+					<td colspan="3" name="addeddis" id="addeddis" class="item_name_inactive">
+						<center>Associated Discrepancies will be added here as you add new ones from the "Associate Discrepancy' button above</center>
+						<?php 
+						for ($i=0; $i<10; $i=$i+1) {
+								?>
+								<br>
+								<?php 
+							}
+						?>
+						</td>
+					</tr>							
+						
+						
+					<tr>
+						<td colspan="3" class="perp_menuheader" />
+							Closed Surfaces in NOTAM - Additional Options
+							</td>			
+						</tr>			
+					<tr>
+						<td colspan="3" class="perp_menusubheader" />
+							(
+							USE 'GET CHECKLIST' Button at Top of Form
+							)
+							</td>				
+						</tr>						
 					<tr>
 						<td colspan="3" id="CheckListData" class="ajax_results_area">
 							<center>
@@ -176,7 +233,7 @@ if (!isset($_POST["formsubmit"])) {
 		$tmpdateignore  = ($_POST['frmdateclosedt']);
 		$tmpdateclosed 	= ($_POST['frmdateclosed']);		
 		
-		$sql = "INSERT INTO tbl_139_339_sub_n (139339_sub_n_type_cb_int, 139339_sub_n_by_cb_int, 139339_sub_n_date, 139339_sub_n_time, 139339_sub_n_metar, 139339_sub_n_notes, 139339_sub_n_wx_in, 139339_sub_n_fbo_in, 139339_sub_n_airline_in";
+		$sql = "INSERT INTO tbl_139_339_sub_n (139339_sub_n_type_cb_int, 139339_sub_n_by_cb_int, 139339_sub_n_date, 139339_sub_n_time, 139339_sub_n_metar, 139339_sub_n_notes, 139339_sub_n_wx_in, 139339_sub_n_fbo_in, 139339_sub_n_airline_in, 139339_sub_n_dlinkref";
 		
 		if ($tmpdateignore == 1) {
 				//echo "Nothing of value";
@@ -185,7 +242,7 @@ if (!isset($_POST["formsubmit"])) {
 				$sql =  $sql.", 139339_sub_n_date_closed, 139339_sub_n_time_closed ";
 			}
 		
-		$sql = $sql.") VALUES ( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."', '".$_POST['frmmetar']."', '".$_POST['frmnotes']."', '".$_POST['139339_sub_n_wx_out']."', '".$_POST['139339_sub_n_fbo_out']."', '".$_POST['139339_sub_n_airline_out']."'  ";
+		$sql = $sql.") VALUES ( '".$_POST['InspCheckList']."', '".$_POST['inspector']."', '".$tmpdate."', '".$_POST['frmtime']."', '".$_POST['frmmetar']."', '".$_POST['frmnotes']."', '".$_POST['139339_sub_n_wx_out']."', '".$_POST['139339_sub_n_fbo_out']."', '".$_POST['139339_sub_n_airline_out']."', '".$_POST['dlinkhash']."'  ";
 		
 		if ($tmpdateignore == 1) {
 				//echo "Nothing of value";
@@ -269,6 +326,82 @@ if (!isset($_POST["formsubmit"])) {
 								}
 							}
 							
+		// Look for associated discrepancies
+				
+				$internal_counter = 0;
+				$ary_dlink = array();
+		
+				$sql 	= "SELECT * FROM tbl_139_339_sub_n_dlink_tmp WHERE tbl_139_339_sub_n_dlink_tmp.139_339_n_dlink_notam_id = '".$_POST['dlinkhash']."' ";
+				//echo "Hash SQL :".$sql." <br>";
+				
+				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+				
+				if (mysqli_connect_errno()) {
+						// there was an error trying to connect to the mysql database
+						printf("connect failed: %s\n", mysqli_connect_error());
+						exit();
+					}		
+					else {
+						//mysql_insert_id();
+						$objrs = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+						while ($objfields = mysqli_fetch_array($objrs, MYSQLI_ASSOC)) {
+								
+								
+								$tmp_dis_id						= $objfields['139_339_n_dlink_discrepancy_id'];
+								$tmp_dlink_id					= $objfields['139_339_n_dlink_id'];
+								$ary_dlink[$internal_counter] 	= $tmp_dlink_id;
+								$tmp_339b_id					= $last_main_id;
+							
+								// Now create a new connection and insrt these temp records into the real tables. 
+								
+								$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);			
+								
+								$sql2 = "INSERT INTO tbl_139_339_sub_n_dlink (139_339_n_dlink_notam_id,139_339_n_dlink_discrepancy_id,139_339_n_dlink_hidden) VALUES ( ".$tmp_339b_id.", ".$tmp_dis_id.",0)";
+								//echo $sql2."<br><br>";
+										
+								if (mysqli_connect_errno()) {
+										// there was an error trying to connect to the mysql database
+										printf("connect failed: %s\n", mysqli_connect_error());
+										exit();
+									}		
+									else {
+										//mysql_insert_id();
+										$objrs2 = mysqli_query($objcon2, $sql2) or die(mysqli_error($objcon2));
+										$lastchkid = mysqli_insert_id($objcon2);
+
+									}
+								
+							
+								$internal_counter = $internal_counter + 1;
+							}
+					}
+					
+			// Delete Temporary Records from Database that are in our associated array
+
+		for ($i=0; $i<count($ary_dlink); $i=$i+1) {
+
+				$sql 	= "DELETE FROM tbl_139_339_sub_n_dlink_tmp WHERE 139_339_n_dlink_id = ".$ary_dlink[$i]."";
+				$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+												
+				//echo "[4][c][2] This will be done by searching for this SQL Statement <font size='1'>".$sql."</font> <br>";
+				
+				if (mysqli_connect_errno()) {
+						// there was an error trying to connect to the mysql database
+						printf("connect failed: %s\n", mysqli_connect_error());
+						exit();
+					}		
+					else {
+					
+						//echo "[4][c][3] Connection Established with Temporary Table <BR>";	
+					
+						$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+						$discrepancyrepairID = mysqli_insert_id($objcon);
+						
+						//echo "[4][c][4] Applicable Temporary Condition Checklists Deleted <BR>";	
+					}
+			}
+			
+		
 		$tblname		= "NOTAM Summary Report";
 		$tblsubname		= "(summary of information)";
 		

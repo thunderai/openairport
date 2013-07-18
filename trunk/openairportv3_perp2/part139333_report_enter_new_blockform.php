@@ -330,7 +330,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 		<td colspan="5" class='item_name_inactive' />
 			<?php
 			// Display Open DIV button
-			_tp_control_function_button_div('divform_'.$runwayheading,$en_hideform,'icon_window','divform_'.$runwayheading,'toggle','200','200');
+			_tp_control_function_button_div('divform_'.$runwayheading,$en_hideform,'icon_window','divform_'.$runwayheading,'toggle_new','200','200');
 			?>
 			</td>			
 		</tr>

@@ -41,6 +41,7 @@
 			include("_327_conditionscomboboxwall_short.inc.php");	
 			
 			include("_327_discrepancycombobox.inc.php");
+			include("_327_discrepancycombobox_dlink.inc.php");
 			include("_327_discrepancydisplaybox.inc.php");
 			include("_327_discrepancydisplaybox_new.inc.php");
 			include("_327_discrepancy_getstage.inc.php");

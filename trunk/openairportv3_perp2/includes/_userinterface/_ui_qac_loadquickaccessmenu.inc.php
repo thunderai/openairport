@@ -85,7 +85,7 @@ function loadquickaccessmenu($user) {
 							&nbsp;
 							</td>				
 						<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
-							class="item_name_inactive" 
+							class="item_name_inactive" style="align:left;" 
 							onmouseover="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','on');" 
 							onmouseout="togglebutton_M_Q('<?php echo $tmpmenuitemid;?>','off');" 
 							onClick="document.QUC_MI<?php echo $tmpmenuitemid;?>.submit();updateactivepage('<?php echo $tmpmenuurl;?>');" />
