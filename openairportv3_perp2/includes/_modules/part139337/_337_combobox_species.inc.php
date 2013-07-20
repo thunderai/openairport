@@ -70,7 +70,7 @@ function part139337_combobox_animalspecies($suppliedid, $archived, $nameofinput,
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="table_forms_enter_input_field" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>">
+	<SELECT class="table_forms_enter_input_field" name="<?php echo $nameofinput?>" ID="<?php echo $nameofinput?>" style="float:left;" />
 					<?php 
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
@@ -114,8 +114,14 @@ function part139337_combobox_animalspecies($suppliedid, $archived, $nameofinput,
 								mysqli_close($objconn_support);
 								if ($showcombobox=="show") {
 										?>
-		</SELECT><img src="images/_interface/icons/icon_flag.png" width="25" height="25" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')" />
-										<?php 
+		</SELECT>
+		<?php
+		$target = 'helpmeselectacondition';
+		$action = 'part139337_report_help_species.php?fieldname='.$tmpsuppliedname.'&cellvalue=temp&targetname='.$target.'&dhtmlname='.$target.'_var';
+		_tp_control_function_button_iframe($target,'HELP','icon_add',$action,$target);
+/* 
+		<img src="images/_interface/icons/icon_flag.png" width="25" height="25" onClick="openchild600('part139337_report_help_species.php?fieldname=<?php echo $tmpsuppliedname;?>&cellvalue=temp','helpmeselectaspecies')" />
+ */
 									}
 						}	// end of Res Record Object						
 				}

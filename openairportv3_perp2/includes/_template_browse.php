@@ -980,11 +980,11 @@ if ($tbldisplaytotal==1) {
 						<?php
 						if($functioneditpage == '') {
 								?>
-								<input class="table_row_function_button"	disabled type="submit" name="b1" 				id="b1" 				value="-">
+								<input class="makebuttonlooklikelargetext"	disabled type="submit" name="b1" 				id="b1" 				value="-">
 								<?php
 							} else {
 								?>
-						<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="E">
+						<input class="makebuttonlooklikelargetext"	type="submit" name="b1" 				id="b1" 				value="E">
 								<?php
 							}
 							?>
@@ -1029,7 +1029,7 @@ if ($tbldisplaytotal==1) {
 							<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 							<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 							<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-							<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="S">
+							<input class="makebuttonlooklikelargetext"	type="submit" name="b1" 				id="b1" 				value="S">
 							</td>
 						</form>
 					<td class="table_browse_row_functions_spaces" />
@@ -1061,7 +1061,7 @@ if ($tbldisplaytotal==1) {
 							<input class="formsubmit"	type="hidden" name="tbltextsorttable" 	id="tbltextsorttable"	value="<?php echo $tbltextsorttable;?>">
 							<input class="formsubmit"	type="hidden" name="frmstartdate" 		id="frmstartdate"		value="<?php echo $uifrmstartdate;?>">
 							<input class="formsubmit"	type="hidden" name="frmenddate" 		id="frmenddate"			value="<?php echo $uifrmenddate?>">
-							<input class="table_row_function_button"	type="submit" name="b1" 				id="b1" 				value="R">
+							<input class="makebuttonlooklikelargetext"	type="submit" name="b1" 				id="b1" 				value="R">
 							</td>
 						</form>
 					<td class="table_browse_row_functions_spaces" />

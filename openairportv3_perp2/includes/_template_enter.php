@@ -466,6 +466,9 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			$show = "show";
 																		}
 															$fieldfunction($fielddefaultvalue, "all", $fieldname, $show, "",2);
+															?> 
+															<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('part139327_discrepancy_report_help_pri.php','MapNewPoint')" />
+															<?php
 														break;
 													case "Entry By":
 															$fieldfunction($fielddefaultvalue, "all", $fieldname, "hide", "");
@@ -513,6 +516,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													?>
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	value="0" 		size="4">
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	value="0" 		size="4">
+						
 						<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 													<?php
 												}
