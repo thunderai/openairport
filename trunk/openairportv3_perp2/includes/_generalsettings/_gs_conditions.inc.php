@@ -71,7 +71,7 @@ function gs_conditions($suppliedid, $archived, $nameofinput, $showcombobox, $def
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>">
+	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" id="<?php echo $nameofinput;?>">
 					<?php
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {

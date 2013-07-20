@@ -38,13 +38,43 @@
 
 		include("includes/_modules/part139337/part139337.list.php");
 		include("includes/_template_enter.php");
-		//include("includes/_template/template.list.php");
+		include("includes/_template/template.list.php");
 		
 // LOAD GET Veriables
 
 		$fieldname = $_GET['fieldname'];
 		$cellvalue = $_GET['cellvalue'];
+		
+if (!isset($_POST["targetname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		$tmp_targetname		= $_GET['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'GET VALUE IS ['.$tmp_targetname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_targetname		= $_POST['targetname'];
+		$tmp_targetname		= $tmp_targetname.'_win';
+		//echo 'POST VALUE IS ['.$tmp_targetname.'] <br>';
+	}
 
+if (!isset($_POST["dhtmlname"])) {
+		//echo 'No Record ID defined in POST, use GET record id <br>';
+		// No Record ID defined in POST, use GET record id
+		$tmp_dhtmlname		= $_GET['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;
+		//echo 'GET VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}
+	else {
+		//echo 'No GET ID defined in POST, use POST record id <br>';
+		$tmp_dhtmlname		= $_POST['dhtmlname'];
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$tmp_dhtmlname		= $tmp_dhtmlname;
+		$dhtml_name			= $tmp_dhtmlname;		
+		//echo 'POST VALUE IS ['.$tmp_dhtmlname.'] <br>';
+	}	
 ?>
 		<form name="entryform">
 		<input id="<?=$fieldname;?>" name="<?=$fieldname;?>" type="hidden">
@@ -195,12 +225,30 @@
 					}
 			}
 			?>
+			<?php
+	// FORM UNIVERSAL CONTROL LOADING
+	//------------------------------------------------------------------------------------------\\
+	
+	$targetname		= $tmp_targetname;				// From the Button Loader; Name of the window this form was loaded into.
+	$dhtml_name		= $dhtml_name;					// From the Button Loader; Name of the DHTML window function to call to change this window.
+	form_uni_control("targetname"		,$targetname);
+	form_uni_control("dhtmlname"		,$dhtml_name);
+	
+	//
+	// FORM FOOTER
+	//------------------------------------------------------------------------------------------\\
+			$display_submit 		= 0;														// 1: Display Submit Button,	0: No
+				$submitbuttonname	= '';														// Name of the Submit Button
+			$display_close			= 1;														// 1: Display Close Button, 	0: No
+			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
+			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			
-	<script>
+		include("includes/_template/_tp_blockform_form_footer.binc.php");			
+			?>			
+<script>
 	function updateparentfieldvalue(fieldname,fieldvalue) {
 		//opener.document.getElementById(fieldname).value = fieldvalue;
-		var fieldtochange = escape(fieldname);
-		opener.document.getElementById('wlhmspecies').value = fieldvalue;
+		parent.document.getElementById(fieldname).value = fieldvalue;
 		}
 	</script>
 	

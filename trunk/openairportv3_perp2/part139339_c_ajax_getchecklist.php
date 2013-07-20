@@ -284,8 +284,8 @@
 																break;
 														case 2:
 																		?>
-						<td class="item_name_inactive">
-							<input class="Commonfieldbox" type="text" id="<?php echo $tmpfieldname;?>" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" size="20" 
+						<td class="item_name_inactive" width="300" />
+							<input class="Commonfieldbox" style="float:left;" type="text" id="<?php echo $tmpfieldname;?>" name="<?php echo $tmpfieldname;?>" ID="<?php echo $tmpfieldname;?>" size="20" 
 								<?php
 								if ($alterclosed == 1) {
 										?>
@@ -293,7 +293,7 @@
 										<?php
 									}
 								?>
-								 onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" >
+								 onMouseover="ddrivetip('<?php echo $message;?>')"; onMouseout="hideddrivetip()" />
 								
 							<?php
 							$target = 'helpmeselectacondition';

@@ -26,7 +26,7 @@
 							<tr>
 								<td align="center" valign="middle" />
 									<br>
-									<img src="stylesheets/_cssimages/KATY_LOGO_2006_JPG.png" height="150" /> 
+									<img src="stylesheets/_cssimages/airportlogo_small.png" height="150" /> 
 									<br>
 									</td>
 								<td>
