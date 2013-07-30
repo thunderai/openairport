@@ -28,55 +28,77 @@ function _tp_control_function_button_checkbox($formname,$label,$icon,$action = '
 			$class_skin = 'active';
 		}
 	?>
-<table 	name="MenuItem_<?php echo $fieldname;?>" id="MenuItem_<?php echo $fieldname;?>" 
-		border="0" 
-		cellpadding="0" 
-		cellspacing="0" 
-		class="perp_menubutton"
-		width="100%" />
 		<tr>
 			<?php 
-			$Icon_name 		= 'Icon_MM'.$fieldname;
-			$Name_name 		= 'Name_MM'.$fieldname;	
-			$Field_name		= 'Field_MM'.$fieldname;
-			$Format_name	= 'Format_MM'.$fieldname;
+			$slot1_name		= 'slot1'.$fieldname;
+			$slot2_name	 	= 'slot2'.$fieldname;	
+			$slot3_name		= 'slot3'.$fieldname;
+			$slot4_name		= 'slot4'.$fieldname;
+			$slot5_name		= 'slot5'.$fieldname;
 			
 			if($target == 'sub') {
-				// DIsplay an offset
-				?>
-			<td width="<?php echo $slot_one;?>" name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+					// DIsplay an offset
+					$icolspan 	= 1;
+					$ncolspan 	= 1;
+					$cells		= 5;
+					?>
+			<td width="<?php echo $slot_one;?>" name="<?php echo $slot1_name;?>" id="<?php echo $slot1_name;?>" 
 				class="item_icon_<?php echo $class_skin;?>_form" 
-				onclick = "togglecheckbox('<?php echo $formname;?>')" 
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','5')"
 				/>
-				&nbsp;
+				<font size="1">&nbsp;</font>
 				</td>
-				<?php
+					<?php
+				} else {
+					$icolspan 	= 1;
+					$ncolspan 	= 3;
+					$cells		= 3;
 				}
-			?>
-			<td width="<?php echo $slot_two;?>" name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
-				class="item_icon_<?php echo $class_skin;?>_form" 
-				onclick = "togglecheckbox('<?php echo $formname;?>')" 
+				?>
+			<td colspan="<?php echo $icolspan;?>" width="<?php echo $slot_two;?>" name="<?php echo $slot2_name;?>" id="<?php echo $slot2_name;?>" 
+				class="item_name_<?php echo $class_skin;?>_form" 
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','3')" 
 				/>
 				<input name="<?php echo $formname;?>" id="<?php echo $formname;?>" type="checkbox" value="1" <?php echo $action;?> style="display:none;"/>
 				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
-			<td width="<?php echo $slot_three;?>" name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
-				class="item_space_<?php echo $class_skin;?>_form"  
-				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>')" 
+			<?php
+			if($target == 'sub') {
+					
+					?>
+			<td width="<?php echo $slot_three;?>" name="<?php echo $slot3_name;?>" id="<?php echo $slot3_name;?>" 
+				class="item_field_<?php echo $class_skin;?>_form"  
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','5')" 
 				/>
+				&nbsp;
+				</td>	
+			<td colspan="<?php echo $ncolspan;?>" width="<?php echo $slot_four;?>" name="<?php echo $slot4_name;?>" id="<?php echo $slot4_name;?>" 
+				class="item_format_<?php echo $class_skin;?>_form" 
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','5')" 
+				/>
+				<span align="left"><font size="1"><?php echo $label;?></font></span>
 				</td>				
-			<td width="<?php echo $slot_four;?>" name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
-				class="item_name_<?php echo $class_skin;?>_form" 
-				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>')" 
+					<?php
+					
+				} else {
+					// Move Name of this Field over one cell and adjust cell style accordingly
+					?>
+			<td colspan="<?php echo $ncolspan;?>" width="<?php echo $slot_three;?>" name="<?php echo $slot3_name;?>" id="<?php echo $slot3_name;?>" 
+				class="item_format_<?php echo $class_skin;?>_form"  
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','3')" 
 				/>
-				<?php echo $label;?>
-				</td>		
-			<td width="<?php echo $slot_five;?>" name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+				<span align="left"><font size="1"><?php echo $label;?></font></span>
+				</td>				
+					<?php
+				}
+			
+			?>		
+			<td width="<?php echo $slot_five;?>" name="<?php echo $slot5_name;?>" id="<?php echo $slot5_name;?>" 
 				class="item_field_<?php echo $class_skin;?>_form" 
-				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>')" 
+				onclick = "togglecheckbox('<?php echo $formname;?>','<?php echo $fieldname;?>','5')" 
 				/>
+				&nbsp;
 				</td>
-			</tr>	
-		</table>
+			</tr>
 	<?php
 }

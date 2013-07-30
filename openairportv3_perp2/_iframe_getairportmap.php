@@ -105,19 +105,18 @@
 				class="item_name_inactive" />
 				&nbsp;
 				</td>				
-			</tr>	
+			</tr>		
 		<tr>
 			<td class="item_name_inactive" 
 				colspan="3" align="right" />
 				<form style="margin: 0px; margin-bottom:0px; margin-top:-1px;" name="getmoreelementinfo" id="getmoreelementinfo" method="POST" action="_iframe_getairportmap_elementinfo.php" target="_iframe-moreelementinfo"/>
 				<input type="hidden" name="menuitemid" value="<?php echo $tmpmenuitemidl1;?>">
-				<input type="hidden" name="elementrecordsource" id="elementrecordsource" value="???" />
-				<input type="hidden" name="elementrecordidfield" id="elementrecordidfield" value="???" />
-				<input type="hidden" name="elementrecordid" id="elementrecordid" value="???" />
+				<input type="hidden" name="elementrecordid" 		id="elementrecordid" 		value="???" />
+				<input type="hidden" name="elementserilzed" 		id="elementserilzed" 		value="???" />
 				<input type="submit" 
 						name="MoreInformationaboutelement" 
 						value="More Info" 
-						onClick="elementinfo_win=dhtmlwindow.open('moreelementinfo', 'iframe', '', 'Element Information', 'top=75px,left=180px,width=490px,height=350px,resize=1,scrolling=1,center=0', 'recal');javascript:document.forms['getmoreelementinfo'].submit();"
+						onClick="elementinfo_win=dhtmlwindow.open('moreelementinfo', 'iframe', '', 'Element Information', 'top=40px,left=180px,width=700px,height=400px,resize=1,scrolling=1,center=0', 'recal');javascript:document.forms['getmoreelementinfo'].submit();"
 						/>
 				<input type="button" 
 						name="HideMapTools" id="HideMapTools"
@@ -173,7 +172,7 @@
 				onmouseover="className='maptoolsfields_on';" 
 				onmouseout="className='maptoolsfields_off';"
 				height="15" colspan="2" />
-				&nbsp;<input type="range" value="<?php echo $raw_mapscale;?>" min="40" max="400" step="10" name="mapscale" id="mapscale" onchange="showValue(this.value)" />&nbsp;
+				&nbsp;<input type="range" value="<?php echo $raw_mapscale;?>" min="100" max="1600" step="100" name="mapscale" id="mapscale" onchange="showValue(this.value)" />&nbsp;
 				<input type="hidden" value="0" name="map_scale_txt" id="map_scale_txt" />
 				</td>				
 			</tr>
@@ -218,7 +217,7 @@
 			</tr>
 		</table>
 	<div Name="div_maplayer2" id="div_maplayer2" style="width:<?php echo $array_maplayers[2];?>px;height:<?php echo $array_maplayers[3];?>px;z-index:<?php echo $array_maplayers[4];?>;overflow:auto;">
-		<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:0px solid;padding:0px;border-color: #000000;border-collapse: collapse;" />
 			<?php 
 			// Open Connection to Databse and Get List of Surfaces
 			$layer1menuconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
@@ -251,6 +250,7 @@
 												$filtername = '139339_f_name';
 												$filterid	= '139339_f_id';
 												$filter_h	= '139339_f_archived_yn';
+												$filter_sort = '';
 												$field_id	= '139339_c_id';
 												$field_name	= '139339_c_name';
 												$field_fid	= '139339_c_facility_cb_int';
@@ -262,17 +262,52 @@
 												
 												break;									
 											case 5:
-												$filtername = 'equipment_sub_type_name';
-												$filterid	= 'equipment_sub_type_id';
-												$filter_h	= 'equipment_sub_type_archived_yn';
-												$field_id	= 'equipment_id';
-												$field_name	= 'equipment_name';
-												$field_fid	= 'equipment_type_cb_int';
-												$field_lat	= 'equipment_lat';
-												$field_long	= 'equipment_long';
-												$field_icon = 'equipment_sub_type_icon';
-												$field_join = 1;
-												$include	= '_iframe_getairportmap_displayelement.php';
+												// Parts Table Information
+												//
+												$partstable			= 'tbl_inventory_sub_e_sub_p';
+												$parts_id			= 'inv_e_sub_t_p_id';
+												$parts_name			= 'inv_e_sub_t_p_name';
+												//							0			, 1			, 2
+												$array_parts		= array($partstable	,$parts_id	,$parts_name);
+												
+												// Filter (Type) Table Information												
+												//
+												$filtertable		= $tmpfilter;
+												$filterid			= 'equipment_sub_type_id';
+												$filtername 		= 'equipment_sub_type_name';
+												$filter_h			= 'equipment_sub_type_archived_yn';
+												$filter_sort 		= 'equipment_sub_type_slaved_id';
+												//							0			, 1			, 2				, 3			, 4
+												$array_filter		= array($filtertable,$filterid	,$filtername	,$filter_h	,$filter_sort);
+												
+												// Relationship Table Information
+												//
+												$pfrealstable		= 'tbl_inventory_sub_e_link_p_to_t';
+												$pfreals_pid		= 'inv_e_link_p2t_part_id';
+												$pfreals_rid		= 'inv_e_link_p2t_type_id';
+												//							0				, 1				, 2
+												$array_relationship = array($pfrealstable	,$pfreals_pid	,$pfreals_rid);
+												
+												// Equipment Table Information
+												//
+												$field_table	= $tmplist;
+												$field_id		= 'equipment_id';
+												$field_name		= 'equipment_name';
+												$field_fid		= 'equipment_type_cb_int';
+												$field_lat		= 'equipment_lat';
+												$field_long		= 'equipment_long';
+												$field_icon 	= 'equipment_sub_type_icon';
+												$field_join 	= 1;
+												//						0				, 1			, 2				, 3			, 4			, 5				, 6				, 7
+												$array_table	= array($field_table	,$field_id	,$field_name	,$field_fid	,$field_lat	,$field_long	,$field_icon	,$field_join);
+												
+												// LOAD INCLUDE FILE
+												//						
+												//						0				, 1				, 2						, 3		
+												$array_tableI	= array($array_parts	,$array_filter	,$array_relationship	,$array_table);
+												$serialized_ary = serialize($array_tableI);
+												
+												$include		= '_iframe_getairportmap_displayelement.php';
 												
 												break;
 											case 7:
@@ -321,13 +356,10 @@
 												}
 										}
 									?>
-		<tr>
-			<td>
+
 				<?php
 				_tp_control_function_button_checkbox($inputname,$tmpname,'icons_warning',$isitchecked);
 				?>
-				</td>
-			</tr>
 									<?php
 									// Now we want to display filter information
 									//	Hard Code some things for simplicity
@@ -342,6 +374,12 @@
 										else {
 											// load sql syntax with search criteria
 											$sql = 	"SELECT * FROM ".$tmpfilter." WHERE ".$filter_h." = 0 ORDER BY ".$filtername." ";
+											if($filter_sort == '') {
+													// Add nothing additional to sort by 
+												} else {
+												
+												
+												}
 											//echo "New SQL :".$sql." <br>";
 											
 											$layer2menures = mysqli_query($layer2menuconn, $sql);
@@ -368,7 +406,7 @@
 																	
 																	switch($tmpid) {
 																			case 4:
-																				// Current list is for Equipment
+																				// Current list is for Pavement
 																				$field_loct = 'polyxy';
 																				$filter 	= $tmp_id; 
 																				include("_iframe_getairportmap_displayelement.php");
@@ -385,13 +423,16 @@
 																}
 															
 															?>
-		<tr>
-			<td>
+
 				<?php
 				_tp_control_function_button_checkbox($inputname2,$tmp_name,'icons_warning',$isitchecked2,'sub');
 				?>
-				</td>
-			</tr>										<?php
+				<tr>
+					<td class='item_icon_inactive_form' colspan="5" />
+						<hr>
+						</td>
+					</tr>
+				<?php
 															
 														}
 												}

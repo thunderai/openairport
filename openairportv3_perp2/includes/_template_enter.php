@@ -466,9 +466,17 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																			$show = "show";
 																		}
 															$fieldfunction($fielddefaultvalue, "all", $fieldname, $show, "",2);
-															?> 
+															//echo "Default Value :".$fielddefaultvalue;
+															if ($fielddefaultvalue == 1) {
+																	// Display Link to New NOTAM window
+																	?>
+																	<span><em> Be Sure to File <u>NOTAM</u> if applicable </em></span>
+																	<?php
+																} else {
+																	?>
 															<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('part139327_discrepancy_report_help_pri.php','MapNewPoint')" />
-															<?php
+																	<?php
+																}
 														break;
 													case "Entry By":
 															$fieldfunction($fielddefaultvalue, "all", $fieldname, "hide", "");

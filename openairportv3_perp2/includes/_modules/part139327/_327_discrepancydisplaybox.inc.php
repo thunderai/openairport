@@ -136,7 +136,7 @@ function part139327discrepancydisplaybox($txtdisplay, $bsize, $fsize,$hsize, $js
 		//
 		?>
 		
-		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>; top:<?php echo $tempY;?>; align="left">
+		<div style="position:absolute; z-index:<?php echo $zpost;?>; left:<?php echo $tempX;?>px; top:<?php echo $tempY;?>px;" align="left" />
 			<table border="0" cellpadding="0" cellspacing="0" id="AutoNumber1">
   				<tr>
 					<form style="margin-bottom:0;" action="part139327_discrepancy_report_display.php" method="POST" name="dislookform<?php echo $disid;?>" id="dislookform<?php echo $disid;?>" target="ViewWorkOrder" />

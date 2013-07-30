@@ -33,10 +33,12 @@
 
 	// Load Include Files
 			include("_327_facilitycombobox.inc.php");
+			include("_327_facilitycombobox_getname.inc.php");
 			include("_327_facilitycomboboxwall.inc.php");	
 			include("_327_facilitycomboboxwall_short.inc.php");	
 			
 			include("_327_conditionscombobox.inc.php");
+			include("_327_conditionscombobox_getname.inc.php");
 			include("_327_conditionscomboboxwall.inc.php");	
 			include("_327_conditionscomboboxwall_short.inc.php");	
 			

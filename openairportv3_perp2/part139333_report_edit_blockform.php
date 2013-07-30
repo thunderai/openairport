@@ -30,6 +30,7 @@
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8	
 
 // PURPOSE:  ha...
+$shownlinerowheader =0;
 ?>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" id="tblbrowseformtable" />
 <?php
@@ -116,7 +117,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 								$tmpid2 		= $objfields3['conditions_id'];
 								$tmpcname2		= $objfields3['condition_name'];
 								
-								//$aspecs			= part139333_get_specifications($tmpid2);
+								$aspecs			= part139333_get_specifications($tmpid2);
 								
 								//echo 	$aspecs[0];
 								
@@ -194,14 +195,37 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 										// Not equal to, end and begin a nbew table
 										?>
 					<tr>
-						<td colspan="5" class='item_space_active' />
+						<?php
+						if($shownlinerowheader == 1 ) {
+								?>
+							<td colspan="4" class='item_space_active' />
 							<?php echo $tmpequiln2;?>
 							</td>
+								<?php
+							} else {
+								?>
+						<td class='item_space_active' />
+							Checklist Item
+							</td>		
+						<td colspan="4" class='item_space_active' />
+							<?php echo $tmpequiln2;?>
+							</td>
+								<?php
+							}
+							?>
 						</tr>
 					<tr>
+						<?php
+						if($shownlinerowheader == 1 ) {
+								// DO NOT DISPLAY AGAIN
+							} else {
+								?>
 						<td class="item_name_small_inactive" />
 							Fac
 							</td>
+								<?php
+							}
+							?>
 						<td class="item_name_small_inactive" />
 							I:
 							</td>	
@@ -222,14 +246,19 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 								if($displayrow == 1) {
 										?>
 					<tr>
-						<td name="col_1_r<?php echo $tmpid2;?>"
-							id="col_1_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',<?php echo $ele;?>);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',<?php echo $ele;?>);" 
+					<?php
+					if($shownlinerowheader ==1 ) {
+							// DO NOT DISPLAY
+						} else {
+						?>
+						<td 
 							class="item_name_small_inactive"
 							/>
 							<?php echo $tmpfacname2;?>
 							</td>
+							<?php
+						}
+							?>
 <?php
 										if($tmpfacid2 == 1 OR $tmpfacid2 == 5) {
 												
@@ -237,46 +266,31 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 												// to do
 												
 												?>					
-						<td name="col_2_r<?php echo $tmpid2;?>"
-							id="col_2_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+						<td 
 							class="item_name_small_inactive"
 							/>
-							<input type="text" ID="<?php echo $fieldname.'i';?>" 	name="<?php echo $fieldname.'i';?>" style='width:20px;' value="<?php echo $resultstring[0];?>"/> 
+							<input type="text" ID="<?php echo $fieldname.'i';?>" 	name="<?php echo $fieldname.'i';?>" style='width:40px;' value="<?php echo $resultstring[0];?>"/> 
 							</td>
-						<td name="col_3_r<?php echo $tmpid2;?>"
-							id="col_3_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+						<td 
 							class="item_name_small_inactive"
 							/>
-							<input type="text" ID="<?php echo $fieldname.'s';?>" 	name="<?php echo $fieldname.'s';?>" value="<?php echo $aspecs[0];?>" style='width:20px;' value="<?php echo $resultstring[1];?>" /> 
+							<input type="text" ID="<?php echo $fieldname.'s';?>" 	name="<?php echo $fieldname.'s';?>" value="<?php echo $aspecs[0];?>" style='width:40px;' value="<?php echo $resultstring[1];?>" /> 
 							</td>
-						<td name="col_4_r<?php echo $tmpid2;?>"
-							id="col_4_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+						<td 
 							class="item_name_small_inactive"
 							/>
-							<input type="text" ID="<?php echo $fieldname.'e';?>" 	name="<?php echo $fieldname.'e';?>" value="<?php echo $aspecs[1];?>" style='width:20px;' value="<?php echo $resultstring[2];?>" /> 
+							<input type="text" ID="<?php echo $fieldname.'e';?>" 	name="<?php echo $fieldname.'e';?>" value="<?php echo $aspecs[1];?>" style='width:40px;' value="<?php echo $resultstring[2];?>" /> 
 							</td>
-						<td name="col_5_r<?php echo $tmpid2;?>"
-							id="col_5_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',5);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',5);" 
+						<td 
 							class="item_name_small_inactive"
 							/>
-							<input type="text" ID="<?php echo $fieldname.'c';?>" 	name="<?php echo $fieldname.'c';?>" onblur="javascript:checkcalibration('<?php echo $fieldname;?>');" style='width:20px;' value="<?php echo $resultstring[3];?>" /> 
+							<input type="text" ID="<?php echo $fieldname.'c';?>" 	name="<?php echo $fieldname.'c';?>" onblur="javascript:checkcalibration('<?php echo $fieldname;?>');" style='width:40px;' value="<?php echo $resultstring[3];?>" /> 
 							</td>
 												<?php
 											}
 											else {
 											?>
-						<td colspan='4' name="col_2_r<?php echo $tmpid2;?>"
-							id="col_2_r<?php echo $tmpid2;?>"
-							onmouseover="togglebutton_M_C('<?php echo $tmpid2;?>','on',2);" 
-							onmouseout="togglebutton_M_C('<?php echo $tmpid2;?>','off',2);" 
+						<td colspan="4"
 							class="item_name_small_inactive"
 							/>
 											
@@ -331,7 +345,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 			}
 			?>
 	<?php
-			
+		$shownlinerowheader = 1;	
 	}
 	?>
 		</tr>

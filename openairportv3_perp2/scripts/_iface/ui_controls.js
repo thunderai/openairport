@@ -124,7 +124,13 @@ function showValue(newValue) {
 	
 }
 
-function togglecheckbox(inputname,fieldname) {
+function togglecheckbox(inputname,fieldname,tslots) {
+			
+		var slot1_name		= 'slot1' + escape(fieldname);
+		var	slot2_name	 	= 'slot2' + escape(fieldname);
+		var	slot3_name		= 'slot3' + escape(fieldname);
+		var	slot4_name		= 'slot4' + escape(fieldname);
+		var	slot5_name		= 'slot5' + escape(fieldname);			
 			
 		var IconName 	= 'Icon_MM' + escape(fieldname);
 		var NameName 	= 'Name_MM' + escape(fieldname);
@@ -136,21 +142,39 @@ function togglecheckbox(inputname,fieldname) {
 	if (document.getElementById(inputname).checked == false) {
 		document.getElementById(inputname).checked = true;
 		
-		document.getElementById(IconName).className = 'item_icon_active_form';
-		document.getElementById(NameName).className = 'item_name_active_form';
-		document.getElementById(FieldName).className = 'item_field_active_form';
-		document.getElementById(FormatName).className = 'item_format_active_form';
+		if(tslots == 3) {
+				// There are only three columns used.  They are by default 
+				document.getElementById(slot2_name).className = 'item_name_active_form';
+				document.getElementById(slot3_name).className = 'item_field_active_form';
+				document.getElementById(slot5_name).className = 'item_format_active_form';
+			} else {
+				// There are five colums used. they are by default
+				document.getElementById(slot1_name).className = 'item_icon_active_form';
+				document.getElementById(slot2_name).className = 'item_name_active_form';
+				document.getElementById(slot3_name).className = 'item_field_active_form';
+				document.getElementById(slot4_name).className = 'item_format_active_form';
+				document.getElementById(slot5_name).className = 'item_format_active_form';				
+			}
 		}
 	else {
+	
 		document.getElementById(inputname).checked = false;
-			
-		document.getElementById(IconName).className = 'item_icon_inactive_form';
-		document.getElementById(NameName).className = 'item_name_inactive_form';
-		document.getElementById(FieldName).className = 'item_field_inactive_form';
-		document.getElementById(FormatName).className = 'item_format_inactive_form';		
-		
+	
+		if(tslots == 3) {
+				// There are only three columns used.  They are by default 
+				document.getElementById(slot2_name).className = 'item_name_inactive_form';
+				document.getElementById(slot3_name).className = 'item_field_inactive_form';
+				document.getElementById(slot5_name).className = 'item_format_inactive_form';
+			} else {
+				// There are five colums used. they are by default
+				document.getElementById(slot1_name).className = 'item_icon_inactive_form';
+				document.getElementById(slot2_name).className = 'item_name_inactive_form';
+				document.getElementById(slot3_name).className = 'item_field_inactive_form';
+				document.getElementById(slot4_name).className = 'item_format_inactive_form';
+				document.getElementById(slot5_name).className = 'item_format_inactive_form';				
+			}	
 		}
-}
+	}
 
 function setMainMenuItem(MainControl)
 	{

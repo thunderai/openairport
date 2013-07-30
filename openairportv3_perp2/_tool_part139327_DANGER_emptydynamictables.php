@@ -97,6 +97,101 @@
 				//echo ">> Discrepancy repair record has been deleted<br>";
 			}	
 
+	// Delete Discrepancy Closed Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_sub_d_c";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}			
+	
+	// Delete Discrepancy Error Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_sub_d_e";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}		
+	
+	// Delete Discrepancy Archieved Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_sub_d_a";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}	
+	
+	// Delete Discrepancy Bounced Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_sub_d_b";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}	
+	
+	// Delete Discrepancy dlinked Table
+	
+		$sql 	= "DELETE FROM tbl_139_339_sub_n_dlink";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}	
+	
 	// Delete Discrepancy Owned By Table
 	
 		$sql 	= "DELETE FROM tbl_139_327_sub_d_o";
@@ -211,7 +306,44 @@
 				
 				//echo ">> Discrepancy repair record has been deleted<br>";
 			}
+
+	// Delete Inspection Archieved Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_main_a";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
 			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}
+			
+	// Delete Inspection Error Table
+	
+		$sql 	= "DELETE FROM tbl_139_327_main_e";
+		$objcon = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+		if (mysqli_connect_errno()) {
+				// there was an error trying to connect to the mysql database
+				printf("connect failed: %s\n", mysqli_connect_error());
+				exit();
+			}		
+			else {
+			
+				//echo "> Connection with 327_sub_d_r_tmp established...<br>";
+			
+				$objrs3 = mysqli_query($objcon, $sql) or die(mysqli_error($objcon));
+				$discrepancyrepairID = mysqli_insert_id($objcon);
+				
+				//echo ">> Discrepancy repair record has been deleted<br>";
+			}		
 	// Delete Inspection Temporary Table
 	
 		$sql 	= "DELETE FROM tbl_139_327_main";

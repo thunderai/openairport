@@ -23,7 +23,7 @@
 	
 	$sql = $sql.$sqli.$sql2.$sql3;
 	
-		//cho "Connect to database usining this SQL statement ".$sql." <br>";				
+		//echo "Connect to database usining this SQL statement ".$sql." <br>";				
 		$objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
 		if (mysqli_connect_errno()) {
@@ -61,6 +61,10 @@
 											var mapscale			= <?php echo $new_mapscale;?>;
 											var recordsource		= '<?php echo $tmplist;?>';
 											var recordidfield		= '<?php echo $field_id;?>';
+											var filtersource		= '<?php echo $tmpfilter;?>';
+											var filteridfield		= '<?php echo $filterid;?>';
+											var filterid			= '<?php echo $field_fid;?>';
+											var filtername			= '<?php echo $filtername;?>';
 											
 											var px 					= '<?php echo $record_lat;?>';
 											var py 					= '<?php echo $record_long;?>';
@@ -90,7 +94,7 @@
 											
 											var jg = new jsGraphics("myCanvas_airportmap");
 											var cordtype = 'poly';
-											var stringtodisplayp_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + recordsource + ';' + recordidfield;
+											var stringtodisplayp_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + recordsource + ';' + recordidfield + ';' + filtersource + ';' + filteridfield + ';' + filterid + ';' + filtername;
 										
 											jg.setColor("#000000"); // red
 											jg.setStroke('4'); 
@@ -115,8 +119,9 @@
 											
 											?>
 											<script type='text/javascript'>
-											var recordsource		= '<?php echo $tmplist;?>';
-											var recordidfield		= '<?php echo $field_id;?>';
+											
+											var serlized_array		= '<?php echo $serialized_ary;?>';
+											
 											
 											var px 					= '<?php echo $screen_x;?>';
 											var py 					= '<?php echo $screen_y;?>';
@@ -139,8 +144,8 @@
 											var jg = new jsGraphics("myCanvas_airportmap");
 											
 											var cordtype = 'point';
-											
-											var stringtodisplay_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + recordsource + ';' + recordidfield;
+											//												0							, 1									, 2		, 3			, 4				, 5				, 6					, 7						, 8					, 9					, 10				, 11				, 12		
+											var stringtodisplay_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + escape(serlized_array);
 										
 											jg.drawImage(icon,mainiconx,mainicony,icon_width,icon_height,"border='1' onMouseOver='this.style.zIndex = 999' onMouseOut='this.style.zIndex = 100' onclick='update_element_info(stringtodisplay_<?php echo $record_id;?>)'"); 
 											jg.setPrintable(false);
