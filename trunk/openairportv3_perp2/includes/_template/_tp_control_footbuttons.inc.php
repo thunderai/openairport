@@ -142,7 +142,7 @@ function _tp_control_footbuttons($detail = 0,$formname,$otherid = 0,$scriptfunct
 							onmouseover="OSpace_MAttach.className='item_name_active';Icon_MAttach.className='item_name_active';ISpace_MAttach.className='item_name_active';Name_MAttach.className='item_name_active';" 
 							onmouseout="OSpace_MAttach.className='item_name_inactive';Icon_MAttach.className='item_name_inactive';ISpace_MAttach.className='item_name_inactive';Name_MAttach.className='item_name_inactive';" 
 							onclick="call_server_navigationv5load('<?php echo $whoareyou;?>','root');" />
-							<img src="images/_interface/icons/icons_attach.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+							<img src="images/_interface/icons/icon_check.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 							</td>
 						<td name="ISpace_MAttach" id="ISpace_MAttach" 
 							class="item_space_inactive" 

@@ -248,6 +248,109 @@ if (!isset($_POST["formsubmit"])) {
 			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,"current"				,0);
 			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
 			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,38		,0		,$tmp_discrepancyname	,0);
+			?>
+					<?php
+					// Get name of Facility
+					$facility_name = part139327facilitycombobox_getname($tmp_facilityid, 'all', 'notused', 'hide', $tmp_facilityid);
+					//echo $facility_name;
+					$condition_name = part139327conditionscombobox_getname($tmp_conditionid, 'all', 'notused', 'hide', $tmp_conditionid);
+					//echo $condition_name;
+					
+					$comment = 'A(n) '.$condition_name.' '.$facility_name.' has been found ';
+					
+					if($tmp_discrepancycomm == '') {
+							// No value in the default comment field, set our new one
+							$tmp_discrepancycomm = $comment;
+						} else {
+							// Do nothing, Keep existing default comment
+						}
+						
+					// Now the tricky part. We need to take the facility / Condition and display
+					//	a select option box that lists all of the equipment types for that category.
+					//	to do this we will need to convert certain facilities/conditions to their equipment counterpart
+					//	This can be done easier by associating conditions to equipment types
+					//	
+					//
+					// USE SPECIAL TOOL TO CREATE THESE RELATIONSHIPS!!!!
+					//	
+					//	Assemble string
+					$sql2 = "SELECT * FROM tbl_139_327_sub_c_link_e_t 
+							INNER JOIN tbl_inventory_sub_e_sub_t 	ON tbl_inventory_sub_e_sub_t.equipment_sub_type_id 	= tbl_139_327_sub_c_link_e_t.139327_link_ef_e_t_id 
+							INNER JOIN tbl_inventory_sub_e			ON tbl_inventory_sub_e.equipment_type_cb_int 		= tbl_inventory_sub_e_sub_t.equipment_sub_type_id 
+							WHERE tbl_139_327_sub_c_link_e_t.139327_link_ef_c_id = '".$tmp_conditionid."' ORDER BY equipment_name";
+					
+					//echo $sql2;
+					$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+					?>
+					<?php
+					if (mysqli_connect_errno()) {
+							// there was an error trying to connect to the mysql database
+							printf("connect failed: %s\n", mysqli_connect_error());
+							exit();
+						}
+						else {
+							$objrs2 = mysqli_query($objconn2, $sql2);
+					
+							if ($objrs2) {
+									$totalnumberofdiscrepancies = mysqli_num_rows($objrs2);
+									if($totalnumberofdiscrepancies > 0) {
+											// There are elemetns to display
+											?>
+			<tr>
+				<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
+					class="item_space_inactive_form" 
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>
+					&nbsp;
+					</td>
+				<td name="<?php echo $Icon_name;?>" id="<?php echo $Icon_name;?>" 
+					class="item_icon_inactive_form" 
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>
+					<img src="images/_interface/icons/icon_pencile.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" />
+					</td>
+				<td name="<?php echo $ISpace_name;?>" id="<?php echo $ISpace_name;?>" 
+					class="item_space_inactive_form" 
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>
+					&nbsp;
+					</td>				
+				<td name="<?php echo $Name_name;?>" id="<?php echo $Name_name;?>" 
+					class="item_name_inactive_form" 
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>
+					Equipment
+					</td>											
+				<td class="item_space_inactive_form" align="left" valign="middle"
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>											
+					<SELECT class="table_forms_enter_input_field" NAME="selectequipment" ID="selectequipment" size="5" style="width:260px;"/>
+						<option value='0' />--- Select Equipment if applicable ---</option>
+									<?php
+									while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
+										?>
+						<option value='<?php echo $objarray2['equipment_id'];?>'><?php echo $objarray2['equipment_name'];?></option>
+										<?php
+										}
+										?>
+						</select>	
+						</td>	
+				<td name="<?php echo $Format_name;?>" id="<?php echo $Format_name;?>" 
+					class="item_format_inactive_form" 
+					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
+					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
+					/>
+					</td>
+				</tr>
+										<?php
+								}
+						}
+				}		
 			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,30		,4		,$tmp_discrepancycomm	,0);
 			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,10		,0		,"all"					,"gs_conditions");
 			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$location_s			,'');
@@ -295,8 +398,8 @@ if (!isset($_POST["formsubmit"])) {
 			}
 		
 		// Start to build the Insert SQL Statement
-		$sql = "INSERT INTO ".$tablename_d." (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_madebynavaid) 
-		VALUES ( '".$tmp_conditionid."', '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['disname']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['MouseX']."', '".$_POST['MouseY']."', '".$_POST['dispri']."', '".$_POST['madbynavaid']."')";
+		$sql = "INSERT INTO ".$tablename_d." (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_madebynavaid, Discrepancy_equipment_id) 
+		VALUES ( '".$tmp_conditionid."', '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['disname']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['MouseX']."', '".$_POST['MouseY']."', '".$_POST['dispri']."', '".$_POST['madbynavaid']."', '".$_POST['selectequipment']."')";
 
 		//echo "<font size='3' color='#FFFFFF'> The INSERT SQL Statement is : <i>".$sql."</i></font><br><br>";
 
@@ -385,8 +488,9 @@ if (!isset($_POST["formsubmit"])) {
 			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,0		,0		,'post'					,0);
 			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,0		,0		,$_SESSION['user_id']	,"systemusercombobox");
 			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,0		,0		,'post'					,0);
+			form_new_control("selectequipment"	,"Equipment"		, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
 			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
-			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,0		,0		,'post'					,"gs_conditions");
+			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,""							,3		,0		,0		,'post'					,"gs_conditions");
 			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,0		,''		,'post'					,'');
 			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
 		

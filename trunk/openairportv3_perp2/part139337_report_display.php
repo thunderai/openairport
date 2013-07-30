@@ -135,7 +135,7 @@ if (!isset($_POST["recordid"])) {
 				</tr>				
 			<tr>
 				<td align="left" valign="middle" height="42" width="125" bgcolor="#C8C8C8" style="opacity:.7;" />
-					&nbsp; Name
+					&nbsp; Animal Name
 					</td>	
 				<td align="right" valign="middle" bgcolor="#FFFFFF" style="opacity:.7;" />
 					&nbsp; <?php echo $fieldname;;?>

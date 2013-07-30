@@ -28,37 +28,27 @@
 //==============================================================================================
 //2345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8	
-?>
-<HTML>
-	<HEAD>
-		<TITLE>
-			Open Airport - Airport Safety Self-Inspection Report (Printer Friendly)
-			</TITLE>
-<?php
+
 // Load global include files
 	
 		include("includes/_template_header.php");										// This include 'header.php' is the main include file which has the page layout, css, AND functions all defined.
 		include("includes/POSTs.php");													// This include pulls information from the $_POST['']; variable array for use on this page
 	
 // Load Page Specific Includes
-		include("includes/_dateandtime/dateandtime.list.php");
+		//include("includes/_dateandtime/dateandtime.list.php");
 		include("scripts/_scripts_header_iface.inc.php");
 		//include("includes/AutoEntryFunctions.php");
-		include("includes/_systemusers/systemusers.list.php");
+		//include("includes/_systemusers/systemusers.list.php");
 		include("includes/_modules/part139327/part139327.list.php");
-		include("includes/_navigation/navigation.list.php");
-		include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
+		//include("includes/_navigation/navigation.list.php");
+		//include("includes/_generalsettings/generalsettings.list.php");					// Load GIS Functions
 		include("includes/_template/template.list.php");
 		
 		?>
-		<link href="stylesheets/reports_oa.css" rel="stylesheet" type="text/css">
-		</HEAD>
-	<BODY>
-	
-	<div style="position:absolute; z-index:1; left:3; top:84; width:<?php echo $maparray[1][1];?>;" align="left" />
-		<img src="images/part_139_327/<?php echo $maparray[1][0];?>" width="<?php echo $maparray[1][1];?>" height="<?php echo $maparray[1][2];?>" />
+	<div style="position:absolute; z-index:1; left:3px; top:84px; width:<?php echo $maparray[1][1];?>px;" align="left" />
+		<img src="images/part_139_327/<?php echo $maparray[3][0];?>" width="<?php echo $maparray[1][1];?>" height="<?php echo $maparray[1][2];?>" />
 		</div>
-	<div style="position:absolute; z-index:2; left:0; top:30; width:<?php echo $maparray[2][1];?>;" align="left" />
+	<div style="position:absolute; z-index:2; left:0px; top:30px; width:<?php echo $maparray[2][1];?>px;" align="left" />
 		<img src="images/part_139_327/<?php echo $maparray[2][0];?>" width="<?php echo $maparray[2][1];?>" height="<?php echo $maparray[2][2];?>" />
 		</div>
 		
@@ -135,7 +125,7 @@
 		displaytxtonreport("END DATE",							1, 3, 13, "left", 	190, 	290, 	52, 11);
 		displaytxtonreport($use_end_date,						1, 3, 13, "left", 	190, 	395, 	52, 8);	
 		
-		displaytxtonreport("Here is a map of the selected discrepancies",		1, 1, 50, "right", 	132, 	611, 	33, 12);
+		displaytxtonreport("Here is a map of the selected discrepancies",		1, 1, 50, "right", 	132, 	611, 	27, 12);
 					
 	// Make sql Statement
 		$sql = "SELECT * FROM tbl_139_327_sub_d 
@@ -246,19 +236,50 @@
 		
 		
 ?>
-	<div style="position:absolute; z-index:13; left:10px; top:470px; width:400px;" align="left" />
-		<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed" />
+	<div style="position:absolute; z-index:13; left:10px; top:450px; width:400px;" align="left" />
+		<table border="1" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse" borderCOLOR="#000000" />
 			<tr>
-				<td class="item_space_active" width="35px" />
+				<td bgcolor="#000000" colspan="4" align="center" valign="middle" height="30" />
+					<font color="#FFFFFF" size="4" />
+					<?php
+					switch($tmprecord) {
+						case 'all':
+							// Display all Discrepancies
+							$message = "ALL DISCREPANCIES";
+							break;
+						case 0:
+							// Has no history
+							$message = "Discrepacnies that need Repair";
+							break;
+						case 1:
+							//				1 - Needs to be Repaired (is currently bounced)
+							$message = "Discrepacnies that need Repair";
+							break;
+						case 2:
+							//				2 - Needs to be Bounced (is currently repaired)
+							$message = "Discrepacnies that need to be Closed or Bouned";
+							break;
+						case 3:
+							//				3 - Closed
+							$message = "Closed Discrepancies";			
+							break;
+						}
+						?>
+						<?php echo $message;?>
+						</font>
+					</td>
+				</tr>		
+			<tr>
+				<td width="35px" align="centeR" valign="middle" bgcolor="#C8C8C8" />
 					ID
 					</td>
-				<td class="item_name_active"  />
+				<td align="centeR" valign="middle" bgcolor="#C8C8C8"  />
 					Name
 					</td>					
-				<td class="item_name_active" />
+				<td align="centeR" valign="middle" bgcolor="#C8C8C8" />
 					Remarks
 					</td>
-				<td class="item_name_active" width="90px"/>
+				<td width="90px" align="centeR" valign="middle" bgcolor="#C8C8C8"/>
 					Commands
 					</td>					
 				</tr>			
@@ -266,8 +287,12 @@
 		if(count($disarray_id) == 0) {
 				?>
 			<tr>
-				<td colspan="4" align="left" valign="top" width="25" class="item_space_small_inactive" />
-					No Discrepancies
+				<td colspan="4" align="center" valign="middle" width="25" bgcolor="#FFFFFF" />
+					<font size="2" color="#000000" />
+						<b>
+							No Discrepancies
+							</b>
+						</font>
 					</td>
 				</tr>
 				<?php
@@ -280,19 +305,21 @@
 			$tmpdiscrepancyid = $disarray_id[$i];
 			?>
 	<tr>
-		<td class="item_space_small_inactive" />
-			<?php echo $disarray_id[$i];?>
+		<td bgcolor="#FFFFFF" align="centeR" valign="middle" />
+			<font size="1" color="#000000" />
+				<?php echo $disarray_id[$i];?>
+				</font>
 			</td>
-		<td class="item_name_small_inactive" />
-			<?php echo $disarray_name[$i];?>
+		<td bgcolor="#FFFFFF" align="left" valign="middle" />
+			<font size="1" color="#000000" />
+				&nbsp;<?php echo $disarray_name[$i];?>
+				</font>
 			</td>
-		<td class="item_name_small_inactive" />
-			<?php echo $disarray_remarks[$i];?>
+		<td bgcolor="#FFFFFF" align="left" valign="middle" />
+			<font size="1" color="#000000" />
+				&nbsp;<?php echo $disarray_remarks[$i];?>
 			</td>
-		<td height="30px" class="item_name_small_inactive" 
-			name="commands<?php echo $disid;?>" id="commands<?php echo $disid;?>"
-			onmouseover="commands<?php echo $disid;?>.className='item_name_small_active';" 
-			onmouseout="commands<?php echo $disid;?>.className='item_name_small_inactive';" 
+		<td height="30px" bgcolor="#FFFFFF" align="centeR" valign="middle" onmouseover="" style="cursor: pointer;"
 			onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=200px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" 
 			/>
 			<div name="327d_control_<?php echo $tmpdiscrepancyid;?>" id="327d_control_<?php echo $tmpdiscrepancyid;?>" style="display:none;text-align:left;vertical-align:text-top;" />
@@ -394,7 +421,9 @@
 						</tr>
 					</table>
 				</div>
-			Commands
+			<font size="1" color="#000000" />
+				Commands
+				</font>
 			</td>
 		</tr>
 			<?php

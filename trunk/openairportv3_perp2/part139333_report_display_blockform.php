@@ -30,6 +30,7 @@
 //		  1		    2		  3		    4		  5		    6		  7		    7	      8	
 
 // PURPOSE:  ha...
+$shownlinerowheader = 0;
 ?>
 <table border="0" style="border-collapse:collapse;">
 <?php
@@ -152,14 +153,37 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 										// Not equal to, end and begin a nbew table
 										?>
 					<tr>
-						<td align="center" valign="middle" colspan="5" width="180" bgcolor="#CoCoCo">
+						<?php
+						if($shownlinerowheader == 1 ) {
+								?>
+							<td colspan="4" bgcolor="C0C0C0" align="center"/>
 							<?php echo $tmpequiln2;?>
 							</td>
+								<?php
+							} else {
+								?>
+						<td bgcolor="C0C0C0" />
+							Checklist Item
+							</td>		
+						<td colspan="4" bgcolor="C0C0C0" align="center" />
+							<?php echo $tmpequiln2;?>
+							</td>
+								<?php
+							}
+							?>
 						</tr>
 					<tr>
+						<?php
+						if($shownlinerowheader == 1 ) {
+								// DO NOT DISPLAY AGAIN
+							} else {
+								?>
 						<td align="center" valign="middle" bgcolor="#e9e7e7">
 							Fac
 							</td>
+								<?php
+							}
+							?>
 						<td align="center" valign="middle" bgcolor="#e1dfdf" width="33" height="25">
 							I:
 							</td>	
@@ -180,9 +204,19 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 								if($displayrow == 1) {
 										?>
 					<tr>
-						<td bgcolor="#e9e7e7">
-							<?php echo $tmpfacname2;?>
+					<?php
+					if($shownlinerowheader ==1 ) {
+							// DO NOT DISPLAY
+						} else {
+						?>
+						<td bgcolor="#e9e7e7" height="20" />
+							<font size="1">
+								<?php echo $tmpfacname2;?>
+								<font>
 							</td>
+							<?php
+						}
+							?>	
 										<?php
 										if($tmpfacid2 == 1 OR $tmpfacid2 == 5) {
 												
@@ -190,7 +224,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 												// to do
 												
 												?>					
-						<td align="right">
+						<td align="right" height="20" />
 							<?php echo $resultstring[0];?>
 							</td>
 						<td align="right">
@@ -206,7 +240,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 											}
 											else {
 											?>
-						<td colspan="4">
+						<td colspan="4" height="20" />
 											<?php
 												gs_conditions_js($basicvalue, "no", $fieldname.'cb', "hide", $basicvalue,1,$fieldname.'cb');
 											}
@@ -253,7 +287,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 			}
 			?>
 	<?php
-			
+		$shownlinerowheader = 1;	
 	}
 	?>
 		</tr>

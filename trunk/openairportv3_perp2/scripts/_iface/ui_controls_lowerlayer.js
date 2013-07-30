@@ -177,6 +177,10 @@ function update_element_info(stringtxt) {
 		var mapscale 		= n[5];
 		var recordsource 	= n[6];
 		var recordidfield	= n[7];
+		var filtersource 	= n[8];
+		var filteridfield	= n[9];
+		var filteridfield	= n[10];
+		var serilzed		= n[12];
 	
 	// DISPLAY OFFSETS
 		// Display Element box offset from the icon by this much...
@@ -234,17 +238,32 @@ function update_element_info(stringtxt) {
 		}
 	
 	//alert(window_loc_y);
-	document.getElementById("ElementInfo_Id").innerHTML = n[0];
-	document.getElementById("elementrecordid").value = n[0];
-	document.getElementById("elementrecordidfield").value = recordidfield;
-	document.getElementById("ElementInfo_Name").innerHTML = n[1];
-	document.getElementById("ElementInfo_LocX").innerHTML = 'X:' + display_x + ',';
-	document.getElementById("ElementInfo_LocY").innerHTML = 'Y:' + display_y;
-	document.getElementById("elementrecordsource").value = n[6];
-	
-	document.getElementById("div_mapinfo_win").style.display 	= "block";
-	document.getElementById("div_mapinfo_win").style.position 	= "fixed";
-	document.getElementById("div_mapinfo_win").style.top 		= window_loc_y + 'px';
-	document.getElementById("div_mapinfo_win").style.left 		= window_loc_x + 'px';
+	//	What are the serile locations
+	//	0	|	'<?php echo $record_id;?>'
+	//	1	|	'<?php echo $record_name;?>;'
+	//	2	|	px
+	//	3	|	py
+	//	4	|	cordtype
+	//	5	|	mapscale
+	//	6	|	escape(serlized_array);
+										
+	// USED IN DISPLAY WINDOW
+		//	ID
+		document.getElementById("ElementInfo_Id").innerHTML = n[0];
+		//	NAME
+		document.getElementById("ElementInfo_Name").innerHTML = n[1];
+		//	Location X
+		document.getElementById("ElementInfo_LocX").innerHTML = 'X:' + display_x + ',';
+		// 	Location Y
+		document.getElementById("ElementInfo_LocY").innerHTML = 'Y:' + display_y;
+	// SEND as a POST in the FORM
+		//	Element Record ID
+		document.getElementById("elementrecordid").value = n[0];
+		document.getElementById("elementserilzed").value = n[6];
+	// Stylize the Display Menu (show it)	
+		document.getElementById("div_mapinfo_win").style.display 	= "block";
+		document.getElementById("div_mapinfo_win").style.position 	= "fixed";
+		document.getElementById("div_mapinfo_win").style.top 		= window_loc_y + 'px';
+		document.getElementById("div_mapinfo_win").style.left 		= window_loc_x + 'px';
 	
 }

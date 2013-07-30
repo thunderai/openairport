@@ -23,16 +23,32 @@
 		
 		<?php
 
-$id 		= $_POST['elementrecordid'];
-$idfield 	= $_POST['elementrecordidfield'];
-$source 	= $_POST['elementrecordsource'];
+// Load information from the FORM POST
+		// What is the ID of this thing?
+				$id 					= $_POST['elementrecordid'];
+				//echo "ID is [ ".$id." ] <br>"
+		// get Serilzed String from the Form POST
+				$serilzed_array = urldecode($_POST['elementserilzed']);
+				//echo "Serilzed Array :".$serilzed_array;
+		// Convert Serilzed String into an Array
+				$array_tableI = unserialize($serilzed_array);
+				//echo "UnSerilzed Array :".$array_table;
+
+//
+// Reference Conversion Settings in _iframe_getairportmap.php circa line 255		
+//
+//
 $search_lat 	= '';
 $search_long 	= '';
 $search_x 		= '';
 $search_y 		= '';
 
-$sql =" SELECT * FROM ".$source." WHERE ".$idfield." = ".$id." ";
-	
+/* $sql ='SELECT * FROM '.$array_tableI[3][0].' 
+		INNER JOIN '.$array_tableI[1][0].' ON '.$array_tableI[1][0].'.'.$array_tableI[1][1].' = '.$array_tableI[3][0].'.'.$array_tableI[3][3].' WHERE '.$array_tableI[3][1].' = '.$id.'';
+	 */
+$sql ='SELECT * FROM '.$array_tableI[3][0].' WHERE '.$array_tableI[3][1].' = '.$id.'';
+//echo "<font size='2' color='#FFFFFF'> SQL Statment is ".$sql."</font> <br>";		
+
 //echo "Connect to database usining this SQL statement ".$sql." <br>";				
 $objconn = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 
@@ -50,7 +66,18 @@ if (mysqli_connect_errno()) {
 				$rows='';
 				?>
 				<table width="100%" cellpadding="0" cellspacing="0" style="margin:0px;border:2px solid;padding:0px;border-style: solid;border-color: #000000;border-collapse: collapse;" />
-	
+					<tr>
+						<td colspan="3" class="perp_menuheader" />
+							ELEMENT INFORMATION
+							</td>			
+						</tr>			
+					<tr>
+						<td colspan="3" class="perp_menusubheader" />
+							(
+							Complete Information for the selected unit
+							)
+							</td>				
+						</tr>	
 					<tr>
 						<td width="200" class="maptoolsfields_on" />
 							Field Name
@@ -112,7 +139,59 @@ if (mysqli_connect_errno()) {
 												class="item_field_inactive_form"  
 												onmouseover="TD<?php echo $key;?>.className='item_field_active_form';TD2<?php echo $key;?>.className='item_field_active_form';" 
 												onmouseout="TD<?php echo $key;?>.className='item_field_inactive_form';TD2<?php echo $key;?>.className='item_field_inactive_form';" />
-												<?php echo $value;?>
+												<?php
+												// Determine if this is a filter key
+												//	Look for the name of the filter field
+												//	Filter Field is : $array_tableI[3][3]
+												//echo "<font size='2' color='#FFFFFF'> Key ".$key." / TableArray ".$array_tableI[3][3]."</font> <br>";	
+												if($key == $array_tableI[3][3]) {
+														//echo "<font size='2' color='#FFFFFF'> Key and Record are the Same. DO MOAR</font> <br>";	
+													
+														// Create new sql to poll filter database
+														$sql_filter 	= 'SELECT * FROM '.$array_tableI[1][0].' ORDER BY '.$array_tableI[1][2].'';
+														//echo "<font size='2' color='#FFFFFF'> SQL Filter Statment is ".$sql_filter."</font> <br>";	
+														$objconn_filter = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+														if (mysqli_connect_errno()) {
+																// there was an error trying to connect to the mysql database
+																printf("connect failed: %s\n", mysqli_connect_error());
+																exit();
+															}
+															else {
+																$objrs_filter = mysqli_query($objconn_filter, $sql_filter);
+																		
+																if ($objrs_filter) {
+																		$number_of_rows_filter = mysqli_num_rows($objrs_filter);
+																		//
+																		//																			Who I am		  , Table to find me	  , Field to Find Me	   , Field to Change					
+																		?>
+													<select name="changefilter" id="changefilter"  />
+																		<?php
+																		while ($row_filter = mysqli_fetch_array($objrs_filter, MYSQLI_ASSOC)) {
+																				?>
+														<option value='<?php echo $row_filter[$array_tableI[1][1]];?>' 
+																				<?php
+																				if($row_filter[$array_tableI[1][1]] == $value) {
+																						?>
+																						SELECTED
+																						<?php
+																					}
+																					?>
+														/>[<?php echo $row_filter[$array_tableI[1][1]];?>] <?php echo $row_filter[$array_tableI[1][2]];?></option>
+																					<?php
+																			}
+																			?>
+														</select>
+														<span id="ajaxdone" name="ajaxdone" onclick="call_server_inventory_push_filter_type('<?php echo $id;?>','<?php echo $array_tableI[3][0];?>','<?php echo $array_tableI[3][1];?>','<?php echo $array_tableI[3][3];?>');"> Click to Change</span>
+															<?php
+																	}
+															}
+													} else {
+														?>
+													<?php echo $value;?>
+														<?php
+													}
+													?>
 												</td>
 											</tr>
 											<?php
@@ -206,13 +285,107 @@ if (mysqli_connect_errno()) {
 						<td colspan="3">
 							<table width="100%" cellpadding="0" cellspacing="0" border="0" />
 								<tr>
-									<td colspan="3" class="maptoolsfields_on" />
-										Looking for Proximity Information
-										</td>
+									<td colspan="3" class="perp_menuheader" />
+										Looking for Specific Information
+										</td>			
+									</tr>			
+								<tr>
+									<td colspan="3" class="perp_menusubheader" />
+										(
+										For the Selected Unit Only
+										)
+										</td>				
 									</tr>
 								<tr>
 									<td colspan="3" class="maptoolsfields_on" />
-										327 Discrepancies
+										327 Discrepancies (Related Equipment)
+										</td>						
+									</tr>
+								<tr>
+									<td width="25" class="maptoolsfields_off" />
+										ID
+										</td>
+									<td width="*" class="maptoolsfields_off" />
+										NAME
+										</td>	
+									<td width="150" class="maptoolsfields_off" />
+										LOCATION
+										</td>								
+									</tr>
+					<?php
+					//
+					// 327 Discrepancies for this equipment
+					$sql_t 	= "SELECT * FROM tbl_139_327_sub_d WHERE Discrepancy_equipment_id = '".$id."' ";
+					//echo "Sql ".$sql_t;
+					
+					$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+					if (mysqli_connect_errno()) {
+							// there was an error trying to connect to the mysql database
+							printf("connect failed: %s\n", mysqli_connect_error());
+							exit();
+						}
+						else {
+							$objrs2 = mysqli_query($objconn2, $sql_t);
+							$internal_counter = 0;		
+							if ($objrs2) {
+									$number_of_rows2 = mysqli_num_rows($objrs2);
+									//echo "Number of rows :".$number_of_rows2;
+									if($number_of_rows2 == 0) {
+											?>
+								<tr>
+									<td colspan="3" class="maptoolsfields_off" />
+										No matches found
+										</td>							
+									</tr>	
+											<?php	
+										} else {									
+											while ($row2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {					
+													?>
+								<tr>
+									<td width="25" height="22" name="D<?php echo $id;?>ID" id="D<?php echo $id;?>ID" 
+										class="item_field_inactive_form" 
+										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
+										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"
+										/>
+										<?php echo $row2['Discrepancy_id']?>
+										</td>
+									<td width="*" height="22" name="D<?php echo $id;?>Name" id="D<?php echo $id;?>Name" 
+										class="item_field_inactive_form" 
+										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
+										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"
+										/>
+										<?php echo $row2['Discrepancy_name']?>
+										</td>	
+									<td width="150" height="22" name="D<?php echo $id;?>Location" id="D<?php echo $id;?>Location" 
+										class="item_field_inactive_form" 
+										onmouseover="D<?php echo $id;?>ID.className='item_field_active_form';D<?php echo $id;?>Name.className='item_field_active_form';D<?php echo $id;?>Location.className='item_field_active_form';" 
+										onmouseout="D<?php echo $id;?>ID.className='item_field_inactive_form';D<?php echo $id;?>Name.className='item_field_inactive_form';D<?php echo $id;?>Location.className='item_field_inactive_form';"
+										/>
+										Self
+										</td>							
+									</tr>													
+													<?php							
+												}
+										}
+								}
+						}
+						?>
+								<tr>
+									<td colspan="3" class="perp_menuheader" />
+										Looking for Proximity Information
+										</td>			
+									</tr>			
+								<tr>
+									<td colspan="3" class="perp_menusubheader" />
+										(
+										For the Selected Unit Only
+										)
+										</td>				
+									</tr>
+								<tr>
+									<td colspan="3" class="maptoolsfields_on" />
+										327 Discrepancies (Any)
 										</td>						
 									</tr>
 								<tr>

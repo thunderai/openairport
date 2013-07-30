@@ -187,18 +187,12 @@
 										//echo "[17]. Check is equal to 2, Display Management Line <br>";
 										?>
 		<tr>
-			<td name="col_1_r<?php echo $tmpid;?>"
-				id="col_1_r<?php echo $tmpid;?>"
-				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
-				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+			<td 
 				class="item_name_small_inactive"
 				/>
 				Runway Heading <?php echo $runwayheading;?>
 				</td>		
-			<td name="col_2_r<?php echo $tmpid;?>"
-				id="col_2_r<?php echo $tmpid;?>"
-				onmouseover="togglebutton_M_C('<?php echo $tmpid;?>','on',2);" 
-				onmouseout="togglebutton_M_C('<?php echo $tmpid;?>','off',2);" 
+			<td 
 				class="item_name_small_inactive"
 				/>
 				<?php
@@ -218,7 +212,7 @@
 				
 
 										<?php
-										if($InspCheckList == 1) {
+										if($InspCheckList == 4 OR $InspCheckList == 5 OR $InspCheckList == 6 OR $InspCheckList == 7) {
 												// Hard Code Count!!! - EVIL
 												$numberofboxes = 4;
 												$helperimage 	= 'images/Part_139_333/papihelper.png';
@@ -232,7 +226,7 @@
 												$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
 											}	
 											
-										if($InspCheckList == 3) {
+										if($InspCheckList == 8 OR $InspCheckList == 9 OR $InspCheckList == 10 OR $InspCheckList == 11) {
 												// Hard Code Count!!! - EVIL
 												$numberofboxes 	= 2;
 												$helperimage	= 'images/Part_139_333/reilhelper.png';

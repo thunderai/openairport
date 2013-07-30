@@ -300,7 +300,7 @@
 					//echo "test";
 					//echo "J :".$j."<br>";
 					$large_or_small = 'large';
-					include("includes/_modules/part139339/_339_c_displayelement.inc.php");
+					include("includes/_modules/part139339/_339_c_displayelement_gis.inc.php");
 												
 			}	
 	}		
