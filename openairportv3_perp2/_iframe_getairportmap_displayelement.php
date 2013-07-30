@@ -59,12 +59,7 @@
 											var xaverage			= 0;
 											var yaverage			= 0;
 											var mapscale			= <?php echo $new_mapscale;?>;
-											var recordsource		= '<?php echo $tmplist;?>';
-											var recordidfield		= '<?php echo $field_id;?>';
-											var filtersource		= '<?php echo $tmpfilter;?>';
-											var filteridfield		= '<?php echo $filterid;?>';
-											var filterid			= '<?php echo $field_fid;?>';
-											var filtername			= '<?php echo $filtername;?>';
+											var serlized_array		= '<?php echo $serialized_ary;?>';
 											
 											var px 					= '<?php echo $record_lat;?>';
 											var py 					= '<?php echo $record_long;?>';
@@ -94,7 +89,7 @@
 											
 											var jg = new jsGraphics("myCanvas_airportmap");
 											var cordtype = 'poly';
-											var stringtodisplayp_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + recordsource + ';' + recordidfield + ';' + filtersource + ';' + filteridfield + ';' + filterid + ';' + filtername;
+											var stringtodisplay_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + escape(serlized_array);
 										
 											jg.setColor("#000000"); // red
 											jg.setStroke('4'); 

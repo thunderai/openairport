@@ -172,6 +172,7 @@ if (mysqli_connect_errno()) {
 														<option value='<?php echo $row_filter[$array_tableI[1][1]];?>' 
 																				<?php
 																				if($row_filter[$array_tableI[1][1]] == $value) {
+																						$tmp_mycurrent_filter = $row_filter[$array_tableI[1][1]];
 																						?>
 																						SELECTED
 																						<?php
@@ -207,7 +208,159 @@ if (mysqli_connect_errno()) {
 									} 
 								//$rows = $rows.='</tr>'; 
 							}
-					}
+							
+					// Display Parts Information
+					//	Design SQL Statement First
+					$sqli ="SELECT * FROM tbl_inventory_sub_e_sub_p
+							INNER JOIN tbl_inventory_sub_e_link_p_to_t ON tbl_inventory_sub_e_link_p_to_t.inv_e_link_p2t_part_id = tbl_inventory_sub_e_sub_p.inv_e_sub_t_p_id 
+							INNER JOIN tbl_inventory_sub_e_sub_t ON tbl_inventory_sub_e_sub_t.equipment_sub_type_id = tbl_inventory_sub_e_link_p_to_t.inv_e_link_p2t_type_id 
+							INNER JOIN tbl_inventory_sub_e ON tbl_inventory_sub_e.equipment_type_cb_int = tbl_inventory_sub_e_sub_t.equipment_sub_type_id
+							WHERE tbl_inventory_sub_e.equipment_id = ".$id." ";
+							
+					$sqla ="SELECT ".$array_tableI[0][1]." FROM ".$array_tableI[0][0]." ";
+					//echo $sqla.'<br>';
+					
+					$sqlb = "INNER JOIN ".$array_tableI[2][0]." ON ".$array_tableI[2][0].".".$array_tableI[2][1]." = ".$array_tableI[0][0].".".$array_tableI[0][1]." ";
+					//echo $sqlb.'<br>';
+					
+					$sqlc = "INNER JOIN ".$array_tableI[1][0]." ON ".$array_tableI[1][0].".".$array_tableI[1][1]." = ".$array_tableI[2][0].".".$array_tableI[2][2]." ";
+					//echo $sqlc.'<br>';
+					
+					$sqld = "INNER JOIN ".$array_tableI[3][0]." ON ".$array_tableI[3][0].".".$array_tableI[3][3]." = ".$array_tableI[1][0].".".$array_tableI[1][1]." ";
+					//echo $sqld.'<br>';
+					
+					$sqle = "WHERE ".$array_tableI[3][0].".".$array_tableI[3][1]." = ".$id." ";	
+					//echo $sqle.'<br>';
+					
+					$sql_p = $sqla.$sqlb.$sqlc.$sqld.$sqle;
+					//echo "<font size='2' color='#FFFFFF'>".$sql_p."</font> <br>";	
+					$objconn_p = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+					if (mysqli_connect_errno()) {
+							// there was an error trying to connect to the mysql database
+							printf("connect failed: %s\n", mysqli_connect_error());
+							exit();
+						}
+						else {
+							$objrs_p = mysqli_query($objconn_p, $sql_p);
+									
+							if ($objrs_p) {
+									$number_of_rows2 = mysqli_num_rows($objrs_p);
+									$header2='';
+									$rows2='';
+									?>
+									<tr>
+										<td colspan="3" class="perp_menuheader" />
+											ELEMENT PART INFORMATION
+											</td>			
+										</tr>			
+										<tr>
+											<td colspan="3" class="perp_menusubheader" />
+												(
+												Known Parts to this Element
+												)
+												</td>				
+											</tr>	
+										<tr>
+											<td width="200" class="maptoolsfields_on" />
+												Field Name
+												</td>
+											<td width="200" colspan="2" class="maptoolsfields_on" style="width:100px;word-wrap:break-word;" />
+												Field Value
+												</td>
+											</tr>
+									<?php
+									while ($row2 = mysqli_fetch_array($objrs_p, MYSQLI_ASSOC)) {
+											if($header2==''){
+													$header2 = $header2.'<th>'; 
+													$rows2 = $rows2.'<tr>'; 
+													foreach($row2 as $key2 => $value2){ 
+															$header2 = $header2.'<td>'.$key2.'</td>'; 															
+?>
+										<tr>
+											<td height="22" name="TD<?php echo $key2;?>" id="TD<?php echo $key2;?>" 
+												class="item_field_inactive_form" 
+												onmouseover="TD<?php echo $key2;?>.className='item_field_active_form';TD2<?php echo $key2;?>.className='item_field_active_form';" 
+												onmouseout="TD<?php echo $key2;?>.className='item_field_inactive_form';TD2<?php echo $key2;?>.className='item_field_inactive_form';" />
+												<?php echo $key2;?>
+												</td>
+												
+											<td height="22" colspan="2" name="TD2<?php echo $key2;?>" id="TD2<?php echo $key2;?>" 
+												class="item_field_inactive_form"  
+												onmouseover="TD<?php echo $key2;?>.className='item_field_active_form';TD2<?php echo $key2;?>.className='item_field_active_form';" 
+												onmouseout="TD<?php echo $key2;?>.className='item_field_inactive_form';TD2<?php echo $key2;?>.className='item_field_inactive_form';" />
+												<?php
+												// Duplicate Select Box used Before
+												//
+												// Determine if this is a filter key
+												//	Look for the name of the filter field
+												//	Filter Field is : $array_tableI[3][3]
+												//echo "<font size='2' color='#FFFFFF'> Key ".$key." / TableArray ".$array_tableI[3][3]."</font> <br>";	
+												if($key2 == $array_tableI[0][1]) {
+														//echo "<font size='2' color='#FFFFFF'> Key and Record are the Same. DO MOAR</font> <br>";	
+													
+														// Create new sql to poll filter database
+														$sql_parts 	= 'SELECT * FROM '.$array_tableI[0][0].' ORDER BY '.$array_tableI[0][2].'';
+														//echo "<font size='2' color='#FFFFFF'> SQL Filter Statment is ".$sql_filter."</font> <br>";	
+														$objconn_parts = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
+
+														if (mysqli_connect_errno()) {
+																// there was an error trying to connect to the mysql database
+																printf("connect failed: %s\n", mysqli_connect_error());
+																exit();
+															}
+															else {
+																$objrs_parts = mysqli_query($objconn_parts, $sql_parts);
+																		
+																if ($objrs_parts) {
+																		$number_of_rows_parts = mysqli_num_rows($objrs_parts);
+																		//
+																		//																			Who I am		  , Table to find me	  , Field to Find Me	   , Field to Change					
+																		?>
+													<select name="changefilter" id="changefilter"  alt="<?php echo $value2;?>" />
+																		<?php
+																		while ($row_parts = mysqli_fetch_array($objrs_parts, MYSQLI_ASSOC)) {
+																				
+																				?>
+														<option value='<?php echo $row_parts[$array_tableI[0][1]];?>' 
+																				<?php
+																				if($row_parts[$array_tableI[0][1]] == $value2) {
+																						$tmp_mycurrent_parts = $row_parts[$array_tableI[0][1]];
+																						?>
+																						SELECTED
+																						<?php
+																					}
+																					?>
+														/>[<?php echo $row_parts[$array_tableI[0][1]];?>] <?php echo $row_parts[$array_tableI[0][2]];?></option>
+																					<?php
+																			}
+																			?>
+														</select>
+														<span id="ajaxdone" name="ajaxdone" onclick="call_server_inventory_push_parts_type('<?php echo $id;?>','<?php echo $array_tableI[3][0];?>','<?php echo $array_tableI[3][1];?>','<?php echo $array_tableI[3][3];?>');"> Click to Change</span>
+															<?php
+																	}
+															}
+													} else {
+														?>
+													<?php echo $value2;?>
+														<?php
+													}
+													?>
+												</td>
+											</tr>
+											<?php
+										//echo $key.":".$value;
+										//$rows = $rows.'<td>'.$value.'</td>'; 
+														}	 
+												$header2 = $header2.='</th>';							
+												}
+										}
+								}
+						}
+							
+					
+							
+					}	// End of Main WHILE LOOP
 					//echo $header.$rows;
 					$search_for = '';
 					
