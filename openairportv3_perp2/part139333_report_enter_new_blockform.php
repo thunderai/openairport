@@ -79,7 +79,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 				WHERE tbl_inventory_sub_e.equipment_name = '".$name."' AND condition_archived_yn = 0
 				ORDER BY tbl_inventory_sub_e.equipment_name, tbl_139_333_sub_c_f.facility_name, condition_name"; 
 				
-		//echo "[1]. The SQL Statement is :".$sql." <br>";
+		//echo "[1]. The SQL Statement is :".$sql2." <br>";
 		//echo "[2]. Create Connection Object <br>";
 		
 		$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);

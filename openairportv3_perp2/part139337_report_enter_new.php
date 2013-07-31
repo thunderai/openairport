@@ -150,6 +150,7 @@ if (!isset($_POST["formsubmit"])) {
 	//																																																																										|
 	//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\									|
 	//																																																																	 v									v
+	form_new_table_b($formname);
 	form_new_control("wlhmdate"		,"Date"				, "Enter the date of this report"					,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,0				,0				,'post'					,0);
 	form_new_control("wlhmtime"		,"Time"				, "Enter the time of this report"					,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,0				,0				,'post'					,0);
 	form_new_control("wlhmauthor"	,"Entry By"			, "Who found and reported this discrepancy"			,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,0				,0				,'post'					,"systemusercombobox");
@@ -174,8 +175,9 @@ if (!isset($_POST["formsubmit"])) {
 		// Load METAR
 			$currentweather = readweathertxt();
 	
-		$sqldate	= AmerDate2SqlDateTime($_POST['wlhmdate']);
-		$sql 		= "INSERT INTO tbl_139_337_main (139337_date, 139337_time,139337_author_by_cb_int,139337_species_cb_int, 139337_activity_cb_int, 139337_action_cb_int, 139337_numberofspecies, 139337_resultsofaction, 139337_weather,139337_location_x,139337_location_y,139337_metar) VALUES ( '".$sqldate."','".$_POST['wlhmtime']."','".$_POST['wlhmauthor']."','".$_POST['wlhmspecies']."','".$_POST['wlhmactivity']."','".$_POST['wlhmaction']."','".$_POST['wlhmnumber']."','".$_POST['wlhmresults']."','".$_POST['wlhmweather']."','".$_POST['MouseX']."','".$_POST['MouseY']."','".$currentweather."')";
+		//$sqldate	= AmerDate2SqlDateTime($_POST['wlhmdate']);
+		$sql 		= "INSERT INTO tbl_139_337_main (139337_date, 139337_time,139337_author_by_cb_int,139337_species_cb_int, 139337_activity_cb_int, 139337_action_cb_int, 139337_numberofspecies, 139337_resultsofaction, 139337_weather,139337_location_x,139337_location_y,139337_metar) VALUES ( '".$_POST['wlhmdate']."','".$_POST['wlhmtime']."','".$_POST['wlhmauthor']."','".$_POST['wlhmspecies']."','".$_POST['wlhmactivity']."','".$_POST['wlhmaction']."','".$_POST['wlhmnumber']."','".$_POST['wlhmresults']."','".$_POST['wlhmweather']."','".$_POST['MouseX']."','".$_POST['MouseY']."','".$currentweather."')";
+		//echo "SQL ".$sql;
 		
 		//mysql_insert_id();
 		$mysqli = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);

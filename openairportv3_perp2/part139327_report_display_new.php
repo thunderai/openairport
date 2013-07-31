@@ -159,19 +159,19 @@ if (!isset($_POST["recordid"])) {
 	
 	$tmpinspector	= systemusertextfield($objarray1['inspection_completed_by_cb_int'], "all", "all", "hide", "all");
 	
-	//					Filed Name / Variable				b	f	h	j		w		x		y	z
-	displaytxtonreport($objarray1['inspection_system_id'], 	1, 1, 30, "right", 	30, 	690, 	0, 	3);
-	displaytxtonreport($tmp_type, 							1, 5, 30, "center", 713, 	0, 		0, 	4);	
-	displaytxtonreport("DATE", 								1, 3, 13, "left", 	190, 	5, 		32, 5);	
-	displaytxtonreport($tmpdate, 							1, 3, 13, "left", 	190, 	95, 	32, 6);	
-	displaytxtonreport("DAY",	 							1, 3, 13, "left", 	190, 	290, 	32, 7);		
-	displaytxtonreport($intstartday,						1, 3, 13, "left", 	190, 	395, 	32, 8);		
-	displaytxtonreport("TIME",								1, 3, 13, "left", 	190, 	5, 		52, 9);		
-	displaytxtonreport($objarray1['139327_time'],			1, 3, 13, "left", 	30, 	95, 	52, 10);	
-	displaytxtonreport("INSPECTOR",							1, 3, 13, "left", 	190, 	290, 	52, 11);			
-	displaytxtonreport($tmpinspector,						1, 3, 13, "left", 	190, 	395, 	52, 12);	
+	//					Filed Name / Variable								b	f	h	j		w		x		y	z
+	displaytxtonreport($objarray1['inspection_system_id'], 					1, 1, 30, "right", 	30, 	690, 	0, 	3);
+	displaytxtonreport($tmp_type, 											1, 5, 30, "center", 713, 	0, 		0, 	4);	
+	displaytxtonreport("DATE", 												1, 3, 13, "left", 	190, 	5, 		32, 5);	
+	displaytxtonreport($tmpdate, 											1, 3, 13, "left", 	190, 	95, 	32, 6);	
+	displaytxtonreport("DAY",	 											1, 3, 13, "left", 	190, 	290, 	32, 7);		
+	displaytxtonreport($intstartday,										1, 3, 13, "left", 	190, 	395, 	32, 8);		
+	displaytxtonreport("TIME",												1, 3, 13, "left", 	190, 	5, 		52, 9);		
+	displaytxtonreport($objarray1['139327_time'],							1, 3, 13, "left", 	30, 	95, 	52, 10);	
+	displaytxtonreport("INSPECTOR",											1, 3, 13, "left", 	190, 	290, 	52, 11);			
+	displaytxtonreport($tmpinspector,										1, 3, 13, "left", 	190, 	395, 	52, 12);	
 	displaytxtonreport("Here is the Inspection Record you requested.",		1, '1px', 50, "right", 	132, 	611, 	33, 12);
-							
+	displaytxtonreport("Checklist Items Marked with an '<b>X</b>' have a Discrepancy. CheckMark: Acceptable",				1, '2px', 50, "right", 	325, 	400, 	880, 12);						
 
 // Placement Maps
 	$offset_x						= 1;

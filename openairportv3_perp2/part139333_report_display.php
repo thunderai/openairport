@@ -268,29 +268,26 @@ if (!isset($_POST["recordid"])) {
 					<tr>
 						<td colspan="2">
 																<?php
-																
-																//echo "inspect".$InspCheckList;
-																if($InspCheckList == 1) {
-																		// Hard Code Count!!! - EVIL
-																		$numberofboxes = 4;
-																		$helperimage 	= 'images/Part_139_333/papihelper.png';
-																		$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
-																	}
-																
-																if($InspCheckList == 2) {
-																		// Hard Code Count!!! - EVIL
-																		$numberofboxes 	= 3;
-																		$helperimage	= 'images/Part_139_333/malsrhelper.gif';
-																		$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
-																	}	
-																	
-																if($InspCheckList == 3) {
-																		// Hard Code Count!!! - EVIL
-																		$numberofboxes 	= 2;
-																		$helperimage	= 'images/Part_139_333/reilhelper.png';
-																		$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
-																	}	
-																//echo "test";	
+																if($InspCheckList == 4 OR $InspCheckList == 5 OR $InspCheckList == 6 OR $InspCheckList == 7) {
+												// Hard Code Count!!! - EVIL
+												$numberofboxes = 4;
+												$helperimage 	= 'images/Part_139_333/papihelper.png';
+												$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
+											}
+										
+										if($InspCheckList == 2) {
+												// Hard Code Count!!! - EVIL
+												$numberofboxes 	= 3;
+												$helperimage	= 'images/Part_139_333/malsrhelper.gif';
+												$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
+											}	
+											
+										if($InspCheckList == 8 OR $InspCheckList == 9 OR $InspCheckList == 10 OR $InspCheckList == 11) {
+												// Hard Code Count!!! - EVIL
+												$numberofboxes 	= 2;
+												$helperimage	= 'images/Part_139_333/reilhelper.png';
+												$arunwayheading	= array($equipmenttype,$runwayheading,$numberofboxes);
+											}	
 																include("part139333_report_display_blockform.php");
 																?>
 							</td>

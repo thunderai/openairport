@@ -199,7 +199,7 @@ function _dp_327_discrepancies($dasharray) {
 				class="item_name_inactive" 
 				onmouseover="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_active';" 
 				onmouseout="opencommands_for_discrepancy<?php echo $disid;?>.className='item_name_inactive';" 
-				onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=200px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
+				onclick="divwin=dhtmlwindow.open('discrepancycontrol_div<?php echo $disid;?>', 'div', '327d_control_<?php echo $tmpdiscrepancyid;?>', 'Discrepancy Options for Discrepancy <?php echo $disid;?>', 'width=350px,height=250px,left=200px,top=150px,resize=1,scrolling=0,center=1'); return false;" />
 				Commands
 				</td>
 			</tr>
