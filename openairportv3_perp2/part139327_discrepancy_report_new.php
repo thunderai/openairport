@@ -244,10 +244,10 @@ if (!isset($_POST["formsubmit"])) {
 			<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
 			<?php
 			form_new_table_b($formname);
-			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,"current"				,0);
-			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,"current"				,0);
-			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
-			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,""							,1		,38		,0		,$tmp_discrepancyname	,0);
+			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,'The current date has automatically been provided for you'						,1		,7		,1		,"current"				,0);
+			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,'The current time has automatically been provided for you'						,1		,7		,1		,"current"				,0);
+			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,'You have been automatically been assigned as the author of this discrepancy'	,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
+			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,'Provide a short name/description for this discrepancy'						,1		,38		,0		,$tmp_discrepancyname	,0);
 			?>
 					<?php
 					// Get name of Facility
@@ -277,12 +277,10 @@ if (!isset($_POST["formsubmit"])) {
 					$sql2 = "SELECT * FROM tbl_139_327_sub_c_link_e_t 
 							INNER JOIN tbl_inventory_sub_e_sub_t 	ON tbl_inventory_sub_e_sub_t.equipment_sub_type_id 	= tbl_139_327_sub_c_link_e_t.139327_link_ef_e_t_id 
 							INNER JOIN tbl_inventory_sub_e			ON tbl_inventory_sub_e.equipment_type_cb_int 		= tbl_inventory_sub_e_sub_t.equipment_sub_type_id 
-							WHERE tbl_139_327_sub_c_link_e_t.139327_link_ef_c_id = '".$tmp_conditionid."' ORDER BY equipment_name";
+							WHERE tbl_139_327_sub_c_link_e_t.139327_link_ef_c_id = '".$tmp_conditionid."' ORDER BY equipment_sub_type_name, equipment_name";
 					
 					//echo $sql2;
 					$objconn2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
-					?>
-					<?php
 					if (mysqli_connect_errno()) {
 							// there was an error trying to connect to the mysql database
 							printf("connect failed: %s\n", mysqli_connect_error());
@@ -295,6 +293,17 @@ if (!isset($_POST["formsubmit"])) {
 									$totalnumberofdiscrepancies = mysqli_num_rows($objrs2);
 									if($totalnumberofdiscrepancies > 0) {
 											// There are elemetns to display
+											$fieldname ='selectequipment';
+											
+											$OSpace_name 	= 'OSpace_MM'.$fieldname;
+											$ISpace_name 	= 'ISpace_MM'.$fieldname;
+											$Icon_name 		= 'Icon_MM'.$fieldname;
+											$Name_name 		= 'Name_MM'.$fieldname;	
+											$Field_name		= 'Field_MM'.$fieldname;
+											$Format_name	= 'Format_MM'.$fieldname;
+											
+											
+											
 											?>
 			<tr>
 				<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
@@ -325,16 +334,17 @@ if (!isset($_POST["formsubmit"])) {
 					/>
 					Equipment
 					</td>											
-				<td class="item_space_inactive_form" align="left" valign="middle"
+				<td  name="<?php echo $Field_name;?>" id="<?php echo $Field_name;?>" 
+					class="item_name_inactive_form" align="left" valign="middle"
 					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 					/>											
-					<SELECT class="table_forms_enter_input_field" NAME="selectequipment" ID="selectequipment" size="5" style="width:260px;"/>
+					<SELECT class="table_forms_enter_input_field" NAME="selectequipment" ID="selectequipment" size="9" style="width:260px;"/>
 						<option value='0' />--- Select Equipment if applicable ---</option>
 									<?php
 									while ($objarray2 = mysqli_fetch_array($objrs2, MYSQLI_ASSOC)) {
 										?>
-						<option value='<?php echo $objarray2['equipment_id'];?>'><?php echo $objarray2['equipment_name'];?></option>
+						<option value='<?php echo $objarray2['equipment_id'];?>'><?php echo $objarray2['equipment_sub_type_name'];?> - <?php echo $objarray2['equipment_name'];?></option>
 										<?php
 										}
 										?>
@@ -345,16 +355,20 @@ if (!isset($_POST["formsubmit"])) {
 					onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 					onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 					/>
+					<b>If Applicable</b> Select from the list to the left one equipment where 
+					this discrepancy is located. If you do not know the equipment or the 
+					discrepancy is not applicable to any of the listed equipment, please use the 
+					Location Flag to mark on the map where the discrepancy is located.  
 					</td>
 				</tr>
 										<?php
 								}
 						}
 				}		
-			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,""							,2		,30		,4		,$tmp_discrepancycomm	,0);
-			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,"(1-NOW, 5-When possible!)",3		,10		,0		,"all"					,"gs_conditions");
-			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$location_s			,'');
-			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,30		,4		,''						,0);
+			form_new_control("discomments"		,"Comments"			, "Enter additional information for maintenance"														,"Do not use any special characters!"					,'Provide additional comments about this discrepancy to help locate the problem'																		,2		,30		,4		,$tmp_discrepancycomm	,0);
+			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,'Select from the list a <i>Priority</i>. If you are not sure which priority to select, click the Flag icon to help you select the proper one.'			,3		,10		,0		,"all"					,"gs_conditions");
+			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,'<b>If Applicable</b> click the Flag icon to open the airport map and click on the airport map where the discrepancy is located'						,4		,4		,''		,$location_s			,'');
+			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,'<b>WARNING</b> Only enter a comment about how you repaired the discrepancy in this box if you fixed the discrepancy while conducting the inspection.'	,2		,30		,4		,''						,0);
 		
 			// FORM UNIVERSAL CONTROL LOADING
 			//------------------------------------------------------------------------------------------\\
