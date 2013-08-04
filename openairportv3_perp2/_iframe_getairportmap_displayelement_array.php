@@ -89,7 +89,7 @@
 											
 											var jg = new jsGraphics("myCanvas_airportmap");
 											var cordtype = 'poly';
-											var stringtodisplayp_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + escape(serlized_array);
+											var stringtodisplay_<?php echo $record_id;?> = '<?php echo $record_id;?>' + ';' + '<?php echo $record_name;?>;' + px + ';' + py + ';' + cordtype + ';' + mapscale + ';' + escape(serlized_array);
 										
 											jg.setColor("#000000"); // red
 											jg.setStroke('4'); 

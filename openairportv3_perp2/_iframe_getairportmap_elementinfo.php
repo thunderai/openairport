@@ -336,7 +336,7 @@ if (mysqli_connect_errno()) {
 																			}
 																			?>
 														</select>
-														<span id="ajaxdone" name="ajaxdone" onclick="call_server_inventory_push_parts_type('<?php echo $id;?>','<?php echo $array_tableI[3][0];?>','<?php echo $array_tableI[3][1];?>','<?php echo $array_tableI[3][3];?>');"> Click to Change</span>
+														<span id="ajaxdone_parts" name="ajaxdone_parts" onclick="call_server_inventory_push_parts_type('<?php echo $id;?>','<?php echo $array_tableI[3][0];?>','<?php echo $array_tableI[3][1];?>','<?php echo $array_tableI[3][3];?>');"> Click to Change</span>
 															<?php
 																	}
 															}
