@@ -247,18 +247,52 @@
 									
 									switch($tmpid) {
 											case 4:
-												$filtername = '139339_f_name';
-												$filterid	= '139339_f_id';
-												$filter_h	= '139339_f_archived_yn';
-												$filter_sort = '';
-												$field_id	= '139339_c_id';
-												$field_name	= '139339_c_name';
-												$field_fid	= '139339_c_facility_cb_int';
-												$field_lat	= '139339_cc_location_x';
-												$field_long	= '139339_cc_location_y';
-												$field_icon = '';								// Define, but not used.
-												$field_join = 1;
-												$include	= '_iframe_getairportmap_displayelement.php';
+// Parts Table Information
+												//
+												$partstable			= 'tbl_inventory_sub_p_sub_p';
+												$parts_id			= 'inv_p_sub_t_p_id';
+												$parts_name			= 'inv_p_sub_t_p_name';
+												//							0			, 1			, 2
+												$array_parts		= array($partstable	,$parts_id	,$parts_name);
+												
+												// Filter (Type) Table Information												
+												//
+												$filtertable		= $tmpfilter;
+												$filterid			= '139339_f_id';
+												$filtername 		= '139339_f_name';
+												$filter_h			= '139339_f_archived_yn';
+												$filter_sort 		= '';
+												//							0			, 1			, 2				, 3			, 4
+												$array_filter		= array($filtertable,$filterid	,$filtername	,$filter_h	,$filter_sort);
+												
+												// Relationship Table Information
+												//
+												$pfrealstable		= 'tbl_inventory_sub_p_link_p_to_t';
+												$pfreals_pid		= 'inv_p_link_p2t_part_id';
+												$pfreals_rid		= 'inv_p_link_p2t_type_id';
+												//							0				, 1				, 2
+												$array_relationship = array($pfrealstable	,$pfreals_pid	,$pfreals_rid);
+												
+												// Equipment Table Information
+												//
+												$field_table	= $tmplist;
+												$field_id		= '139339_c_id';
+												$field_name		= '139339_c_name';
+												$field_fid		= '139339_c_facility_cb_int';
+												$field_lat		= '139339_cc_location_x';
+												$field_long		= '139339_cc_location_y';
+												$field_icon 	= '';
+												$field_join 	= 1;
+												//						0				, 1			, 2				, 3			, 4			, 5				, 6				, 7
+												$array_table	= array($field_table	,$field_id	,$field_name	,$field_fid	,$field_lat	,$field_long	,$field_icon	,$field_join);
+												
+												// LOAD INCLUDE FILE
+												//						
+												//						0				, 1				, 2						, 3		
+												$array_tableI	= array($array_parts	,$array_filter	,$array_relationship	,$array_table);
+												$serialized_ary = serialize($array_tableI);
+												
+												$include		= '_iframe_getairportmap_displayelement.php';	
 												
 												break;									
 											case 5:

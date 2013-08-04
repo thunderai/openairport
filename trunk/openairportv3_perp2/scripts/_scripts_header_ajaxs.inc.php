@@ -54,6 +54,7 @@
 		<script type="text/javascript" src="scripts/_ajax/AJAX_load_controls.js"></script>
 		
 		<script type="text/javascript" src="scripts/_ajax/AJAX_inventory_push_equipment_type.js"></script>
+		<script type="text/javascript" src="scripts/_ajax/AJAX_inventory_push_parts_type.js"></script>
 		
 		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy_top.js"></script>
 		<script type="text/javascript" src="scripts/_ajax/AJAX_part139_327_gis_mapit_discrepancy_parent.js"></script>
