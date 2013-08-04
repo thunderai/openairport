@@ -102,7 +102,7 @@ $array_condition_id[22] = 0;
 //	23				| Snowbank Clearance			| Snow and Ice
 $array_condition_id[23] = 0;
 //	24				| Lights and Signs Obscured		| Snow and Ice
-$array_condition_id[24] = array(13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,4);
+$array_condition_id[24] = array(35,33,34,13,15,37,20,16,17,18,38,21,19,41,40,22,23,24,25,26,27,28,29,30);
 //	25				| NAVAIDS						| Snow and Ice
 $array_condition_id[25] = array(20,21,28,31,36,33,34,35);
 //	26				| Barricades / Lights			| Construction

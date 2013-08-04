@@ -52,14 +52,14 @@ function form_new_table_b($fieldname) {
 			align="left" 
 			style="text-align:left;" />
 			<tr>
-				<td class="item_name_inactive" colspan="4" />
+				<td class="item_space_active" colspan="4" />
 					Field Name
 					</td>
-				<td class="item_name_inactive" />
+				<td class="item_space_active" />
 					Enter Information
 					</td>
-				<td class="item_name_inactive" />
-					Data Format
+				<td class="item_space_active" />
+					Notes
 					</td>
 				</tr>
 		<?php
@@ -282,7 +282,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 													// DO Not show field, Just Show Result
 													echo $fielddefaultvalue;
 													?>
-						<input class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" type='hidden' />
+						<input style="float:left;" class="<?php echo $style;?>" value="<?php echo $fielddefaultvalue;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" type='hidden' />
 													<?php
 												} else {
 													// Show field, and customize field accordingly
@@ -295,10 +295,19 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																	// is this control displaying just the current date or a set date?
 																	if($fielddefaultvalue == 'current') {
 																			// Field is displaying just the current date
-																			?>
-																			
+																			// Hackity-Hack
+																			if($fieldsizey == 1) {
+																					// Lock Cell and prevent user from changing the value
+																					?>
+																			<input type="hidden" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" value="<?php echo date('Y/m/d');?>" />
+																					<?php echo date('m/d/Y');?>
+																					<?php
+																				} else {
+																					// Field NOT locked, allow default to ride with the interface
+																					?>
 																			<script type="text/javascript">DateInput('<?php echo $fieldname;?>', true, 'YYYY-MM-DD','<?php echo date('Y/m/d');?>');</script>
-																			<?php
+																					<?php
+																				}
 																		} else {
 																			// if not the current date, then a set date
 																			// Is there a default value provided?
@@ -339,16 +348,22 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																break;	
 															case "Time":
 																	// Field is a Time Field Box
-																	?>
-																	<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"
-																	<?php
 																	if($fielddefaultvalue == "current") {
-																			?>
-																			type="text" value="<?php echo date("H:i:s");?>">
-																			<?php
+																			// Hackity-Hack
+																			if($fieldsizey == 1) {
+																					// Lock Cell and prevent user from changing the value
+																					?>
+																			<input type="hidden" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" value="<?php echo date("H:i:s");?>" />
+																					<?php echo date("H:i:s");?>
+																					<?php
+																				} else {
+																					?>
+																			<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>"type="text" value="<?php echo date("H:i:s");?>">
+																					<?php
+																				}
 																		} else {
 																			?>
-																			type="text" value="<?php echo $fielddefaultvalue;?>">
+																			<input class="<?php echo $style;?>" name="<?php echo $fieldname;?>" size="<?php echo $fieldsizex;?>" type="text" value="<?php echo $fielddefaultvalue;?>">
 																			<?php
 																		}
 																break;
@@ -451,7 +466,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 												}
 												else {
 													?>
-							<TEXTAREA class="<?php echo $style;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
+							<TEXTAREA style="float:left;" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" id="<?php echo $fieldname;?>" rows="<?php echo $fieldsizey;?>" cols="<?php echo $fieldsizex;?>"><?php echo $fielddefaultvalue;?></TEXTAREA>
 													<?php
 												}
 										break;
@@ -474,7 +489,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 																	<?php
 																} else {
 																	?>
-															<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('part139327_discrepancy_report_help_pri.php','MapNewPoint')" />
+															<img style="float:left;" src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('part139327_discrepancy_report_help_pri.php','MapNewPoint')" />
 																	<?php
 																}
 														break;
@@ -525,7 +540,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	value="0" 		size="4">
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	value="0" 		size="4">
 						
-						<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
+						<img style="float:left;" src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 													<?php
 												}
 												else {
@@ -555,19 +570,19 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 															?>
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>X"	ID="<?php echo $fieldname;?>X" 	value="<?php echo $fieldvalue_x;?>" 	size="4">
 						<input class="<?php echo $style;?>" 	type="hidden" 	name="<?php echo $fieldname;?>Y" 	ID="<?php echo $fieldname;?>Y" 	value="<?php echo $fieldvalue_y;?>" 	size="4">
-						<img src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
+						<img style="float:left;" src="images/_interface/icons/icon_flag.png" width="<?php echo $icons_width ;?>" height="<?php echo $icons_height;?>" onClick="openmapchild('_general_mappoint_add.php','MapNewPoint')" />
 															<?php
 														}
 												}
 										break;
 									case 5:		// Datacell is a checkbox
 									?>
-						<input type="checkbox" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
+						<input style="float:left;" type="checkbox" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;	
 									case 6:		// Datacell is a file select box
 									?>
-						<input type="file" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
+						<input style="float:left;" type="file" class="<?php echo $style;?>" name="<?php echo $fieldname;?>" CHECKED value="1">
 											<?php
 										break;											
 								}
