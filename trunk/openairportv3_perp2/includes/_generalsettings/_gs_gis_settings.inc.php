@@ -88,6 +88,33 @@
 // FUNCTIONS TO CONVERT LARGE SCALE X,Y TO GPS LAT,LONG
 //
 	
+	function convertfrom_gps_lat_to_largescale_y($location_y,$convertarray) {
+			
+			$tmp_x		= 0;
+			
+			//$tmp_x 	= ($convertarray[2] + $convertarray[1] * $location_y);
+
+			$tmp_x 		= (abs($location_y) / $convertarray[0]) - ($convertarray[3]/$convertarray[0]);
+														
+			return $tmp_x;
+	
+	}
+	
+	function convertfrom_gps_long_to_largescale_x($location_x,$convertarray) {
+			
+			$tmp_y		= 0;
+
+			//$tmp_y 	= ($convertarray[3] + $convertarray[0] * $location_x);
+			
+			$tmp_y 		= ($location_x / $convertarray[1]) - ($convertarray[2] / $convertarray[1]);
+			
+			$tmp_y 		= $tmp_y * 1;
+
+			return $tmp_y;													
+		
+	}		
+	
+	
 	function convertfromlargescale_y_to_gps_lat($location_y,$convertarray) {
 			
 			$tmp_x	= 0;

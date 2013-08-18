@@ -44,8 +44,9 @@
 			include("includes/_userinterface/userinterface.list.php");									// List of all Navigation functions
 			include("includes/_generalsettings/generalsettings.list.php");								// List of all Navigation functions
 			include("includes/_accesscontrol/accesscontrol.list.php");									// List of all Navigation functions
-			include("includes/_gis/_gis.list.php");									// List of all Navigation functions
-						
+			include("includes/_gis/_gis.list.php");												// List of all Navigation functions
+			include("includes/_inventory/inventory.list.php");									// List of all Navigation functions
+									
 	// New Style Module Includes
 	
 			// Load these as needed? or load all ahead of time?

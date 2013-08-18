@@ -71,7 +71,7 @@ function gs_conditions_js($suppliedid, $archived, $nameofinput, $showcombobox, $
 					//printf("result set has %d rows. \n", $number_of_rows);
 					if ($showcombobox=="show") {
 							?>
-	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" ID="<?php echo $nameofinput;?>" onchange="javascript:displaybutton('<?php echo $buttonname;?>');">
+	<SELECT class="Commonfieldbox" name="<?php echo $nameofinput;?>" ID="<?php echo $nameofinput;?>" onchange="javascript:displaybutton('<?php echo $buttonname;?>');" style='float:left;' />
 					<?php
 						}
 					while ($objfields = mysqli_fetch_array($objrs_support, MYSQLI_ASSOC)) {
@@ -87,17 +87,25 @@ function gs_conditions_js($suppliedid, $archived, $nameofinput, $showcombobox, $
 							$tmpsuppliedarch	= $objfields['general_condition_archived_yn'];
 							
 						if ($showcombobox=="show") {
-								?>
+								if ($tmpsuppliedname=='') {
+										// There is no value in the Fielname, DO NOT Display it
+									} else {
+										?>
 		<option 
-								<?php
-							}
+										<?php
+									}
+								}
 							if ($suppliedid = "all") {
 									$intsuppliedid	= (double) $default;
 									if ($tmpsuppliedid == $intsuppliedid) {
 											if ($showcombobox=="show") {
-													?>
-				SELECTED
-													<?php
+													if ($tmpsuppliedname=='') {
+															// There is no value in the Fielname, DO NOT Display it
+														} else {
+															?>
+		SELECTED
+															<?php
+														}	
 												}
 										}
 										else {
@@ -108,14 +116,22 @@ function gs_conditions_js($suppliedid, $archived, $nameofinput, $showcombobox, $
 								
 								}
 								if ($showcombobox=="show") {
-										?>
-				value="<?php echo $tmpsuppliedid;?>"><?php echo $tmpsuppliedname;?></option>
-										<?php
+										if ($tmpsuppliedname=='') {
+												// There is no value in the Fielname, DO NOT Display it
+											} else {
+												?>
+	value="<?php echo $tmpsuppliedid;?>"><?php echo $tmpsuppliedname;?></option>
+												<?php
+											}
 									}
 									else {
-										?>
-				<?php echo $tmpsuppliedname;?>
-										<?php
+										if ($tmpsuppliedname=='') {
+												// There is no value in the Fielname, DO NOT Display it
+											} else {
+												?>
+		<?php echo $tmpsuppliedname;?>
+												<?php
+											}
 									}
 								}	// End of while loop
 								mysqli_free_result($objrs_support);

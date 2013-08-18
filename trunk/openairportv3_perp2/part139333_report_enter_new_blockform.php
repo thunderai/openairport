@@ -107,7 +107,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 						$previousequipmentid	= 0;
 						?>
 		<td align="left" valign="top" />
-			<table border="0" width="100%" cellpadding="0" cellspacing="0" />
+			<table border="7" width="100%" cellpadding="0" cellspacing="0" />
 						<?php
 						
 						while ($objfields2 = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
@@ -280,7 +280,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 							class="item_name_small_inactive"
 							/>
 											<?php
-												gs_conditions_js("all", "no", $fieldname.'cb', "show", 5,1,$fieldname.'cb');
+												gs_conditions_js("all", "no", $fieldname.'cb', "show", 2,1,$fieldname.'cb');
 											}
 	// Add Discrepancy button to push this discrepancy into the discrepancy monitor system.
 	// There are two ways to do this.  1). a special discrepancy system jut for NAVAid inspections, or
@@ -319,7 +319,7 @@ for ($j=0; $j<$numberofboxes; $j=$j+1) {
 										//	_tp_control_function_button_iframe($target,'ADD','icon_add',$action,$target,'hide');
 
 											?>
-							<INPUT style="display: none;" class="makebuttonlooklikelargetext" NAME="<?php echo $fieldname.'cb_d';?>" ID="<?php echo $fieldname.'cb_d';?>" TYPE="button" VALUE="Issue Discrepancy" onclick="<?php echo $target;?>_var=dhtmlwindow.open('<?php echo $target;?>_win', 'iframe', '<?php echo $action;?>', 'Add Record', 'top=75px,left=175px,width=500px,height=300px,resize=1,scrolling=1,center=1', 'recal');" />
+							<INPUT style="display: none;width:50px;" size="5" class="makebuttonlooklikelargetext" NAME="<?php echo $fieldname.'cb_d';?>" ID="<?php echo $fieldname.'cb_d';?>" TYPE="text" VALUE="Issue" onclick="<?php echo $target;?>_var=dhtmlwindow.open('<?php echo $target;?>_win', 'iframe', '<?php echo $action;?>', 'Add Record', 'top=75px,left=175px,width=500px,height=300px,resize=1,scrolling=1,center=1', 'recal');" />
 							</td>						
 						</tr>
 											<?php

@@ -237,6 +237,7 @@
 						$tmpinspectionsdarray[14]	= $objfields['discrepancy_photo'];
 						$tmpinspectionsdarray[15]	= $objfields['discrepancy_sketch'];
 						$tmpinspectionsdarray[16]	= $objfields['discrepancy_signature'];
+						$tmpinspectionsdarray[17]	= $objfields['Discrepancy_equipment_id'];
 						
 						$tmpstring	 	= (string) $tmpinspectionsdarray[0];
 						$tmpa 			= $tmpstring."za";
@@ -259,7 +260,7 @@
 						
 								//echo "[3][a][6] : Discrepancy will be added to the inspection by pacing it into the main sub_d table <BR>";
 								
-								$sql2 = "INSERT INTO tbl_139_327_sub_d (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_timestamp)
+								$sql2 = "INSERT INTO tbl_139_327_sub_d (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_timestamp,Discrepancy_equipment_id)
 								VALUES ( 	'".$tmpinspectionsdarray[1]."', 
 											'".$inspectionid."', 
 											'".$tmpinspectionsdarray[3]."', 
@@ -270,7 +271,9 @@
 											'".$tmpinspectionsdarray[9]."', 
 											'".$tmpinspectionsdarray[10]."', 
 											'".$tmpinspectionsdarray[11]."',
-											'".$tmpinspectionsdarray[8]."')";
+											'".$tmpinspectionsdarray[8]."',
+											'".$tmpinspectionsdarray[17]."'
+											)";
 
 								$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 								
@@ -409,6 +412,7 @@
 						$tmpinspectionsdarray[14]	= $objfields['discrepancy_photo'];
 						$tmpinspectionsdarray[15]	= $objfields['discrepancy_sketch'];
 						$tmpinspectionsdarray[16]	= $objfields['discrepancy_signature'];
+						$tmpinspectionsdarray[17]	= $objfields['Discrepancy_equipment_id'];
 						
 						$tmpdiscrepancy 			= 1;
 						//echo "[3][a][4] : Steps [4/5] Not Applicable <BR>";
@@ -417,7 +421,7 @@
 						
 								//echo "[3][a][6] : Discrepancy will be added to the inspection by pacing it into the main sub_d table <BR>";
 								
-								$sql2 = "INSERT INTO tbl_139_327_sub_d (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_timestamp)
+								$sql2 = "INSERT INTO tbl_139_327_sub_d (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_timestamp,Discrepancy_equipment_id)
 								VALUES ( 	'".$tmpinspectionsdarray[1]."', 
 											'".$inspectionid."', 
 											'".$tmpinspectionsdarray[3]."', 
@@ -428,7 +432,9 @@
 											'".$tmpinspectionsdarray[9]."', 
 											'".$tmpinspectionsdarray[10]."', 
 											'".$tmpinspectionsdarray[11]."',
-											'".$tmpinspectionsdarray[8]."')";
+											'".$tmpinspectionsdarray[8]."',
+											'".$tmpinspectionsdarray[17]."'
+											)";
 
 								$objcon2 = mysqli_connect($GLOBALS['hostdomain'], $GLOBALS['hostusername'], $GLOBALS['passwordofdatabase'], $GLOBALS['nameofdatabase']);
 								

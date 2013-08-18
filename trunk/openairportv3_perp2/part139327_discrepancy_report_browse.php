@@ -107,13 +107,13 @@
 
 		$array_bouncedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_b WHERE discrepancy_bounced_inspection_id = ",		"discrepancy",	"part139327_discrepancy_report_display_bounced.php");
 		$array_repairedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_r WHERE discrepancy_repaired_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_repaired.php");
-		$array_closedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
+		//$array_closedcontrol		= array("SELECT * FROM tbl_139_327_sub_d_c WHERE discrepancy_closed_inspection_id = ",	"discrepancy",	"part139327_discrepancy_report_display_closed.php");
 
 		
 		$functionworkorderpage		= "part139327_discrepancy_report_display_workorder.php";
 		$functionbouncepage			= "part139327_discrepancy_report_bounce.php";
 		$functionrepairpage			= "part139327_discrepancy_report_repair.php";
-		$functionclosedpage			= "part139327_discrepancy_report_closed.php";
+		//$functionclosedpage			= "part139327_discrepancy_report_closed.php";
 		
 		$functionduplicatepage		= "part139327_discrepancy_report_duplicate.php";
 		$functionarchievedepage		= "part139327_discrepancy_report_archieved.php";
