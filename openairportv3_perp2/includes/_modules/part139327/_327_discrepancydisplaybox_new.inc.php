@@ -19,7 +19,7 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border:1px #000000 solid" />				
 				<tr>
 					<td width="12" rowspan="8" bgcolor="#FFFFFF" style="opacity:.7;" />
-						<font size="2" color="#000000" />
+						<font size='3' color='#000000' style='font-family: monospace;' />
 							<?php echo $disid;?>
 							<?php
 							// Count char in the ID and add to total chars for this record
@@ -28,7 +28,7 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 							?>
 						</td>
 					<td bgcolor="#FFFFFF" style="opacity:.7;" />
-						<font size="2" color="#000000" />
+						<font size='3' color='#000000' style='font-family: monospace;' />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 15;
@@ -47,7 +47,7 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 						<?php echo $display_name;?>
 						</td>
 					<td bgcolor="#FFFFFF" style="opacity:.7;" />
-						<font size="2" color="#000000" />
+						<font size='3' color='#000000' style='font-family: monospace;' />
 						<?php
 						// Count chars in name string and limit string to the limiting factor
 						$limit 		= 30;
@@ -68,7 +68,7 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 					</tr>
 				<tr>
 					<td colspan="3" bgcolor="#FFFFFF" style="opacity:.7;" />
-						<font size="2" color="#000000" />				
+						<font size='3' color='#000000' style='font-family: monospace;' />				
 				<?php
 					if ($distools == 1) {
 							// Display all functions and buttons for this Discrepancy
@@ -116,11 +116,11 @@ function part139327discrepancydisplaybox_new($txtdisplay, $bsize, $fsize,$hsize,
 						}
 						// Calculate the number of lines for this discrepancy
 						// The total number of chars that can fit on one line...
-						$line_length = 25;
+						$line_length = 17;
 						// Divide the total number of chars in the discrepancy line by the limiting factor
 						$total_lines = ($charcount / $line_length);
 						//How many pixels is each line...
-						$pixels_per_line = 15;
+						$pixels_per_line = 20;
 						// Take the number of lines times the number of pixels per line
 						$total_pixels = ($pixels_per_line * $total_lines);
 						// Round the total_pixels number to zero places

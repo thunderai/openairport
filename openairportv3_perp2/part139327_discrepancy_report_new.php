@@ -243,20 +243,25 @@ if (!isset($_POST["formsubmit"])) {
 			<input type="hidden" name="facilityid" 		value="<?php echo $tmp_facilityid;?>">
 			<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
 			<?php
+			$facility_name = part139327facilitycombobox_getname($tmp_facilityid, 'all', 'notused', 'hide', $tmp_facilityid);
+			//echo $facility_name;
+			$condition_name = part139327conditionscombobox_getname($tmp_conditionid, 'all', 'notused', 'hide', $tmp_conditionid);
+			//echo $condition_name;
+			$comment = 'A(n) '.$condition_name.' '.$facility_name.' has been found ';
+			?>
+			<tr>
+				<td colspan='5' class="item_space_inactive_form" align="center" valign="middle" />
+					<font size='4' color='#FFFFFF' style='font-family: monospace;' />
+						You are entering a <b><u><?php echo $facility_name;?></u></b> discrepancy with a problem involving <b><u><?php echo $condition_name;?></u></b>.
+						</font>
+					</td>
+				</tr>
+			<?php
 			form_new_table_b($formname);
 			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,'The current date has automatically been provided for you'						,1		,7		,1		,"current"				,0);
 			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,'The current time has automatically been provided for you'						,1		,7		,1		,"current"				,0);
 			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,'You have been automatically been assigned as the author of this discrepancy'	,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
 			form_new_control("disname"			,"Discrepancy Name"	, "Enter a short and concise name for this discrepancy"													,"Do not use any special characters!"					,'Provide a short name/description for this discrepancy'						,1		,38		,0		,$tmp_discrepancyname	,0);
-			?>
-					<?php
-					// Get name of Facility
-					$facility_name = part139327facilitycombobox_getname($tmp_facilityid, 'all', 'notused', 'hide', $tmp_facilityid);
-					//echo $facility_name;
-					$condition_name = part139327conditionscombobox_getname($tmp_conditionid, 'all', 'notused', 'hide', $tmp_conditionid);
-					//echo $condition_name;
-					
-					$comment = 'A(n) '.$condition_name.' '.$facility_name.' has been found ';
 					
 					if($tmp_discrepancycomm == '') {
 							// No value in the default comment field, set our new one
@@ -393,6 +398,26 @@ if (!isset($_POST["formsubmit"])) {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown
 		
+		// Get location of Selected Equipment
+		//
+				if($_POST['selectequipment'] == 0) {
+						// There is no selected equipment, use user provided locations
+						$locx = $_POST['MouseX'];
+						$locy = $_POST['MouseY'];
+					} else {
+						// There is a selected equipment, use its location.
+							$lat	= _i_e_getlocationofequipbyid($_POST['selectequipment'],'lat');
+							$long	= _i_e_getlocationofequipbyid($_POST['selectequipment'],'long');
+						// Convert Lat & Long to large scale numbers for storage in the discrepancy field
+							$sx		= convertfrom_gps_lat_to_largescale_y($long,$convertarray);
+							$sy		= convertfrom_gps_long_to_largescale_x($lat,$convertarray);
+						// store for use
+							$locx = round($sx,0);
+							$locy = round($sy,0);
+							$_POST['MouseX'] = round($locx,0);
+							$_POST['MouseY'] = round($locy,0);
+					}
+		
 		// Step 1). Load into an array all of the values from the form
 
 		//$sqldate		= AmerDate2SqlDateTime($_POST['disdate']);
@@ -413,7 +438,7 @@ if (!isset($_POST["formsubmit"])) {
 		
 		// Start to build the Insert SQL Statement
 		$sql = "INSERT INTO ".$tablename_d." (discrepancy_checklist_id, discrepancy_inspection_id, discrepancy_by_cb_int, discrepancy_name, discrepancy_remarks, discrepancy_date, discrepancy_time, discrepancy_location_x, discrepancy_location_y, discrepancy_priority, discrepancy_madebynavaid, Discrepancy_equipment_id) 
-		VALUES ( '".$tmp_conditionid."', '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['disname']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$_POST['MouseX']."', '".$_POST['MouseY']."', '".$_POST['dispri']."', '".$_POST['madbynavaid']."', '".$_POST['selectequipment']."')";
+		VALUES ( '".$tmp_conditionid."', '".$_POST['recordid']."', '".$_POST['disauthor']."', '".$_POST['disname']."', '".$_POST['discomments']."', '".$sqldate."', '".$_POST['distime']."', '".$locx."', '".$locy."', '".$_POST['dispri']."', '".$_POST['madbynavaid']."', '".$_POST['selectequipment']."')";
 
 		//echo "<font size='3' color='#FFFFFF'> The INSERT SQL Statement is : <i>".$sql."</i></font><br><br>";
 
