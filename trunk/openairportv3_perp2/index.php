@@ -162,7 +162,7 @@ if (!isset($_POST["systemuserid"])) {
 			// 	DEFINE DIV LAYER DHTML WINDOWS...
 			//		They are not loaded here, they are just defined
 			?>
-			<div class="fullscreen" name="navigationdisplaypanel" id="navigationdisplaypanel" style="display: none;" />
+			<div name="navigationdisplaypanel" id="navigationdisplaypanel" style="display: none;" />
 				<table width="100%" height="100%" cellpadding="0" cellspacing="0" />
 					<tr>
 						<td id='navigationajaxcenter' align="left" valign="top" />

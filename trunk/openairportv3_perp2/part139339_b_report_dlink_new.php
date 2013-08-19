@@ -207,6 +207,11 @@ if (!isset($_POST["dhtmlname"])) {
 // Start Procedures		
 	
 if (!isset($_POST["formsubmit"])) {
+
+		// FORM CONTAINER
+		// -----------------------------------------------------------------------------------------\\
+				form_new_table_container('open');
+
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
 		
@@ -232,7 +237,7 @@ if (!isset($_POST["formsubmit"])) {
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
-			include("includes/_template/_tp_blockform_form_header.binc.php");			
+			include("includes/_template/_tp_blockform_form_header_inline.binc.php");			
 		
 			?>
 			<input type="hidden" name="formsubmit" 		value="1" />
@@ -244,7 +249,7 @@ if (!isset($_POST["formsubmit"])) {
 			<input type="hidden" name="facilityid" 		value="<?php echo $tmp_facilityid;?>">
 			<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
 			<?php
-			form_new_table_b($formname);
+			form_new_table_b_inline($formname);
 			//form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,7		,0		,"current"				,0);
 			//form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,7		,0		,"current"				,0);
 			//form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
@@ -253,7 +258,8 @@ if (!isset($_POST["formsubmit"])) {
 			form_new_control("dispri"			,"Associate Discrepancy"			, "Select Discrepancy to Associate with this NOTAM"															,""														,"(Select Discrepancy)",3		,10		,0		,"all"					,"discrepancycombobox_dlink");
 			//form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,4		,''		,$location_s			,'');
 			//form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,30		,4		,''						,0);
-		
+			form_new_table_e($formname);
+			
 			// FORM UNIVERSAL CONTROL LOADING
 			//------------------------------------------------------------------------------------------\\
 			
@@ -272,7 +278,9 @@ if (!isset($_POST["formsubmit"])) {
 					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 					$display_quickaccess	= 0;
 					
-				include("includes/_template/_tp_blockform_form_footer.binc.php");	
+				include("includes/_template/_tp_blockform_form_footer_inline.binc.php");
+				
+				form_new_table_container('close');
 	} else {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown
@@ -343,7 +351,7 @@ if (!isset($_POST["formsubmit"])) {
 							
 				include("includes/_template/_tp_blockform_form_header.binc.php");		
 			
-			form_new_table_b($formname);
+			form_new_table_b_inline($formname);
 			//form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1		,0		,0		,'post'					,0);
 			//form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1		,0		,0		,'post'					,0);
 			//form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,0		,0		,$_SESSION['user_id']	,"systemusercombobox");
@@ -352,6 +360,7 @@ if (!isset($_POST["formsubmit"])) {
 			form_new_control("dispri"			,"Associated Discrepancy"			, "What is the Associated Discrepancy"															,""														,"",3		,0		,0		,'post'					,"discrepancycombobox_dlink");
 			//form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,"(open in new window)"		,4		,0		,''		,'post'					,'');
 			//form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,""							,2		,0		,4		,'post'					,0);
+			form_new_table_e($formname); 
 		
 			// FORM UNIVERSAL CONTROL LOADING
 			//------------------------------------------------------------------------------------------\\

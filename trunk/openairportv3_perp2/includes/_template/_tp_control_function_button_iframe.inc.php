@@ -1,5 +1,6 @@
 <?php
-function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',$target = '',$display='show') {
+//											1			2		3	4				5			6				7		
+function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',$target = '',$display='show',$scrolling='1' ) {
 	// Variables
 	//	$action		is the action destination of the controlling form
 	//	$formname	is the name of the HTML form element
@@ -40,7 +41,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -48,7 +49,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_icon_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				<img src="images/_interface/icons/<?php echo $icon;?>.png" width="<?php echo $icons_width;?>" height="<?php echo $icons_height;?>" />
 				</td>
@@ -56,7 +57,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_space_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				
 				</td>				
@@ -64,7 +65,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_name_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				<?php echo $label;?>
 				</td>		
@@ -72,7 +73,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_field_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				
 				</td>
@@ -80,7 +81,7 @@ function _tp_control_function_button_iframe($formname,$label,$icon,$action = '',
 				class="item_format_inactive_form" 
 				onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 				onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
-				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=1,center=1', 'recal');" 
+				onclick="<?php echo $formname;?>_var=dhtmlwindow.open('<?php echo $formname;?>_win', 'iframe', '<?php echo $action;?>', '<?php echo $label;?>', 'top=75px,left=175px,width=600px,height=300px,resize=1,scrolling=<?php echo $scrolling;?>,center=1', 'recal');" 
 				/>
 				
 				</td>

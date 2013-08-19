@@ -154,7 +154,9 @@ if (!isset($_POST["formsubmit"])) {
 							<?php 
 							$target = 'adddiscrepancy';
 							$action = 'part139339_b_report_dlink_new.php?facility='.$discrepancylinkhash.'&condition='.$tmpid.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
-							_tp_control_function_button_iframe($target,'Associate Discrepancy','icon_add',$action,$target);
+							//									1		, 2							, 3			, 4			, 5			, 6			, 7		
+							_tp_control_function_button_iframe($target	,'Associate Discrepancy'	,'icon_add'	,$action	,$target	,'show'		,'0');
+							
 							?>	
 							</td>
 						</tr>						

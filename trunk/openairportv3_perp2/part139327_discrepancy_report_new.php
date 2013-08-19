@@ -231,7 +231,7 @@ if (!isset($_POST["formsubmit"])) {
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
-			include("includes/_template/_tp_blockform_form_header.binc.php");			
+			include("includes/_template/_tp_blockform_form_header_inline.binc.php");			
 		
 			?>
 			<input type="hidden" name="formsubmit" 		value="1" />
@@ -250,14 +250,14 @@ if (!isset($_POST["formsubmit"])) {
 			$comment = 'A(n) '.$condition_name.' '.$facility_name.' has been found ';
 			?>
 			<tr>
-				<td colspan='5' class="item_space_inactive_form" align="center" valign="middle" />
+				<td colspan='6' class="item_space_inactive_form" align="center" valign="middle" />
 					<font size='4' color='#FFFFFF' style='font-family: monospace;' />
 						You are entering a <b><u><?php echo $facility_name;?></u></b> discrepancy with a problem involving <b><u><?php echo $condition_name;?></u></b>.
 						</font>
 					</td>
 				</tr>
 			<?php
-			form_new_table_b($formname);
+			form_new_table_b_inline($formname);
 			form_new_control("disdate"			,"Date"				, "Enter the date this discrepancy was found"															,"The current date has automatically been provided!"	,'The current date has automatically been provided for you'						,1		,7		,1		,"current"				,0);
 			form_new_control("distime"			,"Time"				, "Enter the time this discrepancy was found"															,"The current time has automatically been provided!"	,'The current time has automatically been provided for you'						,1		,7		,1		,"current"				,0);
 			form_new_control("disauthor"		,"Entry By"			, "Who found and reported this discrepancy"																,"Your name has automatically been provided!"			,'You have been automatically been assigned as the author of this discrepancy'	,3		,40		,0		,$_SESSION['user_id']	,"systemusercombobox");
@@ -374,7 +374,8 @@ if (!isset($_POST["formsubmit"])) {
 			form_new_control("dispri"			,"Priority"			, "What is the priority of this discrepancy"															,""														,'Select from the list a <i>Priority</i>. If you are not sure which priority to select, click the Flag icon to help you select the proper one.'			,3		,10		,0		,"all"					,"gs_conditions");
 			form_new_control("Mouse"			,"Location"			, "Where is this discrepancy located"																	,"Click the Map It button"								,'<b>If Applicable</b> click the Flag icon to open the airport map and click on the airport map where the discrepancy is located'						,4		,4		,''		,$location_s			,'');
 			form_new_control("diskillorder"		,"Kill Order"		, "If discrepancy was repaired prior to reporting, issue the Kill Order and describe work completed."	,"Do not use any special characters!"					,'<b>WARNING</b> Only enter a comment about how you repaired the discrepancy in this box if you fixed the discrepancy while conducting the inspection.'	,2		,30		,4		,''						,0);
-		
+			form_new_table_e($formname);
+			
 			// FORM UNIVERSAL CONTROL LOADING
 			//------------------------------------------------------------------------------------------\\
 			
@@ -393,7 +394,8 @@ if (!isset($_POST["formsubmit"])) {
 					$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 					$display_quickaccess	= 0;
 					
-				include("includes/_template/_tp_blockform_form_footer.binc.php");	
+				include("includes/_template/_tp_blockform_form_footer_inline.binc.php");	
+				
 	} else {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown

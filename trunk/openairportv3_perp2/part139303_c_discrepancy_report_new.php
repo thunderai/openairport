@@ -222,6 +222,10 @@ if (!isset($_POST["dhtmlname"])) {
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
+
+		// FORM CONTAINER
+		// -----------------------------------------------------------------------------------------\\
+				form_new_table_container('open');
 		
 		// FORM HEADER
 		// -----------------------------------------------------------------------------------------\\
@@ -245,24 +249,25 @@ if (!isset($_POST["formsubmit"])) {
 					$detailtodisplay		= 0;													// See Summary Function for how to use this number
 					$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 						
-			include("includes/_template/_tp_blockform_form_header.binc.php");			
+			include("includes/_template/_tp_blockform_form_header_inline.binc.php");			
 		
-					?>
-					<input class="commonfieldbox" type="hidden" name="formsubmit" size="1" value="1" >
-					<input type="hidden" name="from_get" 		value="<?php echo $from_get;?>">
-					<input type="hidden" name="recordid" 		value="<?php echo $tmp_recordid;?>">
-					<input type="hidden" name="golive" 			value="<?php echo $tmp_golive;?>">
-					<input type="hidden" name="madbynavaid" 	value="<?php echo $tmp_madbynavaid;?>">
-					<input type="hidden" name="conditionid" 	value="<?php echo $tmp_conditionid;?>">
-					<input type="hidden" name="facilityid" 		value="<?php echo $tmp_facilityid;?>">
-					<input type="hidden" name="checklistid" 	value="<?php echo $tmp_checklistid;?>">
-					<?php
+			?>
+			<input class='commonfieldbox' type='hidden' name='formsubmit' size='1' value='1' >
+			<input type='hidden' name='from_get' 		value='<?php echo $from_get;?>'>
+			<input type='hidden' name='recordid' 		value='<?php echo $tmp_recordid;?>'>
+			<input type='hidden' name='golive' 			value='<?php echo $tmp_golive;?>'>
+			<input type='hidden' name='madbynavaid' 	value='<?php echo $tmp_madbynavaid;?>'>
+			<input type='hidden' name='conditionid' 	value='<?php echo $tmp_conditionid;?>'>
+			<input type='hidden' name='facilityid' 		value='<?php echo $tmp_facilityid;?>'>
+			<input type='hidden' name='checklistid' 	value='<?php echo $tmp_checklistid;?>'>
+			<?php
 		
-		form_new_table_b($formname);
-		form_new_control("disauthor"		,"Entry By"				, "Who entered this note"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,50		,0		,$_SESSION['user_id']	,"systemusercombobox");
-		form_new_control("disname"			,"Subject Note Name"	, "Enter a short and concise name for this note"										,"Do not use any special characters!"					,""							,1		,47		,0		,''						,0);
-		form_new_control("discomments"		,"Subject Comments"		, "Provide your remarks for this note"													,"Do not use any special characters!"					,""							,2		,35		,4		,''						,0);
-		
+			form_new_table_b_inline($formname);
+			form_new_control("disauthor"		,"Entry By"				, "Who entered this note"																,"Your name has automatically been provided!"			,"(cannot be changed)"		,3		,50		,0		,$_SESSION['user_id']	,"systemusercombobox");
+			form_new_control("disname"			,"Subject Note Name"	, "Enter a short and concise name for this note"										,"Do not use any special characters!"					,""							,1		,47		,0		,''						,0);
+			form_new_control("discomments"		,"Subject Comments"		, "Provide your remarks for this note"													,"Do not use any special characters!"					,""							,2		,35		,4		,''						,0);
+			form_new_table_e($formname);
+			
 		// FORM UNIVERSAL CONTROL LOADING
 		//------------------------------------------------------------------------------------------\\
 		
@@ -281,7 +286,9 @@ if (!isset($_POST["formsubmit"])) {
 				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 				$display_quickaccess	= 0;		
 				
-			include("includes/_template/_tp_blockform_form_footer.binc.php");											
+			include("includes/_template/_tp_blockform_form_footer_inline.binc.php");
+
+			form_new_table_container('close');			
 
 		} else {
 		

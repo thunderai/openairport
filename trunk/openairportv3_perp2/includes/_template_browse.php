@@ -1473,7 +1473,7 @@ if ($tbldisplaytotal==1) {
 			_tp_control_function_quickaccess($en_quickaccess_f	,$strmenuitemid	,$_SESSION["user_id"]	,'quickaccess'		,'frmfunctionqac'	,'frmfunctionqac'		,$en_quickaccess,				$en_quickaccessno	,'frmfunctionqacactive');
 			
 			//$randomit = rand(0,100);
-			_tp_control_function_submit();
+			//_tp_control_function_submit();
 			?>
 			</td>			
 		</tr>					

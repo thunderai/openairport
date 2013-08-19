@@ -87,7 +87,7 @@ if (!isset($_POST["formsubmit"])) {
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");
+		include("includes/_template/_tp_blockform_form_header_inline.binc.php");
 		
 		// Load Form Elements
 		//				POST Name		,Form Text			,Description of Field											,More Information about the Field																				,Syntax Information			,Type			,Field Width	,Field Height	,Default Value			,Function Name
@@ -96,13 +96,14 @@ if (!isset($_POST["formsubmit"])) {
 		//																																																																3	Combobox	,
 		//																																																																4	Map Button	,
 		//																																																																5	Check box	,									
-		form_new_table_b($formname);
+		form_new_table_b_inline($formname);
 		form_new_control("disdate"		,"Date"				, "Enter the date this WLHM Reord was archieved"				,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,10				,0				,"current"				,0);
 		form_new_control("distime"		,"Time"				, "Enter the time this WLHM Reord was archieved"				,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,10				,0				,"current"				,0);
 		form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,50				,0				,$_SESSION['user_id']	,"systemusercombobox");
 		form_new_control("discomments"	,"Comments"			, "Enter how you NEED to archieve it"							,"Do not use any special characters!"																			,""							,2				,35				,4				,""						,0);
 		form_new_control("disarchive"	,"Mark Archieved"	, "Checking this box will mark the discrepancy as archieved"	,"Only do this if you are sure you need to archieve it"															,"(checked = archieved)"	,5				,35				,4				,"current"				,0);
-
+		form_new_table_e($formname); 
+			
 	// FORM UNIVERSAL CONTROL LOADING
 	//------------------------------------------------------------------------------------------\\
 	
@@ -120,7 +121,7 @@ if (!isset($_POST["formsubmit"])) {
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");
+		include("includes/_template/_tp_blockform_form_footer_inline.binc.php");
 			
 		}
 	else {
@@ -154,7 +155,7 @@ if (!isset($_POST["formsubmit"])) {
 		//																																																																												|
 		//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\								|
 		//																																																																				 v								v
-		form_new_table_b($formname);
+		form_new_table_b_inline($formname);
 		form_new_control("disdate"		,"Date"				, "Enter the date this WLHM Reord was archieved"				,"The current date has automatically been provided!"															,"(mm/dd/yyyy)"				,1				,0				,0				,'post'					,0);
 		form_new_control("distime"		,"Time"				, "Enter the time this WLHM Reord was archieved"				,"The current time has automatically been provided!"															,"(hh:mm:ss) - 24 hours"	,1				,0				,0				,'post'					,0);
 		form_new_control("disauthor"	,"Entry By"			, "Who found and reported this discrepancy"						,"Your name has automatically been provided!"																	,"(cannot be changed)"		,3				,0				,0				,'post'					,"systemusercombobox");

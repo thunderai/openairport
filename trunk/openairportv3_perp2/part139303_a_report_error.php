@@ -79,19 +79,20 @@ if (!isset($_POST["formsubmit"])) {
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");
+					include("includes/_template/_tp_blockform_form_header_inline.binc.php");	
 
 	// FORM ELEMENTS
 	//-----------------------------------------------------------------------------------------\\	
 	//
 	//				Field Name			, Field Text Name	, Field Comment													, Field Notes											, Field Format					, Field Type	, Field Width	, Field Height	, Default Value			, Field Function		
-	form_new_table_b($formname);
+			form_new_table_b_inline($formname);
 	form_new_control('disdate'			, 'Date'			, 'Enter the date this record was archieved'					,'The current date has automatically been provided!'	, '(mm/dd/yyyy)'				, 1				, 10			, 0 			, 'current'				, 0);
 	form_new_control('distime'			, 'Time'			, 'Enter the time this record was archieved'					,'The current time has automatically been provided!'	, '(hh:mm:ss) - 24 hour format'	, 1				, 10			, 0 			, 'current'				, 0);
 	form_new_control('disauthor'		, 'Entry By'		, 'Select the person who is marking this record as archieved'	, ''													, '(cannot be changed)'			, 3				, 50			, 0				, $_SESSION['user_id'] 	, 'systemusercombobox');
 	form_new_control('discomments'		, 'Comments'		, 'Enter why you NEED to archieve it'							,'Do not use any special characters!'					, '(No Special Characters)'		, 2				, 35			, 4				, ''					, 0);
 	form_new_control('disarchive'		, 'Mark Archieved'	, 'Checking this box will mark the inspection as archieved'		,'Only do this if you are sure you need to archieve it'	, '(checked = archieved)'		, 5				, 35			, 4				, 'current'				, 0);
-
+			form_new_table_e($formname);
+			
 	// FORM UNIVERSAL CONTROL LOADING
 	//------------------------------------------------------------------------------------------\\
 	
@@ -110,7 +111,7 @@ if (!isset($_POST["formsubmit"])) {
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			$display_quickaccess	= 0;
 			
-			include("includes/_template/_tp_blockform_form_footer.binc.php");
+				include("includes/_template/_tp_blockform_form_footer_inline.binc.php");	
 	
 	} else {
 		
@@ -136,14 +137,14 @@ if (!isset($_POST["formsubmit"])) {
 				$detailtodisplay		= 0;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-			include("includes/_template/_tp_blockform_form_header.binc.php");				
+			include("includes/_template/_tp_blockform_form_header.binc.php");					
 		
 	// Load Form Elements	
 	// Place Default values from the POST Here or enter 'post'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
 	//																																																																												|
 	//		Put a '0' here if you do not want to display the form field and only the result-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\								|
 	//																																																																				 v								v		
-	form_new_table_b($formname);
+	form_new_table_b_inline($formname);
 	form_new_control("disdate"		,"Date"				, "Enter the date this inspection was marked as a duplicate","The current date has automatically been provided!"	,"(mm/dd/yyyy)"				,1,0,0,'post',0);
 	form_new_control("distime"		,"Time"				, "Enter the time this inspection was marked as a duplicate","The current time has automatically been provided!"	,"(hh:mm:ss) - 24 hours"	,1,0,0,'post',0);
 	form_new_control("disauthor"	,"Entry By"			, "Who found and reported this inspection"					,"Your name has automatically been provided!"			,"(cannot be changed)"		,3,0,0,'post',"systemusercombobox");
@@ -167,7 +168,7 @@ if (!isset($_POST["formsubmit"])) {
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 1;														// 1: Display Refresh Button, 	0: No
 			
-			include("includes/_template/_tp_blockform_form_footer.binc.php");	
+			include("includes/_template/_tp_blockform_form_footer.binc.php");		
 	
 	// DO SQL Work				
 		
