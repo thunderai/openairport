@@ -41,18 +41,22 @@
 			// Use Page Settings
 			//$formaction = $formaction;		<-- Commented out because its meaningless
 		}
-
+		
+	// FORM CONTAINER
+	// -----------------------------------------------------------------------------------------\\
+			form_new_table_container('open');
+	
 ?>
-		<script>
-window.onload = function() {
-  var wall = new Masonry( document.getElementById('container2'), {
-    // dynamically set column width to 1/5 the width of the container
-    columnWidth: function( containerWidth ) {
-      return containerWidth / 3;
-    }
-  });
-};
-			</script>
+<script>
+	window.onload = function() {
+	  var wall = new Masonry( document.getElementById('container2'), {
+		// dynamically set column width to 1/5 the width of the container
+		columnWidth: function( containerWidth ) {
+		  return containerWidth / 3;
+		}
+	  });
+	};
+	</script>
 <form enctype="multipart/form-data" action="<?php echo $formaction;?>" method="post" NAME="<?php echo $formname;?>" ID="<?php echo $formname;?>" 
 <?php
 	if($formopen == 1) {
@@ -69,34 +73,31 @@ window.onload = function() {
 		<input type="hidden" NAME="recordid" 		ID="recordid" 			value="<?php echo $_POST['recordid'];?>">
 		<input type="hidden" name="frmstartdateo"	id="frmstartdateo"		value="<?php echo $bstart_date;?>">
 		<input type="hidden" name="frmenddateo"		id="frmenddateo"		value="<?php echo $bend_date;?>">
-	<table class="dashpanel_container_table"/>
-		<tr>
-			<td class="perp_menuheader" />
-				<?php echo $form_menu;?>
-				</td>			
-			</tr>			
-		<tr>
-			<td class="perp_menusubheader" />
-				<?php echo $subtitle ;?>
-				</td>				
-			</tr>
-				<?php
-				if($displaysummaryfunction == 1) {
-						?>
-		<tr>
-			<td class="item_name_active" />
-				&nbsp;Summary of Record
-				</td>
-			</tr>
-		<tr>
-			<td class="item_name_inactive" />
-				<?php
-				$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
-				?>
-				</td>
-			</tr>
-			</tr>
-		</table>
+	<tr>
+		<td class="perp_menuheader" height="12" colspan='6' style='max-height:12px'/>
+			<?php echo $form_menu;?>
+			</td>			
+		</tr>			
+	<tr>
+		<td class="perp_menusubheader" height="35" colspan='6'/>
+			<?php echo $subtitle ;?>
+			</td>				
+		</tr>
+			<?php
+			if($displaysummaryfunction == 1) {
+					?>
+	<tr>
+		<td class="item_name_active" colspan='6'/>
+			&nbsp;Summary of Record
+			</td>
+		</tr>
+	<tr>
+		<td class="item_name_inactive" colspan='6' />
+			<?php
+			$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
+			?>
+			</td>
+		</tr>
 					<?php
 				}
 				?>

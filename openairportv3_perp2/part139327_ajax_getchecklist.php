@@ -146,7 +146,7 @@
 			<?php
 			$target = 'adddiscrepancy';
 			$action = 'part139327_discrepancy_report_new.php?facility='.$tmpfacility.'&condition='.$tmpid.'&checklist='.$InspCheckList.'&targetname='.$target.'&dhtmlname='.$target.'_var';
-			_tp_control_function_button_iframe($target,'ADD','icon_add',$action,$target);
+			_tp_control_function_button_iframe($target,'ADD','icon_add',$action,$target,'1');
 			?>
 			</td>			
 		</tr>

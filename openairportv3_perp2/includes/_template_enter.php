@@ -41,6 +41,35 @@ function form_uni_control($fieldname,$fieldvalue) {
 		<?php
 	}
 	
+function form_new_table_container($fieldname = '') {
+		if($fieldname == 'open') {
+				?>
+<table width="100%" height="100%" cellpadding="0" cellspacing="0" />
+	<tr>
+		<td id='navigationajaxcenter2' align="left" valign="top" />		
+			<table height="100%" border="0" name="navigationajaxtablesub2" id="navigationajaxtablesub2" class="perp_mainmenutable" cellpadding="0" cellspacing="0" width="100%" />
+				<?php
+			}
+		if($fieldname == 'close') {
+				?>
+				</table>
+			</td>
+		</tr>
+	</table>
+				<?php
+			}
+	}
+	
+function form_new_table_e($fieldname = '') {
+	?>
+		<tr>	
+		<td>&nbsp;
+		</td>
+		</tr>
+	</table>
+	<?php
+	}
+	
 function form_new_table_b($fieldname) {
 		// Function takes the given inputs and creates FORM INPUTS with the name and value and makes it hidden for use on any form you want.
 		?>
@@ -49,22 +78,39 @@ function form_new_table_b($fieldname) {
 			cellpadding="0" 
 			cellspacing="0" 
 			width="100%" 
+			height="100%"
 			align="left" 
 			style="text-align:left;" />
 			<tr>
-				<td class="item_space_active" colspan="4" />
+				<td class="item_space_active" colspan="4" height='25px' />
 					Field Name
 					</td>
-				<td class="item_space_active" />
+				<td class="item_space_active" height='25px'/>
 					Enter Information
 					</td>
-				<td class="item_space_active" />
+				<td class="item_space_active" height='25px'/>
 					Notes
 					</td>
 				</tr>
 		<?php
 	}	
-
+	
+function form_new_table_b_inline($fieldname) {
+		// Function takes the given inputs and creates FORM INPUTS with the name and value and makes it hidden for use on any form you want.
+		?>
+		<tr>
+			<td class="item_space_active" colspan="4" height='25px' />
+				Field Name
+				</td>
+			<td class="item_space_active" height='25px'/>
+				Enter Information
+				</td>
+			<td class="item_space_active" height='25px'/>
+				Notes
+				</td>
+			</tr>
+		<?php
+	}	
 
 function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fieldformat,$fieldtype,$fieldsizex="0",$fieldsizey="0",$fielddefaultvalue="0",$fieldfunction="0",$ajaxpush="0",$ajaxpushfield="0",$ajaxpushscript="0",$ajaxpushid="0") {
 		// $fieldname		Name of form field
@@ -243,7 +289,7 @@ function form_new_control($fieldname,$fieldtxtname,$fieldcomment,$fieldnotes,$fi
 								}
 						?>
 						<td name="<?php echo $OSpace_name;?>" id="<?php echo $OSpace_name;?>" 
-							class="item_space_inactive_form" 
+							class="item_space_inactive_form" height='32' 
 							onmouseover="togglebutton_M_F('<?php echo $fieldname;?>','on');" 
 							onmouseout="togglebutton_M_F('<?php echo $fieldname;?>','off');" 
 							/>
