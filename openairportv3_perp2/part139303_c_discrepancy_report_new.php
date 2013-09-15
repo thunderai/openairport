@@ -222,10 +222,6 @@ if (!isset($_POST["dhtmlname"])) {
 if (!isset($_POST["formsubmit"])) {
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
-
-		// FORM CONTAINER
-		// -----------------------------------------------------------------------------------------\\
-				form_new_table_container('open');
 		
 		// FORM HEADER
 		// -----------------------------------------------------------------------------------------\\
@@ -286,9 +282,7 @@ if (!isset($_POST["formsubmit"])) {
 				$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 				$display_quickaccess	= 0;		
 				
-			include("includes/_template/_tp_blockform_form_footer_inline.binc.php");
-
-			form_new_table_container('close');			
+			include("includes/_template/_tp_blockform_form_footer_inline.binc.php");		
 
 		} else {
 		

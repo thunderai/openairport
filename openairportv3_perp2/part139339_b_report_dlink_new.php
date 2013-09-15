@@ -208,10 +208,6 @@ if (!isset($_POST["dhtmlname"])) {
 	
 if (!isset($_POST["formsubmit"])) {
 
-		// FORM CONTAINER
-		// -----------------------------------------------------------------------------------------\\
-				form_new_table_container('open');
-
 		// there is nothing in the post querystring, so this must be the first time this form is being shown
 		// display form doing all our trickery!
 		
@@ -279,8 +275,6 @@ if (!isset($_POST["formsubmit"])) {
 					$display_quickaccess	= 0;
 					
 				include("includes/_template/_tp_blockform_form_footer_inline.binc.php");
-				
-				form_new_table_container('close');
 	} else {
 		
 		// there is something in the post querystring, so this must not be the first time this form is being shown

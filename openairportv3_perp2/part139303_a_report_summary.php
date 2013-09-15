@@ -77,7 +77,7 @@
 				$detailtodisplay		= 2;													// See Summary Function for how to use this number
 				$returnHTML				= 0;													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");			
+		include("includes/_template/_tp_blockform_form_header_inline.binc.php");				
 	
 	//form_new_table_b($formname);
 	// FORM UNIVERSAL CONTROL LOADING
@@ -98,7 +98,7 @@
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			$display_quickaccess	= 0;
 			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");
+		include("includes/_template/_tp_blockform_form_footer_inline.binc.php");	
 			
 // Establish Page Variables
 		
