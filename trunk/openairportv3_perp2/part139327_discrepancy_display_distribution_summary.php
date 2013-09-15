@@ -101,7 +101,7 @@
 				$detailtodisplay		= 1;													// See Summary Function for how to use this number
 				$returnHTML				= '';													// 1: Returns only an HTML variable, 0: Prints the information as assembled.
 					
-		include("includes/_template/_tp_blockform_form_header.binc.php");	
+		include("includes/_template/_tp_blockform_form_header_inline.binc.php");		
 	//form_new_table_b($formname);
 	// FORM UNIVERSAL CONTROL LOADING
 	//------------------------------------------------------------------------------------------\\
@@ -120,7 +120,7 @@
 			$display_pushdown		= 0;														// 1: Display Push Down Button, 0: No
 			$display_refresh		= 0;														// 1: Display Refresh Button, 	0: No
 			
-		include("includes/_template/_tp_blockform_form_footer.binc.php");
+		include("includes/_template/_tp_blockform_form_footer_inline.binc.php");	
 		
 				}
 			

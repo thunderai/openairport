@@ -87,12 +87,12 @@
 			if($displaysummaryfunction == 1) {
 					?>
 	<tr>
-		<td class="item_name_active" colspan='6'/>
+		<td class="item_name_active" colspan='6' height='22'/>
 			&nbsp;Summary of Record
 			</td>
 		</tr>
 	<tr>
-		<td class="item_name_inactive" colspan='6' />
+		<td class="item_name_inactive" colspan='6' height='35' />
 			<?php
 			$summaryfunctionname($idtosearch, $detailtodisplay, $returnHTML);
 			?>
